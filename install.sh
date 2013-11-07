@@ -3,7 +3,6 @@
 # touch .bash_profile
 # vim .bash_profile
 
-
 mkdir dotfiles
 mv .vim dotfiles/
 mv .vimrc dotfiles/.vim
