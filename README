@@ -1,0 +1,8 @@
+wanngsong's dotfiles
+
+$ mkdir dotfiles 
+$ mv .vim dotfiles/ 
+$ mv .vimrc dotfiles/.vim
+$ -s ~/dotfiles/.vim ~/.vim 
+$ -s ~/dotfiles/.vim/.vimrc ~/.vimrc
+
