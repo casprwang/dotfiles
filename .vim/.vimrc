@@ -4,6 +4,9 @@ nnoremap <leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>
 nnoremap <leader>y :sy on<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
 
@@ -22,6 +25,8 @@ set wildignore+=*.a,*.o
 set wildignore+=*.bmp,*.gif,*ico,*.jpg,*.png
 set wildignore+=*.DS_Store,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
+set wildignore+=Applications/*
+
 if exists("g:ctrl_user_command")
   unlet g:ctrlp_user_command
 endif
