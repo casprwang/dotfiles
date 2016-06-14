@@ -2,6 +2,7 @@
 let mapleader = "\<Space>"
 nnoremap <leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>
 nnoremap <leader>y :sy on<CR>
 nnoremap <C-h> <C-w>h
@@ -59,3 +60,12 @@ Plugin 'kien/ctrlp.vim'
 call vundle#end()            " required
 " Bundle ends 
 
+
+
+
+" For python
+set tw=79
+set nowrap
+set fo-=t 
+set colorcolumn=80
+highlight ColorColumn ctermbg =233
