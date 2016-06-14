@@ -23,10 +23,13 @@ set laststatus =2
 " Speed up CtrlP	
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*.a,*.o
+set wildignore+=.pyc
+set wildignore+=*_build/*
+set wildignore+=/coverage/*
 set wildignore+=*.bmp,*.gif,*ico,*.jpg,*.png
 set wildignore+=*.DS_Store,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
-set wildignore+=Applications/*
+set wildignore+=/Applications/*
 
 if exists("g:ctrl_user_command")
   unlet g:ctrlp_user_command
@@ -55,7 +58,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdTree'
 Plugin 'kien/ctrlp.vim'
-
+Plugin 'klen/python-mode'
+Plugin 'Lokaltog/vim-powerline'
 " Plugin 'vim-airline/vim-airline'
 call vundle#end()            " required
 " Bundle ends 
@@ -71,3 +75,16 @@ set colorcolumn=80
 highlight ColorColumn ctermbg =233
 set history=700
 set undolevels=700
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+set hlsearch 
+set incsearch 
+set ignorecase
+set smartcase
+
+" python mode 
+
+
