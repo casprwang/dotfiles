@@ -69,3 +69,5 @@ set nowrap
 set fo-=t 
 set colorcolumn=80
 highlight ColorColumn ctermbg =233
+set history=700
+set undolevels=700
