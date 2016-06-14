@@ -61,6 +61,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'scrooloose/syntastic'
 " Plugin 'vim-airline/vim-airline'
 call vundle#end()            " required
 " Bundle ends 
@@ -86,6 +87,11 @@ set incsearch
 set ignorecase
 set smartcase
 
+let g:syntastic_python_python_exec = '/path/to/python3'
+
+
+
+
 " python mode 
 map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
@@ -100,4 +106,12 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 " python folding 
 let g:SimpylFold_docstring_preview = 1
 
+" syntastic 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
