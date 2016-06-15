@@ -62,6 +62,7 @@ Plugin 'klen/python-mode'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
 " Plugin 'vim-airline/vim-airline'
 call vundle#end()            " required
 " Bundle ends 

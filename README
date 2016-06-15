@@ -1,5 +1,7 @@
 wanngsong's dotfiles
 
+for Install
+change the .bash_profile with:
 $ mkdir dotfiles 
 $ mv .vim dotfiles/ 
 $ mv .vimrc dotfiles/.vim
