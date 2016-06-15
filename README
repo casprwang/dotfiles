@@ -1,6 +1,6 @@
 wanngsong's dotfiles
 
-for Install
+for Installation
 change the .bash_profile with:
 $ mkdir dotfiles 
 $ mv .vim dotfiles/ 
