@@ -1,10 +1,16 @@
-wanngsong's dotfiles
+#Welcome to WangSong's dotfiles wiki!
 
-for Installation
-change the .bash_profile with:
-$ mkdir dotfiles 
-$ mv .vim dotfiles/ 
-$ mv .vimrc dotfiles/.vim
-$ -s ~/dotfiles/.vim ~/.vim 
-$ -s ~/dotfiles/.vim/.vimrc ~/.vimrc
+### For Installation 
 
+in terminal
+
+    touch .bash_profile
+    vim .bash_profile
+
+Then copy these codes in .bash_profile
+
+    mkdir dotfiles 
+    mv .vim dotfiles/ 
+    mv .vimrc dotfiles/.vim
+    -s ~/dotfiles/.vim ~/.vim 
+    -s ~/dotfiles/.vim/.vimrc ~/.vimrc
