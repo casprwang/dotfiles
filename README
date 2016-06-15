@@ -1,6 +1,6 @@
 ### For Installation 
 
-in terminal
+Terminal
 
     touch .bash_profile
     vim .bash_profile
