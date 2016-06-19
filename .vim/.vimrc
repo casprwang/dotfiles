@@ -11,10 +11,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-c> <C-w>c
 
+" shorten the escape time
+set timeoutlen=1000 ttimeoutlen=0
+
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 2.Interface
 syntax on 
@@ -22,6 +25,7 @@ set relativenumber
 set t_Co=256
 set laststatus =2
 
+" for mustang colorscheme
 if &t_Co >= 256 || has("gui_running")
     colorscheme mustang
 endif
@@ -75,6 +79,8 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+
 " Plugin 'vim-airline/vim-airline'
 call vundle#end()            " required
 " Bundle ends 
