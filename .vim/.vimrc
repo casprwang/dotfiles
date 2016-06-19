@@ -7,6 +7,9 @@ nnoremap <leader>o :NERDTreeToggle<CR>
 nnoremap <leader>y :sy on<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-c> <C-w>c
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
@@ -17,8 +20,17 @@ let g:ctrlp_map = '<c-p>'
 syntax on 
 set relativenumber 
 set t_Co=256
-colorscheme darkerdesert
 set laststatus =2
+
+if &t_Co >= 256 || has("gui_running")
+    colorscheme mustang
+endif
+
+if &t_Co > 2 || has("gui_running")
+    " switch syntax highlighting on, when the terminal has colors
+    syntax on
+endif
+
 
 " Speed up CtrlP	
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -87,6 +99,10 @@ set hlsearch
 set incsearch 
 set ignorecase
 set smartcase
+set autoindent
+set showmatch
+set smarttab
+set copyindent 
 
 let g:syntastic_python_python_exec = '/path/to/python3'
 
@@ -103,6 +119,10 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_built_objs = 0
 let g:pymode_syntax_built_funcs = 0
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+let g:pymode_indent = 1
+let g:pymode_motion = 1
+
+
 
 " python folding 
 let g:SimpylFold_docstring_preview = 1
