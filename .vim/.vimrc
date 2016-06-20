@@ -4,12 +4,16 @@ nnoremap <leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>
-nnoremap <leader>y :sy on<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-c> <C-w>c
+nnoremap <leader>e :MRU<CR>
+nnoremap <C-w>j <C-w>s       
+nnoremap <C-w>l <C-w>v
+nnoremap <leader>, :e $MYVIMRC<CR> 
+nnoremap <leader>. :source .vimrc<CR>
 
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
@@ -79,12 +83,22 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'majutsushi/tagbar'
+Plugin 'yegappan/mru'
+" Plugin 'majutsushi/tagbar'
 
 " Plugin 'vim-airline/vim-airline'
 call vundle#end()            " required
 " Bundle ends 
 
+" mru: open the recent files
+let MRU_Max_Entries = 1000
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
+let MRU_Window_Height = 15
+let MRU_Use_Current_Window = 1
+let MRU_Auto_Close = 0
+let MRU_Add_Menu = 0
+let MRU_Max_Menu_Entries = 20
+let MRU_Max_Submenu_Entries = 15
 
 
 
@@ -112,21 +126,24 @@ set copyindent
 
 let g:syntastic_python_python_exec = '/path/to/python3'
 
+" python mode
+let g:pymode = 1
+
 
 
 
 " python mode 
-map <Leader>g :call RopeGotoDefinition()<CR>
-let ropevim_enable_shortcuts = 1
-let g:pymode_rope_goto_def_newwin = "vnew"
-let g:pymode_rope_extended_complete = 1
-let g:pymode_breakpoint = 0
-let g:pymode_syntax = 1
-let g:pymode_syntax_built_objs = 0
-let g:pymode_syntax_built_funcs = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-let g:pymode_indent = 1
-let g:pymode_motion = 1
+" map <Leader>g :call RopeGotoDefinition()<CR>
+" let ropevim_enable_shortcuts = 1
+" let g:pymode_rope_goto_def_newwin = "vnew"
+" let g:pymode_rope_extended_complete = 1
+" let g:pymode_breakpoint = 0
+" let g:pymode_syntax = 1
+" let g:pymode_syntax_built_objs = 0
+" let g:pymode_syntax_built_funcs = 0
+" map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+" let g:pymode_indent = 1
+" let g:pymode_motion = 1
 
 
 
