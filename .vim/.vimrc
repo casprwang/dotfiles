@@ -14,6 +14,7 @@ nnoremap <C-w>j <C-w>s
 nnoremap <C-w>l <C-w>v
 nnoremap <leader>, :e $MYVIMRC<CR> 
 nnoremap <leader>. :source .vimrc<CR>
+nnoremap <leader>n :noh<CR>
 
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
