@@ -15,6 +15,7 @@ nnoremap <C-w>l <C-w>v
 nnoremap <leader>, :e $MYVIMRC<CR> 
 nnoremap <leader>. :source .vimrc<CR>
 nnoremap <leader>n :noh<CR>
+nnoremap <leader>y :syn on<CR>
 
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
@@ -129,7 +130,27 @@ let g:syntastic_python_python_exec = '/path/to/python3'
 
 " python mode
 let g:pymode = 1
-
+let g:pymode_rope_completion = 1
+let g:pymode_rope_completion_bind = '<C-Space>'
+let g:pymode_rope_complete_on_dot = 1
+let g:pymode_syntax = 1
+let g:pymode_rope_lookup_project = 0 
+let g:pymode_rope_autoimport = 0
+let g:pymode_rope = 0
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_print_as_function = 0
+let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
+let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_syntax_string_formatting = g:pymode_syntax_all
+let g:pymode_syntax_string_format = g:pymode_syntax_all
+let g:pymode_syntax_string_templates = g:pymode_syntax_all
+let g:pymode_syntax_doctests = g:pymode_syntax_all
+let g:pymode_syntax_builtin_types = g:pymode_syntax_all
+let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
+let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
+let g:pymode_syntax_docstrings = g:pymode_syntax_all
 
 
 
@@ -143,8 +164,8 @@ let g:pymode = 1
 " let g:pymode_syntax_built_objs = 0
 " let g:pymode_syntax_built_funcs = 0
 " map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-" let g:pymode_indent = 1
-" let g:pymode_motion = 1
+let g:pymode_indent = 1
+let g:pymode_motion = 1
 
 
 
