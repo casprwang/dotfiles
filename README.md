@@ -1,16 +1,11 @@
-For Installation
-================
+#For Installation
 
 Terminal
-
-::
 
     touch .bash_profile
     vim .bash_profile
 
 Then copy these codes in Terminal
-
-::
 
     mkdir dotfiles 
     mv .vim dotfiles/ 
@@ -19,8 +14,6 @@ Then copy these codes in Terminal
     ln -s ~/dotfiles/.vim/.vimrc ~/.vimrc
 
 Then copy these codes in .bash\_profile in the home directory
-
-::
 
     alias vimr="vim .vimrc"
     alias gs="git status"
