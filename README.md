@@ -4,6 +4,7 @@ Terminal
 
     touch .bash_profile
     vim .bash_profile
+    https://github.com/Goles/Battery
 
 Then copy these codes in Terminal
 
