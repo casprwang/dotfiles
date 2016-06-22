@@ -15,5 +15,5 @@ Then copy these codes in .bash\_profile
     mkdir dotfiles 
     mv .vim dotfiles/ 
     mv .vimrc dotfiles/.vim
-    -s ~/dotfiles/.vim ~/.vim 
-    -s ~/dotfiles/.vim/.vimrc ~/.vimrc
+    ln -s ~/dotfiles/.vim ~/.vim 
+    ln -s ~/dotfiles/.vim/.vimrc ~/.vimrc
