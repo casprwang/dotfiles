@@ -4,11 +4,11 @@ nnoremap <leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-c> <C-w>c
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>c <C-w>c
 nnoremap <leader>e :MRU<CR>
 nnoremap <C-w>j <C-w>s       
 nnoremap <C-w>l <C-w>v
@@ -17,8 +17,10 @@ nnoremap <leader>. :source .vimrc<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>y :syn on<CR>
 
+
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
+set noswapfile
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
