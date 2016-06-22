@@ -8,7 +8,7 @@ Terminal
     touch .bash_profile
     vim .bash_profile
 
-Then copy these codes in .bash\_profile
+Then copy these codes in Terminal
 
 ::
 
