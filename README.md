@@ -12,6 +12,7 @@ Then copy these codes in Terminal
     mv .vimrc dotfiles/.vim
     ln -s ~/dotfiles/.vim ~/.vim 
     ln -s ~/dotfiles/.vim/.vimrc ~/.vimrc
+    ln -s dotfiles/tmux.conf tmux.conf
 
 Then copy these codes in .bash\_profile in the home directory
 
