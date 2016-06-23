@@ -21,6 +21,7 @@ nnoremap <leader>y :syn on<CR>
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
+set clipboard=unnamed
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
