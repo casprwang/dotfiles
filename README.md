@@ -5,6 +5,7 @@ Terminal
     touch .bash_profile
     vim .bash_profile
     https://github.com/Goles/Battery
+    https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
 
 Then copy these codes in Terminal
 
