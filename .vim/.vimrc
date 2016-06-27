@@ -6,17 +6,17 @@ nnoremap <leader>Q :q!<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>c <C-w>c
-nnoremap <leader>e :MRU<CR>
+nnoremap <leader>j <C-w>j nnoremap <leader>k <C-w>k nnoremap <leader>c <C-w>c nnoremap <leader>e :MRU<CR>
 nnoremap <C-w>j <C-w>s       
 nnoremap <C-w>l <C-w>v
 nnoremap <leader>, :e $MYVIMRC<CR> 
 nnoremap <leader>. :source .vimrc<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>y :syn on<CR>
-
+nnoremap <leader>L <C-w>> 
+nnoremap <leader>H <C-w>< 
+nnoremap <leader>J <C-w>+ 
+nnoremap <leader>K <C-w>- 
 
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
