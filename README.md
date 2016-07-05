@@ -1,4 +1,4 @@
-# This collection includs the configurtion of vim, tmux and atom. 
+# This collection includes the configurtion of vim, tmux and atom. 
 
 #For Installation
 
