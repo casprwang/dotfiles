@@ -1,5 +1,8 @@
 # This collection includes the configuration of vim, tmux and atom. 
 
+![GIF](https://giphy.com/gifs/u2gvJIrOJfW12)
+
+
 #For Installation
 
 Terminal
