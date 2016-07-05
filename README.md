@@ -1,3 +1,5 @@
+# This collection includs the configurtion of vim, tmux and atom. 
+
 #For Installation
 
 Terminal
