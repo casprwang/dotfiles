@@ -1,13 +1,7 @@
 # This collection includes the configuration of vim, tmux and atom. 
 
-
-![shortcast of vim](http://i.imgur.com/gtoUll1.gifv)
-
-
-![](http://i.imgur.com/gtoUll1.gifv "vim cast")
-
-
-![GIF](http://f.cl.ly/items/373y2E0e0i2p0E2O131g/test-gif.gif)
+![dotfile cast 1k
+2](https://cloud.githubusercontent.com/assets/19645990/16610534/5f89bac0-438e-11e6-866f-342825f8ffd8.gif)
 
 
 #For Installation
