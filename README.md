@@ -1,5 +1,4 @@
 # This collection includes the configuration of vim, tmux and atom. 
-[[ http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif | height = 100px ]]
 
 
 ![shortcast of vim](http://i.imgur.com/gtoUll1.gifv | height =
