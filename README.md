@@ -1,6 +1,9 @@
 # This collection includes the configuration of vim, tmux and atom. 
+[[ http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif | height = 100px ]]
 
-![GIF](https://giphy.com/gifs/u2gvJIrOJfW12)
+
+[[ http://i.imgur.com/gtoUll1.gifv | height =
+800px ]]
 
 
 #For Installation
