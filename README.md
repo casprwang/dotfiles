@@ -1,8 +1,11 @@
 # This collection includes the configuration of vim, tmux and atom. 
 
 
-![shortcast of vim](http://i.imgur.com/gtoUll1.gifv | height =
-800px)
+![shortcast of vim](http://i.imgur.com/gtoUll1.gifv)
+
+
+
+![GIF](http://f.cl.ly/items/373y2E0e0i2p0E2O131g/test-gif.gif)
 
 
 #For Installation
