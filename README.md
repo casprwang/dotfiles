@@ -4,6 +4,8 @@
 ![shortcast of vim](http://i.imgur.com/gtoUll1.gifv)
 
 
+![](http://i.imgur.com/gtoUll1.gifv "vim cast")
+
 
 ![GIF](http://f.cl.ly/items/373y2E0e0i2p0E2O131g/test-gif.gif)
 
