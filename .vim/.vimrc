@@ -16,17 +16,19 @@ nnoremap <leader>, :e $MYVIMRC<CR>
 nnoremap <leader>. :source .vimrc<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>y :syn on<CR>
-nnoremap <leader>L <C-w>> 
-nnoremap <leader>H <C-w>< 
-nnoremap <leader>J <C-w>+ 
-nnoremap <leader>K <C-w>- 
+nnoremap <leader>L 10<C-w>> 
+nnoremap <leader>H 10<C-w>< 
+nnoremap <leader>J 10<C-w>+ 
+nnoremap <leader>K 10<C-w>- 
 nnoremap <leader>c :lcl<CR>
+
 
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
 
+filetype plugin on
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
 
@@ -94,6 +96,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'yegappan/mru'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'scrooloose/nerdcommenter'
 " Plugin 'majutsushi/tagbar'
 
 " Plugin 'vim-airline/vim-airline'
@@ -189,3 +192,31 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+
+
+
+
+
+"""""""""""""""""""""" Nerd comment"
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
