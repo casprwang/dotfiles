@@ -27,10 +27,13 @@ nnoremap <leader>c :lcl<CR>
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
+set autoread
+
 
 filetype plugin on
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -97,7 +100,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'yegappan/mru'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'djoshea/vim-autoread'
 " Plugin 'majutsushi/tagbar'
+
 
 " Plugin 'vim-airline/vim-airline'
 call vundle#end()            " required
@@ -123,11 +129,11 @@ set colorcolumn=80
 highlight ColorColumn ctermbg =233
 set history=700
 set undolevels=700
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround
-set expandtab
+" set expandtab
 set hlsearch 
 set incsearch 
 set ignorecase
@@ -137,45 +143,35 @@ set showmatch
 set smarttab
 set copyindent 
 
-let g:syntastic_python_python_exec = '/path/to/python3'
-
-" python mode
-let g:pymode = 1
-let g:pymode_rope_completion = 1
-let g:pymode_rope_completion_bind = '<C-Space>'
-let g:pymode_rope_complete_on_dot = 1
-let g:pymode_syntax = 1
-let g:pymode_rope_lookup_project = 0 
-let g:pymode_rope_autoimport = 0
-let g:pymode_rope = 0
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_print_as_function = 0
-let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
-let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_syntax_string_formatting = g:pymode_syntax_all
-let g:pymode_syntax_string_format = g:pymode_syntax_all
-let g:pymode_syntax_string_templates = g:pymode_syntax_all
-let g:pymode_syntax_doctests = g:pymode_syntax_all
-let g:pymode_syntax_builtin_types = g:pymode_syntax_all
-let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
-let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
-let g:pymode_syntax_docstrings = g:pymode_syntax_all
-
-
-
-" python mode 
-" map <Leader>g :call RopeGotoDefinition()<CR>
-" let ropevim_enable_shortcuts = 1
-" let g:pymode_rope_goto_def_newwin = "vnew"
-" let g:pymode_rope_extended_complete = 1
-" let g:pymode_breakpoint = 0
+" PPPPPPPPPPPPPPPPPPPPPPPPPPP
+" let g:syntastic_python_python_exec = '/path/to/python3'
+" 
+" let g:pymode_rope_completion = 1
+" let g:pymode_rope_completion_bind = '<C-Space>'
+" let g:pymode_rope_complete_on_dot = 1
 " let g:pymode_syntax = 1
-" let g:pymode_syntax_built_objs = 0
-" let g:pymode_syntax_built_funcs = 0
-" map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-let g:pymode_indent = 1
+" let g:pymode_rope_lookup_project = 0 
+" let g:pymode_rope_autoimport = 0
+" let g:pymode_rope = 0
+" let g:pymode_syntax_all = 1
+" let g:pymode_syntax_print_as_function = 0
+" let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
+" let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
+" let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+" let g:pymode_syntax_space_errors = g:pymode_syntax_all
+" let g:pymode_syntax_string_formatting = g:pymode_syntax_all
+" let g:pymode_syntax_string_format = g:pymode_syntax_all
+" let g:pymode_syntax_string_templates = g:pymode_syntax_all
+" let g:pymode_syntax_doctests = g:pymode_syntax_all
+" let g:pymode_syntax_builtin_types = g:pymode_syntax_all
+" let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
+" let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
+" let g:pymode_syntax_docstrings = g:pymode_syntax_all
+" 
+" PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+
+
+let g:pymode_indent = 0
 let g:pymode_motion = 1
 
 
@@ -220,3 +216,18 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+
+
+
+
+
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=236
