@@ -12,7 +12,7 @@ nnoremap <leader>c <C-w>c
 nnoremap <leader>e :MRU<CR>
 nnoremap <C-w>j <C-w>s       
 nnoremap <C-w>l <C-w>v
-nnoremap <leader>, :e $MYVIMRC<CR> 
+" nnoremap <leader>, :e $MYVIMRC<CR> 
 nnoremap <leader>. :source .vimrc<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>y :syn on<CR>
@@ -29,6 +29,10 @@ set noswapfile
 set clipboard=unnamed
 set autoread
 
+
+
+set backspace=2 " make backspace work like most other apps
+set backspace=indent,eol,start
 
 filetype plugin on
 " Ctrl-P
@@ -102,6 +106,8 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'djoshea/vim-autoread'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'mattn/emmet-vim'
 " Plugin 'majutsushi/tagbar'
 
 
@@ -231,3 +237,9 @@ set undoreload=10000        " number of lines to save for undo
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=234
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=236
+
+
+let g:vim_markdown_folding_disabled = 1
+
+
+let g:user_emmet_leader_key='<C-m>'
