@@ -21,6 +21,8 @@ nnoremap <leader>H 10<C-w><
 nnoremap <leader>J 10<C-w>+ 
 nnoremap <leader>K 10<C-w>- 
 nnoremap <leader>c :lcl<CR>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
 
 
 " shorten the escape time
@@ -107,7 +109,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'djoshea/vim-autoread'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 " Plugin 'majutsushi/tagbar'
 
 
@@ -242,5 +244,5 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=236
 let g:vim_markdown_folding_disabled = 1
 
 
-let g:user_emmet_leader_key='<C-m>'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:user_emmet_leader_key='<C-m>'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
