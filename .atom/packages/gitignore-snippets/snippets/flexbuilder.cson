@@ -1,8 +1,0 @@
-"*":
-  "flexbuilder":
-    prefix: "gig-flexbuilder"
-    body: """
-          bin/
-          bin-debug/
-          bin-release/
-          """

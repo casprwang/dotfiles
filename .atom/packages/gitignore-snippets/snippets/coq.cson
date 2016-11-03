@@ -1,8 +1,0 @@
-"*":
-  "coq":
-    prefix: "gig-coq"
-    body: """
-          *.vo
-          *.glob
-          *.v.d
-          """

@@ -1,7 +1,0 @@
-"*":
-  "gradle":
-    prefix: "gig-gradle"
-    body: """
-          .gradle
-          build/
-          """

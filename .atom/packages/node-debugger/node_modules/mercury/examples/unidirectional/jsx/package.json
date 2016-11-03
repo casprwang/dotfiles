@@ -1,7 +1,0 @@
-{
-    "name": "unidirectional-jsx-demo",
-    "version": "1.0.0",
-    "browserify": {
-        "transform": [ "mercury-jsxify" ]
-    }
-}

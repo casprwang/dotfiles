@@ -1,6 +1,0 @@
-"*":
-  "sass":
-    prefix: "gig-sass"
-    body: """
-          .sass-cache
-          """

@@ -1,7 +1,0 @@
-"*":
-  "jython":
-    prefix: "gig-jython"
-    body: """
-          *.pyc
-          *.class
-          """

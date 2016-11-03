@@ -13,3 +13,4 @@ tags
 
 .atom/.apm
 .vim/bundle
+.atom/packages

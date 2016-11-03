@@ -1,7 +1,0 @@
-.DS_Store
-npm-debug.log
-node_modules
-babel-source
-babel-target
-thumbs.db
-/testJs/

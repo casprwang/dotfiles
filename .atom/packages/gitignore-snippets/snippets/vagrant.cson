@@ -1,6 +1,0 @@
-"*":
-  "vagrant":
-    prefix: "gig-vagrant"
-    body: """
-          .vagrant/
-          """

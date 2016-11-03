@@ -1,2 +1,0 @@
-  "atom-text-editor[data-grammar='source js']":
-    "ctrl-alt-l": "jslint:lint"

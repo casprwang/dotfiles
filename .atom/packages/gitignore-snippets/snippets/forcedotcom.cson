@@ -1,9 +1,0 @@
-"*":
-  "forcedotcom":
-    prefix: "gig-forcedotcom"
-    body: """
-          .project
-          .settings
-          salesforce.schema
-          Referenced Packages
-          """

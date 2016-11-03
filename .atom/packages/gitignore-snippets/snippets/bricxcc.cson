@@ -1,9 +1,0 @@
-"*":
-  "bricxcc":
-    prefix: "gig-bricxcc"
-    body: """
-          # Bricx Command Center IDE
-          # http://bricxcc.sourceforge.net
-          *.bak
-          *.sym
-          """

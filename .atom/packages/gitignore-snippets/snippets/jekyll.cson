@@ -1,6 +1,0 @@
-"*":
-  "jekyll":
-    prefix: "gig-jekyll"
-    body: """
-          _site/
-          """

@@ -1,6 +1,0 @@
-"*":
-  "sketchup":
-    prefix: "gig-sketchup"
-    body: """
-          *.skb
-          """

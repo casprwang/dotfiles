@@ -1,3 +1,0 @@
-'.platform-darwin atom-workspace':
-  'ctrl-cmd-t': 'open-terminal-here:open'
-  'alt-cmd-t': 'open-terminal-here:open-root'

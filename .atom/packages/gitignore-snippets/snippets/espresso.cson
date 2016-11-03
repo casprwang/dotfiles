@@ -1,6 +1,0 @@
-"*":
-  "expresso":
-    prefix: "gig-expresso"
-    body: """
-          *.esproj
-          """

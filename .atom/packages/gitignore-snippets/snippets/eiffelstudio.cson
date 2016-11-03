@@ -1,7 +1,0 @@
-"*":
-  "eiffelstudio":
-    prefix: "gig-eiffelstudio"
-    body: """
-          # The compilation directoy
-          EIFGENs
-          """

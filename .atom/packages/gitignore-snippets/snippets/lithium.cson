@@ -1,7 +1,0 @@
-"*":
-  "lithium":
-    prefix: "gig-lithium"
-    body: """
-          libraries/*
-          resources/tmp/*
-          """

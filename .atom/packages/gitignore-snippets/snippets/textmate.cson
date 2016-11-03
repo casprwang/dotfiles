@@ -1,8 +1,0 @@
-"*":
-  "textmate":
-    prefix: "gig-textmate"
-    body: """
-          *.tmproj
-          *.tmproject
-          tmtags
-          """

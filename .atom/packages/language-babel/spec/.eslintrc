@@ -1,6 +1,0 @@
-{
-  "env": {
-    "atomtest": true,
-    "jasmine": true
-  }
-}

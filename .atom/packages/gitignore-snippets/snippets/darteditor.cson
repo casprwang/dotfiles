@@ -1,7 +1,0 @@
-"*":
-  "darteditor":
-    prefix: "gig-darteditor"
-    body: """
-          .project
-          .buildlog
-          """
