@@ -10,8 +10,6 @@ Terminal
 
     touch .bash_profile
     vim .bash_profile
-    https://github.com/Goles/Battery
-    https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
 
 
     mkdir dotfiles
@@ -20,3 +18,7 @@ Terminal
     ln -s ~/dotfiles/.vim ~/.vim
     ln -s ~/dotfiles/.vim/.vimrc ~/.vimrc
     ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+
+Reference
+    https://github.com/Goles/Battery
+    https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
