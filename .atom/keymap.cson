@@ -16,6 +16,11 @@
 # 'atom-workspace':
 #   'ctrl-shift-p': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
+'atom-text-editor:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'
+
+# 'atom-text-editor[data-grammar="YOUR GRAMMAR HERE"]:not([mini])':
+#     'tab': 'emmet:expand-abbreviation-with-tab'
 'body':
   'ctrl-tab': 'unset!'
   'ctrl-shift-tab': 'unset!'

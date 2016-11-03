@@ -92,6 +92,8 @@
     markerType: "dot"
   react:
     enabledForAllJavascriptFiles: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
 ".basic.html.text":
