@@ -1,0 +1,1 @@
+/Users/wangsong/.zshrc
