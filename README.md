@@ -20,5 +20,6 @@ Terminal
     ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 Reference
+
     https://github.com/Goles/Battery
     https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
