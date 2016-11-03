@@ -39,6 +39,8 @@
       "linter-python-pep8"
       "react"
       "linter-xo"
+      "markdown-preview-plus"
+      "language-gfm"
     ]
     packagesWithKeymapsDisabled: [
       "emmet"

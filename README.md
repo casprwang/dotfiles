@@ -3,6 +3,8 @@
 ![dotfile cast 1k
 2](https://cloud.githubusercontent.com/assets/19645990/16610534/5f89bac0-438e-11e6-866f-342825f8ffd8.gif)
 
+check out the 
+
 
 #For Installation
 

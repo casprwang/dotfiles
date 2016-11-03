@@ -27,7 +27,7 @@
 
 
 '.workspace':
-  'cmd-ctrl-o': 'open-on-github:branch-compare'
+  'cmd-ctrl-o': 'open-on-github:repository'
   'cmd-N': 'application:new-window'
 
   'ctrl-i': 'dash:shortcut'
@@ -200,7 +200,7 @@
   'ctrl-shift-tab': 'pane:show-previous-item'
   'ctrl-tab': 'pane:show-next-item'
   'ctrl-`': 'open-terminal-here:open'
-  'cmd-ctrl-o': 'open-on-github:branch-compare'
+  'cmd-ctrl-o': 'open-on-github:repository'
   'cmd-N': 'application:new-window'
   'ctrl-i': 'dash:shortcut'
 
