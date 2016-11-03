@@ -25,6 +25,10 @@ nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 
+syntax on
+set background=dark
+colorscheme material-theme
+
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
@@ -109,6 +113,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'djoshea/vim-autoread'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'jdkanani/vim-material-theme'
 " Plugin 'mattn/emmet-vim'
 " Plugin 'majutsushi/tagbar'
 
