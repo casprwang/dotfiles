@@ -1,0 +1,11 @@
+"*":
+  "lilypond":
+    prefix: "gig-lilypond"
+    body: """
+          *.pdf
+          *.ps
+          *.midi
+          *.mid
+          *.log
+          *~
+          """

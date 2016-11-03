@@ -1,0 +1,11 @@
+"*":
+  "yeoman":
+    prefix: "gig-yeoman"
+    body: """
+          node_modules/
+          bower_components/
+          *.log
+
+          build/
+          dist/
+          """

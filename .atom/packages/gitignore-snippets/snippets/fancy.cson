@@ -1,0 +1,7 @@
+"*":
+  "fancy":
+    prefix: "gig-fancy"
+    body: """
+          *.rbc
+          *.fyc
+          """

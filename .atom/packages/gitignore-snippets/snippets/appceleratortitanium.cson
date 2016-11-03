@@ -1,0 +1,8 @@
+"*":
+  "appceleratortitanium":
+    prefix: "gig-appceleratortitanium"
+    body: """
+          # Build folder and log file
+          build/
+          build.log
+          """

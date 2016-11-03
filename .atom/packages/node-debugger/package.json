@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89400-ix1t6r/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89400-ix1t6r/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89400-ix1t6r/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116917-89400-1v38dos"
+    ]
+  ],
+  "_from": "../d-116917-89400-ix1t6r/package.tgz",
+  "_id": "node-debugger@1.9.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/node-debugger",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89400-ix1t6r/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89400-ix1t6r/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89400-ix1t6r/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116917-89400-ix1t6r/package.tgz",
+  "_shasum": "54f359c39cb3995aff9f33944425add473fd22f6",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89400-ix1t6r/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116917-89400-1v38dos",
+  "bugs": {
+    "url": "https://github.com/kiddkai/atom-node-debugger/issues"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.5",
+    "bluebird": "^2.9.25",
+    "bunyan": "^1.3.5",
+    "emissary": "^1.3.0",
+    "event-stream": "^3.3.1",
+    "geval": "^2.1.1",
+    "mercury": "^14.0.0",
+    "ramda": "^0.14.0",
+    "split": "^0.3.0",
+    "through2": "^0.6.1",
+    "tree-kill": "^0.1.1",
+    "which": "^1.0.5",
+    "xtend": "^4.0.0"
+  },
+  "description": "Debugger For Nodejs",
+  "devDependencies": {
+    "from": "^0.1.3"
+  },
+  "engines": {
+    "atom": ">0.200.0"
+  },
+  "homepage": "https://github.com/kiddkai/atom-node-debugger#readme",
+  "license": "MIT",
+  "main": "./lib/node-debugger",
+  "name": "node-debugger",
+  "optionalDependencies": {},
+  "readme": "node-debugger package\n==============================\n\n> A simple Node.js/io.js debugger for daily use.\n\n## Usage\n\nOpen a javascript (.js) file and execute the start-resume command (F5) to launch the debugger.\n\nDebug panels will show up as shown in the image below.\n\n![Screenshot of node-debugger in action](https://raw.githubusercontent.com/kiddkai/atom-node-debugger/master/screenshot.jpg)\n\nThe '>' symbol in the gutter marks the current line of execution.\n\nExecute the toggle-breakpoint (F9) command to set a breakpoint. The breakpoint will be displayed in the gutter using a red marker.\n\nExecute start-resume (F5) again to resume debugging or use the step-next (F10), step-in (F11) or step-out (shift-F11) commands.\n\n## Commands\n\nYou may access the commands using CMD/Ctrl+p or by using the shortcut key specified within the brackets.\n\n```js\n'node-debugger:start-resume' (F5)\n'node-debugger:start-active-file' (ctrl-F5)\n'node-debugger:stop' (shift-F5)\n'node-debugger:toggle-breakpoint' (F9)\n'node-debugger:step-next' (F10)\n'node-debugger:step-in' (F11)\n'node-debugger:step-out' (shift-F11)\n'node-debugger:attach'\n'node-debugger:toggle-debugger' (F12)\n```\n\n## Configuration\n\nThe following attributes can be set to control the node-debugger.\n\n* nodePath - path to node.js executable, _default: platform dependent_\n* nodeArgs - arguments sent to node.js during launch, _default: ''_\n* appArgs - arguments sent to the application during launch, _default: ''_\n* debugHost - the machine name or ip-address of the host (only used when attaching to external node processes), _default: '127.0.0.1'_\n* debugPort - the port used to communicate to the launched process, _default: 5858_\n* env - the process environment variables (if left empty the environment will be inherited), _default: ''_\n* scriptMain - the preferred startup file, _default: ''_\n\nAn example of a configuration is given below.\n```CoffeeScript\n\"node-debugger\":\n  nodePath: \"C:/program/nodejs/node.exe\"\n  nodeArgs: \"--use-strict --use_inlining\"\n  appArgs: \"--arg1=10 --arg2\"\n  debugHost: \"192.168.0.20\"\n  debugPort: 5860\n  env: \"key1=value1;key2=value2;key3=value3\"  \n  scriptMain: \"c:/myproject/main.js\"\n```\n\n## Debugging projects in atom\nWhen executing the start-resume command the node-debugger will try to figure out\nwhich file that is the main file of the current atom project.\nThis is the strategy being used:\n\n1. use configured entry point (scriptMain)\n1. attempt to read entry point from package.json in the project root folder\n1. attempt to start currently open file (ctrl+F5 hot-key)\n1. cannot start debugger\n\n## Attaching to external processes\nStart your node application in debug mode using\n\n```Batch\n>node --debug=5858 a.js\n```\n\nor\n\n```Batch\n>node --debug-brk=5858 a.js\n```\n\nMake sure that your node-debugger settings for debugHost and debugPort are\nmatching what you are using. In the case above debugPort should be 5858.\n\nExecute command node-debugger: attach either from the menu or using the command\npanel.\n\n## Troubleshooting\n\nCheck in the node-debugger package settings that the node path is set correctly.\n\n## Feedback\n\nPlease click [here](https://github.com/kiddkai/atom-node-debugger/issues/new)\nto provide me more suggestions to improve this debugger, thanks :D\n\n## Todo\n\n```js\nCoffeeScript support\nError Handling\n```\n\n## Known issues\n\nIn `Node.js>=0.12` and `io.js`. The process doesn't stop when your process finished.\nSo it will have no response from debugger server and will not keep going debugging.\nWhen you face that issue, just use the `x` button to stop the process by yourself.\n\nIssue report is here: https://github.com/nodejs/io.js/issues/1788\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiddkai/atom-node-debugger.git"
+  },
+  "version": "1.9.1"
+}

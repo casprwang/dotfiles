@@ -1,0 +1,74 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116810-5925-1lguo91/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116810-5925-1lguo91/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116810-5925-1lguo91/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116810-5925-ries8v"
+    ]
+  ],
+  "_from": "../d-116810-5925-1lguo91/package.tgz",
+  "_id": "atom-material-ui@1.3.6",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/atom-material-ui",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116810-5925-1lguo91/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116810-5925-1lguo91/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116810-5925-1lguo91/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116810-5925-1lguo91/package.tgz",
+  "_shasum": "b38c384acbeffbc6df4b86516c6269d9beb834d2",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116810-5925-1lguo91/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116810-5925-ries8v",
+  "bugs": {
+    "url": "https://github.com/silvestreh/atom-material-ui/issues"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "2.1.1",
+    "tinycolor2": "1.3.0"
+  },
+  "description": "A dark UI theme for Atom that follows Google's Material Design Guidelines",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.4.0 <2.0.0"
+  },
+  "homepage": "https://github.com/silvestreh/atom-material-ui#readme",
+  "keywords": [
+    "ui",
+    "theme",
+    "material",
+    "md",
+    "dynamic",
+    "adaptive",
+    "adapt to syntax",
+    "material design"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "atom-material-ui",
+  "optionalDependencies": {},
+  "readme": "[![Build Status](https://img.shields.io/travis/atom-material/atom-material-ui.svg?style=flat-square)](https://travis-ci.org/atom-material/atom-material-ui)\n[![apm](https://img.shields.io/apm/dm/atom-material-ui.svg?style=flat-square)](https://atom.io/packages/atom-material-ui)\n[![apm](https://img.shields.io/apm/v/atom-material-ui.svg?style=flat-square)](https://atom.io/packages/atom-material-ui)\n[![apm](https://img.shields.io/apm/l/atom-material-ui.svg?style=flat-square)]()\n[![Gitter](https://img.shields.io/gitter/room/silvestreh/atom-material-ui.svg?style=flat-square)](https://gitter.im/silvestreh/atom-material-ui)\n\n[![Support AMU](https://pledgie.com/campaigns/29552.png?skin_name=chrome)](https://pledgie.com/campaigns/29552)\n\n![AMU](http://i.imgur.com/7C2H2mw.png)\n---\n\nA dynamic UI theme for Atom that (kinda) follows Google's Material Design Guidelines. Best with [Atom Material Syntax](https://github.com/atom-material/atom-material-syntax).\n\nInspired by Mattia Astorino's [SublimeText theme](https://github.com/equinusocio/material-theme).\n\n# Installation\n\nFire up a console and type:\n\n```shell\napm install atom-material-ui\n```\n\nOr, inside Atom's settings select Install and then search for this package.\n\n# Configuration\n\nAtom Material UI supports different accent colors. To change it, go to Settings > Themes and click the cog icon next to the theme selector.\n\n![](http://i.imgur.com/pf3oiZr.png)\n\nYou'll find the color picker there.\n\n# Screenshots\n\nHere's the obligatory screenshot.\n\n### With [Atom Material Syntax](https://atom.io/packages/atom-material-syntax)\n\n```shell\napm install atom-material-syntax\n```\n\n![](http://i.imgur.com/ExPYmJY.png)\n\n### With [Light syntax](https://atom.io/packages/atom-material-syntax-light) theme variant\n\n```shell\napm install atom-material-syntax-light\n```\n\n![](http://i.imgur.com/q1o78sX.png)\n\n### With [Dark syntax](https://atom.io/packages/atom-material-syntax-dark) theme variant\n\n```shell\napm install atom-material-syntax-dark\n```\n\n![](http://i.imgur.com/orhIvwS.png)\n\n# Contributing\n\nPlease check the [CONTRIBUTING.md](https://github.com/atom-material/atom-material-ui/blob/master/CONTRIBUTING.md) file.\n\n# Extra\n\n![](http://i.imgur.com/0tHORB1.png)\n\nYou can download the redesigned icon from [dropbox](https://dl.dropboxusercontent.com/u/115930/Atom-MD-Icon.zip). It's a ZIP file containing multiple resolution PNGs, ICNS and ICO formats. Windows ICO converted by Akshit Tripathi.\n\n# License\nAtom Material UI is licensed under MIT.\n\nView the license file [here](https://github.com/atom-material/atom-material-ui/blob/master/LICENSE.md)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvestreh/atom-material-ui.git"
+  },
+  "theme": "ui",
+  "version": "1.3.6"
+}

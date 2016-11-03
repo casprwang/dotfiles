@@ -1,0 +1,49 @@
+".source.js":
+  "use strict":
+    "prefix": "us"
+    "body": """
+    'use strict';
+    """
+
+  "JSON.stringify":
+    "prefix": "jsons"
+    "body": """
+    JSON.stringify(${0:obj});
+    """
+  "JSON.parse":
+    "prefix": "jsonp"
+    "body": """
+    JSON.parse(${0:string});
+    """
+
+  "encodeURIComponent":
+    "prefix": "encode"
+    "body": """
+    encodeURIComponent(${0:url});
+    """
+  "decodeURIComponent":
+    "prefix": "decode"
+    "body": """
+    decodeURIComponent(${0:str});
+    """
+
+  "try":
+    "prefix": "try"
+    "body": """
+    try {
+      ${1://body...}
+    } catch (err) {
+
+    }
+    """
+  "try-finally":
+    "prefix": "try-finally"
+    "body": """
+    try {
+      ${1://body...}
+    } catch (err) {
+
+    } finally {
+
+    }
+    """

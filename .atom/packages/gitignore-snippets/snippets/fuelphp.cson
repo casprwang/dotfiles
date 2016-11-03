@@ -1,0 +1,7 @@
+"*":
+  "fuelphp":
+    prefix: "gig-fuelphp"
+    body: """
+          fuel/app/logs/*/*/*
+          fuel/app/cache/*/*
+          """

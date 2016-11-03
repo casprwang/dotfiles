@@ -1,0 +1,86 @@
+.remote-ftp-view {
+    > .scroller {
+        padding: 0 0.5rem;
+        bottom: 2.5rem;
+    }
+    > .queue {
+        background: darken(@app-background-color, 1.5%);
+        height: 2.5rem;
+    }
+    .tabBlender span::after {
+        content: 'Remote files';
+    }
+    .panel-shadows & {
+        > .queue {
+            .z-depth-1;
+        }
+    }
+    .panel-contrast & {
+        > .scroller {
+            background: darken(@app-background-color, 1.5%);
+        }
+        > .queue {
+            background: darken(@app-background-color, 3%);
+        }
+    }
+    .blend-tree-view.tinted-tab-bar & {
+        &::before {
+            content: '';
+            background: @base-color;
+            display: block;
+            height: 3rem;
+            position: absolute;
+        }
+        .tabBlender {
+            display: block;
+        }
+        > .scroller {
+            top: 3rem;
+        }
+    }
+    .compact-tab-bar.blend-tree-view.tinted-tab-bar & {
+        > .scroller {
+            top: 2.5rem;
+        }
+    }
+    li.directory.selected > .list-item {
+        position: relative;
+
+        &::after {
+            .selected-item;
+        }
+    }
+
+    :focus {
+        li.directory.selected {
+            > .list-item {
+                color: @accent-text-color;
+
+                &::after {
+                    background-color: @base-color;
+                }
+            }
+        }
+        li:not(.list-nested-item), li.list-nested-item > .list-item {
+            &.selected {
+                color: @accent-text-color;
+
+                &::before {
+                    background-color: @base-color;
+                }
+                .name.icon::before {
+                    color: currentColor;
+                }
+            }
+        }
+    }
+
+    .compact-tree-view & {
+        li:not(.list-nested-item), li.list-nested-item > .list-item {
+            line-height: 1.75rem;
+        }
+        .name.icon::before {
+            margin: 0 0.5rem 0 0;
+        }
+    }
+}

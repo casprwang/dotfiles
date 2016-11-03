@@ -1,0 +1,22 @@
+".source.js":
+  "setTimeout":
+    "prefix": "st"
+    "body": """
+    setTimeout(() => {
+    \t${0:// body...}
+    }, ${1:delay});
+    """
+  "setInterval":
+    "prefix": "sin"
+    "body": """
+    setInterval(() => {
+    \t${0:// body...}
+    }, ${1:delay});
+    """
+  "setImmediate":
+    "prefix": "sim"
+    "body": """
+    setImmediate(() => {
+    \t${0:// body...}
+    });
+    """

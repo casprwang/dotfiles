@@ -1,0 +1,6 @@
+"*":
+  "svn":
+    prefix: "gig-svn"
+    body: """
+          .svn/
+          """

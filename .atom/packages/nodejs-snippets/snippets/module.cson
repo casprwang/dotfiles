@@ -1,0 +1,11 @@
+".source.js":
+  "module.exports":
+    "prefix": "me"
+    "body": """
+    module.exports = ${1:name}
+    """
+  "require":
+    "prefix": "req"
+    "body": """
+    require('${1:module}');
+    """

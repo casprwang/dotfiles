@@ -1,0 +1,318 @@
+@import "ui-variables";
+
+@-webkit-keyframes ripple {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(200);
+        opacity: 0;
+    }
+}
+atom-workspace:not(.use-animations) {
+    .tab-bar {
+        .tab {
+            transition: none;
+
+            &::before {
+                transition: none;
+            }
+            .ink {
+                animation: none;
+            }
+        }
+    }
+}
+.tinted-tab-bar .active {
+    .tab-bar:not([data-reactid]) {
+        background: @base-color;
+        opacity: 1;
+
+        &::before {
+            background-image: linear-gradient(to right, @base-color 0%, transparent 100%);
+        }
+        &::after {
+            background-image: linear-gradient(to left, @base-color 0%, transparent 100%);
+        }
+    }
+}
+.tab-bar {
+    position: relative;
+    line-height: 3rem;
+    height: 3rem;
+    background-color: @app-background-color;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 0;
+    z-index: 95;
+
+    .tab {
+        position: relative;
+        padding: 0 0.75rem;
+        cursor: pointer;
+        font-size: 0.8rem;
+        overflow: hidden;
+        min-width: 7rem;
+        max-width: 12rem;
+        color: @text-color;
+        transition: min-width 250ms @md-timing-function;
+
+        &::before {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            left: 0;
+            height: 0.125rem;
+            width: 100%;
+            transform: scaleX(0) translateX(50%);
+            transition: transform 250ms @md-timing-function, opacity 250ms @md-timing-function;
+            opacity: 0;
+            background-color: @base-color;
+            z-index: 2000;
+        }
+        &.active {
+            min-width: 10rem;
+
+            &::before {
+                opacity: 1;
+                transform: scaleX(1) translateX(0);
+            }
+            .ink {
+                display: inline-block;
+                -webkit-animation: ripple 500ms @md-timing-function;
+                -webkit-animation-fill-mode: forwards;
+            }
+        }
+        &.is-dragging {
+            opacity: 1;
+            border: none;
+            margin: 0;
+
+            .close-icon {
+                visibility: hidden;
+            }
+            .ink {
+                display: none;
+            }
+        }
+        &.is-drop-target {
+            &::after {
+                display: none;
+            }
+        }
+        &.modified:not(:hover) .close-icon {
+            top: 1.25rem;
+            right: 1rem;
+            border-color: @base-color;
+            opacity: 0.75;
+            transform: scale(1);
+        }
+        .close-icon {
+            width: 1rem;
+            height: 1rem;
+            line-height: 1;
+            text-align: center;
+            font-size: 1rem;
+            right: 0.75rem;
+            top: 1rem;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 250ms @md-timing-function;
+            transform: scale(0);
+
+            &::before {
+                position: relative;
+                top: -0.125rem;
+            }
+        }
+        .title {
+            position: relative;
+            pointer-events: none;
+            transition: padding 250ms @md-timing-function;
+            -webkit-mask-image: linear-gradient(to right, rgba(255,255,255,1) 70%,rgba(255,255,255,0) 90%);
+
+            &.icon::before {
+                margin-right: 1rem;
+            }
+            &[class*="status-"] {
+                padding-left: 1.5rem;
+
+                &::after {
+                    content: '';
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    margin-right: 1rem;
+                    position: absolute;
+                    top: ~"calc(50% - 0.25rem)";
+                    left: 0;
+                    border-radius: 50%;
+                }
+            }
+            &.status-modified::after {
+                background-color: @md-amber;
+            }
+            &.status-added::after {
+                background-color: @md-light-green;
+            }
+            &.status-removed::after {
+                background-color: @md-red;
+            }
+            &.status-renamed::after {
+                background-color: @md-blue;
+            }
+        }
+        &:hover {
+            .close-icon {
+                transform: scale(1);
+            }
+        }
+    }
+    .ink {
+        display: none;
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        width: 2px;
+        height: 2px;
+        -webkit-transform: translate3d(0,0,0);
+        background-color: fade(@text-color, 10%);
+    }
+    .placeholder {
+        margin: 0;
+        height: 3rem;
+        background: none;
+        pointer-events: none;
+        width: 0.125rem;
+        border: 1px solid;
+        border-color: fade(@base-color, 50%);
+        z-index: 100000;
+
+        &::after {
+            top: auto;
+            bottom: -0.125rem;
+            background: none;
+            margin-left: -0.5rem;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0.5rem 0.5rem 0.5rem;
+            border-color: transparent transparent @base-color transparent;
+        }
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    // &:not([data-reactid])::before, &:not([data-reactid])::after {
+    //     content: '';
+    //     position: fixed;
+    //     top: 0;
+    //     height: 3rem;
+    //     width: 0.75rem;
+    //     pointer-events: none;
+    //     z-index: 1000;
+    // }
+    // &::before {
+    //     background-image: linear-gradient(to right, @app-background-color 0%, transparent 100%);
+    // }
+    // &::after {
+    //     background-image: linear-gradient(to left, @app-background-color 0%, transparent 100%);
+    //     right: 0;
+    // }
+    .tinted-tab-bar &:not([data-reactid]) {
+        background-color: @base-color;
+        opacity: 0.88;
+
+        &::before {
+            background-image: linear-gradient(to right, @base-color 0%, transparent 100%);
+        }
+        &::after {
+            background-image: linear-gradient(to left, @base-color 0%, transparent 100%);
+        }
+        .tab {
+            color: @accent-text-color;
+
+            &::before {
+                background-color: @accent-color;
+            }
+            &.modified:not(:hover) .close-icon {
+                border-color: @accent-color;
+            }
+            &.is-dragging {
+                background-color: @base-color;
+            }
+        }
+        &.modified:not(:hover) .close-icon {
+            border-color: @accent-text-color;
+        }
+        .ink {
+            background-color: fade(@accent-text-color, 25%);
+        }
+        .placeholder {
+            border-color: fade(@accent-color, 50%);
+
+            &::after {
+                border-color: transparent transparent @accent-color transparent;
+            }
+        }
+    }
+    .panel-contrast:not(.tinted-tab-bar) &:not([data-reactid]) {
+        background-color: darken(@app-background-color, 2%);
+
+        &::before {
+            background-image: linear-gradient(to right, darken(@app-background-color, 2%) 0%, transparent 100%);
+        }
+        &::after {
+            background-image: linear-gradient(to left, darken(@app-background-color, 2%) 0%, transparent 100%);
+            right: 0;
+        }
+    }
+    .panel-shadows &:not([data-reactid]) {
+        .z-depth-1;
+    }
+    .compact-tab-bar & {
+        height: 2.5rem;
+        line-height: 2.5rem;
+
+        &::before, &::after {
+            height: 2.5rem;
+        }
+        .tab {
+            .close-icon {
+                top: 0.75rem;
+            }
+            &.modified:not(:hover) .close-icon {
+                top: 1rem;
+            }
+        }
+        .title[class*="status-"]::after {
+            top: 1.05rem;
+        }
+    }
+}
+.no-tab-min-width {
+    .tab {
+        min-width: initial;
+    }
+}
+.has-custom-icons {
+    .tab-bar:not([data-reactid]) .tab {
+        .title[data-path] {
+            &::before {
+                margin-right: 1rem;
+            }
+        }
+    }
+    &.tinted-tab-bar {
+        .tab-bar:not([data-reactid]) .tab {
+            .title[data-path] {
+                &::before {
+                    // Override icon color in icon-packages as it can hurt readability
+                    // with some @base-color.
+                    color: @accent-text-color !important;
+                }
+            }
+        }
+    }
+}

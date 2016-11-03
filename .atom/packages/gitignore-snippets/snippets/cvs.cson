@@ -1,0 +1,9 @@
+"*":
+  "cvs":
+    prefix: "gig-cvs"
+    body: """
+          /CVS/*
+          */CVS/*
+          .cvsignore
+          */.cvsignore
+          """

@@ -1,0 +1,7 @@
+"*":
+  "meteor":
+    prefix: "gig-meteor"
+    body: """
+          .meteor/local
+          .meteor/meteorite
+          """

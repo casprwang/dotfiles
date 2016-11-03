@@ -1,0 +1,79 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-51077-1dy8g14/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-51077-1dy8g14/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-51077-1dy8g14/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-51077-7ijpcu"
+    ]
+  ],
+  "_from": "../d-116920-51077-1dy8g14/package.tgz",
+  "_id": "linter-pep8@1.3.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/linter-pep8",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-51077-1dy8g14/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-51077-1dy8g14/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-51077-1dy8g14/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116920-51077-1dy8g14/package.tgz",
+  "_shasum": "5cd1629503fabe5cc73ee3a8eafa9493bcc0b9ce",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-51077-1dy8g14/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-51077-7ijpcu",
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-pep8/issues"
+  },
+  "dependencies": {
+    "atom-linter": "^8.0.0",
+    "atom-package-deps": "^4.0.1"
+  },
+  "description": "Linter plugin for pep8",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/AtomLinter/linter-pep8#readme",
+  "keywords": [
+    "atom",
+    "python",
+    "linter",
+    "pep8"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "linter-pep8",
+  "optionalDependencies": {},
+  "package-deps": [
+    "linter"
+  ],
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# linter-pep8\n\nThis linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides\nan interface to [pep8](https://pypi.python.org/pypi/pep8). It will be used\nwith Python files.\n\n## Installation\n\nLinter package must be installed in order to use this plugin. If Linter is not\ninstalled, please follow the instructions [here](https://github.com/AtomLinter/Linter).\n\n### pep8 installation\n\nBefore using this plugin, you must ensure that `pep8` is installed on your\nsystem. To install `pep8`, do the following:\n\nInstall [pep8](https://pypi.python.org/pypi/pep8) by typing the following in a\nterminal:\n\n```ShellSession\npip install pep8\n```\n\nNow you can proceed to install the linter-pep8 plugin.\n\n### Plugin installation\n\n```ShellSession\n apm install linter-pep8\n```\n\n## Settings\n\nYou can configure linter-pep8 from the settings menu:\n\n*   **pep8ExecutablePath** Path to your pep8 executable. This is useful if you\n    have different versions of pylint for Python 2 and 3 or if you are using a\n    virtualenv\n\n*   **maxLineLength** The max line length for your python code, defaults to 79\n\n*   **ignoreErrorCodes** A list of pep8 error codes to ignore. For a list of\n    code visit <http://pep8.readthedocs.org/en/latest/intro.html#error-codes>\n\n    Example: To ignore `W191` and `E501` you would enter something like this:\n\n    ```coffeescript\n    W191, E501\n    ```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-pep8.git"
+  },
+  "version": "1.3.2"
+}

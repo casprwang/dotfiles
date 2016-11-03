@@ -1,0 +1,18 @@
+# Keybindings require three things to be fully defined: A selector that is
+# matched against the focused element, the keystroke and the command to
+# execute.
+#
+# Below is a basic keybinding which registers on all platforms by applying to
+# the root workspace element.
+
+# For more detailed documentation see
+# https://atom.io/docs/latest/advanced/keymaps
+'atom-workspace':
+  'f5': 'node-debugger:start-resume'
+  'ctrl-f5': 'node-debugger:start-active-file'
+  'shift-f5': 'node-debugger:stop'
+  'f9': 'node-debugger:toggle-breakpoint'
+  'f10': 'node-debugger:step-next'
+  'f11': 'node-debugger:step-in'
+  'shift-f11': 'node-debugger:step-out'
+  'f12': 'node-debugger:toggle-debugger'

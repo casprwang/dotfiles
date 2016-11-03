@@ -1,0 +1,6 @@
+"*":
+  "redcar":
+    prefix: "gig-redcar"
+    body: """
+          .redcar
+          """

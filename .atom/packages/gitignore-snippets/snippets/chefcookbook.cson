@@ -1,0 +1,14 @@
+"*":
+  "chefcookbook":
+    prefix: "gig-chefcookbook"
+    body: """
+          .vagrant
+          /cookbooks
+
+          # Bundler
+          bin/*
+          .bundle/*
+
+          .kitchen/
+          .kitchen.local.yml
+          """

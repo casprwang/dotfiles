@@ -1,0 +1,7 @@
+"*":
+  "kdevelop4":
+    prefix: "gig-kdevelop4"
+    body: """
+          *.kdev4
+          .kdev4/
+          """

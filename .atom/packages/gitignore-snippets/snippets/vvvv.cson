@@ -1,0 +1,10 @@
+"*":
+  "vvvv":
+    prefix: "gig-vvvv"
+    body: """
+          # .v4p backup files
+          *~.xml
+
+          # Dynamic plugins .dll
+          bin/
+          """

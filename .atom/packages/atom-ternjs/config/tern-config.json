@@ -1,0 +1,16 @@
+{
+  "ecmaVersions": {
+    "ecmaVersion5": false,
+    "ecmaVersion6": true,
+    "ecmaVersion7": false
+  },
+  "libs": [
+    "browser",
+    "chai",
+    "jquery",
+    "underscore"
+  ],
+  "loadEagerly": [],
+  "dontLoad": [],
+  "plugins": {}
+}

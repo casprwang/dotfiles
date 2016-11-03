@@ -1,0 +1,122 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "52665e2f-189f-4791-840f-5d7b407dacc6"
+  "atom-material-ui":
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+  "atom-ternjs":
+    excludeLowerPriorityProviders: true
+    inlineFnCompletionDocumentation: true
+    snippetsFirst: true
+    useSnippets: true
+    useSnippetsAndFunction: true
+  "autocomplete-python":
+    showTooltips: true
+  "color-picker":
+    automaticReplace: true
+  "console-log": {}
+  core:
+    automaticallyUpdate: false
+    disabledPackages: [
+      "node-debugger"
+      "minimap"
+      "script"
+      "autocomplete-js-import"
+      "atom-beautify"
+      "atom-ternjs"
+      "jslint"
+      "autocomplete-modules"
+      "linter-eslint"
+      "linter-jshint"
+      "linter-pep8"
+      "atom-jshint"
+      "linter"
+      "linter-python-pep8"
+      "react"
+      "linter-xo"
+    ]
+    packagesWithKeymapsDisabled: [
+      "emmet"
+      "script"
+      "language-javascript"
+      "git-plus"
+      "console-log"
+      "open-terminal-here"
+      "project-manager"
+      "dash"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "atom-light-syntax"
+    ]
+  editor:
+    fontSize: 13
+    scrollPastEnd: true
+  "exception-reporting":
+    userId: "6678e98e-4b34-c899-1c6e-8274cdaafeef"
+  "git-plus":
+    messageTimeout: 0
+  jshint:
+    onlyConfig: true
+    supportLintingJsx: true
+  jslint:
+    hideOnNoErrors: true
+    useFoldModeAsDefault: true
+    validateOnChange: true
+  "language-babel":
+    allowLocalOverride: true
+    autoIndentJSX: true
+  linter:
+    gutterPosition: "Left"
+    showErrorTabLine: true
+    statusIconScope: "File"
+  "linter-eslint":
+    disableWhenNoEslintConfig: false
+    eslintrcPath: "/Users/wangsong/.eslintrc"
+    useGlobalEslint: true
+  "linter-jshint":
+    lintInlineJavaScript: true
+  "linter-pep8": {}
+  minimap: {}
+  "open-terminal-here":
+    command: "open -a TerminalTab.app \"$PWD\""
+  pigments:
+    markerType: "dot"
+  react:
+    enabledForAllJavascriptFiles: true
+  welcome:
+    showOnStartup: false
+".basic.html.text":
+  editor:
+    showIndentGuide: true
+".coffee.jsx.source":
+  editor:
+    autoIndent: false
+    tabLength: 4
+".console.python.text":
+  editor:
+    showIndentGuide: true
+".diff":
+  editor:
+    showIndentGuide: true
+    showInvisibles: true
+".js.jsx.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
+    softWrap: true
+".js.source":
+  editor:
+    showIndentGuide: true
+".pug.source":
+  editor:
+    showIndentGuide: true
+".python.source":
+  editor:
+    showIndentGuide: true

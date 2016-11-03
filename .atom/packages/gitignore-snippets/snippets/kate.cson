@@ -1,0 +1,8 @@
+"*":
+  "kate":
+    prefix: "gig-kate"
+    body: """
+          # Swap Files #
+          .*.kate-swp
+          .swp.*
+          """

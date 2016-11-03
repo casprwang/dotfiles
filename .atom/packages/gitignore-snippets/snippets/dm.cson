@@ -1,0 +1,10 @@
+"*":
+  "dm":
+    prefix: "gig-dm"
+    body: """
+          *.dmb
+          *.rsc
+          *.int
+          *.lk
+          *.zip
+          """

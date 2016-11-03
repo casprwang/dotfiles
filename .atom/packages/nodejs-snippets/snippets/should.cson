@@ -1,0 +1,48 @@
+".source.js":
+  "should.equal()":
+    "prefix": "sheql"
+    "body": """
+    should.equal(${1:true});
+    """
+  "should.eql()":
+    "prefix": "sheqloose"
+    "body": """
+    should.eql(${1:true});
+    """
+  "should.not.equal()":
+    "prefix": "shneql"
+    "body": """
+    should.not.equal(${1:true});
+    """
+  "should.have.property":
+    "prefix": "shprop"
+    "body": """
+    should.have.property(${1:propName});
+    """
+  "should.have.keys":
+    "prefix": "shkeys"
+    "body": """
+    should.have.keys([${1:keys}]);
+    """
+  "should.exist":
+    "prefix": "shexist"
+    "body": """
+    should.exist(${1:variableName});
+    """
+  "should.not.exist":
+    "prefix": "shnexist"
+    "body": """
+    should.not.exist(${1:variableName});
+    """
+  "should.throw":
+    "prefix": "shthrow"
+    "body": """
+    (function () {
+      ${1://body}
+    }).should.throw(${2});
+    """
+  "should.containEql":
+    "prefix": "shcontainEql"
+    "body": """
+    should.containEql(${1:obj});
+    """

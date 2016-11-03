@@ -1,0 +1,12 @@
+---
+
+  root: true
+
+  plugins:
+    - import
+
+  rules:
+    import/no-unresolved: 2
+
+  parserOptions:
+    sourceType: "module"

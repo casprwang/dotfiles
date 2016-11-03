@@ -1,0 +1,181 @@
+@import "settings/alerts";
+@import "settings/config-menu";
+@import "settings/inputs";
+@import "settings/packages";
+@import "settings/tables";
+
+.settings-view {
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+
+    .breadcrumb {
+        padding: 0 0 1rem;
+        margin-bottom: 0;
+    }
+    .panels-item {
+        padding: 3rem;
+        background: @app-background-color;
+    }
+    .section, .sub-section {
+        padding: 0;
+        margin: 0;
+
+        &:first-child {
+            border-top: none;
+        }
+        &:first-child, &:last-child {
+            padding: 0;
+        }
+        &.collapsed {
+            > *:not([class*="heading"]) {
+                display: none;
+            }
+        }
+        &:empty {
+            display: none;
+
+            + .section, + .sub-section {
+                padding-top: 0;
+            }
+        }
+        + .section, + .sub-section {
+            padding-top: 3rem;
+        }
+    }
+    .section:not(:empty) {
+        + .section {
+            border-top: none;
+        }
+        a:not(.btn) {
+            color: @base-color;
+        }
+        &.settings-panel:only-child {
+            padding-top: 2rem;
+            border: none;
+        }
+        .section-heading, .sub-section-heading {
+            font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            font-size: 2.5rem;
+
+            &::before {
+                font-size: 2rem;
+                margin-right: 2.5rem;
+            }
+            > span {
+                margin-left: 1rem;
+                font-size: 0.8rem;
+                background-color: @base-color;
+                color: @accent-text-color;
+            }
+        }
+        .section-heading {
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+
+            &::before {
+                position: relative;
+                top: -0.25rem;
+            }
+            + .text {
+                margin-bottom: 2rem;
+            }
+        }
+        .sub-section-heading {
+            font-size: 1.25rem;
+            margin: 0 0 1.5rem;
+            font-weight: 500;
+
+            &::before {
+                font-size: 1.25rem;
+                margin-right: 1rem;
+            }
+        }
+        .text, .setting-description {
+            font-size: 0.8rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+
+            &::before, .icon::before {
+                margin-right: 1rem;
+            }
+            &.setting-title {
+                font-size: 1rem;
+            }
+            .icon:not(:first-child)::before {
+                margin: 0 0.25rem;
+            }
+            small {
+                display: inline-block;
+                padding: 0.25rem 0.5rem;
+                background: @text-color;
+                color: @app-background-color;
+                line-height: 1rem;
+                border-radius: 0.125rem;
+                vertical-align: middle;
+                text-transform: uppercase;
+                margin: 0.125rem;
+            }
+        }
+    }
+    .themes-panel {
+        .themes-picker {
+            margin: 1rem -1rem 0;
+        }
+        .themes-picker-item {
+            margin: 1rem 0;
+            padding: 0 1rem;
+
+            .setting-description {
+                min-height: 3rem;
+            }
+        }
+        .btn {
+            position: relative;
+            box-shadow: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            line-height: 1;
+            text-align: center;
+            padding: 1rem;
+            margin: 0 0 0 0.5rem;
+            top: 0.5rem;
+            border-radius: 50%;
+
+            &::before {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                font-size: 1rem;
+                vertical-align: middle;
+                position: absolute;
+                top: 0.5rem;
+                left: 0.6rem;
+            }
+            &:focus, &:active {
+                background: fade(@text-color, 10%);
+            }
+        }
+    }
+    .setting-title + .setting-description {
+        margin-top: 0.5rem;
+    }
+    code {
+        color: @text-color;
+        background: fade(@text-color, 5%);
+    }
+    .update-all-button.btn-primary {
+        margin-left: 1rem;
+    }
+    .container:empty {
+        display: none;
+    }
+    .editor-container {
+        margin: 0 0 3rem;
+    }
+    .deprecated-packages[style="display: none;"] {
+        + .section, + .sub-section {
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+}

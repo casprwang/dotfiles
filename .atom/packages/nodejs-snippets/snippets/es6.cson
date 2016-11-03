@@ -1,0 +1,10 @@
+".source.js":
+  "Class":
+    "prefix": "Class"
+    "body": """
+    Class ${1:ClassName} {
+    \tconstructor() {
+    \t\t${2://constructor}
+    \t}
+    }
+    """

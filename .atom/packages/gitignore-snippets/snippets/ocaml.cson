@@ -1,0 +1,14 @@
+"*":
+  "ocaml":
+    prefix: "gig-ocaml"
+    body: """
+          *.annot
+          *.cmo
+          *.cma
+          *.cmi
+          *.a
+          *.o
+          *.cmx
+          *.cmxs
+          *.cmxa
+          """

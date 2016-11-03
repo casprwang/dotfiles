@@ -1,0 +1,64 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-41892-16wfenx/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-41892-16wfenx/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-41892-16wfenx/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-41892-qv2kfz"
+    ]
+  ],
+  "_from": "../d-116920-41892-16wfenx/package.tgz",
+  "_id": "atom-jshint@2.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/atom-jshint",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-41892-16wfenx/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-41892-16wfenx/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-41892-16wfenx/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116920-41892-16wfenx/package.tgz",
+  "_shasum": "e698f7384ed742855deaf515eefd655b0072631d",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-41892-16wfenx/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-41892-qv2kfz",
+  "bugs": {
+    "url": "https://github.com/Joezo/atom-jshint/issues"
+  },
+  "dependencies": {
+    "jquery": "^2",
+    "jshint": "^2.5.6"
+  },
+  "description": "Validates your JS against JSHint as you type. The original and most used.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/Joezo/atom-jshint#readme",
+  "license": "MIT",
+  "main": "./index.js",
+  "name": "atom-jshint",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "# Atom-jshint\n\nThe original JSHint [package](http://atom.io/packages/atom-jshint) for [Atom](https://atom.io).\n\nValidates your JS files against [JSHint](http://jshint.com) on save and as you type.\n\n![Scrollable pane](https://cldup.com/iFvoB28vnr.png)\n\nInstallation\n===\n\n`apm install atom-jshint`\n\nOr Preferences > Packages > Search for `atom-jshint` *(install `atom-jshint`, not `jshint`)*.\n\nUsage\n===\n\nThis package will run against your currently open file as you type and when you save.\n\nIncluded features\n===\n * Supports jshintConfig in package.json\n * Supports custom .jshintrc file in project root and all parent directories\n * Line number turns red when error on that line\n * Configure how you want JSHint to run.\n * Shows a scrollable pane of of clickable errors\n\n\nContributing\n===\n\nI'd love for people to get involved in the development of this plugin, so please do create issues and pull requests.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joezo/atom-jshint.git"
+  },
+  "version": "2.0.0"
+}

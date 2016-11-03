@@ -1,0 +1,66 @@
+atom-panel {
+    -webkit-font-smoothing: antialiased;
+    z-index: 95;
+
+    &.tool-panel.top {
+        z-index: 110;
+    }
+    .inset-panel {
+        .panel-heading {
+            background: darken(@app-background-color, 2.5%);
+            font-size: 0.8rem;
+        }
+        .padded & {
+            .panel-heading {
+                margin: -0.5rem -0.5rem 0.5rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
+}
+atom-panel-container {
+    &.top, &.bottom, &.left, &.right {
+        background-color: @app-background-color;
+
+        atom-panel, .tool-panel {
+            background-color: @app-background-color;
+        }
+    }
+    .tinted-tab-bar & {
+        &.top {
+            atom-panel, .tool-panel {
+                background: @base-color;
+            }
+        }
+    }
+    .panel-shadows & {
+        atom-panel {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 0.25rem;
+                height: 100%;
+                opacity: 0.1;
+                pointer-events: none;
+                z-index: 10000;
+            }
+            &.right {
+                position: relative;
+
+                &::after {
+                    left: 0;
+                    background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+                }
+            }
+            &.left {
+                position: relative;
+
+                &::after {
+                    right: 0;
+                    background: linear-gradient(to left, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116828-30710-q3a2hf/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116828-30710-q3a2hf/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116828-30710-q3a2hf/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116828-30710-16y488y"
+    ]
+  ],
+  "_from": "../d-116828-30710-q3a2hf/package.tgz",
+  "_id": "atom-ternjs@0.15.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/atom-ternjs",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116828-30710-q3a2hf/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116828-30710-q3a2hf/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116828-30710-q3a2hf/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116828-30710-q3a2hf/package.tgz",
+  "_shasum": "f1d06108a62f430104dd5d0a2ce56389da3ccec8",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116828-30710-q3a2hf/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116828-30710-16y488y",
+  "activationCommands": {},
+  "bugs": {
+    "url": "https://github.com/tststs/atom-ternjs/issues"
+  },
+  "dependencies": {
+    "event-kit": "2.1.0",
+    "glob": "3",
+    "loophole": "^1.1.0",
+    "minimatch": "0.2",
+    "node-uuid": "1.4.7",
+    "resolve-from": "^2.0.0",
+    "tern": "^0.20.0",
+    "underscore-plus": "^1.6.6"
+  },
+  "description": "JavaScript code intelligence for atom with Tern. Adds support for ES5, ES6 (JavaScript 2015), Node.js, jQuery & Angular. Extendable via plugins. Uses suggestion provider by autocomplete-plus.",
+  "devDependencies": {
+    "babel-eslint": "6.0.5",
+    "eslint": "^2.13.1",
+    "eslint-plugin-babel": "3.3.0"
+  },
+  "engines": {
+    "atom": ">=1.9.0"
+  },
+  "homepage": "https://github.com/tststs/atom-ternjs#readme",
+  "keywords": [
+    "javascript",
+    "autocomplete-plus",
+    "autocomplete",
+    "node",
+    "es6",
+    "javascript-2015",
+    "jquery",
+    "tern"
+  ],
+  "license": "MIT",
+  "main": "./lib/atom-ternjs",
+  "name": "atom-ternjs",
+  "optionalDependencies": {},
+  "private": false,
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    }
+  },
+  "readme": "# atom-ternjs\n\n> JavaScript code intelligence for atom with [Tern](https://github.com/ternjs/tern).\nAdds support for ES5, ES6, ES7, Node.js, jQuery, Angular and more. Extendable via plugins.\nUses suggestion provider by [autocomplete-plus](https://github.com/atom/autocomplete-plus).\n\n## Installation\n\nConfigure your project\n* Open any JavaScript file from within you project\n* Navigate to Packages -> Atom Ternjs -> Configure project\n* The config view appears.\n* Hit \"Save & Restart Server\" to create/update the .tern-project file\n\n**In order to use third party plugins read the [Third party plugins](#third-party-plugins) section!**\n\n**In order to use third party plugins from within your project's ```node_modules``` read the [Third party plugins local](#third-party-plugins-local) section! This is also an alternative if [Third party plugins](#third-party-plugins) aren't working.**\n\nIf configure project does not work for you\n* In your project root create a file named .tern-project. See docs @ http://ternjs.net/doc/manual.html#configuration.\n* Restart the server via *Packages -> Atom Ternjs -> Restart server*\n\nExample `.tern-project` file (customize to your own needs):\n\n```json\n{\n  \"ecmaVersion\": 6,\n  \"libs\": [\n    \"browser\",\n    \"jquery\"\n  ],\n  \"loadEagerly\": [\n    \"path/to/your/js/**/*.js\"\n  ],\n  \"dontLoad\": [\n    \"path/to/your/js/**/*.js\"\n  ],\n  \"plugins\": {\n    \"complete_strings\": {\n      \"maxLength\": 15\n    },\n    \"node\": {},\n    \"doc_comment\": {\n      \"fullDocs\": true,\n      \"strong\": true\n    }\n  }\n}\n```\n\n### EcmaVersion\n* 5: use ECMAScript5\n* 6: use ECMAScript6 (default)\n* 7: use ECMAScript7\n\n### Libs\n* browser: completion for vanilla js (optional)\n* jquery: completion for jQuery (optional)\n* underscore: completion for underscore (optional)\n* chai: completion for chai (optional)\n\n### Options\n* loadEagerly: provide the path to your projects js. For relative paths do not use `./` as a prefix. This sometimes leads to an unexpected behaviour.\n* **loadEagerly is expensive. Do not add paths like `node_modules`.**\n* dontLoad: can be used to prevent Tern from loading certain files. It also takes an array of file names or glob patterns.\n\n### Plugins\n* For a list of build in server plugins, visit: http://ternjs.net/doc/manual.html#plugins\n\n### Keybindings\nList of [keybindings](#features).\nTo use your own keybindings goto `atom-ternjs` package settings and disable keybindings.\n\n## Third party plugins\nIn order to use third party plugins (e.g. [tern-node-express](https://github.com/angelozerr/tern-node-express)):\n```\n$ cd ~/.atom/packages/atom-ternjs\n$ npm install tern-node-express\n```\nAdd the plugin to your .tern-project file:\n```json\n{\n  \"ecmaVersion\": 6,\n  \"libs\": [\n    \"browser\"\n  ],\n  \"loadEagerly\": [\n    \"app/**/*.js\"\n  ],\n  \"plugins\": {\n    \"node-express\": {}\n  }\n}\n```\n\nThird party plugins are still an issue and sometimes do not work as expected, especially if the plugin is requiring a tern version that does not match the tern version that is used by atom-ternjs.\nRestart the server: *Packages -> Atom Ternjs -> Restart server*\n\n## Third party plugins local\n\nExample for node-express.\nOpen node_modules/tern-node-express/tern-express.js\n\nReplace:\n\n```js\n(function(mod) {\n  if (typeof exports == \"object\" && typeof module == \"object\") // CommonJS\n    return mod(require(\"tern/lib/infer\"), require(\"tern/lib/tern\"));\n  if (typeof define == \"function\" && define.amd) // AMD\n    return define([ \"tern/lib/infer\", \"tern/lib/tern\" ], mod);\n  mod(tern, tern);\n}...\n```\n\nWith\n\n```js\n(function(mod) {\n  return mod(process.__infer, process.__tern);\n}...\n\n```\n\nRestart Atom.\n\n## .tern-project created/modified\n* After the file was created or has been modified, restart the server via *Packages -> Atom Ternjs -> Restart server*\n\n## Features\n* Completion (autocompletion triggers automatically), or via the keybindings:\n  * <kbd>strg+space</kbd>\n  * <kbd>ctrl+alt+space</kbd> (force autocompletion in any context)\n\n![atom-ternjs](http://www.tobias-schubert.com/github/completion-1.png)\n\n![atom-ternjs](http://www.tobias-schubert.com/github/completion-2.png)\n* Find references (set your cursor position to one of variable, function or instance -> open context-menu and trigger \"Find references\" or use the keybindings:\n  * <kbd>ctrl+shift+r</kbd> (mac, windows)\n  * <kbd>ctrl+alt+shift+e</kbd> (linux)\n\nClick any item in the generated reference-list and navigate directly to file and position\n\n![atom-ternjs](http://www.tobias-schubert.com/github/reference-1.png)\n\n* Documentation\n  * Show documentation for the thing under the cursor via <kbd>alt+o</kbd> (mac, windows, linux)\n  ![atom-ternjs](http://www.tobias-schubert.com/github/docs.png)\n  * Also displayed if a suggestion with a valid documentation is selected in the autocomplete-plus select-list\n\n* Find definition (set your cursor position to one of variable, function or instance -> open context-menu and trigger \"Find definition\") or use the keybindings:\n  * <kbd>alt+click</kbd> (mac, windows, linux)\n  * <kbd>ctrl+alt+d</kbd> (mac, windows)\n  * <kbd>ctrl+alt+shift+d</kbd> (linux)\n\n* Back from definition\n  * <kbd>ctrl+alt+z</kbd> (mac, windows)\n  * <kbd>ctrl+alt+shift+z</kbd> (linux)\n\n* Rename variable (set your cursor position to a variable -> open context-menu and trigger \"Rename\") or use the keybindings:\n  * <kbd>ctrl+alt+c</kbd> (mac, windows)\n  * <kbd>ctrl+alt+shift+c</kbd> (linux)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tststs/atom-ternjs.git"
+  },
+  "version": "0.15.0"
+}

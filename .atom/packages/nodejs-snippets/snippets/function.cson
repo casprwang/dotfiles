@@ -1,0 +1,50 @@
+".source.js":
+  "function":
+    "prefix": "fn"
+    "body": """
+    function ${1:methodName} (${2:arguments}) {
+    \t${0:// body...}
+    }
+    """
+  "arrow function":
+    "prefix": "afn"
+    "body": """
+    ${1:arguments} => {
+    \t${0:// body...}
+    }
+    """
+  "generator function":
+    "prefix": "gfn"
+    "body": """
+    function * ${1:methodName} (${2:arguments}) {
+    \t${0:// body...}
+    }
+    """
+  "anonymous function":
+    "prefix": "afn"
+    "body": """
+    function (${1:arguments}) {
+    \t${0:// body...}
+    }
+    """
+  "anonymous generator function":
+    "prefix": "agfn"
+    "body": """
+    function * (${1:arguments}) {
+    \t${0:// body...}
+    }
+    """
+  "prototype":
+    "prefix": "prototype"
+    "body": """
+    ${1:ClassName}.prototype.${2:methodName} = function(${3:arguments}) {
+    \t${0:// body...}
+    };
+    """
+  "onerror function":
+    "prefix": "onerrorfn"
+    "body": """
+    function onerror (err) {
+      ${0:// body...}
+    }
+    """

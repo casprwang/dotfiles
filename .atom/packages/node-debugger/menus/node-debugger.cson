@@ -1,0 +1,46 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Node Debugger'
+      'submenu': [
+        {
+          'label': 'Start/Resume'
+          'command': 'node-debugger:start-resume'
+        },
+        {
+          'label': 'Debug Active File'
+          'command': 'node-debugger:start-active-file'
+        },
+        {
+          'label': 'Attach'
+          'command': 'node-debugger:attach'
+        },
+        {
+          'label': 'Stop'
+          'command': 'node-debugger:stop'
+        },
+        {
+          'label': 'Step In'
+          'command': 'node-debugger:step-in'
+        },
+        {
+          'label': 'Step Out'
+          'command': 'node-debugger:step-out'
+        },
+        {
+          'label': 'Step Next'
+          'command': 'node-debugger:step-next'
+        },
+        {
+          'label': 'Toggle Breakpoint'
+          'command': 'node-debugger:toggle-breakpoint'
+        },
+        {
+          'label': 'Toggle Debugger'
+          'command': 'node-debugger:toggle-debugger'
+        }
+      ]
+    ]
+  }
+]

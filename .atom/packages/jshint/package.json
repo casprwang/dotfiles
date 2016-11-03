@@ -1,0 +1,106 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-5128-1j9k83v/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-5128-1j9k83v/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-5128-1j9k83v/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116918-5128-nlmbrn"
+    ]
+  ],
+  "_from": "../d-116918-5128-1j9k83v/package.tgz",
+  "_id": "jshint@1.8.6",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/jshint",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-5128-1j9k83v/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-5128-1j9k83v/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-5128-1j9k83v/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116918-5128-1j9k83v/package.tgz",
+  "_shasum": "93e8a17473404f678e33b37fb160dcb107addf5e",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-5128-1j9k83v/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116918-5128-nlmbrn",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bugs": {
+    "url": "https://github.com/sindresorhus/atom-jshint/issues"
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
+  "dependencies": {
+    "event-kit": "^1.2.0",
+    "jshint": "^2.4.4",
+    "jshint-jsx": "^0.4.0",
+    "lazy-req": "^1.0.0",
+    "lodash": "^3.10.0",
+    "shelljs": "^0.5.0",
+    "strip-json-comments": "^1.0.1",
+    "user-home": "^2.0.0"
+  },
+  "description": "Validate JavaScript with JSHint. In realtime or on save. Supports JSX (React).",
+  "devDependencies": {
+    "xo": "*"
+  },
+  "engines": {
+    "atom": ">=1.0.11"
+  },
+  "homepage": "https://github.com/sindresorhus/atom-jshint#readme",
+  "keywords": [
+    "lint",
+    "javascript",
+    "validate",
+    "jshint",
+    "jsx"
+  ],
+  "license": "MIT",
+  "name": "jshint",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "\n---\n\n<p align=\"center\"><b>🔥 Want to strengthen your core JavaScript skills and master ES6?</b><br>I would personally recommend this awesome <a href=\"https://ES6.io/friend/AWESOME\">ES6 course</a> by Wes Bos.</p>\n\n---\n\n\n# Deprecated\n\nI failed to [find an active maintainer](https://github.com/sindresorhus/atom-jshint/issues/141). See [linter-jshint](https://github.com/AtomLinter/linter-jshint) for an alternative. However, I would strongly recommend trying out [ESLint](http://eslint.org) ([Atom plugin](https://github.com/AtomLinter/linter-eslint)) instead. It's just so much better than JSHint. [XO](https://github.com/sindresorhus/xo) ([Atom plugin](https://github.com/sindresorhus/atom-linter-xo)), which is an ESLint wrapper with sensible defaults, is also a good choice.\n\n---\n\n# JSHint\n\n> Validate JavaScript with [JSHint](http://jshint.com)\n\n![](https://cloud.githubusercontent.com/assets/170270/3834266/54ad6b1c-1daf-11e4-9c46-98e6e4abab07.png)\n\n\n## Install\n\n```\n$ apm install jshint\n```\n\nOr Settings → Install → Search for `jshint` *(install `Jshint`, not `Atom Jshint`)*\n\n\n## Features\n\n- Validates in realtime.\n- Line and line number turns red on error.\n- Hover over the line number to see the errors.\n- Displays the error from the current line or the first error in the statusbar; clicking the statusbar message moves the cursor to the error.\n- Reads your `.jshintrc` config and `jshintConfig` in package.json using the same logic as JSHint.\n- Option to only validate on save.\n- Command `Jshint: Lint` to manually lint.\n- Command `Jshint: Go To Next Error` to move the cursor to the next error in the current editor.\n- Command `Jshint: Go To Error` to move the cursor to the error displayed in the statusbar.\n- Supports [React JSX](http://facebook.github.io/react/docs/jsx-in-depth.html). *(must be enabled in Settings)*\n\n\n## License\n\nMIT © [Sindre Sorhus](https://sindresorhus.com)\n",
+  "readmeFilename": "readme.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindresorhus/atom-jshint.git"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "version": "1.8.6",
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "globals": [
+      "atom"
+    ],
+    "ignores": [
+      "fixture*"
+    ]
+  }
+}

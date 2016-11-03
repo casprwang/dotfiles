@@ -1,0 +1,65 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-34211-1u4z89i/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-34211-1u4z89i/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-34211-1u4z89i/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-34211-1oybr6n"
+    ]
+  ],
+  "_from": "../d-116920-34211-1u4z89i/package.tgz",
+  "_id": "react@0.16.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-34211-1u4z89i/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-34211-1u4z89i/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-34211-1u4z89i/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116920-34211-1u4z89i/package.tgz",
+  "_shasum": "3bf61d07cda6a852758c7494e83b5686c50b6937",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-34211-1u4z89i/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-34211-1oybr6n",
+  "bugs": {
+    "url": "https://github.com/orktes/atom-react/issues"
+  },
+  "dependencies": {
+    "jsxformat": "~0.0.10",
+    "lodash": "~2.4.1"
+  },
+  "description": "React.js (JSX) language support, indentation, snippets, auto completion, reformatting",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.11.0"
+  },
+  "homepage": "http://orktes.github.io/atom-react",
+  "license": "MIT",
+  "name": "react",
+  "optionalDependencies": {},
+  "readme": "[![Build Status](https://travis-ci.org/orktes/atom-react.svg?branch=master)](https://travis-ci.org/orktes/atom-react)\n\n# Atom React.js support\n\nVisit [orktes.github.io/atom-react](https://orktes.github.io/atom-react) for more information.\n\n# Changelog (notable changes)\n\n## v0.17 (11 October 2016)\n- Fix Atom 0.11 `TypeError: this.getRegexForProperty is not a function` error\n\n## v0.16.0 (7 August 2016)\n- Fix issues related to Atom versions newer than 1.8.0\n\n## v0.15 (30 March 2016)\n- Pump minor version to see if it helps with APM issue https://github.com/atom/apm/issues/529\n\n## v0.14.2 (20 March 2016)\n- Fix yet another regression caused by atom update. This time both rendering inside parenthesis and in function/method call arguments.\n- Add required semicolon to static class properties snippet\n\n## v0.14.1 (18 January 2016)\n- Fix issue that caused `return (...);` to be tokenized as a function call.\n\n## 0.14 (15 January 2016)\n- Fixes related syntax highlighting inside functions and methods in atom 1.4\n\n## 0.11 (5 April 2015)\n- Closing tag auto-completion [in action](https://cloud.githubusercontent.com/assets/606347/6997161/28412172-dbb9-11e4-9719-2d58b0b79b3f.gif)\n\n## Features\n\n- Syntax highlighting\n- Snippets\n- Automatic indentation and folding\n- JSX Reformatting\n- HTML to JSX conversion\n- Autocomplete\n\nContributions are greatly appreciated. Please fork this repository and open a pull request to add snippets, make grammar tweaks, etc.\n\nInitially a port of [sublime-react](https://github.com/reactjs/sublime-react) for [Atom](https://github.com/atom/atom).\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orktes/atom-react.git"
+  },
+  "scripts": {
+    "test": "apm test"
+  },
+  "version": "0.16.1"
+}

@@ -1,0 +1,7 @@
+"*":
+  "kohana":
+    prefix: "gig-kohana"
+    body: """
+          application/cache/*
+          application/logs/*
+          """

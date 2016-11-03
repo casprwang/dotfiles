@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116101-2021-1jl9t8b/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116101-2021-1jl9t8b/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116101-2021-1jl9t8b/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116101-2021-1h9b5nn"
+    ]
+  ],
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/gitignore-snippets-view.coffee",
+        "lib/gitignore-snippets.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  },
+  "_from": "../d-116101-2021-1jl9t8b/package.tgz",
+  "_id": "gitignore-snippets@0.2.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/gitignore-snippets",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116101-2021-1jl9t8b/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116101-2021-1jl9t8b/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116101-2021-1jl9t8b/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116101-2021-1jl9t8b/package.tgz",
+  "_shasum": "f07f775bc862ec34e65a79b63362370ba7baaf8a",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116101-2021-1jl9t8b/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116101-2021-1h9b5nn",
+  "activationCommands": {
+    "atom-workspace": [
+      "gitignore-snippets:toggle"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/jefkoslowski/gitignore-snippets/issues"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.3"
+  },
+  "description": "Quickly create .gitignore files with templates from GitHub.",
+  "devDependencies": {},
+  "dist": {
+    "shasum": "5a2be247e323d4f6e66d91c022813bba3196437b"
+  },
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "homepage": "https://github.com/jefkoslowski/gitignore-snippets",
+  "license": "MIT",
+  "main": "./lib/gitignore-snippets",
+  "name": "gitignore-snippets",
+  "optionalDependencies": {},
+  "readme": "# Gitignore Snippets\n\nQuickly create .gitignore files with templates from [GitHub](https://github.com/github/gitignore).\n\n![demo](https://dl.dropboxusercontent.com/u/268400/gitignore-snippets.gif)\n\n## Usage\n\nPrefix a template name (lowercase) with \"gig-\" and press tab. You can find all available templates on https://github.com/github/gitignore.\n\n```\ngig-[template-name]\n```\n\n## Examples\n\n### Node\n```\ngig-node\n```\n\n### Rails\n```\ngig-rails\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefkoslowski/gitignore-snippets.git"
+  },
+  "version": "0.2.5"
+}

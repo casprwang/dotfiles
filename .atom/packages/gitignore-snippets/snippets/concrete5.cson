@@ -1,0 +1,8 @@
+"*":
+  "concrete5":
+    prefix: "gig-concrete5"
+    body: """
+          config/site.php
+          files/cache/*
+          files/tmp/*
+          """

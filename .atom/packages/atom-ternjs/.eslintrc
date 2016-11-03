@@ -1,0 +1,40 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "module": true,
+      "modules": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "atom": false,
+  },
+  "plugins": [
+    "babel"
+  ],
+  "rules": {
+    "indent": [1, 2],
+    "eol-last": [2],
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+    "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+    "curly": [2],
+    "keyword-spacing": [2],
+    "comma-spacing": [2, { "before": false, "after": true }],
+    "space-unary-ops": [2, {"words": true, "nonwords": false}],
+    "space-infix-ops": [2],
+    "space-before-blocks": [2, { "functions": "always", "keywords": "always", "classes": "always" }],
+    "quotes": [ 2, "single" ],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
+    "arrow-spacing": [2, { "before": true, "after": true }],
+    "no-console": [2, { "allow": ["warn", "error", "dir"] }]
+  },
+  "extends": "eslint:recommended"
+}

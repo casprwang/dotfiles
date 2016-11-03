@@ -1,0 +1,27 @@
+minimap-quick-settings {
+    background: @app-background-color;
+    width: 15rem;
+    .z-depth-1;
+
+    .select-list.popover-list {
+        width: 15rem;
+    }
+    .select-list .list-group li,
+    .popover-list .list-group li {
+        padding-left: 2.75rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+
+        &:hover {
+            background: none;
+        }
+        &.separator {
+            background: fade(@text-color, 2.5%);
+        }
+    }
+    .btn-group {
+        padding: 1rem;
+        height: 4.25rem;
+    }
+}

@@ -1,0 +1,133 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89392-fnjg19/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89392-fnjg19/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89392-fnjg19/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116917-89392-s35cy6"
+    ]
+  ],
+  "_from": "../d-116917-89392-fnjg19/package.tgz",
+  "_id": "linter-htmlhint@1.3.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/linter-htmlhint",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89392-fnjg19/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89392-fnjg19/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89392-fnjg19/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116917-89392-fnjg19/package.tgz",
+  "_shasum": "ac457bbde5174373b2688c0afc96e7587d999d9f",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116917-89392-fnjg19/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116917-89392-s35cy6",
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-htmlhint/issues"
+  },
+  "configSchema": {
+    "enabledScopes": {
+      "description": "List of scopes to run HTMLHint on, run `Editor: Log Cursor Scope` to determine the scopes for a file.",
+      "type": "array",
+      "default": [
+        "text.html.angular",
+        "text.html.basic",
+        "text.html.erb",
+        "text.html.gohtml",
+        "text.html.jsp",
+        "text.html.mustache",
+        "text.html.ruby"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "dependencies": {
+    "atom-linter": "^8.0.0",
+    "atom-package-deps": "^4.0.1",
+    "htmlhint": "0.9.13",
+    "lazy-req": "^1.1.0",
+    "strip-json-comments": "^2.0.1",
+    "tiny-promisify": "^0.1.1"
+  },
+  "description": "A plugin for Atom Linter providing an interface to HTMLHint.",
+  "devDependencies": {
+    "eslint": "^3.8.0",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.0.1"
+  },
+  "engines": {
+    "atom": ">=1.4.0 <2.0.0"
+  },
+  "eslintConfig": {
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
+    },
+    "extends": "airbnb-base",
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "node": true
+    }
+  },
+  "homepage": "https://github.com/AtomLinter/linter-htmlhint#readme",
+  "keywords": [
+    "html",
+    "lint",
+    "htmlhint"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "linter-htmlhint",
+  "optionalDependencies": {},
+  "package-deps": [
+    "linter"
+  ],
+  "private": true,
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# linter-htmlhint\n\nA plugin for [Linter] providing an interface to [HTMLHint]. It will be\nused with files that have the syntax.\n\n## Installation\n\nThe [Linter] package will be installed for you to provide an interface to this package. If you are using an alternative debugging interface that supports linter plugins simply disable [Linter].\n\n```ShellSession\n$ apm install linter-htmlhint\n```\n\n## Config\n\nThis plugin will search for a [HTMLHint] configuration file called `.htmlhintrc` and use that file if it exists in any parent folder. It will stop at the first `.htmlhintrc` file found.\n\n## Settings\n\nYou can configure `linter-htmlhint` in Atom's Settings.\n\n[linter]: https://github.com/atom-community/linter \"Linter\"\n[HTMLHint]: https://github.com/yaniswang/HTMLHint \"HTMLHint\"\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-htmlhint.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "apm test"
+  },
+  "version": "1.3.1"
+}

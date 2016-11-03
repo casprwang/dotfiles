@@ -1,0 +1,17 @@
+".source.pug":
+  editor:
+    increaseIndentPattern: '''
+      (?x)
+            ^\\s*(  # start with any whitespace
+              ([\\w#.-]+(\\(.*?\\))?  # first tag
+               (:\\s*[\\w#.-]+(\\(.*?\\))?)*  # additional tags
+               \\.?$)  # end tag with . or end of line
+              |(:[a-z]\\w*($|\\())  # filters
+              |(//-?$)  # multiline comments
+              |(-\\s+(if|else|while)(\\s+|$))  # embedded js control flow
+              |((for|if|else if|else|each|until|while|unless|case
+                 |when|block|append|prepend)(\\s+|$))  # jade block first-class
+            )
+    '''
+    decreaseIndentPattern: "^\\s*(- )?(else)\\b.*$"
+    commentStart: "//- "

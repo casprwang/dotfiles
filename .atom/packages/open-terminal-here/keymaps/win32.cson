@@ -1,0 +1,3 @@
+'.platform-win32 atom-workspace':
+  'ctrl-alt-t': 'open-terminal-here:open'
+  'ctrl-alt-shift-t': 'open-terminal-here:open-root'

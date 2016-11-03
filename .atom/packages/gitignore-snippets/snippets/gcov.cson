@@ -1,0 +1,10 @@
+"*":
+  "gcov":
+    prefix: "gig-gcov"
+    body: """
+          # gcc coverage testing tool files
+
+          *.gcno
+          *.gcda
+          *.gcov
+          """

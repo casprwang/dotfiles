@@ -1,0 +1,21 @@
+@import 'ui-variables';
+
+atom-text-editor::shadow {
+	.jshint-line {
+		background-color: fade(@background-color-error, 20%);
+	}
+
+	.jshint-errors {
+		text-align: left;
+	}
+
+	.gutter {
+		.jshint-line-number {
+			color: @text-color-error !important;
+			opacity: 1;
+			&:hover {
+				background-color: @background-color-highlight;
+			}
+		}
+	}
+}

@@ -1,0 +1,57 @@
+atom-overlay.autocomplete-plus {
+    z-index: 100;
+}
+autocomplete-suggestion-list {
+    background: @app-background-color;
+    margin-left: auto !important; // Need to override inline style
+    z-index: 999;
+    .z-depth-2;
+
+    &.select-list.popover-list {
+        background: @app-background-color;
+        max-width: 40rem;
+        border-radius: 0.125rem;
+
+        .suggestion-description {
+            background: darken(@app-background-color, 2.5%);
+
+            span, a {
+                font-size: 0.8rem;
+            }
+            a {
+                color: @base-color;
+            }
+        }
+        .suggestion-list-scroller {
+            background: none;
+
+            ol li {
+                background: none;
+                position: relative;
+
+                &::before {
+                    display: none;
+                }
+                &.selected {
+                    background: @base-color;
+                    color: @accent-text-color;
+
+                    .word-container span {
+                        color: @accent-text-color;
+                    }
+
+                    .left-label {
+                        color: darken(@accent-text-color, 15%);
+                    }
+
+                    .icon-container {
+                        i.icon {
+                            background: @accent-text-color;
+                            color: @base-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

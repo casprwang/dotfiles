@@ -1,0 +1,7 @@
+"*":
+  "notepadpp":
+    prefix: "gig-notepadpp"
+    body: """
+          # Notepad++ backups #
+          *.bak
+          """

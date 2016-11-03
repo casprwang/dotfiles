@@ -1,0 +1,352 @@
+@import 'ui-variables';
+
+@atom-ternjs-padding: 20px;
+@atom-ternjs-margin: 20px;
+@atom-ternjs-height: 180px;
+
+atom-ternjs-reference > div > div,
+atom-ternjs-rename > div > div {
+
+  max-height: @atom-ternjs-height;
+  overflow-y: auto;
+}
+
+atom-ternjs-rename {
+
+  > div {
+
+    padding: 0 0 @atom-ternjs-padding @atom-ternjs-padding;
+  }
+
+  atom-text-editor {
+
+    max-width: 30%;
+  }
+
+  .mt {
+
+    margin-top: 10px;
+  }
+}
+
+atom-ternjs-reference,
+atom-ternjs-rename,
+atom-ternjs-config {
+
+  > div {
+
+    position: relative;
+  }
+}
+
+atom-ternjs-reference {
+
+  > div {
+
+    > div {
+
+      padding: 0 @atom-ternjs-padding @atom-ternjs-padding;
+    }
+  }
+
+  ul {
+
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+
+    cursor: pointer;
+    padding: 6px 0;
+
+    &:hover {
+
+      background: rgba(100, 100, 100, 0.3);
+    }
+  }
+
+  h3 {
+
+    margin: 0;
+
+    > span {
+
+      display: block;
+      float: left;
+
+      &:first-child {
+
+        width: 70%;
+      }
+
+      &:nth-child(2) {
+
+        width: 30%;
+        text-align: right;
+      }
+    }
+  }
+
+  .clear {
+
+    clear: left;
+  }
+
+  strong {
+
+    color: @text-color-info;
+  }
+
+  .darken {
+
+    color: darken(@text-color, 20%);
+  }
+}
+
+.atom-ternjs-documentation,
+.atom-ternjs-type {
+
+  max-width: 1000px;
+  background: @overlay-background-color;
+  color: @text-color-highlight;
+  border-radius: @component-border-radius;
+
+  h3,
+  p,
+  a {
+
+    word-break: break-word;
+  }
+}
+
+.atom-ternjs-documentation {
+
+  border: 10px solid @base-border-color;
+}
+
+.atom-ternjs-type {
+
+  border: 1px solid @base-border-color;
+}
+
+atom-ternjs-type,
+atom-ternjs-documentation {
+
+  > div {
+
+    max-height: calc(100vh / 3);
+    overflow-y: auto;
+  }
+}
+
+atom-ternjs-documentation,
+atom-ternjs-type {
+
+  > div:not(:empty) {
+
+    padding: 5px 20px;
+  }
+}
+
+atom-ternjs-type {
+
+  color: @text-color;
+
+  .doc-param-first,
+  .storage.type {
+
+    display: inline-block;
+  }
+
+  .doc-param-first,
+  .doc-return {
+
+    margin-top: 10px;
+  }
+
+  .current-param {
+
+    font-weight: 500;
+  }
+}
+
+atom-text-editor .scroll-view,
+atom-text-editor::shadow .scroll-view {
+
+  .source.js {
+
+    .function:not(.meta):not(.type),
+    .class .name,
+    .support,
+    .constant.other,
+    .object:not(.delimiter),
+    .variable {
+
+      &.atom-ternjs-hover {
+
+        border-bottom: 1px solid @background-color-warning;
+      }
+    }
+  }
+
+  .atom-ternjs-definition-marker {
+
+    div {
+
+      transition: opacity 0.75s ease;
+      opacity: 0;
+      background: @background-color-selected;
+      border-bottom: 4px solid @background-color-warning;
+    }
+
+    &.active {
+
+      div {
+
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.atom-ternjs-reference-close,
+.atom-ternjs-rename-close {
+
+  margin: @atom-ternjs-padding;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.atom-ternjs-config-close {
+
+  margin: 20px 0 60px;
+}
+
+.atom-ternjs-config-panel {
+
+  max-width: 1000px;
+  overflow-y: auto;
+  padding: @atom-ternjs-padding;
+}
+
+.atom-ternjs-config {
+
+  h1 {
+
+    margin-bottom: 30px;
+  }
+
+  .content {
+
+    > h2 {
+
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  section {
+
+    padding-bottom: 20px;
+  }
+
+  atom-text-editor {
+
+    width: calc(~"100% - 60px");
+  }
+
+  button {
+
+    + button {
+
+      margin-left: 10px;
+    }
+  }
+
+  .add,
+  .sub {
+
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .add {
+
+    right: 0;
+  }
+
+  .sub {
+
+    right: 30px;
+  }
+
+  .input-wrapper {
+
+    position: relative;
+  }
+
+  .input-wrapper {
+
+    span {
+
+      font-size: 12px;
+    }
+
+    &:first-of-type {
+
+      .sub {
+
+        display: none;
+      }
+    }
+
+    + .input-wrapper {
+
+      margin-top: 10px;
+    }
+  }
+
+  .libs,
+  .ecmaVersion,
+  .plugins {
+
+    span {
+
+      margin-right: 10px;
+    }
+  }
+
+  .libs,
+  .ecmaVersion {
+
+    .input-wrapper {
+
+      display: inline-block;
+
+      + .input-wrapper {
+
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .plugins {
+
+    .input-wrapper {
+
+      margin-bottom: 5px;
+    }
+  }
+
+  .input-wrapper:not(:last-of-type) {
+
+    .add {
+
+      display: none;
+    }
+  }
+}

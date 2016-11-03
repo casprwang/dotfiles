@@ -1,0 +1,7 @@
+"*":
+  "elisp":
+    prefix: "gig-elisp"
+    body: """
+          # Compiled
+          *.elc
+          """

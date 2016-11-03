@@ -1,0 +1,32 @@
+# Keybindings require three things to be fully defined: A selector that is
+# matched against the focused element, the keystroke and the command to
+# execute.
+#
+# Below is a basic keybinding which registers on all platforms by applying to
+# the root workspace element.
+
+# For more detailed documentation see
+# https://atom.io/docs/latest/advanced/keymaps
+'.platform-darwin atom-text-editor':
+  'ctrl-alt-d': 'atom-ternjs:definition'
+  'ctrl-alt-c': 'atom-ternjs:rename'
+  'ctrl-shift-r': 'atom-ternjs:references'
+  'ctrl-alt-z': 'atom-ternjs:markerCheckpointBack'
+  'ctrl-alt-space': 'atom-ternjs:startCompletion'
+  'alt-o': 'atom-ternjs:documentation'
+
+'.platform-linux atom-text-editor':
+  'ctrl-alt-shift-d': 'atom-ternjs:definition'
+  'ctrl-alt-shift-c': 'atom-ternjs:rename'
+  'ctrl-alt-shift-e': 'atom-ternjs:references'
+  'ctrl-alt-shift-z': 'atom-ternjs:markerCheckpointBack'
+  'ctrl-alt-space': 'atom-ternjs:startCompletion'
+  'alt-o': 'atom-ternjs:documentation'
+
+'.platform-windows atom-text-editor':
+  'ctrl-alt-d': 'atom-ternjs:definition'
+  'ctrl-alt-c': 'atom-ternjs:rename'
+  'ctrl-shift-e': 'atom-ternjs:references'
+  'ctrl-alt-z': 'atom-ternjs:markerCheckpointBack'
+  'ctrl-alt-space': 'atom-ternjs:startCompletion'
+  'alt-o': 'atom-ternjs:documentation'

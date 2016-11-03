@@ -1,0 +1,13 @@
+".source.js":
+  "console.dir":
+    "prefix": "cdir"
+    "body": "console.dir(${1:obj});"
+  "console.error":
+    "prefix": "cerror"
+    "body": "console.error(${1:obj});"
+  "console.warn":
+    "prefix": "cwarn"
+    "body": "console.warn(${1:obj});"
+  "console.log":
+    "prefix": "clog"
+    "body": "console.log(${1:obj});"

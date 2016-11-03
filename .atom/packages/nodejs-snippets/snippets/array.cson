@@ -1,0 +1,29 @@
+".source.js":
+  "array.filter":
+    "prefix": "filter"
+    "body": """
+    ${1:myArray}.filter(${2:elem} => {
+    \t${0:// body...}
+    });
+    """
+  "array.map":
+    "prefix": "map"
+    "body": """
+    ${1:myArray}.map( ${2:elem} => {
+    \t${0:// body...}
+    });
+    """
+  "array.reduce":
+    "prefix": "reduce"
+    "body": """
+    ${1:myArray}.reduce((${2:previous}, ${3:elem}) => {
+    \t${0:// body...}
+    });
+    """
+  "array.forEach":
+    "prefix": "foreach"
+    "body": """
+    ${1:myArray}.forEach(${2:elem} => {
+    \t${0:// body...}
+    });
+    """

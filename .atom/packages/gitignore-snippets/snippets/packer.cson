@@ -1,0 +1,10 @@
+"*":
+  "packer":
+    prefix: "gig-packer"
+    body: """
+          # Cache objects
+          packer_cache/
+
+          # For built boxes
+          *.box
+          """

@@ -1,0 +1,67 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-60661-1ymy0jg/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-60661-1ymy0jg/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-60661-1ymy0jg/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116918-60661-1rupybd"
+    ]
+  ],
+  "_from": "../d-116918-60661-1ymy0jg/package.tgz",
+  "_id": "open-terminal-here@2.1.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/open-terminal-here",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-60661-1ymy0jg/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-60661-1ymy0jg/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-60661-1ymy0jg/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116918-60661-1ymy0jg/package.tgz",
+  "_shasum": "19ec137e63801d9e9c3f3440a02e02bd6ae55af6",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116918-60661-1ymy0jg/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116918-60661-1rupybd",
+  "activationCommands": {
+    ".tree-view .selected, atom-text-editor, atom-workspace": [
+      "open-terminal-here:open"
+    ],
+    "atom-workspace": [
+      "open-terminal-here:open-root"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/blueimp/atom-open-terminal-here/issues"
+  },
+  "dependencies": {},
+  "description": "Open the Terminal (OSX, Linux) or Command Prompt (Windows) in the given directory via context menu or keyboard shortcut.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "homepage": "https://github.com/blueimp/atom-open-terminal-here#readme",
+  "license": "MIT",
+  "name": "open-terminal-here",
+  "optionalDependencies": {},
+  "readme": "# Open Terminal Here\n\nOpen the Terminal (Mac OS X, Linux) or Command Prompt (Windows)\nin the given directory via context menu or keyboard shortcut.\n\n![Screenshot of the \"Open Terminal Here\" menu item displayed][1]\n\n## Keyboard shortcuts\n\n### Open the Terminal in the current directory\n\nPlatform | Keyboard shortcut\n-------- | -----------------\nMac OS X | `ctrl-cmd-t`\nWindows  | `ctrl-alt-t`\nLinux    | `ctrl-alt-t`\n\n### Open the Terminal in the project directory\n\nPlatform | Keyboard shortcut\n-------- | -----------------\nMac OS X | `alt-cmd-t`\nWindows  | `ctrl-alt-shift-t`\nLinux    | `ctrl-alt-shift-t`\n\n## FAQ\n\n### How to open a new tab instead of a new window?\n\n#### Mac OS X\n\n1. Open [Automator][2] and select `Application` as new document.\n2. From the Library, add `Run Applescript` as Automator action.\n3. Replace the sample AppleScript code with the code from\n   [terminal-tab.scpt][3].\n4. Save the Automator app as `TerminalTab.app` to your Applications folder.\n5. In the `open-terminal-here` settings, set `Command` to\n   `open -a TerminalTab.app \"$PWD\"`.\n\n#### Ubuntu Linux\n\n1. Install [xdotool][4]:  \n   `sudo apt-get install -y xdotool`\n2. Download [terminal-tab.sh][5] and make it executable:  \n   `chmod +x ./terminal-tab.sh`\n3. Move the script to a directory in your path:  \n   `sudo mv ./terminal-tab.sh /usr/local/bin/terminal-tab`\n4. In the `open-terminal-here` settings, set `Command` to\n   `terminal-tab`.\n\n[1]: https://raw.githubusercontent.com/blueimp/atom-open-terminal-here/master/screenshot.png\n[2]: https://en.wikipedia.org/wiki/Automator_(software)\n[3]: https://github.com/blueimp/atom-open-terminal-here/blob/master/terminal-tab.scpt\n[4]: http://www.semicomplete.com/projects/xdotool/\n[5]: https://raw.githubusercontent.com/blueimp/atom-open-terminal-here/master/terminal-tab.sh\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blueimp/atom-open-terminal-here.git"
+  },
+  "version": "2.1.4"
+}

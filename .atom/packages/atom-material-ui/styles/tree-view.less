@@ -1,0 +1,185 @@
+.tree-view {
+    font-size: 0.8rem;
+    overflow: hidden;
+
+    .project-root {
+        padding: 0;
+        transform: translate3d(0,0,0);
+    }
+    .project-root {
+        > .header {
+            line-height: 3rem;
+            height: 3rem;
+            width: 100%;
+            padding: 0 0.5rem;
+            z-index: 1000;
+
+            span, &::before {
+                line-height: 3rem;
+            }
+        }
+    }
+    .name.icon {
+        &.icon-repo::before {
+            margin-right: 0.75rem;
+        }
+        &::before {
+            font-size: 1rem;
+            margin: 0 1.5rem 0 0.5rem;
+        }
+    }
+    li {
+        padding: 0 0.5rem;
+    }
+    li.directory.selected > .list-item {
+        position: relative;
+
+        &::after {
+            .selected-item;
+        }
+    }
+    li.status-ignored {
+        color: fade(@text-color, 30%);
+    }
+    &:focus {
+        li.directory.selected {
+            > .list-item {
+                color: @accent-text-color;
+
+                &::after {
+                    background-color: @base-color;
+                }
+            }
+            &.status-modified > .list-item {
+                color: darken(@md-amber, 30%);
+
+                &::after {
+                    background-color: lighten(desaturate(@md-amber, 25%), 5%);
+                }
+            }
+            &.status-added > .list-item {
+                color: #FFF;
+
+                &::after {
+                    background-color: @md-light-green;
+                }
+            }
+            &.status-renamed > .list-item {
+                color: #FFF;
+
+                &::after {
+                    background-color: @md-blue;
+                }
+            }
+            &.status-removed > .list-item {
+                color: #FFF;
+
+                &::after {
+                    background-color: @md-red;
+                }
+            }
+        }
+        li:not(.list-nested-item), li.list-nested-item > .list-item {
+            &.selected {
+                color: @accent-text-color;
+
+                &::before {
+                    background-color: @base-color;
+                }
+                .name.icon::before {
+                    color: currentColor;
+                }
+                &.status-modified {
+                    color: darken(@md-amber, 30%);
+
+                    &::before {
+                        background-color: lighten(desaturate(@md-amber, 25%), 5%);
+                    }
+                }
+                &.status-added {
+                    color: #FFF;
+
+                    &::before {
+                        background-color: @md-light-green;
+                    }
+                }
+                &.status-renamed {
+                    color: #FFF;
+
+                    &::before {
+                        background-color: @md-blue;
+                    }
+                }
+                &.status-removed {
+                    color: #FFF;
+
+                    &::before {
+                        background-color: @md-red;
+                    }
+                }
+            }
+        }
+    }
+    &.has-collapsable-children .list-nested-item > .list-item::before {
+        z-index: 10;
+    }
+    .panel-contrast & {
+        background-color: darken(@app-background-color, 2%);
+    }
+    .compact-tree-view & {
+        li:not(.list-nested-item), li.list-nested-item > .list-item {
+            line-height: 1.75rem;
+        }
+        .name.icon::before {
+            margin: 0 0.5rem 0 0;
+        }
+    }
+}
+.tree-view-scroller {
+    transform: translate3d(0, 0, 0);
+    position: relative;
+}
+.compact-tab-bar .tree-view-resizer > .tabBlender {
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+.tabBlender {
+    display: none;
+    position: relative;
+    background: @base-color;
+    color: @accent-text-color;
+    text-transform: uppercase;
+    height: 3rem;
+    line-height: 3rem;
+    pointer-events: none;
+    z-index: 100;
+
+    span::after {
+        padding: 0 1rem;
+        content: 'Projects';
+    }
+    .panel-shadows & {
+        .z-depth-1;
+    }
+    .panel-contrast & {
+        background: darken(@base-color, 1.5%);
+    }
+    .compact-tab-bar & {
+        line-height: 2.5rem;
+        height: 2.5rem;
+    }
+    .blend-tree-view.tinted-tab-bar & {
+        display: block;
+    }
+}
+.tree-view-resizer {
+    .tree-view-resize-handle {
+        width: 0.25rem;
+    }
+    &[data-show-on-right-side='false'] .tree-view-resize-handle {
+        right: -0.125rem;
+    }
+    &[data-show-on-right-side='true'] .tree-view-resize-handle {
+        left: 0;
+    }
+}

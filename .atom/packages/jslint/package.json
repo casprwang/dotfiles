@@ -1,0 +1,67 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-42017-d1fbyc/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-42017-d1fbyc/package.tgz",
+        "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-42017-d1fbyc/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-42017-1szewk4"
+    ]
+  ],
+  "_from": "../d-116920-42017-d1fbyc/package.tgz",
+  "_id": "jslint@1.5.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/jslint",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-42017-d1fbyc/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-42017-d1fbyc/package.tgz",
+    "spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-42017-d1fbyc/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116920-42017-d1fbyc/package.tgz",
+  "_shasum": "e8c165b599ce88afc2760b48cd967673c469836e",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/d-116920-42017-d1fbyc/package.tgz",
+  "_where": "/private/var/folders/86/4m73wmd91gn4xdp7wy3rbjvh0000gn/T/apm-install-dir-116920-42017-1szewk4",
+  "author": {
+    "name": "tcarlsen"
+  },
+  "bugs": {
+    "url": "https://github.com/tcarlsen/atom-jslint/issues"
+  },
+  "dependencies": {
+    "atom-message-panel": "1.2.4",
+    "jslint": "^0.9.5"
+  },
+  "description": "JSLint error reports for your Atom editor",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.174.0"
+  },
+  "homepage": "https://github.com/tcarlsen/atom-jslint#readme",
+  "license": "MIT",
+  "main": "lib/main",
+  "name": "jslint",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "# JSLint\n\n![](https://img.shields.io/apm/v/jslint.svg)\n![](https://img.shields.io/apm/dm/jslint.svg)\n![](https://img.shields.io/apm/l/jslint.svg)\n\n> [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.\n\n![preview](https://cloud.githubusercontent.com/assets/145288/5823960/41af30f8-a0e1-11e4-814e-3f97c7a05599.png)\n\n## Installation\n\nYou can install this plugin via the Packages manager in Atom itself or manually through the terminal\n\n```bash\n$ apm install jslint\n```\n\n## Usage\n\nJSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `ctrl-alt-l`.\n\nIf you like you can even set it to validate while typing in the package settings.\n\n## Configuration\nJSlint options can be configured via `.jslintrc` config files, located in\n\n * your home directory *(global options)* and\n * your project root directory *(project specific options)*.\n\nThe `.jslintrc` config files are JSON files see [`.jslintrc-example`](.jslintrc-example) for an example.\nSpecifications of the different options can be found in the [JSlint documentation](http://www.jslint.com/help.html).\n\n\n## Features\n\n * Validate on keymap\n * Validate on command\n * Validate on save *(toggle in settings)*\n * Validate on change *(toggle in settings)*\n * Option to hide the error panel if no errors were found *(toggle in settings)*\n * Option to use `fold mode` by default *(toggle in settings)*\n * Choose between different JSLint versions *(select in settings)*\n * Supports `.jslintrc` config files *(project located file will overwrite the global file)*\n * ES6 support *(you need to select es6 in the JSLint version dropdown and reload Atom)*\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT) © tcarlsen\n",
+  "readmeFilename": "README.MD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcarlsen/atom-jslint.git"
+  },
+  "version": "1.5.1"
+}

@@ -1,0 +1,68 @@
+.find-and-replace, .project-find {
+    padding: 1rem;
+
+    .header {
+        background-color: darken(@app-background-color, 1.5%);
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+        margin: -1rem -1rem 0.5rem;
+    }
+    .find-meta-container {
+        line-height: 2.5rem;
+        padding: 0 0.5rem;
+    }
+    .btn-group {
+        margin: 0.25rem 0;
+        margin-left: 1rem;
+
+        + .btn-group {
+            margin-left: 1rem;
+        }
+        &.btn-toggle.btn-group-options {
+            padding-top: 0.125rem;
+
+            .btn {
+                padding: 0;
+                max-width: 2rem;
+                max-height: 2rem;
+                text-align: center;
+                border-radius: 50%;
+                box-shadow: none;
+                background-color: @app-background-color;
+
+                + .btn {
+                    margin-left: 0.25rem;
+                }
+                &.selected {
+                    background-color: @base-color;
+                }
+            }
+        }
+        .btn, button, button[class] {
+            box-shadow: none;
+
+            &:hover {
+                .z-depth-1;
+            }
+        }
+    }
+}
+.match.highlight-info {
+    background-color: @base-color;
+    color: @accent-text-color;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.125rem;
+    border: none;
+    font-weight: 600;
+
+    .selected & {
+        box-shadow: none;
+    }
+}
+.preview-pane {
+    padding: 3rem;
+
+    .results-view {
+        margin: 0 -3rem -3rem;
+    }
+}

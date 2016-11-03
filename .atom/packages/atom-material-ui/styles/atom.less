@@ -1,0 +1,52 @@
+@import "ui-variables";
+
+:root {
+    font-size: 16px;
+}
+* {
+    box-sizing: border-box;
+}
+atom-workspace {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background-color: @app-background-color;
+    color: @text-color;
+    font-size: 0.8rem;
+}
+atom-workspace-axis {
+    overflow: hidden;
+}
+background-tips {
+    color: fade(@text-color, 30%);
+}
+status-bar {
+    min-height: 1.5rem;
+    line-height: 1.25rem;
+
+    .status-bar-left {
+        padding-left: 0.5rem;
+    }
+    .status-bar-right {
+        padding-right: 0.5rem;
+
+        > *, .inline-block {
+            margin: 0 0.25rem;
+            display: inline-block;
+        }
+    }
+    .panel-contrast & {
+        background-color: darken(@app-background-color, 2%);
+    }
+}
+kbd {
+    background: fade(@text-color, 50%);
+    color: @app-background-color;
+    letter-spacing: 0.125rem;
+
+    .selected & {
+        background: fade(@accent-text-color, 70%);
+        color: @base-color;
+    }
+    + kbd {
+        margin-left: 0.5rem;
+    }
+}
