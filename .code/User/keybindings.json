@@ -1,0 +1,15 @@
+    // Place your key bindings in this file to overwrite the defaults
+[
+{ "key": "ctrl+,",            "command": "editor.action.triggerSuggest",
+                                     "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" },
+{ "key": "ctrl+cmd+2",          "command": "workbench.view.git" },
+{ "key": "ctrl+cmd+1",           "command": "workbench.view.explorer" },
+
+
+{ "key": "ctrl+i",                "command": "extension.dash.specific",
+                                     "when": "editorTextFocus" },
+{ "key": "ctrl+alt+i",            "command": "extension.dash.all",
+                                     "when": "editorTextFocus" }
+{ "key": "cmd+l",                 "command": "expandLineSelection",
+                                     "when": "editorTextFocus" },
+]
