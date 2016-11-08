@@ -2,6 +2,9 @@
   "atom-beautify":
     general:
       _analyticsUserId: "52665e2f-189f-4791-840f-5d7b407dacc6"
+  "atom-html-preview":
+    scrollToCursor: true
+    triggerOnSave: true
   "atom-material-ui":
     tabs:
       compactTabs: true
@@ -18,7 +21,7 @@
   "autocomplete-python":
     showTooltips: true
   "color-picker":
-    automaticReplace: true
+    abbreviateValues: true
   "console-log": {}
   core:
     automaticallyUpdate: false
@@ -43,7 +46,6 @@
       "language-gfm"
     ]
     packagesWithKeymapsDisabled: [
-      "emmet"
       "script"
       "language-javascript"
       "git-plus"
@@ -51,6 +53,7 @@
       "open-terminal-here"
       "project-manager"
       "dash"
+      "atom-html-preview"
     ]
     telemetryConsent: "no"
     themes: [
@@ -60,6 +63,8 @@
   editor:
     fontSize: 13
     scrollPastEnd: true
+  emmet:
+    useEmmetComments: true
   "exception-reporting":
     userId: "6678e98e-4b34-c899-1c6e-8274cdaafeef"
   "git-plus":
@@ -85,6 +90,8 @@
   "linter-jshint":
     lintInlineJavaScript: true
   "linter-pep8": {}
+  "markdown-writer":
+    siteEngine: "jekyll"
   minimap: {}
   "open-terminal-here":
     command: "open -a TerminalTab.app \"$PWD\""

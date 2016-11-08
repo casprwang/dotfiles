@@ -41,6 +41,8 @@
   'cmd-o': 'advanced-open-file:toggle'
   # 'cmd-l': 'pane:show-next-item'
   'cmd-L': 'console-log:add'
+  'cmd-shift-v': 'atom-html-preview:toggle'
+  'cmd-b': 'tree-view:toggle'
 
 
 #####script
@@ -208,10 +210,12 @@
   'cmd-ctrl-o': 'open-on-github:repository'
   'cmd-N': 'application:new-window'
   'ctrl-i': 'dash:shortcut'
+  'cmd-shift-v': 'atom-html-preview:toggle'
 
 
 
 
+  'cmd-b': 'tree-view:toggle'
 
 #
 # You can find more information about keymaps in these guides:
