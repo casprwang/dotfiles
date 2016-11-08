@@ -12,4 +12,7 @@
                                      "when": "editorTextFocus" }
 { "key": "cmd+l",                 "command": "expandLineSelection",
                                      "when": "editorTextFocus" },
+{ "key": "ctrl+cmd+5",           "command": "workbench.view.extensions" },
+// { "key": "cmd+shift+t",           "command": "workbench.files.action.reopenClosedFile" },
+{ "key": "cmd+9",           "command": "workbench.files.action.collapseExplorerFolders" },
 ]

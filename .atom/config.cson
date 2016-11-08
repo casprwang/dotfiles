@@ -91,7 +91,10 @@
     lintInlineJavaScript: true
   "linter-pep8": {}
   "markdown-writer":
+    fileExtension: ".md"
     siteEngine: "jekyll"
+    siteLocalDir: "/Users/wangsong/jekyll-gulp-sass-browser-sync"
+    sitePostsDir: "_posts"
   minimap: {}
   "open-terminal-here":
     command: "open -a TerminalTab.app \"$PWD\""
