@@ -1,5 +1,17 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "files.autoSave": "afterDelay",
-    "git.confirmSync": false
-}
+    "files.autoSave": "off",
+    "git.confirmSync": false,
+    "window.zoomLevel": 0,
+    "openInGitHub.defaultBranch": "dev", // Set default branch, default: master
+     "editor.tabSize": 2,
+    "emmet.syntaxProfiles": { "javascript": "html" },
+    "emmet.syntaxProfiles": { "javascript": "jsx" },
+    "typescript.check.tscVersion": false,
+    // "amVim.bindCtrlCommands": false,
+    "editor.cursorStyle": "block",
+    "vim.scroll": 10,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.easymotion": true,
+  }

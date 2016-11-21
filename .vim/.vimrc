@@ -1,3 +1,4 @@
+syntax on
 " 1. Mapping
 let mapleader = "\<Space>"
 nnoremap <leader>w :wa<CR>
@@ -63,7 +64,6 @@ if &t_Co > 2 || has("gui_running")
     syntax on
 endif
 
-
 " Speed up CtrlP	
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*.a,*.o
@@ -102,7 +102,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdTree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/syntastic'

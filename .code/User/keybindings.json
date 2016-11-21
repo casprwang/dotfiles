@@ -2,17 +2,46 @@
 [
 { "key": "ctrl+,",            "command": "editor.action.triggerSuggest",
                                      "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" },
-{ "key": "ctrl+cmd+2",          "command": "workbench.view.git" },
-{ "key": "ctrl+cmd+1",           "command": "workbench.view.explorer" },
+{ "key": "ctrl+shift+2",          "command": "workbench.view.git" },
+{ "key": "ctrl+shift+1",           "command": "workbench.view.explorer" },
 
 
 { "key": "ctrl+i",                "command": "extension.dash.specific",
                                      "when": "editorTextFocus" },
-{ "key": "ctrl+alt+i",            "command": "extension.dash.all",
                                      "when": "editorTextFocus" }
 { "key": "cmd+l",                 "command": "expandLineSelection",
                                      "when": "editorTextFocus" },
-{ "key": "ctrl+cmd+5",           "command": "workbench.view.extensions" },
-// { "key": "cmd+shift+t",           "command": "workbench.files.action.reopenClosedFile" },
+{ "key": "ctrl+shift+5",           "command": "workbench.view.extensions" },
+{ "key": "shift+ctrl+4",           "command": "workbench.view.debug" },
+
 { "key": "cmd+9",           "command": "workbench.files.action.collapseExplorerFolders" },
+{ "key": "ctrl+cmd+s",           "command": "workbench.action.git.sync" },
+{ "key": "cmd+k k",           "command": "workbench.action.openGlobalKeybindings" },
+{ "key": "cmd+k `",           "command": "workbench.action.toggleMaximizedPanel" },
+{ "key": "ctrl+shift+3",           "command": "workbench.view.search",
+                                     "when": "!searchViewletVisible" },
+{ "key": "cmd+k p",               "command": "extension.sidePreview",
+                                     "when": "editorTextFocus" },
+{ "key": "ctrl+w",  "command": "editor.action.smartSelect.grow",
+                                     "when": "editorTextFocus" },
+{ "key": "ctrl+shift+w",   "command": "editor.action.smartSelect.shrink",
+                                     "when": "editorTextFocus" },
+{ "key": "cmd+n",           "command": "workbench.action.files.newFile" },
+
+{ "key": "ctrl+m",        "command": "workbench.action.maximizeEditor" },
+
+{ "key": "shift+ctrl+m",        "command": "workbench.action.evenEditorWidths" },
+{ "key": "ctrl+tab",         "command": "workbench.action.nextEditor" },
+{ "key": "ctrl+shift+tab",          "command": "workbench.action.previousEditor" },
+
+{ "key": "ctrl-p",                 "command": "workbench.action.focusSideBar" },
+
+// { "key": "cmd-u",                 "command": "workbench.action.navigateEditorGroup" },
+
+{ "key": "left",        "command": "workbench.action.focusPreviousGroup" },
+{ "key": "right",       "command": "workbench.action.focusNextGroup" },
 ]
+
+
+// - workbench.action.maximizeEditor
+// - workbench.action.cycleEditor

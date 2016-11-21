@@ -1,5 +1,6 @@
+export PATH="$PATH:$HOME/.yarn/bin"
+export VSCODE_TSJS=1
 PATH=$PATH:/usr/local/bin
-
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 # echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
@@ -28,4 +29,10 @@ alias o="open"
 alias n="node"
 alias ip="ipython"
 alias p="python3"
+alias lsa="ls -a"
+alias lsl="ls -lha"
+alias bs="bundle exec jekyll serve"
+alias co="code"
+alias bst="browser-sync start --server --files" 
 source /Users/wangsong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="$PATH:$HOME/.yarn/bin"
