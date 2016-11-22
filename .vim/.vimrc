@@ -149,6 +149,7 @@ set shiftwidth=2
 set shiftround
 " set expandtab
 set hlsearch 
+
 set incsearch 
 set ignorecase
 set smartcase

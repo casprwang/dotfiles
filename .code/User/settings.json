@@ -1,6 +1,7 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "files.autoSave": "off",
+    // "files.autoSave": "off",
+    "files.autoSave": "on",
     "git.confirmSync": false,
     "window.zoomLevel": 0,
     "openInGitHub.defaultBranch": "dev", // Set default branch, default: master
@@ -14,4 +15,17 @@
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.easymotion": true,
-  }
+    "workbench.editor.enablePreview": false,
+    "vim.insertModeKeyBindings": [
+      {
+          "before": ["j", "j"],
+          "after": ["<Esc>"],
+    },
+],
+//     "vim.otherModesKeyBindings": [
+//         {
+//             "before": ["right"],
+//             "after": ["cmd+k" "right"],
+//     }
+// ],
+}
