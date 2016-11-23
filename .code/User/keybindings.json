@@ -2,7 +2,7 @@
 [
 { "key": "ctrl+,",            "command": "editor.action.triggerSuggest",
                                      "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" },
-{ "key": "ctrl+shift+2",          "command": "workbench.view.git" },
+{ "key": "ctrl+shift+3",          "command": "workbench.view.git" },
 { "key": "ctrl+shift+1",           "command": "workbench.view.explorer" },
 
 
@@ -20,7 +20,7 @@
 { "key": "ctrl+cmd+s",           "command": "workbench.action.git.sync" },
 { "key": "cmd+k k",           "command": "workbench.action.openGlobalKeybindings" },
 { "key": "cmd+k `",           "command": "workbench.action.toggleMaximizedPanel" },
-{ "key": "ctrl+shift+3",           "command": "workbench.view.search",
+{ "key": "ctrl+shift+2",           "command": "workbench.view.search",
                                      "when": "!searchViewletVisible" },
 { "key": "cmd+k p",               "command": "extension.sidePreview",
                                      "when": "editorTextFocus" },
@@ -32,18 +32,24 @@
 
 { "key": "ctrl+m",        "command": "workbench.action.maximizeEditor" },
 
-// { "key": "shift+ctrl+m",        "command": "workbench.action.evenEditorWidths" },
-// { "key": "ctrl+tab",         "command": "workbench.action.nextEditor" },
+{ "key": "shift+ctrl+m",        "command": "workbench.action.evenEditorWidths" },
+{ "key": "ctrl+tab",         "command": "workbench.action.nextEditor" },
 { "key": "ctrl+shift+tab",          "command": "workbench.action.previousEditor" },
 
-{ "key": "ctrl-p",                 "command": "workbench.action.focusSideBar" },
+{ "key": "ctrl-p",                 "command": "workbench.action.toggleSidebarVisibility" },
 
 // { "key": "cmd-u",                 "command": "workbench.action.navigateEditorGroup" },
 
-{ "key": "ctrl+n",        "command": "workbench.action.focusPreviousGroup" },
-{ "key": "ctrl+p",           "command": "workbench.action.focusNextGroup" },
+{ "key": "ctrl+w h",        "command": "workbench.action.focusPreviousGroup" },
+{ "key": "ctrl+w l",           "command": "workbench.action.focusNextGroup" },
 // { "key": "left",                 "command": "workbench.action.focusSideBar" },
 { "key": "ctrl+b",                 "command": "workbench.action.toggleSidebarVisibility" },
+// { "key": "alt+h",        "command": "workbench.action.focusPreviousGroup" },
+// { "key": "alt+l",           "command": "workbench.action.focusNextGroup" },
+{ "key": "ctrl+e",                "command": "cursorEnd",
+                                     "when": "editorTextFocus" },
+{ "key": "ctrl+a",                "command": "cursorHome",
+                                     "when": "editorTextFocus" },
 ]
 
 

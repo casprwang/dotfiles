@@ -24,6 +24,7 @@
     abbreviateValues: true
   "console-log": {}
   core:
+    allowPendingPaneItems: false
     automaticallyUpdate: false
     disabledPackages: [
       "node-debugger"
@@ -104,6 +105,8 @@
     enabledForAllJavascriptFiles: true
   "tree-view":
     hideVcsIgnoredFiles: true
+  "vim-mode":
+    useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
 ".basic.html.text":

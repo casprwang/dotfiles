@@ -16,16 +16,21 @@
     "vim.hlsearch": true,
     "vim.easymotion": true,
     "workbench.editor.enablePreview": false,
+    "editor.lineNumbers": "relative",
     "vim.insertModeKeyBindings": [
       {
           "before": ["j", "j"],
           "after": ["<Esc>"],
     },
 ],
-//     "vim.otherModesKeyBindings": [
+    "vim.otherModesKeyBindings": [
+        {
+            "before": ["\n"],
+            "after": ["o", "<Esc>"],
+    },
 //         {
-//             "before": ["right"],
-//             "after": ["cmd+k" "right"],
-//     }
+//             "before": ["left"],
+//             "after": ["<C-h>"],
+//     },
 // ],
 }

@@ -7,6 +7,14 @@ PATH=$PATH:/usr/local/bin
 autoload -U promptinit; promptinit
 prompt pure
 
+gitpush() {
+    git add .
+    git commit -m "$*"
+    git push
+
+}
+alias gpp=gitpush
+
 
 alias vimr="vi .vimrc"
 alias gs="git status"
