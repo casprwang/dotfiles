@@ -50,6 +50,10 @@
                                      "when": "editorTextFocus" },
 { "key": "ctrl+a",                "command": "cursorHome",
                                      "when": "editorTextFocus" },
+{ "key": "shift+cmd+c",               "command": "extension.colorHelper.pick",
+                                     "when": "editorTextFocus" },
+{ "key": "cmd+k t",                 "command": "workbench.action.switchWindow
+" },
 ]
 
 
