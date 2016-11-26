@@ -6,7 +6,7 @@
 check out the
 
 
-#For Installation
+# For Installation
 
 Terminal
 

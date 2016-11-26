@@ -8,13 +8,12 @@
 
 { "key": "ctrl+i",                "command": "extension.dash.specific",
                                      "when": "editorTextFocus" },
-                                     "when": "editorTextFocus" }
 { "key": "cmd+l",                 "command": "expandLineSelection",
                                      "when": "editorTextFocus" },
 { "key": "ctrl+shift+5",           "command": "workbench.view.extensions" },
 { "key": "shift+ctrl+4",           "command": "workbench.view.debug" },
 { "key": "cmd+l",                 "command": "expandLineSelection",
-                                     "when": "editorTextFocus" },
+                                     "when": "editorTextsFocus" },
 
 { "key": "cmd+9",           "command": "workbench.files.action.collapseExplorerFolders" },
 { "key": "ctrl+cmd+s",           "command": "workbench.action.git.sync" },
@@ -36,7 +35,7 @@
 { "key": "ctrl+tab",         "command": "workbench.action.nextEditor" },
 { "key": "ctrl+shift+tab",          "command": "workbench.action.previousEditor" },
 
-{ "key": "ctrl-p",                 "command": "workbench.action.toggleSidebarVisibility" },
+{ "key": "ctrl-p",                 "command": "workbench.action.quickOpen" },
 
 // { "key": "cmd-u",                 "command": "workbench.action.navigateEditorGroup" },
 
@@ -52,8 +51,10 @@
                                      "when": "editorTextFocus" },
 { "key": "shift+cmd+c",               "command": "extension.colorHelper.pick",
                                      "when": "editorTextFocus" },
-{ "key": "cmd+k t",                 "command": "workbench.action.switchWindow
-" },
+{ "key": "cmd+k p",                 "command": "workbench.action.switchWindow" },
+{ "key": "cmd+k w",                 "command": "workbench.action.switchWindow" },
+{ "key": "ctrl+[",                 "command": "workbench.action.focusSideBar" },
+{ "key": "ctrl+]",                 "command": "workbench.action.focusActiveEditorGroup" },
 ]
 
 

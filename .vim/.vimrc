@@ -2,6 +2,8 @@ syntax on
 " 1. Mapping
 let mapleader = "\<Space>"
 nnoremap <leader>w :wa<CR>
+nnoremap <leader>s :wa<CR>
+nnoremap <D-s> :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>

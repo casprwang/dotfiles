@@ -11,26 +11,58 @@
     "typescript.check.tscVersion": false,
     // "amVim.bindCtrlCommands": false,
     "editor.cursorStyle": "block",
-    "vim.scroll": 10,
+    "vim.scroll": 5,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.easymotion": true,
     "workbench.editor.enablePreview": false,
     "editor.lineNumbers": "relative",
+    "vim.scroll": 5,
+    // "terminal.integrated.cursorBlinking": false,
+    "editor.cursorBlinking": "solid",
     "vim.insertModeKeyBindings": [
       {
           "before": ["j", "j"],
-          "after": ["<Esc>"],
+          "after": ["<Esc>", "<Esc>"],
     },
 ],
+
+//     "vim.insertModeKeyBindings": [
+//       {
+//           "before": ["<Esc>"],
+//           "after": ["<Esc>", "<Esc>"],
+//     },
+// ],
+
     "vim.otherModesKeyBindings": [
         {
             "before": ["\n"],
             "after": ["o", "<Esc>"],
     },
 //         {
+    // {
+    //     "before": [ "ctrl+d" ],
+    //     "after": [ "ctrl+d", "M" ]
+    // },
+    // {
+    //     "before": [ "ctrl+u" ],
+    //     "after": [ "ctrl+u", "M" ]
+    // },
 //             "before": ["left"],
 //             "after": ["<C-h>"],
 //     },
-// ],
+],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [ "ctrl+d" ],
+            "after": [ "ctrl+d", "M" ]
+        },
+        {
+            "before": [ "ctrl+u" ],
+            "after": [ "ctrl+u", "M" ]
+        }
+    ],
+
+    "vim.scroll": 5,
+
 }
