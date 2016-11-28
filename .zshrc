@@ -30,7 +30,9 @@ alias gpp=gitpush
 
 
 alias vimr="nvim ~/.config/nvim/init.vim"
-alias dot="cd ~/dotfiles"
+alias cdo="cd ~/dotfiles"
+alias cno="cd ~/dev/node"
+alias czh="v ~/.zshrc"
 alias gs="git status"
 alias ga="git add ."
 alias gch="git checkout"
