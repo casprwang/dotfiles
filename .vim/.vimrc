@@ -1,3 +1,5 @@
+set background=dark
+" colorscheme material-theme
 syntax on
 " 1. Mapping
 let mapleader = "\<Space>"
@@ -7,11 +9,11 @@ nnoremap <D-s> :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>
-nnoremap <leader>h <C-w>h
-nnoremap <leader>l <C-w>l
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>c <C-w>c
+nnoremap <C-w>h <C-w>h
+nnoremap <C-w>l <C-w>l
+nnoremap <C-w>j <C-w>j
+nnoremap <C-w>k <C-w>k
+nnoremap <C-w>c <C-w>c
 nnoremap <leader>e :MRU<CR>
 nnoremap <C-w>j <C-w>s       
 nnoremap <C-w>l <C-w>v
@@ -28,9 +30,7 @@ nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 
-syntax on
-set background=dark
-colorscheme material-theme
+" colorscheme material-theme
 
 " shorten the escape time
 set timeoutlen=1000 ttimeoutlen=0
@@ -51,20 +51,20 @@ let g:ctrlp_map = '<c-p>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 2.Interface
-syntax on 
 set relativenumber 
 set t_Co=256
 set laststatus =2
 
+syntax on
 " for mustang colorscheme
-if &t_Co >= 256 || has("gui_running")
-    colorscheme mustang
-endif
-
-if &t_Co > 2 || has("gui_running")
-    " switch syntax highlighting on, when the terminal has colors
-    syntax on
-endif
+" if &t_Co >= 256 || has("gui_running")
+"     colorscheme mustang
+" endif
+colorscheme mustang
+" if &t_Co > 2 || has("gui_running")
+"     " switch syntax highlighting on, when the terminal has colors
+"     syntax on
+" endif
 
 " Speed up CtrlP	
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -155,7 +155,7 @@ set hlsearch
 set incsearch 
 set ignorecase
 set smartcase
-" set autoindent
+set autoindent
 set showmatch
 set smarttab
 set copyindent 

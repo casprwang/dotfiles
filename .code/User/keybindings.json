@@ -15,6 +15,7 @@
 { "key": "cmd+l",                 "command": "expandLineSelection",
                                      "when": "editorTextsFocus" },
 
+{ "key": "ctrl+9",           "command": "workbench.files.action.collapseExplorerFolders" },
 { "key": "cmd+9",           "command": "workbench.files.action.collapseExplorerFolders" },
 { "key": "ctrl+cmd+s",           "command": "workbench.action.git.sync" },
 { "key": "cmd+k k",           "command": "workbench.action.openGlobalKeybindings" },

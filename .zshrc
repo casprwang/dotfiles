@@ -4,6 +4,16 @@ PATH=$PATH:/usr/local/bin
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 # echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
+
+# osascript <<END
+#   tell application "Finder"
+#     if exists application process "$1" then
+#       set visible of application process "$1" to false
+#     end if
+#   end tell
+# END
+
+
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -16,7 +26,10 @@ gitpush() {
 alias gpp=gitpush
 
 
-alias vimr="vi .vimrc"
+
+
+
+alias vimr="vim .vimrc"
 alias gs="git status"
 alias ga="git add ."
 alias gch="git checkout"
@@ -30,8 +43,8 @@ alias tmr="vim .tmux.conf"
 alias e="exit"
 alias c="clear"
 alias ta="tmux a"
-alias v="vi"
-alias vim="vi"
+alias v="vim"
+alias vim="vim"
 alias py="python3"
 alias o="open"
 alias n="node"
