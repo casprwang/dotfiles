@@ -1,4 +1,18 @@
 let mapleader="\<Space>"
+filetype plugin indent on
+
+" highlight cursor 
+" set cursorline
+
+" show absolute line numbers in insert mode
+autocmd InsertEnter * set number norelativenumber
+autocmd InsertLeave * set relativenumber
+
+
+
+" show autocomplete for commands
+set wildmenu
+
 nnoremap <leader>w :wa!<CR>
 nnoremap <leader>s :wa!<CR>
 nnoremap <D-s> :wa<CR>
@@ -13,7 +27,8 @@ nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>y :syn on<CR>
 nmap <CR> o<Esc>
-
+" don't be compatible :)
+set nocompatible
 
 
 " core setting
@@ -44,8 +59,6 @@ set undodir=~/.nvim/undo//
 
 
 
-" don't be compatible :)
-set nocompatible
 
 
 
@@ -60,6 +73,8 @@ call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mhartington/oceanic-next'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'kien/ctrlp.vim'
@@ -78,9 +93,53 @@ filetype on
 " Mapping for Plugins
 map <leader>o :NERDTreeToggle<CR>
 
+" color shit ===================
+" set term=xterm
+" set t_Co=256
+" color scheme
+" syntax enable
+" colorscheme mustang
+" colorscheme kalisi
+" set background=dark
+" let &t_AB="\e[48;5;%dm"
+" let &t_AF="\e[38;5;%dm"
+" set t_Co=256
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+if (has("termguicolors"))
+ set termguicolors
+endif
 
+" Theme
+syntax enable
+colorscheme OceanicNext
+" =========================
 
+" =================Nerd Comment
+" ============================
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
 
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
 
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" =============================
+"
+
+" nnoremap <leader>c :call NERDComment(0,"toggle")<CR>
+" vnoremap <leader>c :call NERDComment(0,"toggle")<CR>
 
