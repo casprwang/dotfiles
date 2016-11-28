@@ -15,6 +15,7 @@ nnoremap <leader>y :syn on<CR>
 nmap <CR> o<Esc>
 
 
+
 " core setting
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
