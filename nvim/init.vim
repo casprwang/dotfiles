@@ -112,7 +112,7 @@ endif
 
 " Theme
 syntax enable
-colorscheme OceanicNext
+colorscheme molokai
 " =========================
 
 " =================Nerd Comment
