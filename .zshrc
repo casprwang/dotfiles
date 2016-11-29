@@ -26,12 +26,16 @@ gitpush() {
 }
 alias gpp=gitpush
 
-
-
-
+# for tmux
+alias ta="tmux attach -t"
+alias tn="tmux new -s"
+alias ts="tmux detach && tmux switch -t"
+alias td="tmux detach"
 
 alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
 alias zshr="cd ~/dotfiles && nvim .zshrc"
+alias so="source"
+alias szh="source ~/.zshrc"
 alias cdo="cd ~/dotfiles"
 alias cno="cd ~/dev/node"
 alias czh="v ~/.zshrc"

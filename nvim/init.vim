@@ -1,4 +1,8 @@
 let mapleader="\<Space>"
+" let foo=3
+" function source()
+" ex
+
 
 " highlight cursor 
 " set cursorline
@@ -22,6 +26,7 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>L <C-w>v
+nnoremap <c-z> :q!<cr>
 " nnoremap <leader>c <C-w>c
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 " nnoremap <leader>zz :source ~/dotfiles/.zshrc<CR>
@@ -128,6 +133,9 @@ nmap <leader>ii :call dein#install()
 map <silent> <leader>o :NERDTreeToggle<CR>
 
 " color shit ===================
+" color shit ===================
+" color shit ===================
+" color shit ===================
 " set term=xterm
 " set t_Co=256
 " color scheme
@@ -147,6 +155,12 @@ endif
 " Theme
 syntax enable
 colorscheme molokai
+
+" =========================
+" hi CursorLineNR guifg=#ffffff
+" hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
+" =========================
+" =========================
 " =========================
 
 " =================Nerd Comment
