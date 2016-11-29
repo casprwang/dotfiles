@@ -1,4 +1,3 @@
-
 let mapleader="\<Space>"
 
 " highlight cursor 
@@ -25,6 +24,7 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>L <C-w>v
 " nnoremap <leader>c <C-w>c
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
+" nnoremap <leader>zz :source ~/dotfiles/.zshrc<CR>
 map <silent> <esc> :noh<CR>
 " nnoremap <leader>y :syn on<CR>
 nmap <CR> o<Esc>
@@ -33,9 +33,12 @@ map <silent> <leader>cc :TComment<CR>
 " don't be compatible :)
 set nocompatible
 inoremap <c-d> <esc>ddi
+
+
 " Terminal mode
 nmap <c-t> :terminal<cr>
 tnoremap <Esc> <C-d><cr>
+
 
 " navigation
 noremap H ^
@@ -44,15 +47,15 @@ noremap J 5j
 noremap K 5k
 noremap <c-d> 5<c-e>
 noremap <c-u> 5<c-y>
-noremap ; :
+" noremap ; :
 
 " vmap
 vmap < <gv
 vmap > >gv
 
+" commenting
+noremap <leader>== o========================<esc>
 
-
-" unmap==============================================
 " ==================================================
 
 
@@ -122,7 +125,7 @@ nmap <leader>ii :call dein#install()
 " ----------------------
 
 " Mapping for Plugins
-map <leader>o :NERDTreeToggle<CR>
+map <silent> <leader>o :NERDTreeToggle<CR>
 
 " color shit ===================
 " set term=xterm

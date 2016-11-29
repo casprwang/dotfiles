@@ -17,6 +17,7 @@ PATH=$PATH:/usr/local/bin
 autoload -U promptinit; promptinit
 prompt pure
 
+# quick git add+commit+push
 gitpush() {
     git add .
     git commit -m "$*"
