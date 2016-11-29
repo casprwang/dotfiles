@@ -1,5 +1,5 @@
+
 let mapleader="\<Space>"
-filetype plugin indent on
 
 " highlight cursor 
 " set cursorline
@@ -27,6 +27,7 @@ nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>y :syn on<CR>
 nmap <CR> o<Esc>
+nmap <S-Enter> O<Esc>
 " don't be compatible :)
 set nocompatible
 
@@ -57,24 +58,28 @@ set backupdir=~/.nvim/backup//
 set directory=~/.nvim/swap//
 set undodir=~/.nvim/undo//
 
+" dein ---------------------
+
+set runtimepath+=~/.config/nvim/dein.vim/
+call dein#begin(expand('~/.config/nvim/deinPlugins'))
+call dein#add('Shougo/dein.vim')
+call dein#add('scrooloose/nerdtree')
+call dein#end()
+filetype plugin indent on
 
 
-
-
-
-" vundle
-filetype off
-set rtp+=~/.config/nvim/bundle/vundle
-call vundle#begin('~/.config/nvim/bundle')
+" vundle --------------------------
+"filetype off
+"set rtp+=~/.config/nvim/bundle/vundle
+"call vundle#begin('~/.config/nvim/bundle')
 
 " =======
-" Plugins
+"" Plugins
 " =======
 
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'mhartington/oceanic-next'
+" Plugin 'gmarik/vundle'
+" Plugin 'scrooloose/nerdtree'
+"Plugin 'mhartington/oceanic-next'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'kien/ctrlp.vim'
@@ -86,9 +91,9 @@ Plugin 'mhartington/oceanic-next'
 " Plugin 'airblade/vim-gitgutter'
 " Plugin 'pangloss/vim-javascript'
 
-call vundle#end()
-filetype on
-
+"call vundle#end()
+"filetype on
+" ----------------------
 
 " Mapping for Plugins
 map <leader>o :NERDTreeToggle<CR>
