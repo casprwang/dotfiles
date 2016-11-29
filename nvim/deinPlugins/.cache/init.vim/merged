@@ -1,1 +1,1 @@
-['dein.vim', 'delimitMate', 'fzf', 'indentLine', 'nerdtree', 'nerdtree-git-plugin', 'tcomment_vim', 'vim-fugitive', 'vim-gitgutter']
+['dein.vim', 'delimitMate', 'emmet-vim', 'fzf', 'indentLine', 'nerdtree', 'nerdtree-git-plugin', 'tcomment_vim', 'vim-coloresque', 'vim-fugitive', 'vim-gitgutter', 'vim-instant-markdown', 'vim-surround', 'vim-table-mode']

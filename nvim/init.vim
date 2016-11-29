@@ -25,7 +25,8 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
-nnoremap <leader>L <C-w>v
+nnoremap <c-w>l <C-w>v
+nnoremap <c-w>j <C-w>s
 nnoremap <c-z> :q!<cr>
 
 " fixing the conflict with gitgutter without warning after reloading vimrc
@@ -33,6 +34,10 @@ silent! unmap <leader>hp
 silent! unmap <leader>hr
 silent! unmap <leader>hu
 silent! unmap <leader>hs
+
+
+" vnoremap <leader>gb :Gblame<CR>
+" nnoremap <leader>gb :Gblame<CR>
 
 
 " nnoremap <leader>c <C-w>c
@@ -107,10 +112,15 @@ call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('Yggdroot/indentLine')
+call dein#add('tpope/vim-surround')
 call dein#add('Raimondi/delimitMate')
+call dein#add('mattn/emmet-vim')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#add('airblade/vim-gitgutter')
+call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
 call dein#add('junegunn/fzf')
+call dein#add('dhruvasagar/vim-table-mode')
+call dein#add('suan/vim-instant-markdown')
 call dein#add('tpope/vim-fugitive')
 call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 call dein#end()
@@ -219,3 +229,36 @@ let g:NERDTrimTrailingWhitespace = 1
 
 
 map <c-p> :FZF<cr>
+
+
+
+" " Emmet==============================
+" " Enable Emmet in all modes
+" " Remapping <C-y>, just doesn't cut it.
+"   function! s:expand_html_tab()
+" " try to determine if we're within quotes or tags.
+" " if so, assume we're in an emmet fill area.
+"    let line = getline('.')
+"    if col('.') < len(line)
+"      let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+"      if len(line) >= 2
+"         return "\<C-n>"
+"      endif
+"    endif
+" " expand anything emmet thinks is expandable.
+"   if emmet#isExpandable()
+"     return "\<C-y>,"
+"   endif
+" " return a regular tab character
+"   return "\<tab>"
+"   endfunction
+"
+"   autocmd FileType html,markdown imap <buffer><expr><tab> <sid>expand_html_tab()
+"   let g:user_emmet_mode='a'
+"   let g:user_emmet_complete_tag = 0
+"   let g:user_emmet_install_global = 0
+"   autocmd FileType html,css EmmetInstall
+"
+" " =====================================================
+
+

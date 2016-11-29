@@ -1,63 +1,114 @@
-nerdtree-git-plugin
-===================
+indentLine
+==========
 
-A plugin of NERDTree showing git status flags. Works with the **LATEST** version of NERDTree.
+This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces. For code indented with tabs I think there is no need to support it, because you can use `:set list lcs=tab:\|\ (here is a space)`.
 
-The original project [git-nerdtree](https://github.com/Xuyuanp/git-nerdtree) will not be maintained any longer.
-
-
-![Imgur](http://i.imgur.com/jSCwGjU.gif?1)
+## Requirements
+This plugin takes advantage of the newly provided `conceal` feature in Vim 7.3, so this plugin will not work with lower versions of Vim.
 
 ## Installation
+To install the plugin just put the plugin files in your `~/.vim` (Linux) or `~/vimfiles` (Windows).
 
-For Vundle
+If you use a plugin manager you can put the whole directory into your `~/.vim/bundle/` directory ([Pathogen][pathogen]) or add the line `Plugin 'Yggdroot/indentLine'` to your `.vimrc` ([Vundle][vundle]).
 
-`Plugin 'scrooloose/nerdtree'`
+## Customization
+To apply customization, apply the variable definitions to your `.vimrc` file.
 
-`Plugin 'Xuyuanp/nerdtree-git-plugin'`
+**Change Character Color**
 
-For NeoBundle
+indentLine will overwrite 'conceal' color with grey by default. If you want to highlight conceal color with your colorscheme, disable by:
+```
+let g:indentLine_setColors = 0
+```
 
-`NeoBundle 'scrooloose/nerdtree'`
+Or you can customize conceal color by: 
+```
+" Vim
+let g:indentLine_color_term = 239
 
-`NeoBundle 'Xuyuanp/nerdtree-git-plugin'`
+"GVim
+let g:indentLine_color_gui = '#A4E57E'
 
-For Plug
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+```
 
-`Plug 'scrooloose/nerdtree'`
+**Change Indent Char**
 
-`Plug 'Xuyuanp/nerdtree-git-plugin'`
+Vim and GVim
+```
+let g:indentLine_char = 'c'
+```
+where `'c'` can be any ASCII character. You can also use one of `¦`, `┆`, or `│` to display more beautiful lines. However, these characters will only work with files whose encoding is UTF-8.
+
+**Change Conceal Behaviour**
+
+This plugin enables the Vim `conceal` feature which automatically hides stretches of text based on syntax highlighting. This setting will apply to all syntax items.
+
+For example, users utilizing the built in json.vim syntax file will no longer see quotation marks in their JSON files.
+
+indentLine will overwrite your "concealcursor" and "conceallevel" with default value:
+
+```
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+```
+
+You can customize these settings, but the plugin will not function if `conceallevel` is not set to 1 or 2.
+
+If you want to keep your conceal settting, put this line to your vim dotfile:
+```
+let g:indentLine_setConceal = 0
+```
+
+See the [VIM Reference Manual](http://vimdoc.sourceforge.net/htmldoc/version7.html#new-conceal) for more information on the `conceal` feature.
 
 
-## FAQ
+**Disable by default**
+```
+let g:indentLine_enabled = 0
+```
 
-> Got error message like `Error detected while processing function
-177[2]..178[22]..181[7]..144[9]..142[36]..238[4]..NERDTreeGitStatusRefreshListener[2]..NERDTreeGitStatusRefresh:
-line 6:
-E484: Can't open file /tmp/vZEZ6gM/1` while nerdtree opening in fish, how to resolve this problem?
+### Commands
+`:IndentLinesToggle` toggles lines on and off.
 
-This was because that vim couldn't execute `system` function in `fish`. Add `set shell=sh` in your vimrc.
+### Font patching
+If you find all the standard unicode and ASCII characters too obtrusive, you might consider patching your font with the [indentLine-dotted-guide.eps][glyph] glyph provided.  [FontForge][fontforge] makes the process amazingly simple:
 
-> How to config custom symbols?
+ 1. Download and install FontForge.
+ 2. Locate and open your terminal/gVim font.
+ 3. Open the font in FontForge, choose __Goto__ from the __View__ menu and select _Private Use Area_ from the drop down box.
+ 4. In the private use area, locate a blank spot for the glyph. Make a note of the code, e.g. `U+E0A3`.
+ 5. Double-click the selected code point to open the font drawing tool.
+ 6. From the __File__ menu, select __Import...__ and locate the _indentLine-dotted-guide.eps_ file.
+ 7. Once imported, choose __File__ -> __Generate Fonts__ and choose a location and file type for the new font.
 
-Use this variable to change symbols.
+Once completed, your new font will contain the more subtle dotted guide and all you have to do is set that glyph to `g:indentLine_char` in your `.vimrc` file.
 
-	```vimscript
-	let g:NERDTreeIndicatorMapCustom = {
-	    \ "Modified"  : "✹",
-	    \ "Staged"    : "✚",
-	    \ "Untracked" : "✭",
-	    \ "Renamed"   : "➜",
-	    \ "Unmerged"  : "═",
-	    \ "Deleted"   : "✖",
-	    \ "Dirty"     : "✗",
-	    \ "Clean"     : "✔︎",
-	    \ "Unknown"   : "?"
-	    \ }
-	 ```
+[glyph]: glyph/indentLine-dotted-guide.eps
+[fontforge]: http://fontforge.github.io/
 
-## Credits
+## Self promotion
+If you think this script is helpful, follow the [GitHub repository][repository], and don't forget to vote for it on Vim.org! ([vimscript #4354][script]).
 
-*  [scrooloose](https://github.com/scrooloose): Open API for me.
-*  [git_nerd](https://github.com/swerner/git_nerd): Where my idea comes from.
-*  [PickRelated](https://github.com/PickRelated): Add custom indicators & Review code.
+[pathogen]: https://github.com/tpope/vim-pathogen
+[vundle]: https://github.com/gmarik/vundle
+[repository]: https://github.com/Yggdroot/indentLine
+[script]: http://www.vim.org/scripts/script.php?script_id=4354
+
+## Screenshots
+
+### Vertical bars
+![Screenshot](http://i.imgur.com/KVi0T.jpg)
+
+### Patched font
+![Screenshot](http://i.imgur.com/2ZA7oaZ.png)
+
+### Leading Spaces
+![Screenshot](http://i.imgur.com/tLYkb79.png)
+
+![Screenshot](http://i.imgur.com/07Atrrs.png)
+
+## License
+MIT
