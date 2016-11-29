@@ -1,1 +1,1 @@
-['dein.vim', 'nerdtree']
+['dein.vim', 'fzf', 'nerdtree', 'tcomment_vim']

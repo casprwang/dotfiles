@@ -29,7 +29,7 @@ alias gpp=gitpush
 
 
 
-alias vimr="nvim ~/.config/nvim/init.vim"
+alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
 alias cdo="cd ~/dotfiles"
 alias cno="cd ~/dev/node"
 alias czh="v ~/.zshrc"

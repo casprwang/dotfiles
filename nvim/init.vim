@@ -7,8 +7,8 @@ let mapleader="\<Space>"
 " show absolute line numbers in insert mode
 autocmd InsertEnter * set number norelativenumber
 autocmd InsertLeave * set relativenumber
-
-
+set splitbelow
+set splitright
 
 " show autocomplete for commands
 set wildmenu
@@ -18,18 +18,42 @@ nnoremap <leader>s :wa!<CR>
 nnoremap <D-s> :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
-nnoremap <C-w>h <C-w>h
-nnoremap <C-w>l <C-w>l
-nnoremap <C-w>j <C-w>j
-nnoremap <C-w>k <C-w>k
-nnoremap <C-w>c <C-w>c
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>L <C-w>v
+" nnoremap <leader>c <C-w>c
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
-nnoremap <leader>n :noh<CR>
-nnoremap <leader>y :syn on<CR>
+map <silent> <esc> :noh<CR>
+" nnoremap <leader>y :syn on<CR>
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
+map <silent> <leader>cc :TComment<CR>
 " don't be compatible :)
 set nocompatible
+inoremap <c-d> <esc>ddi
+" Terminal mode
+nmap <c-t> :terminal<cr>
+tnoremap <Esc> <C-d><cr>
+
+" navigation
+noremap H ^
+noremap L g_
+noremap J 5j
+noremap K 5k
+noremap <c-d> 5<c-e>
+noremap <c-u> 5<c-y>
+noremap ; :
+
+" vmap
+vmap < <gv
+vmap > >gv
+
+
+
+" unmap==============================================
+" ==================================================
 
 
 " core setting
@@ -64,9 +88,11 @@ set runtimepath+=~/.config/nvim/dein.vim/
 call dein#begin(expand('~/.config/nvim/deinPlugins'))
 call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('junegunn/fzf')
 call dein#end()
 filetype plugin indent on
-
+nmap <leader>ii :call dein#install()
 
 " vundle --------------------------
 "filetype off
@@ -145,6 +171,5 @@ let g:NERDTrimTrailingWhitespace = 1
 " =============================
 "
 
-" nnoremap <leader>c :call NERDComment(0,"toggle")<CR>
-" vnoremap <leader>c :call NERDComment(0,"toggle")<CR>
+
 

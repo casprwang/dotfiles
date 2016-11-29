@@ -1,3 +1,10 @@
-*~
-*.swp
 tags
+Makefile
+TODO.TXT
+TODO_archived.viki
+*.vba
+*.vmb
+*.zip
+.last_*
+test
+test_*
