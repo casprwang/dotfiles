@@ -27,6 +27,7 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>L <C-w>v
 nnoremap <c-z> :q!<cr>
+
 " nnoremap <leader>c <C-w>c
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 " nnoremap <leader>zz :source ~/dotfiles/.zshrc<CR>
@@ -38,6 +39,7 @@ map <silent> <leader>cc :TComment<CR>
 " don't be compatible :)
 set nocompatible
 inoremap <c-d> <esc>ddi
+inoremap <c-f> <c-x><c-f>
 
 
 " Terminal mode
@@ -97,17 +99,37 @@ call dein#begin(expand('~/.config/nvim/deinPlugins'))
 call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tomtom/tcomment_vim')
+call dein#add('Yggdroot/indentLine')
+call dein#add('Raimondi/delimitMate')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#add('airblade/vim-gitgutter')
 call dein#add('junegunn/fzf')
+call dein#add('tpope/vim-fugitive')
+call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 call dein#end()
 filetype plugin indent on
-nmap <leader>ii :call dein#install()
+nmap <leader>ii :call dein#install()<cr>
 
 " vundle --------------------------
 "filetype off
 "set rtp+=~/.config/nvim/bundle/vundle
 "call vundle#begin('~/.config/nvim/bundle')
-
-" =======
+"
+"========================
+" Remember cursor position
+"========================
+"========================
+"========================
+"========================
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
+      " center buffer around cursor when opening files
+autocmd BufRead * normal zz
+"========================
+"========================
+"========================
 "" Plugins
 " =======
 
@@ -189,4 +211,4 @@ let g:NERDTrimTrailingWhitespace = 1
 "
 
 
-
+map <c-p> :FZF<cr>

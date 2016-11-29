@@ -27,10 +27,9 @@ gitpush() {
 alias gpp=gitpush
 
 # for tmux
-alias ta="tmux attach -t"
+alias t="tmux a"
 alias tn="tmux new -s"
-alias ts="tmux detach && tmux switch -t"
-alias td="tmux detach"
+alias tnew="tmux new -s"
 
 alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
 alias zshr="cd ~/dotfiles && nvim .zshrc"
@@ -46,9 +45,8 @@ alias gcm="git commit -m"
 alias gp="git push origin master"
 alias gm="git merge"
 alias gb="git branch"
-alias t="tmux"
 alias st="tmux source-file ~/.tmux.conf"
-alias tmr="nvim .tmux.conf"
+alias tmr="nvim ~/.tmux.conf"
 alias e="exit"
 alias c="clear"
 alias ta="tmux a"
