@@ -28,6 +28,13 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>L <C-w>v
 nnoremap <c-z> :q!<cr>
 
+" fixing the conflict with gitgutter without warning after reloading vimrc
+silent! unmap <leader>hp
+silent! unmap <leader>hr
+silent! unmap <leader>hu
+silent! unmap <leader>hs
+
+
 " nnoremap <leader>c <C-w>c
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 " nnoremap <leader>zz :source ~/dotfiles/.zshrc<CR>
