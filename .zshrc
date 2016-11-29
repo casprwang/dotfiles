@@ -30,6 +30,7 @@ alias gpp=gitpush
 
 
 alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
+alias zshr="cd ~/dotfiles && nvim .zshrc"
 alias cdo="cd ~/dotfiles"
 alias cno="cd ~/dev/node"
 alias czh="v ~/.zshrc"
@@ -52,7 +53,7 @@ alias py="python3"
 alias o="open"
 alias n="node"
 alias ip="ipython"
-alias p="python3"
+# alias p="python3"
 alias lsa="ls -a"
 alias lsl="ls -lha"
 alias bs="bundle exec jekyll serve"
