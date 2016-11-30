@@ -1,1 +1,1 @@
-['dein.vim', 'delimitMate', 'emmet-vim', 'fzf', 'indentLine', 'nerdtree', 'nerdtree-git-plugin', 'tcomment_vim', 'vim-airline', 'vim-devicons', 'vim-fugitive', 'vim-gitgutter', 'vim-instant-markdown', 'vim-smooth-scroll', 'vim-surround', 'vim-table-mode']
+['dein.vim', 'delimitMate', 'deoplete.nvim', 'emmet-vim', 'fzf', 'indentLine', 'nerdtree', 'nerdtree-git-plugin', 'tcomment_vim', 'tern_for_vim', 'vim-airline', 'vim-devicons', 'vim-fugitive', 'vim-gitgutter', 'vim-instant-markdown', 'vim-smooth-scroll', 'vim-surround', 'vim-table-mode']

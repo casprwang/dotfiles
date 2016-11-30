@@ -11,7 +11,7 @@ set laststatus=2
 
 " highlight cursor 
 " set cursorline
-
+"hello world"
 " show absolute line numbers in insert mode
 autocmd InsertEnter * set number norelativenumber
 autocmd InsertLeave * set relativenumber
@@ -61,8 +61,10 @@ tnoremap <Esc> <C-d><cr>
 
 
 " navigation
-noremap H ^
-noremap L g_
+" noremap H ^
+" noremap L g_
+" nmap H H
+" nmap H H
 noremap J 5j
 noremap K 5k
 " noremap <c-d> 5<c-e>
@@ -97,6 +99,7 @@ set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
+
 " for swap 
 set backupdir=~/.nvim/backup//
 set directory=~/.nvim/swap//
@@ -123,6 +126,17 @@ call dein#add('dhruvasagar/vim-table-mode')
 call dein#add('suan/vim-instant-markdown')
 call dein#add('tpope/vim-fugitive')
 call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
+
+
+
+
+
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('ternjs/tern_for_vim')
+call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
+
+
+
 call dein#end()
 filetype plugin indent on
 nmap <leader>ii :call dein#install()<cr>
@@ -309,8 +323,15 @@ let g:gitgutter_map_keys = 0
 " cancel the LinNr for better combination with tmux
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-
+" smooth scrolling
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
+
+
+
+" tern
+" Use tern_for_vim.
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
