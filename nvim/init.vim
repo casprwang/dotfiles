@@ -109,6 +109,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-airline/vim-airline')
 call dein#add('tomtom/tcomment_vim')
+call dein#add('terryma/vim-smooth-scroll')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('Yggdroot/indentLine')
 call dein#add('tpope/vim-surround')
@@ -309,3 +310,7 @@ let g:gitgutter_map_keys = 0
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
