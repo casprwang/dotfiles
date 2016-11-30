@@ -303,3 +303,5 @@ let g:gitgutter_map_keys = 0
 " let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 " " Force extra padding in NERDTree so that the filetype icons line up vertically 
 " let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
