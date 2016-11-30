@@ -30,7 +30,7 @@ alias gpp=gitpush
 alias t="tmux a"
 alias tn="tmux new -s"
 alias tnew="tmux new -s"
-
+alias tk="tmux kill-server"
 alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
 alias zshr="cd ~/dotfiles && nvim .zshrc"
 alias so="source"
