@@ -11,7 +11,7 @@ set laststatus=2
 
 " highlight cursor 
 " set cursorline
-"hello world"
+" hello world
 " show absolute line numbers in insert mode
 autocmd InsertEnter * set number norelativenumber
 autocmd InsertLeave * set relativenumber
@@ -111,7 +111,9 @@ call dein#begin(expand('~/.config/nvim/deinPlugins'))
 call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-airline/vim-airline')
-call dein#add('tomtom/tcomment_vim')
+call dein#add('tpope/vim-commentary')
+" call dein#add('tomtom/tcomment_vim')
+call dein#add('junegunn/vim-easy-align')
 call dein#add('terryma/vim-smooth-scroll')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('Yggdroot/indentLine')
@@ -126,14 +128,28 @@ call dein#add('dhruvasagar/vim-table-mode')
 call dein#add('suan/vim-instant-markdown')
 call dein#add('tpope/vim-fugitive')
 call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
+call dein#add('vim-scripts/ReplaceWithRegister')
 
 
-
-
-
+"deoplete
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('ternjs/tern_for_vim')
 call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
+
+
+
+" kana/vim-textobj-user
+call dein#add('kana/vim-textobj-user')
+call dein#add('fvictorio/vim-textobj-backticks')
+call dein#add('thinca/vim-textobj-between')
+call dein#add('kana/vim-textobj-line')
+call dein#add('Chun-Yang/vim-textobj-chunk')
+call dein#add('kana/vim-textobj-indent')
+call dein#add('mattn/vim-textobj-url')
+call dein#add('whatyouhide/vim-textobj-xmlattr')
+call dein#add('jceb/vim-textobj-uri')
+
+
 
 
 
@@ -335,3 +351,13 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " Use tern_for_vim.
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
+
+
+
+" easy align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
