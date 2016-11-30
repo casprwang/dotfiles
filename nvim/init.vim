@@ -1,8 +1,13 @@
 let mapleader="\<Space>"
+set laststatus=2
 " let foo=3
+
 " function source()
 " ex
-
+" noremap  <silent> k gk
+" noremap  <silent> j gj
+" noremap  <silent> h gh
+" noremap  <silent> l gl
 
 " highlight cursor 
 " set cursorline
@@ -30,10 +35,6 @@ nnoremap <c-w>j <C-w>s
 nnoremap <c-z> :q!<cr>
 
 " fixing the conflict with gitgutter without warning after reloading vimrc
-silent! unmap <leader>hp
-silent! unmap <leader>hr
-silent! unmap <leader>hu
-silent! unmap <leader>hs
 
 
 " vnoremap <leader>gb :Gblame<CR>
@@ -58,7 +59,6 @@ inoremap <c-f> <c-x><c-f>
 nmap <c-t> :terminal<cr>
 tnoremap <Esc> <C-d><cr>
 
-
 " navigation
 noremap H ^
 noremap L g_
@@ -76,8 +76,6 @@ vmap > >gv
 noremap <leader>== o========================<esc>
 
 " ==================================================
-
-
 " core setting
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
@@ -98,19 +96,19 @@ set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-
 " for swap 
 set backupdir=~/.nvim/backup//
 set directory=~/.nvim/swap//
 set undodir=~/.nvim/undo//
 
 " dein ---------------------
-
 set runtimepath+=~/.config/nvim/dein.vim/
 call dein#begin(expand('~/.config/nvim/deinPlugins'))
 call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
+call dein#add('vim-airline/vim-airline')
 call dein#add('tomtom/tcomment_vim')
+call dein#add('ryanoasis/vim-devicons')
 call dein#add('Yggdroot/indentLine')
 call dein#add('tpope/vim-surround')
 call dein#add('Raimondi/delimitMate')
@@ -252,7 +250,7 @@ map <c-p> :FZF<cr>
 " " return a regular tab character
 "   return "\<tab>"
 "   endfunction
-"
+
 "   autocmd FileType html,markdown imap <buffer><expr><tab> <sid>expand_html_tab()
 "   let g:user_emmet_mode='a'
 "   let g:user_emmet_complete_tag = 0
@@ -260,5 +258,48 @@ map <c-p> :FZF<cr>
 "   autocmd FileType html,css EmmetInstall
 "
 " " =====================================================
+" unmap gitgutter for smooth <leader>h
+let g:gitgutter_map_keys = 0
 
 
+" set encoding=utf-8
+" " set macligatures
+" " set guifont=Fira\ Code:h12
+"
+"
+" " set guifont=<FONT_NAME>:h<FONT_SIZE>
+" " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+" let g:airline_powerline_fonts=1
+" " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+"
+" " set encoding=utf8
+"
+"
+"
+" " loading the plugin 
+" let g:webdevicons_enable = 1
+" " adding the flags to NERDTree 
+" let g:webdevicons_enable_nerdtree = 1
+" " adding the custom source to unite 
+" let g:webdevicons_enable_unite = 1
+" " adding the column to vimfiler 
+" let g:webdevicons_enable_vimfiler = 1
+" " adding to vim-airline's tabline 
+" let g:webdevicons_enable_airline_tabline = 1
+" " adding to vim-airline's statusline 
+" let g:webdevicons_enable_airline_statusline = 1
+" " ctrlp glyphs
+" let g:webdevicons_enable_ctrlp = 1
+" " adding to flagship's statusline 
+" let g:webdevicons_enable_flagship_statusline = 1
+" " turn on/off file node glyph decorations (not particularly useful)
+" let g:WebDevIconsUnicodeDecorateFileNodes = 1
+" " use double-width(1) or single-width(0) glyphs 
+" " only manipulates padding, has no effect on terminal or set(guifont) font
+" let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+" " whether or not to show the nerdtree brackets around flags 
+" let g:webdevicons_conceal_nerdtree_brackets = 1
+" " the amount of space to use after the glyph character (default ' ')
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+" " Force extra padding in NERDTree so that the filetype icons line up vertically 
+" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
