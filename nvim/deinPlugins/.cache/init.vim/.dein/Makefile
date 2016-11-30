@@ -1,11 +1,11 @@
-all : emmet-vim.zip
+test: vim-themis
+	vim-themis/bin/themis --reporter spec test
+	nosetests -v rplugin/python3
+	flake8 rplugin/
+	mypy --silent-imports rplugin/python3/deoplete
 
-remove-zip:
-	-rm doc/tags
-	-rm emmet-vim.zip
+# Use existing vim-themis install from ~/.vim, or clone it.
+vim-themis:
+	git clone https://github.com/thinca/vim-themis vim-themis; \
 
-emmet-vim.zip: remove-zip
-	zip -r emmet-vim.zip autoload plugin doc
-
-release: emmet-vim.zip
-	vimup update-script emmet.vim
+.PHONY: test

@@ -129,6 +129,7 @@ call dein#add('suan/vim-instant-markdown')
 call dein#add('tpope/vim-fugitive')
 call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 call dein#add('vim-scripts/ReplaceWithRegister')
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 
 
 "deoplete
