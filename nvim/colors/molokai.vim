@@ -110,7 +110,7 @@ hi TabLineFill     guifg=#1B1D1E guibg=#1B1D1E
 hi TabLine         guibg=#1B1D1E guifg=#808080 gui=none
 
 if s:molokai_original == 1
-   hi Normal          guifg=#F8F8F2 guibg=#272822
+   hi Normal          guifg=#F8F8F2 
    hi Comment         guifg=#75715E
    hi CursorLine                    guibg=#3E3D32
    hi CursorLineNr    guifg=#FD971F               gui=none
@@ -120,7 +120,7 @@ if s:molokai_original == 1
    hi NonText         guifg=#75715E
    hi SpecialKey      guifg=#75715E
 else
-   hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
+   hi Normal          guifg=#F8F8F2 
    hi Comment         guifg=#7E8E91
    hi CursorLine                    guibg=#293739
    hi CursorLineNr    guifg=#FD971F               gui=none
@@ -136,11 +136,11 @@ end
 "
 if &t_Co > 255
    if s:molokai_original == 1
-      hi Normal                   ctermbg=234
+      hi Normal                   
       hi CursorLine               ctermbg=235   cterm=none
       hi CursorLineNr ctermfg=208               cterm=none
    else
-      hi Normal       ctermfg=252 ctermbg=233
+      hi Normal       ctermfg=252 
       hi CursorLine               ctermbg=234   cterm=none
       hi CursorLineNr ctermfg=208               cterm=none
    endif
@@ -233,7 +233,7 @@ if &t_Co > 255
    hi SpecialKey      ctermfg=59
 
    if exists("g:rehash256") && g:rehash256 == 1
-       hi Normal       ctermfg=252 ctermbg=234
+       hi Normal       ctermfg=252 
        hi CursorLine               ctermbg=236   cterm=none
        hi CursorLineNr ctermfg=208               cterm=none
 
