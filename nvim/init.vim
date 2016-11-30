@@ -59,13 +59,14 @@ inoremap <c-f> <c-x><c-f>
 nmap <c-t> :terminal<cr>
 tnoremap <Esc> <C-d><cr>
 
+
 " navigation
 noremap H ^
 noremap L g_
 noremap J 5j
 noremap K 5k
-noremap <c-d> 5<c-e>
-noremap <c-u> 5<c-y>
+" noremap <c-d> 5<c-e>
+" noremap <c-u> 5<c-y>
 " noremap ; :
 
 " vmap
@@ -304,4 +305,7 @@ let g:gitgutter_map_keys = 0
 " " Force extra padding in NERDTree so that the filetype icons line up vertically 
 " let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
+" cancel the LinNr for better combination with tmux
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+
