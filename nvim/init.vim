@@ -152,10 +152,11 @@ call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
 call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
 call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
 
+" folding 
+call dein#add('nelstrom/vim-markdown-folding')
 
 
-
-"deoplete
+" deoplete
 " call dein#add('Shougo/deoplete.nvim')
 call dein#add('ternjs/tern_for_vim')
 " call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
@@ -432,3 +433,6 @@ hi CursorLineNR guifg=#000000
 let g:vcoolor_lowercase = 1
 nmap <leader>cc :VCoolor<cr>
 vmap <leader>cc :VCoolor<cr>
+
+" nnoremap <leader> za
+
