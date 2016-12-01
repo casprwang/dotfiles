@@ -34,6 +34,9 @@ nnoremap <c-w>l <C-w>v
 nnoremap <c-w>j <C-w>s
 nnoremap <c-z> :q!<cr>
 
+" for mru
+nnoremap <leader>p :Mru<cr>
+
 " fixing the conflict with gitgutter without warning after reloading vimrc
 
 
@@ -48,7 +51,7 @@ map <silent> <esc> :noh<CR>
 " nnoremap <leader>y :syn on<CR>
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
-map <silent> <leader>cc :TComment<CR>
+" map <silent> <leader>cc :TComment<CR>
 " don't be compatible :)
 set nocompatible
 inoremap <c-d> <esc>ddi
@@ -112,6 +115,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-airline/vim-airline')
 call dein#add('tpope/vim-commentary')
+call dein#add('KabbAmine/vCoolor.vim')
 " call dein#add('tomtom/tcomment_vim')
 call dein#add('junegunn/vim-easy-align')
 call dein#add('terryma/vim-smooth-scroll')
@@ -130,12 +134,31 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 call dein#add('vim-scripts/ReplaceWithRegister')
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+" call dein#add('Shougo/neomru.vim')
+call dein#add('vim-scripts/mru.vim')
+
+
+" syntax
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+call dein#add('neovim/node-host', {'build': 'npm install'})
+call dein#add('othree/html5.vim')
+call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
+call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
+call dein#add('othree/jsdoc-syntax.vim', {'on_ft':['javascript', 'typescript']})
+call dein#add('heavenshell/vim-jsdoc', {'on_ft':['javascript', 'typescript']})
+call dein#add('moll/vim-node', {'on_ft':['javascript', 'typescript']})
+call dein#add('elzr/vim-json', {'on_ft': 'json'})
+call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
+call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
+call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
+
+
 
 
 "deoplete
-call dein#add('Shougo/deoplete.nvim')
+" call dein#add('Shougo/deoplete.nvim')
 call dein#add('ternjs/tern_for_vim')
-call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
+" call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
 
 
 
@@ -341,10 +364,10 @@ let g:gitgutter_map_keys = 0
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " smooth scrolling
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
+" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+" noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 
 
@@ -397,3 +420,15 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 if exists('g:loaded_webdevicons')
     call webdevicons#refresh()
 endif
+
+
+
+" let g:deoplete#enable_at_startup = 1
+
+
+" color picker
+hi CursorLineNR guifg=#000000
+
+let g:vcoolor_lowercase = 1
+nmap <leader>cc :VCoolor<cr>
+vmap <leader>cc :VCoolor<cr>

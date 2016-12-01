@@ -1,30 +1,34 @@
-<!-- Check all that apply [x] -->
-- Category
-    - [ ] fzf binary
-    - [ ] fzf-tmux script
-    - [ ] Key bindings
-    - [ ] Completion
-    - [ ] Vim
-    - [ ] Neovim
-    - [ ] Etc.
-- OS
-    - [ ] Linux
-    - [ ] Mac OS X
-    - [ ] Windows
-    - [ ] Windows Subsystem for Linux
-    - [ ] Etc.
-- Shell
-    - [ ] bash
-    - [ ] zsh
-    - [ ] fish
+**Warning:  I will close the issue without the minimal init.vim and the reproduce ways.**
 
-<!--
-### Before submitting
+# Problems summary
 
-- Make sure that you have the latest version of fzf
-- If you use tmux, make sure $TERM is set to screen or screen-256color
-- For more Vim stuff, check out https://github.com/junegunn/fzf.vim
 
-Describe your problem or suggestion from here ...
--->
+## Expected
 
+
+## Environment Information
+ * OS:
+ * Vim version:
+
+
+## Provide a minimal .vimrc with less than 50 lines (Required!)
+
+```vim
+" Your minimal .vimrc
+set runtimepath^=~/path/to/dein.nvim/
+call dein#begin(path)
+call dein#end()
+```
+
+
+## The reproduce ways from Vim starting (Required!)
+
+ 1. foo
+ 2. bar
+ 3. baz
+
+
+## Screen shot (if possible)
+
+
+## Upload the log messages by `:redir` and `:message`
