@@ -268,11 +268,11 @@ map <silent> <leader>o :NERDTreeToggle<CR>
 " let &t_AB="\e[48;5;%dm"
 " let &t_AF="\e[38;5;%dm"
 " set t_Co=256
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-" if (has("termguicolors"))
-"  set termguicolors
-" endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+if (has("termguicolors"))
+ set termguicolors
+endif
 
 
 
@@ -478,8 +478,8 @@ nmap <leader>cc :VCoolor<cr>
 vmap <leader>cc :VCoolor<cr>
 
 " nnoremap <leader> za
-nnoremap , za
-vnoremap , za
+nnoremap ,a za
+vnoremap ,a za
 
 
 
@@ -528,3 +528,4 @@ nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 
 set background=light
+
