@@ -155,6 +155,7 @@ call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
 
 " UX UI
 call dein#add('mhinz/vim-startify')
+call dein#add('christoomey/vim-tmux-navigator')
 
 
 " syntax
@@ -199,8 +200,10 @@ call dein#add('whatyouhide/vim-textobj-xmlattr')
 call dein#add('jceb/vim-textobj-uri')
 
 
-call dein#add('ceb/vim-textobj-uri')
 
+
+call dein#add('rhysd/nyaovim-markdown-preview')
+call dein#add('rhysd/nyaovim-mini-browser')
 
 
 call dein#end()
@@ -326,8 +329,6 @@ let g:NERDTrimTrailingWhitespace = 1
 
 
 map <c-p> :FZF<cr>
-
-
 
 " " Emmet==============================
 " " Enable Emmet in all modes
@@ -516,4 +517,13 @@ map  ,f <Plug>(easymotion-bd-f)
 nmap ,f <Plug>(easymotion-overwin-f)
 
 let g:EasyMotion_smartcase = 1
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <Right> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 
