@@ -270,22 +270,22 @@ map <silent> <leader>o :NERDTreeToggle<CR>
 " set t_Co=256
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-if (has("termguicolors"))
- set termguicolors
-endif
+" if (has("termguicolors"))
+"  set termguicolors
+" endif
 
 
 
-" Theme
+" " Theme
 syntax enable
-set background=dark
-colorscheme gruvbox
+" set background=dark
+colorscheme Tomorrow
 
-if g:colors_name == "gruvbox"
+" if g:colors_name == "gruvbox"
 highlight Normal  guibg=none
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=none guibg=NONE
 "List other overrides here
-endif
+" endif
 " let gitgutter column be none
 hi GitGutterAdd          ctermbg=none
 hi GitGutterChange       ctermbg=none
@@ -509,8 +509,8 @@ let g:airline_theme='tomorrow'
 
 
 
-let g:tmuxline_powerline_separators = 0
-let g:airline#extensions#tmuxline#enabled = 0
+" let g:tmuxline_powerline_separators = 0
+" let g:airline#extensions#tmuxline#enabled = 0
 
 
 map  ,f <Plug>(easymotion-bd-f)
@@ -527,3 +527,4 @@ nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 
+set background=light
