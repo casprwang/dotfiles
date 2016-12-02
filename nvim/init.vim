@@ -127,7 +127,7 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-commentary')
 call dein#add('KabbAmine/vCoolor.vim')
-call dein#add('justinmk/vim-sneak')
+" call dein#add('justinmk/vim-sneak')
 " call dein#add('tomtom/tcomment_vim')
 call dein#add('junegunn/vim-easy-align')
 call dein#add('terryma/vim-smooth-scroll')
@@ -183,6 +183,8 @@ call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
 call dein#add('ternjs/tern_for_vim')
 " call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
 
+" easy motion
+call dein#add('easymotion/vim-easymotion')
 
 
 " kana/vim-textobj-user
@@ -491,12 +493,6 @@ inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
 
 
 
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
-xmap f <Plug>Sneak_s
-xmap F <Plug>Sneak_S
-omap f <Plug>Sneak_s
-omap F <Plug>Sneak_S
 
 " let g:airline#extensions#tabline#enabled = 2
 " let g:airline#extensions#tabline#fnamemod = ':t'
@@ -514,3 +510,10 @@ let g:airline_theme='tomorrow'
 
 let g:tmuxline_powerline_separators = 0
 let g:airline#extensions#tmuxline#enabled = 0
+
+
+map  ,f <Plug>(easymotion-bd-f)
+nmap ,f <Plug>(easymotion-overwin-f)
+
+let g:EasyMotion_smartcase = 1
+
