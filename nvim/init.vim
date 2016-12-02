@@ -110,6 +110,9 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
 
+
+
+
 " for swap 
 set backupdir=~/.nvim/backup//
 set directory=~/.nvim/swap//
@@ -121,8 +124,10 @@ call dein#begin(expand('~/.config/nvim/deinPlugins'))
 call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-commentary')
 call dein#add('KabbAmine/vCoolor.vim')
+call dein#add('justinmk/vim-sneak')
 " call dein#add('tomtom/tcomment_vim')
 call dein#add('junegunn/vim-easy-align')
 call dein#add('terryma/vim-smooth-scroll')
@@ -147,6 +152,9 @@ call dein#add('vim-scripts/mru.vim')
 " youcompleteme
 call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
 
+
+" UX UI
+call dein#add('mhinz/vim-startify')
 
 
 " syntax
@@ -189,6 +197,7 @@ call dein#add('whatyouhide/vim-textobj-xmlattr')
 call dein#add('jceb/vim-textobj-uri')
 
 
+call dein#add('ceb/vim-textobj-uri')
 
 
 
@@ -480,3 +489,28 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
 
+
+
+nmap f <Plug>Sneak_s
+nmap F <Plug>Sneak_S
+xmap f <Plug>Sneak_s
+xmap F <Plug>Sneak_S
+omap f <Plug>Sneak_s
+omap F <Plug>Sneak_S
+
+" let g:airline#extensions#tabline#enabled = 2
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#right_sep = ' '
+" let g:airline#extensions#tabline#right_alt_sep = '|'
+" let g:airline_left_sep = ' '
+" let g:airline_left_alt_sep = '|'
+" let g:airline_right_sep = ' '
+" let g:airline_right_alt_sep = '|'
+let g:airline_theme='tomorrow'
+
+
+
+let g:tmuxline_powerline_separators = 0
+let g:airline#extensions#tmuxline#enabled = 0
