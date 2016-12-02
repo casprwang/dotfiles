@@ -260,12 +260,28 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
+
+
 " Theme
 syntax enable
 set background=dark
 colorscheme gruvbox
 
+if g:colors_name == "gruvbox"
+highlight Normal  guibg=none
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=none guibg=NONE
+"List other overrides here
+endif
+" let gitgutter column be none
+hi GitGutterAdd          ctermbg=none
+hi GitGutterChange       ctermbg=none
+hi GitGutterDelete       ctermbg=none
+hi GitGutterChangeDelete ctermbg=none
+highlight SignColumn guibg=none  
+
 " =========================
+" ========================
+" ========================
 " hi CursorLineNR guifg=#ffffff
 " hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
 " =========================
@@ -377,7 +393,6 @@ let g:gitgutter_map_keys = 0
 " let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 " cancel the LinNr for better combination with tmux
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " smooth scrolling
 " noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
@@ -440,6 +455,7 @@ endif
 
 
 " let g:deoplete#enable_at_startup = 1
+
 
 
 " color picker
