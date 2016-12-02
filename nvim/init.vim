@@ -1,6 +1,13 @@
 let mapleader="\<Space>"
 set laststatus=2
+set smartindent
+set autoindent
 " let foo=3
+" set expandtab    
+" set softtabstop=-2
+" set tabstop=2
+" set smarttab
+
 
 " function source()
 " ex
@@ -64,8 +71,8 @@ tnoremap <Esc> <C-d><cr>
 
 
 " navigation
-" noremap H ^
-" noremap L g_
+noremap H ^
+noremap L g_
 " nmap H H
 " nmap H H
 noremap J 5j
@@ -137,9 +144,12 @@ call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 " call dein#add('Shougo/neomru.vim')
 call dein#add('vim-scripts/mru.vim')
 
+" youcompleteme
+call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
+
+
 
 " syntax
-call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 call dein#add('neovim/node-host', {'build': 'npm install'})
 call dein#add('othree/html5.vim')
 call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
@@ -152,8 +162,12 @@ call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
 call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
 call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
 
+
+call dein#add('pangloss/vim-javascript')
+
 " folding 
 call dein#add('nelstrom/vim-markdown-folding')
+call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
 
 
 " deoplete
@@ -248,7 +262,8 @@ endif
 
 " Theme
 syntax enable
-colorscheme molokai
+set background=dark
+colorscheme gruvbox
 
 " =========================
 " hi CursorLineNR guifg=#ffffff
@@ -435,4 +450,17 @@ nmap <leader>cc :VCoolor<cr>
 vmap <leader>cc :VCoolor<cr>
 
 " nnoremap <leader> za
+nnoremap , za
+vnoremap , za
+
+
+
+
+
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
 

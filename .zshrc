@@ -64,3 +64,4 @@ alias co="code"
 alias bst="browser-sync start --server --files" 
 source /Users/wangsong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.yarn/bin"
+
