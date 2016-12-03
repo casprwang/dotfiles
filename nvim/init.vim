@@ -1,7 +1,6 @@
 let mapleader="\<Space>"
 set laststatus=2
 set smartindent
-set autoindent
 " let foo=3
 " set expandtab    
 " set softtabstop=-2
@@ -151,6 +150,9 @@ call dein#add('vim-scripts/mru.vim')
 
 " youcompleteme
 call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
+call dein#add('SirVer/ultisnips')
+call dein#add('honza/vim-snippets')
+" call dein#add('ervandew/supertab')
 
 
 " UX UI
@@ -170,7 +172,9 @@ call dein#add('elzr/vim-json', {'on_ft': 'json'})
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
 call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
 call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
+call dein#add('rizzatti/dash.vim')
 
+call dein#add('davidhalter/jedi-vim')
 
 call dein#add('pangloss/vim-javascript')
 
@@ -208,7 +212,7 @@ call dein#add('rhysd/nyaovim-mini-browser')
 
 call dein#end()
 filetype plugin indent on
-nmap <leader>ii :call dein#install()<cr>
+nmap <leader>in :call dein#install()<cr>
 
 " vundle --------------------------
 "filetype off
@@ -475,7 +479,7 @@ hi CursorLineNR guifg=#000000
 
 let g:vcoolor_lowercase = 1
 nmap <leader>cc :VCoolor<cr>
-vmap <leader>cc :VCoolor<cr>
+" vmap <leader>cc :VCoolor<cr>
 
 " nnoremap <leader> za
 nnoremap ,a za
@@ -491,6 +495,7 @@ autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
+inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
 
 
 
@@ -529,3 +534,50 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 
 set background=light
 
+
+"dash 
+nmap <silent> <leader>ii <Plug>DashSearch
+let g:jedi#goto_definitions_command = "<F5>"
+autocmd VimEnter * noremap K 5k
+
+" noremap K 5k
+"
+" let g:UltiSnipsExpandTrigger="<leader>8"
+" let g:UltiSnipsJumpForwardTrigger="<Tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+imap <c-u> <esc>ddo
+
+" " make YCM compatible with UltiSnips (using supertab)
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" " better key bindings for UltiSnipsExpandTrigger
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+" this mapping Enter key to <C-y> to chose the current highlight item 
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
