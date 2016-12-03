@@ -1,7 +1,7 @@
 # This collection includes the dotfiles of neovim zsh, vim, tmux, atom and code.
 
-[neovim](https://cloud.githubusercontent.com/assets/19645990/20860136/0498f136-b93f-11e6-9887-f4ead14078ce.gif)
-[neovim](https://cloud.githubusercontent.com/assets/19645990/20860150/42b74904-b93f-11e6-9073-5a9ca39e09dc.gif)]
+![neovim](https://cloud.githubusercontent.com/assets/19645990/20860136/0498f136-b93f-11e6-9887-f4ead14078ce.gif)
+![neovim](https://cloud.githubusercontent.com/assets/19645990/20860150/42b74904-b93f-11e6-9073-5a9ca39e09dc.gif)]
 
 ## files
 * neovim [init.vim](https://github.com/wangsongiam/dotfiles/blob/master/nvim/init.vim)
