@@ -581,3 +581,16 @@ let g:UltiSnipsListSnippets="<c-e>"
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+
+nnoremap <leader>vv ggVG
+nnoremap <leader>dd VGd
+
+" let g:UltiSnipsSnippetDirectories = ['~/dotfiles/UltiSnips']
+let g:UltiSnipsEditSplit = 'horizontal'
+let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/UltiSnips"
+
+" let g:UltiSnipsSnippetDirectories=["~/dotfiles/nvim/UltiSnips"]
+" let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/UltiSnips'
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
