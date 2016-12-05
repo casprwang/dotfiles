@@ -1,17 +1,30 @@
-### Issue
+<!-- Check all that apply [x] -->
+- Category
+    - [ ] fzf binary
+    - [ ] fzf-tmux script
+    - [ ] Key bindings
+    - [ ] Completion
+    - [ ] Vim
+    - [ ] Neovim
+    - [ ] Etc.
+- OS
+    - [ ] Linux
+    - [ ] Mac OS X
+    - [ ] Windows
+    - [ ] Windows Subsystem for Linux
+    - [ ] Etc.
+- Shell
+    - [ ] bash
+    - [ ] zsh
+    - [ ] fish
 
-### Steps to reproduce
+<!--
+### Before submitting
 
-### Versions
+- Make sure that you have the latest version of fzf
+- If you use tmux, make sure $TERM is set to screen or screen-256color
+- For more Vim stuff, check out https://github.com/junegunn/fzf.vim
 
- - jedi-vim:
- - Vim / Neovim:
- - Python:
+Describe your problem or suggestion from here ...
+-->
 
-In case you are not using jedi-vim from Git master, please test it there, too.
-
-### Output of the "JediDebugInfo" command (in a Python buffer)
-
-### Output of the "messages" Vim command
-
-### Output of "scriptnames" Vim command

@@ -2,11 +2,10 @@ let mapleader="\<Space>"
 set laststatus=2
 set smartindent
 " let foo=3
-" set expandtab    
+set expandtab    
 " set softtabstop=-2
 " set tabstop=2
 " set smarttab
-
 
 " function source()
 " ex
@@ -137,22 +136,25 @@ call dein#add('Raimondi/delimitMate')
 call dein#add('mattn/emmet-vim')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#add('airblade/vim-gitgutter')
+call dein#add('godlygeek/tabular')
 call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
 call dein#add('junegunn/fzf')
 call dein#add('dhruvasagar/vim-table-mode')
-call dein#add('suan/vim-instant-markdown')
+" call dein#add('suan/vim-instant-markdown')
 call dein#add('tpope/vim-fugitive')
 call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 call dein#add('vim-scripts/ReplaceWithRegister')
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 " call dein#add('Shougo/neomru.vim')
 call dein#add('vim-scripts/mru.vim')
+call dein#add('mattn/gist-vim')
+call dein#add('mattn/webapi-vim')
 
 " youcompleteme
 call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
-" call dein#add('ervandew/supertab')
+call dein#add('ervandew/supertab')
 
 
 " UX UI
@@ -162,6 +164,7 @@ call dein#add('christoomey/vim-tmux-navigator')
 
 " syntax
 call dein#add('neovim/node-host', {'build': 'npm install'})
+call dein#add('vim-syntastic/syntastic')
 call dein#add('othree/html5.vim')
 call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
 call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
@@ -171,7 +174,7 @@ call dein#add('moll/vim-node', {'on_ft':['javascript', 'typescript']})
 call dein#add('elzr/vim-json', {'on_ft': 'json'})
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
 call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
-call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
+" call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
 call dein#add('rizzatti/dash.vim')
 
 call dein#add('davidhalter/jedi-vim')
@@ -179,7 +182,7 @@ call dein#add('davidhalter/jedi-vim')
 call dein#add('pangloss/vim-javascript')
 
 " folding 
-call dein#add('nelstrom/vim-markdown-folding')
+" call dein#add('nelstrom/vim-markdown-folding')
 call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
 
 
@@ -206,7 +209,7 @@ call dein#add('jceb/vim-textobj-uri')
 
 
 
-call dein#add('rhysd/nyaovim-markdown-preview')
+" call dein#add('rhysd/nyaovim-markdown-preview')
 call dein#add('rhysd/nyaovim-mini-browser')
 
 
@@ -589,8 +592,62 @@ nnoremap <leader>dd VGd
 
 " let g:UltiSnipsSnippetDirectories = ['~/dotfiles/UltiSnips']
 let g:UltiSnipsEditSplit = 'horizontal'
-let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/UltiSnips"
+let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/ultiSnips"
 
 " let g:UltiSnipsSnippetDirectories=["~/dotfiles/nvim/UltiSnips"]
 " let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/UltiSnips'
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["ultiSnips"]
+
+let g:vim_json_syntax_conceal = 0
+
+imap <Down> <c-j>
+imap <c-e> <esc>A
+" <c-a> <esc>I
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = 'W'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" gist
+" let g:gist_open_browser_after_post = 1
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
+

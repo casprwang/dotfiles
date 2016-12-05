@@ -1,8 +1,7 @@
-language: c
 sudo: false
-
-notifications:
-  email: false
-
+language: python
+install:
+    - pip install pytest
 script:
-  - ./tests.sh
+    - vim --version
+    - py.test
