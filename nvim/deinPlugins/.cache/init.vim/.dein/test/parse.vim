@@ -5,61 +5,51 @@ let s:assert = themis#helper('assert')
 
 let s:path = tempname()
 
-function! s:suite.before_each() abort "{{{
+function! s:suite.before_each() abort
   call dein#_init()
-endfunction"}}}
+endfunction
 
-function! s:suite.after_each() abort "{{{
-endfunction"}}}
+function! s:suite.after_each() abort
+endfunction
 
-function! s:suite.parse_dict() abort "{{{
+function! s:suite.parse_dict() abort
   call dein#begin(s:path)
 
   let plugin = {'name': 'baz'}
-  let parsed_plugin = dein#parse#_dict('', plugin)
+  let parsed_plugin = dein#parse#_dict(dein#parse#_init('', plugin))
   call s:assert.equals(parsed_plugin.name, 'baz')
 
-  let plugin = {'name': 'baz'}
-  let parsed_plugin = dein#parse#_dict('', plugin)
-  call s:assert.equals(parsed_plugin.rtp, s:path.'/repos/baz')
-  call s:assert.equals(parsed_plugin.path, s:path.'/repos/baz')
-
-  let plugin = {'name': 'baz', 'rev': 'bar'}
-  let parsed_plugin = dein#parse#_dict('', plugin)
-  call s:assert.equals(parsed_plugin.rtp, s:path.'/repos/baz')
-  call s:assert.equals(parsed_plugin.path, s:path.'/repos/baz')
-
   let plugin = {'name': 'baz', 'if': '1'}
-  let parsed_plugin = dein#parse#_dict('', plugin)
+  let parsed_plugin = dein#parse#_dict(dein#parse#_init('', plugin))
   call s:assert.equals(parsed_plugin.merged, 0)
 
   call dein#end()
-endfunction"}}}
+endfunction
 
-function! s:suite.name_conversion() abort "{{{
+function! s:suite.name_conversion() abort
   let g:dein#enable_name_conversion = 1
 
   let plugin = dein#parse#_dict(
-        \ 'https://github.com/Shougo/dein.vim.git', {})
+        \ {'repo': 'https://github.com/Shougo/dein.vim.git'})
   call s:assert.equals(plugin.name, 'dein')
 
   let plugin = dein#parse#_dict(
-        \ 'https://bitbucket.org/kh3phr3n/vim-qt-syntax.git', {})
+        \ {'repo': 'https://bitbucket.org/kh3phr3n/vim-qt-syntax.git'})
   call s:assert.equals(plugin.name, 'qt-syntax')
 
   let plugin = dein#parse#_dict(
-        \ 'https://bitbucket.org/kh3phr3n/qt-syntax-vim.git', {})
+        \ {'repo': 'https://bitbucket.org/kh3phr3n/qt-syntax-vim.git'})
   call s:assert.equals(plugin.name, 'qt-syntax')
 
   let plugin = dein#parse#_dict(
-        \ 'https://bitbucket.org/kh3phr3n/vim-qt-syntax.git',
-        \ {'name': 'vim-qt-syntax'})
+        \ {'repo': 'https://bitbucket.org/kh3phr3n/vim-qt-syntax.git',
+        \  'name': 'vim-qt-syntax'})
   call s:assert.equals(plugin.name, 'vim-qt-syntax')
 
   let g:dein#enable_name_conversion = 0
-endfunction"}}}
+endfunction
 
-function! s:suite.load_toml() abort "{{{
+function! s:suite.load_toml() abort
   let toml = tempname()
   call writefile([
         \ '# TOML sample',
@@ -101,9 +91,9 @@ function! s:suite.load_toml() abort "{{{
         \ "\necho\n")
   call s:assert.equals(dein#get('neosnippet.vim').hook_source,
         \ "echo\necho\n")
-endfunction"}}}
+endfunction
 
-function! s:suite.error_toml() abort "{{{
+function! s:suite.error_toml() abort
   let toml = tempname()
   call writefile([
         \ '# TOML sample',
@@ -118,9 +108,9 @@ function! s:suite.error_toml() abort "{{{
   call dein#begin(s:path)
   call s:assert.equals(dein#load_toml(toml), 1)
   call dein#end()
-endfunction"}}}
+endfunction
 
-function! s:suite.load_dict() abort "{{{
+function! s:suite.load_dict() abort
   call dein#begin(s:path)
   call s:assert.equals(dein#load_dict({
         \ 'Shougo/unite.vim': {},
@@ -130,9 +120,9 @@ function! s:suite.load_dict() abort "{{{
 
   call s:assert.not_equals(dein#get('unite.vim'), {})
   call s:assert.equals(dein#get('neocomplete').lazy, 1)
-endfunction"}}}
+endfunction
 
-function! s:suite.disable() abort "{{{
+function! s:suite.disable() abort
   call dein#begin(s:path)
   call dein#load_dict({
         \ 'Shougo/unite.vim': {'on_cmd': 'Unite'}
@@ -143,9 +133,9 @@ function! s:suite.disable() abort "{{{
   call dein#end()
 
   call s:assert.equals(dein#get('unite.vim'), {})
-endfunction"}}}
+endfunction
 
-function! s:suite.config() abort "{{{
+function! s:suite.config() abort
   call dein#begin(s:path)
   call dein#load_dict({
         \ 'Shougo/unite.vim': {}
@@ -156,9 +146,9 @@ function! s:suite.config() abort "{{{
   call dein#config('unite', {'on_i': 0})
 
   call s:assert.equals(dein#get('unite.vim').on_i, 1)
-endfunction"}}}
+endfunction
 
-function! s:suite.plugins2toml() abort "{{{
+function! s:suite.plugins2toml() abort
   let parsed_plugin = dein#parse#_init('Shougo/unite.vim', {})
   let parsed_plugin2 = dein#parse#_init('Shougo/deoplete.nvim',
         \ {'on_ft': ['vim'], 'hook_add': "hoge\npiyo"})
@@ -176,6 +166,4 @@ function! s:suite.plugins2toml() abort "{{{
         \ "repo = 'Shougo/unite.vim'",
         \ "",
         \ ])
-endfunction"}}}
-
-" vim:foldmethod=marker:fen:
+endfunction

@@ -1,7 +1,4 @@
-sudo: false
-language: python
-install:
-    - pip install pytest
-script:
-    - vim --version
-    - py.test
+language: ruby
+rvm:
+  - 2.1.1
+script: rake ci

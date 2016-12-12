@@ -1,5 +1,17 @@
 // Place your settings in this file to overwrite the default settings
 {
+"vim.otherModesKeyBindingsNonRecursive": [
+   {
+       "before": [":"],
+       "after": [],
+       "commands": [
+           {
+               "command": "workbench.action.showCommands",
+               "args": []
+           }
+       ]
+   }
+],
     // "files.autoSave": "off",
     "files.autoSave": "on",
     "git.confirmSync": false,
@@ -40,7 +52,7 @@
             "after": ["o", "<Esc>"],
     },
 //         {
-    // {
+    //     ]{
     //     "before": [ "ctrl+d" ],
     //     "after": [ "ctrl+d", "M" ]
     // },
@@ -60,9 +72,23 @@
         {
             "before": [ "ctrl+u" ],
             "after": [ "ctrl+u", "M" ]
-        }
+        },
     ],
-
-    "vim.scroll": 5,
-
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["Z", "Z"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                },
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        }
+    ]
 }
+

@@ -12,6 +12,9 @@
 #
 # 'atom-text-editor':
 #   'enter': 'editor:newline'
+
+
+
 #
 # 'atom-workspace':
 #   'ctrl-shift-p': 'core:move-up'
@@ -26,17 +29,18 @@
   'ctrl-shift-tab': 'unset!'
   'ctrl-tab ^ctrl': 'unset!'
   'ctrl-shift-tab ^ctrl': 'unset!'
-  'ctrl-tab': 'pane:show-next-item'
-  'ctrl-shift-tab': 'pane:show-previous-item'
+#  'ctrl-tab': 'pane:show-next-item'
+ # 'ctrl-shift-tab': 'pane:show-previous-item'
 
 
 
 '.workspace':
   'cmd-ctrl-o': 'open-on-github:repository'
   'cmd-N': 'application:new-window'
+  'ctrl-p': 'fuzzy-finder:toggle-file-finder'
 
   'ctrl-i': 'dash:shortcut'
-
+  'shift-cmd-T': 'pane:reopen-closed-item'
   # 'cmd-h': 'pane:show-previous-item'
   'cmd-o': 'advanced-open-file:toggle'
   # 'cmd-l': 'pane:show-next-item'
@@ -63,7 +67,7 @@
 
   'alt-=': 'pane:increase-size'
   'alt--': 'pane:decrease-size'
-  'alt-tab': 'window:focus-next-pane'
+#  'alt-tab': 'window:focus-next-pane'
   # 'alt-shift-tab': 'pane:show-previous-item'
   # 'alt-cmd-l': 'window:focus-pane-on-right'
   # 'cmd-h': 'core:move-left'
@@ -97,7 +101,7 @@
   'cmd-ctrl-p' :'git-plus:add-all-commit-and-push'
 
 
-  'ctrl-`': 'open-terminal-here:open'
+#   'ctrl-`': 'open-terminal-here:open'
 
 
   # 'alt-enter': 'core:move-down'
@@ -115,8 +119,9 @@
   # 'cmd-j': 'core:select-down'
   # 'cmd-k': 'core:select-up'
   'ctrl-e': 'editor:move-to-end-of-line'
-
   #
+
+
 
   # 'alt-tab': 'pane:show-next-item'
   # 'alt-shift-tab': 'pane:show-previous-item'
@@ -139,10 +144,10 @@
   # 'alt-k': 'window:focus-pane-above'
   # 'alt-h': 'window:focus-pane-on-left'
 
-  'alt-tab': 'pane:show-next-item'
+  #'alt-tab': 'pane:show-next-item'
   'alt-shift-tab': 'pane:show-previous-item'
 
-  'cmd-N': 'script:run'
+  #'cmd-N': 'script:run'
   'cmd-M': 'script:close-view'
   'cmd-.': 'ask-stack:ask-question'
 
@@ -206,13 +211,15 @@
 
   'ctrl-shift-tab': 'pane:show-previous-item'
   'ctrl-tab': 'pane:show-next-item'
-  'ctrl-`': 'open-terminal-here:open'
+#   'ctrl-`': 'open-terminal-here:open'
   'cmd-ctrl-o': 'open-on-github:repository'
   'cmd-N': 'application:new-window'
   'ctrl-i': 'dash:shortcut'
   'cmd-shift-v': 'atom-html-preview:toggle'
+  'ctrl-p': 'fuzzy-finder:toggle-file-finder'
 
 
+  'shift-cmd-T': 'pane:reopen-closed-item'
 
 
   'cmd-b': 'tree-view:toggle'

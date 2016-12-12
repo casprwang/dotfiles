@@ -35,7 +35,6 @@
       "atom-ternjs"
       "jslint"
       "autocomplete-modules"
-      "linter-eslint"
       "linter-jshint"
       "linter-pep8"
       "atom-jshint"
@@ -45,6 +44,8 @@
       "linter-xo"
       "markdown-preview-plus"
       "language-gfm"
+      "vim-mode"
+      "terminal-plus"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -107,6 +108,8 @@
     hideVcsIgnoredFiles: true
   "vim-mode":
     useSmartcaseForSearch: true
+  "vim-mode-plus":
+    clearHighlightSearchOnResetNormalMode: true
   welcome:
     showOnStartup: false
 ".basic.html.text":

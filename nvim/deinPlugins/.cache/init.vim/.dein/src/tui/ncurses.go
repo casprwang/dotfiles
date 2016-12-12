@@ -17,6 +17,10 @@ FILE* c_tty() {
 SCREEN* c_newterm(FILE* tty) {
 	return newterm(NULL, stderr, tty);
 }
+
+int c_getcurx(WINDOW* win) {
+	return getcurx(win);
+}
 */
 import "C"
 
@@ -271,6 +275,14 @@ func Refresh() {
 
 func (w *Window) Erase() {
 	C.werase(w.win())
+}
+
+func (w *Window) X() int {
+	return int(C.c_getcurx(w.win()))
+}
+
+func DoesAutoWrap() bool {
+	return true
 }
 
 func (w *Window) Fill(str string) bool {

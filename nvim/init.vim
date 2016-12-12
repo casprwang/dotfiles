@@ -54,7 +54,7 @@ nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 " nnoremap <leader>zz :source ~/dotfiles/.zshrc<CR>
 map <silent> <esc> :noh<CR>
 " nnoremap <leader>y :syn on<CR>
-nmap <CR> o<Esc>
+" nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 " map <silent> <leader>cc :TComment<CR>
 " don't be compatible :)
@@ -149,6 +149,7 @@ call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 call dein#add('vim-scripts/mru.vim')
 call dein#add('mattn/gist-vim')
 call dein#add('mattn/webapi-vim')
+call dein#add('metakirby5/codi.vim')
 
 " youcompleteme
 call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
@@ -499,6 +500,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
 inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
+inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
 
 
 
@@ -600,7 +602,7 @@ let g:UltiSnipsSnippetDirectories=["ultiSnips"]
 
 let g:vim_json_syntax_conceal = 0
 
-imap <Down> <c-j>
+" imap <Down> <c-j>
 imap <c-e> <esc>A
 " <c-a> <esc>I
 
@@ -625,7 +627,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_error_symbol = '❌'
+let g:syntastic_error_symbol = 'X'
 let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_warning_symbol = 'W'
 let g:syntastic_style_warning_symbol = '💩'
@@ -650,4 +652,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+
+nmap <leader>n :! node %<cr>
 

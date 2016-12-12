@@ -1,5 +1,4 @@
-/doc/tags
-/misc
-/test/*.actual
-*.log
-
+install.log
+.record
+.mkrecord
+*.vba

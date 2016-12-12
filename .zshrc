@@ -72,3 +72,6 @@ autoload -Uz compinit && compinit -i
 
 # for node projects
 export PATH=$PATH:./node_modules/.bin
+
+
+
