@@ -7,13 +7,41 @@
 #
 # You can create a new keybinding in this file by typing "key" and then hitting
 # tab.
+
+
+
+# normal
+'atom-text-editor.vim-mode-plus.normal-mode':
+  'y s': 'vim-mode-plus:surround'
+  'd s': 'vim-mode-plus:delete-surround'
+  'd s s': 'vim-mode-plus:delete-surround-any-pair'
+  'd s S': 'vim-mode-plus:delete-surround-any-pair-allow-forwarding'
+  'c s': 'vim-mode-plus:change-surround'
+  'c s s': 'vim-mode-plus:change-surround-any-pair'
+  'c s S': 'vim-mode-plus:change-surround-any-pair-allow-forwarding'
+
+# operator-pending
+# Not essential, but because of bug of atom-keymap `d ^` delays after `d s` addition.
+# So let `d I` as alternate of `d ^`.
+'atom-text-editor.vim-mode-plus.operator-pending-mode':
+  'I': 'vim-mode-plus:move-to-first-character-of-line'
+  'A': 'vim-mode-plus:move-to-last-character-of-line'
+
+# operator-pending operator-specific
+# So that `y s s` surround current line as vim-surroun
+'atom-text-editor.vim-mode-plus.operator-pending-mode.surround-pending':
+  's': 'vim-mode-plus:inner-current-line'
+
+# visual
+'atom-text-editor.vim-mode-plus.visual-mode':
+  'S': 'vim-mode-plus:surround'
 #
 # Here's an example taken from Atom's built-in keymap:
 #
 # 'atom-text-editor':
-#   'enter': 'editor:newline'
-
-
+  # 'enter': 'editor:newline'
+'atom-text-editor.vim-mode-plus.operator-pending-mode.toggle-line-comments-pending':
+  '/': 'vim-mode-plus:toggle-line-comments'
 
 #
 # 'atom-workspace':
@@ -36,8 +64,10 @@
 
 '.workspace':
   'cmd-ctrl-o': 'open-on-github:repository'
+  'ctrl-a': 'editor:move-to-first-character-of-line'
   'cmd-N': 'application:new-window'
   'ctrl-p': 'fuzzy-finder:toggle-file-finder'
+  'cmd-j': 'platformio-ide-terminal:toggle'
 
   'ctrl-i': 'dash:shortcut'
   'shift-cmd-T': 'pane:reopen-closed-item'
@@ -86,7 +116,7 @@
   'ctrl-tab': 'pane:show-next-item'
 
 
-  'ctrl-w': 'editor:select-word'
+  # 'ctrl-w': 'editor:select-word'
 
 
   # 'cmd-`': 'tree-view:toggle'
@@ -131,7 +161,7 @@
 
 '.workspace .editor:not(.mini)':
   # 'cmd-h': 'pane:show-previous-item'
-  'ctrl-w': 'editor:select-word'
+  # 'ctrl-w': 'editor:select-word'
   'cmd-o': 'advanced-open-file:toggle'
   'cmd-ctrl-p' :'git-plus:add-all-commit-and-push'
 
@@ -143,7 +173,7 @@
   # 'alt-j': 'window:focus-pane-below'
   # 'alt-k': 'window:focus-pane-above'
   # 'alt-h': 'window:focus-pane-on-left'
-
+  'ctrl-a': 'editor:move-to-first-character-of-line'
   #'alt-tab': 'pane:show-next-item'
   'alt-shift-tab': 'pane:show-previous-item'
 
@@ -221,6 +251,7 @@
 
   'shift-cmd-T': 'pane:reopen-closed-item'
 
+  'cmd-j': 'platformio-ide-terminal:toggle'
 
   'cmd-b': 'tree-view:toggle'
 

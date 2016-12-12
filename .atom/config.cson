@@ -11,6 +11,7 @@
     treeView:
       compactList: true
     ui:
+      animations: false
       panelContrast: true
   "atom-ternjs":
     excludeLowerPriorityProviders: true
@@ -20,6 +21,7 @@
     useSnippetsAndFunction: true
   "autocomplete-python":
     showTooltips: true
+    useKite: false
   "color-picker":
     abbreviateValues: true
   "console-log": {}
@@ -46,6 +48,8 @@
       "language-gfm"
       "vim-mode"
       "terminal-plus"
+      "vim-surround"
+      "kite"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -102,6 +106,12 @@
     command: "open -a TerminalTab.app \"$PWD\""
   pigments:
     markerType: "dot"
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        blue: "#00fdff"
+    core: {}
+    style: {}
   react:
     enabledForAllJavascriptFiles: true
   "tree-view":
@@ -110,6 +120,17 @@
     useSmartcaseForSearch: true
   "vim-mode-plus":
     clearHighlightSearchOnResetNormalMode: true
+    highlightSearch: true
+    ignoreCaseForSearch: true
+    ignoreCaseForSearchCurrentWord: true
+    incrementalSearch: true
+    showHoverOnOperate: true
+    smoothScrollOnFullScrollMotion: true
+    smoothScrollOnHalfScrollMotion: true
+    smoothScrollOnHalfScrollMotionDuration: 300
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+    useSmartcaseForSearchCurrentWord: true
   welcome:
     showOnStartup: false
 ".basic.html.text":
