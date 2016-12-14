@@ -41,3 +41,28 @@
 #
 # MoveUp.registerCommand() # `vim-mode-plus-user:move-up`
 # MoveDown.registerCommand() # `vim-mode-plus-user:move-up`
+# init.coffee
+# -------------------------
+# General service consumer function
+consumeService = (packageName, providerName, fn) ->
+  disposable = atom.packages.onDidActivatePackage (pack) ->
+    if pack.name is packageName
+      service = pack.mainModule[providerName]()
+      fn(service)
+      disposable.dispose()
+
+consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
+  {Base} = service
+
+  MoveUp = Base.getClass('MoveUp')
+  MoveDown = Base.getClass('MoveDown')
+
+  class MoveFiveLinesUp extends MoveUp
+    @commandPrefix: 'vim-mode-plus-user'
+    @registerCommand()
+    defaultCount: 5
+
+  class MoveFiveLinesDown extends MoveDown
+    @commandPrefix: 'vim-mode-plus-user'
+    @registerCommand()
+    defaultCount: 5

@@ -1,5 +1,8 @@
 # Your keymap
-#
+# #                 unsetting
+'.workspace .editor:not(.mini), .workspace':
+  'cmd-j': 'core:save'
+  'cmd-s': 'unset!'
 # Atom keymaps work similarly to style sheets. Just as style sheets use
 # selectors to apply styles to elements, Atom keymaps use selectors to associate
 # keystrokes with events in specific contexts. Unlike style sheets however,
@@ -59,20 +62,21 @@
 #     'tab': 'emmet:expand-abbreviation-with-tab'
 'body':
   'ctrl-tab': 'unset!'
+  'cmd-s': 'unset!'
   'ctrl-shift-tab': 'unset!'
   'ctrl-tab ^ctrl': 'unset!'
   'ctrl-shift-tab ^ctrl': 'unset!'
 #  'ctrl-tab': 'pane:show-next-item'
  # 'ctrl-shift-tab': 'pane:show-previous-item'
 
-
-
+#####################
 '.workspace':
   'cmd-ctrl-o': 'open-on-github:repository'
   'ctrl-a': 'editor:move-to-first-character-of-line'
   'cmd-N': 'application:new-window'
   'ctrl-p': 'fuzzy-finder:toggle-file-finder'
   # 'cmd-j': 'platformio-ide-terminal:toggle'
+  'cmd-t': 'fuzzy-finder:toggle-buffer-finder'
 
   'cmd-i': 'dash:shortcut'
   'shift-cmd-T': 'pane:reopen-closed-item'
@@ -81,8 +85,9 @@
   # 'cmd-l': 'pane:show-next-item'
   'cmd-L': 'console-log:add'
   'cmd-shift-v': 'atom-html-preview:toggle'
-  'cmd-b': 'tree-view:toggle'
+  'cmd-\\': 'tree-view:toggle'
 
+  'cmd-b': 'tree-view:toggle-focus'
 
 
 #####script
@@ -134,7 +139,7 @@
   'cmd-.': 'ask-stack:ask-question'
 
 
-  'cmd-ctrl-p' :'git-plus:add-all-commit-and-push'
+  'cmd-p' :'git-plus:add-all-commit-and-push'
 
 
 #   'ctrl-`': 'open-terminal-here:open'
@@ -164,12 +169,13 @@
   # 'cmd-k': 'editor:select-line'
   # 'cmd-j': 'editor:select-word'
 
-
+##############################
 '.workspace .editor:not(.mini)':
   # 'cmd-h': 'pane:show-previous-item'
+  # 'cmd-j': ''
   # 'ctrl-w': 'editor:select-word'
   'cmd-o': 'advanced-open-file:toggle'
-  'cmd-ctrl-p' :'git-plus:add-all-commit-and-push'
+  'cmd-p' :'git-plus:add-all-commit-and-push'
 
   # 'alt-cmd-j': 'pane:split-down-and-copy-active-item'
   # 'alt-cmd-k': 'pane:split-up-and-copy-active-item'
@@ -259,7 +265,8 @@
 
   # 'cmd-j': 'platformio-ide-terminal:toggle'
 
-  'cmd-b': 'tree-view:toggle'
+  'cmd-t': 'fuzzy-finder:toggle-buffer-finder'
+  'cmd-b': 'tree-view:toggle-focus'
 
 #
 # You can find more information about keymaps in these guides:
@@ -275,3 +282,6 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'J': 'vim-mode-plus-user:move-five-lines-down'
+  'K': 'vim-mode-plus-user:move-five-lines-up'

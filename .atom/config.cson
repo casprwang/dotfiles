@@ -1,4 +1,11 @@
 "*":
+  "activate-power-mode":
+    comboMode:
+      enabled: false
+    particles: {}
+    playAudio: {}
+    screenShake:
+      maxIntensity: 2
   "atom-beautify":
     general:
       _analyticsUserId: "52665e2f-189f-4791-840f-5d7b407dacc6"
@@ -46,9 +53,7 @@
       "linter-xo"
       "markdown-preview-plus"
       "language-gfm"
-      "vim-mode"
       "terminal-plus"
-      "vim-surround"
       "kite"
     ]
     packagesWithKeymapsDisabled: [
@@ -68,6 +73,7 @@
     ]
   editor:
     fontSize: 13
+    invisibles: {}
     scrollPastEnd: true
   emmet:
     useEmmetComments: true
@@ -114,8 +120,7 @@
     style: {}
   react:
     enabledForAllJavascriptFiles: true
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   "vim-mode":
     useSmartcaseForSearch: true
   "vim-mode-plus":
