@@ -12,9 +12,20 @@ hs.hotkey.bind({"ctrl"}, 'j', keyCode('down') ,  nil,   keyCode('down') )
 hs.hotkey.bind({"ctrl"}, 'k', keyCode('up')   ,  nil,   keyCode('up') )
 hs.hotkey.bind({"ctrl"}, 'l', keyCode('right'),  nil,   keyCode('right') )
 
+-------------------------------------------------------------------------------
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
-  hs.alert.show("!!!!!!!!!!  Fuck the Fuck off  !!!!!!!!!!")
+  hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
 end)
+
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
+  local time = hs.timer.localTime()
+  local x = math.floor(time/3600)
+  local y = math.floor((time - x * 3600)/60)
+  hs.alert.show(tostring(x)..":"..tostring(y))
+  -- hs.alert.show(tostring(y))
+end)
+
 
 
 function reloadConfig(files)
@@ -76,3 +87,4 @@ for key in pairs(resizeMappings) do
     if win then win:moveToUnit(resizeMappings[key]) end
   end)
 end
+---------------------------------------------------------------------------------
