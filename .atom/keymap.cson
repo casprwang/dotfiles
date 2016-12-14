@@ -3,12 +3,13 @@
 '.workspace .editor:not(.mini), .workspace':
   'cmd-j': 'core:save'
   'cmd-s': 'unset!'
+  'enter': 'vim-mode-plus:add-blank-line-below'
+  'shift-enter': 'vim-mode-plus:add-blank-line-above'
 # Atom keymaps work similarly to style sheets. Just as style sheets use
 # selectors to apply styles to elements, Atom keymaps use selectors to associate
 # keystrokes with events in specific contexts. Unlike style sheets however,
 # each selector can only be declared once.
 #
-
 
 # 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
 #   'J': 'vim-mode-plus-user:move-down'
@@ -36,9 +37,9 @@
 'atom-text-editor.vim-mode-plus.normal-mode':
   # Override default cmd-L(editor:split-selections-into-lines)
   'cmd-L': 'paner:very-right'
-
   ':': 'command-palette:toggle'
-
+  'enter': 'vim-mode-plus:add-blank-line-below'
+  'shift-enter': 'vim-mode-plus:add-blank-line-above'
 
 # visual
 'atom-text-editor.vim-mode-plus.visual-mode':
@@ -55,8 +56,8 @@
 # 'atom-workspace':
 #   'ctrl-shift-p': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
-'atom-text-editor:not([mini])':
-  'tab': 'emmet:expand-abbreviation-with-tab'
+# 'atom-text-editor:not([mini])':
+  # 'tab': 'emmet:expand-abbreviation-with-tab'
 
 # 'atom-text-editor[data-grammar="YOUR GRAMMAR HERE"]:not([mini])':
 #     'tab': 'emmet:expand-abbreviation-with-tab'

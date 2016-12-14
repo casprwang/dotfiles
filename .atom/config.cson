@@ -2,10 +2,16 @@
   "activate-power-mode":
     comboMode:
       enabled: false
-    particles: {}
+    particles:
+      size:
+        max: 3
+        min: 1
+      spawnCount:
+        max: 3
+        min: 1
     playAudio: {}
     screenShake:
-      maxIntensity: 2
+      maxIntensity: 1
   "atom-beautify":
     general:
       _analyticsUserId: "52665e2f-189f-4791-840f-5d7b407dacc6"
