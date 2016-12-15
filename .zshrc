@@ -61,17 +61,14 @@ alias lsa="ls -a"
 alias lsl="ls -lha"
 alias bs="bundle exec jekyll serve"
 alias co="code"
-alias bst="browser-sync start --server --files" 
+alias bst="browser-sync start --server --files"
 source /Users/wangsong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.yarn/bin"
 
-# for docker info below 
+# for docker info below
 # https://docs.docker.com/compose/completion/
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
 # for node projects
 export PATH=$PATH:./node_modules/.bin
-
-
-

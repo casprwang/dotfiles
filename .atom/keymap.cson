@@ -37,9 +37,9 @@
 'atom-text-editor.vim-mode-plus.normal-mode':
   # Override default cmd-L(editor:split-selections-into-lines)
   'cmd-L': 'paner:very-right'
-  ':': 'command-palette:toggle'
-  # 'enter': 'vim-mode-plus:add-blank-line-below'
-  # 'shift-enter': 'vim-mode-plus:add-blank-line-above'
+  ':': 'command-palette:toggle<!--  -->'
+  'enter': 'vim-mode-plus:add-blank-line-below'
+  'shift-enter': 'vim-mode-plus:add-blank-line-above'
 
 # visual
 'atom-text-editor.vim-mode-plus.visual-mode':

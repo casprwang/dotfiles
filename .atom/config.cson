@@ -61,6 +61,7 @@
       "language-gfm"
       "terminal-plus"
       "kite"
+      "markdown-writer"
     ]
     packagesWithKeymapsDisabled: [
       "script"
