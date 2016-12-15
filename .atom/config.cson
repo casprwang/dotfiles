@@ -132,6 +132,7 @@
     useSmartcaseForSearch: true
   "vim-mode-plus":
     clearHighlightSearchOnResetNormalMode: true
+    hideTabBarOnMaximizePane: false
     highlightSearch: true
     ignoreCaseForSearch: true
     ignoreCaseForSearchCurrentWord: true
