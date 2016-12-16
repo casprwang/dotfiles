@@ -43,25 +43,20 @@
     automaticallyUpdate: false
     disabledPackages: [
       "node-debugger"
-      "minimap"
-      "script"
       "autocomplete-js-import"
       "atom-beautify"
-      "atom-ternjs"
       "jslint"
       "autocomplete-modules"
-      "linter-jshint"
       "linter-pep8"
       "atom-jshint"
-      "linter"
       "linter-python-pep8"
       "react"
-      "linter-xo"
       "markdown-preview-plus"
       "language-gfm"
       "terminal-plus"
       "kite"
       "markdown-writer"
+      "relative-numbers"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -100,11 +95,13 @@
     autoIndentJSX: true
   linter:
     gutterPosition: "Left"
+    lintOnFly: false
+    showErrorPanel: false
     showErrorTabLine: true
     statusIconScope: "File"
   "linter-eslint":
-    disableWhenNoEslintConfig: false
     eslintrcPath: "/Users/wangsong/.eslintrc"
+    fixOnSave: true
     useGlobalEslint: true
   "linter-jshint":
     lintInlineJavaScript: true
@@ -127,6 +124,8 @@
     style: {}
   react:
     enabledForAllJavascriptFiles: true
+  "relative-numbers":
+    trueNumberCurrentLine: false
   "tree-view": {}
   "vim-mode":
     useSmartcaseForSearch: true
