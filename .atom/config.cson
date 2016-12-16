@@ -57,6 +57,8 @@
       "kite"
       "markdown-writer"
       "relative-numbers"
+      "atom-bootstrap3"
+      "atom-bootstrap4"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -95,7 +97,6 @@
     autoIndentJSX: true
   linter:
     gutterPosition: "Left"
-    lintOnFly: false
     showErrorPanel: false
     showErrorTabLine: true
     statusIconScope: "File"

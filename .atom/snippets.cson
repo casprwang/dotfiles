@@ -24,7 +24,7 @@
 '.source.js':
   'console.log':
     'prefix': 'log'
-    'body': 'console.log($1)$2;'
+    'body': 'console.log($1)$2'
 
   '$':
     'prefix': '$'
