@@ -3,14 +3,14 @@ map ≤ :w<cr>
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 syntax on
-set timeoutlen=1000 ttimeoutlen=0
+" set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
 set autoread
-" show autocomplete for commands
+" " show autocomplete for commands
 set wildmenu
-map <silent> <esc> :noh<CR>
-nnoremap <leader>. :source ~/.vimrc<CR>
+" map <silent> <esc> :noh<CR>
+nnoremap ≥ :source ~/.vimrc<CR>
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
@@ -26,7 +26,7 @@ set showmatch
 set smarttab
 set copyindent
 set undofile                " Save undo's after file closes
-set undodir=~/.config/nvim/undo " where to save undo histories
+set undodir=~/.config/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
