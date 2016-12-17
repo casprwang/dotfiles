@@ -3,6 +3,7 @@
 '.workspace .editor:not(.mini), .workspace':
   'cmd-j': 'core:save'
   'cmd-s': 'unset!'
+  # 'tab': 'unset!'
   # 'enter': 'vim-mode-plus:add-blank-line-below'
   # 'shift-enter': 'vim-mode-plus:add-blank-line-above'
 # Atom keymaps work similarly to style sheets. Just as style sheets use
@@ -40,7 +41,8 @@
   ':': 'command-palette:toggle<!--  -->'
   'enter': 'vim-mode-plus:add-blank-line-below'
   'shift-enter': 'vim-mode-plus:add-blank-line-above'
-
+  'tab': 'vim-mode-plus:reset-normal-mode'
+  'shift-tab': 'vim-mode-plus:reset-normal-mode'
 # visual
 'atom-text-editor.vim-mode-plus.visual-mode':
   'S': 'vim-mode-plus:surround'
