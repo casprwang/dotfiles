@@ -3,7 +3,12 @@
 '.workspace .editor:not(.mini), .workspace':
   'cmd-j': 'core:save'
   'cmd-s': 'unset!'
+  'cmd-y': 'Project Manager: List Projects'
   'cmd-r': 'run:file'
+  # 'cmd-Y': 'Project Manager: List Projects'
+'atom-workspace:not([mini])':
+  # This key override window:toggle-full-screen(I'm not using it).
+  'ctrl-cmd-f': 'project-find-navigation:activate-results-pane'
   # 'ctrl-shift-t': 'run:selection'
   # 'tab': 'unset!'
   # 'enter': 'vim-mode-plus:add-blank-line-below'

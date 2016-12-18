@@ -1,1 +1,20 @@
-[]
+[
+  {
+    title: "node"
+    paths: [
+      "/Users/wangsong/dev/node"
+    ]
+  }
+  {
+    title: "Webpack Full"
+    paths: [
+      "/Users/wangsong/dev/webpack-full"
+    ]
+  }
+  {
+    title: "dotfiles"
+    paths: [
+      "/Users/wangsong/dotfiles"
+    ]
+  }
+]

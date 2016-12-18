@@ -128,6 +128,7 @@
         blue: "#00fdff"
     core: {}
     style: {}
+  "project-manager": {}
   react:
     enabledForAllJavascriptFiles: true
   "relative-numbers": {}
