@@ -35,6 +35,8 @@
   "autocomplete-python":
     showTooltips: true
     useKite: false
+  "browser-plus":
+    live: 400
   "color-picker":
     abbreviateValues: true
   "console-log": {}
@@ -56,9 +58,9 @@
       "terminal-plus"
       "kite"
       "markdown-writer"
-      "relative-numbers"
       "atom-bootstrap3"
       "atom-bootstrap4"
+      "relative-numbers"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -83,6 +85,8 @@
     useEmmetComments: true
   "exception-reporting":
     userId: "6678e98e-4b34-c899-1c6e-8274cdaafeef"
+  "gist-it":
+    userToken: "4abc1a352ef146241b31d1f600ee21b22220a89d"
   "git-plus":
     experimental: true
     messageTimeout: 0
@@ -126,8 +130,7 @@
     style: {}
   react:
     enabledForAllJavascriptFiles: true
-  "relative-numbers":
-    trueNumberCurrentLine: false
+  "relative-numbers": {}
   "tree-view": {}
   "vim-mode":
     useSmartcaseForSearch: true

@@ -3,6 +3,8 @@
 '.workspace .editor:not(.mini), .workspace':
   'cmd-j': 'core:save'
   'cmd-s': 'unset!'
+  'cmd-r': 'run:file'
+  # 'ctrl-shift-t': 'run:selection'
   # 'tab': 'unset!'
   # 'enter': 'vim-mode-plus:add-blank-line-below'
   # 'shift-enter': 'vim-mode-plus:add-blank-line-above'
@@ -79,7 +81,7 @@
   'cmd-N': 'application:new-window'
   'ctrl-p': 'fuzzy-finder:toggle-file-finder'
   # 'cmd-j': 'platformio-ide-terminal:toggle'
-  'cmd-t': 'fuzzy-finder:toggle-buffer-finder'
+  'cmd-t': 'symbols-view:toggle-file-symbols'
 
   'cmd-i': 'dash:shortcut'
   'shift-cmd-T': 'pane:reopen-closed-item'
@@ -268,7 +270,7 @@
 
   # 'cmd-j': 'platformio-ide-terminal:toggle'
 
-  'cmd-t': 'fuzzy-finder:toggle-buffer-finder'
+  'cmd-t': 'symbols-view:toggle-file-symbols'
   'cmd-b': 'tree-view:toggle-focus'
 
 #
