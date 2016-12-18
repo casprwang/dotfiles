@@ -77,6 +77,7 @@
       "one-light-ui"
       "atom-light-syntax"
     ]
+    useCustomTitleBar: true
   editor:
     fontSize: 13
     invisibles: {}
