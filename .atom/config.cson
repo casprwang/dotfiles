@@ -43,6 +43,19 @@
   core:
     allowPendingPaneItems: false
     automaticallyUpdate: false
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "node-debugger"
       "autocomplete-js-import"
@@ -61,6 +74,7 @@
       "atom-bootstrap3"
       "atom-bootstrap4"
       "relative-numbers"
+      "nuclide"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -79,13 +93,16 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontSize: 13
+    autoIndent: false
+    fontSize: 12
     invisibles: {}
     scrollPastEnd: true
   emmet:
     useEmmetComments: true
   "exception-reporting":
     userId: "6678e98e-4b34-c899-1c6e-8274cdaafeef"
+  fonts:
+    fontFamily: "SK Modernist"
   "gist-it":
     userToken: "4abc1a352ef146241b31d1f600ee21b22220a89d"
   "git-plus":
@@ -133,6 +150,7 @@
   react:
     enabledForAllJavascriptFiles: true
   "relative-numbers": {}
+  sound: {}
   "tree-view": {}
   "vim-mode":
     useSmartcaseForSearch: true

@@ -1,7 +1,11 @@
 # Your keymap
+# 'atom-text-editor:not([mini])':
+    # 'tab': 'emmet:expand-abbreviation-with-tab'
 # #                 unsetting
 '.workspace .editor:not(.mini), .workspace':
+  'cmd-\.': 'linter:next-error'
   'cmd-j': 'core:save'
+  'shift-tab': 'emmet:expand-abbreviation-with-tab'
   'cmd-s': 'unset!'
   'cmd-y': 'Project Manager: List Projects'
   'cmd-r': 'run:file'
@@ -66,10 +70,9 @@
 #   'ctrl-shift-p': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
 # 'atom-text-editor:not([mini])':
-  # 'tab': 'emmet:expand-abbreviation-with-tab'
 
 # 'atom-text-editor[data-grammar="YOUR GRAMMAR HERE"]:not([mini])':
-#     'tab': 'emmet:expand-abbreviation-with-tab'
+    # 'tab': 'emmet:expand-abbreviation-with-tab'
 'body':
   'ctrl-tab': 'unset!'
   'cmd-s': 'unset!'
@@ -146,7 +149,7 @@
 
 
 
-  'cmd-.': 'ask-stack:ask-question'
+  # 'cmd-.': 'ask-stack:ask-question'
 
 
   'cmd-p' :'git-plus:add-all-commit-and-push'
@@ -201,7 +204,7 @@
 
   #'cmd-N': 'script:run'
   'cmd-M': 'script:close-view'
-  'cmd-.': 'ask-stack:ask-question'
+  # 'cmd-.': 'ask-stack:ask-question'
 
   'alt-tab': 'window:focus-next-pane'
 
@@ -295,3 +298,9 @@
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'J': 'vim-mode-plus-user:move-five-lines-down'
   'K': 'vim-mode-plus-user:move-five-lines-up'
+  'left': 'window:focus-pane-on-left'
+  'up': 'window:focus-pane-on-up'
+  'down': 'window:focus-pane-on-down'
+  'right': 'window:focus-pane-on-right'
+  'ctrl-w j': 'pane:split-down-and-copy-active-item'
+  'ctrl-w l': 'pane:split-right-and-copy-active-item'

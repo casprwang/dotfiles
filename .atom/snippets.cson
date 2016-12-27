@@ -30,6 +30,17 @@
     'prefix': '$'
     'body': '${$1}$2'
 
+
+'.source.js':
+  'arrow':
+    'prefix': '>'
+    'body': '() => {$1}'
+
+'.source.js':
+  'br':
+    'prefix': 'br'
+    'body': '<br/>'
+
 # '.sorce.py':
 #   'print':
 #     'prefix': 'pp'
