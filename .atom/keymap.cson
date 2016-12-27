@@ -53,8 +53,11 @@
   'cmd-L': 'paner:very-right'
   ':': 'command-palette:toggle'
   'enter': 'vim-mode-plus:add-blank-line-below'
+  # surround
   'g s': 'vim-mode-plus:surround'
   'c s': 'vim-mode-plus:change-surround-any-pair'
+  'd s': 'vim-mode-plus:delete-surround-any-pair'
+
   'shift-enter': 'vim-mode-plus:add-blank-line-above'
   'tab': 'vim-mode-plus:reset-normal-mode'
   'shift-tab': 'vim-mode-plus:reset-normal-mode'

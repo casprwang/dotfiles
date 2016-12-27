@@ -74,8 +74,8 @@
       "kite"
       "atom-bootstrap3"
       "atom-bootstrap4"
-      "relative-numbers"
       "nuclide"
+      "relative-numbers"
     ]
     packagesWithKeymapsDisabled: [
       "script"
