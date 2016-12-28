@@ -92,7 +92,7 @@
     telemetryConsent: "no"
     themes: [
       "one-light-ui"
-      "atom-light-syntax"
+      "Lucario"
     ]
     useCustomTitleBar: true
   "disable-keybindings": {}
@@ -140,6 +140,9 @@
     siteLocalDir: "/Users/wangsong/jekyll-gulp-sass-browser-sync"
     sitePostsDir: "_posts"
   minimap: {}
+  "one-light-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
   "open-terminal-here":
     command: "open -a TerminalTab.app \"$PWD\""
   pigments:

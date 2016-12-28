@@ -1,3 +1,4 @@
+export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:`yarn global bin`"
 export GOPATH=$HOME/gocode
 export VSCODE_TSJS=1
@@ -23,8 +24,9 @@ gitpush() {
     git add .
     git commit -m "$*"
     git push
-
 }
+
+
 alias gpp=gitpush
 
 # for tmux
@@ -33,6 +35,7 @@ alias tn="tmux new -s"
 alias tnew="tmux new -s"
 alias tk="tmux kill-server"
 # alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
+alias vimr="vim ~/.vimrc"
 # alias zshr="cd ~/dotfiles && nvim .zshrc"
 alias so="source"
 alias szh="source ~/.zshrc"
@@ -51,7 +54,7 @@ alias tmr="nvim ~/.tmux.conf"
 alias e="exit"
 alias c="clear"
 alias ta="tmux a"
-# alias v="nvim"
+alias v="vi"
 # alias vim="nvim"
 alias py="python3"
 alias o="open"

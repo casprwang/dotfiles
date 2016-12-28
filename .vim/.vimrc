@@ -1,5 +1,5 @@
 let mapleader="\<Space>"
-map ≤ :w<cr>
+map <leader>j :w<cr>
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 syntax on
@@ -12,7 +12,7 @@ set autoread
 " " show autocomplete for commands
 set wildmenu
 " map <silent> <esc> :noh<CR>
-nnoremap ≥ :source ~/.vimrc<CR>
+nnoremap <leader>, :source ~/.vimrc<CR>
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
@@ -42,7 +42,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -62,6 +62,8 @@
   'tab': 'vim-mode-plus:reset-normal-mode'
   'shift-tab': 'vim-mode-plus:reset-normal-mode'
 
+  'Z Z': 'core:close'
+  'space j': 'core:save'
 
 'atom-text-editor.vim-mode-plus.visual-mode':
   'S': 'vim-mode-plus:surround'
