@@ -3,6 +3,8 @@ map ≤ :w<cr>
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 syntax on
+set background=light
+colorscheme lucario
 " set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
@@ -40,7 +42,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
-
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

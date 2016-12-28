@@ -1,4 +1,5 @@
 export PATH="$PATH:`yarn global bin`"
+export GOPATH=$HOME/gocode
 export VSCODE_TSJS=1
 PATH=$PATH:/usr/local/bin
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git

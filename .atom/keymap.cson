@@ -61,10 +61,11 @@
   'shift-enter': 'vim-mode-plus:add-blank-line-above'
   'tab': 'vim-mode-plus:reset-normal-mode'
   'shift-tab': 'vim-mode-plus:reset-normal-mode'
-# visual
-# 'atom-text-editor.vim-mode-plus.visual-mode':
-#   'S': 'vim-mode-plus:surround'
-#
+
+
+'atom-text-editor.vim-mode-plus.visual-mode':
+  'S': 'vim-mode-plus:surround'
+
 # Here's an example taken from Atom's built-in keymap:
 #
 # 'atom-text-editor':
@@ -313,8 +314,10 @@
 
 ####### for markdown file
 ".workspace .editor:not(.mini), .workspace[data-grammar='source md']":
-  'cmd-l': 'markdown-writer:toggle-task'
-  "cmd-k k": "markdown-writer:insert-link"
+  'cmd-t': 'markdown-writer:toggle-task'
+  'cmd-u': 'toggle-markdown-task:toggle'
+  # 'cmd-y': 'markdown-writer:toggle-taskdone'
+  # "cmd-k k": "markdown-writer:insert-link"
   # "shift-cmd-I": "markdown-writer:insert-image"
   # "cmd-i":       "markdown-writer:toggle-italic-text"
   "cmd-b":       "markdown-writer:toggle-bold-text"
@@ -329,8 +332,8 @@
   "cmd-4":  "markdown-writer:toggle-h4"
   "cmd-5":  "markdown-writer:toggle-h5"
   # "shift-cmd-O": "markdown-writer:toggle-ol"
-  # "shift-cmd-U": "markdown-writer:toggle-ul"
-  # "cmd-j cmd-p": "markdown-writer:jump-to-previous-heading"
-  # "cmd-j cmd-n": "markdown-writer:jump-to-next-heading"
+  "cmd-l": "markdown-writer:toggle-ul"
+  "up": "markdown-writer:jump-to-previous-heading"
+  "down": "markdown-writer:jump-to-next-heading"
   # "cmd-j cmd-d": "markdown-writer:jump-to-reference-definition"
   # "cmd-j cmd-t": "markdown-writer:jump-to-next-table-cell"
