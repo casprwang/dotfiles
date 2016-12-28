@@ -24,6 +24,9 @@
   }
 }
 
+
+
+
 /*
  * Examples
  * (To see them, uncomment and save)
@@ -35,15 +38,22 @@
 }
 
 // style the background and foreground colors on the atom-text-editor-element itself
+
+
+// hardcode the background color and the line-number
 atom-text-editor {
   // color: white;
-  // background-color: hsl(180, 24%, 12%);
+  background-color: hsl(209, 30%, 28%);
+}
+atom-text-editor .gutter .line-number {
+  background-color: hsl(209, 30%, 28%);
 }
 
-// To style other content in the text editor's shadow DOM, use the ::shadow expression
-atom-text-editor::shadow .cursor {
-  // border-color: red;
-}
+
+
+// atom-text-editor::shadow .gutter {
+//   // background-color: hsl(209, 30%, 28%);
+// }
 
 // atom-overlay {
 //   display: block;

@@ -97,7 +97,6 @@
     useCustomTitleBar: true
   "disable-keybindings": {}
   editor:
-    autoIndent: false
     fontSize: 12
     invisibles: {}
     scrollPastEnd: true
