@@ -92,7 +92,7 @@
     telemetryConsent: "no"
     themes: [
       "one-light-ui"
-      "atom-light-syntax"
+      "Lucario"
     ]
     useCustomTitleBar: true
   "disable-keybindings": {}

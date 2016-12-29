@@ -1,4 +1,5 @@
 export PATH=$PATH:/usr/local/go/bin
+export TERM=screen-256color
 export PATH="$PATH:`yarn global bin`"
 export GOPATH=$HOME/gocode
 export VSCODE_TSJS=1
@@ -36,6 +37,7 @@ alias tnew="tmux new -s"
 alias tk="tmux kill-server"
 # alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
 alias vimr="vim ~/.vimrc"
+alias nvimr="nvim ~/.config/nvim/init.vim"
 # alias zshr="cd ~/dotfiles && nvim .zshrc"
 alias so="source"
 alias szh="source ~/.zshrc"
@@ -77,3 +79,5 @@ autoload -Uz compinit && compinit -i
 
 # for node projects
 export PATH=$PATH:./node_modules/.bin
+
+

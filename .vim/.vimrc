@@ -1,13 +1,11 @@
 let mapleader="\<Space>"
+set laststatus=2
 map <leader>j :w<cr>
 set smartindent
 " let foo=3
 set expandtab  
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
-syntax on
-set background=light
-colorscheme lucario
 " set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
@@ -59,3 +57,16 @@ set softtabstop=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
+      " center buffer around cursor when opening files
+autocmd BufRead * normal zz
+
+
+syntax enable
+set background=light
+colorscheme lucario
