@@ -59,10 +59,32 @@ call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-commentary')
 
 
+
+" kana/vim-textobj-user
+call dein#add('kana/vim-textobj-user')
+" call dein#add('fvictorio/vim-textobj-backticks')
+" call dein#add('thinca/vim-textobj-between')
+call dein#add('kana/vim-textobj-line')
+" call dein#add('Chun-Yang/vim-textobj-chunk')
+" call dein#add('kana/vim-textobj-indent')
+" call dein#add('mattn/vim-textobj-url')
+" call dein#add('whatyouhide/vim-textobj-xmlattr')
+" call dein#add('jceb/vim-textobj-uri')
+call dein#add('kana/vim-textobj-entire')
+call dein#add('beloglazov/vim-textobj-quotes')
+call dein#add('kana/vim-textobj-function')
+
+
+" navi
+call dein#add('christoomey/vim-tmux-navigator')
+
+
+
+
 " Add or remove your plugins here:
 call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
 call dein#add('SirVer/ultisnips')
-call dein#add('honza/vim-snippets')
+" call dein#add('honza/vim-snippets')
 call dein#add('ervandew/supertab')
 
 " You can specify revision/branch/tag.
@@ -215,3 +237,12 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " end completion 
 " end completion 
 " end completion 
+"
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <Right> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>

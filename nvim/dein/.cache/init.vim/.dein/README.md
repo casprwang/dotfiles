@@ -1,252 +1,266 @@
-snipMate & UltiSnip Snippets
-============================
+Vim Tmux Navigator
+==================
 
-[![Build Status](https://travis-ci.org/honza/vim-snippets.svg)](https://travis-ci.org/honza/vim-snippets)
+This plugin is a repackaging of [Mislav Marohnić's][] tmux-navigator
+configuration described in [this gist][]. When combined with a set of tmux
+key bindings, the plugin will allow you to navigate seamlessly between
+vim and tmux splits using a consistent set of hotkeys.
 
-This repository contains snippets files for various programming languages.
+**NOTE**: This requires tmux v1.8 or higher.
 
-It is community-maintained and many people have contributed snippet files and
-other improvements already.
+Usage
+-----
 
-Contents
---------
+This plugin provides the following mappings which allow you to move between
+Vim panes and tmux splits seamlessly.
 
-- `snippets/*`: snippets using snipMate format
-- `UltiSnips/*`: snippets using UltiSnips format
+- `<ctrl-h>` => Left
+- `<ctrl-j>` => Down
+- `<ctrl-k>` => Up
+- `<ctrl-l>` => Right
+- `<ctrl-\>` => Previous split
 
-Snippet engines supporting vim-snippets
-----------------------------------------
+**Note** - you don't need to use your tmux `prefix` key sequence before using
+the mappings.
 
-There are different forks of snippet engines which allow the user to insert
-snippets by typing the name of a snippet hitting the expansion mapping.
-
-- [github.com/SirVer/ultisnips](https://github.com/SirVer/ultisnips):   
-  python, supports all snippets in this repo.
-- [github.com/garbas/vim-snipmate](https://github.com/garbas/vim-snipmate):   
-  VimL, snipmate-snippets, engine sometimes behaves strange. Supports
-  snippets/*
-- [github.com/Shougo/neosnippet](https://github.com/Shougo/neosnippet.vim):   
-  VimL, supports snippets/* with some configuration.
-- [github.com/drmingdrmer/xptemplate](https://github.com/drmingdrmer/xptemplate):
-  Totally different syntax, does not read snippets contained in this file, but
-  it is also very powerful. It does not support vim-snippets (just listing it
-  here for completeness)
-
-There tries to be a more comprehensive list (which still is incomplete) here:
-http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html
-
-UltiSnips has additional features such as high speed, nesting snippets,
-expanding snippets in snippets and offers powerful transformations on text in
-snippets (like visual selections or placeholder texts).
-
-Which one to use? If you have python give
-[SirVer/ultisnips](https://github.com/SirVer/ultisnips) a try because its fast
-and has the most features.
-
-If you have VimL only (vim without python support) your best option is using
-[garbas/vim-snipmate](https://github.com/garbas/vim-snipmate) and cope with the
-minor bugs found in the engine.
-
-Q: Should "snipMate be deprecated in favour of UltiSnips"?
-
-A: No, because snipMate is VimL, and UltiSnips requires Python.
-Some people want to use snippets without having to install Vim with Python
-support. Yes - this sucks.
-
-One solution would be: Use snippets if they are good enough, but allow overriding them
-in UltiSnips. This would avoid most duplication while still serving most users.
-AFAIK there is a nested-placeholder branch for snipMate too. snipMate is still
-improved by Adnan Zafar. So maybe time is not ready to make a final decision yet.
-
-[github issue/discussion](https://github.com/honza/vim-snippets/issues/363)
-
-Vendor Snippets
----------------
-
-Additional library and framework snippets are available for UltiSnips users in
-the `UltiSnips/` directory. These files are removed from the default language
-namespaces to prevent them from all being loaded automatically. If there is a
-separate library, framework, or package you would like to support open a pull
-request!
-
-Additional snippets can be added to the current buffer with the
-`:UltiSnipsAddFiletypes` command followed by the snippet name without the
-"snippets" ending. For example, to add the JavaScript Jasmine snippets, run:
-`:UltiSnipsAddFiletypes javascript-jasmine`. To have this snippet loaded
-everytime a JavaScript file is opened or created you can add the command to your
- -`.vim/ftplugin/javascript.vim` file. Another way is to add
- `autocmd FileType js UltiSnipsAddFiletypes javascript-jasmine` in your `.vimrc`.
-
-
-For more see the UltiSnips docs (`:help UltiSnips`).
+If you want to use alternate key mappings, see the [configuration section
+below][].
 
 Installation
 ------------
 
-First be aware that there are many options, see "Snippet engines" above.
-Second be aware than there are [tons of plugin managers](http://vim-wiki.mawercer.de/wiki/topic/vim%20plugin%20managment.html)
-which is why Marc Weber thinks that it doesn't make sense to repeat the same
-repetitive information everywhere.
+### Vim
 
-*Recommended way:*
-[vim-addon-manager](https://github.com/MarcWeber/vim-addon-manager) (because Marc Weber wrote it for exactly
-this reason, it supports simple dependency management). E.g. you're done by this
-line in your `.vimrc`:
+If you don't have a preferred installation method, I recommend using [Vundle][].
+Assuming you have Vundle installed and configured, the following steps will
+install the plugin:
+
+Add the following line to your `~/.vimrc` file
+
+``` vim
+Plugin 'christoomey/vim-tmux-navigator'
+```
+
+Then run
+
+```
+:PluginInstall
+```
+
+### tmux
+
+To configure the tmux side of this customization there are two options:
+
+#### Add a snippet
+
+Add the following to your `~/.tmux.conf` file:
+
+``` tmux
+# Smart pane switching with awareness of Vim splits.
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
+bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+```
+
+#### TPM
+
+If you'd prefer, you can use the Tmux Plugin Manager ([TPM][]) instead of
+copying the snippet.
+When using TPM, add the following lines to your ~/.tmux.conf:
+
+``` tmux
+set -g @plugin 'christoomey/vim-tmux-navigator'
+run '~/.tmux/plugins/tpm/tpm'
+```
+
+Thanks to Christopher Sexton who provided the updated tmux configuration in
+[this blog post][].
+
+Configuration
+-------------
+
+### Custom Key Bindings
+
+If you don't want the plugin to create any mappings, you can use the five
+provided functions to define your own custom maps. You will need to define
+custom mappings in your `~/.vimrc` as well as update the bindings in tmux to
+match.
+
+#### Vim
+
+Add the following to your `~/.vimrc` to define your custom maps:
+
+``` vim
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+```
+
+*Note* Each instance of `{Left-Mapping}` or `{Down-Mapping}` must be replaced
+in the above code with the desired mapping. Ie, the mapping for `<ctrl-h>` =>
+Left would be created with `nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>`.
+
+##### Autosave on leave
+
+You can configure the plugin to write the current buffer, or all buffers, when navigating from Vim to tmux. This functionality is exposed via the `g:tmux_navigator_save_on_switch` variable, which can have either of the following values:
+
+Value  | Behavior
+------ | ------
+1      | `:update` (write the current buffer, but only if changed)
+2      | `:wall` (write all buffers)
+
+To enable this, add the following (with the desired value) to your ~/.vimrc:
 
 ```vim
-" assuming you want to use snipmate snippet engine
-ActivateAddons vim-snippets snipmate
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
 ```
 
-[vim-pi](https://bitbucket.org/vimcommunity/vim-pi/issue/90/we-really-need-a-web-interface)
-Is the place to discuss plugin managers and repository resources.
+#### Tmux
 
-About how to install snipMate see [snipmate@garbas](https://github.com/garbas/vim-snipmate)
+Alter each of the five lines of the tmux configuration listed above to use your
+custom mappings. **Note** each line contains two references to the desired
+mapping.
 
-(Bundle, Pathogen, git clone - keywords to make people find this link by ctrl-f search)
-I know that I should be reading the docs of the snippet engine, just let me copy paste into my `.vimrc`:
-[See this pull request](https://github.com/honza/vim-snippets/pull/307/files).
+### Additional Customization
 
-TROUBLE
-=======
+#### Restoring Clear Screen (C-l)
 
-If you still have trouble getting this to work create a GitHub ticket, ask on
-IRC or the mailing list.
+The default key bindings include `<Ctrl-l>` which is the readline key binding
+for clearing the screen. The following binding can be added to your `~/.tmux.conf` file to provide an alternate mapping to `clear-screen`.
 
-Policies / for contributors
----------------------------
-
-Some snippets are useful for almost all languages, so let's try to have the same
-triggers for them:
-
-```
-if : if without else
-ife: if $1 else $2
-eif : else if ($1) { .. }
-el  : else ..
-wh  : while (cond) ...
+``` tmux
+bind C-l send-keys 'C-l'
 ```
 
-Don't add useless placeholder default texts like:
+With this enabled you can use `<prefix> C-l` to clear the screen.
 
-```
-if (${1:condition}){
-  ${2:some code here}
-}
-```
-instead use:
+Thanks to [Brian Hogan][] for the tip on how to re-map the clear screen binding.
 
-```
-if (${1}){
-  ${2}
-}
-```
+#### Nesting
+If you like to nest your tmux sessions, this plugin is not going to work
+properly. It probably never will, as it would require detecting when Tmux would
+wrap from one outermost pane to another and propagating that to the outer
+session.
 
-Exception: Functions which are used less often, such as Vim's `matchall()`, `matchstr()`
-functions which case hints may be helpful to remember order. In the VimL case
-get vim-dev plugin which has function completion
+By default this plugin works on the outermost tmux session and the vim
+sessions it contains, but you can customize the behaviour by adding more
+commands to the expression used by the grep command.
 
-Thus for conditions (while, if ..) and block bodies just use ${N} - Thanks
+When nesting tmux sessions via ssh or mosh, you could extend it to look like
+`'(^|\/)g?(view|vim|ssh|mosh?)(diff)?$'`, which makes this plugin work within
+the innermost tmux session and the vim sessions within that one. This works
+better than the default behaviour if you use the outer Tmux sessions as relays
+to different hosts and have all instances of vim on remote hosts.
 
-Open questions:
-What about one line if ee then .. else .. vs if \n .. then \n ... \n else \n .. ?
-Which additional policies to add?
-Discuss at: https://github.com/honza/vim-snippets/issues/230
+Similarly, if you like to nest tmux locally, add `|tmux` to the expression.
 
-*folding markers*:
-Until further work is done on `vim-snipmate`, please don't add folding markers
-into snippets. `vim-snipmate` has some comments about how to patch all snippets
-on the fly adding those.
+This behaviour means that you can't leave the innermost session with Ctrl-hjkl
+directly. These following fallback mappings can be targeted to the right Tmux
+session by escaping the prefix (Tmux' `send-prefix` command).
 
-Currently all snippets from UltiSnips have been put into UltiSnips - some work
-on merging should be done (dropping duplicates etc). Also see engines section above.
-
-Related repositories
---------------------
-
-We also encourage people to maintain sets of snippets for particular use cases
-so that all users can benefit from them.  People can list their snippet repositories here:
-
-* https://github.com/rbonvall/snipmate-snippets-bib (snippets for BibTeX files)
-* https://github.com/sudar/vim-arduino-snippets (snippets for Arduino files)
-* https://github.com/zedr/zope-snipmate-bundle.git (snippets for Python, TAL and ZCML)
-* https://github.com/bonsaiben/bootstrap-snippets (snippets for Twitter Bootstrap markup, in HTML and Haml)
-* https://github.com/sniphpets (advanced snippets for PHP, Symfony 2/3, Doctrine and etc.)
-
-Installation using VAM: https://github.com/MarcWeber/vim-addon-manager
-
-Future - ideas - examples
--------------------------
-
-[overview snippet engines](http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html)
-If you have ideas you can add them to that list of "snippet engine features by example".
-
-Historical notes
-----------------
-
-[vim-snipmate][1] was originally started by [Michael Sanders][2] who has now
-unfortunately abandoned the project. [Rok Garbas][3] is now maintaining a
-[fork][4] of the project in hopes of improving the existing code base.
-
-Versions / dialects / ..
-========================
-
-There are some issues, such as newer language versions may require other
-snippets than older. If this exists we currently recommend doing this:
-
-* add snippets/ruby.snippets (common snippets)
-* add snippets/ruby-1.8.snippets (1.8 only)
-* add snippets/ruby-1.9.snippets (1.9 only)
-
-then configure https://github.com/garbas/vim-snipmate this way:
-
-```vim
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
+``` tmux
+bind -r C-h run "tmux select-pane -L"
+bind -r C-j run "tmux select-pane -D"
+bind -r C-k run "tmux select-pane -U"
+bind -r C-l run "tmux select-pane -R"
+bind -r C-\ run "tmux select-pane -l"
 ```
 
-If it happens that you work on a project requiring ruby-1.8 snippets instead,
-consider using `vim-addon-local-vimrc` and override the filetypes.
+Troubleshooting
+---------------
 
-Well - of course it may not make sense to create a new file for each
-ruby-library-version triplet. Sometimes postfixing a name such as
+### Vim -> Tmux doesn't work!
 
+This is likely due to conflicting key mappings in your `~/.vimrc`. You can use
+the following search pattern to find conflicting mappings
+`\vn(nore)?map\s+\<c-[hjkl]\>`. Any matching lines should be deleted or
+altered to avoid conflicting with the mappings from the plugin.
+
+Another option is that the pattern matching included in the `.tmux.conf` is
+not recognizing that Vim is active. To check that tmux is properly recognizing
+Vim, use the provided Vim command `:TmuxPaneCurrentCommand`. The output of
+that command should be a string like 'vim', 'Vim', 'vimdiff', etc. If you
+encounter a different output please [open an issue][] with as much info about
+your OS, Vim version, and tmux version as possible.
+
+[open an issue]: https://github.com/christoomey/vim-tmux-navigator/issues/new
+
+### Tmux Can't Tell if Vim Is Active
+
+This functionality requires tmux version 1.8 or higher. You can check your
+version to confirm with this shell command:
+
+``` bash
+tmux -V # should return 'tmux 1.8'
 ```
-migrate_lib_20_down
-migrate_lib_20_up
+
+### Switching out of Vim Is Slow
+
+If you find that navigation within Vim (from split to split) is fine, but Vim
+to a non-Vim tmux pane is delayed, it might be due to a slow shell startup.
+Consider moving code from your shell's non-interactive rc file (e.g.,
+`~/.zshenv`) into the interactive startup file (e.g., `~/.zshrc`) as Vim only
+sources the non-interactive config.
+
+### It Doesn't Work in tmate
+
+[tmate][] is a tmux fork that aids in setting up remote pair programming
+sessions. It is designed to run alongside tmux without issue, but occasionally
+there are hiccups. Specifically, if the versions of tmux and tmate don't match,
+you can have issues. See [this
+issue](https://github.com/christoomey/vim-tmux-navigator/issues/27) for more
+detail.
+
+[tmate]: http://tmate.io/
+
+### It Doesn't Work in Neovim (specifically C-h)
+
+[Neovim][] is a Vim fork. While Neovim is intended to be a drop-in replacement
+for Vim, it does handle some keyboard input differently than Vim does. Some
+users (including those on OS X) may find that all of their pane-switching
+keybindings work with the exception of <kbd>Ctrl</kbd>+<kbd>h</kbd>, which
+instead returns a backspace. The explanation of what is going on vastly exceeds
+the scope of this guide, but you can read the discussion on this Neovim
+[issue][].
+
+The simplest and hackiest solution is to add the following to your Neovim
+`init.vim`, capturing the <kbd>Backspace</kbd> that Neovim receives when
+<kbd>Ctrl</kbd>+<kbd>h</kbd> is typed in normal mode:
+
+```vimL
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 ```
 
-will do it then if syntax has changed.
+A more complete and less-hacky solution would be to update the incorrect
+terminfo entry that is part of the problem on OS X (and some Linux
+distributions) as described in this [comment][].
 
-Language maintainers
---------------------
+[Neovim]: https://neovim.io/
+[issue]: https://github.com/neovim/neovim/issues/2048
+[comment]: https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
 
-No one can really be proficient in all programming languages. If you would like
-to maintain snippets for a language, please get in touch.
+### It Still Doesn't Work!!!
 
-Notes: People are interested in snippets - and their interest may wane again.
-This list is kept up-to-date on a best effort basis.
+The tmux configuration uses an inlined grep pattern match to help determine if
+the current pane is running Vim. If you run into any issues with the navigation
+not happening as expected, you can try using [Mislav's original external
+script][] which has a more robust check.
 
-* Elixir - [lpil](https://github.com/lpil), [iurifq](https://github.com/iurifq)
-* Falcon - [steveno](https://github.com/steveno)
-* HTML Django - [honza](http://github.com/honza)
-* Javascript - [honza](http://github.com/honza)
-* Markdown - [honza](http://github.com/honza)
-* PHP - [chrisyue](http://github.com/chrisyue)
-* Python - [honza](http://github.com/honza)
-* Ruby - [taq](http://github.com/taq)
-* Scala - [gorodinskiy](https://github.com/gorodinskiy)
-* Supercollider - [lpil](https://github.com/lpil)
-
-License
--------
-
-Just as the original snipMate plugin, all the snippets are licensed under the
-terms of the MIT license.
-
-[1]: http://github.com/garbas/vim-snipmate
-[2]: http://github.com/msanders
-[3]: http://github.com/garbas
-[4]: http://github.com/garbas/vim-snipmate
-[7]: http://github.com/SirVer/ultisnips
+[Brian Hogan]: https://twitter.com/bphogan
+[Mislav Marohnić's]: http://mislav.uniqpath.com/
+[Mislav's original external script]: https://github.com/mislav/dotfiles/blob/master/bin/tmux-vim-select-pane
+[Vundle]: https://github.com/gmarik/vundle
+[TPM]: https://github.com/tmux-plugins/tpm
+[configuration section below]: #custom-key-bindings
+[this blog post]: http://www.codeography.com/2013/06/19/navigating-vim-and-tmux-splits
+[this gist]: https://gist.github.com/mislav/5189704
