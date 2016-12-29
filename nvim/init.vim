@@ -131,12 +131,18 @@ autocmd BufReadPost *
       " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 
+"end  Remember cursor position
+"========================
+"========================
+"========================
+"========================
 
 
 syntax enable
 set background=light
 colorscheme lucario
 
+"status bar
 set laststatus=2
 set statusline=%f         " Path to the file
 set statusline+=%=        " Switch to the right side
@@ -144,3 +150,68 @@ set statusline+=%l        " Current line
 set statusline+=/         " Separator
 set statusline+=%L        " Total lines
 set statusline+=
+" end 
+
+
+
+" completion 
+" completion 
+" completion 
+" completion 
+" completion 
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+" this mapping Enter key to <C-y> to chose the current highlight item 
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+
+nnoremap <leader>vv ggVG
+nnoremap <leader>dd VGd
+
+" let g:UltiSnipsSnippetDirectories = ['~/dotfiles/UltiSnips']
+let g:UltiSnipsEditSplit = 'horizontal'
+let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/ultiSnips"
+
+" let g:UltiSnipsSnippetDirectories=["~/dotfiles/nvim/UltiSnips"]
+" let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/UltiSnips'
+let g:UltiSnipsSnippetDirectories=["ultiSnips"]
+
+let g:vim_json_syntax_conceal = 0
+
+" imap <Down> <c-j>
+imap <c-e> <esc>A
+" <c-a> <esc>I
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<cr>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" end completion 
+" end completion 
+" end completion 
+" end completion 
+" end completion 
