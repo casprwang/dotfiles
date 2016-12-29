@@ -38,18 +38,56 @@ nnoremap J 5j
 nnoremap K 5k
 
 
+"dein Scripts-----------------------------
+"dein Scripts-----------------------------
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/wangsong/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/Users/wangsong/.config/nvim/dein')
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" commenting
+call dein#add('tpope/vim-commentary')
+
+
+" Add or remove your plugins here:
+call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
+call dein#add('SirVer/ultisnips')
+call dein#add('honza/vim-snippets')
+call dein#add('ervandew/supertab')
+
+" You can specify revision/branch/tag.
+" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
+"End dein Scripts-------------------------
+"End dein Scripts-------------------------
 
 
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-" Plugin 'tpope/vim-commentary'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'junegunn/vim-emoji'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+
 
 
 
