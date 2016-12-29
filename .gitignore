@@ -15,3 +15,4 @@ tags
 .vim/bundle
 .atom/packages
 nvim/deinPlugins
+nvim/bundle
