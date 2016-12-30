@@ -46,6 +46,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'vitalk/vim-simple-todo'
+Plugin 'junegunn/fzf'
+Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
@@ -79,3 +81,17 @@ let g:simple_todo_map_keys = 0
 nmap <Leader>i <Plug>(simple-todo-below)
 nmap <Leader>I <Plug>(simple-todo-above)
 nmap <Leader>u <Plug>(simple-todo-mark-switch)
+
+
+" fzf
+map <c-p> :FZF<cr>
+
+" navi
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <Right> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
