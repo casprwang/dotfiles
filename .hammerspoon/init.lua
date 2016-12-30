@@ -67,6 +67,8 @@ hs.alert.show("Config loaded")
 --   f.h = max.h
 --   win:setFrame(f)
 -- end)
+
+-- window.animationDuration = 0
 local modalKey = {"alt"}
 
 local resizeMappings = {
@@ -79,6 +81,7 @@ local resizeMappings = {
   i={x=0.33, y=0, w=0.33, h=1},
   o={x=0.66, y=0, w=0.33, h=1},
 }
+
 
 for key in pairs(resizeMappings) do
   hs.hotkey.bind(modalKey, key, function()
