@@ -1,3 +1,3 @@
-[ ] add linting file
+- [ ] add linting file
 
 
