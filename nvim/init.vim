@@ -87,6 +87,7 @@ call dein#add('SirVer/ultisnips')
 " call dein#add('honza/vim-snippets')
 call dein#add('ervandew/supertab')
 
+call dein#add('junegunn/fzf')
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -246,3 +247,9 @@ nnoremap <silent> <Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+
+" install 
+nmap <leader>in :call dein#install()<cr>
+
+" fzf
+map <c-p> :FZF<cr>

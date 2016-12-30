@@ -44,7 +44,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'vitalk/vim-simple-todo'
+" Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -71,3 +73,9 @@ autocmd BufRead * normal zz
 syntax enable
 set background=light
 colorscheme lucario
+
+let g:simple_todo_map_keys = 0
+
+nmap <Leader>i <Plug>(simple-todo-below)
+nmap <Leader>I <Plug>(simple-todo-above)
+nmap <Leader>u <Plug>(simple-todo-mark-switch)
