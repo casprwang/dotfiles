@@ -48,7 +48,14 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vitalk/vim-simple-todo'
 Plugin 'junegunn/fzf'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
 " Plugin 'Valloric/YouCompleteMe'
+
+" kana
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'beloglazov/vim-textobj-quotes'
+Plugin 'kana/vim-textobj-line'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -95,3 +102,6 @@ nnoremap <silent> <Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+
+
+map <leader>o :NERDTreeToggle<CR>
