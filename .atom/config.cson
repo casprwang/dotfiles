@@ -86,7 +86,6 @@
       "project-manager"
       "dash"
       "atom-html-preview"
-      "emmet"
       "markdown-writer"
     ]
     telemetryConsent: "no"

@@ -1,12 +1,12 @@
 # Your keymap
 # 'atom-text-editor:not([mini])':
-    # 'tab': 'emmet:expand-abbreviation-with-tab'
+#   'tab': 'emmet:expand-abbreviation-with-tab'
 # #                 unsetting
 
 '.workspace .editor:not(.mini), .workspace':
+  'shift-space': 'unset!'
   'cmd-\.': 'linter:next-error'
   'cmd-j': 'core:save'
-  'shift-tab': 'emmet:expand-abbreviation-with-tab'
   'cmd-b': 'tree-view:toggle-focus'
   'cmd-s': 'unset!'
   'cmd-y': 'Project Manager: List Projects'
@@ -36,6 +36,13 @@
   'ctrl-o':     'cursor-history:prev'
   'ctrl-cmd-i': 'cursor-history:next-within-editor'
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
+
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'ctrl-w': 'editor:delete-to-beginning-of-word'
+  'ctrl-u': 'editor:delete-to-beginning-of-line'
+  'tab': 'emmet:expand-abbreviation-with-tab'
+  # 'ctrl-y': 'vim-mode-plus:copy-from-line-above'
+
 
 # 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
 #   'K': 'custom:move-ten-up'
@@ -339,3 +346,14 @@
   "down": "markdown-writer:jump-to-next-heading"
   # "cmd-j cmd-d": "markdown-writer:jump-to-reference-definition"
   # "cmd-j cmd-t": "markdown-writer:jump-to-next-table-cell"
+
+
+
+  # 'tab': 'emmet:expand-abbreviation-with-tab'
+
+
+'atom-text-editor.autocomplete-active:not([mini])':
+  'tab': 'autocomplete-plus:confirm'
+
+'.pane .editor:not(.mini)':
+  'tab': 'snippets:expand'
