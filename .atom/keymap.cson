@@ -40,7 +40,7 @@
 'atom-text-editor.vim-mode-plus.insert-mode':
   'ctrl-w': 'editor:delete-to-beginning-of-word'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
-  'tab': 'emmet:expand-abbreviation-with-tab'
+  'ctrl-q': 'emmet:expand-abbreviation-with-tab'
   # 'ctrl-y': 'vim-mode-plus:copy-from-line-above'
 
 

@@ -76,6 +76,7 @@
       "atom-bootstrap4"
       "nuclide"
       "relative-numbers"
+      "gist-it"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -87,6 +88,7 @@
       "dash"
       "atom-html-preview"
       "markdown-writer"
+      "emmet"
     ]
     telemetryConsent: "no"
     themes: [
@@ -108,8 +110,8 @@
   "gist-it":
     userToken: "4abc1a352ef146241b31d1f600ee21b22220a89d"
   "git-plus":
-    experimental: true
-    messageTimeout: 0
+    general:
+      _analyticsUserId: "0d241bcc-b403-4288-b04c-ec7adeb6b9b9"
   jshint:
     onlyConfig: true
     supportLintingJsx: true
