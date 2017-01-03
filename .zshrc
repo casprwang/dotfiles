@@ -28,7 +28,17 @@ gitpush() {
 }
 
 
+gitpush_dotfiles() {
+    cd ~/dotfiles
+    git add .
+    git commit -m "$*"
+    git push
+}
+
+alias babel-node ./node_modules/.bin/babel-node
+
 alias gpp=gitpush
+alias gppd=gitpush_dotfiles
 
 # for tmux
 alias t="tmux a"

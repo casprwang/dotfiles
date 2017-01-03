@@ -1,10 +1,10 @@
 # Your keymap
 # 'atom-text-editor:not([mini])':
-#   'tab': 'emmet:expand-abbreviation-with-tab'
 # #                 unsetting
 
 '.workspace .editor:not(.mini), .workspace':
-  'shift-space': 'unset!'
+  # 'tab': 'unset!'
+  'ctrl-q': 'emmet:expand-abbreviation-with-tab'
   'cmd-\.': 'linter:next-error'
   'cmd-j': 'core:save'
   'cmd-b': 'tree-view:toggle-focus'
@@ -40,8 +40,8 @@
 'atom-text-editor.vim-mode-plus.insert-mode':
   'ctrl-w': 'editor:delete-to-beginning-of-word'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
-  'ctrl-q': 'emmet:expand-abbreviation-with-tab'
-  # 'ctrl-y': 'vim-mode-plus:copy-from-line-above'
+  'down': 'core:move-down'
+  'up': 'core:move-up'
 
 
 # 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
@@ -71,7 +71,8 @@
 
   'Z Z': 'core:close'
   'space j': 'core:save'
-
+  'up': 'markdown-writer:jump-to-previous-heading'
+  'down': 'markdown-writer:jump-to-next-heading'
 'atom-text-editor.vim-mode-plus.visual-mode':
   'S': 'vim-mode-plus:surround'
 
@@ -89,7 +90,6 @@
 # 'atom-text-editor:not([mini])':
 
 # 'atom-text-editor[data-grammar="YOUR GRAMMAR HERE"]:not([mini])':
-    # 'tab': 'emmet:expand-abbreviation-with-tab'
 'body':
   'ctrl-tab': 'unset!'
   'cmd-s': 'unset!'
@@ -349,7 +349,6 @@
 
 
 
-  # 'tab': 'emmet:expand-abbreviation-with-tab'
 
 
 'atom-text-editor.autocomplete-active:not([mini])':

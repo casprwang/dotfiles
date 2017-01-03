@@ -87,8 +87,8 @@
       "project-manager"
       "dash"
       "atom-html-preview"
-      "markdown-writer"
       "emmet"
+      "markdown-writer"
     ]
     telemetryConsent: "no"
     themes: [
@@ -107,6 +107,8 @@
     userId: "6678e98e-4b34-c899-1c6e-8274cdaafeef"
   fonts:
     fontFamily: "SK Modernist"
+  gist:
+    token: "cfac1025089ff4f63c9dfbbcaf7e4d0b17e10f4f"
   "gist-it":
     userToken: "4abc1a352ef146241b31d1f600ee21b22220a89d"
   "git-plus":

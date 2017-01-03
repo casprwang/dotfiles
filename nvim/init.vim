@@ -225,7 +225,7 @@ imap <c-e> <esc>A
 " <c-a> <esc>I
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<cr>"
+let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
@@ -253,3 +253,4 @@ nmap <leader>in :call dein#install()<cr>
 
 " fzf
 map <c-p> :FZF<cr>
+imap <cr> <esc>o
