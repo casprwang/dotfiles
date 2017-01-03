@@ -33,6 +33,7 @@ gitpush_dotfiles() {
     git add .
     git commit -m "$*"
     git push
+    cd -
 }
 
 alias babel-node ./node_modules/.bin/babel-node
