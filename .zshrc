@@ -43,6 +43,8 @@ alias gppd=gitpush_dotfiles
 
 # for tmux
 alias t="tmux a"
+alias cdd="cd ~/dotfiles"
+alias sozh="so ~/.zshrc"
 alias tn="tmux new -s"
 alias tnew="tmux new -s"
 alias tk="tmux kill-server"
