@@ -1,5 +1,6 @@
 let mapleader="\<Space>"
 set laststatus=2
+set nowrap
 map <leader>j :w<cr>
 set smartindent
 " let foo=3
@@ -124,4 +125,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+
 

@@ -77,6 +77,11 @@
       "nuclide"
       "relative-numbers"
       "gist-it"
+      "meteor-api"
+      "meteor-snippets"
+      "vim-plus-autocomplete-emmet-compatibility"
+      "vim-plus-autocomplete-emmet-compatibility"
+      "vim-plus-autocomplete-emmet-compatibility"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -87,8 +92,8 @@
       "project-manager"
       "dash"
       "atom-html-preview"
-      "emmet"
       "markdown-writer"
+      "emmet"
     ]
     telemetryConsent: "no"
     themes: [
@@ -98,7 +103,7 @@
     useCustomTitleBar: true
   "disable-keybindings": {}
   editor:
-    fontSize: 12
+    fontSize: 11
     invisibles: {}
     scrollPastEnd: true
   emmet:
@@ -141,7 +146,12 @@
     siteEngine: "jekyll"
     siteLocalDir: "/Users/wangsong/jekyll-gulp-sass-browser-sync"
     sitePostsDir: "_posts"
-  minimap: {}
+  minimap:
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
   "one-light-ui":
     layoutMode: "Compact"
     tabSizing: "Minimum"
@@ -159,6 +169,9 @@
   react:
     enabledForAllJavascriptFiles: true
   "relative-numbers": {}
+  runner:
+    scopes:
+      js: "babel-node"
   sound: {}
   "tree-view": {}
   "vim-mode":

@@ -314,6 +314,7 @@
   'J': 'vim-mode-plus-user:move-five-lines-down'
   'K': 'vim-mode-plus-user:move-five-lines-up'
   'left': 'window:focus-pane-on-left'
+  'tab': 'snippets:next-tab-stop'
   'up': 'window:focus-pane-on-up'
   'down': 'window:focus-pane-on-down'
   'right': 'window:focus-pane-on-right'
@@ -351,8 +352,15 @@
 
 
 
-'atom-text-editor.autocomplete-active:not([mini])':
-  'tab': 'autocomplete-plus:confirm'
 
 '.pane .editor:not(.mini)':
   'tab': 'snippets:expand'
+# Stop emmet from hijacking tab from snippets and autocomplete
+
+'atom-text-editor[data-grammar="text html basic"]:not([mini]), atom-text-editor[data-grammar~="jade"]:not([mini]), atom-text-editor[data-grammar~="css"]:not([mini]), atom-text-editor[data-grammar~="sass"]:not([mini])':
+  'tab': 'snippets:next-tab-stop'
+# Stop emmet from hijacking tab from snippets and autocomplete
+'atom-text-editor.autocomplete-active:not([mini])':
+  'tab': 'autocomplete-plus:confirm'
+'atom-text-editor:not([mini])':
+    'cmd-shift-e': 'emmet:expand-abbreviation-with-tab'
