@@ -129,11 +129,15 @@
   "language-babel":
     allowLocalOverride: true
     autoIndentJSX: true
+  "language-elm":
+    elmOraclePath: "/usr/local/bin/elm-oracle"
   linter:
     gutterPosition: "Left"
     showErrorPanel: false
     showErrorTabLine: true
     statusIconScope: "File"
+  "linter-elm-make":
+    elmMakeExecutablePath: "/usr/local/bin/elm-make"
   "linter-eslint":
     eslintrcPath: "/Users/wangsong/.eslintrc.js"
     fixOnSave: true
