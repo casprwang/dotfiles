@@ -130,7 +130,7 @@
     showErrorTabLine: true
     statusIconScope: "File"
   "linter-eslint":
-    eslintrcPath: "/Users/wangsong/.eslintrc"
+    eslintrcPath: "/Users/wangsong/.eslintrc.js"
     fixOnSave: true
     useGlobalEslint: true
   "linter-jshint":

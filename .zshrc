@@ -26,8 +26,10 @@ gitpush() {
     git commit -m "$*"
     git push
 }
+alias gpp=gitpush
 
 
+# quick git add push the dotfiles
 gitpush_dotfiles() {
     cd ~/dotfiles
     git add .
@@ -35,11 +37,35 @@ gitpush_dotfiles() {
     git push
     cd -
 }
+alias gppd=gitpush_dotfiles
+
+
+# show the file size 
+size() {
+  file="$1"
+  if [ -b "$file" ]; then
+    /sbin/blockdev --getsize64 "$file"
+  else
+    wc -c < "$file"  # Handles pseudo files like /proc/cpuinfo
+    # stat --format %s "$file"
+    # find "$file" -printf '%s\n'
+    # du -b "$file" | cut -f1
+  fi
+}
+
+
+# mkdir and cd into it
+mkcdir ()
+{
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
+}
+alias mkdi=mkcdir
+
+
 
 alias babel-node ./node_modules/.bin/babel-node
 
-alias gpp=gitpush
-alias gppd=gitpush_dotfiles
 
 # for tmux
 alias t="tmux a"
@@ -94,3 +120,4 @@ autoload -Uz compinit && compinit -i
 export PATH=$PATH:./node_modules/.bin
 
 
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;} >> .gitignore
