@@ -169,3 +169,7 @@
   "React: dangerouslySetInnerHTML":
     prefix: "_dnghtml"
     body: "dangerouslySetInnerHTML={{__html: ${1}}}"
+'.source.js':
+  'console.log':
+    'prefix': 'log'
+    'body': 'console.log($1)$2'
