@@ -34,6 +34,8 @@
     snippetsFirst: true
     useSnippets: true
     useSnippetsAndFunction: true
+  "autocomplete-plus":
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
   "autocomplete-python":
     showTooltips: true
     useKite: false
@@ -82,6 +84,9 @@
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
+      "nodejs-snippets"
+      "gitignore-snippets"
+      "autocomplete-snippets"
     ]
     packagesWithKeymapsDisabled: [
       "script"

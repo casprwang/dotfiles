@@ -173,3 +173,6 @@
   'console.log':
     'prefix': 'log'
     'body': 'console.log($1)$2'
+  'arrow function':
+    'prefix': 'fun'
+    'body': 'const $1 = ($2) => {$3}'
