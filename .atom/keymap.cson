@@ -38,6 +38,7 @@
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
+  # 'escape': 'vim-mode-plus:reset-normal-mode'
   'ctrl-w': 'editor:delete-to-beginning-of-word'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
   'down': 'core:move-down'
@@ -368,3 +369,5 @@
 'atom-workspace atom-text-editor.autocomplete-active':
   'tab': 'snippets:next-tab-stop'
   'shift-tab': 'snippets:previous-tab-stop'
+'atom-text-editor.autocomplete-active':
+  'escape': 'autocomplete-plus:cancel'

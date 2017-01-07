@@ -1,3 +1,7 @@
+-- hs.window.animationDuration = 0.1 -- disable animations
+hs.window.animationDuration = 0.1 -- disable animations
+
+
 local function keyCode(key)
   modifiers = modifiers or {}
   return function()

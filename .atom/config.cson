@@ -36,6 +36,8 @@
     useSnippetsAndFunction: true
   "autocomplete-plus":
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
+    consumeSuffix: false
+    maxVisibleSuggestions: 6
   "autocomplete-python":
     showTooltips: true
     useKite: false
@@ -77,7 +79,6 @@
       "atom-bootstrap3"
       "atom-bootstrap4"
       "nuclide"
-      "relative-numbers"
       "gist-it"
       "meteor-api"
       "meteor-snippets"
@@ -86,7 +87,7 @@
       "vim-plus-autocomplete-emmet-compatibility"
       "nodejs-snippets"
       "gitignore-snippets"
-      "autocomplete-snippets"
+      "relative-numbers"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -99,6 +100,7 @@
       "atom-html-preview"
       "markdown-writer"
       "emmet"
+      "autocomplete-plus"
     ]
     telemetryConsent: "no"
     themes: [

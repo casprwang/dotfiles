@@ -176,3 +176,6 @@
   'arrow function':
     'prefix': 'fun'
     'body': 'const $1 = ($2) => {$3}'
+  'constructor':
+    'prefix': 'con'
+    'body': 'constructor($1) {\n\t$2\n}'
