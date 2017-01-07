@@ -63,31 +63,16 @@
         "BUCK"
       ]
     disabledPackages: [
-      "node-debugger"
-      "autocomplete-js-import"
-      "atom-beautify"
-      "jslint"
-      "autocomplete-modules"
-      "linter-pep8"
-      "atom-jshint"
-      "linter-python-pep8"
-      "react"
-      "markdown-preview-plus"
       "language-gfm"
-      "terminal-plus"
       "kite"
-      "atom-bootstrap3"
-      "atom-bootstrap4"
-      "nuclide"
-      "gist-it"
-      "meteor-api"
-      "meteor-snippets"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
-      "nodejs-snippets"
-      "gitignore-snippets"
-      "relative-numbers"
+      "atom-beautify"
+      "atom-html-preview"
+      "linter-csslint"
+      "markdown-writer"
+      "project-find-navigation"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -152,6 +137,7 @@
   "linter-jshint":
     lintInlineJavaScript: true
   "linter-pep8": {}
+  "linter-stylelint": {}
   "markdown-writer":
     fileExtension: ".md"
     siteEngine: "jekyll"
@@ -189,6 +175,7 @@
     useSmartcaseForSearch: true
   "vim-mode-plus":
     clearHighlightSearchOnResetNormalMode: true
+    flashOnMoveToOccurrence: true
     hideTabBarOnMaximizePane: false
     highlightSearch: true
     ignoreCaseForSearch: true
