@@ -58,6 +58,13 @@ Plugin 'kana/vim-textobj-entire'
 Plugin 'beloglazov/vim-textobj-quotes'
 Plugin 'kana/vim-textobj-line'
 
+
+" Markdown
+Plugin 'plasticboy/vim-markdown'
+Plugin 'iamcco/markdown-preview.vim'
+" Plugin 'suan/vim-instant-markdown'
+
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -134,3 +141,13 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" markdown 
+set shell=bash\ -i
+let g:vim_markdown_folding_disabled = 1
+
+" set to 1, the vim will open the preview window once enter the markdown
+" let g:mkdp_auto_start = 1
+let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
+
+nmap <silent> <leader>m <Plug>MarkdownPreview 

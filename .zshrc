@@ -20,6 +20,17 @@ PATH=$PATH:/usr/local/bin
 autoload -U promptinit; promptinit
 prompt pure
 
+# git setup
+gitsetup() {
+  git init
+  git remote add origin $1
+  git pull --rebase origin master
+  git add .
+  git commit -m "🎉 rebase"
+  git push origin master
+}
+
+
 # quick git add+commit+push
 gitpush() {
     git add .
@@ -39,6 +50,13 @@ gitpush_dotfiles() {
 }
 alias gppd=gitpush_dotfiles
 
+
+seteslint() {
+  # sudo npm info "eslint-config-airbnb-base@latest" peerDependencies
+  # export PKG=eslint-config-airbnb-base;
+  # npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
+  cp ~/.eslintrc .eslintrc
+}
 
 # show the file size 
 size() {
@@ -78,6 +96,8 @@ alias tk="tmux kill-server"
 alias vimr="vim ~/.vimrc"
 alias nvimr="nvim ~/.config/nvim/init.vim"
 # alias zshr="cd ~/dotfiles && nvim .zshrc"
+alias rm="trash"
+alias zshr="vim ~/.zshrc"
 alias so="source"
 alias szh="source ~/.zshrc"
 alias cdo="cd ~/dotfiles"
@@ -98,6 +118,7 @@ alias ta="tmux a"
 alias v="vi"
 # alias vim="nvim"
 alias py="python3"
+alias read="vim README.md"
 alias o="open"
 alias n="node"
 alias ip="ipython"

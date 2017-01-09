@@ -131,7 +131,7 @@
   "linter-elm-make":
     elmMakeExecutablePath: "/usr/local/bin/elm-make"
   "linter-eslint":
-    eslintrcPath: "/Users/wangsong/.eslintrc.js"
+    eslintrcPath: "/Users/wangsong/.eslintrc"
     fixOnSave: true
     useGlobalEslint: true
   "linter-jshint":
