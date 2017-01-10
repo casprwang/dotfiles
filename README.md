@@ -3,8 +3,8 @@
 ## Configurations for:
 * Editors
   * Vim (light weighted, simple, fast)
-  * Neovim (heavy, asynchronous)
-  * Atom (heavy, powerful)
+  * Neovim (asynchronous, powerful)
+  * Atom (powerful, compatible with vim)
 * Terminal tools
   * Tmux
   * iTerm
@@ -17,10 +17,10 @@
 * Etc.
 
 ## Core files
-* Neovim [init.vim](https://github.com/wangsongiam/dotfiles/blob/master/nvim/init.vim)
 * Vim [.vimrc](https://github.com/wangsongiam/dotfiles/blob/master/.vim/.vimrc)
+* Neovim [init.vim](https://github.com/wangsongiam/dotfiles/blob/master/nvim/init.vim)
 * Tmux [.tmux.conf](https://github.com/wangsongiam/dotfiles/blob/master/.tmux.conf)
-* zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/.zshrc)
+* Zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/.zshrc)
 
 ## Todos
 - [ ] install.sh for quick installation
