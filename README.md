@@ -26,3 +26,7 @@
 - [ ] install.sh for quick installation
 - [ ] clean comments
 - [ ] Demos
+- [ ] Use dein clean up reps
+- [ ] Use Neomake
+- [ ] Use Deoplete for asynchronous completion
+

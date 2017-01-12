@@ -82,7 +82,7 @@ call dein#add('christoomey/vim-tmux-navigator')
 
 
 " Add or remove your plugins here:
-call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
+" call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
 call dein#add('SirVer/ultisnips')
 " call dein#add('honza/vim-snippets')
 call dein#add('ervandew/supertab')
