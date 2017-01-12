@@ -8,6 +8,8 @@ set expandtab
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 " set timeoutlen=1000 ttimeoutlen=0
+nmap <c-w>v <c-w>v<right>
+nmap <c-w>s <c-w>s<right>
 set noswapfile
 set clipboard=unnamed
 set autoread
@@ -58,9 +60,14 @@ call dein#add('Shougo/dein.vim')
 " commenting
 call dein#add('tpope/vim-commentary')
 
+" css
+call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
+
 
 call dein#add('jiangmiao/auto-pairs')
 
+
+call dein#add('rizzatti/dash.vim')
 
 " kana/vim-textobj-user
 call dein#add('kana/vim-textobj-user')
@@ -268,3 +275,10 @@ map <c-p> :FZF<cr>
 nmap <leader>in :call dein#install()<cr>
 
 imap <c-q> <c-y>,
+
+let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+' ],
+    \ }
+
+
+nmap <leader>id :Dash<cr>

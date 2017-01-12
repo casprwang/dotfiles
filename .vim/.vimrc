@@ -37,6 +37,9 @@ set undoreload=10000        " number of lines to save for undo
 nnoremap J 5j
 nnoremap K 5k
 
+nmap <c-w>v <c-w>v<right>
+nmap <c-w>s <c-w>s<right>
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -67,6 +70,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/markdown-preview.vim'
 " Plugin 'suan/vim-instant-markdown'
 
+Plugin 'rizzatti/dash.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -154,3 +158,6 @@ let g:vim_markdown_folding_disabled = 1
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 
 nmap <silent> <leader>m <Plug>MarkdownPreview 
+
+nmap <leader>in :BundleInstall<cr>
+nmap <leader>id :Dash<cr>

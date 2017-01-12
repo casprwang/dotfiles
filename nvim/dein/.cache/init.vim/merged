@@ -1,2 +1,2 @@
 100
-['Shougo/dein.vim', 'SirVer/ultisnips', 'beloglazov/vim-textobj-quotes', 'christoomey/vim-tmux-navigator', 'ervandew/supertab', 'jiangmiao/auto-pairs', 'junegunn/fzf', 'kana/vim-textobj-entire', 'kana/vim-textobj-function', 'kana/vim-textobj-line', 'kana/vim-textobj-user', 'mattn/emmet-vim', 'othree/html5.vim', 'tpope/vim-commentary']
+['Shougo/dein.vim', 'SirVer/ultisnips', 'beloglazov/vim-textobj-quotes', 'christoomey/vim-tmux-navigator', 'ervandew/supertab', 'jiangmiao/auto-pairs', 'junegunn/fzf', 'kana/vim-textobj-entire', 'kana/vim-textobj-function', 'kana/vim-textobj-line', 'kana/vim-textobj-user', 'mattn/emmet-vim', 'othree/html5.vim', 'rizzatti/dash.vim', 'tpope/vim-commentary']

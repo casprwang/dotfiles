@@ -1,102 +1,37 @@
-# vim-textobj-user - Create your own text objects
+# vim-textobj-function
 
-[![Build Status](https://travis-ci.org/kana/vim-textobj-user.png)](https://travis-ci.org/kana/vim-textobj-user)
-
-vim-textobj-user is a Vim plugin to create your own text objects without pain.
-It is hard to create text objects, because there are many pitfalls to deal
-with.  This plugin hides such details and provides a declarative way to define
-text objects.  You can use regular expressions to define simple text objects,
-or use functions to define complex ones.
+[![Build Status](https://travis-ci.org/kana/vim-textobj-function.png)](https://travis-ci.org/kana/vim-textobj-function)
 
 
 
 
-## Examples
+vim-textobj-function is a Vim plugin to **text objects for functions**.  You can
+directly target a function (`af`) or the code inside a function (`if`).
+For example,
 
-### Simple text objects defined by a pattern
+* `daf` to <strong>D</strong>elete <strong>A</strong> <strong>F</strong>unction, and
+* `vif` to <strong>V</strong>isually select the code <strong>I</strong>nside a <strong>F</strong>unction.
 
-Define `ad`/`id` to select a date such as `2013-03-16`, and
-define `at`/`it` to select a time such as `22:04:21`:
+You can also use `aF` to target a function with leading or trailing blank
+lines like `ap`, or use `iF` to target just a function like `ip`.
+For example,
 
-```vim
-call textobj#user#plugin('datetime', {
-\   'date': {
-\     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
-\     'select': ['ad', 'id'],
-\   },
-\   'time': {
-\     'pattern': '\<\d\d:\d\d:\d\d\>',
-\     'select': ['at', 'it'],
-\   },
-\ })
-```
+- `yaF` to <strong>Y</strong>ank <strong>A</strong> <strong>F</strong>unction with leading or trailing blank lines, and
+- `viF` to visually select a function without leading or trailing blank lines.
 
+The syntax of a "function" is varied for each language.  So that you have to
+tell the syntax of a function to vim-textobj-function before editing.  By
+default, the following languages are supported:
 
-### Simple text objects surrounded by a pair of patterns
+* C language
+* Java
+* Vim script
+  (including [vim-vspec](https://github.com/kana/vim-vspec)-specific syntax)
 
-Define `aP` to select a PHP code with `<?php` and `?>`, and
-define `iP` to select a PHP code without `<?php` and `?>`:
+To support new languages, see:
 
-```vim
-call textobj#user#plugin('php', {
-\   'code': {
-\     'pattern': ['<?php\>', '?>'],
-\     'select-a': 'aP',
-\     'select-i': 'iP',
-\   },
-\ })
-```
-
-
-### Complex text objects defined by functions
-
-Define `al` to select the current line, and
-define `il` to select the current line without indentation:
-
-```vim
-call textobj#user#plugin('line', {
-\   '-': {
-\     'select-a-function': 'CurrentLineA',
-\     'select-a': 'al',
-\     'select-i-function': 'CurrentLineI',
-\     'select-i': 'il',
-\   },
-\ })
-
-function! CurrentLineA()
-  normal! 0
-  let head_pos = getpos('.')
-  normal! $
-  let tail_pos = getpos('.')
-  return ['v', head_pos, tail_pos]
-endfunction
-
-function! CurrentLineI()
-  normal! ^
-  let head_pos = getpos('.')
-  normal! g_
-  let tail_pos = getpos('.')
-  let non_blank_char_exists_p = getline('.')[head_pos[2] - 1] !~# '\s'
-  return
-  \ non_blank_char_exists_p
-  \ ? ['v', head_pos, tail_pos]
-  \ : 0
-endfunction
-```
-
-
-
-
-## Further reading
-
-You can define your own text objects like the above examples.  See also
-[the reference manual](https://github.com/kana/vim-textobj-user/blob/master/doc/textobj-user.txt)
-for more details.
-
-There are many text objects written with vim-textobj-user.
-If you want to find useful ones, or to know how they are implemented,
-see [a list of text objects implemented with
-vim-textobj-user](https://github.com/kana/vim-textobj-user/wiki).
+* [The reference manual](https://github.com/kana/vim-textobj-function/blob/master/doc/textobj-function.txt)
+* [The implementation for currently supported languages](https://github.com/kana/vim-textobj-function/tree/master/after/ftplugin)
 
 
 
