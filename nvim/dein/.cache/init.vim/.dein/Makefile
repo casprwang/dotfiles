@@ -1,17 +1,11 @@
-SHELL=/bin/bash
+all : emmet-vim.zip
 
-all: dist
+remove-zip:
+	-rm doc/tags
+	-rm emmet-vim.zip
 
-dist:
-	@rm supertab.vmb 2> /dev/null || true
-	@vim -c 'r! git ls-files doc plugin' \
-		-c '$$,$$d _' -c '%MkVimball supertab .' -c 'q!'
+emmet-vim.zip: remove-zip
+	zip -r emmet-vim.zip autoload plugin doc
 
-clean:
-	@rm -R build 2> /dev/null || true
-
-install: supertab.vmb
-	vim $< -c 'so %' -c 'q'
-
-uninstall:
-	vim -c 'RmVimball supertab.vmb' -c 'q'
+release: emmet-vim.zip
+	vimup update-script emmet.vim

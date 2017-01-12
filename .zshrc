@@ -132,6 +132,9 @@ alias bst="browser-sync start --server --files"
 source /Users/wangsong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.yarn/bin"
 
+# for emoj
+alias :mm=":memo:"
+
 # for docker info below
 # https://docs.docker.com/compose/completion/
 fpath=(~/.zsh/completion $fpath)

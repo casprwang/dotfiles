@@ -79,12 +79,19 @@ call dein#add('kana/vim-textobj-function')
 call dein#add('christoomey/vim-tmux-navigator')
 
 
+call dein#add('mattn/emmet-vim')
 
 
 " Add or remove your plugins here:
-" call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
+call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
 call dein#add('SirVer/ultisnips')
 " call dein#add('honza/vim-snippets')
+
+" completion libraries
+call dein#add('othree/html5.vim')
+call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
+call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
+
 call dein#add('ervandew/supertab')
 
 call dein#add('junegunn/fzf')
@@ -254,3 +261,8 @@ nmap <leader>in :call dein#install()<cr>
 " fzf
 map <c-p> :FZF<cr>
 imap <cr> <esc>o
+
+
+nmap <leader>in :call dein#install()<cr>
+
+imap <c-q> <c-y>,
