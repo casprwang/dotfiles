@@ -1,39 +1,83 @@
-# vim-textobj-function
+## About
 
-[![Build Status](https://travis-ci.org/kana/vim-textobj-function.png)](https://travis-ci.org/kana/vim-textobj-function)
+[![Join the chat at https://gitter.im/Shougo/dein.vim](https://badges.gitter.im/Shougo/dein.vim.svg)](https://gitter.im/Shougo/dein.vim?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/Shougo/dein.vim.svg?branch=master)](https://travis-ci.org/Shougo/dein.vim)
 
-
-
-
-vim-textobj-function is a Vim plugin to **text objects for functions**.  You can
-directly target a function (`af`) or the code inside a function (`if`).
-For example,
-
-* `daf` to <strong>D</strong>elete <strong>A</strong> <strong>F</strong>unction, and
-* `vif` to <strong>V</strong>isually select the code <strong>I</strong>nside a <strong>F</strong>unction.
-
-You can also use `aF` to target a function with leading or trailing blank
-lines like `ap`, or use `iF` to target just a function like `ip`.
-For example,
-
-- `yaF` to <strong>Y</strong>ank <strong>A</strong> <strong>F</strong>unction with leading or trailing blank lines, and
-- `viF` to visually select a function without leading or trailing blank lines.
-
-The syntax of a "function" is varied for each language.  So that you have to
-tell the syntax of a function to vim-textobj-function before editing.  By
-default, the following languages are supported:
-
-* C language
-* Java
-* Vim script
-  (including [vim-vspec](https://github.com/kana/vim-vspec)-specific syntax)
-
-To support new languages, see:
-
-* [The reference manual](https://github.com/kana/vim-textobj-function/blob/master/doc/textobj-function.txt)
-* [The implementation for currently supported languages](https://github.com/kana/vim-textobj-function/tree/master/after/ftplugin)
+Dein.vim is a dark powered Vim/Neovim plugin manager.
 
 
+## Requirements
 
+* Vim 7.4 or above or NeoVim.
+* "rsync" command in $PATH (UNIX)
+* "xcopy" command in $PATH (Windows)
+* "git" command in $PATH (if you want to install github or vim.org plugins)
 
-<!-- vim: set expandtab shiftwidth=4 softtabstop=4 textwidth=78 : -->
+## Quick start
+
+#### If you are using Unix/Linux or Mac OS X.
+
+1. Run below script.
+
+     ```
+     $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+     $ sh ./installer.sh {specify the installation directory}
+     ```
+
+2. Edit your .vimrc like this.
+
+    ```vim
+    if &compatible
+      set nocompatible
+    endif
+    set runtimepath+={path to dein.vim directory}
+
+    call dein#begin({path to plugin base path directory})
+
+    call dein#add({path to dein.vim directory})
+    call dein#add('Shougo/neocomplete.vim')
+    ...
+
+    call dein#end()
+
+    filetype plugin indent on
+    syntax enable
+    ```
+
+3. Open vim and install dein
+
+    ```vim
+    :call dein#install()
+    ```
+
+## Concept
+
+* Faster than NeoBundle
+
+* Simple
+
+* No commands, Functions only
+
+* Easy to test and maintain
+
+* No Vundle/NeoBundle compatibility
+
+* neovim/Vim8 asynchronous API installation support
+
+## Future works (not implemented yet)
+
+* Other types support (zip, svn, hg, ...)
+
+* Metadata repository support
+
+### Options
+
+Some common options. For a more detailed list, run `:h dein-options`
+
+| Option    | Type               | Description                                                                           |
+|-----------|--------------------|---------------------------------------------------------------------------------------|
+| `name`    | `string`           | A name for the plugin. If it is omitted, the tail of the repository name will be used |
+| `rev`     | `string`           | The revision number or branch/tag name for the repo                                   |
+| `build`   | `string`           | Command to run after the plugin is installed                                          |
+| `on_ft`   | `string` or `list` | Load a plugin for the current filetype                                                |
+| `on_cmd`  | `string` or `list` | Load the plugin for these commands                                                    |
+

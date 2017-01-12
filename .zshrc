@@ -37,7 +37,7 @@ gitpush() {
     git commit -m "$*"
     git push origin master
 }
-alias gpp=gitpush
+alias gp=gitpush
 
 
 # quick git add push the dotfiles
@@ -48,8 +48,7 @@ gitpush_dotfiles() {
     git push origin master
     cd -
 }
-alias gppd=gitpush_dotfiles
-
+alias gpd=gitpush_dotfiles
 
 seteslint() {
   # sudo npm info "eslint-config-airbnb-base@latest" peerDependencies
@@ -107,7 +106,7 @@ alias gs="git status"
 alias ga="git add ."
 alias gch="git checkout"
 alias gcm="git commit -m"
-alias gp="git push origin master"
+# alias gp="git push origin master"
 alias gm="git merge"
 alias gb="git branch"
 alias st="tmux source-file ~/.tmux.conf"

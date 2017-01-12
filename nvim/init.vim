@@ -66,6 +66,7 @@ call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
 
 call dein#add('jiangmiao/auto-pairs')
 
+call dein#add('scrooloose/nerdtree')
 
 call dein#add('rizzatti/dash.vim')
 
@@ -86,6 +87,9 @@ call dein#add('kana/vim-textobj-function')
 
 " navi
 call dein#add('christoomey/vim-tmux-navigator')
+
+" neomake
+call dein#add('neomake/neomake')
 
 
 call dein#add('mattn/emmet-vim')
@@ -282,3 +286,48 @@ let g:ycm_semantic_triggers = {
 
 
 nmap <leader>id :Dash<cr>
+map <leader>o :NERDTreeToggle<CR>
+
+
+" neomake
+
+
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+
+function! NeomakeESlintChecker()
+  let l:npm_bin = ''
+  let l:eslint = 'eslint'
+
+  if executable('npm')
+    let l:npm_bin = split(system('npm bin'), '\n')[0]
+  endif
+
+  if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
+    let l:eslint = l:npm_bin . '/eslint'
+  endif
+
+  let b:neomake_javascript_eslint_exe = l:eslint
+endfunction
+autocmd FileType javascript :call NeomakeESlintChecker()
+
+autocmd! BufWritePost,BufReadPost * Neomake
+
+" let g:neomake_open_list=2
+" let g:neomake_javascript_enabled_makers = ['standard']
+" let g:neomake_jsx_enabled_makers = ['standard']
+" if findfile('.eslintrc', '.;') !=# ''
+"   let g:neomake_javascript_enabled_makers = ['eslint']
+"   let g:neomake_jsx_enabled_makers = ['eslint']
+"   let g:neomake_javascript_eslint_maker = {
+"         \ 'exe': $PWD . '/node_modules/.bin/eslint'
+"         \ }
+" endif
+
+" autocmd! BufWritePost * Neomake
+" neomake
+" nmap <Leader><Space>o :lopen<CR>      " open location window
+" nmap <Leader><Space>c :lclose<CR>     " close location window
+" nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader>> :lnext<CR>      " next error/warning
+nmap <Leader>< :lprev<CR>      " previous error/warning
