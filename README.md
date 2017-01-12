@@ -24,10 +24,10 @@
 * Zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/.zshrc)
 
 ## Todos
-- [ ] install.sh for quick installation
-- [ ] clean comments
-- [ ] Demos
-- [ ] Use dein clean up reps
-- [ ] Use Neomake
+- [x] Use Neomake for asynchronous linting
+- [x] Demos
 - [ ] Use Deoplete for asynchronous completion
+- [ ] Use dein clean up reps
+- [ ] clean comments
+- [ ] install.sh for quick installation
 
