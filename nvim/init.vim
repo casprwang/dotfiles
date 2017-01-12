@@ -59,6 +59,8 @@ call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-commentary')
 
 
+call dein#add('jiangmiao/auto-pairs')
+
 
 " kana/vim-textobj-user
 call dein#add('kana/vim-textobj-user')

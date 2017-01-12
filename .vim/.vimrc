@@ -52,6 +52,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'Valloric/YouCompleteMe'
 
+
+Plugin 'jiangmiao/auto-pairs'
+
 " kana
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'

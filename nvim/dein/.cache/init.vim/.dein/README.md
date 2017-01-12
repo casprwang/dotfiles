@@ -1,83 +1,104 @@
-## About
+# vim-textobj-user - Create your own text objects
 
-[![Join the chat at https://gitter.im/Shougo/dein.vim](https://badges.gitter.im/Shougo/dein.vim.svg)](https://gitter.im/Shougo/dein.vim?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/Shougo/dein.vim.svg?branch=master)](https://travis-ci.org/Shougo/dein.vim)
+[![Build Status](https://travis-ci.org/kana/vim-textobj-user.png)](https://travis-ci.org/kana/vim-textobj-user)
 
-Dein.vim is a dark powered Vim/Neovim plugin manager.
+vim-textobj-user is a Vim plugin to create your own text objects without pain.
+It is hard to create text objects, because there are many pitfalls to deal
+with.  This plugin hides such details and provides a declarative way to define
+text objects.  You can use regular expressions to define simple text objects,
+or use functions to define complex ones.
 
 
-## Requirements
 
-* Vim 7.4 or above or NeoVim.
-* "rsync" command in $PATH (UNIX)
-* "xcopy" command in $PATH (Windows)
-* "git" command in $PATH (if you want to install github or vim.org plugins)
 
-## Quick start
+## Examples
 
-#### If you are using Unix/Linux or Mac OS X.
+### Simple text objects defined by a pattern
 
-1. Run below script.
+Define `ad`/`id` to select a date such as `2013-03-16`, and
+define `at`/`it` to select a time such as `22:04:21`:
 
-     ```
-     $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-     $ sh ./installer.sh {specify the installation directory}
-     ```
+```vim
+call textobj#user#plugin('datetime', {
+\   'date': {
+\     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
+\     'select': ['ad', 'id'],
+\   },
+\   'time': {
+\     'pattern': '\<\d\d:\d\d:\d\d\>',
+\     'select': ['at', 'it'],
+\   },
+\ })
+```
 
-2. Edit your .vimrc like this.
 
-    ```vim
-    if &compatible
-      set nocompatible
-    endif
-    set runtimepath+={path to dein.vim directory}
+### Simple text objects surrounded by a pair of patterns
 
-    call dein#begin({path to plugin base path directory})
+Define `aP` to select a PHP code with `<?php` and `?>`, and
+define `iP` to select a PHP code without `<?php` and `?>`:
 
-    call dein#add({path to dein.vim directory})
-    call dein#add('Shougo/neocomplete.vim')
-    ...
+```vim
+call textobj#user#plugin('php', {
+\   'code': {
+\     'pattern': ['<?php\>', '?>'],
+\     'select-a': 'aP',
+\     'select-i': 'iP',
+\   },
+\ })
+```
 
-    call dein#end()
 
-    filetype plugin indent on
-    syntax enable
-    ```
+### Complex text objects defined by functions
 
-3. Open vim and install dein
+Define `al` to select the current line, and
+define `il` to select the current line without indentation:
 
-    ```vim
-    :call dein#install()
-    ```
+```vim
+call textobj#user#plugin('line', {
+\   '-': {
+\     'select-a-function': 'CurrentLineA',
+\     'select-a': 'al',
+\     'select-i-function': 'CurrentLineI',
+\     'select-i': 'il',
+\   },
+\ })
 
-## Concept
+function! CurrentLineA()
+  normal! 0
+  let head_pos = getpos('.')
+  normal! $
+  let tail_pos = getpos('.')
+  return ['v', head_pos, tail_pos]
+endfunction
 
-* Faster than NeoBundle
+function! CurrentLineI()
+  normal! ^
+  let head_pos = getpos('.')
+  normal! g_
+  let tail_pos = getpos('.')
+  let non_blank_char_exists_p = getline('.')[head_pos[2] - 1] !~# '\s'
+  return
+  \ non_blank_char_exists_p
+  \ ? ['v', head_pos, tail_pos]
+  \ : 0
+endfunction
+```
 
-* Simple
 
-* No commands, Functions only
 
-* Easy to test and maintain
 
-* No Vundle/NeoBundle compatibility
+## Further reading
 
-* neovim/Vim8 asynchronous API installation support
+You can define your own text objects like the above examples.  See also
+[the reference manual](https://github.com/kana/vim-textobj-user/blob/master/doc/textobj-user.txt)
+for more details.
 
-## Future works (not implemented yet)
+There are many text objects written with vim-textobj-user.
+If you want to find useful ones, or to know how they are implemented,
+see [a list of text objects implemented with
+vim-textobj-user](https://github.com/kana/vim-textobj-user/wiki).
 
-* Other types support (zip, svn, hg, ...)
 
-* Metadata repository support
 
-### Options
 
-Some common options. For a more detailed list, run `:h dein-options`
-
-| Option    | Type               | Description                                                                           |
-|-----------|--------------------|---------------------------------------------------------------------------------------|
-| `name`    | `string`           | A name for the plugin. If it is omitted, the tail of the repository name will be used |
-| `rev`     | `string`           | The revision number or branch/tag name for the repo                                   |
-| `build`   | `string`           | Command to run after the plugin is installed                                          |
-| `on_ft`   | `string` or `list` | Load a plugin for the current filetype                                                |
-| `on_cmd`  | `string` or `list` | Load the plugin for these commands                                                    |
-
+<!-- vim: set expandtab shiftwidth=4 softtabstop=4 textwidth=78 : -->
