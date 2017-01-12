@@ -262,7 +262,7 @@ nmap <leader>in :call dein#install()<cr>
 
 " fzf
 map <c-p> :FZF<cr>
-imap <cr> <esc>o
+" imap <cr> <esc>o
 
 
 nmap <leader>in :call dein#install()<cr>
