@@ -15,7 +15,7 @@
   * Alred 3
 * Linting 
   * Eslint
-* Etc.
+* Some new tools I gave a try
 
 ## Core files
 * Vim [.vimrc](https://github.com/wangsongiam/dotfiles/blob/master/.vim/.vimrc)
