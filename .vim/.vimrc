@@ -70,6 +70,13 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/markdown-preview.vim'
 " Plugin 'suan/vim-instant-markdown'
 
+
+" Syntastic
+Plugin 'vim-syntastic/syntastic'
+
+
+
+
 Plugin 'rizzatti/dash.vim'
 
 call vundle#end()            " required
@@ -161,3 +168,17 @@ nmap <silent> <leader>m <Plug>MarkdownPreview
 
 nmap <leader>in :BundleInstall<cr>
 nmap <leader>id :Dash<cr>
+
+" Syntastic
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0

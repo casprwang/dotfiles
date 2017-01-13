@@ -73,6 +73,7 @@
       "linter-csslint"
       "markdown-writer"
       "project-find-navigation"
+      "linter-xo"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -98,6 +99,7 @@
     fontSize: 11
     invisibles: {}
     scrollPastEnd: true
+    softWrap: true
   emmet:
     useEmmetComments: true
   "exception-reporting":
@@ -138,6 +140,8 @@
     lintInlineJavaScript: true
   "linter-pep8": {}
   "linter-stylelint": {}
+  "linter-xo":
+    fixOnSave: true
   "markdown-writer":
     fileExtension: ".md"
     siteEngine: "jekyll"
