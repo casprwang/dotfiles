@@ -331,3 +331,10 @@ autocmd! BufWritePost,BufReadPost * Neomake
 " nmap <Leader><Space>, :ll<CR>         " go to current error/warning
 nmap <Leader>> :lnext<CR>      " next error/warning
 nmap <Leader>< :lprev<CR>      " previous error/warning
+
+nmap <leader>n :! node %<cr>
+
+nmap <leader>l :silent !./node_modules/.bin/eslint --fix %<cr>
+
+
+" nmap <leader>l :silent !echo Hello<cr>
