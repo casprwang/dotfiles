@@ -100,6 +100,11 @@ call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
 call dein#add('SirVer/ultisnips')
 " call dein#add('honza/vim-snippets')
 
+" Markdown
+call dein#add('plasticboy/vim-markdown')
+call dein#add('iamcco/markdown-preview.vim')
+
+
 " completion libraries
 call dein#add('othree/html5.vim')
 call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
@@ -276,6 +281,7 @@ map <c-p> :FZF<cr>
 " imap <cr> <esc>o
 
 
+
 nmap <leader>in :call dein#install()<cr>
 
 imap <c-q> <c-y>,
@@ -338,3 +344,16 @@ nmap <leader>l :silent !./node_modules/.bin/eslint --fix %<cr>
 
 
 " nmap <leader>l :silent !echo Hello<cr>
+
+
+
+
+" markdown 
+set shell=bash\ -i
+let g:vim_markdown_folding_disabled = 1
+
+" set to 1, the vim will open the preview window once enter the markdown
+" let g:mkdp_auto_start = 1
+let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
+
+nmap <silent> <leader>m <Plug>MarkdownPreview 

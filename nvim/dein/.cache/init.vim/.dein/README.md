@@ -1,83 +1,103 @@
-## About
+# html5.vim
 
-[![Join the chat at https://gitter.im/Shougo/dein.vim](https://badges.gitter.im/Shougo/dein.vim.svg)](https://gitter.im/Shougo/dein.vim?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/Shougo/dein.vim.svg?branch=master)](https://travis-ci.org/Shougo/dein.vim)
+HTML5 + inline SVG omnicomplete function, indent and syntax for Vim.
+Based on the default htmlcomplete.vim.
 
-Dein.vim is a dark powered Vim/Neovim plugin manager.
+This plugin contributes to [vim-polyglot](https://github.com/sheerun/vim-polyglot) language pack.
 
+## Feature
 
-## Requirements
+- Support all new elements and attribute.
+- Support all SVG elements
+- Support [microdata][microdata].
+- Support [RDFa][RDFa].
+- Support [WAI-ARIA][aria].
 
-* Vim 7.4 or above or NeoVim.
-* "rsync" command in $PATH (UNIX)
-* "xcopy" command in $PATH (Windows)
-* "git" command in $PATH (if you want to install github or vim.org plugins)
+## Install
 
-## Quick start
+Use [Vundle][] or [pathogen.vim][] is recommended.
 
-#### If you are using Unix/Linux or Mac OS X.
+[Vundle]:https://github.com/gmarik/vundle
+[pathogen.vim]:https://github.com/tpope/vim-pathogen
 
-1. Run below script.
+For Vundle:
 
-     ```
-     $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-     $ sh ./installer.sh {specify the installation directory}
-     ```
+    Plugin 'othree/html5.vim'
 
-2. Edit your .vimrc like this.
+## Configure
 
-    ```vim
-    if &compatible
-      set nocompatible
-    endif
-    set runtimepath+={path to dein.vim directory}
+Disable event-handler attributes support:
 
-    call dein#begin({path to plugin base path directory})
+    let g:html5_event_handler_attributes_complete = 0
 
-    call dein#add({path to dein.vim directory})
-    call dein#add('Shougo/neocomplete.vim')
-    ...
+Disable RDFa attributes support:
 
-    call dein#end()
+    let g:html5_rdfa_attributes_complete = 0
 
-    filetype plugin indent on
-    syntax enable
-    ```
+Disable microdata attributes support:
 
-3. Open vim and install dein
+    let g:html5_microdata_attributes_complete = 0
 
-    ```vim
-    :call dein#install()
-    ```
+Disable WAI-ARIA attribute support:
 
-## Concept
+    let g:html5_aria_attributes_complete = 0
 
-* Faster than NeoBundle
+## Change Log
 
-* Simple
+### Version 0.27
 
-* No commands, Functions only
+- Support inline SVG
 
-* Easy to test and maintain
+## License
 
-* No Vundle/NeoBundle compatibility
+Copyright (c) 2010-2013 Wei-Ko Kao, 2012 HT de Beer
 
-* neovim/Vim8 asynchronous API installation support
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Future works (not implemented yet)
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-* Other types support (zip, svn, hg, ...)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-* Metadata repository support
+## References
+ 
+1. [HTML5 Spec][1]
+2. [HTML5 Markup][2]
+3. [Custom Data Attributes][3]
+4. [microdata][4]
+5. [RDFa 1.0 Rec][5]
+6. [RDFa 1.1 Core WD][6]
+7. [WAI-ARIA][7]
+8. [IANA Language Sub Tags][8]
+9. [IANA Charset][9]
+10. [SVG Spec][10]
+11. [SVG2 Spec][11]
 
-### Options
+[html5.vim]:http://www.vim.org/scripts/script.php?script_id=3236
 
-Some common options. For a more detailed list, run `:h dein-options`
+[microdata]:http://www.w3.org/TR/microdata/
+[RDFa]:http://www.w3.org/TR/rdfa-syntax/
+[aria]:http://www.w3.org/TR/wai-aria/
 
-| Option    | Type               | Description                                                                           |
-|-----------|--------------------|---------------------------------------------------------------------------------------|
-| `name`    | `string`           | A name for the plugin. If it is omitted, the tail of the repository name will be used |
-| `rev`     | `string`           | The revision number or branch/tag name for the repo                                   |
-| `build`   | `string`           | Command to run after the plugin is installed                                          |
-| `on_ft`   | `string` or `list` | Load a plugin for the current filetype                                                |
-| `on_cmd`  | `string` or `list` | Load the plugin for these commands                                                    |
-
+[1]:http://w3c.github.io/html/
+[2]:http://dev.w3.org/html5/markup/
+[3]:http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes
+[4]:https://www.w3.org/TR/microdata/
+[5]:https://www.w3.org/TR/rdfa-syntax/#s_syntax
+[6]:http://www.w3.org/TR/rdfa-core/
+[7]:http://www.w3.org/TR/wai-aria/
+[8]:http://www.iana.org/assignments/language-subtag-registry
+[9]:http://www.iana.org/assignments/character-sets 
+[10]:http://www.w3.org/TR/SVG/
+[11]:https://www.w3.org/TR/SVG2/

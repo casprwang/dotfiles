@@ -173,9 +173,9 @@
   'console.log':
     'prefix': 'log'
     'body': 'console.log($1)'
-  'arrow function':
-    'prefix': 'fun'
-    'body': 'const $1 = ($2) => {$3}'
+  # 'arrow function':
+  #   'prefix': 'fun'
+  #   'body': 'const $1 = ($2) => {$3}'
   'constructor':
-    'prefix': 'con'
+    'prefix': 'cons'
     'body': 'constructor($1) {\n\t$2\n}'

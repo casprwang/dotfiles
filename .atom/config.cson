@@ -37,7 +37,6 @@
   "autocomplete-plus":
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
     consumeSuffix: false
-    maxVisibleSuggestions: 6
   "autocomplete-python":
     showTooltips: true
     useKite: false
@@ -73,7 +72,6 @@
       "linter-csslint"
       "markdown-writer"
       "project-find-navigation"
-      "linter-xo"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -99,7 +97,6 @@
     fontSize: 11
     invisibles: {}
     scrollPastEnd: true
-    softWrap: true
   emmet:
     useEmmetComments: true
   "exception-reporting":
@@ -133,6 +130,7 @@
   "linter-elm-make":
     elmMakeExecutablePath: "/usr/local/bin/elm-make"
   "linter-eslint":
+    advancedLocalNodeModules: "/.eslintrc.json"
     eslintrcPath: "/Users/wangsong/.eslintrc"
     fixOnSave: true
     useGlobalEslint: true
@@ -212,7 +210,7 @@
   editor:
     autoIndent: true
     autoIndentOnPaste: true
-    softWrap: true
+    softWrap: false
 ".js.source":
   editor:
     showIndentGuide: true

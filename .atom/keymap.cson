@@ -6,6 +6,9 @@
   # 'tab': 'unset!'
   'ctrl-q': 'emmet:expand-abbreviation-with-tab'
   'cmd-\.': 'linter:next-error'
+  'up': 'core:move-up'
+  'down': 'core:move-down'
+
   'cmd-j': 'core:save'
   'cmd-b': 'tree-view:toggle-focus'
   'cmd-s': 'unset!'
@@ -38,11 +41,11 @@
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
-  # 'escape': 'vim-mode-plus:reset-normal-mode'
+  'escape': 'vim-mode-plus:reset-normal-mode'
   'ctrl-w': 'editor:delete-to-beginning-of-word'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
-  'down': 'core:move-down'
-  'up': 'core:move-up'
+  # 'down': 'core:move-down'
+  # 'up': 'core:move-up'
 
 
 # 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
@@ -149,8 +152,8 @@
   # 'alt-h': 'editor:move-to-beginning-of-word'
   # 'alt-k': 'core:move-up'
   # 'alt-l': 'editor:move-to-end-of-word'
-  'ctrl-j': 'core:move-down'
-  'ctrl-k': 'core:move-up'
+  # 'ctrl-j': 'core:move-down'
+  # 'ctrl-k': 'core:move-up'
 
 
   'ctrl-shift-tab': 'pane:show-previous-item'
@@ -316,8 +319,6 @@
   'K': 'vim-mode-plus-user:move-five-lines-up'
   'left': 'window:focus-pane-on-left'
   'tab': 'snippets:next-tab-stop'
-  'up': 'window:focus-pane-on-up'
-  'down': 'window:focus-pane-on-down'
   'right': 'window:focus-pane-on-right'
   'ctrl-w j': 'pane:split-down-and-copy-active-item'
   'ctrl-w l': 'pane:split-right-and-copy-active-item'
@@ -344,8 +345,6 @@
   "cmd-5":  "markdown-writer:toggle-h5"
   # "shift-cmd-O": "markdown-writer:toggle-ol"
   "cmd-l": "markdown-writer:toggle-ul"
-  "up": "markdown-writer:jump-to-previous-heading"
-  "down": "markdown-writer:jump-to-next-heading"
   # "cmd-j cmd-d": "markdown-writer:jump-to-reference-definition"
   # "cmd-j cmd-t": "markdown-writer:jump-to-next-table-cell"
 
@@ -364,10 +363,12 @@
 # 'atom-text-editor.autocomplete-active:not([mini])':
 #   'tab': 'autocomplete-plus:confirm'
 'atom-text-editor:not([mini])':
-    'cmd-shift-e': 'emmet:expand-abbreviation-with-tab'
+  'cmd-shift-e': 'emmet:expand-abbreviation-with-tab'
 
 'atom-workspace atom-text-editor.autocomplete-active':
   'tab': 'snippets:next-tab-stop'
   'shift-tab': 'snippets:previous-tab-stop'
+  'up': 'autocomplete-plus:move-up'
+  'down': 'autocomplete-plus:move-down'
 'atom-text-editor.autocomplete-active':
   'escape': 'autocomplete-plus:cancel'

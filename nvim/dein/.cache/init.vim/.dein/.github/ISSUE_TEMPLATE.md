@@ -1,30 +1,23 @@
-<!-- Check all that apply [x] -->
-- Category
-    - [ ] fzf binary
-    - [ ] fzf-tmux script
-    - [ ] Key bindings
-    - [ ] Completion
-    - [ ] Vim
-    - [ ] Neovim
-    - [ ] Etc.
-- OS
-    - [ ] Linux
-    - [ ] Mac OS X
-    - [ ] Windows
-    - [ ] Windows Subsystem for Linux
-    - [ ] Etc.
-- Shell
-    - [ ] bash
-    - [ ] zsh
-    - [ ] fish
+<!-- Please explain the issue in detail (actual behavior). -->
+
+### Expected behavior
+
+<!-- What did you expect or want to happen? -->
+
+### Steps to reproduce
 
 <!--
-### Before submitting
+Include if relevant.
 
-- Make sure that you have the latest version of fzf
-- If you use tmux, make sure $TERM is set to screen or screen-256color
-- For more Vim stuff, check out https://github.com/junegunn/fzf.vim
-
-Describe your problem or suggestion from here ...
+Please execute `:let g:neomake_verbose = 3` to enable verbose output, which
+might help showing the issue already.
+Look at `:messages` to see them.
 -->
 
+### Output of the ":verb NeomakeInfo" command
+
+<!--
+Paste the output from `:verbose NeomakeInfo` here.
+You can use `:redir @+> | silent verb NeomakeInfo | redir END` to copy it to
+your clipboard.
+-->
