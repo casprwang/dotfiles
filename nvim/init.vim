@@ -357,3 +357,6 @@ let g:vim_markdown_folding_disabled = 1
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 
 nmap <silent> <leader>m <Plug>MarkdownPreview 
+
+" TMUX
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

@@ -145,3 +145,5 @@ export PATH=$PATH:./node_modules/.bin
 
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;} >> .gitignore
+
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
