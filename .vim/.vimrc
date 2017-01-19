@@ -38,7 +38,8 @@ nnoremap J 5j
 nnoremap K 5k
 
 nmap <c-w>v <c-w>v<right>
-nmap <c-w>s <c-w>s<right>
+nmap <c-w>l <c-w>v
+nmap <c-w>j <c-w>s<down>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -53,6 +54,7 @@ Plugin 'vitalk/vim-simple-todo'
 Plugin 'junegunn/fzf'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
+" Plugin 'SirVer/ultisnips'
 " Plugin 'Valloric/YouCompleteMe'
 
 
@@ -159,6 +161,7 @@ endif
 " markdown 
 set shell=bash\ -i
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 " set to 1, the vim will open the preview window once enter the markdown
 " let g:mkdp_auto_start = 1

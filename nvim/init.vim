@@ -9,7 +9,10 @@ nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 " set timeoutlen=1000 ttimeoutlen=0
 nmap <c-w>v <c-w>v<right>
-nmap <c-w>s <c-w>s<right>
+nmap <c-w>l <c-w>v
+nmap <c-w>j <c-w>s<down>
+
+
 set noswapfile
 set clipboard=unnamed
 set autoread
@@ -352,6 +355,7 @@ nmap <leader>l :silent !./node_modules/.bin/eslint --fix %<cr>
 " markdown 
 set shell=bash\ -i
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 " set to 1, the vim will open the preview window once enter the markdown
 " let g:mkdp_auto_start = 1
