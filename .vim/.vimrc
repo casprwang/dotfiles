@@ -60,6 +60,9 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'jiangmiao/auto-pairs'
 
+
+Plugin 'itchyny/calendar.vim'
+
 " kana
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
@@ -185,3 +188,9 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+" :Calendar
