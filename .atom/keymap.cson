@@ -4,7 +4,6 @@
 
 '.workspace .editor:not(.mini), .workspace':
   # 'tab': 'unset!'
-  'ctrl-q': 'emmet:expand-abbreviation-with-tab'
   'cmd-\.': 'linter:next-error'
   'up': 'core:move-up'
   'down': 'core:move-down'
@@ -43,6 +42,7 @@
 'atom-text-editor.vim-mode-plus.insert-mode':
   'escape': 'vim-mode-plus:reset-normal-mode'
   'ctrl-w': 'editor:delete-to-beginning-of-word'
+  'ctrl-r': 'emmet:expand-abbreviation-with-tab'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
   # 'down': 'core:move-down'
   # 'up': 'core:move-up'

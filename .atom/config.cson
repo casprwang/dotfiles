@@ -137,7 +137,8 @@
   "linter-jshint":
     lintInlineJavaScript: true
   "linter-pep8": {}
-  "linter-stylelint": {}
+  "linter-stylelint":
+    useStandard: true
   "linter-xo":
     fixOnSave: true
   "markdown-writer":

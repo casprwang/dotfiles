@@ -285,6 +285,7 @@ map <c-p> :FZF<cr>
 nmap <leader>in :call dein#install()<cr>
 
 imap <c-q> <c-y>,
+" imap <c-r> <c-y>,
 
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
