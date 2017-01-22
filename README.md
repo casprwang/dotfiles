@@ -7,15 +7,15 @@
   * Neovim (asynchronous, powerful)
   * Atom (powerful, compatible with vim)
 * Terminal tools
-  * Tmux
   * iTerm
+  * Tmux
   * Zsh
 * Macros
   * Hammerspoon 
   * Alred 3
 * Linting 
   * Eslint
-* Some new tools I gave a try
+* New tools
 
 ## Core files
 * Vim [.vimrc](https://github.com/wangsongiam/dotfiles/blob/master/.vim/.vimrc)
