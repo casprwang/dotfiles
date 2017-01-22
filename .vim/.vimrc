@@ -1,3 +1,6 @@
+" go
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
 let mapleader="\<Space>"
 set laststatus=2
 set nowrap
@@ -194,3 +197,5 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
 " :Calendar
+
+

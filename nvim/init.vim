@@ -409,3 +409,6 @@ filetype plugin indent on    " required
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+
+" go
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
