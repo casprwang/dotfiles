@@ -342,7 +342,8 @@ autocmd! BufWritePost,BufReadPost * Neomake
 nmap <Leader>> :lnext<CR>      " next error/warning
 nmap <Leader>< :lprev<CR>      " previous error/warning
 
-nmap <leader>n :! node %<cr>
+nmap <leader>rn :! node %<cr>
+nmap <leader>rp :! python3 %<cr>
 
 nmap <leader>l :silent !./node_modules/.bin/eslint --fix %<cr>
 

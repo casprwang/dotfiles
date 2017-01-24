@@ -199,3 +199,5 @@ let g:calendar_google_task = 1
 " :Calendar
 
 
+nmap <leader>rn :! node %<cr>
+nmap <leader>rp :! python3 %<cr>
