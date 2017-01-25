@@ -71,7 +71,6 @@
       "linter-csslint"
       "markdown-writer"
       "project-find-navigation"
-      "linter-stylelint"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -170,6 +169,8 @@
     enabledForAllJavascriptFiles: true
   "relative-numbers": {}
   sound: {}
+  stylefmt:
+    formatOnSave: true
   "tree-view": {}
   "vim-mode":
     useSmartcaseForSearch: true

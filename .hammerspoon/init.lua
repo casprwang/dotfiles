@@ -1,4 +1,7 @@
+-- require "hybrid"
 -- hs.window.animationDuration = 0.1 -- disable animations
+
+
 hs.window.animationDuration = 0.1 -- disable animations
 
 
@@ -75,6 +78,10 @@ hs.alert.show("Config loaded")
 -- window.animationDuration = 0
 local modalKey = {"alt"}
 
+
+
+
+
 local resizeMappings = {
   h={x=0, y=0, w=0.5, h=1},
   j={x=0, y=0.5, w=1, h=0.5},
@@ -94,3 +101,35 @@ for key in pairs(resizeMappings) do
   end)
 end
 ---------------------------------------------------------------------------------
+
+--   hs.eventtap.keyStroke({}, 'delete')
+--   lastCommand = dWordBack
+--   dMode.exit()
+-- end
+
+
+-- hs.hotkey.bind({"cmd", "ctrl"}, "R", function()
+--   hs.reload()
+-- end)
+-- hs.alert.show("Config loaded")
+
+-- hs.eventtap.keyRepeatInterval() = 0.03
+-- hs.eventtap.keyRepeatInterval = 0.1
+-- hs.alert.show(hs.eventtap.keyRepeatInterval())
+
+-- hs.eventtap.keyRepeatInterval() -> 1
+
+-- ctrl-w to delete the word left
+--
+-- hs.hotkey.bind({"alt"}, 'delete', delete_word_backward, nil, delete_word_backward)
+--
+-- local function delete_word_backward()
+--   hs.eventtap.keyStroke({"alt", "shift"}, "Left")
+--   hs.eventtap.keyStroke({}, "delete")
+-- end
+
+
+-- bind ctrl-w to delete word backward
+hs.hotkey.bind({'ctrl'}, "w", function()
+  hs.eventtap.keyStroke({'alt'}, "delete")
+end)

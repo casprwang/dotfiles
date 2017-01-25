@@ -70,7 +70,6 @@ call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
 call dein#add('jiangmiao/auto-pairs')
 
 call dein#add('scrooloose/nerdtree')
-
 call dein#add('rizzatti/dash.vim')
 
 " kana/vim-textobj-user
@@ -380,7 +379,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 
+Plugin 'ap/vim-css-color'
 
+Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'itchyny/calendar.vim'
 
@@ -413,3 +414,10 @@ let g:calendar_google_task = 1
 
 " go
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
+
+" python
+let g:formatter_yapf_style = 'pep8'
+
+
+au BufWrite * :Autoformat

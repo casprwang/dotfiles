@@ -129,6 +129,7 @@ alias lsl="ls -lha"
 alias bs="bundle exec jekyll serve"
 alias co="code"
 alias bst="browser-sync start --server --files"
+alias cat=hicat
 source /Users/wangsong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.yarn/bin"
 
