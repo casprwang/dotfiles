@@ -17,3 +17,5 @@ tags
 nvim/deinPlugins
 nvim/bundle
 nvim/dein/
+nvim/.cache
+nvim/undo
