@@ -229,6 +229,11 @@ vf() {
   fi
 }
 
-
+# edit file with nvim
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && nvim "${files[@]}"
+}
 
 # alias v=nvim $(fzf)
