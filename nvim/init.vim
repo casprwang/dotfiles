@@ -4,7 +4,7 @@ let mapleader="\<Space>"
 map <leader>j :w<cr>
 set smartindent
 " let foo=3
-set expandtab  
+set expandtab
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 " set timeoutlen=1000 ttimeoutlen=0
@@ -178,7 +178,7 @@ autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
       \ endif
-      " center buffer around cursor when opening files
+" center buffer around cursor when opening files
 autocmd BufRead * normal zz
 
 "end  Remember cursor position
@@ -200,34 +200,34 @@ set statusline+=%l        " Current line
 set statusline+=/         " Separator
 set statusline+=%L        " Total lines
 set statusline+=
-" end 
+" end
 
 
 
-" completion 
-" completion 
-" completion 
-" completion 
-" completion 
+" completion
+" completion
+" completion
+" completion
+" completion
 function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
     endif
-    return ""
+  endif
+  return ""
 endfunction
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-e>"
-" this mapping Enter key to <C-y> to chose the current highlight item 
+" this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -260,11 +260,11 @@ let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" end completion 
-" end completion 
-" end completion 
-" end completion 
-" end completion 
+" end completion
+" end completion
+" end completion
+" end completion
+" end completion
 "
 let g:tmux_navigator_no_mappings = 1
 
@@ -275,7 +275,7 @@ nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 
-" install 
+" install
 nmap <leader>in :call dein#install()<cr>
 
 " fzf
@@ -290,8 +290,8 @@ imap <c-q> <c-y>,
 " imap <c-r> <c-y>,
 
 let g:ycm_semantic_triggers = {
-    \   'css': [ 're!^\s{4}', 're!:\s+' ],
-    \ }
+      \   'css': [ 're!^\s{4}', 're!:\s+' ],
+      \ }
 
 
 nmap <leader>id :Dash<cr>
@@ -352,7 +352,7 @@ nmap <leader>l :silent !./node_modules/.bin/eslint --fix %<cr>
 
 
 
-" markdown 
+" markdown
 set shell=bash\ -i
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 0
@@ -361,7 +361,7 @@ let g:vim_markdown_new_list_item_indent = 0
 " let g:mkdp_auto_start = 1
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 
-nmap <silent> <leader>m <Plug>MarkdownPreview 
+nmap <silent> <leader>m <Plug>MarkdownPreview
 
 " TMUX
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -420,4 +420,6 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 let g:formatter_yapf_style = 'pep8'
 
 
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
+noremap <leader>f :Autoformat<CR>
+

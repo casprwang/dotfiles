@@ -39,6 +39,7 @@ gitpush() {
 }
 alias gp=gitpush
 
+# alias vo=nvim $(fzf)
 
 # quick git add push the dotfiles
 gitpush_dotfiles() {
@@ -115,7 +116,7 @@ alias tmr="nvim ~/.tmux.conf"
 alias e="exit"
 alias c="clear"
 alias ta="tmux a"
-alias v="nvim"
+# alias v="nvim"
 # alias vim="nvim"
 alias py="python3"
 alias read="nvim README.md"
@@ -148,3 +149,86 @@ export PATH=$PATH:./node_modules/.bin
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;} >> .gitignore
 
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fs [FUZZY PATTERN] - Select selected tmux session
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+#
+fs() {
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" | \
+    fzf --query="$1" --select-1 --exit-0) &&
+  tmux switch-client -t "$session"
+}
+
+
+fo() {
+ local out file key
+ IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+ key=$(head -1 <<< "$out")
+ file=$(head -2 <<< "$out" | tail -1)
+ if [ -n "$file" ]; then
+   [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+ fi
+}
+
+
+# v - open files in ~/.viminfo
+# v() {
+#   local files
+#   files=$(grep '^>' ~/.viminfo | cut -c3- |
+#           while read line; do
+#             [ -f "${line/\~/$HOME}" ] && echo "$line"
+#           done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
+# }
+#
+#
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# fda - including hidden directories
+fda() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+# fdr - cd to selected parent directory
+fdr() {
+  local declare dirs=()
+  get_parent_dirs() {
+    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+    if [[ "${1}" == '/' ]]; then
+      for _dir in "${dirs[@]}"; do echo $_dir; done
+    else
+      get_parent_dirs $(dirname "$1")
+    fi
+  }
+  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
+  cd "$DIR"
+}
+
+vf() {
+  local files
+
+  files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
+
+  if [[ -n $files ]]
+  then
+     vim -- $files
+     print -l $files[1]
+  fi
+}
+
+
+
+# alias v=nvim $(fzf)
