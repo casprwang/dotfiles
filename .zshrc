@@ -79,6 +79,7 @@ mkcdir ()
   cd -P -- "$1"
 }
 alias mkdi=mkcdir
+alias vim=nvim
 
 
 
