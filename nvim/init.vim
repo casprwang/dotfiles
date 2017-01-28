@@ -386,6 +386,9 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'itchyny/calendar.vim'
 
 
+" Plugin 'vim-airline/vim-airline'
+
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -423,3 +426,13 @@ let g:formatter_yapf_style = 'pep8'
 " au BufWrite * :Autoformat
 noremap <leader>f :Autoformat<CR>
 
+
+:set nowrap
+
+:hi TabLineFill  ctermfg=60
+:hi TabLineSel      ctermfg=17 ctermbg=11 cterm=NONE
+:hi TabLine   ctermfg=8 ctermbg=14 cterm=NONE
+
+" :hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+" :hi TabLine ctermfg=Blue ctermbg=Yellow
+" :hi TabLineSel ctermfg=Red ctermbg=Yellow
