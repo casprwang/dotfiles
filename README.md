@@ -26,6 +26,7 @@
 ## Todos
 - [x] Use Neomake for asynchronous linting
 - [x] Demos
+- [ ] A.L.E for linting
 - [ ] clean comments
 - [ ] Use Deoplete for asynchronous completion
 - [ ] Use dein clean up reps

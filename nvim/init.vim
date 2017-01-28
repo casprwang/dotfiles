@@ -90,8 +90,6 @@ call dein#add('kana/vim-textobj-function')
 " navi
 call dein#add('christoomey/vim-tmux-navigator')
 
-" neomake
-call dein#add('neomake/neomake')
 
 
 call dein#add('mattn/emmet-vim')
@@ -298,53 +296,8 @@ nmap <leader>id :Dash<cr>
 map <leader>o :NERDTreeToggle<CR>
 
 
-" neomake
 
 
-
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-function! NeomakeESlintChecker()
-  let l:npm_bin = ''
-  let l:eslint = 'eslint'
-
-  if executable('npm')
-    let l:npm_bin = split(system('npm bin'), '\n')[0]
-  endif
-
-  if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
-    let l:eslint = l:npm_bin . '/eslint'
-  endif
-
-  let b:neomake_javascript_eslint_exe = l:eslint
-endfunction
-autocmd FileType javascript :call NeomakeESlintChecker()
-
-autocmd! BufWritePost,BufReadPost * Neomake
-
-" let g:neomake_open_list=2
-" let g:neomake_javascript_enabled_makers = ['standard']
-" let g:neomake_jsx_enabled_makers = ['standard']
-" if findfile('.eslintrc', '.;') !=# ''
-"   let g:neomake_javascript_enabled_makers = ['eslint']
-"   let g:neomake_jsx_enabled_makers = ['eslint']
-"   let g:neomake_javascript_eslint_maker = {
-"         \ 'exe': $PWD . '/node_modules/.bin/eslint'
-"         \ }
-" endif
-
-" autocmd! BufWritePost * Neomake
-" neomake
-" nmap <Leader><Space>o :lopen<CR>      " open location window
-" nmap <Leader><Space>c :lclose<CR>     " close location window
-" nmap <Leader><Space>, :ll<CR>         " go to current error/warning
-nmap <Leader>> :lnext<CR>      " next error/warning
-nmap <Leader>< :lprev<CR>      " previous error/warning
-
-nmap <leader>rn :! node %<cr>
-nmap <leader>rp :! python3 %<cr>
-
-nmap <leader>l :silent !./node_modules/.bin/eslint --fix %<cr>
 
 
 " nmap <leader>l :silent !echo Hello<cr>
@@ -380,6 +333,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 Plugin 'ap/vim-css-color'
+Plugin 'w0rp/ale'
 
 Plugin 'Chiel92/vim-autoformat'
 
@@ -454,4 +408,17 @@ noremap <leader>f :Autoformat<CR>
 "
 
 
+let g:ale_sign_error = '❗️'
+let g:ale_sign_warning = '❕'
+
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
 hi SignColumn ctermbg=none
+" To have the same color as Directory group
+hi! link ALEError Directory
+
+" Use your own colors
+hi ALEError ctermfg=none ctermbg=none 
+hi ALEWarning ctermfg=none ctermbg=none 
+hi ALEErrorSign ctermfg=none ctermbg=none 
+hi ALEWarningSign ctermfg=none ctermbg=none 
