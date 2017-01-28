@@ -408,8 +408,9 @@ noremap <leader>f :Autoformat<CR>
 "
 
 
-let g:ale_sign_error = '❗️'
-let g:ale_sign_warning = '❕'
+let g:ale_sign_error = '✖'
+" let g:ale_sign_warning = '❕'
+let g:ale_sign_warning = '✖'
 
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
@@ -417,8 +418,9 @@ hi SignColumn ctermbg=none
 " To have the same color as Directory group
 hi! link ALEError Directory
 
+" ale
 " Use your own colors
 hi ALEError ctermfg=none ctermbg=none 
 hi ALEWarning ctermfg=none ctermbg=none 
-hi ALEErrorSign ctermfg=none ctermbg=none 
-hi ALEWarningSign ctermfg=none ctermbg=none 
+hi ALEErrorSign ctermfg=red ctermbg=none 
+hi ALEWarningSign ctermfg=gray ctermbg=none 
