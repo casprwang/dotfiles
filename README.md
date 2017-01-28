@@ -26,8 +26,8 @@
 ## Todos
 - [x] Use Neomake for asynchronous linting
 - [x] Demos
+- [ ] clean comments
 - [ ] Use Deoplete for asynchronous completion
 - [ ] Use dein clean up reps
-- [ ] clean comments
 - [ ] install.sh for quick installation
 

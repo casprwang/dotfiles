@@ -435,6 +435,23 @@ noremap <leader>f :Autoformat<CR>
 :hi TabLineSel      ctermfg=17 ctermbg=11 cterm=NONE
 :hi TabLine   ctermfg=8 ctermbg=14 cterm=NONE
 
+
+
 " :hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 " :hi TabLine ctermfg=Blue ctermbg=Yellow
 " :hi TabLineSel ctermfg=Red ctermbg=Yellow
+"
+" let g:neomake_error_sign = {
+"             \ 'text': '>>',
+"             \ 'texthl': 'ErrorMsg',
+"             \ }
+" hi MyWarningMsg ctermbg=9 ctermfg=0
+" let g:neomake_warning_sign = {
+"             \ 'text': '>>',
+"             \ 'texthl': 'MyWarningMsg',
+"             \ }
+"
+"
+
+
+hi SignColumn ctermbg=none
