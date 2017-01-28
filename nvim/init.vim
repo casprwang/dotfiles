@@ -384,6 +384,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'itchyny/calendar.vim'
+Plugin 'danro/rename.vim'
 
 
 " Plugin 'vim-airline/vim-airline'
@@ -429,6 +430,7 @@ noremap <leader>f :Autoformat<CR>
 
 :set nowrap
 
+" styling
 :hi TabLineFill  ctermfg=60
 :hi TabLineSel      ctermfg=17 ctermbg=11 cterm=NONE
 :hi TabLine   ctermfg=8 ctermbg=14 cterm=NONE
