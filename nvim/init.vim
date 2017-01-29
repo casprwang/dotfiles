@@ -334,6 +334,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ap/vim-css-color'
 Plugin 'w0rp/ale'
+Plugin 'plasticboy/vim-markdown'
 
 Plugin 'Chiel92/vim-autoformat'
 
@@ -424,3 +425,15 @@ hi ALEError ctermfg=none ctermbg=none
 hi ALEWarning ctermfg=none ctermbg=none 
 hi ALEErrorSign ctermfg=red ctermbg=none 
 hi ALEWarningSign ctermfg=gray ctermbg=none 
+
+" markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+
+
+" css completion
+let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+' ],
+    \ }
+
+
