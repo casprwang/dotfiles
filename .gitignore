@@ -19,3 +19,4 @@ nvim/bundle
 nvim/dein/
 nvim/.cache
 nvim/undo
+nvim/plugged
