@@ -41,7 +41,8 @@ set undoreload=10000        " number of lines to save for undo
 
 nnoremap J 5j
 nnoremap K 5k
-
+vmap J 5j
+" vmap K 5K
 
 "dein Scripts-----------------------------
 "dein Scripts-----------------------------
@@ -254,8 +255,8 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
+" let g:ycm_key_list_select_completion = ['<Down>']
+" let g:ycm_key_list_previous_completion = ['<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " end completion
@@ -287,9 +288,9 @@ nmap <leader>in :call dein#install()<cr>
 imap <c-q> <c-y>,
 " imap <c-r> <c-y>,
 
-let g:ycm_semantic_triggers = {
-      \   'css': [ 're!^\s{4}', 're!:\s+' ],
-      \ }
+" let g:ycm_semantic_triggers = {
+"       \   'css': [ 're!^\s{4}', 're!:\s+' ],
+"       \ }
 
 
 nmap <leader>id :Dash<cr>
@@ -344,6 +345,7 @@ Plugin 'itchyny/calendar.vim'
 Plugin 'danro/rename.vim'
 
 
+Plugin 'jmcantrell/vim-virtualenv'
 " Plugin 'vim-airline/vim-airline'
 
 
@@ -434,14 +436,14 @@ let g:vim_markdown_frontmatter = 1
 
 
 " css completion
-let g:ycm_semantic_triggers = {
-    \   'css': [ 're!^\s{4}', 're!:\s+' ],
-    \ }
+" let g:ycm_semantic_triggers = {
+"     \   'css': [ 're!^\s{4}', 're!:\s+' ],
+"     \ }
 
 
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 
 
@@ -453,7 +455,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
+
+
+
 
 
 
@@ -491,3 +496,81 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+
+" let g:python_host_prog =  '/usr/local/bin/python'
+"
+"
+"
+"
+
+
+ " Note: Skip initialization for vim-tiny or vim-small.
+ if 0 | endif
+
+ if &compatible
+   set nocompatible               " Be iMproved
+ endif
+
+ " Required:
+ set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
+
+ " Required:
+ call neobundle#begin(expand('~/.config/nvim/bundle/'))
+
+ " Let NeoBundle manage NeoBundle
+ " Required:
+ NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+
+NeoBundle 'davidhalter/jedi-vim'
+
+NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'othree/html5.vim'
+
+
+" Do not load vim-pyenv until *.py is opened and
+" make sure that it is loaded after jedi-vim is loaded.
+NeoBundleLazy 'lambdalisue/vim-pyenv', {
+        \ 'depends': ['davidhalter/jedi-vim'],
+        \ 'autoload': {
+        \   'filetypes': ['python', 'python3'],
+        \ }}
+
+ " My Bundles here:
+ " Refer to |:NeoBundle-examples|.
+ " Note: You don't set neobundle setting in .gvimrc!
+
+ call neobundle#end()
+
+ " Required:
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
+
+
+
+aug omnicomplete
+  au!
+  au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
+  au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
+  au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
+  au FileType python setl omnifunc=pythoncomplete#Complete
+  au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+aug END
+
+
+au FileType html setl omnifunc=csscomplete#CompleteCSS
+
+let g:mta_use_matchparen_group = 1
+
+
+let g:deoplete#auto_refresh_delay = 0
+let g:deoplete#auto_complete_delay = 0
+
+
+
