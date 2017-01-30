@@ -457,6 +457,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Plug 'davidhalter/jedi-vim'
 
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
 
 
 

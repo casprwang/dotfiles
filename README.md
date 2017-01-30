@@ -26,10 +26,10 @@
 ## Todos
 - [x] Use Neomake for asynchronous linting
 - [x] Demos
+- [x] A.L.E for linting
+- [x] Use Deoplete for asynchronous completion
 - [ ] diminactive
-- [ ] A.L.E for linting
 - [ ] clean comments
-- [ ] Use Deoplete for asynchronous completion
 - [ ] Use dein clean up reps
 - [ ] install.sh for quick installation
 
