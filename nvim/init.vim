@@ -527,9 +527,14 @@ let g:deoplete#enable_smart_case = 1
 
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 
+" NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'davidhalter/jedi-vim'
 
 NeoBundle 'Valloric/MatchTagAlways'
+
+NeoBundle 'Shougo/context_filetype.vim'
+
+
 NeoBundle 'othree/html5.vim'
 
 
@@ -556,17 +561,17 @@ NeoBundleLazy 'lambdalisue/vim-pyenv', {
 
 
 
-aug omnicomplete
-  au!
-  au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
-  au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
-  au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
-  au FileType python setl omnifunc=pythoncomplete#Complete
-  au FileType xml setl omnifunc=xmlcomplete#CompleteTags
-aug END
+" aug omnicomplete
+"   au!
+"   au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
+"   au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
+"   au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
+"   au FileType python setl omnifunc=pythoncomplete#Complete
+"   au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+" aug END
 
 
-au FileType html setl omnifunc=csscomplete#CompleteCSS
+" au FileType html setl omnifunc=csscomplete#CompleteCSS
 
 let g:mta_use_matchparen_group = 1
 
@@ -575,4 +580,13 @@ let g:deoplete#auto_refresh_delay = 0
 let g:deoplete#auto_complete_delay = 0
 
 
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ '...'
+                \ ]
 
+
+" no popout for deoplete
+set completeopt-=preview
