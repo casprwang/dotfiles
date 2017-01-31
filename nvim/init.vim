@@ -423,6 +423,9 @@ hi SignColumn ctermbg=none
 " To have the same color as Directory group
 hi! link ALEError Directory
 
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 " ale
 " Use your own colors
 hi ALEError ctermfg=none ctermbg=none 
