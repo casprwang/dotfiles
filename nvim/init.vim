@@ -289,7 +289,8 @@ map <c-p> :FZF<cr>
 
 nmap <leader>in :call dein#install()<cr>
 
-imap <c-q> <c-y>,
+" emmet
+imap 8 <c-y>,
 " imap <c-r> <c-y>,
 
 " let g:ycm_semantic_triggers = {

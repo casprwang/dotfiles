@@ -133,3 +133,8 @@ end
 hs.hotkey.bind({'ctrl'}, "w", function()
   hs.eventtap.keyStroke({'alt'}, "delete")
 end)
+
+
+hs.hotkey.bind({'ctrl'}, "q", function()
+  hs.eventtap.keyStroke({'cmd'}, "delete")
+end)
