@@ -13,6 +13,10 @@ nmap <c-w>l <c-w>v
 nmap <c-w>j <c-w>s<down>
 
 
+" fzf
+nmap <leader>p :Windows<cr>
+nmap <c-f> :Lines<cr>
+
 set noswapfile
 set clipboard=unnamed
 set autoread
@@ -386,7 +390,7 @@ let g:formatter_yapf_style = 'pep8'
 
 
 " au BufWrite * :Autoformat
-noremap <leader>f :Autoformat<CR>
+" noremap <leader>f :Autoformat<CR>
 
 
 :set nowrap
@@ -430,10 +434,10 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 " ale
 " Use your own colors
-hi ALEError ctermfg=none ctermbg=none 
-hi ALEWarning ctermfg=none ctermbg=none 
-hi ALEErrorSign ctermfg=red ctermbg=none 
-hi ALEWarningSign ctermfg=gray ctermbg=none 
+hi ALEError ctermfg=none ctermbg=none
+hi ALEWarning ctermfg=none ctermbg=none
+hi ALEErrorSign ctermfg=red ctermbg=none
+hi ALEWarningSign ctermfg=gray ctermbg=none
 
 " markdown
 let g:vim_markdown_folding_disabled = 1
@@ -511,22 +515,22 @@ let g:deoplete#enable_smart_case = 1
 "
 
 
- " Note: Skip initialization for vim-tiny or vim-small.
- if 0 | endif
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
- if &compatible
-   set nocompatible               " Be iMproved
- endif
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
- " Required:
- set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
+" Required:
+set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
 
- " Required:
- call neobundle#begin(expand('~/.config/nvim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.config/nvim/bundle/'))
 
- " Let NeoBundle manage NeoBundle
- " Required:
- NeoBundleFetch 'Shougo/neobundle.vim'
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 
 
@@ -547,23 +551,23 @@ NeoBundle 'othree/html5.vim'
 " Do not load vim-pyenv until *.py is opened and
 " make sure that it is loaded after jedi-vim is loaded.
 NeoBundleLazy 'lambdalisue/vim-pyenv', {
-        \ 'depends': ['davidhalter/jedi-vim'],
-        \ 'autoload': {
-        \   'filetypes': ['python', 'python3'],
-        \ }}
+      \ 'depends': ['davidhalter/jedi-vim'],
+      \ 'autoload': {
+      \   'filetypes': ['python', 'python3'],
+      \ }}
 
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
- call neobundle#end()
+call neobundle#end()
 
- " Required:
- filetype plugin indent on
+" Required:
+filetype plugin indent on
 
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 
 
@@ -587,11 +591,11 @@ let g:deoplete#auto_complete_delay = 0
 
 
 let g:tern#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'vue',
-                \ '...'
-                \ ]
+      \ 'jsx',
+      \ 'javascript.jsx',
+      \ 'vue',
+      \ '...'
+      \ ]
 
 
 " no popout for deoplete
@@ -601,12 +605,12 @@ set completeopt-=preview
 " fzf
 " Open files in vertical horizontal split
 nnoremap <silent> <Leader>l :call fzf#run({
-\   'right': winwidth('.') / 2,
-\   'sink':  'vertical botright split' })<CR>
+      \   'right': winwidth('.') / 2,
+      \   'sink':  'vertical botright split' })<CR>
 " Open files in horizontal split
 nnoremap <silent> <Leader>s :call fzf#run({
-\   'down': '40%',
-\   'sink': 'botright split' })<CR>
+      \   'down': '40%',
+      \   'sink': 'botright split' })<CR>
 
 " Tags
 
@@ -627,8 +631,9 @@ function! s:buffer_lines()
 endfunction
 
 command! FZFLines call fzf#run({
-\   'source':  <sid>buffer_lines(),
-\   'sink':    function('<sid>line_handler'),
-\   'options': '--extended --nth=3..',
-\   'down':    '60%'
-\})
+      \   'source':  <sid>buffer_lines(),
+      \   'sink':    function('<sid>line_handler'),
+      \   'options': '--extended --nth=3..',
+      \   'down':    '60%'
+      \})
+
