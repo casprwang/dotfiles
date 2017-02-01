@@ -113,7 +113,7 @@ call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
 
 call dein#add('ervandew/supertab')
 
-call dein#add('junegunn/fzf')
+" call dein#add('junegunn/fzf')
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -531,7 +531,8 @@ let g:deoplete#enable_smart_case = 1
 
 
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
-
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
 " NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'davidhalter/jedi-vim'
 
@@ -595,3 +596,39 @@ let g:tern#filetypes = [
 
 " no popout for deoplete
 set completeopt-=preview
+
+
+" fzf
+" Open files in vertical horizontal split
+nnoremap <silent> <Leader>l :call fzf#run({
+\   'right': winwidth('.') / 2,
+\   'sink':  'vertical botright split' })<CR>
+" Open files in horizontal split
+nnoremap <silent> <Leader>s :call fzf#run({
+\   'down': '40%',
+\   'sink': 'botright split' })<CR>
+
+" Tags
+
+" search lines
+function! s:line_handler(l)
+  let keys = split(a:l, ':\t')
+  exec 'buf' keys[0]
+  exec keys[1]
+  normal! ^zz
+endfunction
+
+function! s:buffer_lines()
+  let res = []
+  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
+    call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
+  endfor
+  return res
+endfunction
+
+command! FZFLines call fzf#run({
+\   'source':  <sid>buffer_lines(),
+\   'sink':    function('<sid>line_handler'),
+\   'options': '--extended --nth=3..',
+\   'down':    '60%'
+\})
