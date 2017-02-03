@@ -13,6 +13,7 @@ tags
 
 .atom/.apm
 .vim/bundle
+.vim/plugged
 .atom/packages
 nvim/deinPlugins
 nvim/bundle
