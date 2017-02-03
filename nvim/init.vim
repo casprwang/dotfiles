@@ -290,7 +290,7 @@ map <c-p> :FZF<cr>
 nmap <leader>in :call dein#install()<cr>
 
 " emmet
-imap 8 <c-y>,
+imap , <c-y>,
 " imap <c-r> <c-y>,
 
 " let g:ycm_semantic_triggers = {
@@ -341,6 +341,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 Plugin 'ap/vim-css-color'
+
+
+Plugin 'kana/vim-smartinput'
+
 Plugin 'w0rp/ale'
 Plugin 'plasticboy/vim-markdown'
 
@@ -349,7 +353,12 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'itchyny/calendar.vim'
 
 
+" Plugin 'Raimondi/delimitMate'
+
 Plugin 'danro/rename.vim'
+
+
+Plugin 'jiangmiao/auto-pairs'
 
 
 Plugin 'jmcantrell/vim-virtualenv'
@@ -542,6 +551,9 @@ NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'davidhalter/jedi-vim'
 
 NeoBundle 'Valloric/MatchTagAlways'
+" NeoBundle 'tpope/vim-ragtag'
+" NeoBundle 'Raimondi/delimitMate'
+
 
 NeoBundle 'Shougo/context_filetype.vim'
 
@@ -638,3 +650,18 @@ command! FZFLines call fzf#run({
       \   'down':    '60%'
       \})
 
+
+" " let g:delimitMate_autoclose = 1
+" " let g:delimitMate_matchpairs = "(:),[:],{:},<:>"
+" " let g:delimitMate_jump_expansion = 1
+" " let g:delimitMate_expand_space = 1
+" " let g:delimitMate_expand_cr = 2
+" " let g:delimitMate_expand_inside_quotes = 1
+" "
+" let delimitMate_expand_cr = 1
+" let delimitMate_expand_space = 1
+"
+"
+"
+" AutoPair
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}

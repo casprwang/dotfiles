@@ -108,6 +108,9 @@ end
 -- end
 
 
+   
+
+
 -- hs.hotkey.bind({"cmd", "ctrl"}, "R", function()
 --   hs.reload()
 -- end)
@@ -137,4 +140,13 @@ end)
 
 hs.hotkey.bind({'ctrl'}, "q", function()
   hs.eventtap.keyStroke({'cmd'}, "delete")
+end)
+
+
+hs.hotkey.bind({'ctrl'}, "s", function()
+  hs.eventtap.keyStroke({}, "delete")
+end)
+
+hs.hotkey.bind({'ctrl', 'option'}, "h", function()
+  hs.eventtap.keyStroke({'option'}, "left")
 end)
