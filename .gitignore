@@ -21,3 +21,7 @@ nvim/dein/
 nvim/.cache
 nvim/undo
 nvim/plugged
+Alfred3/
+.vi/undo
+nvim/undo
+nvim/<cr>

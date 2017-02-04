@@ -290,7 +290,7 @@ map <c-p> :FZF<cr>
 nmap <leader>in :call dein#install()<cr>
 
 " emmet
-imap , <c-y>,
+imap <c-;> <c-y>,
 " imap <c-r> <c-y>,
 
 " let g:ycm_semantic_triggers = {
@@ -617,7 +617,7 @@ set completeopt-=preview
 
 " fzf
 " Open files in vertical horizontal split
-nnoremap <silent> <Leader>l :call fzf#run({
+nnoremap <silent> <c-w>v :call fzf#run({
       \   'right': winwidth('.') / 2,
       \   'sink':  'vertical botright split' })<CR>
 " Open files in horizontal split
