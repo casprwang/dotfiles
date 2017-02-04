@@ -43,9 +43,10 @@ set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-nnoremap J 5j
-nnoremap K 5k
-vmap J 5j
+nnoremap J 5gj
+nnoremap K 5gk
+vmap J 5gj
+vmap K 5gk
 " vmap K 5K
 
 "dein Scripts-----------------------------
@@ -592,8 +593,6 @@ NeoBundleCheck
 "   au FileType python setl omnifunc=pythoncomplete#Complete
 "   au FileType xml setl omnifunc=xmlcomplete#CompleteTags
 " aug END
-
-
 " au FileType html setl omnifunc=csscomplete#CompleteCSS
 
 let g:mta_use_matchparen_group = 1
@@ -651,17 +650,5 @@ command! FZFLines call fzf#run({
       \})
 
 
-" " let g:delimitMate_autoclose = 1
-" " let g:delimitMate_matchpairs = "(:),[:],{:},<:>"
-" " let g:delimitMate_jump_expansion = 1
-" " let g:delimitMate_expand_space = 1
-" " let g:delimitMate_expand_cr = 2
-" " let g:delimitMate_expand_inside_quotes = 1
-" "
-" let delimitMate_expand_cr = 1
-" let delimitMate_expand_space = 1
-"
-"
-"
 " AutoPair
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
