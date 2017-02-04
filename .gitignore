@@ -19,9 +19,9 @@ nvim/deinPlugins
 nvim/bundle
 nvim/dein/
 nvim/.cache
-nvim/undo
+nvim/undo/
 nvim/plugged
 Alfred 3/
-.vi/undo
+.vi/undo/
 nvim/undo
 nvim/<cr>
