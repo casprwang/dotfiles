@@ -22,6 +22,6 @@ nvim/.cache
 nvim/undo/
 nvim/plugged
 Alfred 3/
-.vi/undo/
+.vim/undo
 nvim/undo
 nvim/<cr>
