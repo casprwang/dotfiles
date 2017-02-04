@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>backgroundcolor</key>
+	<array>
+		<real>0.3460439145565033</real>
+		<real>0.50927883386611938</real>
+		<real>0.79181110858917236</real>
+	</array>
+	<key>iconid</key>
+	<string>D84D32D8-52CC-4D1B-BC3A-61C46AF28CFA</string>
+	<key>iconisuserspecified</key>
+	<true/>
+	<key>items</key>
+	<array>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script()
+
+launch application "System Events"
+delay 0.4
+
+ignoring application responses
+ tell application "System Events" to tell process "Flux"
+        click menu bar item 1 of menu bar 2
+    end tell
+end ignoring
+ do shell script "killall System\\ Events"
+delay 0.1
+tell application "System Events" to tell process "Flux"
+    tell menu bar item 1 of menu bar 2
+        click menu item "Preferences..." of menu 1
+    end tell
+end tell
+
+
+end alfred_script</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runapplescript</string>
+			<key>buttoniconid</key>
+			<string>DAA76FBC-D439-407C-BC37-B3EA9E406379</string>
+			<key>buttonlabel</key>
+			<string>PREFERENCES</string>
+			<key>itemuid</key>
+			<string>0CB10472-7DB9-4298-A82E-7EE9013DCBFE</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script()
+
+launch application "System Events"
+delay 0.4
+
+ignoring application responses
+    tell application "System Events" to tell process "Flux"
+        click menu bar item 1 of menu bar 2
+    end tell
+end ignoring
+do shell script "killall System\\ Events"
+delay 0.1
+
+tell application "System Events" to tell process "Flux"
+    tell menu bar item 1 of menu bar 2
+click menu item "Disable" of menu 1
+click menu item "for current app" of menu 1 of menu item "Disable" of menu 1
+
+end tell
+end tell
+
+end alfred_script</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runapplescript</string>
+			<key>buttoniconid</key>
+			<string>F53B740E-B38E-4981-A4B7-A10EC358E551</string>
+			<key>buttonlabel</key>
+			<string>DIS. FOR APP</string>
+			<key>itemuid</key>
+			<string>473653FB-A353-432E-9A7E-9956920EE831</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script()
+
+launch application "System Events"
+delay 0.4
+
+ignoring application responses
+    tell application "System Events" to tell process "Flux"
+        click menu bar item 1 of menu bar 2
+    end tell
+end ignoring
+do shell script "killall System\\ Events"
+delay 0.1
+
+tell application "System Events" to tell process "Flux"
+    tell menu bar item 1 of menu bar 2
+click menu item "Disable" of menu 1
+click menu item "until sunrise" of menu 1 of menu item "Disable" of menu 1
+
+end tell
+end tell
+
+end alfred_script</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runapplescript</string>
+			<key>buttoniconid</key>
+			<string>C70CFE84-3738-4166-928B-25ACD243D77D</string>
+			<key>buttonlabel</key>
+			<string>DIS. TIL SUNRISE</string>
+			<key>itemuid</key>
+			<string>5FDBC18E-60A6-4E90-BFDB-B172D23403C6</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script()
+
+launch application "System Events"
+delay 0.4
+ 
+ignoring application responses
+    tell application "System Events" to tell process "Flux"
+        click menu bar item 1 of menu bar 2
+    end tell
+end ignoring
+do shell script "killall System\\ Events"
+delay 0.1
+tell application "System Events" to tell process "Flux"
+    tell menu bar item 1 of menu bar 2
+        click menu item "Quit f.lux" of menu 1
+    end tell
+end tell
+
+end alfred_script</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runapplescript</string>
+			<key>buttoniconid</key>
+			<string>A8AFD9BB-E1D6-47FC-9D3D-F35CD81BF45A</string>
+			<key>buttonlabel</key>
+			<string>QUIT</string>
+			<key>itemuid</key>
+			<string>EC49D707-D845-4DC7-B78B-D2F851B1CFC7</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script()
+
+launch application "System Events"
+delay 0.4
+
+ignoring application responses
+    tell application "System Events" to tell process "Flux"
+        click menu bar item 1 of menu bar 2
+    end tell
+end ignoring
+do shell script "killall System\\ Events"
+delay 0.1
+
+tell application "System Events" to tell process "Flux"
+    tell menu bar item 1 of menu bar 2
+click menu item "Color Effects" of menu 1
+click menu item "Darkroom" of menu 1 of menu item "Color Effects" of menu 1
+
+end tell
+end tell
+
+
+end alfred_script</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runapplescript</string>
+			<key>buttoniconid</key>
+			<string>64147BEA-774F-4DCE-A912-2BA1A1016CCD</string>
+			<key>buttonlabel</key>
+			<string>DARKROOM</string>
+			<key>itemuid</key>
+			<string>49A0BA00-F6B6-46C8-91B2-EC63AAB541EE</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script()
+
+launch application "System Events"
+delay 0.4
+
+ignoring application responses
+    tell application "System Events" to tell process "Flux"
+        click menu bar item 1 of menu bar 2
+    end tell
+end ignoring
+do shell script "killall System\\ Events"
+delay 0.1
+
+tell application "System Events" to tell process "Flux"
+    tell menu bar item 1 of menu bar 2
+click menu item "Color Effects" of menu 1
+click menu item "Movie mode" of menu 1 of menu item "Color Effects" of menu 1
+
+end tell
+end tell
+
+end alfred_script</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runapplescript</string>
+			<key>buttoniconid</key>
+			<string>6D665470-0156-48CD-A50B-D287A40CBBAB</string>
+			<key>buttonlabel</key>
+			<string>MOVIE MODE</string>
+			<key>itemuid</key>
+			<string>0E79D552-B7ED-4C3B-96E6-089601D0E1BE</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script()
+
+launch application "System Events"
+delay 0.4
+
+ignoring application responses
+    tell application "System Events" to tell process "Flux"
+        click menu bar item 1 of menu bar 2
+    end tell
+end ignoring
+do shell script "killall System\\ Events"
+delay 0.1
+
+tell application "System Events" to tell process "Flux"
+    tell menu bar item 1 of menu bar 2
+click menu item "Disable" of menu 1
+click menu item "until sunrise" of menu 1 of menu item "Disable" of menu 1
+
+end tell
+end tell
+
+end alfred_script</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.runapplescript</string>
+			<key>buttoniconid</key>
+			<string>7C6D1D0B-D76C-4EA5-895D-3630834FC033</string>
+			<key>buttonlabel</key>
+			<string>DISABLE 1 HR</string>
+			<key>itemuid</key>
+			<string>EF043CEF-0CC7-4317-8283-2833840B97F4</string>
+		</dict>
+	</array>
+	<key>subtitle</key>
+	<string>Control Flux</string>
+	<key>title</key>
+	<string>Flux Remote</string>
+</dict>
+</plist>
