@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Flux Control (Plus Remote)</name>
-  <version>1.0</version>
-  <bundle>com.clickysteve.fluxremote</bundle>
-  <updated>1423707204</updated>
-  <file>flux_control_plus_remote.alfredworkflow</file>
-</workflow>

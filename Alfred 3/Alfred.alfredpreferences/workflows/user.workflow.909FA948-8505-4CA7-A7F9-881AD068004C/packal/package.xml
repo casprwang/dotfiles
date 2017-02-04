@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Share using Built-in Sharing</name>
-  <version>1.11</version>
-  <bundle>com.vdesabou.ml.builtin.services</bundle>
-  <updated>1389968421</updated>
-  <file>mountainlionbuilt-insharing.alfredworkflow</file>
-</workflow>
