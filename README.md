@@ -1,6 +1,6 @@
 # Dotfiles
 
-![image](https://cloud.githubusercontent.com/assets/19645990/21877510/9b064e3c-d859-11e6-9054-38c8d4b8cdee.png)
+![image](https://cloud.githubusercontent.com/assets/19645990/22623539/80e25f6a-eb2c-11e6-800c-6abc7bcdbb6c.png)
 ## Configurations for:
 * Editors
   * Vim (light weighted, simple, fast)
