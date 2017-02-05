@@ -6,11 +6,13 @@ set smartindent
 " let foo=3
 set expandtab
 nmap <CR> o<Esc>
+imap <c-r> <bs>
 nmap <S-Enter> O<Esc>
 " set timeoutlen=1000 ttimeoutlen=0
 nmap <c-w>v <c-w>v<right>
 nmap <c-w>l <c-w>v
 nmap <c-w>j <c-w>s<down>
+
 
 
 " fzf
@@ -291,7 +293,7 @@ map <c-p> :FZF<cr>
 nmap <leader>in :call dein#install()<cr>
 
 " emmet
-imap <c-;> <c-y>,
+imap <c-f> <c-y>,
 " imap <c-r> <c-y>,
 
 " let g:ycm_semantic_triggers = {
@@ -558,9 +560,10 @@ NeoBundle 'Valloric/MatchTagAlways'
 
 NeoBundle 'Shougo/context_filetype.vim'
 
+NeoBundle 'carlitux/deoplete-ternjs', { 'build': { 'mac': 'npm install -g tern', 'unix': 'npm install -g tern' }}
+
 
 NeoBundle 'othree/html5.vim'
-
 
 " Do not load vim-pyenv until *.py is opened and
 " make sure that it is loaded after jedi-vim is loaded.
