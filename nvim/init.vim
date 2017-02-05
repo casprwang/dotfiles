@@ -1,5 +1,4 @@
 let s:editor_root=expand("~/.config/nvim")
-
 let mapleader="\<Space>"
 map <leader>j :w<cr>
 set smartindent
@@ -51,9 +50,7 @@ vmap J 5gj
 vmap K 5gk
 " vmap K 5K
 
-"dein Scripts-----------------------------
-"dein Scripts-----------------------------
-"dein Scripts-----------------------------
+"dein{{{
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -136,17 +133,7 @@ syntax enable
 "  call dein#install()
 "endif
 
-"End dein Scripts-------------------------
-"End dein Scripts-------------------------
-"End dein Scripts-------------------------
-
-
-
-
-
-
-
-
+"}}}
 
 set expandtab
 set shiftwidth=2
@@ -175,23 +162,14 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 " Theme
 
 
-" Remember cursor position
-"========================
-"========================
-"========================
-"========================
+" cursor {{{
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
       \ endif
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
-
-"end  Remember cursor position
-"========================
-"========================
-"========================
-"========================
+" }}}
 
 
 syntax enable
@@ -317,7 +295,7 @@ nmap H gT
 
 
 " markdown
-set shell=bash\ -i
+" set shell=bash\ -i
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 0
 
@@ -330,6 +308,8 @@ nmap <silent> <leader>m <Plug>MarkdownPreview
 " TMUX
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+
+" bundle {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -389,7 +369,7 @@ Plugin 'jmcantrell/vim-virtualenv'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+" }}}
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
@@ -408,7 +388,9 @@ let g:formatter_yapf_style = 'pep8'
 
 :set nowrap
 
-" styling
+" styling{{{
+" :hi Folded       ctermfg=68 ctermbg=23 cterm=NONE guifg=#ca94ff guibg=#2b3e50 gui=NONE
+hi Folded ctermbg=23 ctermfg=2
 :hi TabLineFill  ctermfg=60
 :hi TabLineSel      ctermfg=17 ctermbg=11 cterm=NONE
 :hi TabLine   ctermfg=8 ctermbg=14 cterm=NONE
@@ -441,6 +423,7 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 hi SignColumn ctermbg=none
 " To have the same color as Directory group
 hi! link ALEError Directory
+" }}}
 
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -457,13 +440,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 
 
-" css completion
-" let g:ycm_semantic_triggers = {
-"     \   'css': [ 're!^\s{4}', 're!:\s+' ],
-"     \ }
-
-
-
+" vim-plug {{{
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -514,6 +491,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Initialize plugin system
 call plug#end()
 
+" }}}
+
 
 
 
@@ -528,6 +507,7 @@ let g:deoplete#enable_smart_case = 1
 "
 
 
+" NeoBundle{{{
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -586,6 +566,8 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+" }}}
+
 
 
 " aug omnicomplete
@@ -623,14 +605,18 @@ nnoremap <silent> <c-w>v :call fzf#run({
       \   'right': winwidth('.') / 2,
       \   'sink':  'vertical botright split' })<CR>
 " Open files in horizontal split
-nnoremap <silent> <Leader>s :call fzf#run({
+nnoremap <silent> <c-w>s :call fzf#run({
       \   'down': '40%',
       \   'sink': 'botright split' })<CR>
+
 
 " Tags
 
 " search lines
 function! s:line_handler(l)
+
+
+
   let keys = split(a:l, ':\t')
   exec 'buf' keys[0]
   exec keys[1]
@@ -655,3 +641,19 @@ command! FZFLines call fzf#run({
 
 " AutoPair
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
+
+
+" folding {{{
+autocmd FileType vim setlocal foldmethod=marker
+" autocmd FileType vim setlocal foldlevel=2
+
+" autocmd FileType txt setlocal foldmethod=marker
+
+" setlocal foldmethod=marker
+" nmap <leader><leader> za
+
+"
+" :set filetype?
+" }}}
+
+

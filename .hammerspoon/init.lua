@@ -152,6 +152,6 @@ hs.hotkey.bind({'ctrl', 'option'}, "h", function()
 end)
 
 
-hs.hotkey.bind({'ctrl'}, "r", function()
-  hs.eventtap.keyStroke({}, "delete")
-end)
+-- hs.hotkey.bind({'ctrl'}, "r", function()
+--   hs.eventtap.keyStroke({}, "delete")
+-- end)
