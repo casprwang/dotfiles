@@ -651,9 +651,10 @@ autocmd FileType vim setlocal foldmethod=marker
 
 " setlocal foldmethod=marker
 " nmap <leader><leader> za
-
 "
+autocmd FileType javascript,typescript,json setl foldmethod=syntax
 " :set filetype?
 " }}}
+
 
 
