@@ -176,22 +176,20 @@ syntax enable
 set background=light
 colorscheme lucario
 
-"status bar
+"status bar{{{
 set laststatus=2
 set statusline=%f         " Path to the file
+" :set statusline+=%y        " Filetype of the file
+:set statusline+=/    " Separator
+set statusline+=%{ALEGetStatusLine()}
 set statusline+=%=        " Switch to the right side
 set statusline+=%l        " Current line
 set statusline+=/         " Separator
 set statusline+=%L        " Total lines
-set statusline+=
-" end
+"}}}
 
 
 
-" completion
-" completion
-" completion
-" completion
 " completion
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
@@ -383,7 +381,7 @@ let g:formatter_yapf_style = 'pep8'
 
 
 " au BufWrite * :Autoformat
-" noremap <leader>f :Autoformat<CR>
+noremap <leader>f :Autoformat<CR>
 
 
 :set nowrap
@@ -418,7 +416,8 @@ let g:ale_sign_error = '✖'
 " let g:ale_sign_warning = '❕'
 let g:ale_sign_warning = '✖'
 
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+" let g:ale_statusline_format = ['✖ %d/', ' %d/', '⬥ ok']
+let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
 
 hi SignColumn ctermbg=none
 " To have the same color as Directory group
@@ -656,5 +655,24 @@ autocmd FileType javascript,typescript,json setl foldmethod=syntax
 " :set filetype?
 " }}}
 
+
+
+" Write this in your vimrc file
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+
+
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_javascript_eslint_use_global=1
+let g:formatdef_standard_javascript = '"standard --fix --stdin"'
+let g:formatters_javascript = ['standard_javascript']
+"
+" let g:formatdef_xo_javascript = '"xo --fix --stdin"'
+" let g:formatters_javascript = ['xo_javascript']
+
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \}
 
 
