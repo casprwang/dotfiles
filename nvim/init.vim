@@ -4,6 +4,7 @@ map <leader>j :w<cr>
 set smartindent
 " let foo=3
 set expandtab
+inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
 imap <c-r> <bs>
 nmap <S-Enter> O<Esc>
@@ -451,12 +452,15 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 
 " Plug 'davidhalter/jedi-vim'
 
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
+" Plug 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'nvim/'}
 
 
 
@@ -665,6 +669,7 @@ let g:ale_set_quickfix = 1
 
 " let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " let g:ale_javascript_eslint_use_global=1
+
 let g:formatdef_standard_javascript = '"standard --fix --stdin"'
 let g:formatters_javascript = ['standard_javascript']
 "
