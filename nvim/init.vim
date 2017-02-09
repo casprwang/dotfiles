@@ -12,6 +12,7 @@ nmap <S-Enter> O<Esc>
 nmap <c-w>v <c-w>v<right>
 nmap <c-w>l <c-w>v
 nmap <c-w>j <c-w>s<down>
+" nmap <leader>in 
 
 
 
@@ -259,7 +260,7 @@ nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 
 " install
-nmap <leader>in :call dein#install()<cr>
+nmap <leader>in :PlugInstall<cr>
 
 " fzf
 map <c-p> :FZF<cr>
@@ -267,7 +268,6 @@ map <c-p> :FZF<cr>
 
 
 
-nmap <leader>in :call dein#install()<cr>
 
 " emmet
 imap <c-f> <c-y>,
@@ -382,7 +382,6 @@ let g:formatter_yapf_style = 'pep8'
 
 
 " au BufWrite * :Autoformat
-noremap <leader>f :Autoformat<CR>
 
 
 :set nowrap
@@ -440,7 +439,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 
 
-" vim-plug {{{
+" vimplug {{{
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -457,11 +456,12 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Plug 'davidhalter/jedi-vim'
 
+Plug 'ruanyl/vim-fixmyjs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Plug 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'nvim/'}
-
+Plug 'nsf/gocode', {'rtp': 'nvim/'}
+" Plug 'sindresorhus/vim-xo'
 
 
 
@@ -670,14 +670,24 @@ let g:ale_set_quickfix = 1
 " let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " let g:ale_javascript_eslint_use_global=1
 
-let g:formatdef_standard_javascript = '"standard --fix --stdin"'
-let g:formatters_javascript = ['standard_javascript']
+" let g:formatdef_eslint = '"eslint --fix --stdin"'
+" let g:formatters_javascript = ['eslint']
 "
 " let g:formatdef_xo_javascript = '"xo --fix --stdin"'
 " let g:formatters_javascript = ['xo_javascript']
 
 let g:ale_linters = {
-      \   'javascript': ['eslint'],
+      \   'javascript': ['standard'],
       \}
 
+let g:formatterpath = ['/usr/local/bin/standard']
+let g:formatdef_standard_javascript = '"standard --fix --stdin"'
+let g:formatters_javascript = ['standard_javascript']
 
+let g:fixmyjs_engine = 'eslint' 
+let g:fixmyjs_executable = '/Users/wangsong/dev/node/node_modules/.bin/eslint'
+" let g:fixmyjs_rc_path = '~/dev/node/.eslintrc.js'
+
+let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
+noremap <leader>f :Fixmyjs<CR>
+" noremap <leader>f :Autoformat<CR>

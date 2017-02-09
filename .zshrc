@@ -104,7 +104,7 @@ alias szh="source ~/.zshrc"
 alias cdo="cd ~/dotfiles"
 alias cno="cd ~/dev/node"
 alias czh="v ~/.zshrc"
-alias eslint="./node_modules/.bin/eslint"
+# alias eslint="./node_modules/.bin/eslint"
 alias gs="git status"
 alias ga="git add ."
 alias gito="git open"
@@ -118,6 +118,7 @@ alias st="tmux source-file ~/.tmux.conf"
 alias tmr="nvim ~/.tmux.conf"
 alias cdt="cd ~/temp"
 # alias e="exit"
+alias jn="jasmine-node"
 alias e="fe"
 alias c="clear"
 alias ta="tmux a"
@@ -265,4 +266,6 @@ fe() {
 
 # alias v=nvim $(fzf)
 #
-#
+
+
+
