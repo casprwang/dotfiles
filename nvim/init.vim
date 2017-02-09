@@ -16,6 +16,7 @@ nmap <c-w>j <c-w>s<down>
 
 
 
+
 " fzf
 nmap <leader>p :Windows<cr>
 nmap <c-f> :Lines<cr>
@@ -26,6 +27,7 @@ set autoread
 " " show autocomplete for commands
 set wildmenu
 " map <silent> <esc> :noh<CR>
+nnoremap <bs> <c-r>
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
