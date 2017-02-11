@@ -218,11 +218,6 @@ let g:UltiSnipsListSnippets="<c-e>"
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-
-
-nnoremap <leader>vv ggVG
-nnoremap <leader>dd VGd
-
 " let g:UltiSnipsSnippetDirectories = ['~/dotfiles/UltiSnips']
 let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/ultiSnips"
@@ -645,9 +640,9 @@ command! FZFLines call fzf#run({
 
 
 " AutoPair
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
+" let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 
-
+au Filetype html let b:AutoPairs = {'>':'<'}
 " folding {{{
 autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType vim setlocal foldlevel=2

@@ -10,7 +10,6 @@ set smartindent
 set expandtab  
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
-" set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
 set autoread
@@ -32,23 +31,19 @@ set autoindent
 set showmatch
 set smarttab
 set copyindent
+
 set undofile                " Save undo's after file closes
 set undodir=~/.config/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
-
 nnoremap J 5j
 nnoremap K 5k
-
 nmap <c-w>v <c-w>v<right>
 nmap <c-w>l <c-w>v
 nmap <c-w>j <c-w>s<down>
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 set rtp+=~/.vim/bundle/Vundle.vim
-
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
@@ -57,40 +52,22 @@ Plugin 'vitalk/vim-simple-todo'
 Plugin 'junegunn/fzf'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'Valloric/YouCompleteMe'
-
-
 Plugin 'jiangmiao/auto-pairs'
-
-
 Plugin 'itchyny/calendar.vim'
-
 " kana
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'beloglazov/vim-textobj-quotes'
 Plugin 'kana/vim-textobj-line'
-
-
 " Markdown
 Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/markdown-preview.vim'
-" Plugin 'suan/vim-instant-markdown'
-
-
 " Syntastic
 Plugin 'vim-syntastic/syntastic'
-
-
-
-
 Plugin 'rizzatti/dash.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-
 
 set expandtab
 set shiftwidth=2
@@ -99,7 +76,6 @@ set softtabstop=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-
 
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -119,20 +95,17 @@ nmap <Leader>i <Plug>(simple-todo-below)
 nmap <Leader>I <Plug>(simple-todo-above)
 nmap <Leader>u <Plug>(simple-todo-mark-switch)
 
-
 " fzf
 map <c-p> :FZF<cr>
 
 " navi
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <Down> :TmuxNavigateDown<cr>
 nnoremap <silent> <Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
-
 
 map <leader>o :NERDTreeToggle<CR>
 
@@ -179,7 +152,6 @@ nmap <leader>in :BundleInstall<cr>
 nmap <leader>id :Dash<cr>
 
 " Syntastic
-
 let g:syntastic_javascript_checkers = ['eslint']
 
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
@@ -197,7 +169,5 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
 " :Calendar
-
-
 nmap <leader>rn :! node %<cr>
 nmap <leader>rp :! python3 %<cr>
