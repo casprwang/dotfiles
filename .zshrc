@@ -34,7 +34,7 @@ gitsetup() {
 # quick git add+commit+push
 gitpush() {
     git add .
-    git commit -m "$*"
+    git commit -m $*
     git push origin master
 }
 alias gp=gitpush
@@ -45,7 +45,7 @@ alias gp=gitpush
 gitpush_dotfiles() {
     cd ~/dotfiles
     git add .
-    git commit -m "$*"
+    git commit -m $*
     git push origin master
     cd -
 }
