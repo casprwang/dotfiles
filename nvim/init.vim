@@ -242,10 +242,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " end completion
-" end completion
-" end completion
-" end completion
-" end completion
 "
 let g:tmux_navigator_no_mappings = 1
 
