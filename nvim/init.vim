@@ -442,14 +442,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 
 " Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/deol.nvim'
-Plug 'zchee/deoplete-zsh'
+" Plug 'zchee/deoplete-zsh'
 
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -458,6 +458,11 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 " Plug 'sindresorhus/vim-xo'
 
+
+
+Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
+" PHP code completion is moved to a standalone plugin
+Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 
 
 
@@ -495,8 +500,8 @@ call plug#end()
 
 
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_smart_case = 1
 
 " let g:python_host_prog =  '/usr/local/bin/python'
 "
@@ -539,7 +544,7 @@ NeoBundle 'Valloric/MatchTagAlways'
 
 NeoBundle 'Shougo/context_filetype.vim'
 
-NeoBundle 'carlitux/deoplete-ternjs', { 'build': { 'mac': 'npm install -g tern', 'unix': 'npm install -g tern' }}
+" NeoBundle 'carlitux/deoplete-ternjs', { 'build': { 'mac': 'npm install -g tern', 'unix': 'npm install -g tern' }}
 
 
 NeoBundle 'othree/html5.vim'
@@ -582,8 +587,8 @@ NeoBundleCheck
 let g:mta_use_matchparen_group = 1
 
 
-let g:deoplete#auto_refresh_delay = 0
-let g:deoplete#auto_complete_delay = 0
+" let g:deoplete#auto_refresh_delay = 0
+" let g:deoplete#auto_complete_delay = 0
 
 
 let g:tern#filetypes = [
@@ -642,7 +647,7 @@ command! FZFLines call fzf#run({
 " AutoPair
 " let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 
-au Filetype html let b:AutoPairs = {'>':'<'}
+au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 " folding {{{
 autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType vim setlocal foldlevel=2
@@ -691,3 +696,20 @@ noremap <leader>f :Fixmyjs<CR>
 
 " let g:tern_request_timeout = 0
 " let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+
+" NCM {{{
+set shortmess+=c
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+" css
+" the omnifunc pattern is PCRE
+au User CmSetup call cm#register_source({'name' : 'cm-css',
+        \ 'priority': 9, 
+        \ 'scopes': ['css'],
+        \ 'abbreviation': 'css',
+        \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
+        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
+        \ })
+inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" }}}
