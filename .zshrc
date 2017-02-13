@@ -128,15 +128,20 @@ alias py="python3"
 alias read="nvim README.md"
 alias o="open"
 alias n="node"
+alias bnode="babel-node"
 alias ip="ipython"
 alias atom="atom-beta"
 # alias p="python3"
 alias lsa="ls -a"
 alias lsl="ls -lha"
 alias bs="bundle exec jekyll serve"
-alias co="code"
+# alias co="code"
 alias bst="browser-sync start --server --files"
+alias bsb="browser-sync start --server --files ."
+alias bst="browser-sync start --server --files"
+
 alias cat=hicat
+alias v="nvim"
 source /Users/wangsong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.yarn/bin"
 

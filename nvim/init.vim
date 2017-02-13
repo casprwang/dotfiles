@@ -448,6 +448,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 " Plug 'davidhalter/jedi-vim'
+Plug 'Shougo/deol.nvim'
+Plug 'zchee/deoplete-zsh'
 
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -529,6 +531,7 @@ NeoBundle 'junegunn/fzf.vim'
 " NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'davidhalter/jedi-vim'
 
+
 NeoBundle 'Valloric/MatchTagAlways'
 " NeoBundle 'tpope/vim-ragtag'
 " NeoBundle 'Raimondi/delimitMate'
@@ -585,6 +588,7 @@ let g:deoplete#auto_complete_delay = 0
 
 let g:tern#filetypes = [
       \ 'jsx',
+      \ 'js',
       \ 'javascript.jsx',
       \ 'vue',
       \ '...'
@@ -684,3 +688,6 @@ let g:fixmyjs_executable = '/Users/wangsong/dev/node/node_modules/.bin/eslint'
 let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
 noremap <leader>f :Fixmyjs<CR>
 " noremap <leader>f :Autoformat<CR>
+
+" let g:tern_request_timeout = 0
+" let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
