@@ -457,6 +457,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'fatih/vim-go'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 " Plug 'sindresorhus/vim-xo'
+Plug 'othree/csscomplete.vim'
 
 
 
