@@ -177,19 +177,21 @@ autocmd BufRead * normal zz
 
 
 syntax enable
-set background=light
-colorscheme lucario
+set background=dark
+" colorscheme lucario
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme hybrid
 
 "status bar{{{
-set laststatus=2
-set statusline=%f         " Path to the file
-" :set statusline+=%y        " Filetype of the file
-:set statusline+=/    " Separator
-set statusline+=%{ALEGetStatusLine()}
-set statusline+=%=        " Switch to the right side
-set statusline+=%l        " Current line
-set statusline+=/         " Separator
-set statusline+=%L        " Total lines
+" set laststatus=2
+" set statusline=%f         " Path to the file
+" :set statusline+=/    " Separator
+" set statusline+=%{ALEGetStatusLine()}
+" set statusline+=%=        " Switch to the right side
+" set statusline+=%l        " Current line
+" set statusline+=/         " Separator
+" set statusline+=%L        " Total lines
 "}}}
 
 
@@ -337,7 +339,6 @@ Plugin 'jiangmiao/auto-pairs'
 
 
 Plugin 'jmcantrell/vim-virtualenv'
-" Plugin 'vim-airline/vim-airline'
 
 
 
@@ -379,16 +380,23 @@ let g:formatter_yapf_style = 'pep8'
 
 :set nowrap
 
-" styling{{{
+" style{{{
 " :hi Folded       ctermfg=68 ctermbg=23 cterm=NONE guifg=#ca94ff guibg=#2b3e50 gui=NONE
-hi Folded ctermbg=23 ctermfg=2
-:hi TabLineFill  ctermfg=60
-:hi TabLineSel      ctermfg=17 ctermbg=11 cterm=NONE
-:hi TabLine   ctermfg=8 ctermbg=14 cterm=NONE
 
-
+" for lucario theme
+" hi Folded ctermbg=23 ctermfg=2
+" :hi TabLineFill  ctermfg=60
+" :hi TabLineSel      ctermfg=17 ctermbg=11 cterm=NONE
+" :hi TabLine   ctermfg=8 ctermbg=14 cterm=NONE
 
 " :hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+"
+"
+"
+"
+"
+"
+"
 " :hi TabLine ctermfg=Blue ctermbg=Yellow
 " :hi TabLineSel ctermfg=Red ctermbg=Yellow
 "
@@ -420,12 +428,6 @@ hi! link ALEError Directory
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-" ale
-" Use your own colors
-hi ALEError ctermfg=none ctermbg=none
-hi ALEWarning ctermfg=none ctermbg=none
-hi ALEErrorSign ctermfg=red ctermbg=none
-hi ALEWarningSign ctermfg=gray ctermbg=none
 
 " markdown
 let g:vim_markdown_folding_disabled = 1
@@ -459,7 +461,38 @@ Plug 'nsf/gocode', {'rtp': 'nvim/'}
 " Plug 'sindresorhus/vim-xo'
 Plug 'othree/csscomplete.vim'
 
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes' "{{{
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "tomorrow"
+" let g:airline_section_c = '%t'
+" let g:airline_section_c = '%t %{GetFileSize()} (%{GetCwd()})'
+let g:airline_left_sep = ''        " Remove arrow symbols.
+let g:airline_left_alt_sep = ''    " Remove arrow symbols.
+let g:airline_right_sep = ''       " Remove arrow symbols.
+let g:airline_right_alt_sep = ''   " Remove arrow symbols.
+let g:airline_skip_empty_sections = 1
+let g:airline_inactive_collapse=1
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+let g:airline_section_y = 0  
+let g:airline_section_b = 0
+let g:airline_section_warning = 0
+" let g:airline_section_z = '%l/%L'
+" let g:airline_section_z = 0
+let g:airline_section_z = '%3p%%'
+"}}}
 
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
 " PHP code completion is moved to a standalone plugin
@@ -714,3 +747,11 @@ au User CmSetup call cm#register_source({'name' : 'cm-css',
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
+"
+"
+" ale
+" Use your own colors
+hi ALEError ctermfg=none ctermbg=none
+hi ALEWarning ctermfg=none ctermbg=none
+hi ALEErrorSign ctermfg=red ctermbg=none
+hi ALEWarningSign ctermfg=gray ctermbg=none
