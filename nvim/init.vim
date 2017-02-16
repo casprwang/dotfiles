@@ -1,9 +1,14 @@
 let s:editor_root=expand("~/.config/nvim")
 let mapleader="\<Space>"
 map <leader>j :w<cr>
-set smartindent
-" let foo=3
+
+
+set autoindent
+set copyindent
 set expandtab
+set smartindent
+
+
 inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
 imap <c-r> <bs>
@@ -39,10 +44,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set autoindent
 set showmatch
 set smarttab
-set copyindent
 set undofile                " Save undo's after file closes
 set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
@@ -71,16 +74,11 @@ call dein#add('Shougo/dein.vim')
 
 " commenting
 call dein#add('tpope/vim-commentary')
-
 " css
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
-
-
 call dein#add('jiangmiao/auto-pairs')
-
 call dein#add('scrooloose/nerdtree')
 call dein#add('rizzatti/dash.vim')
-
 " kana/vim-textobj-user
 call dein#add('kana/vim-textobj-user')
 " call dein#add('fvictorio/vim-textobj-backticks')
@@ -462,6 +460,7 @@ Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 
 Plug 'vim-airline/vim-airline'
+
 Plug 'vim-airline/vim-airline-themes' "{{{
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "tomorrow"
@@ -490,7 +489,7 @@ let g:airline_section_y = 0
 let g:airline_section_b = 0
 let g:airline_section_warning = 0
 " let g:airline_section_z = '%l/%L'
-" let g:airline_section_z = 0
+let g:airline_section_z = 0
 let g:airline_section_z = '%3p%%'
 "}}}
 
@@ -691,7 +690,7 @@ autocmd FileType vim setlocal foldmethod=marker
 " setlocal foldmethod=marker
 " nmap <leader><leader> za
 "
-autocmd FileType javascript,typescript,json setl foldmethod=syntax
+" autocmd FileType javascript,typescript,json setl foldmethod=syntax
 " :set filetype?
 " }}}
 
@@ -744,7 +743,7 @@ au User CmSetup call cm#register_source({'name' : 'cm-css',
         \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
         \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
         \ })
-inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+inoremap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 "
@@ -755,3 +754,9 @@ hi ALEError ctermfg=none ctermbg=none
 hi ALEWarning ctermfg=none ctermbg=none
 hi ALEErrorSign ctermfg=red ctermbg=none
 hi ALEWarningSign ctermfg=gray ctermbg=none
+
+" stop auto commentting
+:set formatoptions-=cro
+
+
+

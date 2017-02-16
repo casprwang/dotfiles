@@ -28,6 +28,7 @@
 - [x] Demos
 - [x] A.L.E for linting
 - [x] Use Deoplete for asynchronous completion
+- [ ] configure the airline
 - [ ] diminactive
 - [ ] clean comments
 - [ ] Use dein clean up reps
