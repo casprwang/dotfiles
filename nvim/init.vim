@@ -76,7 +76,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-commentary')
 " css
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
-call dein#add('jiangmiao/auto-pairs')
+" call dein#add('jiangmiao/auto-pairs')
 call dein#add('scrooloose/nerdtree')
 call dein#add('rizzatti/dash.vim')
 " kana/vim-textobj-user
@@ -261,6 +261,7 @@ map <c-p> :FZF<cr>
 
 
 
+" imap < < 
 
 " emmet
 imap <c-f> <c-y>,
@@ -333,7 +334,9 @@ Plugin 'itchyny/calendar.vim'
 Plugin 'danro/rename.vim'
 
 
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
+
+
 
 
 Plugin 'jmcantrell/vim-virtualenv'
@@ -459,39 +462,53 @@ Plug 'nsf/gocode', {'rtp': 'nvim/'}
 " Plug 'sindresorhus/vim-xo'
 Plug 'othree/csscomplete.vim'
 
-Plug 'vim-airline/vim-airline'
+" Plug 'kana/vim-smartinput'
 
-Plug 'vim-airline/vim-airline-themes' "{{{
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "tomorrow"
-" let g:airline_section_c = '%t'
-" let g:airline_section_c = '%t %{GetFileSize()} (%{GetCwd()})'
-let g:airline_left_sep = ''        " Remove arrow symbols.
-let g:airline_left_alt_sep = ''    " Remove arrow symbols.
-let g:airline_right_sep = ''       " Remove arrow symbols.
-let g:airline_right_alt_sep = ''   " Remove arrow symbols.
-let g:airline_skip_empty_sections = 1
-let g:airline_inactive_collapse=1
-let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'c'  : 'C',
-      \ 'v'  : 'V',
-      \ 'V'  : 'V',
-      \ '' : 'V',
-      \ 's'  : 'S',
-      \ 'S'  : 'S',
-      \ '' : 'S',
-      \ }
-let g:airline_section_y = 0  
-let g:airline_section_b = 0
-let g:airline_section_warning = 0
-" let g:airline_section_z = '%l/%L'
-let g:airline_section_z = 0
-let g:airline_section_z = '%3p%%'
+
+Plug 'jiangmiao/auto-pairs' "{{{
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
+au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
+au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
+au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+let g:AutoPairsFlyMode = 1
 "}}}
+
+
+
+
+
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes' "{{{
+"let g:airline_powerline_fonts = 1
+"let g:airline_theme = "tomorrow"
+"" let g:airline_section_c = '%t'
+"" let g:airline_section_c = '%t %{GetFileSize()} (%{GetCwd()})'
+"let g:airline_left_sep = ''        " Remove arrow symbols.
+"let g:airline_left_alt_sep = ''    " Remove arrow symbols.
+"let g:airline_right_sep = ''       " Remove arrow symbols.
+"let g:airline_right_alt_sep = ''   " Remove arrow symbols.
+"let g:airline_skip_empty_sections = 1
+"let g:airline_inactive_collapse=1
+"let g:airline_mode_map = {
+"      \ '__' : '-',
+"      \ 'n'  : 'N',
+"      \ 'i'  : 'I',
+"      \ 'R'  : 'R',
+"      \ 'c'  : 'C',
+"      \ 'v'  : 'V',
+"      \ 'V'  : 'V',
+"      \ '' : 'V',
+"      \ 's'  : 'S',
+"      \ 'S'  : 'S',
+"      \ '' : 'S',
+"      \ }
+"let g:airline_section_y = 0  
+"let g:airline_section_b = 0
+"let g:airline_section_warning = 0
+"" let g:airline_section_z = '%l/%L'
+"let g:airline_section_z = 0
+"let g:airline_section_z = '%3p%%'
+""}}}
 
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
 " PHP code completion is moved to a standalone plugin
@@ -607,14 +624,14 @@ NeoBundleCheck
 
 
 
-" aug omnicomplete
-"   au!
-"   au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
-"   au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
-"   au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
-"   au FileType python setl omnifunc=pythoncomplete#Complete
-"   au FileType xml setl omnifunc=xmlcomplete#CompleteTags
-" aug END
+aug omnicomplete
+  au!
+  au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
+  au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
+  au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
+  au FileType python setl omnifunc=pythoncomplete#Complete
+  au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+aug END
 " au FileType html setl omnifunc=csscomplete#CompleteCSS
 
 let g:mta_use_matchparen_group = 1
@@ -677,10 +694,6 @@ command! FZFLines call fzf#run({
       \})
 
 
-" AutoPair
-" let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
-
-au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 " folding {{{
 autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType vim setlocal foldlevel=2
@@ -738,7 +751,7 @@ let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 " the omnifunc pattern is PCRE
 au User CmSetup call cm#register_source({'name' : 'cm-css',
         \ 'priority': 9, 
-        \ 'scopes': ['css'],
+        \ 'scopes': ['css', 'scss'],
         \ 'abbreviation': 'css',
         \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
         \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
@@ -759,4 +772,8 @@ hi ALEWarningSign ctermfg=gray ctermbg=none
 :set formatoptions-=cro
 
 
+set laststatus=1
 
+
+" inoremap <buffer> <silent> <CR> <C-R>=AutoPairsReturn()<CR>
+" inoremap <cr> <cr>

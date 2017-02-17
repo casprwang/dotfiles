@@ -139,6 +139,7 @@ alias bs="bundle exec jekyll serve"
 alias bst="browser-sync start --server --files"
 alias bsb="browser-sync start --server --files ."
 alias bst="browser-sync start --server --files"
+alias todo="nvim todo.md"
 
 alias cat=hicat
 alias v="nvim"
