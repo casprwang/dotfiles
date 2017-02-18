@@ -1,14 +1,12 @@
 let s:editor_root=expand("~/.config/nvim")
 let mapleader="\<Space>"
 map <leader>j :w<cr>
-
-
+"{{{ indentation
 set autoindent
 set copyindent
 set expandtab
 set smartindent
-
-
+"}}}
 inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
 imap <c-r> <bs>
@@ -17,10 +15,6 @@ nmap <S-Enter> O<Esc>
 nmap <c-w>v <c-w>v<right>
 nmap <c-w>l <c-w>v
 nmap <c-w>j <c-w>s<down>
-" nmap <leader>in 
-
-
-
 
 " fzf
 nmap <leader>p :Windows<cr>
@@ -177,9 +171,17 @@ autocmd BufRead * normal zz
 syntax enable
 set background=dark
 " colorscheme lucario
+
+
+
+" color
+"{{{ hybrid
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme hybrid
+" set background=light
+" colorscheme hybrid_material
+"}}}
 
 "status bar{{{
 " set laststatus=2
@@ -464,7 +466,7 @@ Plug 'othree/csscomplete.vim'
 
 " Plug 'kana/vim-smartinput'
 
-
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jiangmiao/auto-pairs' "{{{
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
 au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
@@ -761,12 +763,13 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 "
 "
-" ale
-" Use your own colors
+" ale {{{
 hi ALEError ctermfg=none ctermbg=none
 hi ALEWarning ctermfg=none ctermbg=none
 hi ALEErrorSign ctermfg=red ctermbg=none
 hi ALEWarningSign ctermfg=gray ctermbg=none
+"}}}
+" Use your own colors
 
 " stop auto commentting
 :set formatoptions-=cro
