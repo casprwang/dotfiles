@@ -281,8 +281,8 @@ map <leader>o :NERDTreeToggle<CR>
 
 
 " tabs
-nmap L gt
-nmap H gT
+" nmap L gt
+" nmap H gT
 
 " nmap <leader>l :silent !echo Hello<cr>
 

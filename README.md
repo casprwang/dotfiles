@@ -2,10 +2,8 @@
 
 ![image](https://cloud.githubusercontent.com/assets/19645990/22947530/655cc524-f2c9-11e6-9afd-0d435cc62968.png)
 ## Configurations for:
-* Editors
-  * Vim (light weighted, simple, fast)
+* Editor
   * Neovim (asynchronous, powerful)
-  * Atom (powerful, compatible with vim)
 * Terminal tools
   * iTerm
   * Tmux
@@ -28,9 +26,7 @@
 - [x] Demos
 - [x] A.L.E for linting
 - [x] Use Deoplete for asynchronous completion
-- [ ] configure the airline
 - [ ] diminactive
 - [ ] clean comments
-- [ ] Use dein clean up reps
 - [ ] install.sh for quick installation
 

@@ -143,7 +143,7 @@ hs.hotkey.bind({'ctrl'}, "q", function()
 end)
 
 
-hs.hotkey.bind({'ctrl'}, "r", function()
+hs.hotkey.bind({'ctrl'}, "s", function()
   hs.eventtap.keyStroke({}, "delete")
 end)
 
@@ -153,7 +153,7 @@ end)
 
 
 hs.hotkey.bind({'ctrl'}, "b", function()
-  hs.eventtap.keyStroke({'alt'}, "left")
+  niths.eventtap.keyStroke({'alt'}, "left")
 end)
 
 hs.hotkey.bind({'ctrl'}, "f", function()
