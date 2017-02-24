@@ -1,6 +1,9 @@
-syntax enable
-set background=dark
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  " ____                    _      __     ___                    _ _ _
+ " / ___|  ___  _ __   __ _( )___  \ \   / (_)_ __ ___  _ __ ___| | | |
+ " \___ \ / _ \| '_ \ / _` |// __|  \ \ / /| | '_ ` _ \| '__/ __| | | |
+  " ___) | (_) | | | | (_| | \__ \   \ V / | | | | | | | | | (__|_|_|_|
+ " |____/ \___/|_| |_|\__, | |___/    \_/  |_|_| |_| |_|_|  \___(_|_|_)
+  "                   |___/
 " {{{ general settings
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 :set nowrap
@@ -127,6 +130,9 @@ autocmd BufReadPost *
 autocmd BufRead * normal zz
 " }}}
 "{{{ color hybrid
+syntax enable
+set background=dark
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme hybrid

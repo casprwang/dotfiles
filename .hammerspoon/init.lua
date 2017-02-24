@@ -1,7 +1,5 @@
 -- require "hybrid"
 -- hs.window.animationDuration = 0.1 -- disable animations
-
-
 hs.window.animationDuration = 0.1 -- disable animations
 
 
@@ -32,8 +30,6 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
   hs.alert.show(tostring(x)..":"..tostring(y))
   -- hs.alert.show(tostring(y))
 end)
-
-
 
 function reloadConfig(files)
     doReload = false
@@ -77,9 +73,6 @@ hs.alert.show("Config loaded")
 
 -- window.animationDuration = 0
 local modalKey = {"alt"}
-
-
-
 
 
 local resizeMappings = {
