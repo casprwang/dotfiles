@@ -195,6 +195,8 @@ Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'ternjs/tern_for_vim'
+
+Plug 'mxw/vim-jsx'
 call plug#end()
 " }}}
 " NeoBundle{{{
@@ -334,14 +336,14 @@ hi! link ALEError Directory
 " }}}
 " {{{ omni
 " ----------------------------------------------------------------------------
-aug omnicomplete
-  au!
-  au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
-  au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
-  au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
-  au FileType python setl omnifunc=pythoncomplete#Complete
-  au FileType xml setl omnifunc=xmlcomplete#CompleteTags
-aug END
+" aug omnicomplete
+"   au!
+"   au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
+"   au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
+"   au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
+"   au FileType python setl omnifunc=pythoncomplete#Complete
+"   au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+" aug END
 let g:mta_use_matchparen_group = 1
 let g:tern#filetypes = [
       \ 'jsx',
@@ -419,13 +421,19 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 " css
 " the omnifunc pattern is PCRE
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
 au User CmSetup call cm#register_source({'name' : 'cm-css',
         \ 'priority': 9, 
         \ 'scopes': ['css', 'scss'],
+        \ 'scoping': 1,
         \ 'abbreviation': 'css',
         \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
         \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
         \ })
+let g:cm_sources_override = {
+    \ 'cm-tags': {'enable':0}
+    \ }
+
 inoremap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
@@ -444,6 +452,14 @@ let g:ale_set_quickfix = 1
 " let g:formatdef_xo_javascript = '"xo --fix --stdin"'
 " let g:formatters_javascript = ['xo_javascript']
 let g:ale_linters = {
-      \   'javascript': ['standard'],
+      \   'javascript': ['eslint'],
       \}
+
+" for jsx
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linter_aliases = {'jsx': 'css'}
 "}}}
