@@ -406,12 +406,19 @@ autocmd FileType vim setlocal foldmethod=marker
 " }}}
 " {{{ fixmyjs
 " ----------------------------------------------------------------------------
-let g:formatterpath = ['/usr/local/bin/standard']
-let g:formatdef_standard_javascript = '"standard --fix --stdin"'
-let g:formatters_javascript = ['standard_javascript']
-let g:fixmyjs_engine = 'eslint' 
-let g:fixmyjs_executable = '/Users/wangsong/dev/node/node_modules/.bin/eslint'
-let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
+" let g:formatterpath = ['/usr/local/bin/standard']
+" let g:formatdef_standard_javascript = '"standard --fix --stdin"'
+" let g:formatters_javascript = ['standard_javascript']
+let g:formatters_javascript = ['eslint_javascript']
+let g:formatdef_eslint_javascript = '"standard --fix --stdin"'
+" let g:fixmyjs_engine = 'eslint' 
+let g:fixmyjs_engine = 'eslint'
+
+" let g:fixmyjs_executable = '/Users/wangsong/dev/node/node_modules/.bin/eslint'
+" let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
+" let g:fixmyjs_rc_path = '/Users/wangsong/temp/.eslintrc.js'
+let g:fixmyjs_rc_path = '~/.eslintrc.js'
+" let g:fixmyjs_use_local = 1
 noremap <leader>f :Fixmyjs<CR>
 "}}}
 " NCM {{{
@@ -455,11 +462,15 @@ let g:ale_linters = {
       \   'javascript': ['eslint'],
       \}
 
-" for jsx
-augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
-let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
-let g:ale_linter_aliases = {'jsx': 'css'}
+" " for jsx
+" augroup FiletypeGroup
+"   autocmd!
+"   au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+" augroup END
+" let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+" let g:ale_linter_aliases = {'jsx': 'css'}
+
+
+let g:ale_lint_delay = 100
+let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}
