@@ -1,7 +1,5 @@
--- require "hybrid"
--- hs.window.animationDuration = 0.1 -- disable animations
+local music = require("hs-music")
 hs.window.animationDuration = 0.1 -- disable animations
-
 
 local function keyCode(key)
   modifiers = modifiers or {}
@@ -19,7 +17,8 @@ hs.hotkey.bind({"ctrl"}, 'l', keyCode('right'),  nil,   keyCode('right') )
 
 -------------------------------------------------------------------------------
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
-  hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
+  -- hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
+  hs.alert.show(hs.itunes.state_playing)
 end)
 
 
@@ -45,40 +44,17 @@ end
 local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("Config loaded")
 
--- hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
---   local win = hs.window.focusedWindow()
---   local f = win:frame()
---   local screen = win:screen()
---   local max = screen:frame()
---
---   f.x = max.x
---   f.y = max.y
---   f.w = max.w / 2
---   f.h = max.h
---   win:setFrame(f)
--- end)
---
--- hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
---   local win = hs.window.focusedWindow()
---   local f = win:frame()
---   local screen = win:screen()
---   local max = screen:frame()
---
---   f.x = max.x + (max.w / 2)
---   f.y = max.y
---   f.w = max.w / 2
---   f.h = max.h
---   win:setFrame(f)
--- end)
 
--- window.animationDuration = 0
+
+-- resizing
 local modalKey = {"alt"}
-
 
 local resizeMappings = {
   h={x=0, y=0, w=0.5, h=1},
   j={x=0, y=0.5, w=1, h=0.5},
+  -- J={x=0, y=0.2, w=1, h=0.5},
   k={x=0, y=0, w=1, h=0.5},
+  -- K={x=0, y=0, w=1, h=0.5},
   l={x=0.5, y=0, w=0.5, h=1},
   n={x=0, y=0, w=1, h=1},
   u={x=0, y=0, w=0.33, h=1},
@@ -93,6 +69,7 @@ for key in pairs(resizeMappings) do
     if win then win:moveToUnit(resizeMappings[key]) end
   end)
 end
+
 ---------------------------------------------------------------------------------
 
 --   hs.eventtap.keyStroke({}, 'delete')
@@ -136,9 +113,9 @@ hs.hotkey.bind({'ctrl'}, "q", function()
 end)
 
 
-hs.hotkey.bind({'ctrl'}, "s", function()
-  hs.eventtap.keyStroke({}, "delete")
-end)
+-- hs.hotkey.bind({'ctrl'}, "s", function()
+--   hs.eventtap.keyStroke({}, "delete")
+-- end)
 
 -- hs.hotkey.bind({'ctrl', 'option'}, "h", function()
 --   hs.eventtap.keyStroke({'option'}, "left")
@@ -146,7 +123,7 @@ end)
 
 
 hs.hotkey.bind({'ctrl'}, "b", function()
-  niths.eventtap.keyStroke({'alt'}, "left")
+  hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
 hs.hotkey.bind({'ctrl'}, "f", function()

@@ -29,4 +29,5 @@
 - [ ] diminactive
 - [ ] clean comments
 - [ ] install.sh for quick installation
+- [ ] cmd key shortcuts for tmux
 

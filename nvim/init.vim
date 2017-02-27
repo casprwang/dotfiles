@@ -1,10 +1,15 @@
- "  ____                    _      __     ___                      _
- " / ___|  ___  _ __   __ _( )___  \ \   / (_)_ __ ___  _ __ ___  | |
- " \___ \ / _ \| '_ \ / _` |// __|  \ \ / /| | '_ ` _ \| '__/ __| | |
- "  ___) | (_) | | | | (_| | \__ \   \ V / | | | | | | | | | (__  |_|
- " |____/ \___/|_| |_|\__, | |___/    \_/  |_|_| |_| |_|_|  \___| (_)
- "                    |___/
+" ============================================================================
+"   ____                    _      __     ___                      _
+"  / ___|  ___  _ __   __ _( )___  \ \   / (_)_ __ ___  _ __ ___  | |
+"  \___ \ / _ \| '_ \ / _` |// __|  \ \ / /| | '_ ` _ \| '__/ __| | |
+"   ___) | (_) | | | | (_| | \__ \   \ V / | | | | | | | | | (__  |_|
+"  |____/ \___/|_| |_|\__, | |___/    \_/  |_|_| |_| |_|_|  \___| (_)
+"                     |___/
+" ============================================================================
+" 
+" 
 " {{{ general settings
+" ----------------------------------------------------------------------------
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 :set nowrap
 set timeoutlen=1000 ttimeoutlen=0
@@ -34,10 +39,11 @@ autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 " }}}
 " {{{ mapping 
+" ----------------------------------------------------------------------------
+let mapleader="\<Space>"
 nmap <leader>in :PlugInstall<cr>
 nmap <leader>id :Dash<cr>
-map <leader>o :NERDTreeToggle<CR>
-let mapleader="\<Space>"
+nmap <leader>o :NERDTreeToggle<CR>
 map <leader>j :w<cr>
 inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
@@ -54,22 +60,9 @@ vmap J 5gj
 vmap K 5gk
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 " }}}
-"{{{ indentation
-set autoindent
-set copyindent
-set expandtab
-set smartindent
-"}}}
-" fzf {{{
-nmap <leader>p :Windows<cr>
-nmap <c-f> :Lines<cr>
-set noswapfile
-set clipboard=unnamed
-set autoread
-" show autocomplete for commands
-set wildmenu
-" }}}
+"{{{ Plugins
 "dein{{{
+" ----------------------------------------------------------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -121,7 +114,122 @@ syntax enable
 "endif
 
 "}}}
+"bundle {{{
+" ----------------------------------------------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/dotfiles/nvim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ap/vim-css-color'
+Plugin 'kana/vim-smartinput'
+Plugin 'w0rp/ale'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'Chiel92/vim-autoformat' " {{{
+let g:formatter_yapf_style = 'pep9'
+" }}}
+Plugin 'itchyny/calendar.vim' " {{{
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+" }}}
+Plugin 'danro/rename.vim'
+Plugin 'jmcantrell/vim-virtualenv'
+call vundle#end()            " required
+filetype plugin indent on    " required
+" }}}
+" vimplug {{{
+" ----------------------------------------------------------------------------
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'Shougo/deol.nvim'
+Plug 'ruanyl/vim-fixmyjs'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'nsf/gocode', {'rtp': 'nvim/'}
+Plug 'othree/csscomplete.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'jiangmiao/auto-pairs' "{{{
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
+au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
+au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
+au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+" let g:AutoPairsFlyMode = 1
+"}}}
+"Plug 'vim-airline/vim-airline-themes' "{{{
+"let g:airline_powerline_fonts = 1
+"let g:airline_theme = "tomorrow"
+"" let g:airline_section_c = '%t'
+"" let g:airline_section_c = '%t %{GetFileSize()} (%{GetCwd()})'
+"let g:airline_left_sep = ''        " Remove arrow symbols.
+"let g:airline_left_alt_sep = ''    " Remove arrow symbols.
+"let g:airline_right_sep = ''       " Remove arrow symbols.
+"let g:airline_right_alt_sep = ''   " Remove arrow symbols.
+"let g:airline_skip_empty_sections = 1
+"let g:airline_inactive_collapse=1
+"let g:airline_mode_map = {
+"      \ '__' : '-',
+"      \ 'n'  : 'N',
+"      \ 'i'  : 'I',
+"      \ 'R'  : 'R',
+"      \ 'c'  : 'C',
+"      \ 'v'  : 'V',
+"      \ 'V'  : 'V',
+"      \ '' : 'V',
+"      \ 's'  : 'S',
+"      \ 'S'  : 'S',
+"      \ '' : 'S',
+"      \ }
+"let g:airline_section_y = 0  
+"let g:airline_section_b = 0
+"let g:airline_section_warning = 0
+"" let g:airline_section_z = '%l/%L'
+"let g:airline_section_z = 0
+"let g:airline_section_z = '%3p%%'
+""}}}
+Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
+Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plug 'ternjs/tern_for_vim'
+call plug#end()
+" }}}
+" NeoBundle{{{
+" ----------------------------------------------------------------------------
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+if &compatible
+set nocompatible               " Be iMproved
+endif
+" Required:
+set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
+" Required:
+call neobundle#begin(expand('~/.config/nvim/bundle/'))
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'Valloric/MatchTagAlways'
+" NeoBundle 'Shougo/context_filetype.vim'
+NeoBundle 'othree/html5.vim'
+NeoBundleLazy 'lambdalisue/vim-pyenv', {
+      \ 'depends': ['davidhalter/jedi-vim'],
+      \ 'autoload': {
+      \   'filetypes': ['python', 'python3'],
+      \ }}
+call neobundle#end()
+" Required:
+filetype plugin indent on
+NeoBundleCheck
+" }}}
+"}}}
 " cursor {{{
+" ----------------------------------------------------------------------------
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
@@ -129,7 +237,15 @@ autocmd BufReadPost *
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 " }}}
+"{{{ indentation
+" ----------------------------------------------------------------------------
+set autoindent
+set copyindent
+set expandtab
+set smartindent
+"}}}
 "{{{ color hybrid
+" ----------------------------------------------------------------------------
 syntax enable
 set background=dark
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -140,6 +256,7 @@ colorscheme hybrid
 " colorscheme hybrid_material
 "}}}
 "status bar{{{
+" ----------------------------------------------------------------------------
 " set laststatus=2
 " set statusline=%f         " Path to the file
 " :set statusline+=/    " Separator
@@ -150,6 +267,7 @@ colorscheme hybrid
 " set statusline+=%L        " Total lines
 "}}}
 " completion {{{
+" ----------------------------------------------------------------------------
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res == 0
@@ -197,6 +315,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:SuperTabDefaultCompletionType = '<C-n>'
 " }}}
 " {{{ tmux navi
+" ----------------------------------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <Down> :TmuxNavigateDown<cr>
@@ -205,121 +324,16 @@ nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
-" bundle {{{
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/dotfiles/nvim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'kana/vim-smartinput'
-Plugin 'w0rp/ale'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'Chiel92/vim-autoformat' " {{{
-let g:formatter_yapf_style = 'pep9'
-" }}}
-Plugin 'itchyny/calendar.vim' " {{{
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-" }}}
-Plugin 'danro/rename.vim'
-Plugin 'jmcantrell/vim-virtualenv'
-call vundle#end()            " required
-filetype plugin indent on    " required
-" }}}
 " style{{{
+" ----------------------------------------------------------------------------
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '✖'
 let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
 hi SignColumn ctermbg=none
 hi! link ALEError Directory
 " }}}
-" vimplug {{{
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'Shougo/deol.nvim'
-Plug 'ruanyl/vim-fixmyjs'
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'nsf/gocode', {'rtp': 'nvim/'}
-Plug 'othree/csscomplete.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'jiangmiao/auto-pairs' "{{{
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
-au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
-au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
-au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-let g:AutoPairsFlyMode = 1
-"}}}
-"Plug 'vim-airline/vim-airline-themes' "{{{
-"let g:airline_powerline_fonts = 1
-"let g:airline_theme = "tomorrow"
-"" let g:airline_section_c = '%t'
-"" let g:airline_section_c = '%t %{GetFileSize()} (%{GetCwd()})'
-"let g:airline_left_sep = ''        " Remove arrow symbols.
-"let g:airline_left_alt_sep = ''    " Remove arrow symbols.
-"let g:airline_right_sep = ''       " Remove arrow symbols.
-"let g:airline_right_alt_sep = ''   " Remove arrow symbols.
-"let g:airline_skip_empty_sections = 1
-"let g:airline_inactive_collapse=1
-"let g:airline_mode_map = {
-"      \ '__' : '-',
-"      \ 'n'  : 'N',
-"      \ 'i'  : 'I',
-"      \ 'R'  : 'R',
-"      \ 'c'  : 'C',
-"      \ 'v'  : 'V',
-"      \ 'V'  : 'V',
-"      \ '' : 'V',
-"      \ 's'  : 'S',
-"      \ 'S'  : 'S',
-"      \ '' : 'S',
-"      \ }
-"let g:airline_section_y = 0  
-"let g:airline_section_b = 0
-"let g:airline_section_warning = 0
-"" let g:airline_section_z = '%l/%L'
-"let g:airline_section_z = 0
-"let g:airline_section_z = '%3p%%'
-""}}}
-Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
-Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
-call plug#end()
-" }}}
-" NeoBundle{{{
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-if &compatible
-set nocompatible               " Be iMproved
-endif
-" Required:
-set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
-" Required:
-call neobundle#begin(expand('~/.config/nvim/bundle/'))
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
-NeoBundle 'junegunn/fzf'
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'othree/html5.vim'
-NeoBundleLazy 'lambdalisue/vim-pyenv', {
-      \ 'depends': ['davidhalter/jedi-vim'],
-      \ 'autoload': {
-      \   'filetypes': ['python', 'python3'],
-      \ }}
-call neobundle#end()
-" Required:
-filetype plugin indent on
-NeoBundleCheck
-" }}}
 " {{{ omni
+" ----------------------------------------------------------------------------
 aug omnicomplete
   au!
   au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
@@ -338,6 +352,15 @@ let g:tern#filetypes = [
       \ ]
 " }}}
 " fzf{{{
+" ----------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
+nmap <leader>p :Windows<cr>
+nmap <c-f> :Lines<cr>
+set noswapfile
+set clipboard=unnamed
+set autoread
+" show autocomplete for commands
+set wildmenu
 map <c-p> :FZF<cr>
 nnoremap <silent> <c-w>v :call fzf#run({
       \   'right': winwidth('.') / 2,
@@ -370,6 +393,7 @@ command! FZFLines call fzf#run({
       \})
 " }}}
 " folding {{{
+" ----------------------------------------------------------------------------
 autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType vim setlocal foldlevel=2
 " autocmd FileType txt setlocal foldmethod=marker
@@ -379,6 +403,7 @@ autocmd FileType vim setlocal foldmethod=marker
 " :set filetype?
 " }}}
 " {{{ fixmyjs
+" ----------------------------------------------------------------------------
 let g:formatterpath = ['/usr/local/bin/standard']
 let g:formatdef_standard_javascript = '"standard --fix --stdin"'
 let g:formatters_javascript = ['standard_javascript']
@@ -388,6 +413,7 @@ let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
 noremap <leader>f :Fixmyjs<CR>
 "}}}
 " NCM {{{
+" ----------------------------------------------------------------------------
 set shortmess+=c
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
@@ -404,6 +430,7 @@ inoremap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ult
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 " ale {{{
+" ----------------------------------------------------------------------------
 hi ALEError ctermfg=none ctermbg=none
 hi ALEWarning ctermfg=none ctermbg=none
 hi ALEErrorSign ctermfg=red ctermbg=none
