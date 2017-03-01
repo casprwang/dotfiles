@@ -37,6 +37,7 @@ let s:editor_root=expand("~/.config/nvim")
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " }}}
 " {{{ mapping 
 " ----------------------------------------------------------------------------
@@ -156,6 +157,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'jiangmiao/auto-pairs' "{{{
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
 au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
+au Filetype jsx let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
 au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 " let g:AutoPairsFlyMode = 1
@@ -196,7 +198,10 @@ Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer 
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'ternjs/tern_for_vim'
 
+Plug 'sheerun/vim-polyglot'
+
 Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 " }}}
 " NeoBundle{{{
