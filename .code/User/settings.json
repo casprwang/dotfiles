@@ -51,6 +51,18 @@
             "before": ["\n"],
             "after": ["o", "<Esc>"],
     },
+    {
+        "before": ["J"],
+        "after": ["5", "j"],
+    },
+    {
+        "before": ["K"],
+        "after": ["5", "k"],
+    }, 
+    {
+        "before": ["g", "/"],
+        "after": ["cmd", "/"],
+    }
 //         {
     //     ]{
     //     "before": [ "ctrl+d" ],

@@ -115,7 +115,7 @@ alias gcm="git commit -m"
 alias gm="git merge"
 alias gb="git branch"
 alias st="tmux source-file ~/.tmux.conf"
-alias xcode='open -a /Applications/Xcode.app'
+alias xcode="open -a Xcode"
 
 alias tmr="nvim ~/.tmux.conf"
 alias cdt="cd ~/temp"

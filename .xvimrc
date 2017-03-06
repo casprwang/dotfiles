@@ -1,3 +1,4 @@
+let mapleader="\<Space>"
 set ignorecase
 set wrapscan
 set guioptions=r
@@ -10,6 +11,7 @@ set ignorecase
 set smartcase
 set showmatch
 set smarttab
+set clipboard=unnamed
 
 
 nnoremap J 5gj
@@ -18,3 +20,10 @@ vmap J 5gj
 vmap K 5gk
 nmap <esc> :noh<cr>
 nnoremap <bs> <c-r>
+nmap <CR> o<Esc>
+imap <c-e> <esc>A
+" comment
+nnoremap g// :xcmenucmd Comment Selection<CR>
+vnoremap g/  :xcmenucmd Comment Selection<CR>
+
+nmap <space>j :xcmenucmd Save<cr>

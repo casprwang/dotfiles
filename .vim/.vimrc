@@ -47,6 +47,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'jiangmiao/auto-pairs' 
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'vitalk/vim-simple-todo'
 Plugin 'junegunn/fzf'
@@ -65,6 +66,7 @@ Plugin 'iamcco/markdown-preview.vim'
 " Syntastic
 Plugin 'vim-syntastic/syntastic'
 Plugin 'rizzatti/dash.vim'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required

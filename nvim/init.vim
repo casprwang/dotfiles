@@ -42,6 +42,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " {{{ mapping 
 " ----------------------------------------------------------------------------
 let mapleader="\<Space>"
+imap <c-e> <esc>A
 nmap <leader>in :PlugInstall<cr>
 nmap <leader>id :Dash<cr>
 nmap <leader>o :NERDTreeToggle<CR>
@@ -101,7 +102,7 @@ nmap <silent> <leader>m <Plug>MarkdownPreview
 call dein#add('othree/html5.vim')
 call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
 call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
-call dein#add('ervandew/supertab')
+" call dein#add('ervandew/supertab')
 " Required:
 call dein#end()
 
@@ -157,10 +158,12 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'jiangmiao/auto-pairs' "{{{
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
 au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
-au Filetype jsx let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
+" au Filetype jsx let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
+" au Filetype javascript let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
+" au Filetype js let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
 au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-" let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 "}}}
 "Plug 'vim-airline/vim-airline-themes' "{{{
 "let g:airline_powerline_fonts = 1
@@ -196,12 +199,21 @@ au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 
-Plug 'sheerun/vim-polyglot'
-
+" for swift
+Plug 'sheerun/vim-polyglot' "{{{
+" let g:polyglot_disabled = ['javascript']
+" }}}
+Plug 'keith/swift.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+
+Plug 'https://github.com/ElmCast/elm-vim' "{{{
+let g:elm_setup_keybindings = 0
+" }}}
+
+
 call plug#end()
 " }}}
 " NeoBundle{{{
@@ -274,7 +286,7 @@ colorscheme hybrid
 " set statusline+=%L        " Total lines
 "}}}
 " completion {{{
-" ----------------------------------------------------------------------------
+"----------------------------------------------------------------------------
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res == 0
@@ -309,7 +321,6 @@ let g:UltiSnipsSnippetDirectories=["ultiSnips"]
 let g:vim_json_syntax_conceal = 0
 
 " imap <Down> <c-j>
-imap <c-e> <esc>A
 " <c-a> <esc>I
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -479,3 +490,4 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_lint_delay = 100
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}
+
