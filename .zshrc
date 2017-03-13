@@ -1,3 +1,5 @@
+export PATH=${PATH}:/usr/local/opt/gettext/bin
+source ~/.bin/tmuxinator.zsh
 export PATH=$PATH:/usr/local/go/bin
 export TERM=screen-256color
 export PATH="$PATH:`yarn global bin`"
@@ -85,6 +87,8 @@ alias vim=nvim
 
 alias babel-node ./node_modules/.bin/babel-node
 
+alias aria="/usr/local/bin/aria2c"
+alias gd="gatsby develop"
 
 # for tmux
 alias t="tmux a"
@@ -129,12 +133,13 @@ alias ta="tmux a"
 alias py="python3"
 alias read="nvim README.md"
 alias o="open"
-alias n="node"
+alias n="babel-node"
 alias bnode="babel-node"
 alias ip="ipython"
 alias atom="atom-beta"
 # alias p="python3"
 alias lsa="ls -a"
+alias flink="greadlink -f"
 alias lsl="ls -lha"
 alias bs="bundle exec jekyll serve"
 # alias co="code"

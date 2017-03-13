@@ -209,6 +209,7 @@ Plug 'keith/swift.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 
+Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
