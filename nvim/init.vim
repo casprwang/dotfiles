@@ -413,8 +413,12 @@ command! FZFLines call fzf#run({
 " }}}
 " folding {{{
 " ----------------------------------------------------------------------------
+set foldmethod=indent
 autocmd FileType vim setlocal foldmethod=marker
-" autocmd FileType vim setlocal foldlevel=2
+set foldlevelstart=1
+
+let javaScript_fold=2         " JavaScript
+" autocmd FileType javascript setlocal foldlevel=2
 " autocmd FileType txt setlocal foldmethod=marker
 " setlocal foldmethod=marker
 " nmap <leader><leader> za
