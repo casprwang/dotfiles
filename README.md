@@ -27,8 +27,8 @@
 - [x] Demos
 - [x] A.L.E for linting
 - [x] Use Deoplete for asynchronous completion
+- [x] cmd key shortcuts for tmux
 - [ ] diminactive
 - [ ] clean comments
 - [ ] install.sh for quick installation
-- [ ] cmd key shortcuts for tmux
 

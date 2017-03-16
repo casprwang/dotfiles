@@ -1,5 +1,5 @@
 export PATH=${PATH}:/usr/local/opt/gettext/bin
-source ~/.bin/tmuxinator.zsh
+# source ~/.bin/tmuxinator.zsh
 export PATH=$PATH:/usr/local/go/bin
 export TERM=screen-256color
 export PATH="$PATH:`yarn global bin`"
