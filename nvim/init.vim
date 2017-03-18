@@ -155,6 +155,13 @@ Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'junegunn/vim-easy-align' "{{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }}}
 Plug 'jiangmiao/auto-pairs' "{{{
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
 au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
@@ -413,11 +420,11 @@ command! FZFLines call fzf#run({
 " }}}
 " folding {{{
 " ----------------------------------------------------------------------------
-set foldmethod=indent
+" set foldmethod=indent
 autocmd FileType vim setlocal foldmethod=marker
-set foldlevelstart=1
+" set foldlevelstart=1
 
-let javaScript_fold=2         " JavaScript
+" let javaScript_fold=2         " JavaScript
 " autocmd FileType javascript setlocal foldlevel=2
 " autocmd FileType txt setlocal foldmethod=marker
 " setlocal foldmethod=marker
