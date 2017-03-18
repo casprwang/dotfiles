@@ -154,7 +154,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'junegunn/vim-easy-align' "{{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -279,6 +278,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme hybrid
+hi StatusLine ctermbg=white ctermfg=black
 " set background=light
 " colorscheme hybrid_material
 "}}}
@@ -417,6 +417,16 @@ command! FZFLines call fzf#run({
       \   'options': '--extended --nth=3..',
       \   'down':    '60%'
       \})
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
 " folding {{{
 " ----------------------------------------------------------------------------
@@ -502,4 +512,3 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_lint_delay = 100
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}
-
