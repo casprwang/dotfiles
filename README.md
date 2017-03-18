@@ -6,21 +6,18 @@
 * Editor
   * Neovim (asynchronous, powerful)
 * Terminal tools
-  * iTerm
   * Tmux
+  * iTerm
   * Zsh
 * Macros
   * Hammerspoon 
   * Alred 3
-* Linting 
-  * Eslint
-* New tools
 
 ## Core files
-* Vim [.vimrc](https://github.com/wangsongiam/dotfiles/blob/master/.vim/.vimrc)
 * Neovim [init.vim](https://github.com/wangsongiam/dotfiles/blob/master/nvim/init.vim)
 * Tmux [.tmux.conf](https://github.com/wangsongiam/dotfiles/blob/master/.tmux.conf)
 * Zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/.zshrc)
+> * Vim [.vimrc](https://github.com/wangsongiam/dotfiles/blob/master/.vim/.vimrc)
 
 ## Todos
 - [x] Use Neomake for asynchronous linting
