@@ -11,7 +11,7 @@
 " {{{ general settings
 " ----------------------------------------------------------------------------
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-:set nowrap
+set nowrap
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set undoreload=10000        " number of lines to save for undo
@@ -41,6 +41,9 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " }}}
 " {{{ mapping 
 " ----------------------------------------------------------------------------
+inoremap <c-a> <esc>I
+inoremap <c-b> <esc>Bi
+inoremap <c-f> <esc>Ea
 let mapleader="\<Space>"
 imap <c-e> <esc>A
 nmap <leader>in :PlugInstall<cr>
@@ -86,7 +89,12 @@ call dein#add('kana/vim-textobj-function')
 call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('mattn/emmet-vim') " {{{
 " emmet
-imap <c-f> <c-y>,
+inoremap <c-t> <c-y>,
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
 "}}}
 call dein#add('SirVer/ultisnips')
 call dein#add('plasticboy/vim-markdown')
@@ -136,10 +144,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'Chiel92/vim-autoformat' " {{{
 let g:formatter_yapf_style = 'pep9'
 " }}}
-Plugin 'itchyny/calendar.vim' " {{{
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-" }}}
 Plugin 'danro/rename.vim'
 Plugin 'jmcantrell/vim-virtualenv'
 call vundle#end()            " required
@@ -154,6 +158,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ashisha/image.vim'
 Plug 'junegunn/vim-easy-align' "{{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -205,13 +210,13 @@ let g:AutoPairsFlyMode = 0
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-" Plug 'ternjs/tern_for_vim'
 
 " for swift
 Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
 " }}}
 Plug 'keith/swift.vim'
+
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 
@@ -240,8 +245,17 @@ NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'Valloric/MatchTagAlways' "{{{
+let g:mta_filetypes = {
+    \ 'javascript.jsx': 1,
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \}
+"}}}
 " NeoBundle 'Shougo/context_filetype.vim'
+
 NeoBundle 'othree/html5.vim'
 NeoBundleLazy 'lambdalisue/vim-pyenv', {
       \ 'depends': ['davidhalter/jedi-vim'],
@@ -329,7 +343,6 @@ let g:UltiSnipsSnippetDirectories=["ultiSnips"]
 let g:vim_json_syntax_conceal = 0
 
 " imap <Down> <c-j>
-" <c-a> <esc>I
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -350,7 +363,7 @@ nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
-" style{{{
+" ale style{{{
 " ----------------------------------------------------------------------------
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '✖'
