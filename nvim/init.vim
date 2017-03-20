@@ -64,6 +64,9 @@ nnoremap K 5gk
 vmap J 5gj
 vmap K 5gk
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
+" silver searcher
+let g:ackprg = 'ag --vimgrep'
+nnoremap <leader>e :Ag<cr>
 " }}}
 "{{{ Plugins
 "dein{{{
@@ -89,7 +92,7 @@ call dein#add('kana/vim-textobj-function')
 call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('mattn/emmet-vim') " {{{
 " emmet
-inoremap <c-t> <c-y>,
+imap <c-t> <c-y>,
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
@@ -525,3 +528,4 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_lint_delay = 100
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}
+

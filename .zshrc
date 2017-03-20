@@ -19,6 +19,11 @@ PATH=$PATH:/usr/local/bin
 # END
 
 
+# setup a sass project
+sassup() {
+  cp -R ~/dev/sass-boilerplate/ ./"$1"/
+}
+
 autoload -U promptinit; promptinit
 prompt pure
 
