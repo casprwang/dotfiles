@@ -156,6 +156,11 @@ filetype plugin indent on    " required
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deol.nvim'
+Plug 'junegunn/goyo.vim' 
+Plug 'https://github.com/junegunn/limelight.vim' "{{{
+nmap <Leader>g :Limelight!!<cr>:Goyo<cr>
+xmap <Leader>g :Limelight!!<cr>:Goyo<cr>
+"}}}
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
