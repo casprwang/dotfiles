@@ -158,8 +158,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deol.nvim'
 Plug 'junegunn/goyo.vim' 
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
-nmap <Leader>g :Limelight!!<cr>:Goyo<cr>
-xmap <Leader>g :Limelight!!<cr>:Goyo<cr>
+nmap <Leader>gg :Goyo<cr>
+nmap <Leader>gh :Limelight!!<cr>
+" xmap <Leader>g :Limelight!!<cr>:Goyo<cr>
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
@@ -556,3 +557,18 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_lint_delay = 100
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}
+
+function! s:auto_goyo()
+  if &ft == 'markdown'
+    Goyo 80
+  elseif exists('#goyo')
+    let bufnr = bufnr('%')
+    Goyo!
+    execute 'b '.bufnr
+  endif
+endfunction
+
+augroup goyo_markdown
+  autocmd!
+  autocmd BufNewFile,BufRead * call s:auto_goyo()
+augroup END
