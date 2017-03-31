@@ -1,3 +1,5 @@
+# in case tmux not working again
+# sudo sysctl -w kern.tty.ptmx_max=256
 export PATH=${PATH}:/usr/local/opt/gettext/bin
 # source ~/.bin/tmuxinator.zsh
 export PATH=$PATH:/usr/local/go/bin

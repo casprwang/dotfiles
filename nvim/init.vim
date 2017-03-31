@@ -41,6 +41,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " }}}
 " {{{ mapping 
 " ----------------------------------------------------------------------------
+nnoremap , za
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-f> <esc>Ea
@@ -50,7 +51,7 @@ nmap <leader>in :PlugInstall<cr>
 nmap <leader>id :Dash<cr>
 nmap <leader>o :NERDTreeToggle<CR>
 map <leader>j :w<cr>
-inoremap <C-e> <C-o>$
+" inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
 imap <c-r> <bs>
 nmap <S-Enter> O<Esc>
@@ -82,7 +83,10 @@ call dein#begin('/Users/wangsong/.config/nvim/dein')
 call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-commentary')
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
-call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/nerdtree') "{{{
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"}}}
 call dein#add('rizzatti/dash.vim')
 call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-textobj-line')
@@ -103,10 +107,10 @@ call dein#add('SirVer/ultisnips')
 call dein#add('plasticboy/vim-markdown')
 call dein#add('iamcco/markdown-preview.vim')
 " markdown {{{
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_frontmatter = 1
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_new_list_item_indent = 0
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_frontmatter = 1
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 nmap <silent> <leader>m <Plug>MarkdownPreview
 "}}}
@@ -143,7 +147,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'kana/vim-smartinput'
 Plugin 'w0rp/ale'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'Chiel92/vim-autoformat' " {{{
 let g:formatter_yapf_style = 'pep9'
 " }}}
@@ -156,10 +159,33 @@ filetype plugin indent on    " required
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deol.nvim'
-Plug 'junegunn/goyo.vim' 
+Plug 'junegunn/goyo.vim' "{{{
+function! s:goyo_enter()
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+"}}}
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
-nmap <Leader>gg :Goyo<cr>
-nmap <Leader>gh :Limelight!!<cr>
+nmap <Leader>g :Goyo<cr>
+" nmap <Leader>gh :Limelight!!<cr>
 " xmap <Leader>g :Limelight!!<cr>:Goyo<cr>
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
@@ -190,6 +216,11 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'tpope/vim-fugitive'
+Plug 'plasticboy/vim-markdown'
+Plug 'airblade/vim-gitgutter' "{{{
+" let g:gitgutter_enabled = 0
+"}}}
 Plug 'ashisha/image.vim'
 Plug 'junegunn/vim-easy-align' "{{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -261,7 +292,7 @@ let g:elm_setup_keybindings = 0
 call plug#end()
 " }}}
 " NeoBundle{{{
-" ----------------------------------------------------------------------------
+" ---------------------------------------------------------------------------
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 if &compatible
@@ -358,7 +389,7 @@ endfunction
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
+" let g:UltiSnipsListSnippets="<c-e>"
 " this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise
@@ -557,18 +588,34 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_lint_delay = 100
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}
+"{{{  markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
+" set formatoptions+=a
+" {{{
+" function! MarkdownLevel()
+"     if getline(v:lnum) =~ '^# .*$'
+"         return ">1"
+"     endif
+"     if getline(v:lnum) =~ '^## .*$'
+"         return ">2"
+"     endif
+"     if getline(v:lnum) =~ '^### .*$'
+"         return ">3"
+"     endif
+"     if getline(v:lnum) =~ '^#### .*$'
+"         return ">4"
+"     endif
+"     if getline(v:lnum) =~ '^##### .*$'
+"         return ">5"
+"     endif
+"     if getline(v:lnum) =~ '^###### .*$'
+"         return ">6"
+"     endif
+"     return "=" 
+" endfunction
+" au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+" au BufEnter *.md setlocal foldmethod=expr 
+" }}}
 
-function! s:auto_goyo()
-  if &ft == 'markdown'
-    Goyo 80
-  elseif exists('#goyo')
-    let bufnr = bufnr('%')
-    Goyo!
-    execute 'b '.bufnr
-  endif
-endfunction
-
-augroup goyo_markdown
-  autocmd!
-  autocmd BufNewFile,BufRead * call s:auto_goyo()
-augroup END
+"}}}
+let g:vim_markdown_folding_style_pythonic = 1
