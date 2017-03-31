@@ -1,0 +1,1 @@
+/Users/wangsong/dotfiles/.zshrc
