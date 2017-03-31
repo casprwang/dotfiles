@@ -23,3 +23,4 @@
 - [ ] diminactive
 - [ ] clean comments
 - [ ] install.sh for quick installation
+- [ ] Linux setup
