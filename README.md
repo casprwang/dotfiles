@@ -2,13 +2,6 @@
 
 ![image](https://cloud.githubusercontent.com/assets/19645990/24074609/5ec34562-0be2-11e7-8821-8140c0711f0d.png)
 
-## Installation
-make sure you know what [this](https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh) means and have git installed
-```
-$ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
-```
-
-
 ## Configurations for:
 * Neovim 
 * Tmux
@@ -16,6 +9,12 @@ $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/insta
 * Zsh
 * Hammerspoon 
 * Alred 3
+
+## Installation
+make sure you know what [this](https://github.com/wangsongiam/dotfiles/blob/master/install.sh) means and have git installed
+```
+$ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
+```
 
 ## Core files
 * Neovim [init.vim](https://github.com/wangsongiam/dotfiles/blob/master/nvim/init.vim)
