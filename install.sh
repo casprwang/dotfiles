@@ -4,8 +4,8 @@ dir="$HOME/Developer/Song"
 mkdir -p $dir
 cd $dir
 git clone --recursive https://github.com/wangsongiam/dotfiles.git
-cd dotfiles
 
+ln -s ./vim/.vimrc ~/.vimrc
 # sudo bash symlink-dotfiles.sh
 
 # sudo bash symlink-dotfiles.sh#!/usr/bin/env bash
