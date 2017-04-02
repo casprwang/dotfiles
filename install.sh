@@ -6,6 +6,7 @@ cd $dir
 git clone --recursive https://github.com/wangsongiam/dotfiles.git
 
 ln -s ./vim/.vimrc ~/.vimrc
+ln -s ./.vim/ ~/.vim
 # sudo bash symlink-dotfiles.sh
 
 # sudo bash symlink-dotfiles.sh#!/usr/bin/env bash
