@@ -25,3 +25,4 @@ Alfred 3/
 .vim/undo
 nvim/undo
 nvim/<cr>
+/zshrc/.zsh/completion
