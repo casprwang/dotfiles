@@ -12,8 +12,8 @@ tags
 .DS_Store
 
 .atom/.apm
-.vim/bundle
-.vim/plugged/
+# .vim/bundle
+# .vim/plugged/
 .atom/packages
 nvim/deinPlugins
 nvim/bundle
