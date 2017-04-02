@@ -1,6 +1,13 @@
 # Dotfiles
 
 ![image](https://cloud.githubusercontent.com/assets/19645990/24074609/5ec34562-0be2-11e7-8821-8140c0711f0d.png)
+
+## Installation
+```
+
+```
+
+
 ## Configurations for:
 * Neovim 
 * Tmux
