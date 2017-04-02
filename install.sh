@@ -6,7 +6,7 @@ cd $dir
 git clone --recursive https://github.com/wangsongiam/dotfiles.git
 cd dotfiles
 
-sudo bash symlink-dotfiles.sh
+# sudo bash symlink-dotfiles.sh
 
 # sudo bash symlink-dotfiles.sh#!/usr/bin/env bash
 
