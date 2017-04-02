@@ -19,5 +19,6 @@ link() {
 }
 
 if [[ `uname` == 'Darwin' ]]; then
-  link "$dotfiles/.vim/.vimrc" "$HOME/.vimrc"
+  link "$dotfiles/.vim/.vimrc" "$HOME/"
+  echo "file linked"
 fi
