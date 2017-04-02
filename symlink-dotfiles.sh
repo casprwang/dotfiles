@@ -18,7 +18,7 @@ link() {
   ln -s "$from" "$to"
 }
 
-if [[ `uname` == 'Darwin' ]]; then
-  link "$dotfiles/.vim/.vimrc" "$HOME/"
-  echo "file linked"
-fi
+# if [[ `uname` == 'Darwin' ]]; then
+link "$dotfiles/.vim/.vimrc" "$HOME/"
+echo "file linked"
+# fi
