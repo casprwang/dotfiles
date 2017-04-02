@@ -5,8 +5,7 @@
 ## Installation
 make sure you know what this means and have git installed
 ```
-$ curl -fsSL
-https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
+$ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
 ```
 
 
