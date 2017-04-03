@@ -22,12 +22,12 @@ $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/insta
 * Zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/.zshrc)
 
 ## Todos
-- [x] Use Neomake for asynchronous linting
+- [x] ~~Use Neomake for asynchronous linting~~
 - [x] Demos
 - [x] A.L.E for linting
-- [x] Use Deoplete for asynchronous completion
+- [x] ~~Use Deoplete for asynchronous completion~~
 - [x] cmd key shortcuts for tmux
 - [ ] diminactive
 - [ ] clean comments
 - [ ] install.sh for quick installation
-- [ ] Linux setup
+- [x] Linux setup
