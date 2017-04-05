@@ -182,9 +182,11 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+
+nmap <Leader>g :Goyo<cr>
 "}}}
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
-nmap <Leader>g :Goyo<cr>
 " nmap <Leader>gh :Limelight!!<cr>
 " xmap <Leader>g :Limelight!!<cr>:Goyo<cr>
 " Color name (:help cterm-colors) or ANSI code
@@ -331,7 +333,7 @@ filetype plugin indent on
 NeoBundleCheck
 " }}}
 "}}}
-" cursor {{{
+" cursor position {{{
 " ----------------------------------------------------------------------------
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -355,7 +357,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme hybrid
-hi StatusLine ctermbg=white ctermfg=black
+hi StatusLine ctermbg=15 ctermfg=0
 " set background=light
 " colorscheme hybrid_material
 "}}}
@@ -591,6 +593,7 @@ let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "{{{  markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 " set formatoptions+=a
+let g:vim_markdown_folding_style_pythonic = 1
 " {{{
 " function! MarkdownLevel()
 "     if getline(v:lnum) =~ '^# .*$'
@@ -618,4 +621,3 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 " }}}
 
 "}}}
-let g:vim_markdown_folding_style_pythonic = 1

@@ -8,9 +8,10 @@
 * iTerm
 * Zsh
 * Hammerspoon 
-* Alred 3
+* Alfred 3
 
 ## Installation
+
 make sure you know what [this](https://github.com/wangsongiam/dotfiles/blob/master/install.sh) means and have git installed
 ```
 $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
@@ -19,7 +20,7 @@ $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/insta
 ## Core files
 * Neovim [init.vim](https://github.com/wangsongiam/dotfiles/blob/master/nvim/init.vim)
 * Tmux [.tmux.conf](https://github.com/wangsongiam/dotfiles/blob/master/.tmux.conf)
-* Zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/.zshrc)
+* Zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/zshrc/.zshrc)
 
 ## Todos
 - [x] ~~Use Neomake for asynchronous linting~~
