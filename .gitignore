@@ -20,7 +20,6 @@ nvim/bundle
 nvim/dein/
 nvim/.cache
 nvim/undo/
-nvim/plugged
 Alfred 3/
 .vim/undo
 nvim/undo

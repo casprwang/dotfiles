@@ -70,31 +70,21 @@ let g:ackprg = 'ag --vimgrep'
 nnoremap <leader>e :Ag<cr>
 " }}}
 "{{{ Plugins
-"dein{{{
+" vimplug {{{
 " ----------------------------------------------------------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-" Required:
-set runtimepath+=/Users/wangsong/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-" Required:
-call dein#begin('/Users/wangsong/.config/nvim/dein')
-" Required:
-call dein#add('Shougo/dein.vim')
-call dein#add('tpope/vim-commentary')
-call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
-call dein#add('scrooloose/nerdtree') "{{{
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"}}}
-call dein#add('rizzatti/dash.vim')
-call dein#add('kana/vim-textobj-user')
-call dein#add('kana/vim-textobj-line')
-call dein#add('kana/vim-textobj-entire')
-call dein#add('beloglazov/vim-textobj-quotes')
-call dein#add('kana/vim-textobj-function')
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('mattn/emmet-vim') " {{{
+call plug#begin('~/.local/share/nvim/plugged')
+
+
+Plug 'tpope/vim-commentary'
+
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'beloglazov/vim-textobj-quotes'
+Plug 'kana/vim-textobj-function'
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'mattn/emmet-vim' " {{{
 " emmet
 imap <c-t> <c-y>,
 let g:user_emmet_settings = {
@@ -103,9 +93,12 @@ let g:user_emmet_settings = {
 \  },
 \}
 "}}}
-call dein#add('SirVer/ultisnips')
-call dein#add('plasticboy/vim-markdown')
-call dein#add('iamcco/markdown-preview.vim')
+
+
+Plug 'rizzatti/dash.vim'
+Plug 'SirVer/ultisnips'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.vim'
 " markdown {{{
 " let g:vim_markdown_folding_disabled = 1
 " let g:vim_markdown_new_list_item_indent = 0
@@ -114,50 +107,35 @@ call dein#add('iamcco/markdown-preview.vim')
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 nmap <silent> <leader>m <Plug>MarkdownPreview
 "}}}
-call dein#add('othree/html5.vim')
-call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
-call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
-" call dein#add('ervandew/supertab')
-" Required:
-call dein#end()
 
-" Required:
-filetype plugin indent on
-syntax enable
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
 
+Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
+Plug 'scrooloose/nerdtree' "{{{
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "}}}
-"bundle {{{
-" ----------------------------------------------------------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+Plug 'rizzatti/dash.vim'
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/dotfiles/nvim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plug 'othree/html5.vim'
+Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
+Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'kana/vim-smartinput'
-Plugin 'w0rp/ale'
-Plugin 'Chiel92/vim-autoformat' " {{{
+
+
+
+
+Plug 'ap/vim-css-color'
+Plug 'kana/vim-smartinput'
+Plug 'w0rp/ale'
+Plug 'Chiel92/vim-autoformat' " {{{
 let g:formatter_yapf_style = 'pep9'
 " }}}
-Plugin 'danro/rename.vim'
-Plugin 'jmcantrell/vim-virtualenv'
-call vundle#end()            " required
-filetype plugin indent on    " required
-" }}}
-" vimplug {{{
-" ----------------------------------------------------------------------------
-call plug#begin('~/.local/share/nvim/plugged')
+Plug 'danro/rename.vim'
+Plug 'jmcantrell/vim-virtualenv'
+
+
+
 Plug 'Shougo/deol.nvim'
 Plug 'junegunn/goyo.vim' "{{{
 function! s:goyo_enter()
@@ -290,27 +268,11 @@ Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
 
-
-call plug#end()
-" }}}
-" NeoBundle{{{
-" ---------------------------------------------------------------------------
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-if &compatible
-set nocompatible               " Be iMproved
-endif
-" Required:
-set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
-" Required:
-call neobundle#begin(expand('~/.config/nvim/bundle/'))
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
-NeoBundle 'junegunn/fzf'
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'Valloric/MatchTagAlways' "{{{
+Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
     \ 'html' : 1,
@@ -319,18 +281,25 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 "}}}
-" NeoBundle 'Shougo/context_filetype.vim'
 
-NeoBundle 'othree/html5.vim'
-NeoBundleLazy 'lambdalisue/vim-pyenv', {
-      \ 'depends': ['davidhalter/jedi-vim'],
-      \ 'autoload': {
-      \   'filetypes': ['python', 'python3'],
-      \ }}
-call neobundle#end()
-" Required:
-filetype plugin indent on
-NeoBundleCheck
+Plug 'othree/html5.vim'
+Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'Valloric/MatchTagAlways' "{{{
+let g:mta_filetypes = {
+    \ 'javascript.jsx': 1,
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \}
+"}}}
+
+Plug 'othree/html5.vim'
+
+call plug#end()
 " }}}
 "}}}
 " cursor position {{{
