@@ -10,6 +10,9 @@
 " 
 " {{{ general settings
 " ----------------------------------------------------------------------------
+" set the unique python virtual environment for neovim only
+let g:python_host_prog = '/Users/wangsong/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/wangsong/.pyenv/versions/neovim3/bin/python'
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 set nowrap
 set timeoutlen=1000 ttimeoutlen=0
@@ -31,8 +34,6 @@ set undolevels=1000         " How many undos
 set expandtab
 set shiftwidth=2
 set softtabstop=2
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
 let s:editor_root=expand("~/.config/nvim")
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
@@ -602,3 +603,4 @@ let g:vim_markdown_folding_style_pythonic = 1
 " }}}
 
 "}}}
+
