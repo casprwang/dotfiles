@@ -1,4 +1,7 @@
 export PATH=${PATH}:/usr/local/opt/gettext/bin
+
+# including hidden files for fzf
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # source ~/.bin/tmuxinator.zsh
 export PATH=$PATH:/usr/local/go/bin
 export TERM=screen-256color

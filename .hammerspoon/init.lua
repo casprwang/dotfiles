@@ -46,7 +46,7 @@ hs.alert.show("Config loaded")
 
 
 
--- resizing
+-- resizing window
 local modalKey = {"alt"}
 
 local resizeMappings = {
@@ -113,9 +113,9 @@ hs.hotkey.bind({'ctrl'}, "q", function()
 end)
 
 
--- hs.hotkey.bind({'ctrl'}, "s", function()
---   hs.eventtap.keyStroke({}, "delete")
--- end)
+hs.hotkey.bind({'ctrl'}, "f", function()
+  hs.eventtap.keyStroke({}, "delete")
+end)
 
 -- hs.hotkey.bind({'ctrl', 'option'}, "h", function()
 --   hs.eventtap.keyStroke({'option'}, "left")
@@ -126,7 +126,7 @@ hs.hotkey.bind({'ctrl'}, "b", function()
   hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
-hs.hotkey.bind({'ctrl'}, "f", function()
+hs.hotkey.bind({'ctrl'}, "g", function()
   hs.eventtap.keyStroke({'alt'}, "right")
 end)
 

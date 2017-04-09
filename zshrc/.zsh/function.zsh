@@ -1,6 +1,7 @@
 # setup a sass project
 sassup() {
   cp -R ~/dev/sass-boilerplate/ ./"$1"/
+  cd "$1"
 }
 
 # git setup
@@ -38,4 +39,9 @@ mkcdir ()
 {
   mkdir -p -- "$1" &&
   cd -P -- "$1"
+}
+
+new() {
+  mkdir -p ~/dev/"$1" && 
+  cd ~/dev/"$1"
 }

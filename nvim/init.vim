@@ -326,13 +326,22 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme hybrid
-hi StatusLine ctermbg=15 ctermfg=0
+" hi! StatusLine    .s:fg_comment     .s:bg_background  .s:fmt_revr
+
+
+hi! StatusLine ctermbg=249 ctermfg=235
+
+  
+" hi MoreMsg         guifg=#E6DB74
+
+" h1 StatusLineNC
+
 " set background=light
 " colorscheme hybrid_material
 "}}}
 "status bar{{{
 " ----------------------------------------------------------------------------
-" set laststatus=2
+set laststatus=2
 " set statusline=%f         " Path to the file
 " :set statusline+=/    " Separator
 " set statusline+=%{ALEGetStatusLine()}
@@ -472,6 +481,9 @@ function! s:fzf_statusline()
   highlight fzf3 ctermfg=237 ctermbg=251
   setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
+
+" including hidden files
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " }}}

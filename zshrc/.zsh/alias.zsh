@@ -69,3 +69,12 @@ alias todo="nvim todo.md"
 alias cat=hicat
 alias v="nvim"
 
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
+killall Finder /System/Library/CoreServices/Finder.app'
+
+alias show-hidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
+alias hide-hidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
+
+
+
+

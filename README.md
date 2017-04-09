@@ -13,6 +13,7 @@
 ## Installation
 
 make sure you know what [this](https://github.com/wangsongiam/dotfiles/blob/master/install.sh) means and have git installed
+
 ```
 $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
 ```
