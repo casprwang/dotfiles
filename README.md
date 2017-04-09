@@ -24,8 +24,8 @@ $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/insta
 * Zsh [.zshrc](https://github.com/wangsongiam/dotfiles/blob/master/zshrc/.zshrc)
 
 ## Sidenote 
-Due to heavy python sever running on the background, I recommend setting up
-a unique python virtual environment for Neovim, check [pyenv](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim#why-you-shouldnt-use-sudo)
+Due to heavy python sever running on the background, you might consider setting up
+a unique python virtual environment for Neovim, check [pyenv](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim)
 
 ## Todos
 - [x] ~~Use Neomake for asynchronous linting~~
