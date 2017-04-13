@@ -20,3 +20,7 @@ ln -s ./.vim/ ~/.vim
 # ln -s ~/dotfiles/.vim ~/.vim
 # ln -s ~/dotfiles/.vim/.vimrc ~/.vimrc
 # ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+
+# for neovim's vim-plug
+# curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+# https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

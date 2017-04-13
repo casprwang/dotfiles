@@ -73,7 +73,8 @@ nnoremap <leader>e :Ag<cr>
 "{{{ Plugins
 " vimplug {{{
 " ----------------------------------------------------------------------------
-call plug#begin('~/.local/share/nvim/plugged')
+" call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 
 Plug 'tpope/vim-commentary'
@@ -603,4 +604,3 @@ let g:vim_markdown_folding_style_pythonic = 1
 " }}}
 
 "}}}
-
