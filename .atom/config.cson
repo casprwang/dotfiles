@@ -63,7 +63,6 @@
       ]
     disabledPackages: [
       "language-gfm"
-      "kite"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"

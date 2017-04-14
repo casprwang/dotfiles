@@ -85,6 +85,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'kana/vim-textobj-function'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-scripts/mru.vim'
 
 Plug 'mattn/emmet-vim' " {{{
 " emmet

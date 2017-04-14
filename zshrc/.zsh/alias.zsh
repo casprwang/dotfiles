@@ -1,6 +1,6 @@
 alias gp=gitpush
 alias mkdi=mkcdir
-alias vim=nvim
+# alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node
 alias aria="/usr/local/bin/aria2c"
 alias gd="gatsby develop"
@@ -51,7 +51,7 @@ alias ta="tmux a"
 alias py="python3"
 alias read="nvim README.md"
 alias o="open"
-alias n="babel-node"
+alias n="node"
 alias bnode="babel-node"
 alias ip="ipython"
 alias atom="atom-beta"
