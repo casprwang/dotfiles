@@ -98,7 +98,6 @@ let g:user_emmet_settings = {
 "}}}
 
 
-Plug 'rizzatti/dash.vim'
 Plug 'SirVer/ultisnips'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.vim'
@@ -118,7 +117,6 @@ Plug 'scrooloose/nerdtree' "{{{
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "}}}
-Plug 'rizzatti/dash.vim'
 
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
@@ -139,7 +137,7 @@ Plug 'jmcantrell/vim-virtualenv'
 
 
 
-Plug 'Shougo/deol.nvim'
+" Plug 'Shougo/deol.nvim'
 Plug 'junegunn/goyo.vim' "{{{
 function! s:goyo_enter()
   silent !tmux set status off
@@ -196,15 +194,13 @@ let g:limelight_priority = -1
 "}}}
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'nsf/gocode', {'rtp': 'nvim/'}
+" Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-fugitive'
 Plug 'plasticboy/vim-markdown'
 Plug 'airblade/vim-gitgutter' "{{{
 " let g:gitgutter_enabled = 0
 "}}}
-Plug 'ashisha/image.vim'
 Plug 'junegunn/vim-easy-align' "{{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -261,7 +257,6 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
 " }}}
-Plug 'keith/swift.vim'
 
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -271,7 +266,8 @@ Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
 
-Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim'
