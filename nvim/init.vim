@@ -1,13 +1,15 @@
-" ============================================================================
 "   ____                    _      __     ___                      _
 "  / ___|  ___  _ __   __ _( )___  \ \   / (_)_ __ ___  _ __ ___  | |
 "  \___ \ / _ \| '_ \ / _` |// __|  \ \ / /| | '_ ` _ \| '__/ __| | |
 "   ___) | (_) | | | | (_| | \__ \   \ V / | | | | | | | | | (__  |_|
 "  |____/ \___/|_| |_|\__, | |___/    \_/  |_|_| |_| |_|_|  \___| (_)
 "                     |___/
-" ============================================================================
-" 
-" 
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+" **************************************************************************** 
+" Author: Song Wang
+" Github: https://github.com/wangsongiam/dotfiles
+" **************************************************************************** 
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
 " ----------------------------------------------------------------------------
 " set the unique python virtual environment for neovim only
@@ -42,6 +44,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " }}}
 " {{{ mapping 
 " ----------------------------------------------------------------------------
+nnoremap <c-e> 3<c-e>
 nnoremap , za
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
@@ -56,6 +59,11 @@ map <leader>j :w<cr>
 nmap <CR> o<Esc>
 imap <c-r> <bs>
 nmap <S-Enter> O<Esc>
+
+" for shift-enter
+nnoremap <c-b>b O<esc>
+
+
 nmap <c-w>v <c-w>v<right>
 nmap <c-w>l <c-w>v
 nmap <c-w>j <c-w>s<down>
@@ -73,8 +81,8 @@ nnoremap <leader>e :Ag<cr>
 "{{{ Plugins
 " vimplug {{{
 " ----------------------------------------------------------------------------
-" call plug#begin('~/.local/share/nvim/plugged')
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
+"call plug#begin('~/.config/nvim/plugged')
 
 
 Plug 'tpope/vim-commentary'
@@ -83,7 +91,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
-Plug 'kana/vim-textobj-function'
+" Plug 'kana/vim-textobj-function'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/mru.vim'
 
@@ -270,7 +278,7 @@ Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
@@ -556,7 +564,12 @@ let g:ale_set_quickfix = 1
 " let g:formatters_javascript = ['xo_javascript']
 let g:ale_linters = {
       \   'javascript': ['eslint'],
+      \   'html': ['htmlhint'],
       \}
+
+let g:ale_html_htmlhint_use_global = 1 
+let g:ale_html_htmlhint_executable = 'htmlhint'
+let g:ale_html_htmlhint_options = '--format=unix'
 
 " for jsx
 augroup FiletypeGroup
