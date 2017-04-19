@@ -44,7 +44,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " }}}
 " {{{ mapping 
 " ----------------------------------------------------------------------------
-nnoremap <c-e> 3<c-e>
+" nnoremap <c-e> 3<c-e>
 nnoremap , za
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
@@ -54,7 +54,7 @@ imap <c-e> <esc>A
 nmap <leader>in :PlugInstall<cr>
 nmap <leader>id :Dash<cr>
 nmap <leader>o :NERDTreeToggle<CR>
-map <leader>j :w<cr>
+" map <leader>j :w<cr>
 " inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
 imap <c-r> <bs>
@@ -64,9 +64,9 @@ nmap <S-Enter> O<Esc>
 nnoremap <c-b>b O<esc>
 
 
-nmap <c-w>v <c-w>v<right>
-nmap <c-w>l <c-w>v
-nmap <c-w>j <c-w>s<down>
+nnoremap <c-w>v <c-w>v<right>
+nmap <c-w>l :vsplit<cr><right>
+nmap <c-w>j :split<cr><down>
 nmap <esc> :noh<cr>
 nnoremap <bs> <c-r>
 nnoremap J 5gj
@@ -131,15 +131,19 @@ Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 
 
+" autoformat
+Plug 'sbdchd/neoformat'
+
+
 
 
 
 Plug 'ap/vim-css-color'
 Plug 'kana/vim-smartinput'
 Plug 'w0rp/ale'
-Plug 'Chiel92/vim-autoformat' " {{{
-let g:formatter_yapf_style = 'pep9'
-" }}}
+" Plug 'Chiel92/vim-autoformat' " {{{
+" let g:formatter_yapf_style = 'pep9'
+" " }}}
 Plug 'danro/rename.vim'
 Plug 'jmcantrell/vim-virtualenv'
 
@@ -278,7 +282,22 @@ Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+
+" for python
 " Plug 'davidhalter/jedi-vim'
+" Plug 'roxma/python-support.nvim' "{{{
+" for python completions
+" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
+" " language specific completions on markdown file
+" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
+" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'flake8')
+" let g:python_support_python2_requirements = add(get(g:,'python_support_python2_requirements',[]),'flake8')
+" " utils, optional
+" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
+" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
+"}}}
+
+
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
@@ -293,7 +312,7 @@ Plug 'othree/html5.vim'
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
@@ -305,6 +324,7 @@ let g:mta_filetypes = {
 "}}}
 
 Plug 'othree/html5.vim'
+Plug 'sunaku/vim-shortcut'
 
 call plug#end()
 " }}}
@@ -580,7 +600,7 @@ let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 
 
-let g:ale_lint_delay = 100
+" let g:ale_lint_delay = 200
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}
 "{{{  markdown

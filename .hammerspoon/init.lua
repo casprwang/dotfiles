@@ -1,6 +1,7 @@
 local music = require("hs-music")
 hs.window.animationDuration = 0.1 -- disable animations
 
+
 local function keyCode(key)
   modifiers = modifiers or {}
   return function()
@@ -10,17 +11,21 @@ local function keyCode(key)
   end
 end
 
+
+delay = hs.eventtap.keyRepeatDelay()
+delay = 0.1
+
 hs.hotkey.bind({"ctrl"}, 'h', keyCode('left') ,  nil,   keyCode('left'))
 hs.hotkey.bind({"ctrl"}, 'j', keyCode('down') ,  nil,   keyCode('down') )
 hs.hotkey.bind({"ctrl"}, 'k', keyCode('up')   ,  nil,   keyCode('up') )
 hs.hotkey.bind({"ctrl"}, 'l', keyCode('right'),  nil,   keyCode('right') )
 
--------------------------------------------------------------------------------
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
-  -- hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
-  hs.alert.show(hs.itunes.state_playing)
-end)
 
+-------------------------------------------------------------------------------
+hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
+  -- hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
+  hs.alert.show(delay)
+end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
   local time = hs.timer.localTime()
@@ -112,24 +117,35 @@ hs.hotkey.bind({'ctrl'}, "q", function()
   hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
 
-
-hs.hotkey.bind({'ctrl'}, "f", function()
+hs.hotkey.bind({'ctrl'}, "g", function()
   hs.eventtap.keyStroke({}, "delete")
 end)
-
--- hs.hotkey.bind({'ctrl', 'option'}, "h", function()
---   hs.eventtap.keyStroke({'option'}, "left")
--- end)
-
 
 hs.hotkey.bind({'ctrl'}, "b", function()
   hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
-hs.hotkey.bind({'ctrl'}, "g", function()
+hs.hotkey.bind({'ctrl'}, "f", function()
   hs.eventtap.keyStroke({'alt'}, "right")
 end)
 
+
+-- selecting words
+hs.hotkey.bind({'ctrl', 'shift'}, "b", function()
+  hs.eventtap.keyStroke({'alt', 'shift'}, "left")
+end)
+
+hs.hotkey.bind({'ctrl', 'shift'}, "f", function()
+  hs.eventtap.keyStroke({'alt', 'shift'}, "right")
+end)
+
+hs.hotkey.bind({'ctrl', 'shift'}, "h", function()
+  hs.eventtap.keyStroke({'shift'}, "left")
+end)
+
+hs.hotkey.bind({'ctrl', 'shift'}, "l", function()
+  hs.eventtap.keyStroke({'shift'}, "right")
+end)
 
 -- hs.hotkey.bind({'ctrl'}, "r", function()
 --   hs.eventtap.keyStroke({}, "delete")
