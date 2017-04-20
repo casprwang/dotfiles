@@ -1,6 +1,3 @@
-" go
-" set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-
 let mapleader="\<Space>"
 set laststatus=2
 set nowrap
@@ -36,44 +33,47 @@ set undofile                " Save undo's after file closes
 set undodir=~/.config/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
-nnoremap J 5j
-nnoremap K 5k
+nnoremap J 5gj
+nnoremap K 5gk
+vmap J 5gj
+vmap K 5gk
+
 nmap <c-w>v <c-w>v<right>
 nmap <c-w>l <c-w>v
 nmap <c-w>j <c-w>s<down>
 
-" Plugins===========================================
-" set nocompatible              " be iMproved, required
-" filetype off                  " required
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" Plugin 'VundleVim/Vundle.vim'
-" Plugin 'tpope/vim-commentary'
-" " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'vitalk/vim-simple-todo'
-" Plugin 'junegunn/fzf'
-" Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'jiangmiao/auto-pairs'
-" Plugin 'itchyny/calendar.vim'
-" " kana
-" Plugin 'kana/vim-textobj-user'
-" Plugin 'kana/vim-textobj-entire'
-" Plugin 'beloglazov/vim-textobj-quotes'
-" Plugin 'kana/vim-textobj-line'
-" " Markdown
-" Plugin 'plasticboy/vim-markdown'
-" Plugin 'iamcco/markdown-preview.vim'
-" " Syntastic
-" " Plugin 'vim-syntastic/syntastic'
-" Plugin 'rizzatti/dash.vim'
 
-" call vundle#end()            " required
-" filetype plugin indent on    " required
 
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+
+
+
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+
+
+Plug 'tpope/vim-commentary'
+
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'beloglazov/vim-textobj-quotes'
+" Plug 'kana/vim-textobj-function'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-scripts/mru.vim'
+Plug 'reasonml/vim-reason-loader'
+Plug 'kana/vim-smartinput'
+Plug 'danro/rename.vim'
+Plug 'junegunn/fzf.vim'
+" Initialize plugin system
+call plug#end()
+
+
+
+
+
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
@@ -102,44 +102,44 @@ syntax enable
 " " fzf
 " map <c-p> :FZF<cr>
 
-" " navi
-" let g:tmux_navigator_no_mappings = 1
-" nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
-" nnoremap <silent> <Down> :TmuxNavigateDown<cr>
-" nnoremap <silent> <Up> :TmuxNavigateUp<cr>
-" nnoremap <silent> <Right> :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
-" nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+" navi
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <Right> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 
-" map <leader>o :NERDTreeToggle<CR>
+map <leader>o :NERDTreeToggle<CR>
 
-" " fzf
-" let g:fzf_action = {
-"   \ 'ctrl-t': 'tab split',
-"   \ 'ctrl-s': 'split',
-"   \ 'ctrl-v': 'vsplit' }
-" let g:fzf_colors =
-" \ { 'fg':      ['fg', 'Normal'],
-"   \ 'bg':      ['bg', 'Normal'],
-"   \ 'hl':      ['fg', 'Comment'],
-"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-"   \ 'hl+':     ['fg', 'Statement'],
-"   \ 'info':    ['fg', 'PreProc'],
-"   \ 'prompt':  ['fg', 'Conditional'],
-"   \ 'pointer': ['fg', 'Exception'],
-"   \ 'marker':  ['fg', 'Keyword'],
-"   \ 'spinner': ['fg', 'Label'],
-"   \ 'header':  ['fg', 'Comment'] }
+" fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 
-" if exists('$TMUX')
-"   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-" else
-"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" endif
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
 " " markdown 
 " set shell=bash\ -i
@@ -176,3 +176,73 @@ syntax enable
 " nmap <leader>rn :! node %<cr>
 " nmap <leader>rp :! python3 %<cr>
 " let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+" {{{ opam
+
+" " }}}
+" let s:opam_share_dir = system("opam config var share")
+" let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+" let s:opam_configuration = {}
+
+" function! OpamConfOcpIndent()
+"   execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+" endfunction
+" let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+" function! OpamConfOcpIndex()
+"   execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+" endfunction
+" let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+" function! OpamConfMerlin()
+"   let l:dir = s:opam_share_dir . "/merlin/vim"
+"   execute "set rtp+=" . l:dir
+" endfunction
+" let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+" let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+" let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+" let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+" for tool in s:opam_packages
+"   " Respect package order (merlin should be after ocp-index)
+"   if count(s:opam_available_tools, tool) > 0
+"     call s:opam_configuration[tool]()
+"   endif
+" endfor
+" " ## end of OPAM user-setup addition for vim / base ## keep this line
+" " }}}
+"{{{ color hybrid
+" ----------------------------------------------------------------------------
+syntax enable
+set background=dark
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme hybrid
+" hi! StatusLine    .s:fg_comment     .s:bg_background  .s:fmt_revr
+
+
+hi! StatusLine ctermbg=249 ctermfg=235
+
+  
+" hi MoreMsg         guifg=#E6DB74
+
+" h1 StatusLineNC
+
+" set background=light
+" colorscheme hybrid_material
+"}}}
+
+" In your ~/.vimrc
+if executable('ocamlmerlin')
+  " To set the log file and restart:
+  let s:ocamlmerlin=substitute(system('which ocamlmerlin'),'ocamlmerlin\n$','','') . "../share/merlin/vim/"
+  execute "set rtp+=".s:ocamlmerlin
+  let g:syntastic_ocaml_checkers=['merlin']
+endif
+if executable('refmt')
+  let s:reason=substitute(system('which refmt'),'refmt\n$','','') . "../share/reason/editorSupport/VimReason"
+  execute "set rtp+=".s:reason
+  let g:syntastic_reason_checkers=['merlin']
+endif

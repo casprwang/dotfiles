@@ -54,7 +54,7 @@ imap <c-e> <esc>A
 nmap <leader>in :PlugInstall<cr>
 nmap <leader>id :Dash<cr>
 nmap <leader>o :NERDTreeToggle<CR>
-" map <leader>j :w<cr>
+map <leader>j :w<cr>
 " inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
 imap <c-r> <bs>
@@ -136,6 +136,7 @@ Plug 'sbdchd/neoformat'
 
 
 
+Plug 'reasonml/vim-reason-loader'
 
 
 Plug 'ap/vim-css-color'
@@ -634,3 +635,5 @@ let g:vim_markdown_folding_style_pythonic = 1
 " }}}
 
 "}}}
+
+
