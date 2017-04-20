@@ -24,10 +24,10 @@ hs.hotkey.bind({"ctrl"}, 'l', keyCode('right'),  nil,   keyCode('right') )
 -------------------------------------------------------------------------------
 hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
   -- hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
-  hs.alert.show(delay)
+  -- hs.alert.show(delay)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
+hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
   local time = hs.timer.localTime()
   local x = math.floor(time/3600)
   local y = math.floor((time - x * 3600)/60)
