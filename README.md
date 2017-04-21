@@ -1,5 +1,13 @@
 # Dotfiles
 
+<h1 align="center">
+	<br>
+	<img width="400" src="https://cdn.rawgit.com/sindresorhus/xo/5d23bf1e280f574579825dc1a29ed22c69790acf/media/logo.svg" alt="XO">
+	<br>
+	<br>
+	<br>
+</h1>
+
 ![image](https://cloud.githubusercontent.com/assets/19645990/24074609/5ec34562-0be2-11e7-8821-8140c0711f0d.png)
 
 ## Configurations for:
