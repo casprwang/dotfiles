@@ -2,7 +2,7 @@
 
 <h1 align="center">
 	<br>
-	<img width="400" src="https://cdn.rawgit.com/sindresorhus/xo/5d23bf1e280f574579825dc1a29ed22c69790acf/media/logo.svg" alt="XO">
+	<img width="400" src="https://cdn.rawgit.com/wangsongiam/dotfiles/c8b54909/demos/dotfiles-1.svg" alt="dotfiles">
 	<br>
 	<br>
 	<br>
