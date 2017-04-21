@@ -13,6 +13,7 @@ alias tn="tmux new -s"
 alias tnew="tmux new -s"
 alias tk="tmux kill-server"
 
+alias ml="ocaml"
 # alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
 alias vimr="vim ~/.vimrc"
 alias nvimr="nvim ~/.config/nvim/init.vim"

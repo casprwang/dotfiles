@@ -14,6 +14,10 @@
 ],
     // "files.autoSave": "off",
     "files.autoSave": "on",
+        "files.associations": {
+        "*.ml": "ocaml",
+        "*.mli": "ocaml"
+    },
     "git.confirmSync": false,
     "window.zoomLevel": 0,
     "openInGitHub.defaultBranch": "dev", // Set default branch, default: master
@@ -76,16 +80,16 @@
 //             "after": ["<C-h>"],
 //     },
 ],
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": [ "ctrl+d" ],
-            "after": [ "ctrl+d", "M" ]
-        },
-        {
-            "before": [ "ctrl+u" ],
-            "after": [ "ctrl+u", "M" ]
-        },
-    ],
+    // "vim.otherModesKeyBindingsNonRecursive": [
+    //     {
+    //         "before": [ "ctrl+d" ],
+    //         "after": [ "ctrl+d", "M" ]
+    //     },
+    //     {
+    //         "before": [ "ctrl+u" ],
+    //         "after": [ "ctrl+u", "M" ]
+    //     },
+    // ],
     "vim.otherModesKeyBindingsNonRecursive": [
         {
             "before": ["Z", "Z"],

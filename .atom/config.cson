@@ -66,10 +66,12 @@
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
-      "atom-beautify"
-      "linter-csslint"
-      "markdown-writer"
-      "project-find-navigation"
+      "atom-runner"
+      "atom-html-preview"
+      "language-ejs"
+      "language-elm"
+      "language-jade"
+      "project-manager"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -87,12 +89,12 @@
     telemetryConsent: "no"
     themes: [
       "one-light-ui"
-      "Lucario"
+      "atom-dark-syntax"
     ]
-    useCustomTitleBar: true
+    titleBar: "custom"
   "disable-keybindings": {}
   editor:
-    fontSize: 11
+    fontSize: 16
     invisibles: {}
     scrollPastEnd: true
   emmet:
@@ -120,11 +122,7 @@
     autoIndentJSX: true
   "language-elm":
     elmOraclePath: "/usr/local/bin/elm-oracle"
-  linter:
-    gutterPosition: "Left"
-    showErrorPanel: false
-    showErrorTabLine: true
-    statusIconScope: "File"
+  linter: {}
   "linter-elm-make":
     elmMakeExecutablePath: "/usr/local/bin/elm-make"
   "linter-eslint":
@@ -151,7 +149,6 @@
       "find-and-replace": true
       "find-and-replaceDecorationsZIndex": 0
   "one-light-ui":
-    layoutMode: "Compact"
     tabSizing: "Minimum"
   "open-terminal-here":
     command: "open -a TerminalTab.app \"$PWD\""

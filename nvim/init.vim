@@ -25,6 +25,13 @@ set autoread
 set relativenumber
 set number
 set hlsearch
+"{{{ indentation
+" ----------------------------------------------------------------------------
+set autoindent
+set copyindent
+set expandtab
+set smartindent
+"}}}
 set incsearch
 set ignorecase
 set smartcase
@@ -34,8 +41,8 @@ set undofile                " Save undo's after file closes
 set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+" set shiftwidth=2
+" set softtabstop=2
 let s:editor_root=expand("~/.config/nvim")
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
@@ -92,7 +99,16 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 " Plug 'kana/vim-textobj-function'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
+" ----------------------------------------------------------------------------
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <Right> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+" }}}
 Plug 'vim-scripts/mru.vim'
 
 Plug 'mattn/emmet-vim' " {{{
@@ -141,7 +157,54 @@ Plug 'reasonml/vim-reason-loader'
 
 Plug 'ap/vim-css-color'
 Plug 'kana/vim-smartinput'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale' "{{{
+" no auto linting
+
+" ale style{{{
+" ----------------------------------------------------------------------------
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '✖'
+let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
+hi SignColumn ctermbg=none
+hi! link ALEError Directory
+" }}}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+
+hi ALEError ctermfg=none ctermbg=none
+hi ALEWarning ctermfg=none ctermbg=none
+hi ALEErrorSign ctermfg=red ctermbg=none
+hi ALEWarningSign ctermfg=gray ctermbg=none
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_javascript_eslint_use_global=1
+" let g:formatdef_eslint = '"eslint --fix --stdin"'
+" let g:formatters_javascript = ['eslint']
+" let g:formatdef_xo_javascript = '"xo --fix --stdin"'
+" let g:formatters_javascript = ['xo_javascript']
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \   'html': ['htmlhint'],
+      \}
+
+let g:ale_html_htmlhint_use_global = 1 
+let g:ale_html_htmlhint_executable = 'htmlhint'
+let g:ale_html_htmlhint_options = '--format=unix'
+
+" for jsx
+augroup FiletypeGroup
+  autocmd!
+  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linter_aliases = {'jsx': 'css'}
+
+
+let g:ale_lint_delay = 400
+let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
+"}}}"
 " Plug 'Chiel92/vim-autoformat' " {{{
 " let g:formatter_yapf_style = 'pep9'
 " " }}}
@@ -205,7 +268,23 @@ let g:limelight_eop = '\ze\n^\s'
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
 "}}}
-Plug 'ruanyl/vim-fixmyjs'
+Plug 'ruanyl/vim-fixmyjs' " {{{
+" ----------------------------------------------------------------------------
+" let g:formatterpath = ['/usr/local/bin/standard']
+" let g:formatdef_standard_javascript = '"standard --fix --stdin"'
+" let g:formatters_javascript = ['standard_javascript']
+let g:formatters_javascript = ['eslint_javascript']
+let g:formatdef_eslint_javascript = '"standard --fix --stdin"'
+" let g:fixmyjs_engine = 'eslint' 
+let g:fixmyjs_engine = 'eslint'
+
+" let g:fixmyjs_executable = '/Users/wangsong/dev/node/node_modules/.bin/eslint'
+" let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
+" let g:fixmyjs_rc_path = '/Users/wangsong/temp/.eslintrc.js'
+let g:fixmyjs_rc_path = '~/.eslintrc.js'
+" let g:fixmyjs_use_local = 1
+noremap <leader>f :Fixmyjs<CR>
+"}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
@@ -262,7 +341,28 @@ let g:AutoPairsFlyMode = 0
 "let g:airline_section_z = 0
 "let g:airline_section_z = '%3p%%'
 ""}}}
-Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
+Plug 'roxma/nvim-completion-manager', {'do': 'npm install'} "{{{
+set shortmess+=c
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+" css
+" the omnifunc pattern is PCRE
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+au User CmSetup call cm#register_source({'name' : 'cm-css',
+        \ 'priority': 9, 
+        \ 'scopes': ['css', 'scss'],
+        \ 'scoping': 1,
+        \ 'abbreviation': 'css',
+        \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
+        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
+        \ })
+let g:cm_sources_override = {
+    \ 'cm-tags': {'enable':0}
+    \ }
+
+inoremap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
@@ -282,7 +382,60 @@ let g:elm_setup_keybindings = 0
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim' " fzf{{{
+" ----------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
+nmap <leader>p :Windows<cr>
+nmap <c-f> :Lines<cr>
+set noswapfile
+set clipboard=unnamed
+set autoread
+" show autocomplete for commands
+set wildmenu
+map <c-p> :FZF<cr>
+nnoremap <silent> <c-w>v :call fzf#run({
+      \   'right': winwidth('.') / 2,
+      \   'sink':  'vertical botright split' })<CR>
+" Open files in horizontal split
+nnoremap <silent> <c-w>s :call fzf#run({
+      \   'down': '40%',
+      \   'sink': 'botright split' })<CR>
+" search lines
+function! s:line_handler(l)
+  let keys = split(a:l, ':\t')
+  exec 'buf' keys[0]
+  exec keys[1]
+  normal! ^zz
+endfunction
+
+function! s:buffer_lines()
+  let res = []
+  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
+    call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
+  endfor
+  return res
+endfunction
+
+command! FZFLines call fzf#run({
+      \   'source':  <sid>buffer_lines(),
+      \   'sink':    function('<sid>line_handler'),
+      \   'options': '--extended --nth=3..',
+      \   'down':    '60%'
+      \})
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+" including hidden files
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+" }}}
 
 " for python
 " Plug 'davidhalter/jedi-vim'
@@ -339,13 +492,6 @@ autocmd BufReadPost *
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 " }}}
-"{{{ indentation
-" ----------------------------------------------------------------------------
-set autoindent
-set copyindent
-set expandtab
-set smartindent
-"}}}
 "{{{ color hybrid
 " ----------------------------------------------------------------------------
 syntax enable
@@ -424,24 +570,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " let g:ycm_key_list_previous_completion = ['<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 " }}}
-" {{{ tmux navi
-" ----------------------------------------------------------------------------
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
-nnoremap <silent> <Down> :TmuxNavigateDown<cr>
-nnoremap <silent> <Up> :TmuxNavigateUp<cr>
-nnoremap <silent> <Right> :TmuxNavigateRight<cr>
-nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
-nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
-" }}}
-" ale style{{{
-" ----------------------------------------------------------------------------
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '✖'
-let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
-hi SignColumn ctermbg=none
-hi! link ALEError Directory
-" }}}
 " {{{ omni
 " ----------------------------------------------------------------------------
 " aug omnicomplete
@@ -461,60 +589,6 @@ let g:tern#filetypes = [
       \ '...'
       \ ]
 " }}}
-" fzf{{{
-" ----------------------------------------------------------------------------
-" ----------------------------------------------------------------------------
-nmap <leader>p :Windows<cr>
-nmap <c-f> :Lines<cr>
-set noswapfile
-set clipboard=unnamed
-set autoread
-" show autocomplete for commands
-set wildmenu
-map <c-p> :FZF<cr>
-nnoremap <silent> <c-w>v :call fzf#run({
-      \   'right': winwidth('.') / 2,
-      \   'sink':  'vertical botright split' })<CR>
-" Open files in horizontal split
-nnoremap <silent> <c-w>s :call fzf#run({
-      \   'down': '40%',
-      \   'sink': 'botright split' })<CR>
-" search lines
-function! s:line_handler(l)
-  let keys = split(a:l, ':\t')
-  exec 'buf' keys[0]
-  exec keys[1]
-  normal! ^zz
-endfunction
-
-function! s:buffer_lines()
-  let res = []
-  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
-    call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
-  endfor
-  return res
-endfunction
-
-command! FZFLines call fzf#run({
-      \   'source':  <sid>buffer_lines(),
-      \   'sink':    function('<sid>line_handler'),
-      \   'options': '--extended --nth=3..',
-      \   'down':    '60%'
-      \})
-
-function! s:fzf_statusline()
-  " Override statusline as you like
-  highlight fzf1 ctermfg=161 ctermbg=251
-  highlight fzf2 ctermfg=23 ctermbg=251
-  highlight fzf3 ctermfg=237 ctermbg=251
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-endfunction
-
-" including hidden files
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
-
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
-" }}}
 " folding {{{
 " ----------------------------------------------------------------------------
 " set foldmethod=indent
@@ -529,81 +603,6 @@ autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType javascript,typescript,json setl foldmethod=syntax
 " :set filetype?
 " }}}
-" {{{ fixmyjs
-" ----------------------------------------------------------------------------
-" let g:formatterpath = ['/usr/local/bin/standard']
-" let g:formatdef_standard_javascript = '"standard --fix --stdin"'
-" let g:formatters_javascript = ['standard_javascript']
-let g:formatters_javascript = ['eslint_javascript']
-let g:formatdef_eslint_javascript = '"standard --fix --stdin"'
-" let g:fixmyjs_engine = 'eslint' 
-let g:fixmyjs_engine = 'eslint'
-
-" let g:fixmyjs_executable = '/Users/wangsong/dev/node/node_modules/.bin/eslint'
-" let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
-" let g:fixmyjs_rc_path = '/Users/wangsong/temp/.eslintrc.js'
-let g:fixmyjs_rc_path = '~/.eslintrc.js'
-" let g:fixmyjs_use_local = 1
-noremap <leader>f :Fixmyjs<CR>
-"}}}
-" NCM {{{
-" ----------------------------------------------------------------------------
-set shortmess+=c
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
-" css
-" the omnifunc pattern is PCRE
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
-au User CmSetup call cm#register_source({'name' : 'cm-css',
-        \ 'priority': 9, 
-        \ 'scopes': ['css', 'scss'],
-        \ 'scoping': 1,
-        \ 'abbreviation': 'css',
-        \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
-        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
-        \ })
-let g:cm_sources_override = {
-    \ 'cm-tags': {'enable':0}
-    \ }
-
-inoremap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" }}}
-" ale {{{
-" ----------------------------------------------------------------------------
-hi ALEError ctermfg=none ctermbg=none
-hi ALEWarning ctermfg=none ctermbg=none
-hi ALEErrorSign ctermfg=red ctermbg=none
-hi ALEWarningSign ctermfg=gray ctermbg=none
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" let g:ale_javascript_eslint_use_global=1
-" let g:formatdef_eslint = '"eslint --fix --stdin"'
-" let g:formatters_javascript = ['eslint']
-" let g:formatdef_xo_javascript = '"xo --fix --stdin"'
-" let g:formatters_javascript = ['xo_javascript']
-let g:ale_linters = {
-      \   'javascript': ['eslint'],
-      \   'html': ['htmlhint'],
-      \}
-
-let g:ale_html_htmlhint_use_global = 1 
-let g:ale_html_htmlhint_executable = 'htmlhint'
-let g:ale_html_htmlhint_options = '--format=unix'
-
-" for jsx
-augroup FiletypeGroup
-  autocmd!
-  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
-let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
-let g:ale_linter_aliases = {'jsx': 'css'}
-
-
-" let g:ale_lint_delay = 200
-let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
-"}}}
 "{{{  markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 " set formatoptions+=a
@@ -635,5 +634,3 @@ let g:vim_markdown_folding_style_pythonic = 1
 " }}}
 
 "}}}
-
-
