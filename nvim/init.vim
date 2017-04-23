@@ -92,8 +92,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 "call plug#begin('~/.config/nvim/plugged')
 
 
+"Plugging
 Plug 'tpope/vim-commentary'
 
+" Plug 'tpope/vim-markdown'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
@@ -123,7 +125,7 @@ let g:user_emmet_settings = {
 
 
 Plug 'SirVer/ultisnips'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.vim'
 " markdown {{{
 " let g:vim_markdown_folding_disabled = 1
@@ -289,7 +291,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'airblade/vim-gitgutter' "{{{
 " let g:gitgutter_enabled = 0
 "}}}
@@ -605,8 +607,29 @@ autocmd FileType vim setlocal foldmethod=marker
 " }}}
 "{{{  markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
+
+function! MarkdownLevel()
+    if getline(v:lnum) =~ '^## .*$'
+        return ">1"
+    endif
+    if getline(v:lnum) =~ '^### .*$'
+        return ">2"
+    endif
+    if getline(v:lnum) =~ '^#### .*$'
+        return ">3"
+    endif
+    if getline(v:lnum) =~ '^##### .*$'
+        return ">4"
+    endif
+    if getline(v:lnum) =~ '^###### .*$'
+        return ">5"
+    endif
+    return "=" 
+endfunction
+au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+au BufEnter *.md setlocal foldmethod=expr
 " set formatoptions+=a
-let g:vim_markdown_folding_style_pythonic = 1
+" let g:vim_markdown_folding_style_pythonic = 1
 " {{{
 " function! MarkdownLevel()
 "     if getline(v:lnum) =~ '^# .*$'
@@ -634,3 +657,5 @@ let g:vim_markdown_folding_style_pythonic = 1
 " }}}
 
 "}}}
+
+
