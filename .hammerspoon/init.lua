@@ -32,6 +32,7 @@ hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
   local x = math.floor(time/3600)
   local y = math.floor((time - x * 3600)/60)
   hs.alert.show(tostring(x)..":"..tostring(y))
+  -- hs.alert.show(hs.window.focusedWindow())
   -- hs.alert.show(tostring(y))
 end)
 
@@ -107,6 +108,8 @@ end
 -- end
 
 
+
+
 -- bind ctrl-w to delete word backward
 hs.hotkey.bind({'ctrl'}, "w", function()
   hs.eventtap.keyStroke({'alt'}, "delete")
@@ -130,20 +133,22 @@ hs.hotkey.bind({'ctrl'}, "f", function()
 end)
 
 
+
+local ctrl_shift = { 'ctrl', 'shift' }
 -- selecting words
-hs.hotkey.bind({'ctrl', 'shift'}, "b", function()
+hs.hotkey.bind(ctrl_shift, "b", function()
   hs.eventtap.keyStroke({'alt', 'shift'}, "left")
 end)
 
-hs.hotkey.bind({'ctrl', 'shift'}, "f", function()
+hs.hotkey.bind(ctrl_shift, "f", function()
   hs.eventtap.keyStroke({'alt', 'shift'}, "right")
 end)
 
-hs.hotkey.bind({'ctrl', 'shift'}, "h", function()
+hs.hotkey.bind(ctrl_shift, "h", function()
   hs.eventtap.keyStroke({'shift'}, "left")
 end)
 
-hs.hotkey.bind({'ctrl', 'shift'}, "l", function()
+hs.hotkey.bind(ctrl_shift, "l", function()
   hs.eventtap.keyStroke({'shift'}, "right")
 end)
 
