@@ -2,29 +2,25 @@
 hs.window.animationDuration = 0.1 -- disable animations
 
 
-local apps = {
-        "iTerm2",
-        "Google Chrome",
-        "Tweetbot",
-        -- "Pages",
-        -- "iA Writer",
-        -- "iTunes",
-        -- "Finder",
-        -- "Safari",
-        -- "Notes",
-        -- "Messages",
-        "Airmail",
-}
-
-
-
-
+-- local apps = {
+--         "iTerm2",
+--         "Google Chrome",
+--         "Tweetbot",
+--         -- "Pages",
+--         -- "iA Writer",
+--         -- "iTunes",
+--         -- "Finder",
+--         -- "Safari",
+--         -- "Notes",
+--         -- "Messages",
+--         "Airmail",
+-- }
 
 -- Toggle an application between being the frontmost app, and being hidden
 function toggle_application(_app)
         local app = hs.appfinder.appFromName(_app)
         if not app then
-                -- FIXME: This should really launch _app
+                hs.application.launchOrFocus(_app)
                 return
         end
         local mainwin = app:mainWindow()
@@ -39,17 +35,16 @@ function toggle_application(_app)
         end
 end
 
-
-
-
-
 -- Application hotkeys
 hyperalts = {
-        a="Airmail"
+        a="Airmail",
+        e="Finder",
+        v="Code",
+        s="Safari",
 }
 
 for _hotkey in pairs(hyperalts) do
-    hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application("Airmail") end)
+    hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
 end
 
 local function keyCode(key)
