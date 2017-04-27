@@ -44,6 +44,7 @@ set expandtab
 " set shiftwidth=2
 " set softtabstop=2
 let s:editor_root=expand("~/.config/nvim")
+" setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
@@ -122,6 +123,11 @@ let g:user_emmet_settings = {
 \  },
 \}
 "}}}
+
+
+
+" React
+Plug 'fleischie/vim-styled-components'
 
 
 Plug 'SirVer/ultisnips'
@@ -207,7 +213,7 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_lint_delay = 400
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "}}}"
-" Plug 'Chiel92/vim-autoformat' " {{{
+Plug 'Chiel92/vim-autoformat' " {{{
 " let g:formatter_yapf_style = 'pep9'
 " " }}}
 Plug 'danro/rename.vim'
@@ -657,5 +663,3 @@ au BufEnter *.md setlocal foldmethod=expr
 " }}}
 
 "}}}
-
-

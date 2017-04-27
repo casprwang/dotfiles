@@ -10,9 +10,6 @@ export GOPATH=$HOME/gocode
 export VSCODE_TSJS=1
 PATH=$PATH:/usr/local/bin
 
-# in case tmux not working again
-# sudo it
-# sudo sysctl -w kern.tty.ptmx_max=256
 #
 autoload -U promptinit; promptinit
 prompt pure

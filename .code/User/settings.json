@@ -26,7 +26,8 @@
     "emmet.syntaxProfiles": { "javascript": "jsx" },
     "typescript.check.tscVersion": false,
     // "amVim.bindCtrlCommands": false,
-    "editor.cursorStyle": "block",
+    // "editor.cursorStyle": "block",
+    "editor.fontSize": 16,
     "vim.scroll": 5,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
@@ -35,7 +36,7 @@
     "editor.lineNumbers": "relative",
     "vim.scroll": 5,
     // "terminal.integrated.cursorBlinking": false,
-    "editor.cursorBlinking": "solid",
+    // "editor.cursorBlinking": "solid",
     "vim.insertModeKeyBindings": [
       {
           "before": ["j", "j"],
@@ -59,6 +60,10 @@
         "before": ["J"],
         "after": ["5", "j"],
     },
+    {
+        "before": ["j", "j"],
+        "after": ["cmd", "s"],
+    }, 
     {
         "before": ["K"],
         "after": ["5", "k"],
