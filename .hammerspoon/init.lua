@@ -229,9 +229,9 @@ hs.hotkey.bind(ctrl_shift, "l", function()
     hs.eventtap.keyStroke({'shift'}, "right")
 end)
 
--- hs.hotkey.bind({'ctrl'}, "r", function()
---   hs.eventtap.keyStroke({}, "delete")
--- end)
+hs.hotkey.bind({'ctrl'}, "g", function()
+  hs.eventtap.keyStroke({}, "delete")
+end)
 
 -- disable alt-v for Adobe's built-in shortcut
 function applicationWatcher(appName, eventType, appObject)

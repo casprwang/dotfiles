@@ -110,7 +110,7 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <Down> :TmuxNavigateDown<cr>
 nnoremap <silent> <Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
-nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
 Plug 'vim-scripts/mru.vim'
