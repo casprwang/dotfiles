@@ -28,7 +28,7 @@
 //                                      "when": "editorTextFocus" },
 { "key": "ctrl+shift+w",   "command": "editor.action.smartSelect.shrink",
                                      "when": "editorTextFocus" },
-{ "key": "cmd+n",           "command": "workbench.action.files.newFile" },
+{ "key": "cmd+n",           "command": "explorer.newFile" },
 
 { "key": "ctrl+m",        "command": "workbench.action.maximizeEditor" },
 

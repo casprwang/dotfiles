@@ -28,6 +28,8 @@
     // "amVim.bindCtrlCommands": false,
     // "editor.cursorStyle": "block",
     "editor.fontSize": 16,
+    "vim.leader": "<space>",
+    "vim.statusBarColorControl": true,
     "vim.scroll": 5,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
@@ -68,10 +70,6 @@
         "before": ["K"],
         "after": ["5", "k"],
     }, 
-    {
-        "before": ["g", "/"],
-        "after": ["cmd", "/"],
-    }
 //         {
     //     ]{
     //     "before": [ "ctrl+d" ],
@@ -101,15 +99,39 @@
             "after": [],
             "commands": [
                 {
-                    "command": "workbench.action.files.save",
-                    "args": []
-                },
-                {
                     "command": "workbench.action.closeActiveEditor",
                     "args": []
                 }
             ]
-        }
+        },
+        {
+            "before": ["leader", "j"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["g", "c"],
+            "after": ["g", "/"]
+        },
+        {
+            "before": ["g", "C"],
+            "after": ["g", "/"]
+        },
+        {
+            "before": ["g", "/", "/"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                    "args": []
+                }
+            ]
+        },
     ]
 }
 

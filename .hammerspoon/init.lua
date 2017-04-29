@@ -4,32 +4,6 @@ hs.window.animationDuration = 0.1 -- disable animations
 -- Create a modal hotkey object with an absurd triggering hotkey, since it will never be triggered from the keyboard
 hotkeys = hs.hotkey.modal.new({"cmd", "shift", "alt"}, "F19")
 
--- Bind all your normal hotkeys to the modal state object
-hotkeys:bind({"cmd", "ctrl"}, "d", function()
-    hs.alert.show('haha')
-end)
--- hotkeys:bind({"cmd"}, "d", function() doSomethingElse() end)
-
--- -- Define a callback function to be called when application events happen
-function applicationWatcherCallback(appName, eventType, appObject)
-    if (appName == "iTerm") then
-        if (eventType == hs.application.watcher.activated) then
-            -- Xcode just got focus, disable our hotkeys
-            hotkeys:exit()
-        elseif (eventType == hs.application.watcher.deactivated) then
-            -- Xcode just lost focus, enable our hotkeys
-            hotkeys:enter()
-        end
-    end
-end
-
--- Create and start the application event watcher
-watcher = hs.application.watcher.new(applicationWatcherCallback)
-watcher:start()
-
--- Activate the modal state
-hotkeys:enter()
-
 -- local apps = {
 --         "iTerm2",
 --         "Google Chrome",
@@ -66,10 +40,11 @@ end
 -- Application hotkeys
 hyperalts = {
     a="Airmail",
-    e="Finder",
-    v="Code",
+    -- e="Finder",
+    -- v="Code",
     s="Safari",
     m="iTunes",
+    t="Tweetbot",
 }
 
 function altFunctions(keys)
@@ -242,6 +217,7 @@ function applicationWatcher(appName, eventType, appObject)
             end)
         else 
             hs.hotkey.bind({"alt"}, 'v', function() toggle_application("Code") end)
+            -- hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
         end
         -- hs.alert.show(appName)
         -- hs.alert.show(hyperalts['a'])
