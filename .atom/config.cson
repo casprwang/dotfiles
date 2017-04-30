@@ -72,6 +72,7 @@
       "language-elm"
       "language-jade"
       "project-manager"
+      "tree-view"
     ]
     packagesWithKeymapsDisabled: [
       "script"

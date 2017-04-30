@@ -1,5 +1,5 @@
 -- local music = require("hs-music")
-hs.window.animationDuration = 0.1 -- disable animations
+hs.window.animationDuration = 0.1 -- shorten animations
 
 -- Create a modal hotkey object with an absurd triggering hotkey, since it will never be triggered from the keyboard
 hotkeys = hs.hotkey.modal.new({"cmd", "shift", "alt"}, "F19")
@@ -38,22 +38,22 @@ function toggle_application(_app)
 end
 
 -- Application hotkeys
-hyperalts = {
-    a="Airmail",
-    -- e="Finder",
-    -- v="Code",
-    s="Safari",
-    m="iTunes",
-    t="Tweetbot",
-}
+-- hyperalts = {
+--     a="Airmail",
+--     -- e="Finder",
+--     -- v="Code",
+--     s="Safari",
+--     m="iTunes",
+--     t="Tweetbot",
+-- }
 
-function altFunctions(keys)
-end
+-- function altFunctions(keys)
+-- end
 
 
-for _hotkey in pairs(hyperalts) do
-    hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
-end
+-- for _hotkey in pairs(hyperalts) do
+--     hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
+-- end
 
 local function keyCode(key)
     modifiers = modifiers or {}

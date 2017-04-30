@@ -99,8 +99,8 @@ syntax enable
 " nmap <Leader>I <Plug>(simple-todo-above)
 " nmap <Leader>u <Plug>(simple-todo-mark-switch)
 
-" " fzf
-" map <c-p> :FZF<cr>
+" fzf
+map <c-p> :FZF<cr>
 
 " navi
 let g:tmux_navigator_no_mappings = 1

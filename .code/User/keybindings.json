@@ -1,63 +1,38 @@
-    // Place your key bindings in this file to overwrite the defaults
-[
-{ "key": "ctrl+,",            "command": "editor.action.triggerSuggest",
+[{ "key": "ctrl+,",            "command": "editor.action.triggerSuggest",
                                      "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" },
 { "key": "ctrl+shift+3",          "command": "workbench.view.git" },
 { "key": "ctrl+shift+1",           "command": "workbench.view.explorer" },
 
 
-{ "key": "ctrl+i",                "command": "extension.dash.specific",
-                                     "when": "editorTextFocus" },
-{ "key": "cmd+l",                 "command": "expandLineSelection",
-                                     "when": "editorTextFocus" },
 { "key": "ctrl+shift+5",           "command": "workbench.view.extensions" },
 { "key": "shift+ctrl+4",           "command": "workbench.view.debug" },
-{ "key": "cmd+l",                 "command": "expandLineSelection",
-                                     "when": "editorTextsFocus" },
 
-{ "key": "ctrl+9",           "command": "workbench.files.action.collapseExplorerFolders" },
-{ "key": "cmd+9",           "command": "workbench.files.action.collapseExplorerFolders" },
-{ "key": "ctrl+cmd+s",           "command": "workbench.action.git.sync" },
+{ "key": "cmd+s",           "command": "workbench.action.git.sync" },
 { "key": "cmd+k k",           "command": "workbench.action.openGlobalKeybindings" },
-{ "key": "cmd+k `",           "command": "workbench.action.toggleMaximizedPanel" },
+{ "key": "cmd+k enter",           "command": "workbench.action.toggleMaximizedPanel" },
 { "key": "ctrl+shift+2",           "command": "workbench.view.search",
                                      "when": "!searchViewletVisible" },
 { "key": "cmd+k p",               "command": "extension.sidePreview",
                                      "when": "editorTextFocus" },
-// { "key": "ctrl+w",  "command": "editor.action.smartSelect.grow",
-//                                      "when": "editorTextFocus" },
 { "key": "ctrl+shift+w",   "command": "editor.action.smartSelect.shrink",
                                      "when": "editorTextFocus" },
 { "key": "cmd+n",           "command": "explorer.newFile" },
 
-{ "key": "ctrl+m",        "command": "workbench.action.maximizeEditor" },
+{ "key": "cmd+enter",        "command": "workbench.action.maximizeEditor" },
 
-{ "key": "shift+ctrl+m",        "command": "workbench.action.evenEditorWidths" },
+{ "key": "cmd+shift+enter",        "command": "workbench.action.evenEditorWidths" },
+
+
 { "key": "ctrl+tab",         "command": "workbench.action.nextEditor" },
 { "key": "ctrl+shift+tab",          "command": "workbench.action.previousEditor" },
 
 { "key": "ctrl-p",                 "command": "workbench.action.quickOpen" },
 
-// { "key": "cmd-u",                 "command": "workbench.action.navigateEditorGroup" },
 
 { "key": "ctrl+w h",        "command": "workbench.action.focusPreviousGroup" },
-{ "key": "ctrl+w l",           "command": "workbench.action.focusNextGroup" },
-// { "key": "left",                 "command": "workbench.action.focusSideBar" },
-{ "key": "ctrl+b",                 "command": "workbench.action.toggleSidebarVisibility" },
-// { "key": "alt+h",        "command": "workbench.action.focusPreviousGroup" },
-// { "key": "alt+l",           "command": "workbench.action.focusNextGroup" },
-{ "key": "ctrl+e",                "command": "cursorEnd",
-                                     "when": "editorTextFocus" },
-{ "key": "ctrl+a",                "command": "cursorHome",
-                                     "when": "editorTextFocus" },
 { "key": "shift+cmd+c",               "command": "extension.colorHelper.pick",
                                      "when": "editorTextFocus" },
 { "key": "cmd+k p",                 "command": "workbench.action.switchWindow" },
 { "key": "cmd+k w",                 "command": "workbench.action.switchWindow" },
-{ "key": "ctrl+[",                 "command": "workbench.action.focusSideBar" },
-{ "key": "ctrl+]",                 "command": "workbench.action.focusActiveEditorGroup" },
 ]
 
-
-// - workbench.action.maximizeEditor
-// - workbench.action.cycleEditor

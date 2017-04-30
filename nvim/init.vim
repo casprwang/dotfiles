@@ -163,7 +163,8 @@ Plug 'sbdchd/neoformat'
 
 
 
-Plug 'reasonml/vim-reason-loader'
+" Plug 'reasonml/vim-reason-loader'
+Plug 'chenglou/vim-reason'
 
 
 Plug 'ap/vim-css-color'

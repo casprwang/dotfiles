@@ -24,6 +24,7 @@
      "editor.tabSize": 2,
     "emmet.syntaxProfiles": { "javascript": "html" },
     "emmet.syntaxProfiles": { "javascript": "jsx" },
+    // "emmet.triggerExpansionOnTab": false,
     "typescript.check.tscVersion": false,
     // "amVim.bindCtrlCommands": false,
     // "editor.cursorStyle": "block",
@@ -39,12 +40,12 @@
     "vim.scroll": 5,
     // "terminal.integrated.cursorBlinking": false,
     // "editor.cursorBlinking": "solid",
-    "vim.insertModeKeyBindings": [
-      {
-          "before": ["j", "j"],
-          "after": ["<Esc>", "<Esc>"],
-    },
-],
+//     "vim.insertModeKeyBindings": [
+//       {
+//           "before": ["j", "j"],
+//           "after": ["<Esc>", "<Esc>"],
+//     },
+// ],
 
 //     "vim.insertModeKeyBindings": [
 //       {
@@ -54,6 +55,10 @@
 // ],
 
     "vim.otherModesKeyBindings": [
+        // {
+        //     "before": ["<Esc>"],
+        //     "after": [":nohl"]
+        // },
         {
             "before": ["\n"],
             "after": ["o", "<Esc>"],
@@ -70,6 +75,16 @@
         "before": ["K"],
         "after": ["5", "k"],
     }, 
+    {
+            "before":["<C-n>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl",
+                    "args": []
+                }
+            ]
+        },
 //         {
     //     ]{
     //     "before": [ "ctrl+d" ],
@@ -128,6 +143,16 @@
             "commands": [
                 {
                     "command": "editor.action.commentLine",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before":["<Esc>"],
+            "after":["<Esc>"],
+            "commands": [
+                {
+                    "command": ":nohl",
                     "args": []
                 }
             ]
