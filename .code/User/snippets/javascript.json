@@ -16,14 +16,14 @@
 	 "Print to console": {
 		"prefix": "log",
 		"body": [
-			"console.log($1);"
+			"console.log($1)"
 		],
 		"description": "Log output to console"
 	}
 	 "function": {
 		"prefix": "fun",
 		"body": [
-			"function $1($2) {"
+			"const $1 = ($2) => {"
 			"\t$3"
 			"}"
 		],

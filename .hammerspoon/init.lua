@@ -1,22 +1,12 @@
 -- local music = require("hs-music")
 hs.window.animationDuration = 0.1 -- shorten animations
 
--- Create a modal hotkey object with an absurd triggering hotkey, since it will never be triggered from the keyboard
-hotkeys = hs.hotkey.modal.new({"cmd", "shift", "alt"}, "F19")
 
--- local apps = {
---         "iTerm2",
---         "Google Chrome",
---         "Tweetbot",
---         -- "Pages",
---         -- "iA Writer",
---         -- "iTunes",
---         -- "Finder",
---         -- "Safari",
---         -- "Notes",
---         -- "Messages",
---         "Airmail",
--- }
+keys = {
+    a   = { "alt"  },
+    c   = { "ctrl" },
+    cs  = { "ctrl", "shift" },
+}
 
 -- Toggle an application between being the frontmost app, and being hidden
 function toggle_application(_app)
@@ -68,10 +58,10 @@ end
 delay = hs.eventtap.keyRepeatDelay()
 delay = 0.1
 
-hs.hotkey.bind({"ctrl"}, 'h', keyCode('left') ,  nil,   keyCode('left'))
-hs.hotkey.bind({"ctrl"}, 'j', keyCode('down') ,  nil,   keyCode('down') )
-hs.hotkey.bind({"ctrl"}, 'k', keyCode('up')   ,  nil,   keyCode('up') )
-hs.hotkey.bind({"ctrl"}, 'l', keyCode('right'),  nil,   keyCode('right') )
+hs.hotkey.bind(keys.c, 'h', keyCode('left') ,  nil,   keyCode('left'))
+hs.hotkey.bind(keys.c, 'j', keyCode('down') ,  nil,   keyCode('down') )
+hs.hotkey.bind(keys.c, 'k', keyCode('up')   ,  nil,   keyCode('up') )
+hs.hotkey.bind(keys.c, 'l', keyCode('right'),  nil,   keyCode('right') )
 
 
 -------------------------------------------------------------------------------
@@ -106,24 +96,56 @@ hs.alert.show("Config loaded")
 
 
 -- resizing window
-local modalKey = {"alt"}
+-- local altKey = {"alt"}
+
+-- local resizeMappings = {
+--     h={0.5, 1},
+--     l={1, 0.5},
+-- }
+
+-- for key in pairs(resizeMappings) do
+--     hs.hotkey.bind(altKey, key, function()
+--         local win = hs.window.focusedWindow()
+--         if win then win:setSize(win:size():scale(resizeMappings[key])) end
+--     end)
+-- end
+
+-- hs.hotkey.bind(altKey, key, function()
+--     local win = hs.window.focusedWindow()
+--     if win then win:setSize(win:size():scale({1, 0.5}))
+--     end
+-- end)
+
+hs.hotkey.bind(keys.a, 'k', function ()
+    local win=hs.window.focusedWindow()
+    if win then
+        win:setSize(win:size():scale({1, 0.5}))
+    end
+end)
+
+hs.hotkey.bind(keys.a, 'j', function ()
+    local win=hs.window.focusedWindow()
+    if win then
+        win:setSize(win:size():scale({1, 0.5}))
+    end
+end)
 
 local resizeMappings = {
-    h={x=0, y=0, w=0.5, h=1},
-    j={x=0, y=0.5, w=1, h=0.5},
+    -- h={x=0, y=0, w=0.5, h=1},
+    -- j={x=0, y=0.5, w=1, h=0.5},
     -- J={x=0, y=0.2, w=1, h=0.5},
-    k={x=0, y=0, w=1, h=0.5},
+    -- k={x=0, y=0, w=1, h=0.5},
     -- K={x=0, y=0, w=1, h=0.5},
-    l={x=0.5, y=0, w=0.5, h=1},
+    -- l={x=0.5, y=0, w=0.5, h=1},
     n={x=0, y=0, w=1, h=1},
-    u={x=0, y=0, w=0.33, h=1},
-    i={x=0.23, y=0, w=0.63, h=1},
-    o={x=0.33, y=0, w=0.67, h=0.5},
+    -- u={x=0, y=0, w=0.33, h=1},
+    i={x=0.25, y=0, w=0.5, h=1},
+    -- o={x=0.33, y=0, w=0.67, h=0.5},
 }
 
 
 for key in pairs(resizeMappings) do
-    hs.hotkey.bind(modalKey, key, function()
+    hs.hotkey.bind(keys.a, key, function()
         local win = hs.window.focusedWindow()
         if win then win:moveToUnit(resizeMappings[key]) end
     end)
@@ -168,19 +190,19 @@ end
 --     hs.eventtap.keyStroke({'alt'}, "delete")
 -- end)
 
-hs.hotkey.bind({'ctrl'}, "w", function()
+hs.hotkey.bind(keys.c, "w", function()
     hs.eventtap.keyStroke({'alt'}, "delete")
 end)
 
-hs.hotkey.bind({'ctrl'}, "q", function()
+hs.hotkey.bind(keys.c, "q", function()
     hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
 
-hs.hotkey.bind({'ctrl'}, "b", function()
+hs.hotkey.bind(keys.c, "b", function()
     hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
-hs.hotkey.bind({'ctrl'}, "f", function()
+hs.hotkey.bind(keys.c, "f", function()
     hs.eventtap.keyStroke({'alt'}, "right")
 end)
 
@@ -188,35 +210,35 @@ end)
 
 local ctrl_shift = { 'ctrl', 'shift' }
 -- selecting words
-hs.hotkey.bind(ctrl_shift, "b", function()
+hs.hotkey.bind(keys.cs, "b", function()
     hs.eventtap.keyStroke({'alt', 'shift'}, "left")
 end)
 
-hs.hotkey.bind(ctrl_shift, "f", function()
+hs.hotkey.bind(keys.cs, "f", function()
     hs.eventtap.keyStroke({'alt', 'shift'}, "right")
 end)
 
-hs.hotkey.bind(ctrl_shift, "h", function()
+hs.hotkey.bind(keys.cs, "h", function()
     hs.eventtap.keyStroke({'shift'}, "left")
 end)
 
-hs.hotkey.bind(ctrl_shift, "l", function()
+hs.hotkey.bind(keys.cs, "l", function()
     hs.eventtap.keyStroke({'shift'}, "right")
 end)
 
-hs.hotkey.bind({'ctrl'}, "g", function()
-  hs.eventtap.keyStroke({}, "delete")
+hs.hotkey.bind(keys.c, "g", function()
+    hs.eventtap.keyStroke({}, "delete")
 end)
 
 -- disable alt-v for Adobe's built-in shortcut
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
         if (string.find(appName, 'Adobe')) then
-            hs.hotkey.bind('alt', "v", function()
-                hs.eventtap.keyStroke({'alt'}, "v")
+            hs.hotkey.bind(keys.a, "v", function()
+                hs.eventtap.keyStroke(keys.a, "v")
             end)
-        else 
-            hs.hotkey.bind({"alt"}, 'v', function() toggle_application("Code") end)
+        else
+            hs.hotkey.bind(keys.a, 'v', function() toggle_application("Code") end)
             -- hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
         end
         -- hs.alert.show(appName)

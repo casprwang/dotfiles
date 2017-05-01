@@ -1,34 +1,40 @@
 // Place your settings in this file to overwrite the default settings
 {
-"vim.otherModesKeyBindingsNonRecursive": [
-   {
-       "before": [":"],
-       "after": [],
-       "commands": [
-           {
-               "command": "workbench.action.showCommands",
-               "args": []
-           }
-       ]
-   }
-],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ":"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.showCommands",
+                    "args": []
+                }
+            ]
+        }
+    ],
     // "files.autoSave": "off",
     "files.autoSave": "on",
-        "files.associations": {
+    "files.associations": {
         "*.ml": "ocaml",
         "*.mli": "ocaml"
     },
     "git.confirmSync": false,
     "window.zoomLevel": 0,
     "openInGitHub.defaultBranch": "dev", // Set default branch, default: master
-     "editor.tabSize": 2,
-    "emmet.syntaxProfiles": { "javascript": "html" },
-    "emmet.syntaxProfiles": { "javascript": "jsx" },
+    "editor.tabSize": 2,
+    "emmet.syntaxProfiles": {
+        "javascript": "html"
+    },
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
     // "emmet.triggerExpansionOnTab": false,
     "typescript.check.tscVersion": false,
     // "amVim.bindCtrlCommands": false,
     // "editor.cursorStyle": "block",
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
     "vim.leader": "<space>",
     "vim.statusBarColorControl": true,
     "vim.scroll": 5,
@@ -40,37 +46,55 @@
     "vim.scroll": 5,
     // "terminal.integrated.cursorBlinking": false,
     // "editor.cursorBlinking": "solid",
-//     "vim.insertModeKeyBindings": [
-//       {
-//           "before": ["j", "j"],
-//           "after": ["<Esc>", "<Esc>"],
-//     },
-// ],
-
-//     "vim.insertModeKeyBindings": [
-//       {
-//           "before": ["<Esc>"],
-//           "after": ["<Esc>", "<Esc>"],
-//     },
-// ],
-
-    "vim.otherModesKeyBindings": [
-        // {
-        //     "before": ["<Esc>"],
-        //     "after": [":nohl"]
-        // },
+    "vim.insertModeKeyBindings": [
         {
-            "before": ["\n"],
-            "after": ["o", "<Esc>"],
-    },
-    {
-        "before": ["J"],
-        "after": ["5", "j"],
-    },
-    {
-        "before": ["j", "j"],
-        "after": ["cmd", "s"],
-    }, 
+            "before": [
+                "<c-o>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "insertSnippet",
+                    "args": []
+                }
+            ]
+        },
+    ],
+    //     "vim.insertModeKeyBindings": [
+    //       {
+    //           "before": ["<Esc>"],
+    //           "after": ["<Esc>", "<Esc>"],
+    //     },
+    // ],
+    "vim.otherModesKeyBindings": [
+        {
+            "before": [
+                "\n"
+            ],
+            "after": [
+                "o",
+                "<Esc>"
+            ],
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "5",
+                "j"
+            ],
+        },
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "cmd",
+                "s"
+            ],
+        }, 
     {
         "before": ["K"],
         "after": ["5", "k"],
@@ -85,29 +109,7 @@
                 }
             ]
         },
-//         {
-    //     ]{
-    //     "before": [ "ctrl+d" ],
-    //     "after": [ "ctrl+d", "M" ]
-    // },
-    // {
-    //     "before": [ "ctrl+u" ],
-    //     "after": [ "ctrl+u", "M" ]
-    // },
-//             "before": ["left"],
-//             "after": ["<C-h>"],
-//     },
 ],
-    // "vim.otherModesKeyBindingsNonRecursive": [
-    //     {
-    //         "before": [ "ctrl+d" ],
-    //         "after": [ "ctrl+d", "M" ]
-    //     },
-    //     {
-    //         "before": [ "ctrl+u" ],
-    //         "after": [ "ctrl+u", "M" ]
-    //     },
-    // ],
     "vim.otherModesKeyBindingsNonRecursive": [
         {
             "before": ["Z", "Z"],
