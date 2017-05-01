@@ -6,6 +6,7 @@ keys = {
     a   = { "alt"  },
     c   = { "ctrl" },
     cs  = { "ctrl", "shift" },
+    ca  = { "ctrl", "alt"},
 }
 
 -- Toggle an application between being the frontmost app, and being hidden
@@ -41,6 +42,11 @@ end
 -- end
 
 
+-- Nudge window by grid
+-- hs.hotkey.bind(keys.ca, "right", function() hs.grid.pushWindowRight() end)
+-- hs.hotkey.bind(keys.ca, "left", function() hs.grid.pushWindowLeft() end)
+-- hs.hotkey.bind(keys.ca, "up", function() hs.grid.pushWindowUp() end)
+-- hs.hotkey.bind(keys.ca, "down", function() hs.grid.pushWindowDown() end)
 -- for _hotkey in pairs(hyperalts) do
 --     hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
 -- end
@@ -66,6 +72,7 @@ hs.hotkey.bind(keys.c, 'l', keyCode('right'),  nil,   keyCode('right') )
 
 -------------------------------------------------------------------------------
 hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
+    hs.grid.show()
     -- hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
     -- hs.alert.show(delay)
 end)
@@ -116,6 +123,13 @@ hs.alert.show("Config loaded")
 --     end
 -- end)
 
+hs.hotkey.bind(keys.a, 'j', function ()
+    local win=hs.window.focusedWindow()
+    if win then
+        win:setSize(win:size():scale({1, 2}))
+    end
+end)
+
 hs.hotkey.bind(keys.a, 'k', function ()
     local win=hs.window.focusedWindow()
     if win then
@@ -123,23 +137,32 @@ hs.hotkey.bind(keys.a, 'k', function ()
     end
 end)
 
-hs.hotkey.bind(keys.a, 'j', function ()
-    local win=hs.window.focusedWindow()
-    if win then
-        win:setSize(win:size():scale({1, 0.5}))
-    end
-end)
+
+-- hs.hotkey.bind(keys.a, 'l', function ()
+--     local win=hs.window.focusedWindow()
+--     if win then
+--         win:setSize(win:size():scale({0.5, 1}))
+--     end
+-- end)
+
+
+-- hs.hotkey.bind(keys.a, 'h', function ()
+--     local win=hs.window.focusedWindow()
+--     if win then
+--         win:setSize(win:size():scale({1, 0.5}))
+--     end
+-- end)
 
 local resizeMappings = {
-    -- h={x=0, y=0, w=0.5, h=1},
+    h={x=0, y=0, w=0.5, h=1},
     -- j={x=0, y=0.5, w=1, h=0.5},
     -- J={x=0, y=0.2, w=1, h=0.5},
     -- k={x=0, y=0, w=1, h=0.5},
     -- K={x=0, y=0, w=1, h=0.5},
-    -- l={x=0.5, y=0, w=0.5, h=1},
+    l={x=0.5, y=0, w=0.5, h=1},
     n={x=0, y=0, w=1, h=1},
     -- u={x=0, y=0, w=0.33, h=1},
-    i={x=0.25, y=0, w=0.5, h=1},
+    i={x=0.2, y=0, w=0.6, h=1},
     -- o={x=0.33, y=0, w=0.67, h=0.5},
 }
 
