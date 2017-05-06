@@ -1,22 +1,4 @@
 "*":
-  "activate-power-mode":
-    comboMode:
-      enabled: false
-    particles:
-      size:
-        max: 3
-        min: 1
-      spawnCount:
-        max: 3
-        min: 1
-    playAudio: {}
-    screenShake:
-      enabled: false
-      maxIntensity: 1
-      minIntensity: 0
-  "atom-beautify":
-    general:
-      _analyticsUserId: "52665e2f-189f-4791-840f-5d7b407dacc6"
   "atom-html-preview":
     scrollToCursor: true
     triggerOnSave: true
@@ -66,13 +48,8 @@
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
-      "atom-runner"
-      "atom-html-preview"
-      "language-ejs"
-      "language-elm"
-      "language-jade"
-      "project-manager"
       "tree-view"
+      "Hydrogen"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -98,6 +75,7 @@
     fontSize: 16
     invisibles: {}
     scrollPastEnd: true
+    showInvisibles: true
   emmet:
     useEmmetComments: true
   "exception-reporting":
@@ -166,6 +144,8 @@
     enabledForAllJavascriptFiles: true
   "relative-numbers": {}
   sound: {}
+  "status-bar":
+    isVisible: false
   stylefmt:
     formatOnSave: true
   "tree-view": {}

@@ -3,15 +3,17 @@
 # #                 unsetting
 
 '.workspace .editor:not(.mini), .workspace':
+  'cmd-b': 'tree-view:toggle'
+
   # 'tab': 'unset!'
-  'cmd-\.': 'linter:next-error'
+  # 'cmd-\.': 'linter:next-error'
   'up': 'core:move-up'
   'down': 'core:move-down'
 
-  'cmd-j': 'core:save'
-  'cmd-b': 'tree-view:toggle-focus'
+  'cmd-j': 'unset!'
+  'cmd-\\': 'tree-view:toggle-focus'
   'cmd-s': 'unset!'
-  'cmd-y': 'Project Manager: List Projects'
+  # 'cmd-y': 'Project Manager: List Projects'
   'cmd-r': 'run:file'
   # 'cmd-Y': 'Project Manager: List Projects'
 'atom-workspace:not([mini])':
@@ -119,7 +121,6 @@
   # 'cmd-l': 'pane:show-next-item'
   'cmd-L': 'console-log:add'
   'cmd-shift-v': 'atom-html-preview:toggle'
-  'cmd-\\': 'tree-view:toggle'
 
 
 
@@ -214,6 +215,7 @@
   # 'alt-cmd-k': 'pane:split-up-and-copy-active-item'
   # 'alt-cmd-l': 'pane:split-right-and-copy-active-item'
   # 'alt-cmd-h': 'pane:split-left-and-copy-active-item'
+  'cmd-b': 'tree-view:toggle'
   # 'alt-l': 'window:focus-pane-on-right'
   # 'alt-j': 'window:focus-pane-below'
   # 'alt-k': 'window:focus-pane-above'
@@ -322,32 +324,13 @@
   'right': 'window:focus-pane-on-right'
   'ctrl-w j': 'pane:split-down-and-copy-active-item'
   'ctrl-w l': 'pane:split-right-and-copy-active-item'
+  'cmd-b': 'tree-view:toggle'
 
 
 ####### for markdown file
-".workspace .editor:not(.mini), .workspace[data-grammar='source md']":
-  'cmd-t': 'markdown-writer:toggle-task'
-  'cmd-u': 'toggle-markdown-task:toggle'
-  # 'cmd-y': 'markdown-writer:toggle-taskdone'
-  # "cmd-k k": "markdown-writer:insert-link"
-  # "shift-cmd-I": "markdown-writer:insert-image"
-  # "cmd-i":       "markdown-writer:toggle-italic-text"
-  "cmd-b":       "markdown-writer:toggle-bold-text"
-  "cmd-'":       "markdown-writer:toggle-code-text"
-  # "cmd-k":       "markdown-writer:toggle-keystroke-text"
-  # "cmd-h":       "markdown-writer:toggle-strikethrough-text"
-  # 'cmd->':       "markdown-writer:toggle-blockquote"
-  # 'cmd-"':       "markdown-writer:toggle-codeblock-text"
-  "cmd-1":  "markdown-writer:toggle-h1"
-  "cmd-2":  "markdown-writer:toggle-h2"
-  "cmd-3":  "markdown-writer:toggle-h3"
-  "cmd-4":  "markdown-writer:toggle-h4"
-  "cmd-5":  "markdown-writer:toggle-h5"
-  # "shift-cmd-O": "markdown-writer:toggle-ol"
-  "cmd-l": "markdown-writer:toggle-ul"
-  # "cmd-j cmd-d": "markdown-writer:jump-to-reference-definition"
-  # "cmd-j cmd-t": "markdown-writer:jump-to-next-table-cell"
-
+# ".workspace .editor:not(.mini), .workspace[data-grammar='source md']":
+  # 'cmd-t': 'markdown-writer:toggle-task'
+  # 'cmd-u': 'toggle-markdown-task:toggle'
 
 
 
@@ -364,6 +347,7 @@
 #   'tab': 'autocomplete-plus:confirm'
 'atom-text-editor:not([mini])':
   'cmd-shift-e': 'emmet:expand-abbreviation-with-tab'
+  'cmd-b': 'tree-view:toggle'
 
 'atom-workspace atom-text-editor.autocomplete-active':
   'tab': 'snippets:next-tab-stop'

@@ -10,43 +10,26 @@ keys = {
 }
 
 -- Toggle an application between being the frontmost app, and being hidden
-function toggle_application(_app)
-    local app = hs.appfinder.appFromName(_app)
-    if not app then
-        hs.application.launchOrFocus(_app)
-        return
-    end
-    local mainwin = app:mainWindow()
-    if mainwin then
-        if mainwin == hs.window.focusedWindow() then
-            mainwin:application():hide()
-        else
-            mainwin:application():activate(true)
-            mainwin:application():unhide()
-            mainwin:focus()
-        end
-    end
-end
 
 -- Application hotkeys
 -- hyperalts = {
---     a="Airmail",
+--     -- a="Airmail",
 --     -- e="Finder",
---     -- v="Code",
---     s="Safari",
---     m="iTunes",
---     t="Tweetbot",
+--     v="Code",
+--     -- s="Safari",
+--     -- m="iTunes",
+--     -- t="Tweetbot",
 -- }
 
 -- function altFunctions(keys)
 -- end
 
 
--- Nudge window by grid
--- hs.hotkey.bind(keys.ca, "right", function() hs.grid.pushWindowRight() end)
--- hs.hotkey.bind(keys.ca, "left", function() hs.grid.pushWindowLeft() end)
--- hs.hotkey.bind(keys.ca, "up", function() hs.grid.pushWindowUp() end)
--- hs.hotkey.bind(keys.ca, "down", function() hs.grid.pushWindowDown() end)
+-- -- Nudge window by grid
+-- -- hs.hotkey.bind(keys.ca, "right", function() hs.grid.pushWindowRight() end)
+-- -- hs.hotkey.bind(keys.ca, "left", function() hs.grid.pushWindowLeft() end)
+-- -- hs.hotkey.bind(keys.ca, "up", function() hs.grid.pushWindowUp() end)
+-- -- hs.hotkey.bind(keys.ca, "down", function() hs.grid.pushWindowDown() end)
 -- for _hotkey in pairs(hyperalts) do
 --     hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
 -- end
@@ -61,8 +44,9 @@ local function keyCode(key)
 end
 
 
-delay = hs.eventtap.keyRepeatDelay()
+-- delay = hs.eventtap.keyRepeatDelay()
 delay = 0.1
+-- local hs.eventtap.keyRepeatDelay() = 0.1
 
 hs.hotkey.bind(keys.c, 'h', keyCode('left') ,  nil,   keyCode('left'))
 hs.hotkey.bind(keys.c, 'j', keyCode('down') ,  nil,   keyCode('down') )
@@ -77,12 +61,13 @@ hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
     -- hs.alert.show(delay)
 end)
 
-hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
+local showtime =hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
     local time = hs.timer.localTime()
     local x = math.floor(time/3600)
     local y = math.floor((time - x * 3600)/60)
     hs.alert.show(tostring(x)..":"..tostring(y))
-    -- hs.alert.show(hs.window.focusedWindow())
+    hs.alert.show(hs.eventtap.keyRepeatDelay()
+        )
     -- hs.alert.show(tostring(y))
 end)
 
@@ -205,16 +190,13 @@ end
 --   hs.eventtap.keyStroke({}, "delete")
 -- end
 
-
-
-
--- -- bind ctrl-w to delete word backward
--- hs.hotkey.bind({'ctrl'}, "w", function()
---     hs.eventtap.keyStroke({'alt'}, "delete")
--- end)
-
 hs.hotkey.bind(keys.c, "w", function()
     hs.eventtap.keyStroke({'alt'}, "delete")
+end)
+
+ctrlD = hs.hotkey.bind(keys.c, "d", function()
+    hs.eventtap.keyStroke({'alt'}, "right", 0)
+    hs.eventtap.keyStroke({'alt'}, "delete", 0)
 end)
 
 hs.hotkey.bind(keys.c, "q", function()
@@ -253,22 +235,63 @@ hs.hotkey.bind(keys.c, "g", function()
     hs.eventtap.keyStroke({}, "delete")
 end)
 
+-- hs.hotkey.bind(keys.a, "v", function()
+--     -- local app = hs.application.get('Code')
+--     -- hs.application.get("Code"):activate()
+--     -- hs.alert.show(app:isRunning())
+--     hs.alert.show('hsh')
+--     -- app:activate()
+-- end)
+
+
+
+function toggle_application(_app)
+    -- Finds running applications
+    local app = hs.application.find(_app)
+    hs.application.launchOrFocus('/Applications/Visual Studio Code.app')
+    if app:isFrontmost() then
+        app:hide()
+        -- hs.alert.show(app:isRunning())
+    end
+    if not app:isFrontmost() then
+        app:activate()  
+    end
+    if not app then
+        -- hs.application.launchOrFocus(_app)
+        hs.alert.show('notrunning')
+    end
+    -- if not app then
+    --     hs.application.open(_app)
+    -- end
+    -- if app:isFrontmost then
+    --     app:hide()
+    -- elseif not app:isFrontmost then
+    --     app:activate()
+    -- end
+end
+
+hs.hotkey.bind(keys.a, "v", function()
+    toggle_application('Code')
+end)
+
+-- altV:enable()
+
 -- disable alt-v for Adobe's built-in shortcut
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
         if (string.find(appName, 'Adobe')) then
-            hs.hotkey.bind(keys.a, "v", function()
-                hs.eventtap.keyStroke(keys.a, "v")
-            end)
+            -- altV:disable()
         else
-            hs.hotkey.bind(keys.a, 'v', function() toggle_application("Code") end)
-            -- hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
+            -- hs.alert.show('enable')
+            -- altV:enable()
         end
-        -- hs.alert.show(appName)
-        -- hs.alert.show(hyperalts['a'])
-        -- hs.alert.show(os.date("!%Y-%m-%d-%T"))
-        -- Bring all Finder windows forward when one gets activated
-        -- appObject:selectMenuItem({"Window", "Bring All to Front"})
+    end
+    if (eventType == hs.application.watcher.activated) then
+        if (string.find(appName, 'iTerm')) then
+            ctrlD:disable()
+        else 
+            ctrlD:enable()
+        end
     end
 end
 -- end

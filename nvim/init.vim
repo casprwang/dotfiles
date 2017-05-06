@@ -54,7 +54,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 " }}}
 " {{{ mapping 
-" ----------------------------------------------------------------------------
+"----------------------------------------------------------------------------
 " nnoremap <c-e> 3<c-e>
 nnoremap , za
 inoremap <c-a> <esc>I
@@ -100,6 +100,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-commentary'
 
 " Plug 'tpope/vim-markdown'
+
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
@@ -131,6 +132,7 @@ let g:user_emmet_settings = {
 
 " React
 Plug 'fleischie/vim-styled-components'
+Plug 'elixir-lang/vim-elixir'
 
 
 Plug 'SirVer/ultisnips'

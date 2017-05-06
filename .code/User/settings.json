@@ -23,6 +23,7 @@
     "git.confirmSync": false,
     "window.zoomLevel": 0,
     "openInGitHub.defaultBranch": "dev", // Set default branch, default: master
+    "emmet.triggerExpansionOnTab": false,
     "editor.tabSize": 2,
     "emmet.syntaxProfiles": {
         "javascript": "html"
@@ -161,4 +162,3 @@
         },
     ]
 }
-
