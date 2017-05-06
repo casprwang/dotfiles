@@ -195,11 +195,11 @@ editting.cQ = hs.hotkey.bind(keys.c, "q", function()
     hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
 
-editting.cB = hs.hotkey.bind(keys.c, "b", function()
+cB = hs.hotkey.bind(keys.c, "b", function()
     hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
-editting.cF = hs.hotkey.bind(keys.c, "f", function()
+cF = hs.hotkey.bind(keys.c, "f", function()
     hs.eventtap.keyStroke({'alt'}, "right")
 end)
 
@@ -258,12 +258,16 @@ function applicationWatcher(appName, eventType, appObject)
             -- end
             cD:disable()
             cW:disable()
+            cB:disable()
+            cF:disable()
         else 
             -- for i,v in pairs(editting) do
             --     v:disable()
             -- end
             cW:enable()
             cD:enable()
+            cB:enable()
+            cF:enable()
             -- hs.alert.show(editting.cD)
         end
         if (string.find(appName, 'Adobe')) then

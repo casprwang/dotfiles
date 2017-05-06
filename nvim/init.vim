@@ -56,12 +56,12 @@ autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 " {{{ mapping 
 "----------------------------------------------------------------------------
 " nnoremap <c-e> 3<c-e>
+let mapleader="\<Space>"
 nnoremap , za
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
-let mapleader="\<Space>"
 imap <c-e> <esc>A
 nmap <leader>in :PlugInstall<cr>
 nmap <leader>id :Dash<cr>
