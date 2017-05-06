@@ -1,7 +1,7 @@
 -- local music = require("hs-music")
 hs.window.animationDuration = 0.1 -- shorten animations
 
-
+-- stroing the leader keys
 keys = {
     a   = { "alt"  },
     c   = { "ctrl" },
@@ -9,8 +9,22 @@ keys = {
     ca  = { "ctrl", "alt"},
 }
 
--- Toggle an application between being the frontmost app, and being hidden
 
+local appPath = {
+    Code="/Applications/Visual Studio Code.app",
+    iTerm2="/Applications/iTerm.app",
+    Tweetbot="/Applications/Tweetbot.app",
+}
+
+-- shortcut for general test
+hs.hotkey.bind(keys.ca, "t", function()
+    -- local app = hs.application.find("iTerm2")
+    -- hs.alert.show(app:path())
+    hs.alert.show(hs.application.frontmostApplication():name())
+end)
+
+
+-- Toggle an application between being the frontmost app, and being hidden
 -- Application hotkeys
 -- hyperalts = {
 --     -- a="Airmail",
@@ -23,7 +37,6 @@ keys = {
 
 -- function altFunctions(keys)
 -- end
-
 
 -- -- Nudge window by grid
 -- -- hs.hotkey.bind(keys.ca, "right", function() hs.grid.pushWindowRight() end)
@@ -161,53 +174,32 @@ end
 
 ---------------------------------------------------------------------------------
 
---   hs.eventtap.keyStroke({}, 'delete')
---   lastCommand = dWordBack
---   dMode.exit()
--- end
+editting = {
+    cW,
+    cD,
+    cQ,
+    cB,
+    cF,
+}
 
-
-
-
-
--- hs.hotkey.bind({"cmd", "ctrl"}, "R", function()
---   hs.reload()
--- end)
--- hs.alert.show("Config loaded")
-
--- hs.eventtap.keyRepeatInterval() = 0.03
--- hs.eventtap.keyRepeatInterval = 0.1
--- hs.alert.show(hs.eventtap.keyRepeatInterval())
-
--- hs.eventtap.keyRepeatInterval() -> 1
-
--- ctrl-w to delete the word left
---
--- hs.hotkey.bind({"alt"}, 'delete', delete_word_backward, nil, delete_word_backward)
---
--- local function delete_word_backward()
---   hs.eventtap.keyStroke({"alt", "shift"}, "Left")
---   hs.eventtap.keyStroke({}, "delete")
--- end
-
-hs.hotkey.bind(keys.c, "w", function()
+cW= hs.hotkey.bind(keys.c, "w", function()
     hs.eventtap.keyStroke({'alt'}, "delete")
 end)
 
-ctrlD = hs.hotkey.bind(keys.c, "d", function()
+cD = hs.hotkey.bind(keys.c, "d", function()
     hs.eventtap.keyStroke({'alt'}, "right", 0)
     hs.eventtap.keyStroke({'alt'}, "delete", 0)
 end)
 
-hs.hotkey.bind(keys.c, "q", function()
+editting.cQ = hs.hotkey.bind(keys.c, "q", function()
     hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
 
-hs.hotkey.bind(keys.c, "b", function()
+editting.cB = hs.hotkey.bind(keys.c, "b", function()
     hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
-hs.hotkey.bind(keys.c, "f", function()
+editting.cF = hs.hotkey.bind(keys.c, "f", function()
     hs.eventtap.keyStroke({'alt'}, "right")
 end)
 
@@ -235,62 +227,49 @@ hs.hotkey.bind(keys.c, "g", function()
     hs.eventtap.keyStroke({}, "delete")
 end)
 
--- hs.hotkey.bind(keys.a, "v", function()
---     -- local app = hs.application.get('Code')
---     -- hs.application.get("Code"):activate()
---     -- hs.alert.show(app:isRunning())
---     hs.alert.show('hsh')
---     -- app:activate()
--- end)
-
-
-
-function toggle_application(_app)
+function toggle_application(_app, path)
     -- Finds running applications
     local app = hs.application.find(_app)
-    hs.application.launchOrFocus('/Applications/Visual Studio Code.app')
     if app:isFrontmost() then
         app:hide()
         -- hs.alert.show(app:isRunning())
+    elseif not app:isFrontmost() then
+        -- hs.alert.show('haha')
+        hs.application.launchOrFocus(path)
     end
-    if not app:isFrontmost() then
-        app:activate()  
-    end
-    if not app then
-        -- hs.application.launchOrFocus(_app)
-        hs.alert.show('notrunning')
-    end
-    -- if not app then
-    --     hs.application.open(_app)
-    -- end
-    -- if app:isFrontmost then
-    --     app:hide()
-    -- elseif not app:isFrontmost then
-    --     app:activate()
-    -- end
 end
 
-hs.hotkey.bind(keys.a, "v", function()
-    toggle_application('Code')
+altV =hs.hotkey.bind(keys.a, "v", function()
+    toggle_application("Code",appPath.Code)
 end)
 
--- altV:enable()
+altV:enable()
+
+hs.hotkey.bind(keys.a, "t", function()
+    toggle_application('Tweetbot', appPath.Tweetbot)
+end)
 
 -- disable alt-v for Adobe's built-in shortcut
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
+        if (string.find(appName, 'iTerm')) then
+            -- for i,v in pairs(editting) do
+            --     v:disable()
+            -- end
+            cD:disable()
+            cW:disable()
+        else 
+            -- for i,v in pairs(editting) do
+            --     v:disable()
+            -- end
+            cW:enable()
+            cD:enable()
+            -- hs.alert.show(editting.cD)
+        end
         if (string.find(appName, 'Adobe')) then
             -- altV:disable()
         else
-            -- hs.alert.show('enable')
             -- altV:enable()
-        end
-    end
-    if (eventType == hs.application.watcher.activated) then
-        if (string.find(appName, 'iTerm')) then
-            ctrlD:disable()
-        else 
-            ctrlD:enable()
         end
     end
 end

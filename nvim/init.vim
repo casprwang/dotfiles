@@ -60,6 +60,7 @@ nnoremap , za
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-f> <esc>Ea
+inoremap <c-d> <esc>cw
 let mapleader="\<Space>"
 imap <c-e> <esc>A
 nmap <leader>in :PlugInstall<cr>
@@ -73,6 +74,7 @@ nmap <S-Enter> O<Esc>
 
 " for shift-enter
 nnoremap <c-b>b O<esc>
+
 
 
 nnoremap <c-w>v <c-w>v<right>
