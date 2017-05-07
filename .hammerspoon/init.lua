@@ -175,18 +175,13 @@ end
 ---------------------------------------------------------------------------------
 
 editting = {
-    cW,
-    cD,
-    cQ,
-    cB,
-    cF,
 }
 
-cW= hs.hotkey.bind(keys.c, "w", function()
+editting.cW= hs.hotkey.bind(keys.c, "w", function()
     hs.eventtap.keyStroke({'alt'}, "delete")
 end)
 
-cD = hs.hotkey.bind(keys.c, "d", function()
+editting.cD = hs.hotkey.bind(keys.c, "d", function()
     hs.eventtap.keyStroke({'alt'}, "right", 0)
     hs.eventtap.keyStroke({'alt'}, "delete", 0)
 end)
@@ -195,11 +190,11 @@ editting.cQ = hs.hotkey.bind(keys.c, "q", function()
     hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
 
-cB = hs.hotkey.bind(keys.c, "b", function()
+editting.cB = hs.hotkey.bind(keys.c, "b", function()
     hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
-cF = hs.hotkey.bind(keys.c, "f", function()
+editting.cF = hs.hotkey.bind(keys.c, "f", function()
     hs.eventtap.keyStroke({'alt'}, "right")
 end)
 
@@ -253,27 +248,22 @@ end)
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
         if (string.find(appName, 'iTerm')) then
-            -- for i,v in pairs(editting) do
-            --     v:disable()
-            -- end
-            cD:disable()
-            cW:disable()
-            cB:disable()
-            cF:disable()
-        else 
-            -- for i,v in pairs(editting) do
-            --     v:disable()
-            -- end
-            cW:enable()
-            cD:enable()
-            cB:enable()
-            cF:enable()
-            -- hs.alert.show(editting.cD)
+            for i,v in pairs(editting) do
+                v:disable()
+            end
+        elseif not (string.find(appName, 'Emacs')) then
+            for i,v in pairs(editting) do
+                v:enable()
+            end
         end
-        if (string.find(appName, 'Adobe')) then
-            -- altV:disable()
-        else
-            -- altV:enable()
+        if (string.find(appName, 'Emacs')) then
+            for i,v in pairs(editting) do
+                v:disable()
+            end
+        elseif not (string.find(appName, 'iTerm')) then
+            for i,v in pairs(editting) do
+                v:enable()
+            end
         end
     end
 end
