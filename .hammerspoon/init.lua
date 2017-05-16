@@ -16,12 +16,41 @@ local appPath = {
     Tweetbot="/Applications/Tweetbot.app",
 }
 
--- shortcut for general test
-hs.hotkey.bind(keys.ca, "t", function()
-    -- local app = hs.application.find("iTerm2")
-    -- hs.alert.show(app:path())
-    hs.alert.show(hs.application.frontmostApplication():name())
+
+-- switching between screens
+hs.hotkey.bind({"cmd"}, 'escape', function ()
+  focusScreen(hs.window.focusedWindow():screen():next())
 end)
+
+--Predicate that checks if a window belongs to a screen
+function isInScreen(screen, win)
+  return win:screen() == screen
+end
+
+function focusScreen(screen)
+  --Get windows within screen, ordered from front to back.
+  --If no windows exist, bring focus to desktop. Otherwise, set focus on
+  --front-most application window.
+  local windows = hs.fnutils.filter(
+      hs.window.orderedWindows(),
+      hs.fnutils.partial(isInScreen, screen))
+  local windowToFocus = #windows > 0 and windows[1] or hs.window.desktop()
+  windowToFocus:focus()
+
+  -- Move mouse to center of screen
+  local pt = hs.geometry.rectMidPoint(screen:fullFrame())
+  hs.mouse.setAbsolutePosition(pt)
+end
+
+
+-- hs.screen.mainScreen():name()
+-- -- shortcut for general test
+-- hs.hotkey.bind(keys.ca, "t", function()
+--     local win = hs.window.focusedWindow()
+--     -- local app = hs.application.find("iTerm2")
+--     -- hs.alert.show(hs.screen.allScreens()[2])
+--     hs.alert.show(win:screen())
+-- end)
 
 
 -- Toggle an application between being the frontmost app, and being hidden
@@ -189,6 +218,7 @@ end)
 editting.cQ = hs.hotkey.bind(keys.c, "q", function()
     hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
+editting.cQ:enable(postgresq)
 
 editting.cB = hs.hotkey.bind(keys.c, "b", function()
     hs.eventtap.keyStroke({'alt'}, "left")

@@ -46,8 +46,9 @@ set undolevels=1000         " How many undos
 set expandtab
 " set shiftwidth=2
 " set softtabstop=2
-" setlocal ts=2 sts=2 sw=2
+setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
@@ -56,25 +57,35 @@ autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 " {{{ mapping 
 "----------------------------------------------------------------------------
 " nnoremap <c-e> 3<c-e>
-let mapleader="\<Space>"
-nnoremap , za
+" vmap{{{
+vmap J 5gj
+vmap K 5gk
+" yanking repositioning
+vmap y y`]
+" }}}
+" imap{{{
+imap <c-r> <bs>
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
 imap <c-e> <esc>A
+" }}}
+let mapleader="\<Space>"
+nnoremap , za
+nnoremap <c-w><Space> <c-w>=
 nmap <leader>in :PlugInstall<cr>
 nmap <leader>id :Dash<cr>
 nmap <leader>o :NERDTreeToggle<CR>
 map <leader>j :w<cr>
 " inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
-imap <c-r> <bs>
 nmap <S-Enter> O<Esc>
 
 " for shift-enter
 nnoremap <c-b>b O<esc>
 
+" for returning position ater yanking
 
 
 nnoremap <c-w>v <c-w>v<right>
@@ -84,8 +95,6 @@ nmap <esc> :noh<cr>
 nnoremap <bs> <c-r>
 nnoremap J 5gj
 nnoremap K 5gk
-vmap J 5gj
-vmap K 5gk
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
@@ -119,6 +128,7 @@ nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
 Plug 'vim-scripts/mru.vim'
+Plug 'alexlafroscia/postcss-syntax.vim'
 
 Plug 'mattn/emmet-vim' " {{{
 " emmet
@@ -229,7 +239,6 @@ Plug 'jmcantrell/vim-virtualenv'
 
 
 
-" Plug 'Shougo/deol.nvim'
 Plug 'junegunn/goyo.vim' "{{{
 function! s:goyo_enter()
   silent !tmux set status off
@@ -305,7 +314,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive'
-" Plug 'plasticboy/vim-markdown'
 Plug 'airblade/vim-gitgutter' "{{{
 " let g:gitgutter_enabled = 0
 "}}}
@@ -671,3 +679,20 @@ au BufEnter *.md setlocal foldmethod=expr
 " }}}
 
 "}}}
+"
+" Contextual commenting for commentary.vim in jsx files.
+function! s:SetCommentString()
+  let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
+  let cstr=&commentstring
+  for id in stack
+    if id[0:1] ==# "js"
+      let cstr="//%s"
+    endif
+    if id[0:2] ==# "jsx"
+      let cstr="{/*%s*/}"
+    endif
+  endfor
+  let &commentstring=cstr
+endfunction
+
+autocmd CursorMoved *.jsx call s:SetCommentString()

@@ -2,6 +2,7 @@ alias gp=gitpush
 alias mkdi=mkcdir
 # alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node
+alias cdv="cd ~/dev"
 alias aria="/usr/local/bin/aria2c"
 alias gd="gatsby develop"
 
