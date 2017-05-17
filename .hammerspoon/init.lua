@@ -218,7 +218,7 @@ end)
 editting.cQ = hs.hotkey.bind(keys.c, "q", function()
     hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
-editting.cQ:enable(postgresq)
+-- editting.cQ:enable(postgresq)
 
 editting.cB = hs.hotkey.bind(keys.c, "b", function()
     hs.eventtap.keyStroke({'alt'}, "left")
@@ -274,9 +274,13 @@ hs.hotkey.bind(keys.a, "t", function()
     toggle_application('Tweetbot', appPath.Tweetbot)
 end)
 
+
 -- disable alt-v for Adobe's built-in shortcut
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
+      for i,v in pairs(editting) do
+        v:disable()
+      end
         if (string.find(appName, 'iTerm')) then
             for i,v in pairs(editting) do
                 v:disable()

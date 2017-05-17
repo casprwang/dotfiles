@@ -82,6 +82,8 @@ map <leader>j :w<cr>
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 
+nmap <c-w>n <c-w>\|
+
 " for shift-enter
 nnoremap <c-b>b O<esc>
 
@@ -158,7 +160,7 @@ Plug 'iamcco/markdown-preview.vim'
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 nmap <silent> <leader>m <Plug>MarkdownPreview
 "}}}
-
+Plug 'tmux-plugins/vim-tmux'
 
 
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
@@ -239,24 +241,31 @@ Plug 'jmcantrell/vim-virtualenv'
 
 
 
+
 Plug 'junegunn/goyo.vim' "{{{
+
+let g:goyo_height = 105
+let g:goyo_linenr = 1
+
 function! s:goyo_enter()
-  silent !tmux set status off
-  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  Limelight
+  " silent !tmux set status off
+  " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  " set noshowmode
+  hi! StatusLine ctermbg=249 ctermfg=235
+  " set noshowcmd
+  " set scrolloff=999
+  " Limelight
   " ...
 endfunction
 
 function! s:goyo_leave()
-  silent !tmux set status on
-  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  set showmode
-  set showcmd
-  set scrolloff=5
-  Limelight!
+  " silent !tmux set status on
+  " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  " set showmode
+  hi! StatusLine ctermbg=249 ctermfg=235
+  " set showcmd
+  " set scrolloff=5
+  " Limelight!
   " ...
 endfunction
 
@@ -525,17 +534,6 @@ let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme hybrid
 " hi! StatusLine    .s:fg_comment     .s:bg_background  .s:fmt_revr
-
-
-hi! StatusLine ctermbg=249 ctermfg=235
-
-  
-" hi MoreMsg         guifg=#E6DB74
-
-" h1 StatusLineNC
-
-" set background=light
-" colorscheme hybrid_material
 "}}}
 "status bar{{{
 " ----------------------------------------------------------------------------

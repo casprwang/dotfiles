@@ -451,3 +451,5 @@ let &background = s:style
 " THE SOFTWARE.
 
 " }}}
+
+hi! StatusLine ctermbg=249 ctermfg=235
