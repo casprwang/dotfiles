@@ -1,4 +1,5 @@
 alias gp=gitpush
+alias git=hub
 alias mkdi=mkcdir
 # alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node

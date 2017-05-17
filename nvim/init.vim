@@ -113,6 +113,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-commentary'
 
 " Plug 'tpope/vim-markdown'
+Plug 'szw/vim-maximizer' "{{{
+let g:maximizer_set_default_mapping = 0
+nnoremap <c-w><cr> :MaximizerToggle<CR>
+"}}}
 
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -143,6 +147,7 @@ let g:user_emmet_settings = {
 "}}}
 
 
+Plug 'benmills/vimux'
 
 " React
 Plug 'fleischie/vim-styled-components'
@@ -250,8 +255,8 @@ let g:goyo_linenr = 1
 function! s:goyo_enter()
   " silent !tmux set status off
   " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  " set noshowmode
-  hi! StatusLine ctermbg=249 ctermfg=235
+  set noshowmode
+  " hi! StatusLine ctermbg=249 ctermfg=235
   " set noshowcmd
   " set scrolloff=999
   " Limelight
@@ -261,8 +266,8 @@ endfunction
 function! s:goyo_leave()
   " silent !tmux set status on
   " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  " set showmode
-  hi! StatusLine ctermbg=249 ctermfg=235
+  set showmode
+  " hi! StatusLine ctermbg=249 ctermfg=235
   " set showcmd
   " set scrolloff=5
   " Limelight!
@@ -273,7 +278,7 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
-nmap <Leader>g :Goyo<cr>
+nmap <Leader>g :Goyo 80-10x100<cr>
 "}}}
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
 " nmap <Leader>gh :Limelight!!<cr>
@@ -677,7 +682,7 @@ au BufEnter *.md setlocal foldmethod=expr
 " }}}
 
 "}}}
-"
+
 " Contextual commenting for commentary.vim in jsx files.
 function! s:SetCommentString()
   let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
@@ -694,3 +699,6 @@ function! s:SetCommentString()
 endfunction
 
 autocmd CursorMoved *.jsx call s:SetCommentString()
+
+
+
