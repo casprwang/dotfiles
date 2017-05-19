@@ -1,4 +1,4 @@
-#compdef hub
+# compdef hub
 
 # Zsh will source this file when attempting to autoload the "_hub" function,
 # typically on the first attempt to complete the hub command.  We define two new
@@ -160,4 +160,4 @@ _hub () {
 }
 
 # make sure we actually attempt to complete on the first "tab" from the user
-_hub
+# _hub

@@ -169,6 +169,9 @@ Plug 'tmux-plugins/vim-tmux'
 
 
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
+" Plug 'ap/vim-css-color', {'on_ft':['css', 'scss']}
+Plug 'chrisbra/Colorizer' "{{{
+"}}}
 Plug 'scrooloose/nerdtree' "{{{
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -188,7 +191,6 @@ Plug 'sbdchd/neoformat'
 Plug 'chenglou/vim-reason'
 
 
-Plug 'ap/vim-css-color'
 Plug 'kana/vim-smartinput'
 Plug 'w0rp/ale' "{{{
 " no auto linting
@@ -278,7 +280,8 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
-nmap <Leader>g :Goyo 80-10x100<cr>
+" nmap <Leader>g :Goyo 80-10x100<cr>
+nmap <Leader>g :Goyo<cr>
 "}}}
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
 " nmap <Leader>gh :Limelight!!<cr>
@@ -682,8 +685,7 @@ au BufEnter *.md setlocal foldmethod=expr
 " }}}
 
 "}}}
-
-" Contextual commenting for commentary.vim in jsx files.
+"{{{ Contextual commenting for commentary.vim in jsx files.
 function! s:SetCommentString()
   let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
   let cstr=&commentstring
@@ -699,6 +701,6 @@ function! s:SetCommentString()
 endfunction
 
 autocmd CursorMoved *.jsx call s:SetCommentString()
-
-
-
+"}}}
+" color vim
+au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
