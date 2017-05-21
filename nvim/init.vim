@@ -171,6 +171,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
 " Plug 'ap/vim-css-color', {'on_ft':['css', 'scss']}
 Plug 'chrisbra/Colorizer' "{{{
+au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
 "}}}
 Plug 'scrooloose/nerdtree' "{{{
 autocmd StdinReadPre * let s:std_in=1
@@ -702,5 +703,3 @@ endfunction
 
 autocmd CursorMoved *.jsx call s:SetCommentString()
 "}}}
-" color vim
-au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
