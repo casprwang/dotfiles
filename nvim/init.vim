@@ -44,8 +44,6 @@ set undofile                " Save undo's after file closes
 set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set expandtab
-" set shiftwidth=2
-" set softtabstop=2
 setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
@@ -56,7 +54,6 @@ autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 " }}}
 " {{{ mapping 
 "----------------------------------------------------------------------------
-" nnoremap <c-e> 3<c-e>
 " vmap{{{
 vmap J 5gj
 vmap K 5gk
@@ -75,21 +72,16 @@ let mapleader="\<Space>"
 nnoremap , za
 nnoremap <c-w><Space> <c-w>=
 nmap <leader>in :PlugInstall<cr>
-nmap <leader>id :Dash<cr>
-nmap <leader>o :NERDTreeToggle<CR>
+nmap <silent> <leader>o :NERDTreeToggle<CR>
 map <leader>j :w<cr>
-" inoremap <C-e> <C-o>$
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
-
 nmap <c-w>n <c-w>\|
 
 " for shift-enter
 nnoremap <c-b>b O<esc>
 
 " for returning position ater yanking
-
-
 nnoremap <c-w>v <c-w>v<right>
 nmap <c-w>l :vsplit<cr><right>
 nmap <c-w>j :split<cr><down>

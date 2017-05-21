@@ -10,7 +10,7 @@ keys = {
 }
 
 
-local appPath = {
+appPath = {
     Code="/Applications/Visual Studio Code.app",
     iTerm2="/Applications/iTerm.app",
     Tweetbot="/Applications/Tweetbot.app",
@@ -230,7 +230,7 @@ end)
 
 
 
-local ctrl_shift = { 'ctrl', 'shift' }
+ctrl_shift = { 'ctrl', 'shift' }
 -- selecting words
 hs.hotkey.bind(keys.cs, "b", function()
     hs.eventtap.keyStroke({'alt', 'shift'}, "left")
@@ -279,7 +279,7 @@ end)
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
       for i,v in pairs(editting) do
-        v:disable()
+        v:enable()
       end
         if (string.find(appName, 'iTerm')) then
             for i,v in pairs(editting) do
@@ -302,5 +302,5 @@ function applicationWatcher(appName, eventType, appObject)
     end
 end
 -- end
-local appWatcher = hs.application.watcher.new(applicationWatcher)
+appWatcher = hs.application.watcher.new(applicationWatcher)
 appWatcher:start()
