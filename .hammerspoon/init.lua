@@ -43,14 +43,12 @@ function focusScreen(screen)
 end
 
 
--- hs.screen.mainScreen():name()
--- -- shortcut for general test
--- hs.hotkey.bind(keys.ca, "t", function()
---     local win = hs.window.focusedWindow()
---     -- local app = hs.application.find("iTerm2")
---     -- hs.alert.show(hs.screen.allScreens()[2])
---     hs.alert.show(win:screen())
--- end)
+hs.screen.mainScreen():name()
+-- shortcut for general test
+hs.hotkey.bind(keys.ca, "t", function()
+    -- hs.alert.show(win:screen())
+    hs.messages.iMessage("wangsongiam@gmail.com", "a message from you computer")
+end)
 
 
 -- Toggle an application between being the frontmost app, and being hidden
@@ -267,8 +265,6 @@ end
 altV =hs.hotkey.bind(keys.a, "v", function()
     toggle_application("Code",appPath.Code)
 end)
-
-altV:enable()
 
 hs.hotkey.bind(keys.a, "t", function()
     toggle_application('Tweetbot', appPath.Tweetbot)

@@ -127,6 +127,8 @@
       cursorlineDecorationsZIndex: 0
       "find-and-replace": true
       "find-and-replaceDecorationsZIndex": 0
+  "ocaml-merlin":
+    completePartialPrefixes: true
   "one-light-ui":
     tabSizing: "Minimum"
   "open-terminal-here":
@@ -142,6 +144,8 @@
   "project-manager": {}
   react:
     enabledForAllJavascriptFiles: true
+  "reason-refmt":
+    useLinter: true
   "relative-numbers": {}
   sound: {}
   "status-bar":

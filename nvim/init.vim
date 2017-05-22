@@ -24,6 +24,8 @@ set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set undoreload=10000        " number of lines to save for undo
 set clipboard=unnamed
+set list
+set scrolloff=1
 set autoread
 set relativenumber
 set number
@@ -69,7 +71,7 @@ inoremap <c-d> <esc>cw
 imap <c-e> <esc>A
 " }}}
 let mapleader="\<Space>"
-nnoremap , za
+" nnoremap , za
 nnoremap <c-w><Space> <c-w>=
 nmap <leader>in :PlugInstall<cr>
 nmap <silent> <leader>o :NERDTreeToggle<CR>
@@ -104,6 +106,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 "Plugging
 Plug 'tpope/vim-commentary'
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.reason = '[^. *\t]\.\w*\|\h\w*|#'
+let g:deoplete#sources = {}
+let g:deoplete#sources.reason = ['omni', 'buffer']
+
+" neocomplete and YouCompleteMe work out of the box
+"}}}
 " Plug 'tpope/vim-markdown'
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
@@ -180,13 +190,13 @@ Plug 'sbdchd/neoformat'
 
 
 
-" Plug 'reasonml/vim-reason-loader'
 Plug 'chenglou/vim-reason'
 
 
 Plug 'kana/vim-smartinput'
 Plug 'w0rp/ale' "{{{
 " no auto linting
+let g:ale_linter_aliases = {'reason': 'ocaml'}
 
 " ale style{{{
 " ----------------------------------------------------------------------------
@@ -376,7 +386,7 @@ let g:AutoPairsFlyMode = 0
 "let g:airline_section_z = '%3p%%'
 ""}}}
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'} "{{{
-set shortmess+=c
+" set shortmess+=c
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 " css
@@ -390,6 +400,7 @@ au User CmSetup call cm#register_source({'name' : 'cm-css',
         \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
         \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
         \ })
+
 let g:cm_sources_override = {
     \ 'cm-tags': {'enable':0}
     \ }
@@ -694,4 +705,37 @@ function! s:SetCommentString()
 endfunction
 
 autocmd CursorMoved *.jsx call s:SetCommentString()
+"}}}
+"{{{ merlin:  for ocaml and reason
+" In your ~/.vimrc
+if executable('ocamlmerlin')
+  " To set the log file and restart:
+  let s:ocamlmerlin=substitute(system('which ocamlmerlin'),'ocamlmerlin\n$','','') . "../share/merlin/vim/"
+  execute "set rtp+=".s:ocamlmerlin
+  let g:syntastic_ocaml_checkers=['merlin']
+endif
+if executable('refmt')
+  let s:reason=substitute(system('which refmt'),'refmt\n$','','') . "../share/reason/editorSupport/VimReason"
+  execute "set rtp+=".s:reason
+  let g:syntastic_reason_checkers=['merlin']
+endif
+"" Always wrap at 90 columns
+let g:vimreason_extra_args_expr_reason = '"--print-width 90"'
+
+" Wrap at the window width
+let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')"
+
+" Wrap at the window width but not if it exceeds 120 characters.
+let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "min([120, winwidth('.')])"
+
+
+let g:deoplete#enable_at_startup = 0
+
+
+" autocmd FileType reason map <buffer> <D-M> :ReasonPrettyPrint<Cr>
+let g:merlin_completion_arg_type = "always"
+" nnoremap <leader>t :MerlinTypeOf<cr>
+
+autocmd FileType reason let maplocalleader=","
+autocmd FileType ocaml let maplocalleader=","
 "}}}
