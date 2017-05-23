@@ -30,7 +30,6 @@ make sure you know what [this](https://github.com/wangsongiam/dotfiles/blob/mast
 ```
 $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
 ```
-
 ## Files
 * Neovim [init.vim](https://github.com/wangsongiam/dotfiles/blob/master/nvim/init.vim)
 * Tmux [.tmux.conf](https://github.com/wangsongiam/dotfiles/blob/master/.tmux.conf)

@@ -66,6 +66,7 @@ vmap y y`]
 imap <c-r> <bs>
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
+inoremap <c-q> <esc>S
 inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
 imap <c-e> <esc>A
