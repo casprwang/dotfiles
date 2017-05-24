@@ -20,6 +20,8 @@ let g:python3_host_prog = '/Users/wangsong/.pyenv/versions/neovim3/bin/python'
 " ----------------------------------------------------------------------------
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 set nowrap
+set splitright
+set splitbelow
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set undoreload=10000        " number of lines to save for undo
@@ -46,13 +48,6 @@ set undofile                " Save undo's after file closes
 set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set expandtab
-setlocal ts=2 sts=2 sw=2
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
-autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 " }}}
 " {{{ mapping 
 "----------------------------------------------------------------------------
@@ -439,13 +434,25 @@ set autoread
 " show autocomplete for commands
 set wildmenu
 map <c-p> :FZF<cr>
-nnoremap <silent> <c-w>v :call fzf#run({
-      \   'right': winwidth('.') / 2,
-      \   'sink':  'vertical botright split' })<CR>
-" Open files in horizontal split
-nnoremap <silent> <c-w>s :call fzf#run({
-      \   'down': '40%',
-      \   'sink': 'botright split' })<CR>
+
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'down': 'split',
+  \ 'right': 'vsplit' }
+
+
+" nnoremap <silent> <c-w>v :call fzf#run({
+"       \   'right': winwidth('.') / 2,
+"       \   'sink':  'vertical botright split' })<CR>
+" " Open files in horizontal split
+" nnoremap <silent> <c-w>s :call fzf#run({
+"       \   'down': '40%',
+"       \   'sink': 'botright split' })<CR>
 " search lines
 function! s:line_handler(l)
   let keys = split(a:l, ':\t')
@@ -739,4 +746,13 @@ let g:merlin_completion_arg_type = "always"
 
 autocmd FileType reason let maplocalleader=","
 autocmd FileType ocaml let maplocalleader=","
+"}}}
+"{{{ autocmd
+setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
+autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 "}}}
