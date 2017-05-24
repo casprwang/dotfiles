@@ -58,32 +58,38 @@ vmap K 5gk
 vmap y y`]
 " }}}
 " imap{{{
-imap <c-r> <bs>
+inoremap <c-r> <bs>
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-q> <esc>S
 inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
-imap <c-e> <esc>A
+inoremap <c-e> <esc>A
 " }}}
 let mapleader="\<Space>"
-" nnoremap , za
 nnoremap <c-w><Space> <c-w>=
-nmap <leader>in :PlugInstall<cr>
-nmap <silent> <leader>o :NERDTreeToggle<CR>
-map <leader>j :w<cr>
-nmap <CR> o<Esc>
-nmap <S-Enter> O<Esc>
-nmap <c-w>n <c-w>\|
+nnoremap <leader>in :PlugInstall<cr>
+nnoremap <silent> <leader>o :NERDTreeToggle<CR>
+nnoremap <leader>j :w<cr>
+nnoremap <CR> o<Esc>
+nnoremap <S-Enter> O<Esc>
+nnoremap <c-w>n <c-w>\|
+nnoremap <leader>, za
 
 " for shift-enter
 nnoremap <c-b>b O<esc>
 
+" window resizing
+nnoremap <silent> = :vertical resize +10<cr>
+nnoremap <silent> - :vertical resize -10<cr>
+nnoremap <silent> + :resize +10<cr>
+nnoremap <silent> _ :resize -10<cr>
+
 " for returning position ater yanking
 nnoremap <c-w>v <c-w>v<right>
-nmap <c-w>l :vsplit<cr><right>
-nmap <c-w>j :split<cr><down>
-nmap <esc> :noh<cr>
+nnoremap <c-w>l :vsplit<cr>
+nnoremap <c-w>j :split<cr>
+nnoremap <esc> :noh<cr>
 nnoremap <bs> <c-r>
 nnoremap J 5gj
 nnoremap K 5gk
@@ -98,10 +104,8 @@ nnoremap <leader>e :Ag<cr>
 call plug#begin('~/.local/share/nvim/plugged')
 "call plug#begin('~/.config/nvim/plugged')
 
-
 "Plugging
 Plug 'tpope/vim-commentary'
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.reason = '[^. *\t]\.\w*\|\h\w*|#'
@@ -115,7 +119,6 @@ Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
 nnoremap <c-w><cr> :MaximizerToggle<CR>
 "}}}
-
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
@@ -133,7 +136,6 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
 Plug 'vim-scripts/mru.vim'
 Plug 'alexlafroscia/postcss-syntax.vim'
-
 Plug 'mattn/emmet-vim' " {{{
 " emmet
 imap <c-t> <c-y>,
@@ -143,17 +145,12 @@ let g:user_emmet_settings = {
 \  },
 \}
 "}}}
-
-
 Plug 'benmills/vimux'
 
 " React
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
-
-
 Plug 'SirVer/ultisnips'
-" Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.vim'
 " markdown {{{
 " let g:vim_markdown_folding_disabled = 1
@@ -164,8 +161,6 @@ let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 nmap <silent> <leader>m <Plug>MarkdownPreview
 "}}}
 Plug 'tmux-plugins/vim-tmux'
-
-
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
 " Plug 'ap/vim-css-color', {'on_ft':['css', 'scss']}
 Plug 'chrisbra/Colorizer' "{{{
@@ -175,20 +170,12 @@ Plug 'scrooloose/nerdtree' "{{{
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "}}}
-
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
-
-
 " autoformat
 Plug 'sbdchd/neoformat'
-
-
-
 Plug 'chenglou/vim-reason'
-
-
 Plug 'kana/vim-smartinput'
 Plug 'w0rp/ale' "{{{
 " no auto linting
@@ -244,10 +231,6 @@ Plug 'Chiel92/vim-autoformat' " {{{
 " " }}}
 Plug 'danro/rename.vim'
 Plug 'jmcantrell/vim-virtualenv'
-
-
-
-
 Plug 'junegunn/goyo.vim' "{{{
 
 let g:goyo_height = 105
@@ -490,8 +473,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
 
-" for python
-" Plug 'davidhalter/jedi-vim'
 " Plug 'roxma/python-support.nvim' "{{{
 " for python completions
 " let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
@@ -532,7 +513,6 @@ let g:mta_filetypes = {
 
 Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
-
 call plug#end()
 " }}}
 "}}}
@@ -634,14 +614,12 @@ let g:tern#filetypes = [
 " folding {{{
 " ----------------------------------------------------------------------------
 " set foldmethod=indent
-autocmd FileType vim setlocal foldmethod=marker
 " set foldlevelstart=1
 
 " let javaScript_fold=2         " JavaScript
 " autocmd FileType javascript setlocal foldlevel=2
 " autocmd FileType txt setlocal foldmethod=marker
 " setlocal foldmethod=marker
-" nmap <leader><leader> za
 " autocmd FileType javascript,typescript,json setl foldmethod=syntax
 " :set filetype?
 " }}}
@@ -714,7 +692,7 @@ endfunction
 
 autocmd CursorMoved *.jsx call s:SetCommentString()
 "}}}
-"{{{ merlin:  for ocaml and reason
+"{{{ merlin, ocaml and reason
 " In your ~/.vimrc
 if executable('ocamlmerlin')
   " To set the log file and restart:
@@ -755,4 +733,5 @@ autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 autocmd Filetype lua setlocal ts=4 sts=4 sw=4
+autocmd FileType vim setlocal foldmethod=marker
 "}}}
