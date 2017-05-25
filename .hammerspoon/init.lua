@@ -1,6 +1,9 @@
 -- local music = require("hs-music")
 hs.window.animationDuration = 0.1 -- shorten animations
 
+
+
+
 -- stroing the leader keys
 keys = {
     a   = { "alt"  },
@@ -9,6 +12,11 @@ keys = {
     ca  = { "ctrl", "alt"},
 }
 
+
+hs.hotkey.bind(keys.ca, "t", function()
+    hs.alert.show(hs.osascript.javascript('console.log("haha")'))
+    -- hs.osascript.javascript('let a = 1;')
+end)
 
 appPath = {
     Code="/Applications/Visual Studio Code.app",
@@ -45,11 +53,6 @@ end
 
 hs.screen.mainScreen():name()
 -- shortcut for general test
-hs.hotkey.bind(keys.ca, "t", function()
-    -- hs.alert.show(win:screen())
-    hs.messages.iMessage("wangsongiam@gmail.com", "a message from you computer")
-end)
-
 
 -- Toggle an application between being the frontmost app, and being hidden
 -- Application hotkeys

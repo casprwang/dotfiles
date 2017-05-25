@@ -89,7 +89,7 @@ nnoremap <silent> _ :resize -10<cr>
 nnoremap <c-w>v <c-w>v<right>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
-nnoremap <esc> :noh<cr>
+nnoremap <silent> <esc> :noh<cr>
 nnoremap <bs> <c-r>
 nnoremap J 5gj
 nnoremap K 5gk
@@ -419,7 +419,7 @@ set wildmenu
 map <c-p> :FZF<cr>
 
 let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
+" let g:fzf_layout = { 'window': '-tabnew' }
 
 
 " This is the default extra key bindings
@@ -429,13 +429,15 @@ let g:fzf_action = {
   \ 'right': 'vsplit' }
 
 
-" nnoremap <silent> <c-w>v :call fzf#run({
-"       \   'right': winwidth('.') / 2,
-"       \   'sink':  'vertical botright split' })<CR>
-" " Open files in horizontal split
-" nnoremap <silent> <c-w>s :call fzf#run({
-"       \   'down': '40%',
-"       \   'sink': 'botright split' })<CR>
+nnoremap <silent> <c-w>v :call fzf#run({
+      \   'right': winwidth('.') / 2,
+      \   'sink':  'vertical botright split' })<CR>
+" Open files in horizontal split
+nnoremap <silent> <c-w>s :call fzf#run({
+      \   'down': '50%',
+      \   'sink': 'split' })<CR>
+" nnoremap <silent> <c-w>s :call fzf#run({'source': 'ls', 'sink': 'e', 'options': '-m', 'down': '50%'})<CR>
+
 " search lines
 function! s:line_handler(l)
   let keys = split(a:l, ':\t')
