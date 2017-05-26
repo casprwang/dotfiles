@@ -453,3 +453,8 @@ let &background = s:style
 " }}}
 
 hi! StatusLine ctermbg=249 ctermfg=235
+" exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_revr
+" exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
+hi TabLineFill guifg=red ctermfg=235
+hi TabLineSel ctermfg=249 ctermbg=235
+hi TabLine ctermfg=250 ctermbg=232

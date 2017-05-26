@@ -1,9 +1,6 @@
 -- local music = require("hs-music")
 hs.window.animationDuration = 0.1 -- shorten animations
 
-
-
-
 -- stroing the leader keys
 keys = {
     a   = { "alt"  },
@@ -203,6 +200,16 @@ for key in pairs(resizeMappings) do
 end
 
 ---------------------------------------------------------------------------------
+
+-- editting = {
+--   cW = {hs.hotkey.bind(keys.c, "w", function()
+--     hs.eventtap.keyStroke({'alt'}, "delete")
+-- end)},
+--   cD = {hs.hotkey.bind(keys.c, "d", function()
+--     hs.eventtap.keyStroke({'alt'}, "right", 0)
+--     hs.eventtap.keyStroke({'alt'}, "delete", 0)
+-- end)}
+-- }
 
 editting = {
 }

@@ -93,6 +93,9 @@ nnoremap <silent> <esc> :noh<cr>
 nnoremap <bs> <c-r>
 nnoremap J 5gj
 nnoremap K 5gk
+nnoremap L gt
+nnoremap H gT
+
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
@@ -405,7 +408,6 @@ let g:elm_setup_keybindings = 0
 
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
-Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
 " ----------------------------------------------------------------------------
@@ -418,7 +420,7 @@ set autoread
 set wildmenu
 map <c-p> :FZF<cr>
 
-let g:fzf_layout = { 'window': 'enew' }
+" let g:fzf_layout = { 'window': 'enew' }
 " let g:fzf_layout = { 'window': '-tabnew' }
 
 
@@ -428,7 +430,7 @@ let g:fzf_action = {
   \ 'down': 'split',
   \ 'right': 'vsplit' }
 
-
+" Open files in vertical split
 nnoremap <silent> <c-w>v :call fzf#run({
       \   'right': winwidth('.') / 2,
       \   'sink':  'vertical botright split' })<CR>
@@ -436,7 +438,11 @@ nnoremap <silent> <c-w>v :call fzf#run({
 nnoremap <silent> <c-w>s :call fzf#run({
       \   'down': '50%',
       \   'sink': 'split' })<CR>
-" nnoremap <silent> <c-w>s :call fzf#run({'source': 'ls', 'sink': 'e', 'options': '-m', 'down': '50%'})<CR>
+
+" Open files in anoter tab
+nnoremap <silent> <c-w>t :call fzf#run({
+      \   'tab': 'tabnew',
+      \   'sink': 'tabnew' })<CR>
 
 " search lines
 function! s:line_handler(l)
