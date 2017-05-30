@@ -3,6 +3,7 @@ source ~/.zsh/function.zsh
 source ~/.zsh/alias.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/github.zsh
+# source ~/.zsh/zsh-interactive-cd.plugin.zsh
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -27,3 +28,7 @@ HISTFILE=~/.zsh_history     #Where to save history to disk
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
+
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit

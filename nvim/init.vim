@@ -101,8 +101,7 @@ nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
 let g:ackprg = 'ag --vimgrep'
 nnoremap <leader>e :Ag<cr>
 " }}}
-"{{{ Plugins
-" vimplug {{{
+"{{{ Plugins (vim plug )
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 "call plug#begin('~/.config/nvim/plugged')
@@ -178,7 +177,12 @@ Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 " autoformat
-Plug 'sbdchd/neoformat'
+Plug 'sbdchd/neoformat' "{{{
+noremap <leader>f :Neoformat<CR>
+" autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+" Use formatprg when available
+" let g:neoformat_try_formatprg = 1
+"}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
 Plug 'w0rp/ale' "{{{
@@ -311,7 +315,7 @@ let g:fixmyjs_engine = 'eslint'
 " let g:fixmyjs_rc_path = '/Users/wangsong/temp/.eslintrc.js'
 let g:fixmyjs_rc_path = '~/.eslintrc.js'
 " let g:fixmyjs_use_local = 1
-noremap <leader>f :Fixmyjs<CR>
+" noremap <leader>f :Fixmyjs<CR>
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'nsf/gocode', {'rtp': 'nvim/'}
@@ -525,7 +529,6 @@ Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
 call plug#end()
 " }}}
-"}}}
 " cursor position {{{
 " ----------------------------------------------------------------------------
 autocmd BufReadPost *

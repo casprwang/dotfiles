@@ -4,6 +4,16 @@ sassup() {
   cd "$1"
 }
 
+# git new
+gitnew() {
+  git init
+  echo '# first touch' > README.md
+  git add .
+  git commit -m "first touch"
+  git remote add origin $1
+  git push -u origin master
+}
+
 # git setup
 gitsetup() {
   git init
