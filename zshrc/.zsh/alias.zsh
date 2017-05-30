@@ -1,6 +1,8 @@
 alias gp=gitpush
 alias git=hub
 alias mkdi=mkcdir
+alias d="fd"
+alias r="fdr"
 # alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node
 alias cdv="cd ~/dev"
@@ -54,6 +56,7 @@ alias ta="tmux a"
 # alias py="python"
 # alias py2="python2"
 alias py3="python3"
+alias nr="npm run"
 alias read="nvim README.md"
 alias o="open"
 alias n="node"

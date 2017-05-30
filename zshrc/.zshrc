@@ -15,3 +15,15 @@ eval $(opam config env)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+##############################################################################
+# History Configuration
+##############################################################################
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+HISTFILE=~/.zsh_history     #Where to save history to disk
+# #HISTDUP=erase               #Erase duplicates in the history file
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed

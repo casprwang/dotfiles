@@ -120,7 +120,7 @@ let g:deoplete#sources.reason = ['omni', 'buffer']
 " Plug 'tpope/vim-markdown'
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
-nnoremap <c-w><cr> :MaximizerToggle<CR>
+nnoremap <silent> <c-w><cr> :MaximizerToggle<CR>
 "}}}
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -149,6 +149,7 @@ let g:user_emmet_settings = {
 \}
 "}}}
 Plug 'benmills/vimux'
+Plug 'moll/vim-node'
 
 " React
 Plug 'fleischie/vim-styled-components'
@@ -420,7 +421,7 @@ set autoread
 set wildmenu
 map <c-p> :FZF<cr>
 
-" let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': 'enew' }
 " let g:fzf_layout = { 'window': '-tabnew' }
 
 
@@ -434,6 +435,7 @@ let g:fzf_action = {
 nnoremap <silent> <c-w>v :call fzf#run({
       \   'right': winwidth('.') / 2,
       \   'sink':  'vertical botright split' })<CR>
+
 " Open files in horizontal split
 nnoremap <silent> <c-w>s :call fzf#run({
       \   'down': '50%',
@@ -607,7 +609,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 "   au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
 "   au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
 "   au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
-"   au FileType python setl omnifunc=pythoncomplete#Complete
+"  au FileType python setl omnifunc=pythoncomplete#Complete
 "   au FileType xml setl omnifunc=xmlcomplete#CompleteTags
 " aug END
 let g:mta_use_matchparen_group = 1
