@@ -81,6 +81,9 @@ nnoremap <S-Enter> O<Esc>
 nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 
+" for git
+nnoremap gp :!gp 
+
 " for shift-enter
 nnoremap <c-b>b O<esc>
 
