@@ -134,6 +134,9 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jreybert/vimagit'
+Plug 'kassio/neoterm' "{{{
+let g:neoterm_shell = "zsh"
+"}}}
 " Plug 'kana/vim-textobj-function'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 " ----------------------------------------------------------------------------
@@ -159,7 +162,6 @@ let g:user_emmet_settings = {
 "}}}
 Plug 'benmills/vimux'
 Plug 'moll/vim-node'
-
 Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'
 " React
@@ -763,10 +765,5 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
-" set shell=/usr/bin/zsh\ -l
-" let $BASH_ENV = "~/.bash_aliases"
-if executable('zsh')
-  set shell=zsh\ -l
-endif
-" set shell=/usr/local/bin/zsh
-" set shell=/bin/zsh
+set shell=/bin/bash
+
