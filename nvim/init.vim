@@ -160,6 +160,7 @@ let g:user_emmet_settings = {
 Plug 'benmills/vimux'
 Plug 'moll/vim-node'
 
+Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'
 " React
 Plug 'fleischie/vim-styled-components'
@@ -764,5 +765,8 @@ autocmd FileType vim setlocal foldmethod=marker
 "}}}
 " set shell=/usr/bin/zsh\ -l
 " let $BASH_ENV = "~/.bash_aliases"
-" set shell=/bin/zsh\ -i
-set shell=zsh
+if executable('zsh')
+  set shell=zsh\ -l
+endif
+" set shell=/usr/local/bin/zsh
+" set shell=/bin/zsh
