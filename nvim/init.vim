@@ -762,5 +762,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
-"
-"
+" set shell=/usr/bin/zsh\ -l
+" let $BASH_ENV = "~/.bash_aliases"
+" set shell=/bin/zsh\ -i
+set shell=zsh

@@ -1,13 +1,16 @@
-source ~/.zsh/basic.zsh
-source ~/.zsh/function.zsh
-source ~/.zsh/alias.zsh
-source ~/.zsh/fzf.zsh
-source ~/.zsh/github.zsh
-# source ~/.zsh/zsh-interactive-cd.plugin.zsh
-
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+source ~/.zsh/basic.zsh
+source ~/.zsh/function.zsh
+source ~/.zsh/fzf.zsh
+source ~/.zsh/github.zsh
+source ~/.zsh/alias.zsh
+
+# source ~/.zsh/zsh-interactive-cd.plugin.zsh
+
+
+set shell=zsh\ -i
 
 # for ocaml&&reason
 . /Users/wangsong/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
