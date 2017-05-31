@@ -45,3 +45,5 @@ $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/insta
 - [ ] clean comments
 - [ ] install.sh for quick installation
 - [x] Linux setup
+
+
