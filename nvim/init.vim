@@ -141,6 +141,7 @@ nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
+Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'mattn/emmet-vim' " {{{
