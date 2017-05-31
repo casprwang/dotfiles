@@ -3,5 +3,4 @@ compile-cache
 dev
 storage
 .node-gyp
-
 .npm
