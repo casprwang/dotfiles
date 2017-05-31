@@ -13,6 +13,7 @@ keys = {
 hs.hotkey.bind(keys.ca, "t", function()
     -- hs.alert.show(hs.osascript.javascript('console.log("haha")'))
     -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
+    hs.spotify.displayCurrentTrack()
     -- hs.osascript.javascript('let a = 1;')
 end)
 

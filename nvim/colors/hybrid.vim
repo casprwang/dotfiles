@@ -453,5 +453,7 @@ let &background = s:style
 " }}}
 hi! StatusLine ctermbg=249 ctermfg=235
 hi TabLineFill guifg=red ctermfg=235
-hi TabLineSel ctermfg=249 ctermbg=235
-hi TabLine ctermfg=250 ctermbg=232
+hi TabLine ctermbg=249 ctermfg=235
+hi TabLineSel ctermfg=250 ctermbg=239
+" hi TabLineSel ctermfg=239 ctermbg=249
+" hi TabLine ctermfg=232 ctermbg=250

@@ -29,6 +29,11 @@ set clipboard=unnamed
 set list
 set scrolloff=1
 set autoread
+set title
+" set tab only showing the file name
+" set guitablabel=%N/\ %t\ %M
+set guioptions-=e
+set sessionoptions+=tabpages,globals
 set relativenumber
 set number
 set hlsearch
@@ -80,10 +85,10 @@ nnoremap <leader>, za
 nnoremap <c-b>b O<esc>
 
 " window resizing
-nnoremap <silent> = :vertical resize +10<cr>
-nnoremap <silent> - :vertical resize -10<cr>
-nnoremap <silent> + :resize +10<cr>
-nnoremap <silent> _ :resize -10<cr>
+" nnoremap <silent> = :vertical resize +10<cr>
+" nnoremap <silent> - :vertical resize -10<cr>
+" nnoremap <silent> + :resize +10<cr>
+" nnoremap <silent> _ :resize -10<cr>
 
 " for returning position ater yanking
 nnoremap <c-w>v <c-w>v<right>
@@ -150,6 +155,7 @@ let g:user_emmet_settings = {
 Plug 'benmills/vimux'
 Plug 'moll/vim-node'
 
+Plug 'gcmt/taboo.vim'
 " React
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
@@ -322,7 +328,10 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter' "{{{
-" let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 1
+nnoremap <leader>h :GitGutterToggle<cr>
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
 "}}}
 Plug 'junegunn/vim-easy-align' "{{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -597,7 +606,7 @@ let g:vim_json_syntax_conceal = 0
 " imap <Down> <c-j>
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
