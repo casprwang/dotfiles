@@ -26,8 +26,7 @@ gitsetup() {
 
 # quick git add+commit+push
 gitpush() {
-    git add .
-    git commit -m "$*"
+    git commit -am "$*"
     git push origin master
 }
 
