@@ -13,6 +13,7 @@
 " {{{ general settings
 " ----------------------------------------------------------------------------
 " Neovim
+set shell=/bin/bash
 let s:editor_root=expand("~/.config/nvim")
 " set the unique python virtual environment for neovim only
 let g:python_host_prog = '/Users/wangsong/.pyenv/versions/neovim2/bin/python'
@@ -765,5 +766,4 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
-set shell=/bin/bash
 
