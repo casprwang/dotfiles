@@ -135,6 +135,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jreybert/vimagit'
+Plug 'wangsongiam/vim-git-it'
 Plug 'kassio/neoterm' "{{{
 let g:neoterm_shell = "zsh"
 "}}}
@@ -766,6 +767,5 @@ autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
 "{{{ git functions
-silent command! -nargs=1 Gitit exec "!git add .&& git commit -m '".<q-args>."'"." && git push origin master"
 nnoremap <leader>p :Gitit 
 "}}}

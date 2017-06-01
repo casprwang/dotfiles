@@ -67,6 +67,7 @@ Plug 'reasonml/vim-reason-loader'
 Plug 'kana/vim-smartinput'
 Plug 'danro/rename.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'wangsongiam/vim-git-it'
 " Initialize plugin system
 call plug#end()
 
