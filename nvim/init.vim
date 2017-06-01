@@ -782,12 +782,15 @@ fu! Git()
   " exec "!git commit -m 'a test from vim'"
 endfu
 
-" fu! Runshell() 
-fu! Gitit(msg) 
-  exec "!git add ."
-  exec "!git commit -m"."'" a:msg ."'"
-  exec "!git push origin master"
-endfu
+" " fu! Runshell() 
+" fu! Gitit(msg) 
+"   exec "!git add ."
+"   exec "!git commit -m"."'" a:msg ."'"
+"   exec "!git push origin master"
+" endfu
+
+command! -nargs=1 FW exec "!git add .&& git commit -m '".<q-args>."'"
+
 
 " call Runshell(ljfkda)
 " call Gitit('haha')
