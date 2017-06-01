@@ -434,7 +434,6 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
 " ----------------------------------------------------------------------------
-nmap <leader>p :Windows<cr>
 nmap <c-f> :Lines<cr>
 set noswapfile
 set clipboard=unnamed
@@ -766,48 +765,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
-
-
-" function Meow()
-"   echom "Meow!"
-" endfunction
-
-" function! Displayname(name)
-"   echom "Hello!  My name is:"
-"   echom a:name
-" endfunction
-
-
-fu! Git() 
-  " exec "!git commit -m 'a test from vim'"
-endfu
-
-" " fu! Runshell() 
-" fu! Gitit(msg) 
-"   exec "!git add ."
-"   exec "!git commit -m"."'" a:msg ."'"
-"   exec "!git push origin master"
-" endfu
-
+"{{{ git functions
 command! -nargs=1 FW exec "!git add .&& git commit -m '".<q-args>."'"
-
-
-" call Runshell(ljfkda)
-" call Gitit('haha')
-" call Runshell()
-
-
-" function! AssignGood(foo)
-"   let foo_tmp = a:foo
-"   " let foo_tmp = "Yep"
-"   echom foo_tmp
-" endfunction
-
-" call AssignGood("test")
-" "
-" "
-" function! FooBar(...) " This is like *args in python
-"     echom a:0 " a:0 contains an integer which is the number of arguments passed to the function
-"     echom a:1 " a:1 contains the first argument passed, a:2 contains the second and so on
-"     echo a:000 " a:000 contains a list of all arguments that were passed to the function
-" endfunction
+nnoremap <leader>p :FW 
+"}}}
