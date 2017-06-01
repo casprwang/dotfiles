@@ -766,6 +766,6 @@ autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
 "{{{ git functions
-command! -nargs=1 FW exec "!git add .&& git commit -m '".<q-args>."'"
+command! -nargs=1 FW exec "!git add .&& git commit -m '".<q-args>."'"." && git push origin master"
 nnoremap <leader>p :FW 
 "}}}
