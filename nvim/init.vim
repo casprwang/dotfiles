@@ -784,10 +784,9 @@ endfu
 
 " fu! Runshell() 
 fu! Gitit(msg) 
-  " command = "!git commit -m " . "'" a:msg ."'" 
-  " silent exec '!git add .'
-  " echom "!git commit -m"."'" a:msg ."'"
+  exec "!git add ."
   exec "!git commit -m"."'" a:msg ."'"
+  exec "!git push origin master"
 endfu
 
 " call Runshell(ljfkda)
