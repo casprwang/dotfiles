@@ -18,7 +18,7 @@ tags
 nvim/deinPlugins
 nvim/bundle
 nvim/plugged/
-.vim/plugged
+.vim/plugged/
 nvim/dein/
 nvim/.cache
 nvim/undo/

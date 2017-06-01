@@ -767,3 +767,40 @@ autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
 
+
+" function Meow()
+"   echom "Meow!"
+" endfunction
+
+" function! Displayname(name)
+"   echom "Hello!  My name is:"
+"   echom a:name
+" endfunction
+
+" fu! Runshell() 
+fu! Gitit(msg) 
+  let command = "!git commit -m " . a:msg 
+  silent exec '!git add .'
+  exec command
+  exec '!git push origin master'
+endfu
+
+" call Runshell(ljfkda)
+" call Gitit('haha')
+" call Runshell()
+
+
+" function! AssignGood(foo)
+"   let foo_tmp = a:foo
+"   " let foo_tmp = "Yep"
+"   echom foo_tmp
+" endfunction
+
+" call AssignGood("test")
+" "
+" "
+" function! FooBar(...) " This is like *args in python
+"     echom a:0 " a:0 contains an integer which is the number of arguments passed to the function
+"     echom a:1 " a:1 contains the first argument passed, a:2 contains the second and so on
+"     echo a:000 " a:000 contains a list of all arguments that were passed to the function
+" endfunction
