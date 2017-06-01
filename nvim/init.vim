@@ -777,12 +777,17 @@ autocmd FileType vim setlocal foldmethod=marker
 "   echom a:name
 " endfunction
 
+
+fu! Git() 
+  " exec "!git commit -m 'a test from vim'"
+endfu
+
 " fu! Runshell() 
 fu! Gitit(msg) 
-  let command = "!git commit -m " . a:msg 
-  silent exec '!git add .'
-  exec command
-  exec '!git push origin master'
+  " command = "!git commit -m " . "'" a:msg ."'" 
+  " silent exec '!git add .'
+  " echom "!git commit -m"."'" a:msg ."'"
+  exec "!git commit -m"."'" a:msg ."'"
 endfu
 
 " call Runshell(ljfkda)
