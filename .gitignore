@@ -17,7 +17,7 @@ tags
 .atom/packages
 nvim/deinPlugins
 nvim/bundle
-nvim/plugged
+nvim/plugged/
 .vim/plugged
 nvim/dein/
 nvim/.cache
