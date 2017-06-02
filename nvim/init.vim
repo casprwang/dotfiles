@@ -13,7 +13,7 @@
 " {{{ general settings
 " ----------------------------------------------------------------------------
 " Neovim
-set shell=/bin/bash
+" set shell=/bin/bash
 let s:editor_root=expand("~/.config/nvim")
 " set the unique python virtual environment for neovim only
 let g:python_host_prog = '/Users/wangsong/.pyenv/versions/neovim2/bin/python'
@@ -136,8 +136,13 @@ Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jreybert/vimagit'
 Plug 'wangsongiam/vim-git-it'
-Plug 'kassio/neoterm' "{{{
-let g:neoterm_shell = "zsh"
+" Plug 'vimlab/split-term.vim'
+Plug 'wvffle/vimterm' "{{{
+" nnoremap <silent> <F4> :call vimterm#exec('g++  -o /tmp/out' . expand('%')) <CR>
+" nnoremap <silent> <F5> :call vimterm#exec('/tmp/out') <CR>
+
+nnoremap <c-^> :call vimterm#toggle() <CR>
+tnoremap <c-^> <C-\><C-n>:call vimterm#toggle() <CR>
 "}}}
 " Plug 'kana/vim-textobj-function'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
@@ -530,8 +535,6 @@ let g:mta_filetypes = {
 
 Plug 'othree/html5.vim'
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 " Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
@@ -769,3 +772,4 @@ autocmd FileType vim setlocal foldmethod=marker
 "{{{ git functions
 nnoremap <leader>p :Gitit 
 "}}}
+nnoremap <leader>n :!node %<cr>
