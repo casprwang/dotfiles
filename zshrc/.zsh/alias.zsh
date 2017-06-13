@@ -4,6 +4,7 @@ alias git=hub
 alias mkdi=mkcdir
 alias i="fd"
 alias cd="cd"
+alias gd="gatsby develop"
 alias r="fdr"
 # alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node

@@ -1,3 +1,3 @@
-function (jslkafjflsa) {
-  skldafjsafjsladjflsj
+nifunction(jslkafjflsa) {
+        skldafjsafjsladjflsj
 }

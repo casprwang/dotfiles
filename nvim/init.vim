@@ -105,7 +105,7 @@ nnoremap K 5gk
 nnoremap L gt
 nnoremap H gT
 
-nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
 nnoremap <leader>e :Ag<cr>
@@ -168,6 +168,7 @@ let g:user_emmet_settings = {
 \}
 "}}}
 Plug 'benmills/vimux'
+Plug 'kana/vim-textobj-indent'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'
@@ -199,13 +200,48 @@ Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 " autoformat
 Plug 'sbdchd/neoformat' "{{{
-noremap <leader>f :Neoformat<CR>
-" autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+
+let g:neoformat_enabled_javascript = ['prettier']
+autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 " Use formatprg when available
-" let g:neoformat_try_formatprg = 1
+let g:neoformat_try_formatprg = 1
+let g:neoformat_only_msg_on_error = 1
+" noremap <leader>f :Neoformat<cr>
 "}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'mitermayer/vim-prettier', { 
+	\ 'do': 'yarn install', 
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
+" max line lengh that prettier will wrap on
+nnoremap <leader>f :Prettier<cr>
+let g:prettier#config#print_width = 80
+
+" number of spaces per indentation level
+let g:prettier#config#tab_width = 2
+
+" use tabs over spaces
+let g:prettier#config#use_tabs = 'false'
+
+" print semicolons
+let g:prettier#config#semi = 'false'
+
+" single quotes over double quotes
+let g:prettier#config#single_quote = 'true' 
+
+" print spaces between brackets
+let g:prettier#config#bracket_spacing = 'true' 
+
+" put > on the last line instead of new line
+let g:prettier#config#jsx_bracket_same_line = 'false' 
+
+" none|es5|all
+let g:prettier#config#trailing_comma = 'all'
+
+" flow|babylon|typescript|postcss
+let g:prettier#config#parser = 'flow'
+"}}}
 Plug 'w0rp/ale' "{{{
 " no auto linting
 let g:ale_linter_aliases = {'reason': 'ocaml'}
@@ -254,6 +290,8 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 
 let g:ale_lint_delay = 400
 let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_column_always = 0
 "}}}"
 Plug 'Chiel92/vim-autoformat' " {{{
 " let g:formatter_yapf_style = 'pep9'
@@ -342,6 +380,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter' "{{{
 let g:gitgutter_enabled = 1
 nnoremap <leader>h :GitGutterToggle<cr>
@@ -535,6 +574,8 @@ let g:mta_filetypes = {
 
 Plug 'othree/html5.vim'
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
@@ -725,6 +766,7 @@ function! s:SetCommentString()
 endfunction
 
 autocmd CursorMoved *.jsx call s:SetCommentString()
+autocmd CursorMoved *.js call s:SetCommentString()
 "}}}
 "{{{ merlin, ocaml and reason
 " In your ~/.vimrc
@@ -772,4 +814,3 @@ autocmd FileType vim setlocal foldmethod=marker
 "{{{ git functions
 nnoremap <leader>p :Gitit 
 "}}}
-nnoremap <leader>n :!node %<cr>
