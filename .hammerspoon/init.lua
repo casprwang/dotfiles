@@ -11,9 +11,11 @@ keys = {
 
 
 hs.hotkey.bind(keys.ca, "t", function()
-    -- hs.alert.show(hs.osascript.javascript('console.log("haha")'))
+    -- hs.alert.show(hs.window.focusedWindow().title())
+
     -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
-    hs.spotify.displayCurrentTrack()
+    -- hs.spotify.displayCurrentTrack()
+    
     -- hs.osascript.javascript('let a = 1;')
 end)
 
@@ -23,9 +25,12 @@ appPath = {
     Tweetbot="/Applications/Tweetbot.app",
 }
 
+-- print(hs.application:title())
+ 
+-- print(hs.application.runningApplications())
 
 -- switching between screens
-hs.hotkey.bind({"cmd"}, 'escape', function ()
+hs.hotkey.bind({"ctrl"}, 'escape', function ()
   focusScreen(hs.window.focusedWindow():screen():next())
 end)
 
@@ -128,28 +133,6 @@ local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", relo
 hs.alert.show("Config loaded")
 
 
-
--- resizing window
--- local altKey = {"alt"}
-
--- local resizeMappings = {
---     h={0.5, 1},
---     l={1, 0.5},
--- }
-
--- for key in pairs(resizeMappings) do
---     hs.hotkey.bind(altKey, key, function()
---         local win = hs.window.focusedWindow()
---         if win then win:setSize(win:size():scale(resizeMappings[key])) end
---     end)
--- end
-
--- hs.hotkey.bind(altKey, key, function()
---     local win = hs.window.focusedWindow()
---     if win then win:setSize(win:size():scale({1, 0.5}))
---     end
--- end)
-
 hs.hotkey.bind(keys.a, 'j', function ()
     local win=hs.window.focusedWindow()
     if win then
@@ -164,21 +147,6 @@ hs.hotkey.bind(keys.a, 'k', function ()
     end
 end)
 
-
--- hs.hotkey.bind(keys.a, 'l', function ()
---     local win=hs.window.focusedWindow()
---     if win then
---         win:setSize(win:size():scale({0.5, 1}))
---     end
--- end)
-
-
--- hs.hotkey.bind(keys.a, 'h', function ()
---     local win=hs.window.focusedWindow()
---     if win then
---         win:setSize(win:size():scale({1, 0.5}))
---     end
--- end)
 
 local resizeMappings = {
     h={x=0, y=0, w=0.5, h=1},
@@ -289,7 +257,7 @@ function applicationWatcher(appName, eventType, appObject)
       for i,v in pairs(editting) do
         v:enable()
       end
-        if (string.find(appName, 'iTerm')) then
+        if (string.find(appName, 'iTerm') or (string.find(appName, 'VIM'))) then
             for i,v in pairs(editting) do
                 v:disable()
             end
@@ -302,13 +270,13 @@ function applicationWatcher(appName, eventType, appObject)
             for i,v in pairs(editting) do
                 v:disable()
             end
-        elseif not (string.find(appName, 'iTerm')) then
+        elseif not (string.find(appName, 'iTerm') or ( string.find(appName, 'VIM') )) then
             for i,v in pairs(editting) do
                 v:enable()
             end
         end
     end
 end
--- end
+
 appWatcher = hs.application.watcher.new(applicationWatcher)
 appWatcher:start()
