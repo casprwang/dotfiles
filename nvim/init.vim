@@ -118,14 +118,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 "Plugging
 Plug 'tpope/vim-commentary'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.reason = '[^. *\t]\.\w*\|\h\w*|#'
-let g:deoplete#sources = {}
-let g:deoplete#sources.reason = ['omni', 'buffer']
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
+"let g:deoplete#omni_patterns = {}
+"let g:deoplete#omni_patterns.reason = '[^. *\t]\.\w*\|\h\w*|#'
+"let g:deoplete#sources = {}
+"let g:deoplete#sources.reason = ['omni', 'buffer']
 
-" neocomplete and YouCompleteMe work out of the box
-"}}}
+"" neocomplete and YouCompleteMe work out of the box
+""}}}
 " Plug 'tpope/vim-markdown'
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
@@ -403,6 +403,7 @@ au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '
 " au Filetype js let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
 au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 let g:AutoPairsFlyMode = 0
 "}}}
 "Plug 'vim-airline/vim-airline-themes' "{{{
@@ -550,16 +551,16 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
 
-" Plug 'roxma/python-support.nvim' "{{{
-" for python completions
-" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
-" " language specific completions on markdown file
-" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
-" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'flake8')
-" let g:python_support_python2_requirements = add(get(g:,'python_support_python2_requirements',[]),'flake8')
-" " utils, optional
-" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
-" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
+ Plug 'roxma/python-support.nvim' "{{{
+ " for python completions
+ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
+ " language specific completions on markdown file
+ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
+ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'flake8')
+ let g:python_support_python2_requirements = add(get(g:,'python_support_python2_requirements',[]),'flake8')
+ " utils, optional
+ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
+ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
 "}}}
 
 
@@ -803,15 +804,20 @@ autocmd FileType reason let maplocalleader=","
 autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
-setlocal ts=2 sts=2 sw=2
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
-autocmd Filetype lua setlocal ts=4 sts=4 sw=4
-autocmd FileType vim setlocal foldmethod=marker
+" setlocal ts=2 sts=2 sw=2
+" autocmd Filetype html setlocal ts=2 sts=2 sw=2
+" autocmd Filetype css setlocal ts=2 sts=2 sw=2
+" autocmd Filetype python setlocal ts=4 sts=4 sw=4
+" autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+" autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
+" autocmd Filetype lua setlocal ts=4 sts=4 sw=4
+" autocmd FileType vim setlocal foldmethod=marker
 "}}}
 "{{{ git functions
 nnoremap <leader>p :Gitit 
 "}}}
+" if exists('+colorcolumn')
+"   set colorcolumn=80
+" else
+"   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" endif

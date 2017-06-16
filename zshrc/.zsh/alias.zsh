@@ -23,6 +23,7 @@ alias sozh="so ~/.zshrc"
 alias tn="tmux new -s"
 alias tnew="tmux new -s"
 alias tk="tmux kill-server"
+alias co="cd ~/dev/"
 
 alias ml="ocaml"
 # alias vimr="cd ~/dotfiles && nvim nvim/init.vim"
