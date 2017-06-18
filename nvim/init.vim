@@ -53,7 +53,6 @@ set smarttab
 set undofile                " Save undo's after file closes
 set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
-set expandtab
 " }}}
 " {{{ mapping 
 "----------------------------------------------------------------------------
@@ -82,6 +81,7 @@ nnoremap <S-Enter> O<Esc>
 nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 nnoremap 0 ^
+nnoremap <leader>r :!python3 %<cr>
 
 " for git
 nnoremap gp :!gp 
@@ -804,20 +804,17 @@ autocmd FileType reason let maplocalleader=","
 autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
-" setlocal ts=2 sts=2 sw=2
-" autocmd Filetype html setlocal ts=2 sts=2 sw=2
-" autocmd Filetype css setlocal ts=2 sts=2 sw=2
-" autocmd Filetype python setlocal ts=4 sts=4 sw=4
-" autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-" autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
-" autocmd Filetype lua setlocal ts=4 sts=4 sw=4
-" autocmd FileType vim setlocal foldmethod=marker
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
+autocmd Filetype lua setlocal ts=4 sts=4 sw=4
+autocmd FileType vim setlocal foldmethod=marker
+setlocal ts=2 sts=2 sw=2
 "}}}
 "{{{ git functions
 nnoremap <leader>p :Gitit 
 "}}}
-" if exists('+colorcolumn')
-"   set colorcolumn=80
-" else
-"   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-" endif
+autocmd FileType vim setlocal foldmethod=marker

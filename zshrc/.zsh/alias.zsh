@@ -18,7 +18,7 @@ alias l="ls -la"
 
 # for tmux
 alias t="tmux a"
-alias cdd="cd ~/dotfiles"
+# alias cdd="cd ~/dotfiles"
 alias sozh="so ~/.zshrc"
 alias tn="tmux new -s"
 alias tnew="tmux new -s"
@@ -38,6 +38,7 @@ alias szh="source_zsh"
 alias cdo="cd ~/dotfiles"
 alias cno="cd ~/dev/node"
 alias czh="v ~/.zshrc"
+alias push="git push origin master"
 
 # alias eslint="./node_modules/.bin/eslint"
 alias gs="git status"
