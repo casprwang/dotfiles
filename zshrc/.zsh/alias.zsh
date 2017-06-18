@@ -3,6 +3,7 @@ alias gp=gitpush
 alias git=hub
 alias mkdi=mkcdir
 alias i="fd"
+alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
