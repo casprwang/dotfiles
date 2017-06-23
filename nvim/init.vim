@@ -160,7 +160,7 @@ Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'mattn/emmet-vim' " {{{
 " emmet
 imap <c-t> <c-y>,
-let g:user_emmet_settings = {
+let g:user_emme_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
 \  },
@@ -195,8 +195,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "}}}
 Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
-Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
+" Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
+" Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 " autoformat
 Plug 'sbdchd/neoformat' "{{{
 
@@ -464,11 +464,11 @@ Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer 
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
 " for swift
-Plug 'sheerun/vim-polyglot' "{{{
-" let g:polyglot_disabled = ['javascript']
-" }}}
+" Plug 'sheerun/vim-polyglot' "{{{
+" " let g:polyglot_disabled = ['javascript']
+" " }}}
 Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
@@ -799,8 +799,8 @@ autocmd FileType ocaml let maplocalleader=","
 " autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " autocmd Filetype css setlocal ts=2 sts=2 sw=2
 " autocmd Filetype scss setlocal ts=2 sts=2 sw=2
-" autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-" autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
 " setlocal ts=2 sts=2 sw=2
 " autocmd Filetype python setlocal ts=4 sts=4 sw=4
