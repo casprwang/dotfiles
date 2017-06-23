@@ -1,3 +1,0 @@
-nifunction(jslkafjflsa) {
-        skldafjsafjsladjflsj
-}

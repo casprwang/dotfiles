@@ -35,12 +35,12 @@ fo() {
 # }
 #
 #
-# fd - cd to selected directory
+# Another fd - cd into the selected directory
+# This one differs from the above, by only showing the sub directories and not
+#  showing the directories within those.
 fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
+  DIR=`find * -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux` \
+    && cd "$DIR"
 }
 
 fdr() {

@@ -15,7 +15,7 @@ alias gd="gatsby develop"
 alias ag="ag --nobreak --nonumbers --noheading . | fzf"
 alias pane="ftpane"
 alias sup="cd ~/wangsup"
-alias l="ls -la"
+alias ls="ls -la"
 
 # for tmux
 alias t="tmux a"

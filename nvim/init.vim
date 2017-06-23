@@ -41,9 +41,7 @@ set hlsearch
 "{{{ indentation
 " ----------------------------------------------------------------------------
 set autoindent
-set copyindent
 set expandtab
-set smartindent
 "}}}
 set incsearch
 set ignorecase
@@ -378,9 +376,11 @@ let g:fixmyjs_rc_path = '~/.eslintrc.js'
 " noremap <leader>f :Fixmyjs<CR>
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
-" Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'othree/csscomplete.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' "{{{
+nnoremap gi :Gstatus<cr>
+nnoremap gp :Gpush<cr>
+"}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter' "{{{
 let g:gitgutter_enabled = 1
@@ -456,7 +456,7 @@ au User CmSetup call cm#register_source({'name' : 'cm-css',
 let g:cm_sources_override = {
     \ 'cm-tags': {'enable':0}
     \ }
-
+let g:cm_refresh_default_min_word_len=1
 inoremap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "}}}"
@@ -467,15 +467,12 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
 " }}}
-
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
-
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf.vim' " fzf{{{
@@ -550,7 +547,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
-
  Plug 'roxma/python-support.nvim' "{{{
  " for python completions
  let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
@@ -562,8 +558,6 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
  let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
  let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
 "}}}
-
-
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
@@ -573,7 +567,6 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 "}}}
-
 Plug 'othree/html5.vim'
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 Plug 'junegunn/fzf'
@@ -588,7 +581,6 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 "}}}
-
 Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
 call plug#end()
@@ -804,17 +796,18 @@ autocmd FileType reason let maplocalleader=","
 autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
-autocmd Filetype scss setlocal ts=2 sts=2 sw=2
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
-autocmd Filetype lua setlocal ts=4 sts=4 sw=4
-autocmd FileType vim setlocal foldmethod=marker
-setlocal ts=2 sts=2 sw=2
+" autocmd Filetype html setlocal ts=2 sts=2 sw=2
+" autocmd Filetype css setlocal ts=2 sts=2 sw=2
+" autocmd Filetype scss setlocal ts=2 sts=2 sw=2
+" autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+" autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
+" autocmd FileType vim setlocal foldmethod=marker
+" setlocal ts=2 sts=2 sw=2
+" autocmd Filetype python setlocal ts=4 sts=4 sw=4
+" autocmd Filetype lua setlocal ts=4 sts=4 sw=4
 "}}}
 "{{{ git functions
 nnoremap <leader>p :Gitit 
 "}}}
 autocmd FileType vim setlocal foldmethod=marker
+set smartindent
