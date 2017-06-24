@@ -5,12 +5,62 @@
     "show_profile_name_in_menu_bar": false
   },
   "profiles": [{
+    "devices": [],
+    "fn_function_keys": {
+      "f1": "display_brightness_decrement",
+      "f10": "mute",
+      "f11": "volume_decrement",
+      "f12": "volume_increment",
+      "f2": "display_brightness_increment",
+      "f3": "mission_control",
+      "f4": "launchpad",
+      "f5": "illumination_decrement",
+      "f6": "illumination_increment",
+      "f7": "rewind",
+      "f8": "play_or_pause",
+      "f9": "fastforward"
+    },
+    "name": "",
+    "selected": false,
     "simple_modifications": {
-      "right_command": "left_control",
-      "caps_lock": "escape"
+      "caps_lock": "escape",
+      "right_command": "left_control"
+    },
+
+    "complex_modifications": {
+      "rules": [{
+        "manipulators": [{
+          "description": "make holding slash to hyper key",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "left_command",
+            "modifiers": [
+              "left_option",
+              "left_shift"
+
+          }],
+          "to_if_alone": [{
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          }],
+          "type": "basic"
+        }]
+      }]
     },
     "virtual_hid_keyboard": {
-      "caps_lock_delay_milliseconds": 0
+      "caps_lock_delay_milliseconds": 0,
+      "keyboard_type": "ansi"
     }
   }]
 }
