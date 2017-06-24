@@ -195,8 +195,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "}}}
 Plug 'othree/html5.vim'
-" Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
-" Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
+Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
+Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 " autoformat
 Plug 'sbdchd/neoformat' "{{{
 
@@ -210,7 +210,7 @@ let g:neoformat_only_msg_on_error = 1
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'mitermayer/vim-prettier', { 
+Plug 'mitermayer/vim-prettier', {
 	\ 'do': 'yarn install', 
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
 " max line lengh that prettier will wrap on
@@ -464,9 +464,9 @@ Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer 
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
 " for swift
-" Plug 'sheerun/vim-polyglot' "{{{
-" " let g:polyglot_disabled = ['javascript']
-" " }}}
+Plug 'sheerun/vim-polyglot' "{{{
+" let g:polyglot_disabled = ['javascript']
+" }}}
 Plug 'mxw/vim-jsx'
 " Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-surround'
@@ -804,7 +804,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
 " setlocal ts=2 sts=2 sw=2
 " autocmd Filetype python setlocal ts=4 sts=4 sw=4
-" autocmd Filetype lua setlocal ts=4 sts=4 sw=4
+autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
 "{{{ git functions
 nnoremap <leader>p :Gitit 
