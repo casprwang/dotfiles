@@ -20,7 +20,7 @@ hs.hotkey.bind(keys.ca, "t", function()
 end)
 
 appPath = {
-    Code="/Applications/Visual Studio Code.app",
+    -- Code="/Applications/Visual Studio Code.app",
     iTerm2="/Applications/iTerm.app",
     Tweetbot="/Applications/Tweetbot.app",
 }
@@ -242,9 +242,9 @@ function toggle_application(_app, path)
     end
 end
 
-altV =hs.hotkey.bind(keys.a, "v", function()
-    toggle_application("Code",appPath.Code)
-end)
+-- altV =hs.hotkey.bind(keys.a, "v", function()
+--     toggle_application("Code",appPath.Code)
+-- end)
 
 hs.hotkey.bind(keys.a, "t", function()
     toggle_application('Tweetbot', appPath.Tweetbot)

@@ -7,9 +7,6 @@
 { "key": "ctrl+shift+5",           "command": "workbench.view.extensions" },
 { "key": "shift+ctrl+4",           "command": "workbench.view.debug" },
 
-{ "key": "cmd+s",           "command": "workbench.action.git.sync" },
-{ "key": "cmd+k k",           "command": "workbench.action.openGlobalKeybindings" },
-{ "key": "cmd+k enter",           "command": "workbench.action.toggleMaximizedPanel" },
 { "key": "ctrl+shift+2",           "command": "workbench.view.search",
                                      "when": "!searchViewletVisible" },
 { "key": "cmd+k p",               "command": "extension.sidePreview",
@@ -27,12 +24,5 @@
 { "key": "ctrl+shift+tab",          "command": "workbench.action.previousEditor" },
 
 { "key": "ctrl-p",                 "command": "workbench.action.quickOpen" },
-
-
-{ "key": "ctrl+w h",        "command": "workbench.action.focusPreviousGroup" },
-{ "key": "shift+cmd+c",               "command": "extension.colorHelper.pick",
-                                     "when": "editorTextFocus" },
-{ "key": "cmd+k p",                 "command": "workbench.action.switchWindow" },
-{ "key": "cmd+k w",                 "command": "workbench.action.switchWindow" },
 ]
 

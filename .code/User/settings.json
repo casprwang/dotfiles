@@ -1,37 +1,17 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": [
-                ":"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.showCommands",
-                    "args": []
-                }
-            ]
-        }
-    ],
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/local/bin/nvim",
     // "files.autoSave": "off",
-    "files.autoSave": "on",
     "files.associations": {
         "*.ml": "ocaml",
         "*.mli": "ocaml"
     },
     "git.confirmSync": false,
-    "window.zoomLevel": 0,
-    "openInGitHub.defaultBranch": "dev", // Set default branch, default: master
     "emmet.triggerExpansionOnTab": false,
     "editor.tabSize": 2,
     "emmet.syntaxProfiles": {
-        "javascript": "html"
-    },
-    "emmet.syntaxProfiles": {
-        "javascript": "jsx"
+        "javascript": [ "html", "jsx" ]
     },
     // "emmet.triggerExpansionOnTab": false,
     "typescript.check.tscVersion": false,
@@ -46,7 +26,6 @@
     "vim.easymotion": true,
     "workbench.editor.enablePreview": false,
     "editor.lineNumbers": "relative",
-    "vim.scroll": 5,
     // "terminal.integrated.cursorBlinking": false,
     // "editor.cursorBlinking": "solid",
     "vim.insertModeKeyBindings": [
@@ -81,17 +60,11 @@
             "after": [],
             "commands": [
                 {
-                    "command": "cursorLineEnd", 
+                    "command": "cursorLineEnd"
                 }
             ]
         }
     ],
-    //     "vim.insertModeKeyBindings": [
-    //       {
-    //           "before": ["<Esc>"],
-    //           "after": ["<Esc>", "<Esc>"],
-    //     },
-    // ],
     "vim.otherModesKeyBindings": [
         {
             "before": [
@@ -100,7 +73,7 @@
             "after": [
                 "o",
                 "<Esc>"
-            ],
+            ]
         },
         {
             "before": [
@@ -109,7 +82,7 @@
             "after": [
                 "5",
                 "j"
-            ],
+            ]
         },
         {
             "before": [
@@ -119,7 +92,7 @@
             "after": [
                 "cmd",
                 "s"
-            ],
+            ]
         },
         {
             "before": [
@@ -128,7 +101,7 @@
             "after": [
                 "5",
                 "k"
-            ],
+            ]
         },
         {
             "before": [
@@ -141,7 +114,7 @@
                     "args": []
                 }
             ]
-        },
+        }
     ],
     "vim.otherModesKeyBindingsNonRecursive": [
         {
@@ -149,10 +122,24 @@
                 "Z",
                 "Z"
             ],
-            "after": [],
+            "after": [
+            ],
             "commands": [
                 {
                     "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "toggleSideBarVisibility",
                     "args": []
                 }
             ]
@@ -173,36 +160,37 @@
         {
             "before": [
                 "g",
+                "/"
+            ],
+            "after": [
+                "g",
                 "c"
-            ],
-            "after": [
-                "g",
-                "/"
             ]
         },
         {
             "before": [
                 "g",
-                "C"
+                "i",
+                "s"
             ],
             "after": [
-                "g",
-                "/"
-            ]
+            ],
+           "commands": [
+               {
+                   "command": "git.stage",
+                   "args": []
+               }
+           ]
         },
         {
-            "before": [
-                "g",
-                "/",
-                "/"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.commentLine",
-                    "args": []
-                }
-            ]
+           "before": ["g", "/", "/"],
+           "after": [],
+           "commands": [
+               {
+                   "command": "editor.action.commentLine",
+                   "args": []
+               }
+           ]
         },
         {
             "before": [
@@ -217,6 +205,11 @@
                     "args": []
                 }
             ]
-        },
-    ]
+        }
+    ],
+    "vim.disableAnnoyingNeovimMessage": true,
+    "guides.enabled": false,
+    "workbench.colorTheme": "Solarized Light",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "window.zoomLevel": 0
 }
