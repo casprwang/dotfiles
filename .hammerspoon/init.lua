@@ -15,7 +15,7 @@ hs.hotkey.bind(keys.ca, "t", function()
 
     -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
     -- hs.spotify.displayCurrentTrack()
-    
+
     -- hs.osascript.javascript('let a = 1;')
 end)
 
@@ -26,7 +26,7 @@ appPath = {
 }
 
 -- print(hs.application:title())
- 
+
 -- print(hs.application.runningApplications())
 
 -- switching between screens

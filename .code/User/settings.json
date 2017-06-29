@@ -209,7 +209,7 @@
     ],
     "vim.disableAnnoyingNeovimMessage": true,
     "guides.enabled": false,
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Solarized Dark",
     "editor.multiCursorModifier": "ctrlCmd",
     "window.zoomLevel": 0
 }

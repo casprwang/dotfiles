@@ -50,6 +50,7 @@
       "vim-plus-autocomplete-emmet-compatibility"
       "tree-view"
       "Hydrogen"
+      "pigments"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -67,7 +68,7 @@
     telemetryConsent: "no"
     themes: [
       "one-light-ui"
-      "atom-dark-syntax"
+      "atom-light-syntax"
     ]
     titleBar: "custom"
   "disable-keybindings": {}
