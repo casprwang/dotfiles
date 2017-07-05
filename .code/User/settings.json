@@ -31,7 +31,7 @@
     "vim.insertModeKeyBindings": [
         {
             "before": [
-                "<c-o>"
+                "<c-i>"
             ],
             "after": [],
             "commands": [

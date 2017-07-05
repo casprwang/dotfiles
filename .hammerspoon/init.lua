@@ -10,6 +10,7 @@ keys = {
 }
 
 
+-- for testing new bindings 
 hs.hotkey.bind(keys.ca, "t", function()
     -- hs.alert.show(hs.window.focusedWindow().title())
 
@@ -33,6 +34,15 @@ appPath = {
 hs.hotkey.bind({"ctrl"}, 'escape', function ()
   focusScreen(hs.window.focusedWindow():screen():next())
 end)
+
+-- showing the current time
+hs.hotkey.bind({"cmd", "alt", "shift"}, "t", function()
+  local time = hs.timer.localTime()
+  local x = math.floor(time/3600)
+  local y = math.floor((time - x * 3600)/60)
+  hs.alert.show(tostring(x)..":"..tostring(y))
+end)
+
 
 --Predicate that checks if a window belongs to a screen
 function isInScreen(screen, win)
@@ -136,14 +146,14 @@ hs.alert.show("Config loaded")
 hs.hotkey.bind(keys.a, 'j', function ()
     local win=hs.window.focusedWindow()
     if win then
-        win:setSize(win:size():scale({1, 2}))
+        win:setSize(win:size():scale({1, 1.5}))
     end
 end)
 
 hs.hotkey.bind(keys.a, 'k', function ()
     local win=hs.window.focusedWindow()
     if win then
-        win:setSize(win:size():scale({1, 0.5}))
+        win:setSize(win:size():scale({1, 0.75}))
     end
 end)
 
