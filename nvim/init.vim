@@ -159,7 +159,6 @@ Plug 'vim-scripts/mru.vim'
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'mattn/emmet-vim' " {{{
 " emmet
-imap <c-t> <c-y>,
 let g:user_emme_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
@@ -456,8 +455,9 @@ au User CmSetup call cm#register_source({'name' : 'cm-css',
 let g:cm_sources_override = {
     \ 'cm-tags': {'enable':0}
     \ }
+
 let g:cm_refresh_default_min_word_len=1
-inoremap <silent> <c-i> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+inoremap <silent> <c-t> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}

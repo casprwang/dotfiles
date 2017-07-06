@@ -7,6 +7,7 @@ alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
+alias ia="open -a iA\ Writer"
 # alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node
 alias cdv="cd ~/dev"
