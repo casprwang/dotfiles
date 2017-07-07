@@ -10,7 +10,7 @@
         "manipulators": [{
           "description": "Change caps_lock to control when used as modifier, escape when used alone",
           "from": {
-            "key_code": "semicolon",
+            "key_code": "caps_lock",
             "modifiers": {
               "optional": [
                 "any"
@@ -25,7 +25,7 @@
             ]
           }],
           "to_if_alone": [{
-            "key_code": "semicolon",
+            "key_code": "escape",
             "modifiers": {
               "optional": [
                 "any"
@@ -54,7 +54,6 @@
     "name": "",
     "selected": false,
     "simple_modifications": {
-      "caps_lock": "escape",
       "right_command": "left_control"
     },
     "virtual_hid_keyboard": {
