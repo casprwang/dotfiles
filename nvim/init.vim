@@ -21,6 +21,7 @@ let g:python3_host_prog = '/Users/wangsong/.pyenv/versions/neovim3/bin/python'
 " ----------------------------------------------------------------------------
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 set nowrap
+set smartindent
 set splitright
 set splitbelow
 set timeoutlen=1000 ttimeoutlen=0
@@ -240,57 +241,57 @@ let g:prettier#config#trailing_comma = 'all'
 " flow|babylon|typescript|postcss
 let g:prettier#config#parser = 'flow'
 "}}}
-Plug 'w0rp/ale' "{{{
-" no auto linting
-let g:ale_linter_aliases = {'reason': 'ocaml'}
+"Plug 'w0rp/ale' "{{{
+"" no auto linting
+"let g:ale_linter_aliases = {'reason': 'ocaml'}
 
-" ale style{{{
-" ----------------------------------------------------------------------------
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '✖'
-let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
-hi SignColumn ctermbg=none
-hi! link ALEError Directory
-" }}}
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 0
+"" ale style{{{
+"" ----------------------------------------------------------------------------
+"let g:ale_sign_error = '✖'
+"let g:ale_sign_warning = '✖'
+"let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
+"hi SignColumn ctermbg=none
+"hi! link ALEError Directory
+"" }}}
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_save = 0
 
-hi ALEError ctermfg=none ctermbg=none
-hi ALEWarning ctermfg=none ctermbg=none
-hi ALEErrorSign ctermfg=red ctermbg=none
-hi ALEWarningSign ctermfg=gray ctermbg=none
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" let g:ale_javascript_eslint_use_global=1
-" let g:formatdef_eslint = '"eslint --fix --stdin"'
-" let g:formatters_javascript = ['eslint']
-" let g:formatdef_xo_javascript = '"xo --fix --stdin"'
-" let g:formatters_javascript = ['xo_javascript']
-let g:ale_linters = {
-      \   'javascript': ['eslint'],
-      \   'html': ['htmlhint'],
-      \}
+"hi ALEError ctermfg=none ctermbg=none
+"hi ALEWarning ctermfg=none ctermbg=none
+"hi ALEErrorSign ctermfg=red ctermbg=none
+"hi ALEWarningSign ctermfg=gray ctermbg=none
+"let g:ale_set_loclist = 0
+"let g:ale_set_quickfix = 1
+"" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"" let g:ale_javascript_eslint_use_global=1
+"" let g:formatdef_eslint = '"eslint --fix --stdin"'
+"" let g:formatters_javascript = ['eslint']
+"" let g:formatdef_xo_javascript = '"xo --fix --stdin"'
+"" let g:formatters_javascript = ['xo_javascript']
+"let g:ale_linters = {
+"      \   'javascript': ['eslint'],
+"      \   'html': ['htmlhint'],
+"      \}
 
-let g:ale_html_htmlhint_use_global = 1 
-let g:ale_html_htmlhint_executable = 'htmlhint'
-let g:ale_html_htmlhint_options = '--format=unix'
+"let g:ale_html_htmlhint_use_global = 1 
+"let g:ale_html_htmlhint_executable = 'htmlhint'
+"let g:ale_html_htmlhint_options = '--format=unix'
 
-" for jsx
-augroup FiletypeGroup
-  autocmd!
-  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
-" let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
-" let g:ale_linter_aliases = {'jsx': 'css'}
+"" for jsx
+"augroup FiletypeGroup
+"  autocmd!
+"  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+"augroup END
+"" let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+"" let g:ale_linter_aliases = {'jsx': 'css'}
 
 
-let g:ale_lint_delay = 400
-let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_sign_column_always = 0
-"}}}"
+"let g:ale_lint_delay = 400
+"let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_sign_column_always = 0
+""}}}"
 Plug 'Chiel92/vim-autoformat' " {{{
 " let g:formatter_yapf_style = 'pep9'
 " " }}}
@@ -457,7 +458,7 @@ let g:cm_sources_override = {
     \ }
 
 let g:cm_refresh_default_min_word_len=1
-inoremap <silent> <c-t> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+inoremap <silent> <c-c> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
@@ -607,13 +608,17 @@ colorscheme hybrid
 "status bar{{{
 " ----------------------------------------------------------------------------
 set laststatus=2
-" set statusline=%f         " Path to the file
-" :set statusline+=/    " Separator
-" set statusline+=%{ALEGetStatusLine()}
-" set statusline+=%=        " Switch to the right side
+" set filename on the left side
+set statusline=%f
+" line separator
+set statusline+=%=
+" set gitgutter on the right side
+set statusline+=%{join(GitGutterGetHunkSummary())}
+        " Switch to the right side
 " set statusline+=%l        " Current line
 " set statusline+=/         " Separator
 " set statusline+=%L        " Total lines
+" set statusline=%{join(GitGutterGetHunkSummary())}
 "}}}
 " completion {{{
 "----------------------------------------------------------------------------
@@ -797,12 +802,12 @@ autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
 " autocmd Filetype html setlocal ts=2 sts=2 sw=2
-" autocmd Filetype css setlocal ts=2 sts=2 sw=2
-" autocmd Filetype scss setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
-" setlocal ts=2 sts=2 sw=2
+setlocal ts=2 sts=2 sw=2
 " autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
@@ -810,4 +815,3 @@ autocmd Filetype json setlocal ts=2 sts=2 sw=2
 nnoremap <leader>p :Gitit 
 "}}}
 autocmd FileType vim setlocal foldmethod=marker
-set smartindent

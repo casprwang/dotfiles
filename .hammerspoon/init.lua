@@ -198,6 +198,10 @@ editting.cW= hs.hotkey.bind(keys.c, "w", function()
     hs.eventtap.keyStroke({'alt'}, "delete")
 end)
 
+editting.cM= hs.hotkey.bind(keys.c, "m", function()
+    hs.eventtap.keyStroke("return")
+end)
+
 -- editting.cD = hs.hotkey.bind(keys.c, "d", function()
 --     hs.eventtap.keyStroke({'alt'}, "right", 0)
 --     hs.eventtap.keyStroke({'alt'}, "delete", 0)
