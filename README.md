@@ -8,7 +8,7 @@
 	<br>
 </h1>
 
-![image](https://cloud.githubusercontent.com/assets/19645990/24074609/5ec34562-0be2-11e7-8821-8140c0711f0d.png)
+![image](https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png)
 
 ## Configurations for:
 * Neovim 
