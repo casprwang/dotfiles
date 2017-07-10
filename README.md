@@ -24,6 +24,7 @@
 | VSCode Editor |[./.code/](./.code)  |
 | Atom Editor (Deprecated in April, 2017) | [./.atom/](./.atom) |
 
+## Highlights
 ### Hammerspoon features 
 * Monitor Swithcing
 * Scoped shortcuts for Apps
