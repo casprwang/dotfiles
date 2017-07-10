@@ -31,17 +31,6 @@ make sure you know what [this](https://github.com/wangsongiam/dotfiles/blob/mast
 $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
 ```
 
-### Todos
-- [x] ~~Use Neomake for asynchronous linting~~
-- [x] Demos
-- [x] A.L.E for linting
-- [x] ~~Use Deoplete for asynchronous completion~~
-- [x] cmd key shortcuts for tmux
-- [x] ~~diminactive~~
-- [ ] clean comments
-- [ ] install.sh for quick installation
-- [x] Linux setup
-
 ### License
 This repo is fully under [MIT Lincese](LICENSE), by that you can do almost
 anything you want with it.
