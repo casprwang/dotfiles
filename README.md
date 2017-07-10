@@ -1,11 +1,5 @@
 # Dotfiles
-<h1 align="center">
-	<br>
-	<img width="400" src="https://cdn.rawgit.com/wangsongiam/dotfiles/c8b54909/demos/dotfiles-1.svg" alt="dotfiles">
-	<br>
-	<br>
-	<br>
-</h1>
+A set of dotfiles for a poductive and enjoyable workstation.
 
 ![image](https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png)
 
