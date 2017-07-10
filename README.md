@@ -9,18 +9,20 @@
 
 ![image](https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png)
 
-## Configurations for:
-* Neovim [init.vim](./nvim/init.vim)
-* Tmux [.tmux.conf](./.tmux.conf)
-* iTerm [iterm.json](./iterm.json)
-* Zshell [./zsh/*](./zsh)
-* Karabiner-Elements [karabiner.json](./karabiner.json)
-* Hammerspoon [.hammerspoon](./.hammerspoon)
-* Git [.gitconfig](./.gitconfig)
-* Xcode [.xvimrc](.xvimrc)
-* VSCode Editor [./.code/*](./.code)
-* Alfred 3
-* Atom Editor [./.atom/*](./.atom) (Deprecated in April, 2017)
+## Table of content
+
+|  Name| Filepath |
+|:--|:--|
+| Neovim | [init.vim](./nvim/init.vim) |
+| Tmux | [.tmux.conf](./.tmux.conf) |
+| iTerm | [iterm.json](./iterm.json) |
+| Zshell | [./zsh/*](./zsh) |
+| Karabiner-Element | [karabiner.json](./karabiner.json) |
+| Hammerspoon | [.hammerspoon](./.hammerspoon) |
+| Git | [.gitconfig](./.gitconfig) |
+| Xcode | [.xvimrc](.xvimrc) |
+| VSCode Editor |[./.code/*](./.code)  |
+| Atom Editor (Deprecated in April, 2017) | [./.atom/*](./.atom) |
 
 ### Hammerspoon features 
 * Monitor Swithcing
