@@ -10,7 +10,7 @@ A set of dotfiles for a poductive and enjoyable workstation.
 | Neovim | [init.vim](./nvim/init.vim) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
 | iTerm | [iterm.json](./iterm.json) |
-| Zshell | [zsh/](./zsh) |
+| Zshell | [zsh/](./zshrc) |
 | Karabiner-Element | [karabiner.json](./karabiner.json) |
 | Hammerspoon | [.hammerspoon](./.hammerspoon/) |
 | Git | [.gitconfig](./.gitconfig) |
