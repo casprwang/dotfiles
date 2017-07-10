@@ -382,6 +382,7 @@ Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gp :Gpush<cr>
 nnoremap gm :Gcommit<cr>
+nnoremap gd :Gdiff<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter' "{{{
