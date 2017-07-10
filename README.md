@@ -31,13 +31,13 @@
 * Window Moving/Resizing
 
 
-### Installation (Vim only)
+## Installation (Vim only)
 make sure you know what [this](https://github.com/wangsongiam/dotfiles/blob/master/install.sh) means and have git installed
 
 ```
 $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/install.sh | sh
 ```
 
-### License
+## License
 This repo is fully under [MIT Lincese](LICENSE), by that you can do almost
 anything you want with it.
