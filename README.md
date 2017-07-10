@@ -11,16 +11,16 @@
 
 ## Configurations for:
 * Neovim [init.vim](./nvim/init.vim)
-* Tmux
-* iTerm
-* Zshell
-* Karabiner-Elements
-* Hammerspoon 
-* Git
-* Xcode
-* VSCode Editor
+* Tmux [.tmux.conf](./.tmux.conf)
+* iTerm [iterm.json](./iterm.json)
+* Zshell [./zsh/*](./zsh)
+* Karabiner-Elements [karabiner.json](./karabiner.json)
+* Hammerspoon [.hammerspoon](./.hammerspoon)
+* Git [.gitconfig](./.gitconfig)
+* Xcode [.xvimrc](.xvimrc)
+* VSCode Editor [./.code/*](./.code)
 * Alfred 3
-* Atom Editor (Deprecated in April, 2017)
+* Atom Editor [./.atom/*](./.atom) (Deprecated in April, 2017)
 
 ### Hammerspoon features 
 * Monitor Swithcing
