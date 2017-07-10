@@ -16,13 +16,13 @@
 | Neovim | [init.vim](./nvim/init.vim) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
 | iTerm | [iterm.json](./iterm.json) |
-| Zshell | [./zsh/](./zsh) |
+| Zshell | [zsh/](./zsh) |
 | Karabiner-Element | [karabiner.json](./karabiner.json) |
-| Hammerspoon | [.hammerspoon](./.hammerspoon) |
+| Hammerspoon | [.hammerspoon](./.hammerspoon/) |
 | Git | [.gitconfig](./.gitconfig) |
 | Xcode | [.xvimrc](.xvimrc) |
-| VSCode Editor |[./.code/](./.code)  |
-| Atom Editor (Deprecated in April, 2017) | [./.atom/](./.atom) |
+| VSCode Editor |[.code/](./.code)  |
+| Atom Editor (Deprecated in April, 2017) | [.atom/](./.atom) |
 
 ## Highlights
 ### Hammerspoon features 
