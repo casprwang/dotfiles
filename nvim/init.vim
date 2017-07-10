@@ -221,7 +221,7 @@ let g:prettier#config#print_width = 80
 let g:prettier#config#tab_width = 2
 
 " use tabs over spaces
-let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#use_tabs = 'true'
 
 " print semicolons
 let g:prettier#config#semi = 'false'
@@ -236,7 +236,7 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false' 
 
 " none|es5|all
-let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#trailing_comma = 'none'
 
 " flow|babylon|typescript|postcss
 let g:prettier#config#parser = 'flow'
