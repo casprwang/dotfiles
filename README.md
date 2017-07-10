@@ -7,6 +7,7 @@ A set of dotfiles for a poductive and enjoyable workstation.
   alt="An awesome picture">	
   <figcaption>Working with React Web App example</figcaption>
 </figure>
+
 ## Table of content
 
 |  Name| Filepath |
