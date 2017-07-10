@@ -168,6 +168,7 @@ let g:user_emme_settings = {
 "}}}
 Plug 'benmills/vimux'
 Plug 'kana/vim-textobj-indent'
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'
@@ -380,6 +381,7 @@ Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gp :Gpush<cr>
+nnoremap gm :Gcommit<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter' "{{{
