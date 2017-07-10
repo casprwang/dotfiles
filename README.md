@@ -1,8 +1,12 @@
 # Dotfiles
 A set of dotfiles for a poductive and enjoyable workstation.
 
-![image](https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png)
-
+<figure>
+  <img
+  src="https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png"
+  alt="An awesome picture">	
+  <figcaption>Working with React Web App example</figcaption>
+</figure>
 ## Table of content
 
 |  Name| Filepath |
