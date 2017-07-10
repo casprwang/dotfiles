@@ -9,6 +9,7 @@ A set of dotfiles for a poductive and enjoyable workstation.
 |  Name| Filepath |
 |:--|:--|
 | Neovim | [init.vim](./nvim/init.vim) |
+| Vim | [.vim/](./.vim/) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
 | iTerm | [iterm.json](./iterm.json) |
 | Zshell | [zsh/](./zshrc) |
@@ -20,7 +21,7 @@ A set of dotfiles for a poductive and enjoyable workstation.
 | Atom Editor (Deprecated in April, 2017) | [.atom/](./.atom) |
 
 ## Highlights
-### Hammerspoon features 
+### Hammerspoon features
 * Monitor Swithcing
 * Scoped shortcuts for Apps
 * Window Moving/Resizing
