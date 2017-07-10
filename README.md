@@ -1,5 +1,4 @@
 # Dotfiles
-
 <h1 align="center">
 	<br>
 	<img width="400" src="https://cdn.rawgit.com/wangsongiam/dotfiles/c8b54909/demos/dotfiles-1.svg" alt="dotfiles">
@@ -10,13 +9,18 @@
 
 ![image](https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png)
 
-### Configurations for:
-* Neovim 
+## Configurations for:
+* Neovim [init.vim](./nvim/init.vim)
 * Tmux
 * iTerm
-* Zsh
+* Zshell
+* Karabiner-Elements
 * Hammerspoon 
+* Git
+* Xcode
+* VSCode Editor
 * Alfred 3
+* Atom Editor (Deprecated in April, 2017)
 
 ### Hammerspoon features 
 * Monitor Swithcing
@@ -24,7 +28,7 @@
 * Window Moving/Resizing
 
 
-### Installation
+### Installation (Vim only)
 make sure you know what [this](https://github.com/wangsongiam/dotfiles/blob/master/install.sh) means and have git installed
 
 ```
