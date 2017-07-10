@@ -383,6 +383,7 @@ nnoremap gi :Gstatus<cr>
 nnoremap gp :Gpush<cr>
 nnoremap gm :Gcommit<cr>
 nnoremap gd :Gdiff<cr>
+nnoremap gb :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter' "{{{
