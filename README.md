@@ -8,8 +8,8 @@ A set of dotfiles for a poductive and enjoyable workstation.
 
 |  Name| Filepath |
 |:--|:--|
-| Neovim | [init.vim](./nvim/init.vim) |
-| Vim | [.vim/](./.vim/) |
+| Neovim (over engineered) | [init.vim](./nvim/init.vim) |
+| Vim (light) | [.vim/](./.vim/) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
 | iTerm | [iterm.json](./iterm.json) |
 | Zshell | [zsh/](./zshrc) |
