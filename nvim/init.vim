@@ -383,7 +383,8 @@ nnoremap gi :Gstatus<cr>
 nnoremap gp :Gpush<cr>
 nnoremap gm :Gcommit<cr>
 nnoremap gd :Gdiff<cr>
-nnoremap gb :Gbrowse<cr>
+nnoremap gb :Gblame<cr>
+nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter' "{{{
@@ -816,6 +817,9 @@ setlocal ts=2 sts=2 sw=2
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
 "{{{ git functions
+" one line commiting and pushing everything
 nnoremap <leader>p :Gitit 
+" one line commiting current file with message
+nnoremap <leader>c :GititCommit 
 "}}}
 autocmd FileType vim setlocal foldmethod=marker

@@ -1,5 +1,5 @@
 # Dotfiles
-A set of dotfiles for a poductive and enjoyable workstation.
+A set of configurations for a poductive and enjoyable workstation.
 
 ![image](https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png)
 > Working with React Web App example
@@ -9,7 +9,7 @@ A set of dotfiles for a poductive and enjoyable workstation.
 |  Name| Filepath |
 |:--|:--|
 | Neovim (over engineered) | [init.vim](./nvim/init.vim) |
-| Vim (light) | [.vim/](./.vim/) |
+| Vim | [.vim/](./.vim/) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
 | iTerm | [iterm.json](./iterm.json) |
 | Zshell | [zsh/](./zshrc) |
