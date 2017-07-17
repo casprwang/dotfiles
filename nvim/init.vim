@@ -222,7 +222,7 @@ let g:prettier#config#print_width = 80
 let g:prettier#config#tab_width = 2
 
 " use tabs over spaces
-let g:prettier#config#use_tabs = 'true'
+let g:prettier#config#use_tabs = 'false'
 
 " print semicolons
 let g:prettier#config#semi = 'false'
@@ -754,23 +754,23 @@ au BufEnter *.md setlocal foldmethod=expr
 " }}}
 
 "}}}
-"{{{ Contextual commenting for commentary.vim in jsx files.
-function! s:SetCommentString()
-  let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
-  let cstr=&commentstring
-  for id in stack
-    if id[0:1] ==# "js"
-      let cstr="//%s"
-    endif
-    if id[0:2] ==# "jsx"
-      let cstr="{/*%s*/}"
-    endif
-  endfor
-  let &commentstring=cstr
-endfunction
+" {{{ Contextual commenting for commentary.vim in jsx files.
+" function! s:SetCommentString()
+"   let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
+"   let cstr=&commentstring
+"   for id in stack
+"     if id[0:1] ==# "js"
+"       let cstr="//%s"
+"     endif
+"     if id[0:2] ==# "jsx"
+"       let cstr="{/*%s*/}"
+"     endif
+"   endfor
+"   let &commentstring=cstr
+" endfunction
 
-autocmd CursorMoved *.jsx call s:SetCommentString()
-autocmd CursorMoved *.js call s:SetCommentString()
+" autocmd CursorMoved *.jsx call s:SetCommentString()
+" autocmd CursorMoved *.js call s:SetCommentString()
 "}}}
 "{{{ merlin, ocaml and reason
 " In your ~/.vimrc
@@ -813,6 +813,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
 setlocal ts=2 sts=2 sw=2
+autocmd FileType vim setlocal foldmethod=marker
 " autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
@@ -822,4 +823,3 @@ nnoremap <leader>p :Gitit
 " one line commiting current file with message
 nnoremap <leader>c :GititCommit 
 "}}}
-autocmd FileType vim setlocal foldmethod=marker

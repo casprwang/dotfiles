@@ -49,8 +49,8 @@
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
       "tree-view"
-      "Hydrogen"
       "pigments"
+      "linter-eslint"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -67,8 +67,8 @@
     ]
     telemetryConsent: "no"
     themes: [
-      "one-light-ui"
-      "atom-light-syntax"
+      "one-dark-ui"
+      "solarized-dark-syntax"
     ]
     titleBar: "custom"
   "disable-keybindings": {}
@@ -76,7 +76,6 @@
     fontSize: 16
     invisibles: {}
     scrollPastEnd: true
-    showInvisibles: true
   emmet:
     useEmmetComments: true
   "exception-reporting":
@@ -108,7 +107,6 @@
   "linter-eslint":
     advancedLocalNodeModules: "/.eslintrc.json"
     eslintrcPath: "/Users/wangsong/.eslintrc"
-    fixOnSave: true
     useGlobalEslint: true
   "linter-jshint":
     lintInlineJavaScript: true
@@ -142,12 +140,17 @@
         blue: "#00fdff"
     core: {}
     style: {}
+  "prettier-atom":
+    prettierOptions:
+      semi: false
+      singleQuote: true
   "project-manager": {}
   react:
     enabledForAllJavascriptFiles: true
   "reason-refmt":
     useLinter: true
-  "relative-numbers": {}
+  "relative-numbers":
+    trueNumberCurrentLine: false
   sound: {}
   "status-bar":
     isVisible: false

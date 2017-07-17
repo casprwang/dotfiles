@@ -211,5 +211,9 @@
     "guides.enabled": false,
     "workbench.colorTheme": "Solarized Dark",
     "editor.multiCursorModifier": "ctrlCmd",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "prettier.jsxBracketSameLine": false,
+    "prettier.semi": false,
+    "prettier.useTabs": false,
+    "prettier.singleQuote": true
 }
