@@ -76,8 +76,7 @@
     fontSize: 16
     invisibles: {}
     scrollPastEnd: true
-  emmet:
-    useEmmetComments: true
+  emmet: {}
   "exception-reporting":
     userId: "6678e98e-4b34-c899-1c6e-8274cdaafeef"
   fonts:

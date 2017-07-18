@@ -32,8 +32,6 @@ set list
 set scrolloff=1
 set autoread
 set title
-" set tab only showing the file name
-" set guitablabel=%N/\ %t\ %M
 set guioptions-=e
 set sessionoptions+=tabpages,globals
 set relativenumber
@@ -62,7 +60,6 @@ vmap K 5gk
 vmap y y`]
 " }}}
 " imap{{{
-inoremap <c-r> <bs>
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-q> <esc>S
@@ -88,18 +85,11 @@ nnoremap gp :!gp
 " for shift-enter
 nnoremap <c-b>b O<esc>
 
-" window resizing
-" nnoremap <silent> = :vertical resize +10<cr>
-" nnoremap <silent> - :vertical resize -10<cr>
-" nnoremap <silent> + :resize +10<cr>
-" nnoremap <silent> _ :resize -10<cr>
-
 " for returning position ater yanking
 nnoremap <c-w>v <c-w>v<right>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
-nnoremap <bs> <c-r>
 nnoremap J 5gj
 nnoremap K 5gk
 nnoremap L gt
@@ -160,6 +150,9 @@ Plug 'vim-scripts/mru.vim'
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'mattn/emmet-vim' " {{{
 " emmet
+
+imap <c-g> <esc><c-y>,i
+" let g:user_emmet_leader_key='<C-o>'
 let g:user_emme_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
@@ -463,7 +456,7 @@ let g:cm_sources_override = {
     \ }
 
 let g:cm_refresh_default_min_word_len=1
-inoremap <silent> <c-c> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+imap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}

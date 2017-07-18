@@ -1,28 +1,12 @@
-# Your keymap
-# 'atom-text-editor:not([mini])':
-# #                 unsetting
-
 '.workspace .editor:not(.mini), .workspace':
   'cmd-b': 'tree-view:toggle'
-
-  # 'tab': 'unset!'
-  # 'cmd-\.': 'linter:next-error'
   'up': 'core:move-up'
   'down': 'core:move-down'
-
   'cmd-j': 'unset!'
-  'cmd-\\': 'tree-view:toggle-focus'
   'cmd-s': 'unset!'
-  # 'cmd-y': 'Project Manager: List Projects'
   'cmd-r': 'run:file'
-  # 'cmd-Y': 'Project Manager: List Projects'
 'atom-workspace:not([mini])':
-  # This key override window:toggle-full-screen(I'm not using it).
   'ctrl-cmd-f': 'project-find-navigation:activate-results-pane'
-  # 'ctrl-shift-t': 'run:selection'
-  # 'tab': 'unset!'
-  # 'enter': 'vim-mode-plus:add-blank-line-below'
-  # 'shift-enter': 'vim-mode-plus:add-blank-line-above'
 # Atom keymaps work similarly to style sheets. Just as style sheets use
 # selectors to apply styles to elements, Atom keymaps use selectors to associate
 # keystrokes with events in specific contexts. Unlike style sheets however,
@@ -44,7 +28,7 @@
 'atom-text-editor.vim-mode-plus.insert-mode':
   'escape': 'vim-mode-plus:reset-normal-mode'
   'ctrl-w': 'editor:delete-to-beginning-of-word'
-  'ctrl-q': 'emmet:expand-abbreviation-with-tab'
+  'ctrl-o': 'emmet:expand-abbreviation-with-tab'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
   # 'down': 'core:move-down'
   # 'up': 'core:move-up'
@@ -294,28 +278,9 @@
   'cmd-i': 'dash:shortcut'
   'cmd-shift-v': 'atom-html-preview:toggle'
   'ctrl-p': 'fuzzy-finder:toggle-file-finder'
-
-
   'shift-cmd-T': 'pane:reopen-closed-item'
-
-  # 'cmd-j': 'platformio-ide-terminal:toggle'
-
   'cmd-t': 'symbols-view:toggle-file-symbols'
 
-#
-# You can find more information about keymaps in these guides:
-# * https://atom.io/docs/latest/using-atom-basic-customization#customizing-key-bindings
-# * https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-#
-# If you're having trouble with your keybindings not working, try the
-# Keybinding Resolver: `Cmd+.` on OS X and `Ctrl+.` on other platforms. See the
-# Debugging Guide for more information:
-# * https://atom.io/docs/latest/hacking-atom-debugging#check-the-keybindings
-#
-# This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it in the
-# Atom Flight Manual:
-# https://atom.io/docs/latest/using-atom-basic-customization#cson
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'J': 'vim-mode-plus-user:move-five-lines-down'
   'K': 'vim-mode-plus-user:move-five-lines-up'
@@ -324,7 +289,6 @@
   'right': 'window:focus-pane-on-right'
   'ctrl-w j': 'pane:split-down-and-copy-active-item'
   'ctrl-w l': 'pane:split-right-and-copy-active-item'
-  'cmd-b': 'tree-view:toggle'
 
 
 ####### for markdown file
@@ -345,9 +309,9 @@
 # # Stop emmet from hijacking tab from snippets and autocomplete
 # 'atom-text-editor.autocomplete-active:not([mini])':
 #   'tab': 'autocomplete-plus:confirm'
-'atom-text-editor:not([mini])':
-  'cmd-shift-e': 'emmet:expand-abbreviation-with-tab'
-  'cmd-b': 'tree-view:toggle'
+# 'atom-text-editor:not([mini])':
+  # 'cmd-shift-e': 'emmet:expand-abbreviation-with-tab'
+  # 'cmd-b': 'tree-view:toggle'
 
 'atom-workspace atom-text-editor.autocomplete-active':
   'tab': 'snippets:next-tab-stop'

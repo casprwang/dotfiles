@@ -240,9 +240,6 @@ hs.hotkey.bind(keys.cs, "l", function()
     hs.eventtap.keyStroke({'shift'}, "right")
 end)
 
-hs.hotkey.bind(keys.c, "g", function()
-    hs.eventtap.keyStroke({}, "delete")
-end)
 
 function toggle_application(_app, path)
     -- Finds running applications

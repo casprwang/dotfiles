@@ -8,12 +8,10 @@
         "*.mli": "ocaml"
     },
     "git.confirmSync": false,
-    "emmet.triggerExpansionOnTab": false,
     "editor.tabSize": 2,
     "emmet.syntaxProfiles": {
         "javascript": [ "html", "jsx" ]
     },
-    // "emmet.triggerExpansionOnTab": false,
     "typescript.check.tscVersion": false,
     // "amVim.bindCtrlCommands": false,
     // "editor.cursorStyle": "block",
@@ -31,12 +29,27 @@
     "vim.insertModeKeyBindings": [
         {
             "before": [
-                "<c-i>"
+                "<c-o>"
             ],
             "after": [],
             "commands": [
                 {
                     "command": "insertSnippet",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-g>"
+            ],
+            "after": [
+                "cmd",
+                "4"
+            ],
+            "commands": [
+                {
+                    "command": "editor.emmet.action.expandAbbreviation",
                     "args": []
                 }
             ]
@@ -215,5 +228,6 @@
     "prettier.jsxBracketSameLine": false,
     "prettier.semi": false,
     "prettier.useTabs": false,
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "emmet.triggerExpansionOnTab": false
 }
