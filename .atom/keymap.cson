@@ -28,8 +28,11 @@
 'atom-text-editor.vim-mode-plus.insert-mode':
   'escape': 'vim-mode-plus:reset-normal-mode'
   'ctrl-w': 'editor:delete-to-beginning-of-word'
-  'ctrl-o': 'emmet:expand-abbreviation-with-tab'
+  'ctrl-g': 'emmet:expand-abbreviation-with-tab'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
+  'ctrl-o': 'snippets:expand'
+
+
   # 'down': 'core:move-down'
   # 'up': 'core:move-up'
 
