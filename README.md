@@ -21,11 +21,11 @@ A set of configurations for a poductive and enjoyable workstation.
 | Atom Editor (Deprecated in April, 2017) | [.atom/](./.atom) |
 
 ## Highlights
-### vim 
+### Neovim 
   * async completion
   * dimmed line number and status bar for low contraction
   * fzf and ag inplemented for directory, in-file, cross file level searching
-### tmux 
+### Tmux 
   * synchronized theme with vim and terminal
 ### iTerm
   * synchronized theme

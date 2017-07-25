@@ -30,10 +30,10 @@ appPath = {
 
 print(hs.application.runningApplications())
 
--- switching between screens
-hs.hotkey.bind({"cmd"}, 'escape', function ()
-  focusScreen(hs.window.focusedWindow():screen():next())
-end)
+-- -- switching between screens
+-- hs.hotkey.bind({"cmd"}, 'escape', function ()
+--   focusScreen(hs.window.focusedWindow():screen():next())
+-- end)
 
 -- showing the current time
 hs.hotkey.bind({"cmd", "alt", "shift"}, "t", function()
