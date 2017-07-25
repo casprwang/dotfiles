@@ -73,7 +73,7 @@
     titleBar: "custom"
   "disable-keybindings": {}
   editor:
-    fontSize: 16
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
   emmet: {}
@@ -168,7 +168,6 @@
     incrementalSearch: true
     showHoverOnOperate: true
     smoothScrollOnFullScrollMotion: true
-    smoothScrollOnHalfScrollMotion: true
     smoothScrollOnHalfScrollMotionDuration: 300
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true

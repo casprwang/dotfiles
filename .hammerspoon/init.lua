@@ -12,7 +12,7 @@ keys = {
 
 -- for testing new bindings 
 hs.hotkey.bind(keys.ca, "t", function()
-    -- hs.alert.show(hs.window.focusedWindow().title())
+    hs.alert.show(hs.window.focusedWindow():isFrontmost())
 
     -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
     -- hs.spotify.displayCurrentTrack()
@@ -28,7 +28,7 @@ appPath = {
 
 -- print(hs.application:title())
 
--- print(hs.application.runningApplications())
+print(hs.application.runningApplications())
 
 -- switching between screens
 hs.hotkey.bind({"cmd"}, 'escape', function ()
@@ -100,7 +100,6 @@ local function keyCode(key)
     end
 end
 
-
 -- delay = hs.eventtap.keyRepeatDelay()
 delay = 0.1
 -- local hs.eventtap.keyRepeatDelay() = 0.1
@@ -123,8 +122,7 @@ local showtime =hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
     local x = math.floor(time/3600)
     local y = math.floor((time - x * 3600)/60)
     hs.alert.show(tostring(x)..":"..tostring(y))
-    hs.alert.show(hs.eventtap.keyRepeatDelay()
-        )
+    hs.alert.show(hs.eventtap.keyRepeatDelay())
     -- hs.alert.show(tostring(y))
 end)
 

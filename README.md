@@ -21,10 +21,31 @@ A set of configurations for a poductive and enjoyable workstation.
 | Atom Editor (Deprecated in April, 2017) | [.atom/](./.atom) |
 
 ## Highlights
-### Hammerspoon features
-* Monitor Swithcing
-* Scoped shortcuts for Apps
-* Window Moving/Resizing
+### vim 
+  * async completion
+  * dimmed line number and status bar for low contraction
+  * fzf and ag inplemented for directory, in-file, cross file level searching
+### tmux 
+  * synchronized theme with vim and terminal
+### iTerm
+  * synchronized theme
+  * vim navigation
+  * remapped `cmd` key mappings for vim and tmux
+### Zshell
+  * autocompletion
+### Hammerspoon
+  * Monitor Swithcing <cmd-esc>
+  * Scoped shortcuts for Apps 
+  * Window Moving/Resizing <alt-hjkl>
+  * syncrinezd emmet key binding for all editors <c-g>
+  * system wise vim flavored navigation 
+    * <c-hjkl> for arrows
+    * <c-w> for deleting one word back
+    * <c-q> for deleting one line back
+    * <c-d> for deleting one word forward
+    * <c-a> and <c-e> for jumping to the beginning and end
+    * <c-f> for jumping one word forward
+    * <c-b> for jumping one word back
 
 
 ## Installation (Vim only)

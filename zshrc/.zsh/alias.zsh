@@ -7,6 +7,7 @@ alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
+alias re="cd ~/dev/react"
 alias ia="open -a iA\ Writer"
 # alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node
@@ -17,6 +18,7 @@ alias ag="ag --nobreak --nonumbers --noheading . | fzf"
 alias pane="ftpane"
 alias sup="cd ~/wangsup"
 alias ls="ls -la"
+alias pretty="prettier --no-semi --trailing-comma none --write '*.js'"
 
 # for tmux
 alias t="tmux a"

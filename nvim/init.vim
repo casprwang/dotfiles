@@ -92,8 +92,8 @@ nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
 nnoremap J 5gj
 nnoremap K 5gk
-nnoremap L gt
-nnoremap H gT
+" nnoremap L gt
+" nnoremap H gT
 
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 " silver searcher
@@ -128,6 +128,7 @@ Plug 'jreybert/vimagit'
 Plug 'wangsongiam/vim-git-it'
 " Plug 'vimlab/split-term.vim'
 Plug 'wvffle/vimterm' "{{{
+Plug 'altercation/vim-colors-solarized'
 " nnoremap <silent> <F4> :call vimterm#exec('g++  -o /tmp/out' . expand('%')) <CR>
 " nnoremap <silent> <F5> :call vimterm#exec('/tmp/out') <CR>
 
@@ -285,7 +286,7 @@ let g:prettier#config#parser = 'flow'
 "let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_sign_column_always = 0
-""}}}"
+"}}}"
 Plug 'Chiel92/vim-autoformat' " {{{
 " let g:formatter_yapf_style = 'pep9'
 " " }}}
@@ -748,22 +749,22 @@ au BufEnter *.md setlocal foldmethod=expr
 
 "}}}
 " {{{ Contextual commenting for commentary.vim in jsx files.
-" function! s:SetCommentString()
-"   let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
-"   let cstr=&commentstring
-"   for id in stack
-"     if id[0:1] ==# "js"
-"       let cstr="//%s"
-"     endif
-"     if id[0:2] ==# "jsx"
-"       let cstr="{/*%s*/}"
-"     endif
-"   endfor
-"   let &commentstring=cstr
-" endfunction
+function! s:SetCommentString()
+  let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
+  let cstr=&commentstring
+  for id in stack
+    if id[0:1] ==# "js"
+      let cstr="//%s"
+    endif
+    if id[0:2] ==# "jsx"
+      let cstr="{/*%s*/}"
+    endif
+  endfor
+  let &commentstring=cstr
+endfunction
 
-" autocmd CursorMoved *.jsx call s:SetCommentString()
-" autocmd CursorMoved *.js call s:SetCommentString()
+autocmd CursorMoved *.jsx call s:SetCommentString()
+autocmd CursorMoved *.js call s:SetCommentString()
 "}}}
 "{{{ merlin, ocaml and reason
 " In your ~/.vimrc
@@ -799,7 +800,7 @@ autocmd FileType reason let maplocalleader=","
 autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
-" autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
@@ -807,7 +808,7 @@ autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
 setlocal ts=2 sts=2 sw=2
 autocmd FileType vim setlocal foldmethod=marker
-" autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
 "{{{ git functions
