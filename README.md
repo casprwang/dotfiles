@@ -34,18 +34,18 @@ A set of configurations for a poductive and enjoyable workstation.
 ### Zshell
   * autocompletion
 ### Hammerspoon
-  * Monitor Swithcing <cmd-esc>
+  * Monitor Swithcing `<cmd-esc>`
   * Scoped shortcuts for Apps 
-  * Window Moving/Resizing <alt-hjkl>
-  * syncrinezd emmet key binding for all editors <c-g>
+  * Window Moving/Resizing `<alt-hjkl>`
+  * syncrinezd emmet key binding for all editors `<c-g>`
   * system wise vim flavored navigation 
-    * <c-hjkl> for arrows
-    * <c-w> for deleting one word back
-    * <c-q> for deleting one line back
-    * <c-d> for deleting one word forward
-    * <c-a> and <c-e> for jumping to the beginning and end
-    * <c-f> for jumping one word forward
-    * <c-b> for jumping one word back
+    * `<c-hjkl>` for arrows
+    * `<c-w>` for deleting one word back
+    * `<c-q>` for deleting one line back
+    * `<c-d>` for deleting one word forward
+    * `<c-a>` and `<c-e>` for jumping to the beginning and end
+    * `<c-f>` for jumping one word forward
+    * `<c-b>` for jumping one word back
 
 
 ## Installation (Vim only)
