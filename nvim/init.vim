@@ -34,8 +34,8 @@ set autoread
 set title
 set guioptions-=e
 set sessionoptions+=tabpages,globals
-set relativenumber
-set number
+" set relativenumber
+" set number
 set hlsearch
 "{{{ indentation
 " ----------------------------------------------------------------------------
@@ -189,8 +189,6 @@ au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
 "}}}
 Plug 'scrooloose/nerdtree' "{{{
 let g:NERDTreeWinPos = "right"  
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "}}}
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
@@ -255,10 +253,10 @@ let g:prettier#config#parser = 'flow'
 "let g:ale_lint_on_enter = 0
 "let g:ale_lint_on_save = 0
 
-"hi ALEError ctermfg=none ctermbg=none
-"hi ALEWarning ctermfg=none ctermbg=none
-"hi ALEErrorSign ctermfg=red ctermbg=none
-"hi ALEWarningSign ctermfg=gray ctermbg=none
+hi ALEError ctermfg=none ctermbg=none
+hi ALEWarning ctermfg=none ctermbg=none
+hi ALEErrorSign ctermfg=red ctermbg=none
+hi ALEWarningSign ctermfg=gray ctermbg=none
 "let g:ale_set_loclist = 0
 "let g:ale_set_quickfix = 1
 "" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -294,6 +292,7 @@ Plug 'Chiel92/vim-autoformat' " {{{
 " let g:formatter_yapf_style = 'pep9'
 " " }}}
 Plug 'danro/rename.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'junegunn/goyo.vim' "{{{
 
@@ -597,16 +596,6 @@ autocmd BufReadPost *
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 " }}}
-"{{{ color hybrid
-" ----------------------------------------------------------------------------
-syntax enable
-set background=dark
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-colorscheme hybrid
-" hi! StatusLine    .s:fg_comment     .s:bg_background  .s:fmt_revr
-"}}}
 "status bar{{{
 " ----------------------------------------------------------------------------
 set laststatus=2
@@ -819,4 +808,16 @@ autocmd Filetype json setlocal ts=2 sts=2 sw=2
 nnoremap <leader>p :Gitit 
 " one line commiting current file with message
 nnoremap <leader>c :GititCommit 
+"}}}
+"{{{ color hybrid
+" ----------------------------------------------------------------------------
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+syntax enable
+set background=dark
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 "}}}
