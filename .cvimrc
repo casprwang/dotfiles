@@ -1,0 +1,25 @@
+set nosmoothscroll
+set noautofocus
+let scrollstep = 80
+set completeonopen
+let typelinkhintsdelay = 10
+set typelinkhints
+set sortlinkhints
+let barposition = "bottom"
+let hintcharacters = "sadfjklewcmpgh"
+map h gT
+map l gt
+map H g0
+map L g$
+map ga :settings<cr>
+map q lastClosedTab
+map w closeTab
+map J goBack
+map K goForward
+map gb lastUsedTab
+map b :buffer<space>
+map e createBookmark
+let blacklists = ["https://typechem.herokuapp.com/*","https://codepen.io/*"]
+
+let configpath = '/Users/wangsong/dotfiles/.cvimrc'
+set localconfig 
