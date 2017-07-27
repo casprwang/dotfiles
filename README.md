@@ -1,7 +1,7 @@
 # Dotfiles
 A set of configurations for a poductive and enjoyable workstation.
 
-![image](https://cdn.rawgit.com/wangsongiam/dotfiles/e1319f27/demo/2017-07-10.png)
+![image](https://cdn.rawgit.com/wangsongiam/dotfiles/109881e4/demo/2017-07-27.png)
 > Working with React Web App example
 
 ## Table of content
