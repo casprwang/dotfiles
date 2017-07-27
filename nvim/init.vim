@@ -13,6 +13,8 @@
 " {{{ general settings
 " ----------------------------------------------------------------------------
 " Neovim
+" hide the tildes on empty lines
+hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 " set shell=/bin/bash
 let s:editor_root=expand("~/.config/nvim")
 " set the unique python virtual environment for neovim only
@@ -388,6 +390,7 @@ let g:gitgutter_enabled = 1
 nnoremap <leader>h :GitGutterToggle<cr>
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
+let g:gitgutter_signs = 0
 "}}}
 Plug 'junegunn/vim-easy-align' "{{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -821,3 +824,4 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " let g:hybrid_custom_term_colors = 1
 " let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 "}}}
+"
