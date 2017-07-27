@@ -222,7 +222,7 @@
     ],
     "vim.disableAnnoyingNeovimMessage": true,
     "guides.enabled": false,
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Ocean Dark Extended",
     "editor.multiCursorModifier": "ctrlCmd",
     "window.zoomLevel": 0,
     "prettier.jsxBracketSameLine": false,

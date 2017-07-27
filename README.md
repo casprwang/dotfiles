@@ -38,7 +38,7 @@ A set of configurations for a poductive and enjoyable workstation.
   * Scoped shortcuts for Apps 
   * Window Moving/Resizing `<alt-hjkl>`
   * syncrinezd emmet key binding for all editors `<c-g>`
-  * system wise vim flavored navigation 
+  * systemwise vim flavored navigation and editing
     * `<c-hjkl>` for arrows
     * `<c-w>` for deleting one word back
     * `<c-q>` for deleting one line back

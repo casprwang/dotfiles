@@ -20,6 +20,7 @@ map gb lastUsedTab
 map b :buffer<space>
 map e createBookmark
 let blacklists = ["https://typechem.herokuapp.com/*","https://codepen.io/*"]
+set autoupdategist
 
 let configpath = '/Users/wangsong/dotfiles/.cvimrc'
 set localconfig 

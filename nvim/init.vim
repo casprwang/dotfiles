@@ -86,7 +86,8 @@ nnoremap gp :!gp
 nnoremap <c-b>b O<esc>
 
 " for returning position ater yanking
-nnoremap <c-w>v <c-w>v<right>
+nmap <c-w>v :vsplit<cr><c-p>
+nmap <c-w>s :split<cr><c-p>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
@@ -165,6 +166,7 @@ Plug 'kana/vim-textobj-indent'
 " Plug 'nathanaelkane/vim-indent-guides'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
+" Plug 'chriskempson/base16-vim'
 Plug 'gcmt/taboo.vim'
 " React
 Plug 'fleischie/vim-styled-components'
@@ -186,6 +188,7 @@ Plug 'chrisbra/Colorizer' "{{{
 au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
 "}}}
 Plug 'scrooloose/nerdtree' "{{{
+let g:NERDTreeWinPos = "right"  
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "}}}
@@ -497,14 +500,14 @@ let g:fzf_action = {
   \ 'right': 'vsplit' }
 
 " Open files in vertical split
-nnoremap <silent> <c-w>v :call fzf#run({
-      \   'right': winwidth('.') / 2,
-      \   'sink':  'vertical botright split' })<CR>
+" nnoremap <silent> <c-w>v :call fzf#run({
+"       \   'right': winwidth('.') / 2,
+"       \   'sink':  'vertical botright split' })<CR>
 
 " Open files in horizontal split
-nnoremap <silent> <c-w>s :call fzf#run({
-      \   'down': '50%',
-      \   'sink': 'split' })<CR>
+" nnoremap <silent> <c-w>s :call fzf#run({
+"       \   'down': '50%',
+"       \   'sink': 'split' })<CR>
 
 " Open files in anoter tab
 nnoremap <silent> <c-w>t :call fzf#run({
