@@ -13,8 +13,6 @@
 " {{{ general settings
 " ----------------------------------------------------------------------------
 " Neovim
-" hide the tildes on empty lines
-hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 " set shell=/bin/bash
 let s:editor_root=expand("~/.config/nvim")
 " set the unique python virtual environment for neovim only
@@ -450,7 +448,7 @@ let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
 au User CmSetup call cm#register_source({'name' : 'cm-css',
         \ 'priority': 9, 
-        \ 'scopes': ['css', 'scss'],
+        \ 'scopes': ['css', 'scss', 'js', 'javascript'],
         \ 'scoping': 1,
         \ 'abbreviation': 'css',
         \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
@@ -458,7 +456,7 @@ au User CmSetup call cm#register_source({'name' : 'cm-css',
         \ })
 
 let g:cm_sources_override = {
-    \ 'cm-tags': {'enable':0}
+    \ 'cm-css': {'scopes': ['css', 'scss', 'javascript', 'jsx', 'javascript.jsx']}
     \ }
 
 let g:cm_refresh_default_min_word_len=1
