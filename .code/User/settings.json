@@ -160,6 +160,19 @@
         {
             "before": [
                 "leader",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.formatDocument",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
                 "j"
             ],
             "after": [],
@@ -229,5 +242,8 @@
     "prettier.semi": false,
     "prettier.useTabs": false,
     "prettier.singleQuote": true,
-    "emmet.triggerExpansionOnTab": false
+    "emmet.triggerExpansionOnTab": false,
+    "workbench.sideBar.location": "right",
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "solid"
 }

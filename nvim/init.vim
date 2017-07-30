@@ -70,7 +70,6 @@ inoremap <c-e> <esc>A
 let mapleader="\<Space>"
 nnoremap <c-w><Space> <c-w>=
 nnoremap <leader>in :PlugInstall<cr>
-nnoremap <silent> <leader>o :NERDTreeToggle<CR>
 nnoremap <leader>j :w<cr>
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
@@ -189,6 +188,8 @@ au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
 "}}}
 Plug 'scrooloose/nerdtree' "{{{
 let g:NERDTreeWinPos = "right"  
+nnoremap <silent> <leader>o :NERDTreeToggle<CR>
+" nmap <leader>o -
 "}}}
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
@@ -447,7 +448,7 @@ let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 " the omnifunc pattern is PCRE
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
 au User CmSetup call cm#register_source({'name' : 'cm-css',
-        \ 'priority': 9, 
+        \ 'priority': 5, 
         \ 'scopes': ['css', 'scss', 'js', 'javascript'],
         \ 'scoping': 1,
         \ 'abbreviation': 'css',
@@ -477,6 +478,7 @@ Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
 Plug 'mattn/gist-vim'
+Plug 'tpope/vim-vinegar'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
@@ -487,6 +489,7 @@ set clipboard=unnamed
 set autoread
 " show autocomplete for commands
 set wildmenu
+map <leader>b :Buffers<cr>
 map <c-p> :FZF<cr>
 
 let g:fzf_layout = { 'window': 'enew' }
@@ -798,6 +801,7 @@ autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
+autocmd Filetype js setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
 setlocal ts=2 sts=2 sw=2
 autocmd FileType vim setlocal foldmethod=marker
