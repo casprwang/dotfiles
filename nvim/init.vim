@@ -377,7 +377,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
-nnoremap gp :Gpush<cr>
+nnoremap gp :!git push origin master<cr>
 nnoremap gm :Gcommit<cr>
 nnoremap gd :Gdiff<cr>
 nnoremap gb :Gblame<cr>
