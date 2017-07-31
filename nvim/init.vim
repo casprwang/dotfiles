@@ -377,7 +377,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
-nnoremap gp :!git push origin master<cr>
+nnoremap gp :Gpush<cr>
 nnoremap gm :Gcommit<cr>
 nnoremap gd :Gdiff<cr>
 nnoremap gb :Gblame<cr>
@@ -466,6 +466,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+
+" Async
+Plug 'skywind3000/asyncrun.vim'
 
 " for swift
 Plug 'sheerun/vim-polyglot' "{{{
@@ -826,3 +829,4 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " let g:hybrid_custom_term_colors = 1
 " let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 "}}}
+"
