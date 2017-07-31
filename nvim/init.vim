@@ -118,7 +118,7 @@ Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-markdown'
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
-nnoremap <silent> <c-w><cr> :MaximizerToggle<CR>
+" nnoremap <silent> <c-w><cr> :MaximizerToggle<CR>
 "}}}
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -301,25 +301,22 @@ let g:goyo_height = 105
 let g:goyo_linenr = 1
 
 function! s:goyo_enter()
-  " silent !tmux set status off
-  " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
   set noshowmode
-  " hi! StatusLine ctermbg=249 ctermfg=235
-  " set noshowcmd
-  " set scrolloff=999
-  " Limelight
-  " ...
+  set noshowcmd
+  set scrolloff=999
+  Limelight
 endfunction
 
 function! s:goyo_leave()
-  " silent !tmux set status on
-  " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   set showmode
   " hi! StatusLine ctermbg=249 ctermfg=235
-  " set showcmd
-  " set scrolloff=5
-  " Limelight!
-  " ...
+  set showcmd
+  set scrolloff=5
+  Limelight!
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -328,6 +325,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " nmap <Leader>g :Goyo 80-10x100<cr>
 nmap <Leader>g :Goyo<cr>
+nnoremap <silent> <c-w><cr> :Goyo<cr>
 "}}}
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
 " nmap <Leader>gh :Limelight!!<cr>
@@ -811,12 +809,12 @@ autocmd FileType vim setlocal foldmethod=marker
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
-"{{{ git functions
-" one line commiting and pushing everything
-nnoremap <leader>p :Gitit 
-" one line commiting current file with message
-nnoremap <leader>c :GititCommit 
-"}}}
+""{{{ git functions
+"" one line commiting and pushing everything
+"nnoremap <leader>p :Gitit 
+"" one line commiting current file with message
+"nnoremap <leader>c :GititCommit 
+""}}}
 "{{{ colorscheme
 " ----------------------------------------------------------------------------
 if filereadable(expand("~/.vimrc_background"))
