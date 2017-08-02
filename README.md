@@ -24,6 +24,7 @@ A set of configurations for a poductive and enjoyable workstation.
 ### demos
 ![find a session with a cmd key shortcut](https://cdn.rawgit.com/wangsongiam/dotfiles/c16e408d/demo/navi%20session.gif)
 > fuzzy finding a session with cmd key shortcut
+---
 
 ![togglemaximux](demo/togglemaximux.gif)
 > toggle maximux with cmd enter
