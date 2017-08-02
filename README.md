@@ -22,16 +22,16 @@ A set of configurations for a poductive and enjoyable workstation.
 
 ## Highlights
 ### demos
-![find a session with a cmd key shortcut](demo/navi session.gif)
+![find a session with a cmd key shortcut](demo/navi\ session.gif)
 > fuzzy finding a session with cmd key shortcut
 
 ![togglemaximux](demo/togglemaximux.gif)
 > toggle maximux with cmd enter
 
-![new window with name](demo/new window.gif)
+![new window with name](demo/new\ window.gif)
 > new window
 
-![new session](demo/new session.gif)
+![new session](demo/new\ session.gif)
 > new session with prompting name
 
 ![navigat window](demo/navii.gif)
