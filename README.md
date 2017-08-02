@@ -26,11 +26,12 @@ A set of configurations for a poductive and enjoyable workstation.
   * dimmed line number and status bar for low contraction
   * fzf and ag inplemented for directory, in-file, cross file level searching
 ### Tmux 
-  * synchronized theme with vim and terminal
+  * prompting name when creating new window/session
+  * themed
 ### iTerm
-  * synchronized theme
   * vim navigation
   * remapped `cmd` key mappings for vim and tmux
+  * themed
 ### Zshell
   * autocompletion
 ### Hammerspoon
