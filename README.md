@@ -21,6 +21,21 @@ A set of configurations for a poductive and enjoyable workstation.
 | Atom Editor (Deprecated in April, 2017) | [.atom/](./.atom) |
 
 ## Highlights
+### demos
+![find a session with a cmd key shortcut](demo/navi session.gif)
+> fuzzy finding a session with cmd key shortcut
+
+![togglemaximux](demo/togglemaximux.gif)
+> toggle maximux with cmd enter
+
+![new window with name](demo/new window.gif)
+> new window
+
+![new session](demo/new session.gif)
+> new session with prompting name
+
+![navigat window](demo/navii.gif)
+> navigating panes
 ### Neovim 
   * async completion
   * dimmed line number and status bar for low contraction
