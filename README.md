@@ -22,7 +22,7 @@ A set of configurations for a poductive and enjoyable workstation.
 
 ## Highlights
 ### demos
-![find a session with a cmd key shortcut](demo/navi\ session.gif)
+![find a session with a cmd key shortcut](demo/navi session.gif)
 > fuzzy finding a session with cmd key shortcut
 
 ![togglemaximux](demo/togglemaximux.gif)
