@@ -4,6 +4,9 @@ A set of configurations for a poductive and enjoyable workstation.
 ![image](https://cdn.rawgit.com/wangsongiam/dotfiles/109881e4/demo/2017-07-27.png)
 > Working with React Web App example
 
+## Love multitasking?
+![mutltasking](https://cdn.rawgit.com/wangsongiam/dotfiles/b7fb6dea/demo/multi.png)
+
 ## Table of content
 
 |  Name| Filepath |
@@ -21,23 +24,35 @@ A set of configurations for a poductive and enjoyable workstation.
 | Atom Editor (Deprecated in April, 2017) | [.atom/](./.atom) |
 
 ## Highlights
-### demos
 ![find a session with a cmd key shortcut](https://cdn.rawgit.com/wangsongiam/dotfiles/c16e408d/demo/navi%20session.gif)
-> fuzzy finding a session with cmd key shortcut
----
+> `cmd-e` for fuzzy finding a session
 
+------
+![pastsession](https://cdn.rawgit.com/wangsongiam/dotfiles/9c653ff5/demo/cmd-e.gif)
+> `cmd-shift-p` for navigating to last session; `cmd-p` last window
+
+------
 ![togglemaximux](demo/togglemaximux.gif)
-> toggle maximux with cmd enter
+> toggle maximux with `cmd enter`
 
+------
 ![new window with name](https://cdn.rawgit.com/wangsongiam/dotfiles/c16e408d/demo/new%20window.gif)
-> new window
+> `cmd-t` new window with a name
 
+------
 ![new session](https://cdn.rawgit.com/wangsongiam/dotfiles/c16e408d/demo/new%20session.gif)
-> new session with prompting name
+> `cmd-n` new session with a name
 
+------
 ![navigat window](demo/navii.gif)
-> navigating panes
-### Neovim 
+> `cmd-d` split tmux pane right; `ctrl-hjkl`navigating panes
+
+
+![window resizing](https://cdn.rawgit.com/wangsongiam/dotfiles/8f92a1ea/demo/resizing.gif)
+> `cmd [shift] +/-`: window resizing
+------
+
+### Neovim
   * async completion
   * dimmed line number and status bar for low contraction
   * fzf and ag inplemented for directory, in-file, cross file level searching

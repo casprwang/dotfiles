@@ -112,6 +112,8 @@
   "linter-pep8": {}
   "linter-stylelint":
     useStandard: true
+  "linter-ui-default":
+    panelHeight: 69
   "linter-xo":
     fixOnSave: true
   "markdown-writer":
