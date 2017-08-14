@@ -4,9 +4,6 @@ A set of configurations for a poductive and enjoyable workstation.
 ![image](https://cdn.rawgit.com/wangsongiam/dotfiles/109881e4/demo/2017-07-27.png)
 > Working with React Web App example
 
-## Love multitasking?
-![mutltasking](https://cdn.rawgit.com/wangsongiam/dotfiles/b7fb6dea/demo/multi.png)
-
 ## Table of content
 
 |  Name| Filepath |
