@@ -28,9 +28,12 @@ appPath = {
 
 -- print(hs.application:title())
 
-print(hs.application.runningApplications())
+-- print(hs.application.runningApplications())
 
--- -- switching between screens
+
+-- hs.hotkey.bind({"cmd"}, 'escape', keyCode('capslock'),  nil,   keyCode('capslock') )
+
+-- -- switching between monitor
 -- hs.hotkey.bind({"cmd"}, 'escape', function ()
 --   focusScreen(hs.window.focusedWindow():screen():next())
 -- end)

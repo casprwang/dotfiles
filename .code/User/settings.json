@@ -41,6 +41,15 @@
         },
         {
             "before": [
+                "<c-m>"
+            ],
+            "after": [
+                "<Esc>",
+                "o"
+            ]
+        },
+        {
+            "before": [
                 "<C-g>"
             ],
             "after": [
@@ -105,6 +114,30 @@
             "after": [
                 "cmd",
                 "s"
+            ]
+        },
+        {
+            "before": [
+                "<right>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusNextGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<left>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusPreviousGroup",
+                    "args": []
+                }
             ]
         },
         {
@@ -195,15 +228,18 @@
         },
         {
             "before": [
-                "g",
-                "i",
-                "s"
+                "<space>",
+                "m"
             ],
             "after": [
             ],
            "commands": [
                {
                    "command": "git.stage",
+                   "args": []
+               },
+               {
+                   "command": "git.commit",
                    "args": []
                }
            ]
@@ -235,7 +271,7 @@
     ],
     "vim.disableAnnoyingNeovimMessage": true,
     "guides.enabled": false,
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Ocean Dark Extended",
     "editor.multiCursorModifier": "ctrlCmd",
     "window.zoomLevel": 0,
     "prettier.jsxBracketSameLine": false,
@@ -245,5 +281,9 @@
     "emmet.triggerExpansionOnTab": false,
     "workbench.sideBar.location": "right",
     "editor.cursorStyle": "line",
-    "editor.cursorBlinking": "solid"
+    "editor.cursorBlinking": "solid",
+    "go.formatTool": "gofmt",
+    "[go]": {
+        "editor.tabSize": 8
+    }
 }

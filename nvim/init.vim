@@ -149,6 +149,8 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
 Plug 'alexlafroscia/postcss-syntax.vim'
+Plug 'fatih/vim-go'
+
 Plug 'mattn/emmet-vim' " {{{
 " emmet
 
@@ -178,7 +180,7 @@ Plug 'iamcco/markdown-preview.vim'
 " let g:vim_markdown_folding_disabled = 1
 " let g:vim_markdown_frontmatter = 1
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
-nmap <silent> <leader>m <Plug>MarkdownPreview
+" nmap <silent> <leader>m <Plug>MarkdownPreview
 "}}}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
@@ -294,6 +296,12 @@ Plug 'Chiel92/vim-autoformat' " {{{
 " " }}}
 Plug 'danro/rename.vim'
 Plug 'chriskempson/base16-vim'
+
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+
+
+
+
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'junegunn/goyo.vim' "{{{
 
@@ -816,7 +824,7 @@ autocmd Filetype json setlocal ts=2 sts=2 sw=2
 " one line commiting and pushing everything
 nnoremap <leader>p :Gitit 
 " one line commiting current file with message
-nnoremap <leader>c :GititCommit 
+nnoremap <leader>m :GititCommit 
 "}}}
 "{{{ colorscheme
 " ----------------------------------------------------------------------------

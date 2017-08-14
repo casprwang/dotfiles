@@ -7,6 +7,12 @@ alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
+
+# showing one level files in the current folder
+alias la="ls -1"
+
+# showing files in a tree
+alias lt="ls -T"
 alias re="cd ~/dev/react"
 alias ia="open -a iA\ Writer"
 # alias vim=nvim
@@ -17,8 +23,8 @@ alias gd="gatsby develop"
 alias ag="ag --nobreak --nonumbers --noheading . | fzf"
 alias pane="ftpane"
 alias sup="cd ~/wangsup"
-alias ls="ls -la"
-alias pretty="prettier --no-semi --trailing-comma none --write '*.js'"
+alias ls="exa"
+alias pretty="find . -name "*.js" | grep -v node_modules | xargs prettier --no-semi --trailing-comma none --write '*.js'"
 
 # for tmux
 alias t="tmux a"
