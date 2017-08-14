@@ -19,16 +19,27 @@
 			"console.log($1)"
 		],
 		"description": "Log output to console"
-	}
+	},
 	 "function": {
 		"prefix": "fun",
 		"body": [
-			"const $1 = ($2) => {"
-			"\t$3"
+			"const $1 = ($2) => {",
+			"\t$3",
 			"}"
 		],
 		"description": "Log output to console"
+	},
+	"import": {
+		"prefix": "im",
+		"body": [
+			"import $1 from '$2'",
+			"$3"
+		]
+	},
+	"export":{
+		"prefix": "me",
+		"body": [
+			"module.exports = $0"
+		]
 	}
-	
-
 }
