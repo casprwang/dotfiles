@@ -18,8 +18,8 @@ set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
 set autoread
-set relativenumber
-set number
+" set relativenumber
+" set number
 set hlsearch
 set incsearch
 set ignorecase
@@ -51,89 +51,80 @@ set softtabstop=2
 
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-" call plug#begin('~/.vim/plugged')
-
-
-" Plug 'tpope/vim-commentary'
-
-" Plug 'kana/vim-textobj-user'
-" Plug 'kana/vim-textobj-line'
-" Plug 'kana/vim-textobj-entire'
-" Plug 'beloglazov/vim-textobj-quotes'
-" " Plug 'kana/vim-textobj-function'
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'kana/vim-smartinput'
-" Plug 'junegunn/fzf.vim'
-" " Initialize plugin system
-" call plug#end()
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-commentary'
+Plug 'chriskempson/base16-vim'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'beloglazov/vim-textobj-quotes'
+" Plug 'kana/vim-textobj-function'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'kana/vim-smartinput'
+Plug 'junegunn/fzf.vim'
+" Initialize plugin system
+call plug#end()
 
 
 
 
 
 
-" autocmd Filetype html setlocal ts=2 sts=2 sw=2
-" autocmd Filetype python setlocal ts=4 sts=4 sw=4
-" autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
-" autocmd BufReadPost *
-"       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-"       \   exe "normal! g'\"" |
-"       \ endif
-"       " center buffer around cursor when opening files
-" autocmd BufRead * normal zz
-
-
-" syntax enable
-
-" " ================================== waiting 
-" " set background=light
-" " colorscheme lucario
-
-" " let g:simple_todo_map_keys = 0
-
-" " nmap <Leader>i <Plug>(simple-todo-below)
-" " nmap <Leader>I <Plug>(simple-todo-above)
-" " nmap <Leader>u <Plug>(simple-todo-mark-switch)
-
-" " fzf
-" map <c-p> :FZF<cr>
-
-" " navi
-" let g:tmux_navigator_no_mappings = 1
-" nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
-" nnoremap <silent> <Down> :TmuxNavigateDown<cr>
-" nnoremap <silent> <Up> :TmuxNavigateUp<cr>
-" nnoremap <silent> <Right> :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
-" nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
-
-" map <leader>o :NERDTreeToggle<CR>
-
-" " fzf
-" let g:fzf_action = {
-"   \ 'ctrl-t': 'tab split',
-"   \ 'ctrl-s': 'split',
-"   \ 'ctrl-v': 'vsplit' }
-" let g:fzf_colors =
-" \ { 'fg':      ['fg', 'Normal'],
-"   \ 'bg':      ['bg', 'Normal'],
-"   \ 'hl':      ['fg', 'Comment'],
-"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-"   \ 'hl+':     ['fg', 'Statement'],
-"   \ 'info':    ['fg', 'PreProc'],
-"   \ 'prompt':  ['fg', 'Conditional'],
-"   \ 'pointer': ['fg', 'Exception'],
-"   \ 'marker':  ['fg', 'Keyword'],
-"   \ 'spinner': ['fg', 'Label'],
-"   \ 'header':  ['fg', 'Comment'] }
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
+      " center buffer around cursor when opening files
+autocmd BufRead * normal zz
 
 
-" if exists('$TMUX')
-"   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-" else
-"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" endif
+syntax enable
+
+" ================================== waiting 
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-default-dark
+" fzf
+map <c-p> :FZF<cr>
+
+" navi
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <Right> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
+
+map <leader>o :NERDTreeToggle<CR>
+
+" fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif

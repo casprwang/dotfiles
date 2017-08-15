@@ -121,6 +121,13 @@ fe() {
 }
 
 
+# edit file with vim
+fev() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && vim "${files[@]}"
+}
+
 
 # chrome - browse chrome history
 chrome() {

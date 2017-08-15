@@ -7,6 +7,7 @@ keys = {
     c   = { "ctrl" },
     cs  = { "ctrl", "shift" },
     ca  = { "ctrl", "alt"},
+    hyper = {"cmd", "alt", "shift"}
 }
 
 
@@ -39,12 +40,17 @@ appPath = {
 -- end)
 
 -- showing the current time
-hs.hotkey.bind({"cmd", "alt", "shift"}, "t", function()
+hs.hotkey.bind(keys.hyper, "t", function()
   local time = hs.timer.localTime()
   local x = math.floor(time/3600)
   local y = math.floor((time - x * 3600)/60)
   hs.alert.show(tostring(x)..":"..tostring(y))
 end)
+
+-- hs.hotkey.bind(keys.hyper, "e", function()
+--   hs.alert.show(hs.sound.systemSounds())
+-- end)
+
 
 
 --Predicate that checks if a window belongs to a screen

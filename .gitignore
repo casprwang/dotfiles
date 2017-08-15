@@ -17,6 +17,7 @@ tags
 .atom/packages
 nvim/deinPlugins
 nvim/bundle
+.vim/autoload/
 nvim/plugged/
 .vim/plugged/
 nvim/dein/
