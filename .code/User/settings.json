@@ -271,9 +271,9 @@
     ],
     "vim.disableAnnoyingNeovimMessage": true,
     "guides.enabled": false,
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Ocean Dark Extended",
     "editor.multiCursorModifier": "ctrlCmd",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "prettier.jsxBracketSameLine": false,
     "prettier.semi": false,
     "prettier.useTabs": false,
@@ -285,5 +285,9 @@
     "go.formatTool": "gofmt",
     "[go]": {
         "editor.tabSize": 8
-    }
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "prettier.tabWidth": 2
 }

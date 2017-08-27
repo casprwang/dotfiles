@@ -18,8 +18,8 @@ set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
 set autoread
-" set relativenumber
-" set number
+set relativenumber
+set number
 set hlsearch
 set incsearch
 set ignorecase
@@ -56,12 +56,14 @@ Plug 'tpope/vim-commentary'
 Plug 'chriskempson/base16-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
+Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 " Plug 'kana/vim-textobj-function'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kana/vim-smartinput'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 " Initialize plugin system
 call plug#end()
 

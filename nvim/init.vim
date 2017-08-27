@@ -26,6 +26,8 @@ set splitright
 set splitbelow
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
+" set relativenumber
+" set number
 set undoreload=10000        " number of lines to save for undo
 set clipboard=unnamed
 set list
@@ -484,7 +486,6 @@ Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
 " }}}
 Plug 'mxw/vim-jsx'
-" Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
@@ -822,9 +823,9 @@ autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
 "{{{ git functions
 " one line commiting and pushing everything
-nnoremap <leader>p :Gitit 
+nnoremap <silent> <leader>p :Gitit 
 " one line commiting current file with message
-nnoremap <leader>m :GititCommit 
+nnoremap <silent> <leader>m :GititCommit 
 "}}}
 "{{{ colorscheme
 " ----------------------------------------------------------------------------

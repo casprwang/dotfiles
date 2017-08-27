@@ -62,6 +62,7 @@ A set of configurations for a poductive and enjoyable workstation.
   * themed
 ### Zshell
   * autocompletion
+  * fuzzy finding and navigating
 ### Hammerspoon
   * Monitor Swithcing `<cmd-esc>`
   * Scoped shortcuts for Apps 
