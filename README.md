@@ -18,7 +18,7 @@ A set of configurations for a poductive and enjoyable workstation.
 | Git | [.gitconfig](./.gitconfig) |
 | Xcode | [.xvimrc](.xvimrc) |
 | VSCode Editor |[.code/](./.code)  |
-| Atom Editor (Deprecated in April, 2017) | [.atom/](./.atom) |
+| Atom Editor | [.atom/](./.atom) |
 
 ## Highlights
 ![find a session with a cmd key shortcut](https://cdn.rawgit.com/wangsongiam/dotfiles/c16e408d/demo/navi%20session.gif)

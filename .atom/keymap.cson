@@ -4,7 +4,8 @@
   'down': 'core:move-down'
   'cmd-j': 'unset!'
   'cmd-s': 'unset!'
-  'cmd-r': 'run:file'
+  'cmd-r': 'script:run'
+
 'atom-workspace:not([mini])':
   'ctrl-cmd-f': 'project-find-navigation:activate-results-pane'
 # Atom keymaps work similarly to style sheets. Just as style sheets use
@@ -51,6 +52,8 @@
 'atom-text-editor.vim-mode-plus.normal-mode':
   # Override default cmd-L(editor:split-selections-into-lines)
   'cmd-L': 'paner:very-right'
+  'g p': 'git-plus:add-all-commit-and-push'
+
   # ':': 'command-palette:toggle'
   'enter': 'vim-mode-plus:add-blank-line-below'
   # surround
@@ -58,10 +61,12 @@
   'c s': 'vim-mode-plus:change-surround-any-pair'
   'd s': 'vim-mode-plus:delete-surround-any-pair'
 
+
+
   'shift-enter': 'vim-mode-plus:add-blank-line-above'
   'tab': 'vim-mode-plus:reset-normal-mode'
   'shift-tab': 'vim-mode-plus:reset-normal-mode'
-
+  'space f': 'prettier:format'
   'Z Z': 'core:close'
   'space j': 'core:save'
   'up': 'markdown-writer:jump-to-previous-heading'
@@ -202,7 +207,7 @@
   # 'alt-cmd-k': 'pane:split-up-and-copy-active-item'
   # 'alt-cmd-l': 'pane:split-right-and-copy-active-item'
   # 'alt-cmd-h': 'pane:split-left-and-copy-active-item'
-  'cmd-b': 'tree-view:toggle'
+  # 'cmd-b': 'tree-view:toggle'
   # 'alt-l': 'window:focus-pane-on-right'
   # 'alt-j': 'window:focus-pane-below'
   # 'alt-k': 'window:focus-pane-above'

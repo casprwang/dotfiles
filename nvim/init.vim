@@ -79,6 +79,7 @@ nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 nnoremap 0 ^
 nnoremap <leader>r :!python3 %<cr>
+nmap Y y$
 
 " for git
 nnoremap gp :!gp 
@@ -216,7 +217,7 @@ Plug 'mitermayer/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
 " max line lengh that prettier will wrap on
 nnoremap <leader>f :Prettier<cr>
-let g:prettier#config#print_width = 80
+let g:prettier#config#print_width = 60
 
 " number of spaces per indentation level
 let g:prettier#config#tab_width = 2
@@ -823,9 +824,9 @@ autocmd Filetype json setlocal ts=2 sts=2 sw=2
 "}}}
 "{{{ git functions
 " one line commiting and pushing everything
-nnoremap <silent> <leader>p :Gitit 
+nnoremap <leader>p :Gitit 
 " one line commiting current file with message
-nnoremap <silent> <leader>m :GititCommit 
+nnoremap <leader>m :GititCommit 
 "}}}
 "{{{ colorscheme
 " ----------------------------------------------------------------------------

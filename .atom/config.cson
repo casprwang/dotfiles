@@ -48,9 +48,11 @@
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
       "vim-plus-autocomplete-emmet-compatibility"
-      "tree-view"
       "pigments"
       "linter-eslint"
+      "go-signature-statusbar"
+      "go-debug"
+      "go-plus"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -68,14 +70,14 @@
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "solarized-dark-syntax"
+      "base16-ocean-dark-spacegray"
     ]
     titleBar: "custom"
   "disable-keybindings": {}
   editor:
-    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
+    tabType: "soft"
   emmet: {}
   "exception-reporting":
     userId: "6678e98e-4b34-c899-1c6e-8274cdaafeef"
@@ -86,8 +88,18 @@
   "gist-it":
     userToken: "4abc1a352ef146241b31d1f600ee21b22220a89d"
   "git-plus":
+    experimental: {}
     general:
       _analyticsUserId: "0d241bcc-b403-4288-b04c-ec7adeb6b9b9"
+  "go-plus":
+    autocomplete:
+      snippetMode: "none"
+    format: {}
+    panel: {}
+    test:
+      runTestsOnSave: false
+      runTestsWithCoverage: false
+      runTestsWithShortFlag: false
   jshint:
     onlyConfig: true
     supportLintingJsx: true
@@ -143,8 +155,10 @@
     style: {}
   "prettier-atom":
     prettierOptions:
+      printWidth: 60
       semi: false
       singleQuote: true
+      useTabs: true
   "project-manager": {}
   react:
     enabledForAllJavascriptFiles: true
@@ -157,6 +171,8 @@
     isVisible: false
   stylefmt:
     formatOnSave: true
+  "tabs-to-spaces":
+    onSave: "untabify"
   "tree-view": {}
   "vim-mode":
     useSmartcaseForSearch: true
@@ -168,6 +184,9 @@
     ignoreCaseForSearch: true
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
+    keymapBackslashToInnerCommentOrParagraphWhenToggleLineCommentsIsPending: true
+    keymapCCToChangeInnerSmartWord: true
+    keymapYToYankToLastCharacterOfLine: true
     showHoverOnOperate: true
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnHalfScrollMotionDuration: 300

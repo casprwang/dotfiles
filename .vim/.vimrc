@@ -37,6 +37,7 @@ nnoremap J 5gj
 nnoremap K 5gk
 vmap J 5gj
 vmap K 5gk
+nmap Y y$
 
 nmap <c-w>v <c-w>v<right>
 nmap <c-w>l <c-w>v
