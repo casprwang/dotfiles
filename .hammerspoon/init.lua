@@ -12,7 +12,7 @@ keys = {
 
 
 -- for testing new bindings 
-hs.hotkey.bind(keys.ca, "t", function()
+hs.hotkey.bind(keys.ca, "8", function()
     hs.alert.show(hs.window.focusedWindow():isFrontmost())
 
     -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
@@ -27,20 +27,8 @@ appPath = {
     Tweetbot="/Applications/Tweetbot.app",
 }
 
--- print(hs.application:title())
-
--- print(hs.application.runningApplications())
-
-
--- hs.hotkey.bind({"cmd"}, 'escape', keyCode('capslock'),  nil,   keyCode('capslock') )
-
--- -- switching between monitor
--- hs.hotkey.bind({"cmd"}, 'escape', function ()
---   focusScreen(hs.window.focusedWindow():screen():next())
--- end)
-
 -- showing the current time
-hs.hotkey.bind(keys.hyper, "t", function()
+hs.hotkey.bind(keys.hyper, "6", function()
   local time = hs.timer.localTime()
   local x = math.floor(time/3600)
   local y = math.floor((time - x * 3600)/60)
@@ -284,10 +272,8 @@ function applicationWatcher(appName, eventType, appObject)
                 v:enable()
             end
         end
-        if (string.find(appName, 'Emacs')) then
-            for i,v in pairs(editting) do
-                v:disable()
-            end
+        if (string.find(appName, 'Emacs')) or (string.find(appName, 'Atom')) then
+            editting.cW:disable()
         elseif not (string.find(appName, 'iTerm') or ( string.find(appName, 'VIM') )) then
             for i,v in pairs(editting) do
                 v:enable()
