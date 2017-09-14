@@ -9,7 +9,7 @@ A set of configurations for a poductive and enjoyable workstation.
 |  Name| Filepath |
 |:--|:--|
 | Neovim (over engineered) | [init.vim](./nvim/init.vim) |
-| Vim | [.vim/](./.vim/) |
+| Vim | [.vim/](./.vim/.vimrc) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
 | iTerm | [iterm.json](./iterm.json) |
 | Zshell | [zsh/](./zshrc) |

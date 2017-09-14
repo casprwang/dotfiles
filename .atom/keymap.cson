@@ -5,6 +5,7 @@
   'cmd-j': 'unset!'
   'cmd-s': 'unset!'
   'cmd-r': 'script:run'
+# '.platform-darwin atom-text-editor:not([mini])':
 
 'atom-workspace:not([mini])':
   'ctrl-cmd-f': 'project-find-navigation:activate-results-pane'
@@ -27,29 +28,20 @@
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
+  'cmd-enter': 'hydrogen:run-all'
   'escape': 'vim-mode-plus:reset-normal-mode'
+
   'ctrl-w': 'editor:delete-to-beginning-of-word'
   'ctrl-g': 'emmet:expand-abbreviation-with-tab'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
   'ctrl-o': 'snippets:expand'
+  'ctrl-enter': 'vim-mode-plus:maximize-pane'
 
-
-  # 'down': 'core:move-down'
-  # 'up': 'core:move-up'
-
-
-# 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-#   'K': 'custom:move-ten-up'
-#   'J': 'custom:move-ten-down'
-# 'atom-workspace:not([mini])':
-#   'cmd-x': 'paner:swap-pane'
-#   'cmd-X': 'paner:send-item'
-#   'cmd-K': 'paner:very-top'
-#   'cmd-J': 'paner:very-bottom'
-#   'cmd-H': 'paner:very-left'
-#   'cmd-L': 'paner:very-right'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  'ctrl-enter': 'vim-mode-plus:maximize-pane'
+
+  'cmd-enter': 'hydrogen:run-all'
   # Override default cmd-L(editor:split-selections-into-lines)
   'cmd-L': 'paner:very-right'
   'g p': 'git-plus:add-all-commit-and-push'

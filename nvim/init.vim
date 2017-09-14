@@ -172,6 +172,11 @@ Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 " Plug 'chriskempson/base16-vim'
 Plug 'gcmt/taboo.vim'
+" Scala
+Plug 'ensime/ensime-vim'
+Plug 'derekwyatt/vim-scala'
+
+
 " React
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
@@ -840,3 +845,6 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " let g:hybrid_custom_term_colors = 1
 " let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 "}}}
+" Scala 
+autocmd BufWritePost *.scala silent :EnTypeCheck
+

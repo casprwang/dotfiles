@@ -153,6 +153,8 @@
         blue: "#00fdff"
     core: {}
     style: {}
+    toggles:
+      autoClose: true
   "prettier-atom":
     prettierOptions:
       printWidth: 60
@@ -209,6 +211,14 @@
   editor:
     showIndentGuide: true
     showInvisibles: true
+".go.source":
+  editor:
+    tabLength: 8
+".gotemplate.source":
+  editor:
+    showIndentGuide: true
+    softWrap: false
+    tabLength: 8
 ".js.jsx.source":
   editor:
     autoIndent: true
