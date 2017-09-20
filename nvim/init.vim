@@ -21,6 +21,7 @@ let g:python3_host_prog = '/Users/wangsong/.pyenv/versions/neovim3/bin/python'
 " ----------------------------------------------------------------------------
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 set nowrap
+" hide hidden characters
 set smartindent
 set splitright
 set splitbelow
@@ -75,10 +76,10 @@ nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
+au Filetype python nnoremap <leader>r :!python3 %<cr>
 nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 nnoremap 0 ^
-nnoremap <leader>r :!python3 %<cr>
 nmap Y y$
 
 " for git
@@ -108,7 +109,7 @@ nnoremap <leader>e :Ag<cr>
 call plug#begin('~/.local/share/nvim/plugged')
 "call plug#begin('~/.config/nvim/plugged')
 
-"Plugging
+"lugging
 Plug 'tpope/vim-commentary'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
 "let g:deoplete#omni_patterns = {}
@@ -152,7 +153,14 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
 Plug 'alexlafroscia/postcss-syntax.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
+let g:go_term_enabled = 1
+let g:go_term_width = 80
+au FileType go nmap <leader>r <Plug>(go-run-tab)
+" au FileType go nmap <leader>r <Plug>(go-run-split)
+" au FileType go nmap <leader>r <Plug>(go-run-vertical)
+"}}}
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
 Plug 'mattn/emmet-vim' " {{{
 " emmet
@@ -305,7 +313,6 @@ Plug 'Chiel92/vim-autoformat' " {{{
 Plug 'danro/rename.vim'
 Plug 'chriskempson/base16-vim'
 
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
 
 
@@ -627,6 +634,8 @@ set statusline=%f
 " line separator
 set statusline+=%=
 " set gitgutter on the right side
+
+set statusline+=\ %l\:%c\ \ \ \ 
 set statusline+=%{join(GitGutterGetHunkSummary())}
         " Switch to the right side
 " set statusline+=%l        " Current line
@@ -815,6 +824,7 @@ autocmd FileType reason let maplocalleader=","
 autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
+set ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
@@ -822,10 +832,12 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
 autocmd Filetype js setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
-set ts=2 sts=2 sw=2
 autocmd FileType vim setlocal foldmethod=marker
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype go set ts=8 sts=8 sw=8
+autocmd Filetype go set nolist
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 "}}}
 "{{{ git functions
 " one line commiting and pushing everything

@@ -4,6 +4,14 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# Go
+export GOPATH=$HOME/goprojects
+export PATH=$PATH:$GOPATH/bin
+# export GOPATH=$HOME/dev/go
+# export PATH=$PATH:$(go env GOPATH)/bin
+# export GOPATH=$(go env GOPATH)
+# export GOROOT=$HOME/dev/go
+
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 

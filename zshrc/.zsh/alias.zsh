@@ -65,6 +65,7 @@ alias xcode="open -a Xcode"
 
 alias tmr="nvim ~/.tmux.conf"
 alias cdt="cd ~/temp"
+alias cgo="cd ~/gocode/src/github.com/wangsongiam/"
 # alias e="exit"
 alias jn="jasmine-node"
 alias e="fe"
