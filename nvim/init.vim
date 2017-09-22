@@ -401,8 +401,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
-nnoremap gp :Gpush<cr>
-nnoremap gm :Gcommit<cr>
+" nnoremap gp :Gpush<cr>
+" nnoremap gm :Gcommit<cr>
 nnoremap gd :Gdiff<cr>
 nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
@@ -836,6 +836,9 @@ autocmd FileType vim setlocal foldmethod=marker
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype go set ts=8 sts=8 sw=8
 autocmd Filetype go set nolist
+" Scala 
+autocmd BufWritePost *.scala silent :EnTypeCheck
+
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 "}}}
@@ -857,6 +860,3 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " let g:hybrid_custom_term_colors = 1
 " let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 "}}}
-" Scala 
-autocmd BufWritePost *.scala silent :EnTypeCheck
-
