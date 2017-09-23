@@ -86,5 +86,4 @@ $ curl -fsSL https://raw.githubusercontent.com/wangsongiam/dotfiles/master/insta
 ```
 
 ## License
-This repo is fully under [MIT Lincese](LICENSE), by that you can do almost
-anything you want with it.
+MIT © [Song Wang](https://songwang.io)
