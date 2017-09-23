@@ -273,7 +273,7 @@
     "guides.enabled": false,
     "workbench.colorTheme": "Ocean Dark Extended",
     "editor.multiCursorModifier": "ctrlCmd",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": -1,
     "prettier.jsxBracketSameLine": false,
     "prettier.semi": false,
     "prettier.useTabs": false,

@@ -29,7 +29,7 @@ A set of configurations for a poductive and enjoyable workstation.
 > `cmd-shift-p` for navigating to last session; `cmd-p` last window
 
 ------
-![togglemaximux](demo/togglemaximux.gif)
+![togglemaximux](https://user-images.githubusercontent.com/19645990/30446151-4e3a1002-9956-11e7-971c-ee5784e4bdd2.gif)
 > toggle maximux with `cmd enter`
 
 ------
