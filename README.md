@@ -1,7 +1,7 @@
 # Dotfiles
 A set of configurations for a poductive and enjoyable workstation.
 
-![image](https://cdn.rawgit.com/wangsongiam/dotfiles/109881e4/demo/2017-07-27.png)
+![image](https://user-images.githubusercontent.com/19645990/30446751-0c6aa932-9958-11e7-9337-3d4efea9f2ad.png)
 > Working with React Web App example
 
 ## Table of content
@@ -41,7 +41,8 @@ A set of configurations for a poductive and enjoyable workstation.
 > `cmd-n` new session with a name
 
 ------
-![navigat window](demo/navii.gif)
+![navigat
+window](https://user-images.githubusercontent.com/19645990/30446149-4e2d9b06-9956-11e7-9c19-079d97560f0f.gif)
 > `cmd-d` split tmux pane right; `ctrl-hjkl`navigating panes
 
 

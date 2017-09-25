@@ -76,7 +76,6 @@ nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
-au Filetype python nnoremap <leader>r :!python3 %<cr>
 nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 nnoremap 0 ^
@@ -825,17 +824,18 @@ autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
 set ts=2 sts=2 sw=2
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
-autocmd Filetype scss setlocal ts=2 sts=2 sw=2
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype jsx setlocal ts=2 sts=2 sw=2
-autocmd Filetype js setlocal ts=2 sts=2 sw=2
+au Filetype html setlocal ts=2 sts=2 sw=2
+au Filetype css setlocal ts=2 sts=2 sw=2
+au Filetype scss setlocal ts=2 sts=2 sw=2
+au Filetype javascript setlocal ts=2 sts=2 sw=2
+au Filetype jsx setlocal ts=2 sts=2 sw=2
+au Filetype js setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
-autocmd FileType vim setlocal foldmethod=marker
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
-autocmd Filetype go set ts=8 sts=8 sw=8
-autocmd Filetype go set nolist
+au FileType vim setlocal foldmethod=marker
+au Filetype python setlocal ts=4 sts=4 sw=4
+au Filetype go set ts=8 sts=8 sw=8
+au Filetype go set nolist
+au Filetype python nnoremap <leader>r :!python3 %<cr>
 " Scala 
 autocmd BufWritePost *.scala silent :EnTypeCheck
 
