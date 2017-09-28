@@ -23,7 +23,7 @@
     "vim.hlsearch": true,
     "vim.easymotion": true,
     "workbench.editor.enablePreview": false,
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "off",
     // "terminal.integrated.cursorBlinking": false,
     // "editor.cursorBlinking": "solid",
     "vim.insertModeKeyBindings": [

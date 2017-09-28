@@ -53,6 +53,8 @@
       "go-signature-statusbar"
       "go-debug"
       "go-plus"
+      "linter"
+      "relative-numbers"
     ]
     packagesWithKeymapsDisabled: [
       "script"
@@ -77,6 +79,7 @@
   editor:
     invisibles: {}
     scrollPastEnd: true
+    showLineNumbers: false
     tabType: "soft"
   emmet: {}
   "exception-reporting":

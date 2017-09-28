@@ -71,6 +71,7 @@ inoremap <c-d> <esc>cw
 inoremap <c-e> <esc>A
 " }}}
 let mapleader="\<Space>"
+inoremap {<cr> {<cr>}<c-o>O
 nnoremap <c-w><Space> <c-w>=
 nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
@@ -432,6 +433,7 @@ au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`
 au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 let g:AutoPairsFlyMode = 0
 "}}}
+Plug 'jiangmiao/simple-javascript-indenter'
 "Plug 'vim-airline/vim-airline-themes' "{{{
 "let g:airline_powerline_fonts = 1
 "let g:airline_theme = "tomorrow"
