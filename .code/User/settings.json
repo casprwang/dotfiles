@@ -291,6 +291,7 @@
         "editor.tabSize": 2
     },
     "prettier.tabWidth": 2,
-    "prettier.printWidth": 60,
-    "go.formatOnSave": false
+    "prettier.printWidth": 80,
+    "go.formatOnSave": false,
+    "vim.foldfix": true
 }

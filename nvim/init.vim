@@ -220,7 +220,7 @@ autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --p
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 let g:neoformat_only_msg_on_error = 1
-" noremap <leader>f :Neoformat<cr>
+noremap <leader>f :Neoformat<cr>
 "}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
@@ -229,8 +229,8 @@ Plug 'mitermayer/vim-prettier', {
 	\ 'do': 'yarn install', 
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
 " max line lengh that prettier will wrap on
-nnoremap <leader>f :Prettier<cr>
-let g:prettier#config#print_width = 60
+au Filetype js nnoremap <leader>f :Prettier<cr>
+let g:prettier#config#print_width = 80
 
 " number of spaces per indentation level
 let g:prettier#config#tab_width = 2
@@ -318,40 +318,43 @@ Plug 'chriskempson/base16-vim'
 
 
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'junegunn/goyo.vim' "{{{
+"Plug 'junegunn/goyo.vim' "{{{
 
-let g:goyo_height = 105
-let g:goyo_linenr = 1
+"let g:goyo_height = 105
+"let g:goyo_linenr = 1
 
-function! s:goyo_enter()
-  " silent !tmux set status off
-  " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  set noshowmode
-  " hi! StatusLine ctermbg=249 ctermfg=235
-  " set noshowcmd
-  " set scrolloff=999
-  " Limelight
-  " ...
-endfunction
+"function! s:goyo_enter()
+"  " silent !tmux set status off
+"  " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+"  set noshowmode
+"  " hi! StatusLine ctermbg=249 ctermfg=235
+"  " set noshowcmd
+"  " set scrolloff=999
+"  " Limelight
+"  " ...
+"endfunction
 
-function! s:goyo_leave()
-  " silent !tmux set status on
-  " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  set showmode
-  " hi! StatusLine ctermbg=249 ctermfg=235
-  " set showcmd
-  " set scrolloff=5
-  " Limelight!
-  " ...
-endfunction
+"function! s:goyo_leave()
+"  " silent !tmux set status on
+"  " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+"  set showmode
+"  " hi! StatusLine ctermbg=249 ctermfg=235
+"  " set showcmd
+"  " set scrolloff=5
+"  " Limelight!
+"  " ...
+"endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+"autocmd! User GoyoEnter nested call <SID>goyo_enter()
+"autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
-" nmap <Leader>g :Goyo 80-10x100<cr>
-" nmap <Leader>g :Goyo<cr>
-nnoremap <silent> <c-w><cr> :Goyo<cr>
+"" nmap <Leader>g :Goyo 80-10x100<cr>
+"" nmap <Leader>g :Goyo<cr>
+"nnoremap <silent> <c-w><cr> :Goyo<cr>
+""}}}
+Plug 'szw/vim-maximizer' "{{{
+nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
 " nmap <Leader>gh :Limelight!!<cr>
