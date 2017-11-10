@@ -1,0 +1,33 @@
+snippet li "yes" 
+[$1]($2)$3
+endsnippet
+
+snippet to "yes"
+- [ ] $1
+endsnippet
+
+
+snippet t
+Today is the `date +%d.%m.%y`.
+`date +%D`
+`date +%Y`
+`date +%Z`
+`date +%F`
+`date +%k`
+`date +%M`
+`date +%c`
+endsnippet
+
+snippet post
+---
+title: $1
+layout: post
+date: `date +%F`
+time: `date +%r`
+tags:
+---
+endsnippet
+
+snippet datec
+`date +%c`
+endsnippet

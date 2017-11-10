@@ -1,0 +1,300 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    // "files.autoSave": "off",
+    "files.associations": {
+        "*.ml": "ocaml",
+        "*.mli": "ocaml"
+    },
+    "git.confirmSync": false,
+    "editor.tabSize": 2,
+    "emmet.syntaxProfiles": {
+        "javascript": [ "html", "jsx" ]
+    },
+    "typescript.check.tscVersion": false,
+    // "amVim.bindCtrlCommands": false,
+    // "editor.cursorStyle": "block",
+    "editor.fontSize": 14,
+    "vim.leader": "<space>",
+    "vim.statusBarColorControl": true,
+    "vim.scroll": 5,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.easymotion": true,
+    "workbench.editor.enablePreview": false,
+    "editor.lineNumbers": "off",
+    // "terminal.integrated.cursorBlinking": false,
+    // "editor.cursorBlinking": "solid",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "<c-o>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "insertSnippet",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<c-m>"
+            ],
+            "after": [
+                "<Esc>",
+                "o"
+            ]
+        },
+        {
+            "before": [
+                "<C-g>"
+            ],
+            "after": [
+                "cmd",
+                "4"
+            ],
+            "commands": [
+                {
+                    "command": "editor.emmet.action.expandAbbreviation",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<c-a>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorLineStart",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<c-e>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorLineEnd"
+                }
+            ]
+        }
+    ],
+    "vim.otherModesKeyBindings": [
+        {
+            "before": [
+                "\n"
+            ],
+            "after": [
+                "o",
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "5",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "cmd",
+                "s"
+            ]
+        },
+        {
+            "before": [
+                "<right>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusNextGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<left>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusPreviousGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "5",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": ":nohl",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "Z",
+                "Z"
+            ],
+            "after": [
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "toggleSideBarVisibility",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.formatDocument",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "j"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "/"
+            ],
+            "after": [
+                "g",
+                "c"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "m"
+            ],
+            "after": [
+            ],
+           "commands": [
+               {
+                   "command": "git.stage",
+                   "args": []
+               },
+               {
+                   "command": "git.commit",
+                   "args": []
+               }
+           ]
+        },
+        {
+           "before": ["g", "/", "/"],
+           "after": [],
+           "commands": [
+               {
+                   "command": "editor.action.commentLine",
+                   "args": []
+               }
+           ]
+        },
+        {
+            "before": [
+                "<Esc>"
+            ],
+            "after": [
+                "<Esc>"
+            ],
+            "commands": [
+                {
+                    "command": ":nohl",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "vim.disableAnnoyingNeovimMessage": true,
+    "guides.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "window.zoomLevel": 0,
+    "prettier.jsxBracketSameLine": false,
+    "prettier.semi": false,
+    "prettier.useTabs": false,
+    "prettier.singleQuote": true,
+    "emmet.triggerExpansionOnTab": false,
+    "workbench.sideBar.location": "right",
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "solid",
+    "go.formatTool": "gofmt",
+    "[go]": {
+        "editor.tabSize": 8,
+        "editor.insertSpaces": true
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "prettier.tabWidth": 2,
+    "prettier.printWidth": 80,
+    "go.formatOnSave": false,
+    "vim.foldfix": true,
+    "workbench.colorTheme": "Ocean Dark Extended",
+    "todohighlight.isEnable": false,
+    "prettier.eslintIntegration": true,
+    "editor.renderLineHighlight": "none"
+}
