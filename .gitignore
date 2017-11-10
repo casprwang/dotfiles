@@ -1,4 +1,5 @@
 ### Vim ###
+
 # swap
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
@@ -32,3 +33,4 @@ nvim/<cr>
 todo.md
 /zshrc/.zsh/zsh-autosuggestions
 /zshrc/.zsh_history
+/.DS_Store
