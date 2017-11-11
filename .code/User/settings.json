@@ -293,7 +293,7 @@
     "prettier.printWidth": 80,
     "go.formatOnSave": false,
     "vim.foldfix": true,
-    "workbench.colorTheme": "Ocean Dark Extended",
+    "workbench.colorTheme": "Nord",
     "todohighlight.isEnable": false,
     "prettier.eslintIntegration": true,
     "editor.renderLineHighlight": "none"

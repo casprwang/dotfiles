@@ -100,5 +100,15 @@
   {
     "key": "ctrl+alt+m",
     "command": "-code-runner.stop"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "insertSnippet",
+    "when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
+  },
+  {
+    "key": "tab",
+    "command": "-insertSnippet",
+    "when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
   }
 ]
