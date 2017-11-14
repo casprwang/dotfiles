@@ -34,3 +34,6 @@ todo.md
 /zshrc/.zsh/zsh-autosuggestions
 /zshrc/.zsh_history
 /.DS_Store
+/zshrc/node_modules
+/zshrc/package.json
+/zshrc/yarn.lock

@@ -1,4 +1,3 @@
-# set shell=zsh\ -i
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
@@ -12,8 +11,8 @@ export PATH=$PATH:$GOPATH/bin
 # export GOPATH=$(go env GOPATH)
 # export GOROOT=$HOME/dev/go
 
-fpath=(~/.zsh/completions $fpath) 
-autoload -U compinit && compinit
+# fpath=(~/.zsh/completions $fpath) 
+# autoload -U compinit && compinit
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
