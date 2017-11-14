@@ -23,7 +23,7 @@ alias gd="gatsby develop"
 alias ag="ag --nobreak --nonumbers --noheading . | fzf"
 alias pane="ftpane"
 alias sup="cd ~/wangsup"
-alias ls="exa -1"
+alias l="exa -1"
 alias pretty="find . -name "*.js" | grep -v node_modules | xargs prettier --no-semi --trailing-comma none --write '*.js'"
 
 # for tmux

@@ -32,3 +32,6 @@ export NVM_DIR="$HOME/.nvm"
 
 source /Users/song/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# .zshrc
+autoload -U promptinit; promptinit
+prompt pure
