@@ -25,6 +25,7 @@ alias pane="ftpane"
 alias sup="cd ~/wangsup"
 alias l="exa -1"
 alias pretty="find . -name "*.js" | grep -v node_modules | xargs prettier --no-semi --trailing-comma none --write '*.js'"
+alias cdg="cd ~/go"
 
 # for tmux
 alias t="tmux a"

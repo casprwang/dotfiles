@@ -160,7 +160,7 @@ au FileType go nmap <leader>r <Plug>(go-run-tab)
 " au FileType go nmap <leader>r <Plug>(go-run-split)
 " au FileType go nmap <leader>r <Plug>(go-run-vertical)
 "}}}
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
 
 Plug 'mattn/emmet-vim' " {{{
 " emmet

@@ -3,7 +3,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Go
-export GOPATH=$HOME/goprojects
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 # export GOPATH=$HOME/dev/go
 # export PATH=$PATH:$(go env GOPATH)/bin
