@@ -6,4 +6,4 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 
 # go
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin

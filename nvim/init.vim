@@ -156,6 +156,8 @@ Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_term_enabled = 1
 let g:go_term_width = 80
+let g:go_fmt_autosave = 0
+let g:go_metalinter_autosave = 0
 au FileType go nmap <leader>r <Plug>(go-run-tab)
 " au FileType go nmap <leader>r <Plug>(go-run-split)
 " au FileType go nmap <leader>r <Plug>(go-run-vertical)
@@ -831,7 +833,6 @@ autocmd FileType reason let maplocalleader=","
 autocmd FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
-set ts=2 sts=2 sw=2
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
@@ -842,13 +843,16 @@ au Filetype js setlocal ts=2 sts=2 sw=2
 au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
-au Filetype go set nolist
 au Filetype python nnoremap <leader>r :!python3 %<cr>
 " Scala 
 autocmd BufWritePost *.scala silent :EnTypeCheck
 
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
+au Filetype go set ts=8 sts=8 sw=8
+" hide go's list char (gogmt wants tab but I personally don't want to see the
+" sign)
+au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ git functions
 " one line commiting and pushing everything
@@ -857,3 +861,4 @@ nnoremap <leader>p :Gitit
 nnoremap <leader>m :GititCommit 
 "}}}
 colorscheme nord
+set background=dark

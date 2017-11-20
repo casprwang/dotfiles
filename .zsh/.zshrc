@@ -40,3 +40,7 @@ prompt pure
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+

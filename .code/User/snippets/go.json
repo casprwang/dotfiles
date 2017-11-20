@@ -14,4 +14,12 @@
 		"description": "Log output to console"
 	}
 */
+
+	"declare": {
+		"prefix": ":",
+		"body": [
+			":="
+		],
+		"description": "ease it"
+	}
 }

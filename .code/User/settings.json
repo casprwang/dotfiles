@@ -226,5 +226,6 @@
   "workbench.colorTheme": "Nord",
   "todohighlight.isEnable": false,
   "prettier.eslintIntegration": true,
-  "editor.renderLineHighlight": "none"
+  "editor.renderLineHighlight": "none",
+  "go.gopath": "/Users/song/gocode"
 }
