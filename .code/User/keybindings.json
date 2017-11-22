@@ -32,7 +32,7 @@
   { "key": "cmd+shift+enter", "command": "workbench.action.evenEditorWidths" },
 
   {
-    "key": "ctrl-p",
+    "key": "cmd+p",
     "command": "workbench.action.quickOpen"
   },
   {

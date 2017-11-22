@@ -89,8 +89,8 @@ nnoremap gp :!gp
 nnoremap <c-b>b O<esc>
 
 " for returning position ater yanking
-nmap <c-w>v :vsplit<cr><c-p>
-nmap <c-w>s :split<cr><c-p>
+nmap <c-w>v :vsplit<cr><c-_>
+nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
@@ -525,7 +525,7 @@ set autoread
 " show autocomplete for commands
 set wildmenu
 map <leader>b :Buffers<cr>
-map <c-p> :FZF<cr>
+map <c-_> :FZF<cr>
 
 let g:fzf_layout = { 'window': 'enew' }
 " let g:fzf_layout = { 'window': '-tabnew' }
