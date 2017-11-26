@@ -1,5 +1,6 @@
 # setopt -s expand_aliases
 alias gp=gitpush
+alias gm=gitcm
 alias git=hub
 alias mkdi=mkcdir
 alias i="fd"
@@ -60,7 +61,7 @@ alias ignore="nvim .gitignore"
 alias gch="git checkout"
 alias cm="git add .&&git commit"
 # alias gp="git push origin master"
-alias gm="git merge"
+# alias gm="git merge"
 alias gb="git branch"
 alias st="tmux source-file ~/.tmux.conf"
 alias xcode="open -a Xcode"

@@ -31,6 +31,11 @@ gitpush() {
         git push origin master
 }
 
+gitcm() {
+        git add .
+        git commit -am "$*"
+}
+
 # show the file size
 size() {
         file="$1"
