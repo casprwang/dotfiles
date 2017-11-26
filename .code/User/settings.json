@@ -10,7 +10,10 @@
   "git.confirmSync": false,
   "editor.tabSize": 2,
   "emmet.syntaxProfiles": {
-    "javascript": ["html", "jsx"]
+    "javascript": [
+      "html",
+      "jsx"
+    ]
   },
   "typescript.check.tscVersion": false,
   // "amVim.bindCtrlCommands": false,
@@ -28,7 +31,9 @@
   // "editor.cursorBlinking": "solid",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["<c-o>"],
+      "before": [
+        "<c-o>"
+      ],
       "after": [],
       "commands": [
         {
@@ -38,12 +43,22 @@
       ]
     },
     {
-      "before": ["<c-m>"],
-      "after": ["<Esc>", "o"]
+      "before": [
+        "<c-m>"
+      ],
+      "after": [
+        "<Esc>",
+        "o"
+      ]
     },
     {
-      "before": ["<C-g>"],
-      "after": ["cmd", "4"],
+      "before": [
+        "<C-g>"
+      ],
+      "after": [
+        "cmd",
+        "4"
+      ],
       "commands": [
         {
           "command": "editor.emmet.action.expandAbbreviation",
@@ -52,7 +67,9 @@
       ]
     },
     {
-      "before": ["<c-a>"],
+      "before": [
+        "<c-a>"
+      ],
       "after": [],
       "commands": [
         {
@@ -62,7 +79,9 @@
       ]
     },
     {
-      "before": ["<c-e>"],
+      "before": [
+        "<c-e>"
+      ],
       "after": [],
       "commands": [
         {
@@ -73,19 +92,37 @@
   ],
   "vim.otherModesKeyBindings": [
     {
-      "before": ["\n"],
-      "after": ["o", "<Esc>"]
+      "before": [
+        "\n"
+      ],
+      "after": [
+        "o",
+        "<Esc>"
+      ]
     },
     {
-      "before": ["J"],
-      "after": ["5", "j"]
+      "before": [
+        "J"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
     },
     {
-      "before": ["j", "j"],
-      "after": ["cmd", "s"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "cmd",
+        "s"
+      ]
     },
     {
-      "before": ["<right>"],
+      "before": [
+        "<right>"
+      ],
       "after": [],
       "commands": [
         {
@@ -95,7 +132,9 @@
       ]
     },
     {
-      "before": ["<left>"],
+      "before": [
+        "<left>"
+      ],
       "after": [],
       "commands": [
         {
@@ -105,11 +144,18 @@
       ]
     },
     {
-      "before": ["K"],
-      "after": ["5", "k"]
+      "before": [
+        "K"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
     },
     {
-      "before": ["<C-n>"],
+      "before": [
+        "<C-n>"
+      ],
       "after": [],
       "commands": [
         {
@@ -121,7 +167,10 @@
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
-      "before": ["Z", "Z"],
+      "before": [
+        "Z",
+        "Z"
+      ],
       "after": [],
       "commands": [
         {
@@ -131,7 +180,10 @@
       ]
     },
     {
-      "before": ["leader", "o"],
+      "before": [
+        "leader",
+        "o"
+      ],
       "after": [],
       "commands": [
         {
@@ -141,7 +193,10 @@
       ]
     },
     {
-      "before": ["leader", "f"],
+      "before": [
+        "leader",
+        "f"
+      ],
       "after": [],
       "commands": [
         {
@@ -151,7 +206,10 @@
       ]
     },
     {
-      "before": ["leader", "j"],
+      "before": [
+        "leader",
+        "j"
+      ],
       "after": [],
       "commands": [
         {
@@ -161,11 +219,20 @@
       ]
     },
     {
-      "before": ["g", "/"],
-      "after": ["g", "c"]
+      "before": [
+        "g",
+        "/"
+      ],
+      "after": [
+        "g",
+        "c"
+      ]
     },
     {
-      "before": ["<space>", "m"],
+      "before": [
+        "<space>",
+        "m"
+      ],
       "after": [],
       "commands": [
         {
@@ -179,7 +246,11 @@
       ]
     },
     {
-      "before": ["g", "/", "/"],
+      "before": [
+        "g",
+        "/",
+        "/"
+      ],
       "after": [],
       "commands": [
         {
@@ -189,8 +260,12 @@
       ]
     },
     {
-      "before": ["<Esc>"],
-      "after": ["<Esc>"],
+      "before": [
+        "<Esc>"
+      ],
+      "after": [
+        "<Esc>"
+      ],
       "commands": [
         {
           "command": ":nohl",
@@ -269,5 +344,9 @@
     "haskell": "runhaskell",
     "nim": "nim compile --verbosity:0 --hints:off --run"
   },
-  "editor.snippetSuggestions": "top"
+  "editor.snippetSuggestions": "top",
+  "eslint.autoFixOnSave": false,
+  "eslint.options": {
+    "configFile": "/Users/song/dev/javascript/.eslintrc.json"
+  }
 }

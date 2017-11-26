@@ -218,23 +218,10 @@ Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 " autoformat
-Plug 'sbdchd/neoformat' "{{{
-
-let g:neoformat_enabled_javascript = ['prettier']
-autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
-" Use formatprg when available
-let g:neoformat_try_formatprg = 1
-let g:neoformat_only_msg_on_error = 1
-noremap <leader>f :Neoformat<cr>
-"}}}
-Plug 'chenglou/vim-reason'
-Plug 'kana/vim-smartinput'
-" post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'mitermayer/vim-prettier', {
 	\ 'do': 'yarn install', 
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
 " max line lengh that prettier will wrap on
-au Filetype js nnoremap <leader>f :Prettier<cr>
 let g:prettier#config#print_width = 80
 
 " number of spaces per indentation level
@@ -256,11 +243,25 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false' 
 
 " none|es5|all
-let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#trailing_comma = 'all'
 
 " flow|babylon|typescript|postcss
 let g:prettier#config#parser = 'flow'
 "}}}
+Plug 'sbdchd/neoformat' "{{{
+
+let g:neoformat_enabled_javascript = ['prettier']
+" autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+" let g:neoformat_enabled_javascript = ['prettier-eslint']
+" autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+let g:neoformat_only_msg_on_error = 1
+noremap <leader>f :Neoformat<cr>
+"}}}
+Plug 'chenglou/vim-reason'
+Plug 'kana/vim-smartinput'
+" post install (yarn install | npm install) then load plugin only for editing supported files
 "Plug 'w0rp/ale' "{{{
 "" no auto linting
 "let g:ale_linter_aliases = {'reason': 'ocaml'}
@@ -393,17 +394,13 @@ Plug 'ruanyl/vim-fixmyjs' " {{{
 " let g:formatterpath = ['/usr/local/bin/standard']
 " let g:formatdef_standard_javascript = '"standard --fix --stdin"'
 " let g:formatters_javascript = ['standard_javascript']
-let g:formatters_javascript = ['eslint_javascript']
-let g:formatdef_eslint_javascript = '"standard --fix --stdin"'
 " let g:fixmyjs_engine = 'eslint' 
 let g:fixmyjs_engine = 'eslint'
 
-" let g:fixmyjs_executable = '/Users/wangsong/dev/node/node_modules/.bin/eslint'
-" let g:fixmyjs_rc_path = '/Users/wangsong/dev/node/.eslintrc.js'
-" let g:fixmyjs_rc_path = '/Users/wangsong/temp/.eslintrc.js'
-let g:fixmyjs_rc_path = '~/.eslintrc.js'
-" let g:fixmyjs_use_local = 1
+let g:fixmyjs_rc_filename = ['.eslintrc', '.eslintrc.json', '.eslintrc.js']
+let g:fixmyjs_use_local = 1
 " noremap <leader>f :Fixmyjs<CR>
+au FileType js,javascript,jsx,javascript.jsx nnoremap <leader>f :Fixmyjs<cr>
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/csscomplete.vim'
@@ -496,6 +493,7 @@ let g:cm_sources_override = {
 let g:cm_refresh_default_min_word_len=1
 imap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 "}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}

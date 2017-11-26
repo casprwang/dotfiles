@@ -26,6 +26,7 @@ alias sup="cd ~/wangsup"
 alias l="exa -1"
 alias pretty="find . -name "*.js" | grep -v node_modules | xargs prettier --no-semi --trailing-comma none --write '*.js'"
 alias cdg="cd /Users/song/go/src/github.com/wangsongiam/go"
+alias cdj="cd ~/dev/javascript"
 
 # for tmux
 alias t="tmux a"
