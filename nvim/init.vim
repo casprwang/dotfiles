@@ -139,7 +139,8 @@ Plug 'altercation/vim-colors-solarized'
 nnoremap <c-^> :call vimterm#toggle() <CR>
 tnoremap <c-^> <C-\><C-n>:call vimterm#toggle() <CR>
 "}}}
-" Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-function'
+Plug 'thinca/vim-textobj-function-javascript'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 " ----------------------------------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
@@ -250,10 +251,10 @@ let g:prettier#config#parser = 'flow'
 "}}}
 Plug 'sbdchd/neoformat' "{{{
 
-let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_javascript = ['eslint_d', 'prettier']
 " autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 " let g:neoformat_enabled_javascript = ['prettier-eslint']
-" autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
+autocmd FileType javascript set formatprg= --stdin
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 let g:neoformat_only_msg_on_error = 1
@@ -400,7 +401,7 @@ let g:fixmyjs_engine = 'eslint'
 let g:fixmyjs_rc_filename = ['.eslintrc', '.eslintrc.json', '.eslintrc.js']
 let g:fixmyjs_use_local = 1
 " noremap <leader>f :Fixmyjs<CR>
-au FileType js,javascript,jsx,javascript.jsx nnoremap <leader>f :Fixmyjs<cr>
+" au FileType js,javascript,jsx,javascript.jsx nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/csscomplete.vim'
@@ -834,9 +835,6 @@ autocmd FileType ocaml let maplocalleader=","
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
-au Filetype javascript setlocal ts=2 sts=2 sw=2
-au Filetype jsx setlocal ts=2 sts=2 sw=2
-au Filetype js setlocal ts=2 sts=2 sw=2
 " autocmd FileType vim setlocal foldmethod=marker
 au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
@@ -847,6 +845,9 @@ autocmd BufWritePost *.scala silent :EnTypeCheck
 
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
+au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
+au Filetype javascript setlocal ts=2 sts=2 sw=2
+au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 " hide go's list char (gogmt wants tab but I personally don't want to see the
 " sign)
