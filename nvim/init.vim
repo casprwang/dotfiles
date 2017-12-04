@@ -860,7 +860,7 @@ au Filetype go set listchars=tab:\ \
 " one line commiting and pushing everything
 nnoremap <leader>p :Gitit 
 " one line commiting current file with message
-nnoremap <leader>m :GititCommit 
+nnoremap <leader>m :GititCommitAll 
 "}}}
 colorscheme nord
 set background=dark
