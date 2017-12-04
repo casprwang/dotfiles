@@ -10,10 +10,7 @@
   "git.confirmSync": false,
   "editor.tabSize": 2,
   "emmet.syntaxProfiles": {
-    "javascript": [
-      "html",
-      "jsx"
-    ]
+    "javascript": ["html", "jsx"]
   },
   "typescript.check.tscVersion": false,
   // "amVim.bindCtrlCommands": false,
@@ -31,9 +28,7 @@
   // "editor.cursorBlinking": "solid",
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "<c-o>"
-      ],
+      "before": ["<c-o>"],
       "after": [],
       "commands": [
         {
@@ -43,22 +38,12 @@
       ]
     },
     {
-      "before": [
-        "<c-m>"
-      ],
-      "after": [
-        "<Esc>",
-        "o"
-      ]
+      "before": ["<c-m>"],
+      "after": ["<Esc>", "o"]
     },
     {
-      "before": [
-        "<C-g>"
-      ],
-      "after": [
-        "cmd",
-        "4"
-      ],
+      "before": ["<C-g>"],
+      "after": ["cmd", "4"],
       "commands": [
         {
           "command": "editor.emmet.action.expandAbbreviation",
@@ -67,9 +52,7 @@
       ]
     },
     {
-      "before": [
-        "<c-a>"
-      ],
+      "before": ["<c-a>"],
       "after": [],
       "commands": [
         {
@@ -79,9 +62,7 @@
       ]
     },
     {
-      "before": [
-        "<c-e>"
-      ],
+      "before": ["<c-e>"],
       "after": [],
       "commands": [
         {
@@ -92,37 +73,19 @@
   ],
   "vim.otherModesKeyBindings": [
     {
-      "before": [
-        "\n"
-      ],
-      "after": [
-        "o",
-        "<Esc>"
-      ]
+      "before": ["\n"],
+      "after": ["o", "<Esc>"]
     },
     {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "5",
-        "j"
-      ]
+      "before": ["J"],
+      "after": ["5", "j"]
     },
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "cmd",
-        "s"
-      ]
+      "before": ["j", "j"],
+      "after": ["cmd", "s"]
     },
     {
-      "before": [
-        "<right>"
-      ],
+      "before": ["<right>"],
       "after": [],
       "commands": [
         {
@@ -132,9 +95,7 @@
       ]
     },
     {
-      "before": [
-        "<left>"
-      ],
+      "before": ["<left>"],
       "after": [],
       "commands": [
         {
@@ -144,18 +105,11 @@
       ]
     },
     {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "5",
-        "k"
-      ]
+      "before": ["K"],
+      "after": ["5", "k"]
     },
     {
-      "before": [
-        "<C-n>"
-      ],
+      "before": ["<C-n>"],
       "after": [],
       "commands": [
         {
@@ -167,10 +121,7 @@
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
-      "before": [
-        "Z",
-        "Z"
-      ],
+      "before": ["Z", "Z"],
       "after": [],
       "commands": [
         {
@@ -180,10 +131,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "o"
-      ],
+      "before": ["leader", "o"],
       "after": [],
       "commands": [
         {
@@ -193,10 +141,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "f"
-      ],
+      "before": ["leader", "f"],
       "after": [],
       "commands": [
         {
@@ -206,10 +151,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "j"
-      ],
+      "before": ["leader", "j"],
       "after": [],
       "commands": [
         {
@@ -219,20 +161,11 @@
       ]
     },
     {
-      "before": [
-        "g",
-        "/"
-      ],
-      "after": [
-        "g",
-        "c"
-      ]
+      "before": ["g", "/"],
+      "after": ["g", "c"]
     },
     {
-      "before": [
-        "<space>",
-        "m"
-      ],
+      "before": ["<space>", "m"],
       "after": [],
       "commands": [
         {
@@ -246,11 +179,7 @@
       ]
     },
     {
-      "before": [
-        "g",
-        "/",
-        "/"
-      ],
+      "before": ["g", "/", "/"],
       "after": [],
       "commands": [
         {
@@ -260,12 +189,8 @@
       ]
     },
     {
-      "before": [
-        "<Esc>"
-      ],
-      "after": [
-        "<Esc>"
-      ],
+      "before": ["<Esc>"],
+      "after": ["<Esc>"],
       "commands": [
         {
           "command": ":nohl",
@@ -306,9 +231,12 @@
   "code-runner.executorMap": {
     "javascript": "babel-node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "c":
+      "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "cpp":
+      "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c":
+      "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "php": "php",
     "python": "python3",
     "perl": "perl",
@@ -337,7 +265,8 @@
     "racket": "racket",
     "ahk": "autohotkey",
     "autoit": "autoit3",
-    "kotlin": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
+    "kotlin":
+      "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
     "dart": "dart",
     "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
     "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
@@ -347,6 +276,9 @@
   "editor.snippetSuggestions": "top",
   "eslint.autoFixOnSave": false,
   "eslint.options": {
-    "configFile": "/Users/song/dev/javascript/.eslintrc.json"
-  }
+    "configFile": "/Users/song/dev/eslint/.eslintrc.json"
+  },
+  "prettier.trailingComma": "all",
+  "eslint.packageManager": "yarn",
+  "eslint.nodePath": "Users/song/dev/eslint/node_modules/"
 }

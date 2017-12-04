@@ -254,7 +254,7 @@ Plug 'sbdchd/neoformat' "{{{
 let g:neoformat_enabled_javascript = ['eslint_d', 'prettier']
 " autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 " let g:neoformat_enabled_javascript = ['prettier-eslint']
-autocmd FileType javascript set formatprg= --stdin
+" autocmd FileType javascript set formatprg= --stdin
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 let g:neoformat_only_msg_on_error = 1
@@ -404,6 +404,9 @@ let g:fixmyjs_use_local = 1
 " au FileType js,javascript,jsx,javascript.jsx nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
+
+Plug 'keith/investigate.vim'
+
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>

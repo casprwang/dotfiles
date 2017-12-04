@@ -99,7 +99,7 @@ alias bsb="browser-sync start --server --files ."
 alias bst="browser-sync start --server --files"
 alias todo="nvim todo.md"
 
-alias cat=hicat
+# alias cat=hicat
 alias v="nvim"
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
