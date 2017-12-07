@@ -1,6 +1,6 @@
 [user]
-	email = wangsongiam@gmail.com
-	name = wangsongiam
+  email = wangsongiam@gmail.com
+  name = wangsongiam
 
 [filter "lfs"]
   clean = git-lfs clean %f
@@ -19,3 +19,4 @@
 [alias]
   co = checkout
   br = branch
+  cm = commit

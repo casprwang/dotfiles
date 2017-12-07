@@ -129,6 +129,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jreybert/vimagit'
+Plug 'rizzatti/dash.vim'
 Plug 'wangsongiam/vim-git-it'
 " Plug 'vimlab/split-term.vim'
 Plug 'wvffle/vimterm' "{{{

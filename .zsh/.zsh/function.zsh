@@ -4,6 +4,13 @@ sassup() {
         cd "$1"
 }
 
+# go new
+gn () {
+        mkdir "$1"
+        cd "$1"
+        nvim main.go
+}
+
 # git new
 gitnew() {
         git init

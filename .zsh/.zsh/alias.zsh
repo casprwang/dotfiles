@@ -1,6 +1,6 @@
 # setopt -s expand_aliases
 alias gp=gitpush
-alias gm=gitcm
+alias gm=go run main.go
 alias git=hub
 alias mkdi=mkcdir
 alias i="fd"
@@ -82,6 +82,7 @@ alias p="python3"
 # alias py3="python3"
 alias nr="npm run"
 alias read="nvim README.md"
+alias g="go run main.go"
 alias o="open"
 alias n="node"
 alias bnode="babel-node"
