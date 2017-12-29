@@ -3,7 +3,6 @@ alias gp=gitpush
 alias gm=go run main.go
 alias git=hub
 alias mkdi=mkcdir
-alias i="fd"
 alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"

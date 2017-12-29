@@ -495,10 +495,9 @@ let g:cm_sources_override = {
     \ 'cm-css': {'scopes': ['css', 'scss', 'javascript', 'jsx', 'javascript.jsx']}
     \ }
 
-let g:cm_refresh_default_min_word_len=1
+let g:cm_refresh_default_min_word_len=2
 imap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 "}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
@@ -823,12 +822,10 @@ let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')
 
 " Wrap at the window width but not if it exceeds 120 characters.
 let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "min([120, winwidth('.')])"
-
-
 let g:deoplete#enable_at_startup = 0
 
-
 " autocmd FileType reason map <buffer> <D-M> :ReasonPrettyPrint<Cr>
+
 let g:merlin_completion_arg_type = "always"
 " nnoremap <leader>t :MerlinTypeOf<cr>
 
@@ -843,6 +840,7 @@ au Filetype scss setlocal ts=2 sts=2 sw=2
 au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
+au Filetype c set ts=4 sts=4 sw=4
 au Filetype python nnoremap <leader>r :!python3 %<cr>
 " Scala 
 autocmd BufWritePost *.scala silent :EnTypeCheck
@@ -853,6 +851,7 @@ au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
+au Filetype lua set ts=2 sts=2 sw=2
 " hide go's list char (gogmt wants tab but I personally don't want to see the
 " sign)
 au Filetype go set listchars=tab:\ \ 

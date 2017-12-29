@@ -206,7 +206,7 @@
   "prettier.jsxBracketSameLine": false,
   "prettier.semi": false,
   "prettier.useTabs": false,
-  "prettier.singleQuote": true,
+  "prettier.singleQuote": false,
   "emmet.triggerExpansionOnTab": false,
   "workbench.sideBar.location": "right",
   "editor.cursorStyle": "line",
@@ -229,20 +229,17 @@
   "editor.renderLineHighlight": "none",
   "go.gopath": "/Users/song/gocode",
   "code-runner.executorMap": {
-    "javascript": "babel-node",
+    "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-    "c":
-      "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "cpp":
-      "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "objective-c":
-      "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "php": "php",
-    "python": "python3",
+    "python": "python",
     "perl": "perl",
     "ruby": "ruby",
     "go": "go run",
-    "lua": "lua",
+    "lua": "lua-5.1",
     "groovy": "groovy",
     "powershell": "powershell -ExecutionPolicy ByPass -File",
     "bat": "cmd /c",
@@ -265,20 +262,21 @@
     "racket": "racket",
     "ahk": "autohotkey",
     "autoit": "autoit3",
-    "kotlin":
-      "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
     "dart": "dart",
     "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
     "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
     "haskell": "runhaskell",
     "nim": "nim compile --verbosity:0 --hints:off --run"
   },
-  "editor.snippetSuggestions": "top",
+  "editor.snippetSuggestions": "inline",
   "eslint.autoFixOnSave": false,
   "eslint.options": {
     "configFile": "/Users/song/dev/eslint/.eslintrc.json"
   },
   "prettier.trailingComma": "all",
   "eslint.packageManager": "yarn",
-  "eslint.nodePath": "Users/song/dev/eslint/node_modules/"
+  "eslint.nodePath": "Users/song/dev/eslint/node_modules/",
+  "editor.minimap.enabled": false,
+  "editor.tabCompletion": false,
+  "git.enableSmartCommit": true
 }

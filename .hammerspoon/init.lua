@@ -1,30 +1,32 @@
--- local music = require("hs-music")
+require("try-not-to-code")
+
+
 hs.window.animationDuration = 0.1 -- shorten animations
 
 -- stroing the leader keys
 keys = {
-    a   = { "alt"  },
-    c   = { "ctrl" },
-    cs  = { "ctrl", "shift" },
-    ca  = { "ctrl", "alt"},
-    hyper = {"cmd", "alt", "shift"}
+  a   = { "alt"  },
+  c   = { "ctrl" },
+  cs  = { "ctrl", "shift" },
+  ca  = { "ctrl", "alt"},
+  hyper = {"cmd", "alt", "shift"}
 }
 
 
--- for testing new bindings 
+-- for testing new bindings
 hs.hotkey.bind(keys.ca, "8", function()
-    hs.alert.show(hs.window.focusedWindow():isFrontmost())
+  hs.alert.show(hs.window.focusedWindow():isFrontmost())
 
-    -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
-    -- hs.spotify.displayCurrentTrack()
+  -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
+  -- hs.spotify.displayCurrentTrack()
 
-    -- hs.osascript.javascript('let a = 1;')
+  -- hs.osascript.javascript('let a = 1;')
 end)
 
 appPath = {
-    -- Code="/Applications/Visual Studio Code.app",
-    iTerm2="/Applications/iTerm.app",
-    Tweetbot="/Applications/Tweetbot.app",
+  -- Code="/Applications/Visual Studio Code.app",
+  iTerm2="/Applications/iTerm.app",
+  Tweetbot="/Applications/Tweetbot.app",
 }
 
 -- showing the current time
@@ -51,8 +53,8 @@ function focusScreen(screen)
   --If no windows exist, bring focus to desktop. Otherwise, set focus on
   --front-most application window.
   local windows = hs.fnutils.filter(
-      hs.window.orderedWindows(),
-      hs.fnutils.partial(isInScreen, screen))
+    hs.window.orderedWindows(),
+    hs.fnutils.partial(isInScreen, screen))
   local windowToFocus = #windows > 0 and windows[1] or hs.window.desktop()
   windowToFocus:focus()
 
@@ -89,12 +91,12 @@ hs.screen.mainScreen():name()
 -- end
 
 local function keyCode(key)
-    modifiers = modifiers or {}
-    return function()
-        hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
-        hs.timer.usleep(1000)
-        hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
-    end
+  modifiers = modifiers or {}
+  return function()
+    hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
+    hs.timer.usleep(1000)
+    hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
+  end
 end
 
 -- delay = hs.eventtap.keyRepeatDelay()
@@ -109,76 +111,81 @@ delay = 0.1
 
 
 -------------------------------------------------------------------------------
-hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
-    hs.grid.show()
-    -- hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
-    -- hs.alert.show(delay)
-end)
+-- hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
+--     -- hs.grid.show()
+--     hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
+--     -- hs.alert.show(delay)
+-- end)
 
 local showtime =hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
-    local time = hs.timer.localTime()
-    local x = math.floor(time/3600)
-    local y = math.floor((time - x * 3600)/60)
-    hs.alert.show(tostring(x)..":"..tostring(y))
-    hs.alert.show(hs.eventtap.keyRepeatDelay())
-    -- hs.alert.show(tostring(y))
+  local time = hs.timer.localTime()
+  local x = math.floor(time/3600)
+  local y = math.floor((time - x * 3600)/60)
+  hs.alert.show(tostring(x)..":"..tostring(y))
+  hs.alert.show(hs.eventtap.keyRepeatDelay())
+  -- hs.alert.show(tostring(y))
 end)
 
-function reloadConfig(files)
-    doReload = false
-    for _,file in pairs(files) do
-        if file:sub(-4) == ".lua" then
-            doReload = true
-        end
-    end
-    if doReload then
-        hs.reload()
-    end
-end
-local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
+  hs.reload()
+end)
 hs.alert.show("Config loaded")
+
+-- function reloadConfig(files)
+--     doReload = false
+--     for _,file in pairs(files) do
+--         if file:sub(-4) == ".lua" then
+--             doReload = true
+--         end
+--     end
+--     if doReload then
+--         hs.reload()
+--     end
+-- end
+-- local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/dotfiles/.hammerspoon/", reloadConfig):start()
+-- hs.alert.show("Config loaded")
 
 
 hs.hotkey.bind(keys.a, 'j', function ()
-    local win=hs.window.focusedWindow()
-    local y = win:frame().y
-    local x = win:frame().x
-    if win then
-        win:setTopLeft(hs.geometry.point(x,y))
-        win:setSize(win:size():scale({1, 1.33}))
-    end
+  local win=hs.window.focusedWindow()
+  local y = win:frame().y
+  local x = win:frame().x
+  if win then
+    win:setTopLeft(hs.geometry.point(x,y))
+    win:setSize(win:size():scale({1, 1.33}))
+  end
 end)
 
 hs.hotkey.bind(keys.a, 'k', function ()
-    local win=hs.window.focusedWindow()
-    local y = win:frame().y
-    local x = win:frame().x
-    if win then
-        win:setTopLeft(hs.geometry.point(x,y))
-        win:setSize(win:size():scale({1, 0.75}))
-    end
+  local win=hs.window.focusedWindow()
+  local y = win:frame().y
+  local x = win:frame().x
+  if win then
+    win:setTopLeft(hs.geometry.point(x,y))
+    win:setSize(win:size():scale({1, 0.75}))
+  end
 end)
 
 
 
 local resizeMappings = {
-    h={x=0, y=0, w=0.5, h=1},
-    -- j={x=0, y=0.5, w=1, h=0.5},
-    -- J={x=0, y=0.2, w=1, h=0.5},
-    -- k={x=0, y=0, w=1, h=0.5},
-    -- K={x=0, y=0, w=1, h=0.5},
-    l={x=0.5, y=0, w=0.5, h=1},
-    n={x=0, y=0, w=1, h=1},
-    -- u={x=0, y=0, w=0.33, h=1},
-    i={x=0.2, y=0, w=0.6, h=1},
-    -- o={x=0.33, y=0, w=0.67, h=0.5},
+  h={x=0, y=0, w=0.5, h=1},
+  -- j={x=0, y=0.5, w=1, h=0.5},
+  -- J={x=0, y=0.2, w=1, h=0.5},
+  -- k={x=0, y=0, w=1, h=0.5},
+  -- K={x=0, y=0, w=1, h=0.5},
+  l={x=0.5, y=0, w=0.5, h=1},
+  n={x=0, y=0, w=1, h=1},
+  -- u={x=0, y=0, w=0.33, h=1},
+  i={x=0.2, y=0, w=0.6, h=1},
+-- o={x=0.33, y=0, w=0.67, h=0.5},
 }
 
 for key in pairs(resizeMappings) do
-    hs.hotkey.bind(keys.a, key, function()
-        local win = hs.window.focusedWindow()
-        if win then win:moveToUnit(resizeMappings[key]) end
-    end)
+  hs.hotkey.bind(keys.a, key, function()
+    local win = hs.window.focusedWindow()
+    if win then win:moveToUnit(resizeMappings[key]) end
+  end)
 end
 
 ---------------------------------------------------------------------------------
@@ -194,31 +201,31 @@ end
 -- }
 
 editting = {
-}
+  }
 
 editting.cW= hs.hotkey.bind(keys.c, "w", function()
-    hs.eventtap.keyStroke({'alt'}, "delete")
+  hs.eventtap.keyStroke({'alt'}, "delete")
 end)
 
 editting.cM= hs.hotkey.bind(keys.c, "m", function()
-    hs.eventtap.keyStroke({''}, "return")
+  hs.eventtap.keyStroke({''}, "return")
 end)
 
 editting.cE = hs.hotkey.bind(keys.c, "e", function()
-    hs.eventtap.keyStroke({'cmd'}, "right")
+  hs.eventtap.keyStroke({'cmd'}, "right")
 end)
 
 editting.cQ = hs.hotkey.bind(keys.c, "q", function()
-    hs.eventtap.keyStroke({'cmd'}, "delete")
+  hs.eventtap.keyStroke({'cmd'}, "delete")
 end)
 -- editting.cQ:enable(postgresq)
 
 editting.cB = hs.hotkey.bind(keys.c, "b", function()
-    hs.eventtap.keyStroke({'alt'}, "left")
+  hs.eventtap.keyStroke({'alt'}, "left")
 end)
 
 editting.cF = hs.hotkey.bind(keys.c, "f", function()
-    hs.eventtap.keyStroke({'alt'}, "right")
+  hs.eventtap.keyStroke({'alt'}, "right")
 end)
 
 
@@ -226,32 +233,32 @@ end)
 ctrl_shift = { 'ctrl', 'shift' }
 -- selecting words
 hs.hotkey.bind(keys.cs, "b", function()
-    hs.eventtap.keyStroke({'alt', 'shift'}, "left")
+  hs.eventtap.keyStroke({'alt', 'shift'}, "left")
 end)
 
 hs.hotkey.bind(keys.cs, "f", function()
-    hs.eventtap.keyStroke({'alt', 'shift'}, "right")
+  hs.eventtap.keyStroke({'alt', 'shift'}, "right")
 end)
 
 hs.hotkey.bind(keys.cs, "h", function()
-    hs.eventtap.keyStroke({'shift'}, "left")
+  hs.eventtap.keyStroke({'shift'}, "left")
 end)
 
 hs.hotkey.bind(keys.cs, "l", function()
-    hs.eventtap.keyStroke({'shift'}, "right")
+  hs.eventtap.keyStroke({'shift'}, "right")
 end)
 
 
 function toggle_application(_app, path)
-    -- Finds running applications
-    local app = hs.application.find(_app)
-    if app:isFrontmost() then
-        app:hide()
-        -- hs.alert.show(app:isRunning())
-    elseif not app:isFrontmost() then
-        -- hs.alert.show('haha')
-        hs.application.launchOrFocus(path)
-    end
+  -- Finds running applications
+  local app = hs.application.find(_app)
+  if app:isFrontmost() then
+    app:hide()
+    -- hs.alert.show(app:isRunning())
+  elseif not app:isFrontmost() then
+    -- hs.alert.show('haha')
+    hs.application.launchOrFocus(path)
+  end
 end
 
 -- altV =hs.hotkey.bind(keys.a, "v", function()
@@ -259,34 +266,136 @@ end
 -- end)
 
 hs.hotkey.bind(keys.a, "t", function()
-    toggle_application('Tweetbot', appPath.Tweetbot)
+  toggle_application('Tweetbot', appPath.Tweetbot)
 end)
 
 
 -- disable alt-v for Adobe's built-in shortcut
 function applicationWatcher(appName, eventType, appObject)
-    if (eventType == hs.application.watcher.activated) then
+  if (eventType == hs.application.watcher.activated) then
+    for i,v in pairs(editting) do
+      v:enable()
+    end
+    if (string.find(appName, 'iTerm') or (string.find(appName, 'VIM'))) then
+      for i,v in pairs(editting) do
+        v:disable()
+      end
+    elseif not (string.find(appName, 'Emacs')) then
       for i,v in pairs(editting) do
         v:enable()
       end
-        if (string.find(appName, 'iTerm') or (string.find(appName, 'VIM'))) then
-            for i,v in pairs(editting) do
-                v:disable()
-            end
-        elseif not (string.find(appName, 'Emacs')) then
-            for i,v in pairs(editting) do
-                v:enable()
-            end
-        end
-        if (string.find(appName, 'Emacs')) or (string.find(appName, 'Atom')) then
-            editting.cW:disable()
-        elseif not (string.find(appName, 'iTerm') or ( string.find(appName, 'VIM') )) then
-            for i,v in pairs(editting) do
-                v:enable()
-            end
-        end
     end
+    if (string.find(appName, 'Emacs')) or (string.find(appName, 'Atom')) then
+      editting.cW:disable()
+    elseif not (string.find(appName, 'iTerm') or ( string.find(appName, 'VIM') )) then
+      for i,v in pairs(editting) do
+        v:enable()
+      end
+    end
+  end
 end
 
 appWatcher = hs.application.watcher.new(applicationWatcher)
 appWatcher:start()
+
+
+-- try not to code
+
+-- ref:  https://stackoverflow.com/questions/656199/search-for-an-item-in-a-lua-list
+function Set(list)
+  local set = {}
+  for _, l in ipairs(list) do set[l] = true end
+  return set
+end
+
+
+
+function postDeactivated(appName, startTime, endTime, duration)
+  local url1 = "https://first-touch-d70f5.firebaseio.com/periods.json"
+  local url2 = "https://first-touch-d70f5.firebaseio.com/editors.json"
+
+  local data1 = {
+    ["timestamp"] = { [".sv"] = "timestamp" },
+    ["editor"]= appName,
+    ["start"] = startTime,
+    ["end"] = endTime,
+    ["duration"] = duration
+  }
+  local json1 = hs.json.encode(data1)
+
+  local data2 = {
+    [appName] = {
+      ["timestamp"] = { [".sv"] = "timestamp" },
+      ["start"] = startTime,
+      ["end"] = endTime,
+      ["duration"] = duration
+    }
+  }
+  local json2 = hs.json.encode(data2)
+
+  hs.http.asyncPost(url1, json1, nil, function(status, data)
+    if(status ~= 200)then
+      hs.alert.show("post1 fucked up")
+    end
+  end)
+
+  hs.http.asyncPost(url2, json2, nil, function(status, data)
+    if(status ~= 200)then
+      hs.alert.show("post2 fucked up")
+    end
+  end)
+end
+
+function getJSDate()
+  bool, result = hs.javascript("new Date().toISOString()")
+  if(bool == false) then
+    hs.alert.show("Javascript fucked up")
+  end
+  return result
+end
+
+function formatFloat(float)
+  local str =  string.format( "%.5f", float)
+  local bool, result =  hs.javascript("parseFloat(".. str ..")")
+  return result
+end
+
+local startTime = getJSDate()
+local endTime = getJSDate()
+local unixTime = hs.timer.secondsSinceEpoch()
+
+
+function tryNotToCode(appName, eventType, appObject)
+  local editors = Set { "Code", "Atom", "MacVim", "iTerm2" }
+
+  if(eventType == hs.application.watcher.activated) then
+    if (editors[appName]) then
+      startTime = getJSDate()
+      unixTime = hs.timer.secondsSinceEpoch()
+    end
+  end
+
+  if (eventType == hs.application.watcher.deactivated) then
+    if (editors[appName]) then
+      endTime = getJSDate()
+
+      local duration = formatFloat(hs.timer.secondsSinceEpoch() - unixTime)
+      hs.alert.show(duration)
+
+      postDeactivated(appName, startTime, endTime, duration)
+    end
+  end
+end
+
+Watcher = hs.application.watcher.new(tryNotToCode)
+Watcher:start()
+
+-- iTerm2
+-- Code
+-- Atom
+-- MacVim
+------------------------------------------------------------
+hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
+
+  hs.alert.show(formatFloat(1.22))
+end)

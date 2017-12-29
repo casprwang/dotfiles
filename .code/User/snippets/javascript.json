@@ -21,11 +21,9 @@
 		"description": "Log output to console"
 	},
 	 "function": {
-		"prefix": "fun",
+		"prefix": "con",
 		"body": [
-			"const $1 = ($2) => {",
-			"\t$3",
-			"}"
+			"const",
 		],
 		"description": "Log output to console"
 	},

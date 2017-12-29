@@ -46,3 +46,5 @@ source ~/.zsh/basic.zsh
 source ~/.zsh/function.zsh
 source ~/.zsh/github.zsh
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
