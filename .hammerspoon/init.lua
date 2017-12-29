@@ -1,8 +1,6 @@
 require("try-not-to-code")
 
-
 hs.window.animationDuration = 0.1 -- shorten animations
-
 -- stroing the leader keys
 keys = {
   a   = { "alt"  },
@@ -297,18 +295,3 @@ end
 
 appWatcher = hs.application.watcher.new(applicationWatcher)
 appWatcher:start()
-
-
-
--- iTerm2
--- Code
--- Atom
--- MacVim
-------------------------------------------------------------
-hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
-
-    hs.alert.show(formatFloat(1.22))
-end)
-
-
-

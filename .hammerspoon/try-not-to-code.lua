@@ -92,30 +92,6 @@ function tryNotToCode(appName, eventType, appObject)
 end
 
 
-    -- if(editors[curApp] and editors[appName]) then
-
-    --   local duration = formatFloat(hs.timer.secondsSinceEpoch() - unixTime)
-    --   hs.alert.show(duration)
-
-    --   postDeactivated(appName, startTime, endTime, duration)
-
-    --   startTime = getJSDate()
-    --   curApp = appName
-
-    -- elseif (editors[appName]) then
-    --   startTime = getJSDate()
-    --   unixTime = hs.timer.secondsSinceEpoch()
-    -- end
-  -- elseif (eventType == hs.application.watcher.deactivated) then
-    -- if (editors[appName]) then
-    --   endTime = getJSDate()
-
-    --   local duration = formatFloat(hs.timer.secondsSinceEpoch() - unixTime)
-    --   hs.alert.show(duration)
-
-    --   postDeactivated(appName, startTime, endTime, duration)
-    -- end
-
 Watcher = hs.application.watcher.new(tryNotToCode)
 Watcher:start()
 
