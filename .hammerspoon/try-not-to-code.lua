@@ -9,7 +9,7 @@ end
 
 
 
-function postLast(appName, startTime, endTime, duration)
+function postLast(appName, startTime, endTime, duration, isEnded)
   local url1 = "https://first-touch-d70f5.firebaseio.com/periods.json"
   local url2 = "https://first-touch-d70f5.firebaseio.com/editors/" .. appName ..".json"
 
@@ -17,8 +17,8 @@ function postLast(appName, startTime, endTime, duration)
     ["timestamp"] = { [".sv"] = "timestamp" },
     ["editor"]= appName,
     ["start"] = startTime,
-    ["end"] = endTime,
-    ["duration"] = duration
+    ["duration"] = duration,
+    ["isEnded"] = isEnded
   }
   local json1 = hs.json.encode(data1)
 
@@ -39,6 +39,25 @@ function postLast(appName, startTime, endTime, duration)
   hs.http.asyncPost(url2, json2, nil, function(status, data)
     if(status ~= 200)then
       hs.alert.show("post2 fucked up")
+    end
+  end)
+end
+
+function postPending(appName, startTime)
+  local url = "https://first-touch-d70f5.firebaseio.com/periods.json"
+
+  local data = {
+    ["timestamp"] = { [".sv"] = "timestamp" },
+    ["editor"]= appName,
+    ["start"] = startTime,
+    ["isEnded"] = false
+  }
+  local json = hs.json.encode(data)
+
+
+  hs.http.asyncPost(url, json, nil, function(status, data)
+    if(status ~= 200)then
+      hs.alert.show("post pending fucked up")
     end
   end)
 end
@@ -70,11 +89,12 @@ function tryNotToCode(appName, eventType, appObject)
   if(eventType == hs.application.watcher.activated) then
 
     if(editors[appName]) then
+      postPending(appName, startTime)
       -- last is not editor
       if(editors[lastApp]) then
         endTime = getJSDate()
         local duration = formatFloat(hs.timer.secondsSinceEpoch() - unixTime)
-        postLast(lastApp, startTime, endTime, duration)
+        postLast(lastApp, startTime, endTime, duration, false)
       end
       startTime = getJSDate()
       unixTime = hs.timer.secondsSinceEpoch()
@@ -83,7 +103,7 @@ function tryNotToCode(appName, eventType, appObject)
       if(editors[lastApp])then
         endTime = getJSDate()
         local duration = formatFloat(hs.timer.secondsSinceEpoch() - unixTime)
-        postLast(lastApp, startTime, endTime, duration)
+        postLast(lastApp, startTime, endTime, duration, true)
       end
     end
 

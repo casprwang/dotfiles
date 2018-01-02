@@ -50,6 +50,7 @@ set ignorecase
 set smartcase
 set showmatch
 set smarttab
+set smartindent
 set undofile                " Save undo's after file closes
 set undodir=~/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
@@ -57,8 +58,8 @@ set undolevels=1000         " How many undos
 " {{{ mapping 
 "----------------------------------------------------------------------------
 " vmap{{{
-vmap J 5gj
-vmap K 5gk
+" vmap J 5gj
+" vmap K 5gk
 " yanking repositioning
 vmap y y`]
 " }}}
@@ -94,10 +95,8 @@ nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
-nnoremap J 5gj
-nnoremap K 5gk
-" nnoremap L gt
-" nnoremap H gT
+" nnoremap J 5gj
+" nnoremap K 5gk
 
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 " silver searcher
@@ -129,7 +128,10 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jreybert/vimagit'
-Plug 'rizzatti/dash.vim'
+Plug 'rizzatti/dash.vim' "{{{
+nnoremap K :Dash<cr>
+"}}}
+"
 Plug 'wangsongiam/vim-git-it'
 " Plug 'vimlab/split-term.vim'
 Plug 'wvffle/vimterm' "{{{
@@ -406,7 +408,9 @@ let g:fixmyjs_use_local = 1
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
-Plug 'keith/investigate.vim'
+Plug 'keith/investigate.vim' "{{{
+let g:investigate_use_dash=1
+"}}}
 
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
@@ -418,6 +422,12 @@ nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
+Plug 'easymotion/vim-easymotion' "{{{
+nnoremap <Leader><leader>j <Plug>(easymotion-j)
+nnoremap <Leader><leader>k <Plug>(easymotion-k)
+vmap <Leader><leader>j <Plug>(easymotion-j)
+vmap <Leader><leader>k <Plug>(easymotion-k)
+"}}}
 Plug 'airblade/vim-gitgutter' "{{{
 let g:gitgutter_enabled = 1
 nnoremap <leader>h :GitGutterToggle<cr>
@@ -504,6 +514,7 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
 " Async
 Plug 'skywind3000/asyncrun.vim'
+
 
 " for swift
 Plug 'sheerun/vim-polyglot' "{{{
