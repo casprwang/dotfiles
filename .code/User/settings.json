@@ -105,26 +105,6 @@
         "<Esc>"
       ]
     },
-    // {
-    //   "before": ["J"],
-    //   "after": ["5", "j"]
-    // },
-    // {
-    //   "before": ["K"],
-    //   "after": ["5", "k"]
-    // },
-    // {
-    //   "before": [
-    //     ["K"]
-    //   ],
-    //   "after": [],
-    //   "commands": [
-    //     {
-    //       "command": "extension.dash.specific",
-    //       "args": []
-    //     }
-    //   ]
-    // },
     {
       "before": [
         "j",
@@ -189,12 +169,12 @@
     {
       "before": [
         "leader",
-        "o"
+        "f"
       ],
       "after": [],
       "commands": [
         {
-          "command": "toggleSideBarVisibility",
+          "command": "editor.action.formatDocument",
           "args": []
         }
       ]
@@ -202,12 +182,12 @@
     {
       "before": [
         "leader",
-        "f"
+        "o"
       ],
       "after": [],
       "commands": [
         {
-          "command": "editor.action.formatDocument",
+          "command": "toggleSideBarVisibility",
           "args": []
         }
       ]

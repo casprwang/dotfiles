@@ -13,11 +13,7 @@
 " {{{ general settings
 " ----------------------------------------------------------------------------
 " Neovim
-" set shell=/bin/bash
 let s:editor_root=expand("~/.config/nvim")
-" set the unique python virtual environment for neovim only
-" let g:python_host_prog = '/Users/wangsong/.pyenv/versions/neovim2/bin/python'
-" let g:python3_host_prog = '/Users/wangsong/.pyenv/versions/neovim3/bin/python'
 " ----------------------------------------------------------------------------
 set nowrap
 set smartindent
@@ -47,9 +43,9 @@ set smartcase
 set showmatch
 set smarttab
 set smartindent
-set undofile                " Save undo's after file closes
-set undodir=~/.config/nvim/undo " where to save undo histories
-set undolevels=1000         " How many undos
+set undofile
+set undodir=~/.config/nvim/undo
+set undolevels=1000
 " }}}
 " {{{ mapping 
 "----------------------------------------------------------------------------
