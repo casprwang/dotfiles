@@ -19,9 +19,7 @@ let s:editor_root=expand("~/.config/nvim")
 " let g:python_host_prog = '/Users/wangsong/.pyenv/versions/neovim2/bin/python'
 " let g:python3_host_prog = '/Users/wangsong/.pyenv/versions/neovim3/bin/python'
 " ----------------------------------------------------------------------------
-" set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 set nowrap
-" hide hidden characters
 set smartindent
 set splitright
 set splitbelow
@@ -37,8 +35,6 @@ set autoread
 set title
 set guioptions-=e
 set sessionoptions+=tabpages,globals
-" set relativenumber
-" set number
 set hlsearch
 "{{{ indentation
 " ----------------------------------------------------------------------------
@@ -106,19 +102,15 @@ nnoremap <leader>e :Ag<cr>
 "{{{ Plugins (vim plug )
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
-"call plug#begin('~/.config/nvim/plugged')
 
-"lugging
+" Plugging
 Plug 'tpope/vim-commentary'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
 "let g:deoplete#omni_patterns = {}
 "let g:deoplete#omni_patterns.reason = '[^. *\t]\.\w*\|\h\w*|#'
 "let g:deoplete#sources = {}
 "let g:deoplete#sources.reason = ['omni', 'buffer']
-
-"" neocomplete and YouCompleteMe work out of the box
 ""}}}
-" Plug 'tpope/vim-markdown'
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
 " nnoremap <silent> <c-w><cr> :MaximizerToggle<CR>
@@ -131,14 +123,9 @@ Plug 'jreybert/vimagit'
 Plug 'rizzatti/dash.vim' "{{{
 nnoremap K :Dash<cr>
 "}}}
-"
 Plug 'wangsongiam/vim-git-it'
-" Plug 'vimlab/split-term.vim'
-Plug 'wvffle/vimterm' "{{{
 Plug 'altercation/vim-colors-solarized'
-" nnoremap <silent> <F4> :call vimterm#exec('g++  -o /tmp/out' . expand('%')) <CR>
-" nnoremap <silent> <F5> :call vimterm#exec('/tmp/out') <CR>
-
+Plug 'wvffle/vimterm' "{{{
 nnoremap <c-^> :call vimterm#toggle() <CR>
 tnoremap <c-^> <C-\><C-n>:call vimterm#toggle() <CR>
 "}}}
@@ -184,15 +171,13 @@ Plug 'kana/vim-textobj-indent'
 Plug 'arcticicestudio/nord-vim' "{{{
 "}}}
 
-" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
-" Plug 'chriskempson/base16-vim'
 Plug 'gcmt/taboo.vim'
+
 " Scala
 Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala'
-
 
 " React
 Plug 'fleischie/vim-styled-components'
@@ -209,14 +194,12 @@ let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 "}}}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
-" Plug 'ap/vim-css-color', {'on_ft':['css', 'scss']}
 Plug 'chrisbra/Colorizer' "{{{
 au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
 "}}}
 Plug 'scrooloose/nerdtree' "{{{
 let g:NERDTreeWinPos = "right"  
 nnoremap <silent> <leader>o :NERDTreeToggle<CR>
-" nmap <leader>o -
 "}}}
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
@@ -423,10 +406,10 @@ nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'easymotion/vim-easymotion' "{{{
-nnoremap <Leader><leader>j <Plug>(easymotion-j)
-nnoremap <Leader><leader>k <Plug>(easymotion-k)
-vmap <Leader><leader>j <Plug>(easymotion-j)
-vmap <Leader><leader>k <Plug>(easymotion-k)
+nmap <leader><leader>j <Plug>(easymotion-j)
+nmap <leader><leader>k <Plug>(easymotion-k)
+vmap <leader><leader>j <Plug>(easymotion-j)
+vmap <leader><leader>k <Plug>(easymotion-k)
 "}}}
 Plug 'airblade/vim-gitgutter' "{{{
 let g:gitgutter_enabled = 1
@@ -445,9 +428,6 @@ nmap ga <Plug>(EasyAlign)
 Plug 'jiangmiao/auto-pairs' "{{{
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
 au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
-" au Filetype jsx let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
-" au Filetype javascript let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
-" au Filetype js let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
 au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
@@ -543,24 +523,11 @@ map <c-_> :FZF<cr>
 let g:fzf_layout = { 'window': 'enew' }
 " let g:fzf_layout = { 'window': '-tabnew' }
 
-
-" This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'down': 'split',
   \ 'right': 'vsplit' }
 
-" Open files in vertical split
-" nnoremap <silent> <c-w>v :call fzf#run({
-"       \   'right': winwidth('.') / 2,
-"       \   'sink':  'vertical botright split' })<CR>
-
-" Open files in horizontal split
-" nnoremap <silent> <c-w>s :call fzf#run({
-"       \   'down': '50%',
-"       \   'sink': 'split' })<CR>
-
-" Open files in anoter tab
 nnoremap <silent> <c-w>t :call fzf#run({
       \   'tab': 'tabnew',
       \   'sink': 'tabnew' })<CR>
@@ -589,7 +556,6 @@ command! FZFLines call fzf#run({
       \})
 
 function! s:fzf_statusline()
-  " Override statusline as you like
   highlight fzf1 ctermfg=161 ctermbg=251
   highlight fzf2 ctermfg=23 ctermbg=251
   highlight fzf3 ctermfg=237 ctermbg=251
@@ -601,17 +567,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
- "Plug 'roxma/python-support.nvim' "{{{
- "" for python completions
- "let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
- "" language specific completions on markdown file
- "let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
- "let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'flake8')
- "let g:python_support_python2_requirements = add(get(g:,'python_support_python2_requirements',[]),'flake8')
- "" utils, optional
- "let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
- "let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
-""}}}
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
@@ -852,7 +807,7 @@ au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
-au Filetype python nnoremap <leader>r :!python3 %<cr>
+
 " Scala 
 autocmd BufWritePost *.scala silent :EnTypeCheck
 

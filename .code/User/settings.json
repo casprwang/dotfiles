@@ -113,6 +113,18 @@
     //   "before": ["K"],
     //   "after": ["5", "k"]
     // },
+    // {
+    //   "before": [
+    //     ["K"]
+    //   ],
+    //   "after": [],
+    //   "commands": [
+    //     {
+    //       "command": "extension.dash.specific",
+    //       "args": []
+    //     }
+    //   ]
+    // },
     {
       "before": [
         "j",
