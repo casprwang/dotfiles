@@ -402,10 +402,10 @@ nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'easymotion/vim-easymotion' "{{{
-nmap <leader><leader>j <Plug>(easymotion-j)
-nmap <leader><leader>k <Plug>(easymotion-k)
-vmap <leader><leader>j <Plug>(easymotion-j)
-vmap <leader><leader>k <Plug>(easymotion-k)
+nmap J <Plug>(easymotion-j)
+nmap K <Plug>(easymotion-k)
+vmap J <Plug>(easymotion-j)
+vmap K <Plug>(easymotion-k)
 "}}}
 Plug 'airblade/vim-gitgutter' "{{{
 let g:gitgutter_enabled = 1

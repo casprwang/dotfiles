@@ -217,6 +217,26 @@
     },
     {
       "before": [
+        "K"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "j"
+      ]
+    },
+    {
+      "before": [
         "<space>",
         "m"
       ],
