@@ -50,9 +50,6 @@ set undolevels=1000
 " {{{ mapping 
 "----------------------------------------------------------------------------
 " vmap{{{
-" vmap J 5gj
-" vmap K 5gk
-" yanking repositioning
 vmap y y`]
 " }}}
 " imap{{{
@@ -101,11 +98,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Plugging
 Plug 'tpope/vim-commentary'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
-"let g:deoplete#omni_patterns = {}
-"let g:deoplete#omni_patterns.reason = '[^. *\t]\.\w*\|\h\w*|#'
-"let g:deoplete#sources = {}
-"let g:deoplete#sources.reason = ['omni', 'buffer']
 ""}}}
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
@@ -117,7 +109,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jreybert/vimagit'
 Plug 'rizzatti/dash.vim' "{{{
-nnoremap K :Dash<cr>
+nnoremap <leader>k :Dash<cr>
 "}}}
 Plug 'wangsongiam/vim-git-it'
 Plug 'altercation/vim-colors-solarized'
@@ -146,8 +138,6 @@ let g:go_term_width = 80
 let g:go_fmt_autosave = 0
 let g:go_metalinter_autosave = 0
 au FileType go nmap <leader>r <Plug>(go-run-tab)
-" au FileType go nmap <leader>r <Plug>(go-run-split)
-" au FileType go nmap <leader>r <Plug>(go-run-vertical)
 "}}}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
 
@@ -181,12 +171,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'SirVer/ultisnips'
 Plug 'iamcco/markdown-preview.vim'
 " markdown {{{
-" let g:vim_markdown_folding_disabled = 1
-" let g:vim_markdown_new_list_item_indent = 0
-" let g:vim_markdown_folding_disabled = 1
-" let g:vim_markdown_frontmatter = 1
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
-" nmap <silent> <leader>m <Plug>MarkdownPreview
 "}}}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
@@ -234,10 +219,6 @@ let g:prettier#config#parser = 'flow'
 Plug 'sbdchd/neoformat' "{{{
 
 let g:neoformat_enabled_javascript = ['eslint_d', 'prettier']
-" autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
-" let g:neoformat_enabled_javascript = ['prettier-eslint']
-" autocmd FileType javascript set formatprg= --stdin
-" Use formatprg when available
 let g:neoformat_try_formatprg = 1
 let g:neoformat_only_msg_on_error = 1
 noremap <leader>f :Neoformat<cr>
@@ -260,7 +241,6 @@ Plug 'kana/vim-smartinput'
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_lint_on_save = 0
-
 hi ALEError ctermfg=none ctermbg=none
 hi ALEWarning ctermfg=none ctermbg=none
 hi ALEErrorSign ctermfg=red ctermbg=none
@@ -281,23 +261,8 @@ hi ALEWarningSign ctermfg=gray ctermbg=none
 "let g:ale_html_htmlhint_use_global = 1 
 "let g:ale_html_htmlhint_executable = 'htmlhint'
 "let g:ale_html_htmlhint_options = '--format=unix'
-
-"" for jsx
-"augroup FiletypeGroup
-"  autocmd!
-"  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-"augroup END
-"" let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
-"" let g:ale_linter_aliases = {'jsx': 'css'}
-
-
-"let g:ale_lint_delay = 400
-"let g:ale_javascript_eslint_options = '--rule "semi: [0, never]"'
-"let g:ale_lint_on_text_changed = 'never'
-"let g:ale_sign_column_always = 0
 "}}}"
 Plug 'Chiel92/vim-autoformat' " {{{
-" let g:formatter_yapf_style = 'pep9'
 " " }}}
 Plug 'danro/rename.vim'
 Plug 'chriskempson/base16-vim'
@@ -307,52 +272,13 @@ Plug 'chriskempson/base16-vim'
 
 
 Plug 'jmcantrell/vim-virtualenv'
-"Plug 'junegunn/goyo.vim' "{{{
-
-"let g:goyo_height = 105
-"let g:goyo_linenr = 1
-
-"function! s:goyo_enter()
-"  " silent !tmux set status off
-"  " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-"  set noshowmode
-"  " hi! StatusLine ctermbg=249 ctermfg=235
-"  " set noshowcmd
-"  " set scrolloff=999
-"  " Limelight
-"  " ...
-"endfunction
-
-"function! s:goyo_leave()
-"  " silent !tmux set status on
-"  " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-"  set showmode
-"  " hi! StatusLine ctermbg=249 ctermfg=235
-"  " set showcmd
-"  " set scrolloff=5
-"  " Limelight!
-"  " ...
-"endfunction
-
-"autocmd! User GoyoEnter nested call <SID>goyo_enter()
-"autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-
-"" nmap <Leader>g :Goyo 80-10x100<cr>
-"" nmap <Leader>g :Goyo<cr>
-"nnoremap <silent> <c-w><cr> :Goyo<cr>
-""}}}
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
 Plug 'https://github.com/junegunn/limelight.vim' "{{{
-" nmap <Leader>gh :Limelight!!<cr>
-" xmap <Leader>g :Limelight!!<cr>:Goyo<cr>
-" Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 
-" Color name (:help gui-colors) or RGB color
 let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
 
@@ -372,21 +298,7 @@ let g:limelight_eop = '\ze\n^\s'
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
 "}}}
-Plug 'ruanyl/vim-fixmyjs' " {{{
-" ----------------------------------------------------------------------------
-" let g:formatterpath = ['/usr/local/bin/standard']
-" let g:formatdef_standard_javascript = '"standard --fix --stdin"'
-" let g:formatters_javascript = ['standard_javascript']
-" let g:fixmyjs_engine = 'eslint' 
-let g:fixmyjs_engine = 'eslint'
-
-let g:fixmyjs_rc_filename = ['.eslintrc', '.eslintrc.json', '.eslintrc.js']
-let g:fixmyjs_use_local = 1
-" noremap <leader>f :Fixmyjs<CR>
-" au FileType js,javascript,jsx,javascript.jsx nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
-"}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
-
 Plug 'keith/investigate.vim' "{{{
 let g:investigate_use_dash=1
 "}}}
@@ -394,8 +306,6 @@ let g:investigate_use_dash=1
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
-" nnoremap gp :Gpush<cr>
-" nnoremap gm :Gcommit<cr>
 nnoremap gd :Gdiff<cr>
 nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
@@ -415,10 +325,7 @@ let g:gitgutter_eager = 1
 let g:gitgutter_signs = 0
 "}}}
 Plug 'junegunn/vim-easy-align' "{{{
-" Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 " }}}
 Plug 'jiangmiao/auto-pairs' "{{{
@@ -430,37 +337,6 @@ au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"',
 let g:AutoPairsFlyMode = 0
 "}}}
 Plug 'jiangmiao/simple-javascript-indenter'
-"Plug 'vim-airline/vim-airline-themes' "{{{
-"let g:airline_powerline_fonts = 1
-"let g:airline_theme = "tomorrow"
-"" let g:airline_section_c = '%t'
-"" let g:airline_section_c = '%t %{GetFileSize()} (%{GetCwd()})'
-"let g:airline_left_sep = ''        " Remove arrow symbols.
-"let g:airline_left_alt_sep = ''    " Remove arrow symbols.
-"let g:airline_right_sep = ''       " Remove arrow symbols.
-"let g:airline_right_alt_sep = ''   " Remove arrow symbols.
-"let g:airline_skip_empty_sections = 1
-"let g:airline_inactive_collapse=1
-"let g:airline_mode_map = {
-"      \ '__' : '-',
-"      \ 'n'  : 'N',
-"      \ 'i'  : 'I',
-"      \ 'R'  : 'R',
-"      \ 'c'  : 'C',
-"      \ 'v'  : 'V',
-"      \ 'V'  : 'V',
-"      \ '' : 'V',
-"      \ 's'  : 'S',
-"      \ 'S'  : 'S',
-"      \ '' : 'S',
-"      \ }
-"let g:airline_section_y = 0  
-"let g:airline_section_b = 0
-"let g:airline_section_warning = 0
-"" let g:airline_section_z = '%l/%L'
-"let g:airline_section_z = 0
-"let g:airline_section_z = '%3p%%'
-""}}}
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'} "{{{
 " set shortmess+=c
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -607,14 +483,8 @@ set statusline=%f
 " line separator
 set statusline+=%=
 " set gitgutter on the right side
-
 set statusline+=\ %l\:%c\ \ \ \ 
 set statusline+=%{join(GitGutterGetHunkSummary())}
-        " Switch to the right side
-" set statusline+=%l        " Current line
-" set statusline+=/         " Separator
-" set statusline+=%L        " Total lines
-" set statusline=%{join(GitGutterGetHunkSummary())}
 "}}}
 " completion {{{
 "----------------------------------------------------------------------------
@@ -635,43 +505,20 @@ endfunction
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<c-e>"
-" this mapping Enter key to <C-y> to chose the current highlight item
-" and close the selection list, same as other IDEs.
-" CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" let g:UltiSnipsSnippetDirectories = ['~/dotfiles/UltiSnips']
 let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/ultiSnips"
-
-" let g:UltiSnipsSnippetDirectories=["~/dotfiles/nvim/UltiSnips"]
-" let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/UltiSnips'
 let g:UltiSnipsSnippetDirectories=["ultiSnips"]
 
 let g:vim_json_syntax_conceal = 0
 
-" imap <Down> <c-j>
-
 " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-" let g:ycm_key_list_select_completion = ['<Down>']
-" let g:ycm_key_list_previous_completion = ['<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 " }}}
 " {{{ omni
 " ----------------------------------------------------------------------------
-" aug omnicomplete
-"   au!
-"   au FileType css,sass,scss,stylus,less setl omnifunc=csscomplete#CompleteCSS
-"   au FileType html,htmldjango,jinja,markdown setl omnifunc=emmet#completeTag
-"   au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
-"  au FileType python setl omnifunc=pythoncomplete#Complete
-"   au FileType xml setl omnifunc=xmlcomplete#CompleteTags
-" aug END
 let g:mta_use_matchparen_group = 1
 let g:tern#filetypes = [
       \ 'jsx',
@@ -680,18 +527,6 @@ let g:tern#filetypes = [
       \ 'vue',
       \ '...'
       \ ]
-" }}}
-" folding {{{
-" ----------------------------------------------------------------------------
-" set foldmethod=indent
-" set foldlevelstart=1
-
-" let javaScript_fold=2         " JavaScript
-" autocmd FileType javascript setlocal foldlevel=2
-" autocmd FileType txt setlocal foldmethod=marker
-" setlocal foldmethod=marker
-" autocmd FileType javascript,typescript,json setl foldmethod=syntax
-" :set filetype?
 " }}}
 "{{{  markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -716,34 +551,6 @@ function! MarkdownLevel()
 endfunction
 au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
 au BufEnter *.md setlocal foldmethod=expr
-" set formatoptions+=a
-" let g:vim_markdown_folding_style_pythonic = 1
-" {{{
-" function! MarkdownLevel()
-"     if getline(v:lnum) =~ '^# .*$'
-"         return ">1"
-"     endif
-"     if getline(v:lnum) =~ '^## .*$'
-"         return ">2"
-"     endif
-"     if getline(v:lnum) =~ '^### .*$'
-"         return ">3"
-"     endif
-"     if getline(v:lnum) =~ '^#### .*$'
-"         return ">4"
-"     endif
-"     if getline(v:lnum) =~ '^##### .*$'
-"         return ">5"
-"     endif
-"     if getline(v:lnum) =~ '^###### .*$'
-"         return ">6"
-"     endif
-"     return "=" 
-" endfunction
-" au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
-" au BufEnter *.md setlocal foldmethod=expr 
-" }}}
-
 "}}}
 " {{{ Contextual commenting for commentary.vim in jsx files.
 function! s:SetCommentString()
