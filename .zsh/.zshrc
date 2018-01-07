@@ -29,3 +29,9 @@ setopt hist_ignore_dups
 
 source /Users/song/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/song/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
