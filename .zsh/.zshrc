@@ -28,3 +28,4 @@ setopt hist_ignore_dups
 
 
 source /Users/song/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

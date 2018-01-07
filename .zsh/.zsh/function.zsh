@@ -59,7 +59,6 @@ size() {
 source_zsh() {
   source ~/.zshrc
   source ~/.zprofile
-  source ~/.zshenv
   echo 'all the zsh files are sourced!'
 }
 
