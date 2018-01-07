@@ -2,9 +2,6 @@ fpath+=~/.zfunc
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-source ~/.zsh/fzf.zsh
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # OPAM configuration
 . /Users/song/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

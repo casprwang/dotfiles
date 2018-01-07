@@ -1,18 +1,3 @@
-export PATH="$HOME/.cargo/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-# Go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-# export GOPATH=$HOME/dev/go
-# export PATH=$PATH:$(go env GOPATH)/bin
-# export GOPATH=$(go env GOPATH)
-# export GOROOT=$HOME/dev/go
-
-# fpath=(~/.zsh/completions $fpath) 
-# autoload -U compinit && compinit
-
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -45,6 +30,6 @@ source ~/.zsh/alias.zsh
 source ~/.zsh/basic.zsh
 source ~/.zsh/function.zsh
 source ~/.zsh/github.zsh
+source ~/.zsh/fzf.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-
-export PATH="$HOME/.cargo/bin:$PATH"
