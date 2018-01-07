@@ -1,11 +1,21 @@
 autoload -Uz compinit
 compinit
+
+autoload -U promptinit; promptinit
+prompt pure
 # End of lines added by compinstall
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+export TERM=screen-256color
+export VSCODE_TSJS=1
+PATH=$PATH:/usr/local/bin
+
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:`yarn global bin`"
+
+export PATH="$PATH:$HOME/.yarn/bin"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -13,6 +23,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export PATH=${PATH}:/usr/local/opt/gettext/bin
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -25,6 +38,9 @@ eval "$(pyenv virtualenv-init -)"
 # for ocaml&&reason
 . /Users/song/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 eval $(opam config env)
+
+
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 
 export HISTSIZE=1000000000

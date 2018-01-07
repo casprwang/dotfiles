@@ -5,6 +5,8 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # OPAM configuration
 . /Users/song/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true ]]; then
     # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
