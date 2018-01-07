@@ -5,7 +5,7 @@
 "  |____/ \___/|_| |_|\__, | |___/    \_/  |_|_| |_| |_|_|  \___| (_)
 "                     |___/
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-" **************************************************************************** 
+" ****************************************************************************
 " Author: Song Wang
 " Github: https://github.com/wangsongiam/dotfiles
 " **************************************************************************** 
@@ -14,7 +14,6 @@
 " ----------------------------------------------------------------------------
 " Neovim
 let s:editor_root=expand("~/.config/nvim")
-" ----------------------------------------------------------------------------
 set nowrap
 set smartindent
 set splitright
@@ -32,11 +31,8 @@ set title
 set guioptions-=e
 set sessionoptions+=tabpages,globals
 set hlsearch
-"{{{ indentation
-" ----------------------------------------------------------------------------
 set autoindent
 set expandtab
-"}}}
 set incsearch
 set ignorecase
 set smartcase
@@ -48,20 +44,18 @@ set undodir=~/.config/nvim/undo
 set undolevels=1000
 " }}}
 " {{{ mapping 
-"----------------------------------------------------------------------------
-" vmap{{{
+let mapleader="\<Space>"
+
 vmap y y`]
-" }}}
-" imap{{{
+
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-q> <esc>S
 inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
 inoremap <c-e> <esc>A
-" }}}
-let mapleader="\<Space>"
 inoremap {<cr> {<cr>}<c-o>O
+
 nnoremap <c-w><Space> <c-w>=
 nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
@@ -73,7 +67,7 @@ nnoremap 0 ^
 nmap Y y$
 
 " for git
-nnoremap gp :!gp 
+nnoremap gp :!gp
 
 " for shift-enter
 nnoremap <c-b>b O<esc>
@@ -84,9 +78,6 @@ nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
-" nnoremap J 5gj
-" nnoremap K 5gk
-
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
@@ -96,16 +87,15 @@ nnoremap <leader>e :Ag<cr>
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Plugging
 Plug 'tpope/vim-commentary'
-""}}}
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
-" nnoremap <silent> <c-w><cr> :MaximizerToggle<CR>
 "}}}
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-indent'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jreybert/vimagit'
 Plug 'rizzatti/dash.vim' "{{{
@@ -117,16 +107,13 @@ Plug 'wvffle/vimterm' "{{{
 nnoremap <c-^> :call vimterm#toggle() <CR>
 tnoremap <c-^> <C-\><C-n>:call vimterm#toggle() <CR>
 "}}}
-Plug 'kana/vim-textobj-function'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
-" ----------------------------------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <Down> :TmuxNavigateDown<cr>
 nnoremap <silent> <Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
 Plug 'jreybert/vimagit'
@@ -140,12 +127,8 @@ let g:go_metalinter_autosave = 0
 au FileType go nmap <leader>r <Plug>(go-run-tab)
 "}}}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
-
 Plug 'mattn/emmet-vim' " {{{
-" emmet
-
 imap <c-g> <esc><c-y>,i
-" let g:user_emmet_leader_key='<C-o>'
 let g:user_emme_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
@@ -153,10 +136,7 @@ let g:user_emme_settings = {
 \}
 "}}}
 Plug 'benmills/vimux'
-Plug 'kana/vim-textobj-indent'
-Plug 'arcticicestudio/nord-vim' "{{{
-"}}}
-
+Plug 'arcticicestudio/nord-vim'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'
@@ -164,13 +144,10 @@ Plug 'gcmt/taboo.vim'
 " Scala
 Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala'
-
-" React
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
 Plug 'SirVer/ultisnips'
-Plug 'iamcco/markdown-preview.vim'
-" markdown {{{
+Plug 'iamcco/markdown-preview.vim' "{{{
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 "}}}
 Plug 'tmux-plugins/vim-tmux'
@@ -230,14 +207,11 @@ Plug 'kana/vim-smartinput'
 "" no auto linting
 "let g:ale_linter_aliases = {'reason': 'ocaml'}
 
-"" ale style{{{
-"" ----------------------------------------------------------------------------
 "let g:ale_sign_error = '✖'
 "let g:ale_sign_warning = '✖'
 "let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
 "hi SignColumn ctermbg=none
 "hi! link ALEError Directory
-"" }}}
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_lint_on_save = 0
@@ -266,11 +240,6 @@ Plug 'Chiel92/vim-autoformat' " {{{
 " " }}}
 Plug 'danro/rename.vim'
 Plug 'chriskempson/base16-vim'
-
-
-
-
-
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
@@ -477,7 +446,7 @@ autocmd BufRead * normal zz
 " }}}
 "status bar{{{
 " ----------------------------------------------------------------------------
-set laststatus=2
+set laststatus=1
 " set filename on the left side
 set statusline=%f
 " line separator
@@ -487,7 +456,6 @@ set statusline+=\ %l\:%c\ \ \ \
 set statusline+=%{join(GitGutterGetHunkSummary())}
 "}}}
 " completion {{{
-"----------------------------------------------------------------------------
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res == 0
@@ -516,9 +484,8 @@ let g:vim_json_syntax_conceal = 0
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:SuperTabDefaultCompletionType = '<C-n>'
-" }}}
-" {{{ omni
-" ----------------------------------------------------------------------------
+
+" omni
 let g:mta_use_matchparen_group = 1
 let g:tern#filetypes = [
       \ 'jsx',
@@ -571,9 +538,7 @@ autocmd CursorMoved *.jsx call s:SetCommentString()
 autocmd CursorMoved *.js call s:SetCommentString()
 "}}}
 "{{{ merlin, ocaml and reason
-" In your ~/.vimrc
 if executable('ocamlmerlin')
-  " To set the log file and restart:
   let s:ocamlmerlin=substitute(system('which ocamlmerlin'),'ocamlmerlin\n$','','') . "../share/merlin/vim/"
   execute "set rtp+=".s:ocamlmerlin
   let g:syntastic_ocaml_checkers=['merlin']
@@ -593,36 +558,27 @@ let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')
 let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "min([120, winwidth('.')])"
 let g:deoplete#enable_at_startup = 0
 
-" autocmd FileType reason map <buffer> <D-M> :ReasonPrettyPrint<Cr>
-
 let g:merlin_completion_arg_type = "always"
-" nnoremap <leader>t :MerlinTypeOf<cr>
-
-autocmd FileType reason let maplocalleader=","
-autocmd FileType ocaml let maplocalleader=","
+au FileType reason let maplocalleader=","
+au FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
-" autocmd FileType vim setlocal foldmethod=marker
 au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
-
-" Scala 
-autocmd BufWritePost *.scala silent :EnTypeCheck
-
-autocmd Filetype json setlocal ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
+au BufWritePost *.scala silent :EnTypeCheck
+au Filetype json setlocal ts=2 sts=2 sw=2
+au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
-" hide go's list char (gogmt wants tab but I personally don't want to see the
-" sign)
+" hide go's list char (gogmt wants tab but I personally don't want to see the sign)
 au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ git functions
@@ -631,5 +587,7 @@ nnoremap <leader>p :Gitit
 " one line commiting current file with message
 nnoremap <leader>m :GititCommitAll 
 "}}}
+"{{{ colorscheme
 colorscheme nord
 set background=dark
+"}}}
