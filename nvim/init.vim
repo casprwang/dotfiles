@@ -11,7 +11,6 @@
 " **************************************************************************** 
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
-" ----------------------------------------------------------------------------
 " Neovim
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
@@ -72,7 +71,6 @@ nnoremap gp :!gp
 " for shift-enter
 nnoremap <c-b>b O<esc>
 
-" for returning position ater yanking
 nmap <c-w>v :vsplit<cr><c-_>
 nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
@@ -97,11 +95,13 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'beloglazov/vim-textobj-quotes'
-Plug 'jreybert/vimagit'
 Plug 'rizzatti/dash.vim' "{{{
 nnoremap <leader>k :Dash<cr>
 "}}}
-Plug 'wangsongiam/vim-git-it'
+Plug 'wangsongiam/vim-git-it' "{{{
+nnoremap <leader>p :Gitit 
+nnoremap <leader>m :GititCommitAll 
+"}}}
 Plug 'altercation/vim-colors-solarized'
 Plug 'wvffle/vimterm' "{{{
 nnoremap <c-^> :call vimterm#toggle() <CR>
@@ -164,7 +164,7 @@ Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 " autoformat
 Plug 'mitermayer/vim-prettier', {
-	\ 'do': 'yarn install', 
+  \ 'do': 'yarn install', 
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
 " max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 80
@@ -202,70 +202,12 @@ noremap <leader>f :Neoformat<cr>
 "}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
-" post install (yarn install | npm install) then load plugin only for editing supported files
-"Plug 'w0rp/ale' "{{{
-"" no auto linting
-"let g:ale_linter_aliases = {'reason': 'ocaml'}
-
-"let g:ale_sign_error = '✖'
-"let g:ale_sign_warning = '✖'
-"let g:ale_statusline_format = ['    ✖ %d', '◘%d', '⬥ ok']
-"hi SignColumn ctermbg=none
-"hi! link ALEError Directory
-"let g:ale_lint_on_text_changed = 'never'
-"let g:ale_lint_on_enter = 0
-"let g:ale_lint_on_save = 0
-hi ALEError ctermfg=none ctermbg=none
-hi ALEWarning ctermfg=none ctermbg=none
-hi ALEErrorSign ctermfg=red ctermbg=none
-hi ALEWarningSign ctermfg=gray ctermbg=none
-"let g:ale_set_loclist = 0
-"let g:ale_set_quickfix = 1
-"" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"" let g:ale_javascript_eslint_use_global=1
-"" let g:formatdef_eslint = '"eslint --fix --stdin"'
-"" let g:formatters_javascript = ['eslint']
-"" let g:formatdef_xo_javascript = '"xo --fix --stdin"'
-"" let g:formatters_javascript = ['xo_javascript']
-"let g:ale_linters = {
-"      \   'javascript': ['eslint'],
-"      \   'html': ['htmlhint'],
-"      \}
-
-"let g:ale_html_htmlhint_use_global = 1 
-"let g:ale_html_htmlhint_executable = 'htmlhint'
-"let g:ale_html_htmlhint_options = '--format=unix'
-"}}}"
-Plug 'Chiel92/vim-autoformat' " {{{
-" " }}}
+Plug 'Chiel92/vim-autoformat'
 Plug 'danro/rename.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
-"}}}
-Plug 'https://github.com/junegunn/limelight.vim' "{{{
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-
-" Default: 0.5
-let g:limelight_default_coefficient = 0.7
-
-" Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 1
-
-" Beginning/end of paragraph
-"   When there's no empty line between the paragraphs
-"   and each paragraph starts with indentation
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
-
-" Highlighting priority (default: 10)
-"   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = -1
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'keith/investigate.vim' "{{{
@@ -332,12 +274,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "}}}"
 Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-
-" Async
 Plug 'skywind3000/asyncrun.vim'
-
-
-" for swift
 Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
 " }}}
@@ -362,7 +299,6 @@ map <leader>b :Buffers<cr>
 map <c-_> :FZF<cr>
 
 let g:fzf_layout = { 'window': 'enew' }
-" let g:fzf_layout = { 'window': '-tabnew' }
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -580,12 +516,6 @@ au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
 au Filetype go set listchars=tab:\ \ 
-"}}}
-"{{{ git functions
-" one line commiting and pushing everything
-nnoremap <leader>p :Gitit 
-" one line commiting current file with message
-nnoremap <leader>m :GititCommitAll 
 "}}}
 "{{{ colorscheme
 colorscheme nord
