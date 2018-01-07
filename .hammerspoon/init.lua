@@ -1,7 +1,7 @@
 require("try-not-to-code")
 
 hs.window.animationDuration = 0.1 -- shorten animations
--- stroing the leader keys
+
 keys = {
   a   = { "alt"  },
   c   = { "ctrl" },
@@ -10,19 +10,12 @@ keys = {
   hyper = {"cmd", "alt", "shift"}
 }
 
-
 -- for testing new bindings
 hs.hotkey.bind(keys.ca, "8", function()
   hs.alert.show(hs.window.focusedWindow():isFrontmost())
-
-  -- hs.messages.iMessage('wangsongiam@gmail.com', 'hellow')
-  -- hs.spotify.displayCurrentTrack()
-
-  -- hs.osascript.javascript('let a = 1;')
 end)
 
 appPath = {
-  -- Code="/Applications/Visual Studio Code.app",
   iTerm2="/Applications/iTerm.app",
   Tweetbot="/Applications/Tweetbot.app",
 }
@@ -35,16 +28,11 @@ hs.hotkey.bind(keys.hyper, "6", function()
   hs.alert.show(tostring(x)..":"..tostring(y))
 end)
 
--- hs.hotkey.bind(keys.hyper, "e", function()
---   hs.alert.show(hs.sound.systemSounds())
--- end)
-
-
-
 --Predicate that checks if a window belongs to a screen
 function isInScreen(screen, win)
   return win:screen() == screen
 end
+
 
 function focusScreen(screen)
   --Get windows within screen, ordered from front to back.
@@ -63,30 +51,6 @@ end
 
 
 hs.screen.mainScreen():name()
--- shortcut for general test
-
--- Toggle an application between being the frontmost app, and being hidden
--- Application hotkeys
--- hyperalts = {
---     -- a="Airmail",
---     -- e="Finder",
---     v="Code",
---     -- s="Safari",
---     -- m="iTunes",
---     -- t="Tweetbot",
--- }
-
--- function altFunctions(keys)
--- end
-
--- -- Nudge window by grid
--- -- hs.hotkey.bind(keys.ca, "right", function() hs.grid.pushWindowRight() end)
--- -- hs.hotkey.bind(keys.ca, "left", function() hs.grid.pushWindowLeft() end)
--- -- hs.hotkey.bind(keys.ca, "up", function() hs.grid.pushWindowUp() end)
--- -- hs.hotkey.bind(keys.ca, "down", function() hs.grid.pushWindowDown() end)
--- for _hotkey in pairs(hyperalts) do
---     hs.hotkey.bind({"alt"}, _hotkey, function() toggle_application(hyperalts[_hotkey]) end)
--- end
 
 local function keyCode(key)
   modifiers = modifiers or {}
@@ -97,23 +61,7 @@ local function keyCode(key)
   end
 end
 
--- delay = hs.eventtap.keyRepeatDelay()
-delay = 0.1
--- local hs.eventtap.keyRepeatDelay() = 0.1
-
--- deprecated due to karabiner came back
--- hs.hotkey.bind(keys.c, 'h', keyCode('left') ,  nil,   keyCode('left'))
--- hs.hotkey.bind(keys.c, 'j', keyCode('down') ,  nil,   keyCode('down') )
--- hs.hotkey.bind(keys.c, 'k', keyCode('up')   ,  nil,   keyCode('up') )
--- hs.hotkey.bind(keys.c, 'l', keyCode('right'),  nil,   keyCode('right') )
-
-
--------------------------------------------------------------------------------
--- hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
---     -- hs.grid.show()
---     hs.alert.show("!!!!!!!!!!⚠️  Fuck the Fuck off  ⚠️!!!!!!!!!!")
---     -- hs.alert.show(delay)
--- end)
+local delay = 0.1
 
 local showtime =hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
   local time = hs.timer.localTime()
@@ -124,24 +72,11 @@ local showtime =hs.hotkey.bind({"cmd","ctrl", "shift"}, "r", function()
   -- hs.alert.show(tostring(y))
 end)
 
+
 hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
   hs.reload()
 end)
 hs.alert.show("Config loaded")
-
--- function reloadConfig(files)
---     doReload = false
---     for _,file in pairs(files) do
---         if file:sub(-4) == ".lua" then
---             doReload = true
---         end
---     end
---     if doReload then
---         hs.reload()
---     end
--- end
--- local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/dotfiles/.hammerspoon/", reloadConfig):start()
--- hs.alert.show("Config loaded")
 
 
 hs.hotkey.bind(keys.a, 'j', function ()
@@ -154,6 +89,7 @@ hs.hotkey.bind(keys.a, 'j', function ()
   end
 end)
 
+
 hs.hotkey.bind(keys.a, 'k', function ()
   local win=hs.window.focusedWindow()
   local y = win:frame().y
@@ -163,7 +99,6 @@ hs.hotkey.bind(keys.a, 'k', function ()
     win:setSize(win:size():scale({1, 0.75}))
   end
 end)
-
 
 
 local resizeMappings = {
@@ -179,6 +114,7 @@ local resizeMappings = {
 -- o={x=0.33, y=0, w=0.67, h=0.5},
 }
 
+
 for key in pairs(resizeMappings) do
   hs.hotkey.bind(keys.a, key, function()
     local win = hs.window.focusedWindow()
@@ -186,20 +122,7 @@ for key in pairs(resizeMappings) do
   end)
 end
 
----------------------------------------------------------------------------------
-
--- editting = {
---   cW = {hs.hotkey.bind(keys.c, "w", function()
---     hs.eventtap.keyStroke({'alt'}, "delete")
--- end)},
---   cD = {hs.hotkey.bind(keys.c, "d", function()
---     hs.eventtap.keyStroke({'alt'}, "right", 0)
---     hs.eventtap.keyStroke({'alt'}, "delete", 0)
--- end)}
--- }
-
-editting = {
-  }
+editting = {}
 
 editting.cW= hs.hotkey.bind(keys.c, "w", function()
   hs.eventtap.keyStroke({'alt'}, "delete")
@@ -259,9 +182,6 @@ function toggle_application(_app, path)
   end
 end
 
--- altV =hs.hotkey.bind(keys.a, "v", function()
---     toggle_application("Code",appPath.Code)
--- end)
 
 hs.hotkey.bind(keys.a, "t", function()
   toggle_application('Tweetbot', appPath.Tweetbot)

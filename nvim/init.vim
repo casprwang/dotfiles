@@ -140,8 +140,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'
-
-" Scala
 Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'fleischie/vim-styled-components'
