@@ -1,6 +1,10 @@
 # setopt -s expand_aliases
 alias gp=gitpush
 alias gm=go run main.go
+alias lnvm='
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+'
 alias git=hub
 alias mkdi=mkcdir
 alias push="git push origin master"
@@ -24,7 +28,6 @@ alias ag="ag --nobreak --nonumbers --noheading . | fzf"
 alias pane="ftpane"
 alias sup="cd ~/wangsup"
 alias l="exa -1"
-alias pretty="find . -name "*.js" | grep -v node_modules | xargs prettier --no-semi --trailing-comma none --write '*.js'"
 alias cdg="cd /Users/song/go/src/github.com/wangsongiam/go"
 alias cdj="cd ~/dev/javascript"
 
