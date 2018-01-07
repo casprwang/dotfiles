@@ -2,6 +2,8 @@ fpath+=~/.zfunc
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+source ~/.zsh/fzf.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # OPAM configuration
 . /Users/song/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -24,21 +26,5 @@ setopt hist_ignore_dups
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source /Users/song/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# .zshrc
-# autoload -U promptinit; promptinit
-# prompt pure
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
