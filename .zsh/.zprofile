@@ -1,8 +1,8 @@
 autoload -Uz compinit
 compinit
 
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit
+# prompt pure
 # End of lines added by compinstall
 # Go
 export GOPATH=$HOME/go
@@ -13,12 +13,9 @@ export VSCODE_TSJS=1
 PATH=$PATH:/usr/local/bin
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
 export PATH="$PATH:`yarn global bin`"
-
 export PATH="$PATH:$HOME/.yarn/bin"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -28,8 +25,6 @@ export PATH=${PATH}:/usr/local/opt/gettext/bin
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 
 # for ocaml&&reason
