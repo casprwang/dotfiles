@@ -20,8 +20,6 @@ fi
 setopt hist_ignore_dups
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
 source ~/.zsh/fzf.zsh
 
 ### Added by Zplugin's installer
