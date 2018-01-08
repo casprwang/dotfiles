@@ -192,7 +192,6 @@ let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#parser = 'flow'
 "}}}
 Plug 'sbdchd/neoformat' "{{{
-
 let g:neoformat_enabled_javascript = ['eslint_d', 'prettier']
 let g:neoformat_try_formatprg = 1
 let g:neoformat_only_msg_on_error = 1

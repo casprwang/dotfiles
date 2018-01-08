@@ -12,7 +12,7 @@ A set of configurations for a poductive and enjoyable workstation.
 | Vim | [.vim/*](./.vim/.vimrc) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
 | iTerm | [iterm.json](./iterm.json) |
-| Zshell | [zsh/*](./zshrc) |
+| Zshell | [.zsh/*](./.zsh/) |
 | Karabiner-Element | [karabiner.json](./karabiner.json) |
 | Hammerspoon | [.hammerspoon](./.hammerspoon/) |
 | Git | [.gitconfig](./.gitconfig) |

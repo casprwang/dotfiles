@@ -74,4 +74,4 @@ new() {
                 cd ~/dev/"$1"
 }
 
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;} >> .gitignore
+gi() { curl -L -s https://www.gitignore.io/api/$@ ;} >> .gitignore

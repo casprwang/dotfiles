@@ -26,9 +26,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=${PATH}:/usr/local/opt/gettext/bin
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 eval "$(pyenv init -)"

@@ -1,7 +1,7 @@
 # setopt -s expand_aliases
 alias gp=gitpush
 alias gm=go run main.go
-alias lnvm='
+alias n='
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 '
@@ -73,7 +73,7 @@ alias nr="npm run"
 alias read="nvim README.md"
 alias g="go run main.go"
 alias o="open"
-alias n="node"
+# alias n="node"
 alias bnode="babel-node"
 alias bn="babel-node"
 alias ip="ipython"
