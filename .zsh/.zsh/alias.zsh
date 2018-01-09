@@ -1,5 +1,5 @@
 # setopt -s expand_aliases
-alias gp=gitpush
+alias gp="git push"
 alias git=hub
 alias mkdi=mkcdir
 alias push="git push origin master"
@@ -49,7 +49,7 @@ alias gs="git status"
 alias ga="git add ."
 alias gito="git open"
 alias ignore="nvim .gitignore"
-alias gm="git add .&&git commit"
+alias gm="git add .&&git commit -m"
 alias st="tmux source-file ~/.tmux.conf"
 alias xcode="open -a Xcode"
 
@@ -70,13 +70,8 @@ alias o="open"
 alias bnode="babel-node"
 alias bn="babel-node"
 alias ip="ipython"
-alias atom="atom-beta"
-# alias p="python3"
-alias lsa="ls -a"
 alias flink="greadlink -f"
-alias lsl="ls -lha"
 alias bs="bundle exec jekyll serve"
-# alias code="code"
 alias bst="browser-sync start --server --files"
 alias bsb="browser-sync start --server --files ."
 alias bst="browser-sync start --server --files"
