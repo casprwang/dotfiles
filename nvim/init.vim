@@ -96,7 +96,7 @@ Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'rizzatti/dash.vim' "{{{
-nnoremap <leader>k :Dash<cr>
+nnoremap <leader>K :Dash<cr>
 "}}}
 Plug 'wangsongiam/vim-git-it' "{{{
 nnoremap <leader>p :Gitit 
@@ -253,12 +253,22 @@ let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 " css
 " the omnifunc pattern is PCRE
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+" au User CmSetup call cm#register_source({'name' : 'cm-css',
+"         \ 'priority': 7,
+"         \ 'scopes': ['css', 'scss', 'js', 'javascript'],
+"         \ 'scoping': 1,
+"         \ 'abbreviation': 'css',
+"         \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
+"         \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
+"         \ })
+
 au User CmSetup call cm#register_source({'name' : 'cm-css',
-        \ 'priority': 5, 
-        \ 'scopes': ['css', 'scss', 'js', 'javascript'],
+        \ 'priority': 9, 
         \ 'scoping': 1,
+        \ 'scopes': ['css','scss'],
         \ 'abbreviation': 'css',
-        \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
+        \ 'word_pattern': '[\w\-]+',
+        \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
         \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
         \ })
 
