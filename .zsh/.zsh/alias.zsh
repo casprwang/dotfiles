@@ -1,10 +1,6 @@
 # setopt -s expand_aliases
 alias gp=gitpush
 alias gm=go run main.go
-alias n='
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-'
 alias git=hub
 alias mkdi=mkcdir
 alias push="git push origin master"
