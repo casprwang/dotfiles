@@ -156,6 +156,7 @@ au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
 Plug 'scrooloose/nerdtree' "{{{
 let g:NERDTreeWinPos = "right"  
 nnoremap <silent> <leader>o :NERDTreeToggle<CR>
+let NERDTreeIgnore=['node_modules']
 "}}}
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
