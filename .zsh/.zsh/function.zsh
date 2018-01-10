@@ -38,8 +38,35 @@ gitpush() {
         git push origin master
 }
 
+gitcm() {
+        git add .
+        git commit -am "$*"
+}
+
+# show the file size
+size() {
+        file="$1"
+        if [ -b "$file" ]; then
+                /sbin/blockdev --getsize64 "$file"
+        else
+                wc -c < "$file"  # Handles pseudo files like /proc/cpuinfo
+        fi
+}
+
 source_zsh() {
   source ~/.zshrc
   source ~/.zprofile
   echo 'all the zsh files are sourced!'
+}
+
+# mkdir and cd into it
+mkcdir ()
+{
+        mkdir -p -- "$1" &&
+                cd -P -- "$1"
+}
+
+new() {
+        mkdir -p ~/dev/"$1" &&
+                cd ~/dev/"$1"
 }
