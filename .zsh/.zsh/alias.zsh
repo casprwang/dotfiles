@@ -6,6 +6,7 @@ alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
+alias pip="pip3"
 
 # showing one level files in the current folder
 alias la="ls -1"

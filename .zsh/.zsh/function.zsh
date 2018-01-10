@@ -1,3 +1,9 @@
+# setup a sass project
+sassup() {
+        cp -R ~/dev/sass-boilerplate/ ./"$1"/
+        cd "$1"
+}
+
 # go new
 gn () {
         mkdir "$1"
@@ -22,6 +28,13 @@ gitsetup() {
         git pull --rebase origin master
         git add .
         git commit -m "🎉 rebase"
+        git push origin master
+}
+
+# quick git add+commit+push
+gitpush() {
+        git add .
+        git commit -am "$*"
         git push origin master
 }
 

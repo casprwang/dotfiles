@@ -1,5 +1,13 @@
 -- try not to code
 
+-- ref:  https://stackoverflow.com/questions/656199/search-for-an-item-in-a-lua-list
+function Set(list)
+  local set = {}
+  for _, l in ipairs(list) do set[l] = true end
+  return set
+end
+
+
 function postLast(appName, startTime, endTime, duration, isEnded)
   local url1 = "https://first-touch-d70f5.firebaseio.com/periods.json"
   local url2 = "https://first-touch-d70f5.firebaseio.com/editors/" .. appName ..".json"
@@ -34,7 +42,6 @@ function postLast(appName, startTime, endTime, duration, isEnded)
   end)
 end
 
-
 function postPending(appName, startTime)
   local url = "https://first-touch-d70f5.firebaseio.com/periods.json"
 
@@ -54,7 +61,6 @@ function postPending(appName, startTime)
   end)
 end
 
-
 function getJSDate()
   bool, result = hs.javascript("new Date().toISOString()")
   if(bool == false) then
@@ -63,12 +69,12 @@ function getJSDate()
   return result
 end
 
-
 function formatFloat(float)
   local str =  string.format( "%.5f", float)
   local bool, result =  hs.javascript("parseFloat(".. str ..")")
   return result
 end
+
 
 
 local startTime = getJSDate()
@@ -110,5 +116,5 @@ Watcher:start()
 
 
 hs.hotkey.bind({"cmd","ctrl", "shift"}, "w", function()
-  hs.alert.show(formatFloat(1.22))
+    hs.alert.show(formatFloat(1.22))
 end)
