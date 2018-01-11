@@ -46,8 +46,7 @@ source_zsh() {
 
 
 # mkdir and cd into it
-mkcdir ()
-{
+mkcdir () {
         mkdir -p -- "$1" &&
                 cd -P -- "$1"
 }
