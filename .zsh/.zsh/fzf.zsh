@@ -1,11 +1,6 @@
-#
-# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# fs [FUZZY PATTERN] - Select selected tmux session
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-#
+# switch session
 fs() {
   local session
   session=$(tmux list-sessions -F "#{session_name}" | \
@@ -23,21 +18,6 @@ fo() {
    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
  fi
 }
-
-
-# v - open files in ~/.viminfo
-# v() {
-#   local files
-#   files=$(grep '^>' ~/.viminfo | cut -c3- |
-#           while read line; do
-#             [ -f "${line/\~/$HOME}" ] && echo "$line"
-#           done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
-# }
-#
-#
-# Another fd - cd into the selected directory
-# This one differs from the above, by only showing the sub directories and not
-#  showing the directories within those.
 
 fdr() {
   local declare dirs=()

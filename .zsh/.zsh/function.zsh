@@ -1,9 +1,3 @@
-# setup a sass project
-sassup() {
-        cp -R ~/dev/sass-boilerplate/ ./"$1"/
-        cd "$1"
-}
-
 # go new
 gn () {
         mkdir "$1"
@@ -43,15 +37,6 @@ gitcm() {
         git commit -am "$*"
 }
 
-# show the file size
-size() {
-        file="$1"
-        if [ -b "$file" ]; then
-                /sbin/blockdev --getsize64 "$file"
-        else
-                wc -c < "$file"  # Handles pseudo files like /proc/cpuinfo
-        fi
-}
 
 source_zsh() {
   source ~/.zshrc
@@ -59,14 +44,10 @@ source_zsh() {
   echo 'all the zsh files are sourced!'
 }
 
+
 # mkdir and cd into it
 mkcdir ()
 {
         mkdir -p -- "$1" &&
                 cd -P -- "$1"
-}
-
-new() {
-        mkdir -p ~/dev/"$1" &&
-                cd ~/dev/"$1"
 }
