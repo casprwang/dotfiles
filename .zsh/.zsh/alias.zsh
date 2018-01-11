@@ -10,7 +10,6 @@ alias pip="pip3"
 
 # showing one level files in the current folder
 alias la="ls -1"
-
 # showing files in a tree
 alias lt="ls -T"
 alias re="cd ~/dev/react"
@@ -77,6 +76,7 @@ alias bst="browser-sync start --server --files"
 alias bsb="browser-sync start --server --files ."
 alias bst="browser-sync start --server --files"
 alias todo="nvim todo.md"
+alias glog="fshow_preview"
 
 alias v="nvim"
 
