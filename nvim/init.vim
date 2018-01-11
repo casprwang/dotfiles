@@ -350,7 +350,7 @@ endfunction
 " including hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
+au! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
@@ -381,12 +381,12 @@ call plug#end()
 " }}}
 " cursor position {{{
 " ----------------------------------------------------------------------------
-autocmd BufReadPost *
+au BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
       \ endif
 " center buffer around cursor when opening files
-autocmd BufRead * normal zz
+au BufRead * normal zz
 " }}}
 "status bar{{{
 " ----------------------------------------------------------------------------
@@ -478,8 +478,8 @@ function! s:SetCommentString()
   let &commentstring=cstr
 endfunction
 
-autocmd CursorMoved *.jsx call s:SetCommentString()
-autocmd CursorMoved *.js call s:SetCommentString()
+au CursorMoved *.jsx call s:SetCommentString()
+au CursorMoved *.js call s:SetCommentString()
 "}}}
 "{{{ merlin, ocaml and reason
 if executable('ocamlmerlin')
@@ -506,7 +506,7 @@ let g:merlin_completion_arg_type = "always"
 au FileType reason let maplocalleader=","
 au FileType ocaml let maplocalleader=","
 "}}}
-"{{{ autocmd
+"{{{ au
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
