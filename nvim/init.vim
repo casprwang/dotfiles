@@ -506,7 +506,7 @@ let g:merlin_completion_arg_type = "always"
 au FileType reason let maplocalleader=","
 au FileType ocaml let maplocalleader=","
 "}}}
-"{{{ au
+"{{{ autocmd
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
