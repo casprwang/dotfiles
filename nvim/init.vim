@@ -377,6 +377,7 @@ let g:mta_filetypes = {
 "}}}
 Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
+
 call plug#end()
 " }}}
 " cursor position {{{

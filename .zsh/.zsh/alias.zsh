@@ -76,7 +76,7 @@ alias bst="browser-sync start --server --files"
 alias bsb="browser-sync start --server --files ."
 alias bst="browser-sync start --server --files"
 alias todo="nvim todo.md"
-alias glog="fshow_preview"
+alias gpre="fshow_preview"
 
 alias v="nvim"
 
