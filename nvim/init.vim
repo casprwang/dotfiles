@@ -532,9 +532,9 @@ au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 
-autocmd FileType vue.html.javascript.css nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
-autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
+autocmd FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
+" autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
 au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ colorscheme
