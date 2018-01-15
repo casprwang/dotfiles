@@ -287,6 +287,12 @@ Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
 " }}}
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue' "{{{
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+let g:vue_disable_pre_processors=1
+autocmd FileType vue syntax sync fromstart
+"}}}
+
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
@@ -369,6 +375,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
+    \ 'vue': 1,
     \ 'html' : 1,
     \ 'xhtml' : 1,
     \ 'xml' : 1,
@@ -523,6 +530,10 @@ au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
+au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
+
+autocmd FileType vue.html.javascript.css nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
+autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
 au Filetype go set listchars=tab:\ \ 
 "}}}

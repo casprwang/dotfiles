@@ -18,7 +18,7 @@
   "typescript.check.tscVersion": false,
   // "amVim.bindCtrlCommands": false,
   // "editor.cursorStyle": "block",
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "vim.leader": "<space>",
   "vim.statusBarColorControl": true,
   "vim.scroll": 5,
@@ -353,7 +353,10 @@
   "editor.snippetSuggestions": "inline",
   "eslint.autoFixOnSave": false,
   "eslint.options": {
-    "configFile": "/Users/song/dev/eslint/.eslintrc.json"
+    "extensions": [
+      ".js",
+      ".vue"
+    ]
   },
   "prettier.trailingComma": "all",
   "eslint.packageManager": "yarn",
