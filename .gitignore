@@ -37,3 +37,4 @@ todo.md
 /zshrc/node_modules
 /zshrc/package.json
 /zshrc/yarn.lock
+.*\.log$
