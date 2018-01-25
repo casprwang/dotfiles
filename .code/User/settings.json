@@ -308,7 +308,6 @@
   "workbench.colorTheme": "Nord",
   "todohighlight.isEnable": false,
   "prettier.eslintIntegration": true,
-  "editor.renderLineHighlight": "none",
   "go.gopath": "/Users/song/gocode",
   "code-runner.executorMap": {
     "javascript": "node",
@@ -363,5 +362,6 @@
   "eslint.nodePath": "Users/song/dev/eslint/node_modules/",
   "editor.minimap.enabled": false,
   "editor.tabCompletion": false,
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "git.decorations.enabled": false,
 }
