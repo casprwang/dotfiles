@@ -21,4 +21,5 @@ zplugin light zdharma/fast-syntax-highlighting
 zplugin light lukechilds/zsh-nvm
 
 zplugin ice silent wait'!0' atload'_zsh_autosuggest_start'
+zplugin light rupa/z
 zplugin light zsh-users/zsh-autosuggestions
