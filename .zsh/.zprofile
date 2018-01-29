@@ -20,7 +20,7 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+# export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE

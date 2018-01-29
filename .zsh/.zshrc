@@ -1,8 +1,6 @@
 fpath+=~/.zfunc
 
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 export NVM_LAZY_LOAD=true
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.zsh/fzf.zsh
