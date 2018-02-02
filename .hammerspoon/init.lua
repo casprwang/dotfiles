@@ -1,6 +1,12 @@
 require("try-not-to-code")
 
 hs.window.animationDuration = 0.1 -- shorten animations
+hs.alert.defaultStyle.radius = 2
+hs.alert.defaultStyle.textSize = 55
+hs.alert.defaultStyle.textFont = 'Monaco'
+hs.alert.defaultStyle.strokeColor = { black = 0, alpha = 0 }
+hs.alert.defaultStyle.strokeWidth = 0
+hs.alert.defaultStyle.textStyle = { paragraphStyle = { alignment = 'center' } }
 
 keys = {
   a   = { "alt"  },
@@ -21,11 +27,14 @@ appPath = {
 }
 
 -- showing the current time
+local id
 hs.hotkey.bind(keys.hyper, "6", function()
-  local time = hs.timer.localTime()
-  local x = math.floor(time/3600)
-  local y = math.floor((time - x * 3600)/60)
-  hs.alert.show(tostring(x)..":"..tostring(y))
+  local display = 'Be back in a minute'
+  id = hs.alert.show(display, 10000)
+end)
+
+hs.hotkey.bind(keys.hyper, "7", function()
+  hs.alert.closeAll()
 end)
 
 --Predicate that checks if a window belongs to a screen
