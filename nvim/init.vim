@@ -404,7 +404,7 @@ au BufRead * normal zz
 " }}}
 "status bar{{{
 " ----------------------------------------------------------------------------
-set laststatus=1
+set laststatus=2
 " set filename on the left side
 set statusline=%f
 " line separator
