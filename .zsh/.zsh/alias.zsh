@@ -6,7 +6,7 @@ alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
-alias pip="pip3"
+alias pip="pip2"
 
 # showing one level files in the current folder
 alias la="ls -1"
@@ -33,8 +33,6 @@ alias tn="tmux new -s"
 alias tnew="tmux new -s"
 alias tk="tmux kill-server"
 
-alias co="cd ~/dev/"
-alias ml="ocaml"
 alias vimr="vim ~/.vimrc"
 alias nvimr="nvim ~/.config/nvim/init.vim"
 alias rm="trash"

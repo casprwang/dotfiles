@@ -371,6 +371,10 @@ let g:mta_filetypes = {
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \ 'jinja' : 1,
+    \ 'vue.html.javascript.css' : 1,
+    \ '.vue.html.javascript.css' : 1,
+    \ 'vue' : 1,
+    \ '.vue' : 1,
     \}
 "}}}
 Plug 'othree/html5.vim'

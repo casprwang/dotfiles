@@ -19,3 +19,5 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # OPAM configuration
 . /Users/song/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+eval $(/mnt/truenas/scratch/brewery/bin/brewery --env)

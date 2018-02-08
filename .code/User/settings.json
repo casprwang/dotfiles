@@ -359,7 +359,6 @@
   },
   "prettier.trailingComma": "all",
   "eslint.packageManager": "yarn",
-  "eslint.nodePath": "Users/song/dev/eslint/node_modules/",
   "editor.minimap.enabled": false,
   "editor.tabCompletion": false,
   "git.enableSmartCommit": true,
