@@ -12,6 +12,8 @@
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
 " Neovim
+let g:loaded_python3_provider='/usr/local/bin/python3'
+let g:python_host_prog  = '/usr/local/bin/python'
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
 set smartindent
@@ -146,7 +148,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'
-Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'

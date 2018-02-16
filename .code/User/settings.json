@@ -284,7 +284,7 @@
   "vim.disableAnnoyingNeovimMessage": true,
   "guides.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "prettier.jsxBracketSameLine": false,
   "prettier.semi": false,
   "prettier.useTabs": false,
@@ -363,4 +363,9 @@
   "editor.tabCompletion": false,
   "git.enableSmartCommit": true,
   "git.decorations.enabled": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
 }

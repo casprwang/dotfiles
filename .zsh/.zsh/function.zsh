@@ -50,3 +50,10 @@ mkcdir () {
         mkdir -p -- "$1" &&
                 cd -P -- "$1"
 }
+
+ts_mount() {
+        sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/scratch /mnt/truenas/scratch
+        sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/datasets /mnt/truenas/datasets
+        sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/rsync /mnt/truenas/rsync
+        sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/upload /mnt/truenas/upload
+}
