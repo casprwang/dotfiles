@@ -305,7 +305,7 @@
   "prettier.printWidth": 80,
   "go.formatOnSave": false,
   "vim.foldfix": true,
-  "workbench.colorTheme": "Nord",
+  "workbench.colorTheme": "Markdown Editor",
   "todohighlight.isEnable": false,
   "prettier.eslintIntegration": true,
   "go.gopath": "/Users/song/gocode",
@@ -368,4 +368,11 @@
     "javascriptreact",
     "vue"
   ],
+  "python.linting.enabled": false,
+  "[python]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.autoIndent": false
+  },
+  "python.formatting.yapfPath": "/usr/local/bin/yapf"
 }

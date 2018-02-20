@@ -100,6 +100,7 @@ let g:maximizer_set_default_mapping = 0
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
+Plug 'endel/vim-github-colorscheme'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'beloglazov/vim-textobj-quotes'
@@ -308,7 +309,6 @@ Plug 'mattn/gist-vim'
 Plug 'tpope/vim-vinegar'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf.vim' " fzf{{{
-" ----------------------------------------------------------------------------
 " ----------------------------------------------------------------------------
 nmap <c-f> :Lines<cr>
 set noswapfile
@@ -549,6 +549,8 @@ autocmd FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascri
 au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ colorscheme
+" colorscheme github
+" set background=light
 colorscheme nord
 set background=dark
 "}}}

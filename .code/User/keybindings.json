@@ -5,7 +5,8 @@
     "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
   },
   { "key": "ctrl+shift+3", "command": "workbench.view.git" },
-  { "key": "ctrl+shift+1", "command": "workbench.view.explorer" },
+  {
+    "key": "cmd+b", "command": "workbench.view.explorer" },
 
   { "key": "ctrl+shift+5", "command": "workbench.view.extensions" },
   { "key": "shift+ctrl+4", "command": "workbench.view.debug" },
@@ -26,8 +27,6 @@
     "when": "editorTextFocus"
   },
   { "key": "cmd+n", "command": "explorer.newFile" },
-
-  { "key": "cmd+enter", "command": "workbench.action.maximizeEditor" },
 
   { "key": "cmd+shift+enter", "command": "workbench.action.evenEditorWidths" },
 
@@ -105,5 +104,23 @@
     "key": "tab",
     "command": "-insertSnippet",
     "when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "workbench.files.action.focusFilesExplorer"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "-workbench.view.explorer"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "cmd+down",
+    "command": "-list.select",
+    "when": "listFocus && !inputFocus"
   }
 ]
