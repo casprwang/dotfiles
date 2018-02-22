@@ -305,7 +305,7 @@
   "prettier.printWidth": 80,
   "go.formatOnSave": false,
   "vim.foldfix": true,
-  "workbench.colorTheme": "Markdown Editor",
+  "workbench.colorTheme": "Nord",
   "todohighlight.isEnable": false,
   "prettier.eslintIntegration": true,
   "go.gopath": "/Users/song/gocode",

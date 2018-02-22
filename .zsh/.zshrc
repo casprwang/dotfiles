@@ -23,3 +23,4 @@ zplugin light rupa/z
 zplugin light zsh-users/zsh-autosuggestions
 
 eval $(/mnt/truenas/scratch/brewery/bin/brewery --env)
+
