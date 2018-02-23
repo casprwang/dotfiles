@@ -62,9 +62,9 @@ window](https://user-images.githubusercontent.com/19645990/30446149-4e2d9b06-995
   * autocompletion
   * fuzzy finding and navigating
 ### Hammerspoon
-  * Monitor Swithcing `<cmd-esc>`
-  * Scoped shortcuts for Apps 
-  * Window Moving/Resizing `<alt-hjkl>`
+  * monitor swithcing `<cmd-esc>`
+  * scoped shortcuts for apps 
+  * window moving/resizing `<alt-hjkl>`
   * syncrinezd emmet key binding for all editors `<c-g>`
   * systemwise vim flavored navigation and editing
     * `<c-hjkl>` for arrows
