@@ -24,7 +24,7 @@
   "vim.scroll": 5,
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
-  "vim.easymotion": true,
+  "vim.easymotion": false,
   "vim.easymotionMarkerFontSize": 19,
   "vim.easymotionMarkerForegroundColorOneChar": "red",
   "vim.easymotionMarkerBackgroundColor": "black",
@@ -220,8 +220,8 @@
         "K"
       ],
       "after": [
-        "leader",
-        "leader",
+        "5",
+        "g",
         "k"
       ]
     },
@@ -230,8 +230,8 @@
         "J"
       ],
       "after": [
-        "leader",
-        "leader",
+        "5",
+        "g",
         "j"
       ]
     },

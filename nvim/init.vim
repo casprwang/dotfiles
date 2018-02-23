@@ -8,7 +8,7 @@
 " ****************************************************************************
 " Author: Song Wang
 " Github: https://github.com/wangsongiam/dotfiles
-" **************************************************************************** 
+" ****************************************************************************
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
 " Neovim
@@ -50,7 +50,7 @@ set guicursor=n-v-c:block-Cursor/lCursor-blinkon0
                         \,i-ci:ver25-Cursor/lCursor
                         \,r-cr:hor20-Cursor/lCursor
 " }}}
-" {{{ mapping 
+" {{{ mapping
 let mapleader="\<Space>"
 
 vmap y y`]
@@ -85,6 +85,12 @@ nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
+
+nmap J 5gj
+nmap K 5gk
+vmap J 5gj
+vmap K 5gk
+
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
 nnoremap <leader>e :Ag<cr>
@@ -108,8 +114,8 @@ Plug 'rizzatti/dash.vim' "{{{
 nnoremap <leader>K :Dash<cr>
 "}}}
 Plug 'wangsongiam/vim-git-it' "{{{
-nnoremap <leader>p :Gitit 
-nnoremap <leader>m :GititCommitAll 
+nnoremap <leader>p :Gitit
+nnoremap <leader>m :GititCommitAll
 "}}}
 Plug 'altercation/vim-colors-solarized'
 Plug 'wvffle/vimterm' "{{{
@@ -139,10 +145,10 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nv
 Plug 'mattn/emmet-vim' " {{{
 imap <c-g> <esc><c-y>,i
 let g:user_emme_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
-\}
+                        \  'javascript.jsx' : {
+                        \      'extends' : 'jsx',
+                        \  },
+                        \}
 "}}}
 Plug 'benmills/vimux'
 Plug 'arcticicestudio/nord-vim'
@@ -162,7 +168,7 @@ Plug 'chrisbra/Colorizer' "{{{
 au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
 "}}}
 Plug 'scrooloose/nerdtree' "{{{
-let g:NERDTreeWinPos = "right"  
+let g:NERDTreeWinPos = "right"
 nnoremap <silent> <leader>o :NERDTreeToggle<CR>
 let NERDTreeIgnore=['node_modules']
 "}}}
@@ -171,8 +177,8 @@ Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 " autoformat
 Plug 'mitermayer/vim-prettier', {
-  \ 'do': 'yarn install', 
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
+                        \ 'do': 'yarn install',
+                        \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
 " max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 80
 
@@ -186,13 +192,13 @@ let g:prettier#config#use_tabs = 'false'
 let g:prettier#config#semi = 'false'
 
 " single quotes over double quotes
-let g:prettier#config#single_quote = 'true' 
+let g:prettier#config#single_quote = 'true'
 
 " print spaces between brackets
-let g:prettier#config#bracket_spacing = 'true' 
+let g:prettier#config#bracket_spacing = 'true'
 
 " put > on the last line instead of new line
-let g:prettier#config#jsx_bracket_same_line = 'false' 
+let g:prettier#config#jsx_bracket_same_line = 'false'
 
 " none|es5|all
 let g:prettier#config#trailing_comma = 'all'
@@ -201,10 +207,18 @@ let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#parser = 'flow'
 "}}}
 Plug 'sbdchd/neoformat' "{{{
+
+
 let g:neoformat_enabled_javascript = ['eslint_d', 'prettier']
 let g:neoformat_try_formatprg = 1
 let g:neoformat_only_msg_on_error = 1
 noremap <leader>f :Neoformat<cr>
+
+let g:neoformat_enabled_python = ['autopep8']
+let g:neoformat_python_autopep8 = {
+                        \ 'exe': 'autopep8',
+                        \ }
+
 "}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
@@ -228,12 +242,12 @@ nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
-Plug 'easymotion/vim-easymotion' "{{{
-nmap J <Plug>(easymotion-j)
-nmap K <Plug>(easymotion-k)
-vmap J <Plug>(easymotion-j)
-vmap K <Plug>(easymotion-k)
-"}}}
+"Plug 'easymotion/vim-easymotion' "{{{
+"nmap J <Plug>(easymotion-j)
+"nmap K <Plug>(easymotion-k)
+"vmap J <Plug>(easymotion-j)
+"vmap K <Plug>(easymotion-k)
+""}}}
 Plug 'airblade/vim-gitgutter' "{{{
 let g:gitgutter_enabled = 1
 nnoremap <leader>h :GitGutterToggle<cr>
@@ -246,7 +260,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 Plug 'jiangmiao/auto-pairs' "{{{
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'} 
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
 au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
 au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
@@ -271,18 +285,18 @@ let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
 "         \ })
 
 au User CmSetup call cm#register_source({'name' : 'cm-css',
-        \ 'priority': 9, 
-        \ 'scoping': 1,
-        \ 'scopes': ['css','scss'],
-        \ 'abbreviation': 'css',
-        \ 'word_pattern': '[\w\-]+',
-        \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
-        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
-        \ })
+                        \ 'priority': 9,
+                        \ 'scoping': 1,
+                        \ 'scopes': ['css','scss'],
+                        \ 'abbreviation': 'css',
+                        \ 'word_pattern': '[\w\-]+',
+                        \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
+                        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
+                        \ })
 
 let g:cm_sources_override = {
-    \ 'cm-css': {'scopes': ['css', 'scss', 'javascript', 'jsx', 'javascript.jsx']}
-    \ }
+                        \ 'cm-css': {'scopes': ['css', 'scss', 'javascript', 'jsx', 'javascript.jsx']}
+                        \ }
 
 let g:cm_refresh_default_min_word_len=2
 imap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
@@ -322,42 +336,42 @@ map <c-_> :FZF<cr>
 let g:fzf_layout = { 'window': 'enew' }
 
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'down': 'split',
-  \ 'right': 'vsplit' }
+                        \ 'ctrl-t': 'tab split',
+                        \ 'down': 'split',
+                        \ 'right': 'vsplit' }
 
 nnoremap <silent> <c-w>t :call fzf#run({
-      \   'tab': 'tabnew',
-      \   'sink': 'tabnew' })<CR>
+                        \   'tab': 'tabnew',
+                        \   'sink': 'tabnew' })<CR>
 
 " search lines
 function! s:line_handler(l)
-  let keys = split(a:l, ':\t')
-  exec 'buf' keys[0]
-  exec keys[1]
-  normal! ^zz
+        let keys = split(a:l, ':\t')
+        exec 'buf' keys[0]
+        exec keys[1]
+        normal! ^zz
 endfunction
 
 function! s:buffer_lines()
-  let res = []
-  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
-    call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
-  endfor
-  return res
+        let res = []
+        for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
+                call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
+        endfor
+        return res
 endfunction
 
 command! FZFLines call fzf#run({
-      \   'source':  <sid>buffer_lines(),
-      \   'sink':    function('<sid>line_handler'),
-      \   'options': '--extended --nth=3..',
-      \   'down':    '60%'
-      \})
+                        \   'source':  <sid>buffer_lines(),
+                        \   'sink':    function('<sid>line_handler'),
+                        \   'options': '--extended --nth=3..',
+                        \   'down':    '60%'
+                        \})
 
 function! s:fzf_statusline()
-  highlight fzf1 ctermfg=161 ctermbg=251
-  highlight fzf2 ctermfg=23 ctermbg=251
-  highlight fzf3 ctermfg=237 ctermbg=251
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+        highlight fzf1 ctermfg=161 ctermbg=251
+        highlight fzf2 ctermfg=23 ctermbg=251
+        highlight fzf3 ctermfg=237 ctermbg=251
+        setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 
 " including hidden files
@@ -367,16 +381,16 @@ au! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
-    \ 'javascript.jsx': 1,
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \ 'vue.html.javascript.css' : 1,
-    \ '.vue.html.javascript.css' : 1,
-    \ 'vue' : 1,
-    \ '.vue' : 1,
-    \}
+                        \ 'javascript.jsx': 1,
+                        \ 'html' : 1,
+                        \ 'xhtml' : 1,
+                        \ 'xml' : 1,
+                        \ 'jinja' : 1,
+                        \ 'vue.html.javascript.css' : 1,
+                        \ '.vue.html.javascript.css' : 1,
+                        \ 'vue' : 1,
+                        \ '.vue' : 1,
+                        \}
 "}}}
 Plug 'othree/html5.vim'
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
@@ -385,13 +399,13 @@ Plug 'junegunn/fzf.vim'
 " Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
-    \ 'javascript.jsx': 1,
-    \ 'vue': 1,
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \}
+                        \ 'javascript.jsx': 1,
+                        \ 'vue': 1,
+                        \ 'html' : 1,
+                        \ 'xhtml' : 1,
+                        \ 'xml' : 1,
+                        \ 'jinja' : 1,
+                        \}
 "}}}
 Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
@@ -401,9 +415,9 @@ call plug#end()
 " cursor position {{{
 " ----------------------------------------------------------------------------
 au BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \   exe "normal! g'\"" |
-      \ endif
+                        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+                        \   exe "normal! g'\"" |
+                        \ endif
 " center buffer around cursor when opening files
 au BufRead * normal zz
 " }}}
@@ -415,23 +429,23 @@ set statusline=%f
 " line separator
 set statusline+=%=
 " set gitgutter on the right side
-set statusline+=\ %l\:%c\ \ \ \ 
+set statusline+=\ %l\:%c\ \ \ \
 set statusline+=%{join(GitGutterGetHunkSummary())}
 "}}}
 " completion {{{
 function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
+        call UltiSnips#ExpandSnippet()
+        if g:ulti_expand_res == 0
+                if pumvisible()
+                        return "\<C-n>"
+                else
+                        call UltiSnips#JumpForwards()
+                        if g:ulti_jump_forwards_res == 0
+                                return "\<TAB>"
+                        endif
+                endif
+        endif
+        return ""
 endfunction
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
@@ -451,50 +465,50 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " omni
 let g:mta_use_matchparen_group = 1
 let g:tern#filetypes = [
-      \ 'jsx',
-      \ 'js',
-      \ 'javascript.jsx',
-      \ 'vue',
-      \ '...'
-      \ ]
+                        \ 'jsx',
+                        \ 'js',
+                        \ 'javascript.jsx',
+                        \ 'vue',
+                        \ '...'
+                        \ ]
 " }}}
 "{{{  markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 function! MarkdownLevel()
-    if getline(v:lnum) =~ '^## .*$'
-        return ">1"
-    endif
-    if getline(v:lnum) =~ '^### .*$'
-        return ">2"
-    endif
-    if getline(v:lnum) =~ '^#### .*$'
-        return ">3"
-    endif
-    if getline(v:lnum) =~ '^##### .*$'
-        return ">4"
-    endif
-    if getline(v:lnum) =~ '^###### .*$'
-        return ">5"
-    endif
-    return "=" 
+        if getline(v:lnum) =~ '^## .*$'
+                return ">1"
+        endif
+        if getline(v:lnum) =~ '^### .*$'
+                return ">2"
+        endif
+        if getline(v:lnum) =~ '^#### .*$'
+                return ">3"
+        endif
+        if getline(v:lnum) =~ '^##### .*$'
+                return ">4"
+        endif
+        if getline(v:lnum) =~ '^###### .*$'
+                return ">5"
+        endif
+        return "="
 endfunction
-au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+au BufEnter *.md setlocal foldexpr=MarkdownLevel()
 au BufEnter *.md setlocal foldmethod=expr
 "}}}
 " {{{ Contextual commenting for commentary.vim in jsx files.
 function! s:SetCommentString()
-  let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
-  let cstr=&commentstring
-  for id in stack
-    if id[0:1] ==# "js"
-      let cstr="//%s"
-    endif
-    if id[0:2] ==# "jsx"
-      let cstr="{/*%s*/}"
-    endif
-  endfor
-  let &commentstring=cstr
+        let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")
+        let cstr=&commentstring
+        for id in stack
+                if id[0:1] ==# "js"
+                        let cstr="//%s"
+                endif
+                if id[0:2] ==# "jsx"
+                        let cstr="{/*%s*/}"
+                endif
+        endfor
+        let &commentstring=cstr
 endfunction
 
 au CursorMoved *.jsx call s:SetCommentString()
@@ -502,14 +516,14 @@ au CursorMoved *.js call s:SetCommentString()
 "}}}
 "{{{ merlin, ocaml and reason
 if executable('ocamlmerlin')
-  let s:ocamlmerlin=substitute(system('which ocamlmerlin'),'ocamlmerlin\n$','','') . "../share/merlin/vim/"
-  execute "set rtp+=".s:ocamlmerlin
-  let g:syntastic_ocaml_checkers=['merlin']
+        let s:ocamlmerlin=substitute(system('which ocamlmerlin'),'ocamlmerlin\n$','','') . "../share/merlin/vim/"
+        execute "set rtp+=".s:ocamlmerlin
+        let g:syntastic_ocaml_checkers=['merlin']
 endif
 if executable('refmt')
-  let s:reason=substitute(system('which refmt'),'refmt\n$','','') . "../share/reason/editorSupport/VimReason"
-  execute "set rtp+=".s:reason
-  let g:syntastic_reason_checkers=['merlin']
+        let s:reason=substitute(system('which refmt'),'refmt\n$','','') . "../share/reason/editorSupport/VimReason"
+        execute "set rtp+=".s:reason
+        let g:syntastic_reason_checkers=['merlin']
 endif
 "" Always wrap at 90 columns
 let g:vimreason_extra_args_expr_reason = '"--print-width 90"'
@@ -546,7 +560,7 @@ au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
 autocmd FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
 " autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
-au Filetype go set listchars=tab:\ \ 
+au Filetype go set listchars=tab:\ \
 "}}}
 "{{{ colorscheme
 " colorscheme github
