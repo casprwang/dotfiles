@@ -204,6 +204,7 @@ function applicationWatcher(appName, eventType, appObject)
     for i,v in pairs(editting) do
       v:enable()
     end
+    -- hs.alert.show(appName)
     if (string.find(appName, 'iTerm') or (string.find(appName, 'VIM'))) then
       for i,v in pairs(editting) do
         v:disable()

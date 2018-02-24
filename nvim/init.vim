@@ -11,9 +11,10 @@
 " ****************************************************************************
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
-" Neovim
-let g:loaded_python3_provider='/usr/local/bin/python3'
-let g:python_host_prog  = '/usr/local/bin/python'
+" virtual env https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
+let g:loaded_python3_provider='/Users/song/.pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog  = '/Users/song/.pyenv/versions/neovim3/bin/python'
+
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
 set smartindent
