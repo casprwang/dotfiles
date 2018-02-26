@@ -6,18 +6,12 @@ alias push="git push origin master"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
-alias pip="pip2"
 
-# showing one level files in the current folder
-alias la="ls -1"
-# showing files in a tree
-alias lt="ls -T"
-alias re="cd ~/dev/react"
 alias ia="open -a iA\ Writer"
-# alias vim=nvim
 alias babel-node ./node_modules/.bin/babel-node
 alias cdv="cd ~/dev"
 alias aria="/usr/local/bin/aria2c"
+alias cdi="cd /Users/song/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias gd="gatsby develop"
 alias ag="ag --nobreak --nonumbers --noheading . | fzf"
 alias pane="ftpane"
@@ -43,7 +37,7 @@ alias cdo="cd ~/dotfiles"
 alias cno="cd ~/dev/node"
 alias czh="v ~/.zshrc"
 alias push="git push origin master"
-alias gs="git status"
+alias s="git status"
 alias ga="git add ."
 alias gito="git open"
 alias ignore="nvim .gitignore"
@@ -62,7 +56,6 @@ alias ta="tmux a"
 alias p="python"
 alias nr="npm run"
 alias read="nvim README.md"
-alias g="go run main.go"
 alias o="open"
 # alias n="node"
 alias bnode="babel-node"
@@ -83,4 +76,3 @@ killall Finder /System/Library/CoreServices/Finder.app'
 
 alias show-hidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
 alias hide-hidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
-

@@ -5,9 +5,6 @@
     "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
   },
   { "key": "ctrl+shift+3", "command": "workbench.view.git" },
-  {
-    "key": "cmd+b", "command": "workbench.view.explorer" },
-
   { "key": "ctrl+shift+5", "command": "workbench.view.extensions" },
   { "key": "shift+ctrl+4", "command": "workbench.view.debug" },
 
@@ -122,5 +119,10 @@
     "key": "cmd+down",
     "command": "-list.select",
     "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
   }
 ]

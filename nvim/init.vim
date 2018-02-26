@@ -320,7 +320,6 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
-Plug 'mattn/gist-vim'
 Plug 'tpope/vim-vinegar'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf.vim' " fzf{{{
@@ -394,7 +393,9 @@ let g:mta_filetypes = {
                         \}
 "}}}
 Plug 'othree/html5.vim'
-Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'} "{{{
+let g:gist_post_private = 1
+"}}}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Plug 'davidhalter/jedi-vim'
