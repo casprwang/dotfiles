@@ -1,11 +1,5 @@
 fpath+=~/.zfunc
 
-# # python env
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
 export NVM_LAZY_LOAD=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -25,9 +19,9 @@ zplugin light zdharma/fast-syntax-highlighting
 zplugin light lukechilds/zsh-nvm
 
 zplugin ice silent wait'!0' atload'_zsh_autosuggest_start'
+zplugin ice silent wait'!0' atload'load_pyenv'
 zplugin light rupa/z
 zplugin light zsh-users/zsh-autosuggestions
 zplugin load psprint/zsnapshot
 
 eval $(/mnt/truenas/scratch/brewery/bin/brewery --env)
-

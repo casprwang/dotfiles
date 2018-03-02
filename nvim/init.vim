@@ -570,3 +570,4 @@ au Filetype go set listchars=tab:\ \
 colorscheme nord
 set background=dark
 "}}}
+set viminfo='100,<50,s10,h,%

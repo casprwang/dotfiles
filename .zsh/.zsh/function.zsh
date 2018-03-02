@@ -56,4 +56,13 @@ ts_mount() {
         sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/datasets /mnt/truenas/datasets
         sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/rsync /mnt/truenas/rsync
         sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/upload /mnt/truenas/upload
+        sudo mount -o retrans=3,deadtimeout=8 10.160.1.123:/mnt/tank/datasets_addon /mnt/truenas/datasets_addon
+}
+
+load_pyenv(){
+# python env
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
 }
