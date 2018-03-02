@@ -12,8 +12,10 @@
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
 " virtual env https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-let g:loaded_python3_provider='/Users/song/.pyenv/versions/neovim3/bin/python'
 let g:python3_host_prog  = '/Users/song/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = '/Users/song/.pyenv/versions/neovim2/bin/python'
+
+set viminfo='100,<50,s10,h,%
 
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
@@ -570,4 +572,3 @@ au Filetype go set listchars=tab:\ \
 colorscheme nord
 set background=dark
 "}}}
-set viminfo='100,<50,s10,h,%
