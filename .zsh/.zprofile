@@ -11,14 +11,14 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.yarn/bin"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 export PATH=${PATH}:/usr/local/opt/gettext/bin
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
+
+# mac port
+export PATH=$PATH:/opt/local/bin
 
 # export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 

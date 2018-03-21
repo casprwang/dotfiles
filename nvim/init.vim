@@ -103,12 +103,34 @@ nnoremap <leader>e :Ag<cr>
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter' "{{{
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
+"}}}
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
 "}}}
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
+Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
 Plug 'endel/vim-github-colorscheme'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
@@ -317,6 +339,8 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 let g:vue_disable_pre_processors=1
 autocmd FileType vue syntax sync fromstart
 "}}}
+Plug 'tyru/caw.vim'
+Plug 'Shougo/context_filetype.vim'
 
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
@@ -559,10 +583,10 @@ au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
+autocmd FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
-autocmd FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
 " autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
 au Filetype go set listchars=tab:\ \
 "}}}
