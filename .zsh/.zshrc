@@ -11,6 +11,7 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
+zplugin light rupa/z
 ## Load the pure theme, with zsh-async that's bundled with it
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
@@ -20,7 +21,6 @@ zplugin light lukechilds/zsh-nvm
 
 zplugin ice silent wait'!0' atload'_zsh_autosuggest_start'
 zplugin ice silent wait'!0' atload'load_pyenv'
-zplugin light rupa/z
 zplugin light zsh-users/zsh-autosuggestions
 zplugin load psprint/zsnapshot
 
