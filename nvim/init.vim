@@ -262,7 +262,6 @@ let g:investigate_use_dash=1
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
-nnoremap gd :Gdiff<cr>
 nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 "}}}
