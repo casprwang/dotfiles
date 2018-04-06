@@ -307,7 +307,6 @@
   "vim.foldfix": true,
   "workbench.colorTheme": "Nord",
   "todohighlight.isEnable": false,
-  "prettier.eslintIntegration": true,
   "go.gopath": "/Users/song/gocode",
   "code-runner.executorMap": {
     "javascript": "node",
@@ -352,12 +351,7 @@
   "editor.snippetSuggestions": "inline",
   "eslint.autoFixOnSave": false,
   "eslint.options": {
-    "extensions": [
-      ".js",
-      ".vue"
-    ]
   },
-  "prettier.trailingComma": "all",
   "eslint.packageManager": "yarn",
   "editor.minimap.enabled": false,
   "editor.tabCompletion": false,
@@ -374,5 +368,6 @@
     "editor.tabSize": 4,
     "editor.autoIndent": false
   },
-  "python.formatting.yapfPath": "/usr/local/bin/yapf"
+  "python.formatting.yapfPath": "/usr/local/bin/yapf",
+  "eslint.workingDirectories": ["/Users/song/tusimple/infra-pipeline/frontend"]
 }
