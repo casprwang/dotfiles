@@ -1,5 +1,5 @@
 # setopt -s expand_aliases
-alias gp="gitpush"
+alias gp="git push"
 alias git=hub
 alias mkdi=mkcdir
 alias push="git push origin master"
