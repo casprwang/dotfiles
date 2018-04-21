@@ -272,13 +272,13 @@ Plug 'tpope/vim-rhubarb'
 "vmap J <Plug>(easymotion-j)
 "vmap K <Plug>(easymotion-k)
 ""}}}
-Plug 'airblade/vim-gitgutter' "{{{
-let g:gitgutter_enabled = 1
-nnoremap <leader>h :GitGutterToggle<cr>
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager = 1
-let g:gitgutter_signs = 0
-"}}}
+"Plug 'airblade/vim-gitgutter' "{{{
+"let g:gitgutter_enabled = 1
+"nnoremap <leader>h :GitGutterToggle<cr>
+"let g:gitgutter_realtime = 1
+"let g:gitgutter_eager = 1
+"let g:gitgutter_signs = 0
+""}}}
 Plug 'junegunn/vim-easy-align' "{{{
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -457,7 +457,7 @@ set statusline=%f
 set statusline+=%=
 " set gitgutter on the right side
 set statusline+=\ %l\:%c\ \ \ \
-set statusline+=%{join(GitGutterGetHunkSummary())}
+" set statusline+=%{join(GitGutterGetHunkSummary())}
 "}}}
 " completion {{{
 function! g:UltiSnips_Complete()

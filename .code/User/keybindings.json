@@ -124,5 +124,9 @@
     "key": "enter",
     "command": "-renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "workbench.action.maximizeEditor"
   }
 ]
