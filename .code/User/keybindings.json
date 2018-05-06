@@ -128,5 +128,10 @@
   {
     "key": "cmd+enter",
     "command": "workbench.action.maximizeEditor"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
   }
 ]
