@@ -369,5 +369,8 @@
     "editor.autoIndent": false
   },
   "python.formatting.yapfPath": "/usr/local/bin/yapf",
-  "eslint.workingDirectories": ["/Users/song/tusimple/infra-pipeline/frontend"]
+  "eslint.workingDirectories": [
+    "/Users/song/tusimple/infra-pipeline/frontend"
+  ],
+  "workbench.iconTheme": "eq-material-theme-icons"
 }
