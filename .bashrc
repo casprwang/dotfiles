@@ -21,3 +21,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 . /Users/song/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 eval $(/mnt/truenas/scratch/brewery/bin/brewery --env)
+eval $(/Users/song/.brewery/bin/brewery --env)
