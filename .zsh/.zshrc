@@ -31,4 +31,5 @@ if [ -f '/Users/song/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/U
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/song/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/song/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-# eval $(/Users/song/.brewery/bin/brewery --env)
+
+eval $(/Users/song/.brewery/bin/brewery --env)

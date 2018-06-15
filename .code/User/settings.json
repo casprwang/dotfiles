@@ -15,7 +15,7 @@
       "jsx"
     ]
   },
-  "typescript.check.tscVersion": false,
+  // "typescript.check.tscVersion": false,
   // "amVim.bindCtrlCommands": false,
   // "editor.cursorStyle": "block",
   "editor.fontSize": 13,
@@ -281,14 +281,14 @@
       ]
     }
   ],
-  "vim.disableAnnoyingNeovimMessage": true,
+  // "vim.disableAnnoyingNeovimMessage": true,
   "guides.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "window.zoomLevel": 0,
-  "prettier.jsxBracketSameLine": false,
-  "prettier.semi": false,
-  "prettier.useTabs": false,
-  "prettier.singleQuote": false,
+  // "prettier.jsxBracketSameLine": false,
+  // "prettier.semi": false,
+  // "prettier.useTabs": false,
+  // "prettier.singleQuote": false,
   "emmet.triggerExpansionOnTab": false,
   "workbench.sideBar.location": "right",
   "editor.cursorStyle": "line",
@@ -301,9 +301,9 @@
   "[javascript]": {
     "editor.tabSize": 2
   },
-  "prettier.tabWidth": 2,
-  "prettier.printWidth": 80,
-  "go.formatOnSave": false,
+  // "prettier.tabWidth": 2,
+  // "prettier.printWidth": 80,
+  // "go.formatOnSave": false,
   "vim.foldfix": true,
   "workbench.colorTheme": "Nord",
   "todohighlight.isEnable": false,
@@ -350,8 +350,7 @@
   },
   "editor.snippetSuggestions": "inline",
   "eslint.autoFixOnSave": false,
-  "eslint.options": {
-  },
+  "eslint.options": {},
   "eslint.packageManager": "yarn",
   "editor.minimap.enabled": false,
   "editor.tabCompletion": false,
@@ -359,8 +358,13 @@
   "git.decorations.enabled": false,
   "eslint.validate": [
     "javascript",
-    "javascriptreact",
-    "vue"
+    // "javascriptreact",
+    "html",
+    "vue",
+    {
+      "language": "vue",
+      "autoFix": false
+    },
   ],
   "python.linting.enabled": false,
   "[python]": {
@@ -369,8 +373,10 @@
     "editor.autoIndent": false
   },
   "python.formatting.yapfPath": "/usr/local/bin/yapf",
-  "eslint.workingDirectories": [
-    "/Users/song/tusimple/infra-pipeline/frontend"
-  ],
-  "workbench.iconTheme": "eq-material-theme-icons"
+  "eslint.workingDirectories": [],
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "prettier.eslintIntegration": true,
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.ts": "vscode-typescript"
 }
