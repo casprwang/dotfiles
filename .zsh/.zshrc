@@ -1,5 +1,7 @@
 fpath+=~/.zfunc
 
+export EDITOR=nvim
+
 export NVM_LAZY_LOAD=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

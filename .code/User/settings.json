@@ -95,7 +95,29 @@
       ]
     }
   ],
-  "vim.otherModesKeyBindings": [
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "5",
+        "g",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "5",
+        "g",
+        "j"
+      ]
+    },
+  ],
+  "vim.normalModeKeyBindings": [
     {
       "before": [
         "\n"
@@ -152,7 +174,7 @@
       ]
     }
   ],
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
         "Z",

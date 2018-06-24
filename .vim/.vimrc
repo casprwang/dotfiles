@@ -41,3 +41,5 @@ nmap <c-w>j <c-w>s<down>
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+
+autocmd filetype crontab setlocal nobackup nowritebackup

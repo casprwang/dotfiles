@@ -66,6 +66,7 @@ inoremap <c-d> <esc>cw
 inoremap <c-e> <esc>A
 inoremap {<cr> {<cr>}<c-o>O
 
+
 nnoremap <c-w><Space> <c-w>=
 nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
@@ -595,3 +596,4 @@ au Filetype go set listchars=tab:\ \
 colorscheme nord
 set background=dark
 "}}}
+autocmd filetype crontab setlocal nobackup nowritebackup
