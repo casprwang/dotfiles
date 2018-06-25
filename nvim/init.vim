@@ -571,6 +571,7 @@ au FileType ocaml let maplocalleader=","
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
+au filetype crontab setlocal nobackup nowritebackup
 au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
@@ -596,4 +597,3 @@ au Filetype go set listchars=tab:\ \
 colorscheme nord
 set background=dark
 "}}}
-autocmd filetype crontab setlocal nobackup nowritebackup
