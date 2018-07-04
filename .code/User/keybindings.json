@@ -133,5 +133,10 @@
     "key": "shift+cmd+g",
     "command": "-editor.action.previousMatchFindAction",
     "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "-list.focusPageUp",
+    "when": "listFocus && !inputFocus"
   }
 ]
