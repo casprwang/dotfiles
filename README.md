@@ -1,5 +1,5 @@
 # Dotfiles
-A set of configurations for a poductive and enjoyable workstation.
+A set of configurations for a productive and enjoyable workstation.
 
 ![image](https://user-images.githubusercontent.com/19645990/30446751-0c6aa932-9958-11e7-9337-3d4efea9f2ad.png)
 > Working with React Web App example
