@@ -19,7 +19,6 @@ set viminfo='100,<50,s10,h,%
 
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
-set smartindent
 set splitright
 set splitbelow
 set timeoutlen=1000 ttimeoutlen=0
@@ -42,7 +41,7 @@ set ignorecase
 set smartcase
 set showmatch
 set smarttab
-set smartindent
+" set smartindent
 set undofile
 set undodir=~/.config/nvim/undo
 set undolevels=1000
@@ -64,7 +63,7 @@ inoremap <c-q> <esc>S
 inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
 inoremap <c-e> <esc>A
-inoremap {<cr> {<cr>}<c-o>O
+" inoremap {<cr> {<cr>}<c-o>O
 
 
 nnoremap <c-w><Space> <c-w>=
@@ -184,7 +183,6 @@ Plug 'gcmt/taboo.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
-Plug 'SirVer/ultisnips'
 Plug 'iamcco/markdown-preview.vim' "{{{
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 "}}}
@@ -293,42 +291,6 @@ au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"',
 let g:AutoPairsFlyMode = 0
 "}}}
 Plug 'jiangmiao/simple-javascript-indenter'
-Plug 'roxma/nvim-completion-manager', {'do': 'npm install'} "{{{
-" set shortmess+=c
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
-" css
-" the omnifunc pattern is PCRE
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
-" au User CmSetup call cm#register_source({'name' : 'cm-css',
-"         \ 'priority': 7,
-"         \ 'scopes': ['css', 'scss', 'js', 'javascript'],
-"         \ 'scoping': 1,
-"         \ 'abbreviation': 'css',
-"         \ 'cm_refresh_patterns':['\w{2,}$',':\s+\w*$'],
-"         \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
-"         \ })
-
-au User CmSetup call cm#register_source({'name' : 'cm-css',
-                        \ 'priority': 9,
-                        \ 'scoping': 1,
-                        \ 'scopes': ['css','scss'],
-                        \ 'abbreviation': 'css',
-                        \ 'word_pattern': '[\w\-]+',
-                        \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
-                        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
-                        \ })
-
-let g:cm_sources_override = {
-                        \ 'cm-css': {'scopes': ['css', 'scss', 'javascript', 'jsx', 'javascript.jsx']}
-                        \ }
-
-let g:cm_refresh_default_min_word_len=2
-imap <silent> <c-o> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"}}}"
-Plug 'roxma/nvim-cm-php-language-server',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'skywind3000/asyncrun.vim'
 Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
@@ -438,6 +400,105 @@ let g:mta_filetypes = {
 Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
 
+" autosompletion
+Plug 'ncm2/ncm2' "{{{
+" enable ncm2 for all buffer
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" note that must keep noinsert in completeopt, the others is optional
+set completeopt=noinsert,menuone,noselect
+" supress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" wrap existing omnifunc
+" " supress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" wrap existing omnifunc
+" Note that omnifunc does not run in background and may probably block the
+" editor. If you don't want to be blocked by omnifunc too often, you could add
+" 180ms delay before the omni wrapper:
+"  'on_complete': ['ncm2#on_complete#delay', 180,
+"               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+au User Ncm2Plugin call ncm2#register_source({
+        \ 'name' : 'css',
+        \ 'priority': 9, 
+        \ 'subscope_enable': 1,
+        \ 'scope': ['css','scss'],
+        \ 'mark': 'css',
+        \ 'word_pattern': '[\w\-]+',
+        \ 'complete_pattern': ':\s*',
+        \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+        \ })Note that omnifunc does not run in background and may probably block the
+" editor. If you don't want to be blocked by omnifunc too often, you could add
+" 180ms delay before the omni wrapper:
+"  'on_complete': ['ncm2#on_complete#delay', 180,
+"               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+au User Ncm2Plugin call ncm2#register_source({
+        \ 'name' : 'css',
+        \ 'priority': 9, 
+        \ 'subscope_enable': 1,
+        \ 'scope': ['css','scss'],
+        \ 'mark': 'css',
+        \ 'word_pattern': '[\w\-]+',
+        \ 'complete_pattern': ':\s*',
+        \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+        \ })
+
+"}}}
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+Plug 'ncm2/ncm2-html-subscope'
+
+" snippets
+" based on snipmate
+Plug 'ncm2/ncm2-snipmate'
+
+" snipmate dependencies
+Plug 'tomtom/tlib_vim'
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate' "{{{
+" press enter key to trigger snippet expansion
+imap <expr> <CR> ncm2_snipmate#expand_or("\<CR>")
+
+" c-j c-k for moving in snippet
+let g:snips_no_mappings = 1
+vmap <c-j> <Plug>snipMateNextOrTrigger
+vmap <c-k> <Plug>snipMateBack
+imap <expr> <c-k> pumvisible() ? "\<c-y>\<Plug>snipMateBack" : "\<Plug>snipMateBack"
+imap <expr> <c-k> pumvisible() ? "\<c-y>\<Plug>snipMateNextOrTrigger" : "\<Plug>snipMateNextOrTrigger"
+"}}}
+
 call plug#end()
 " }}}
 " cursor position {{{
@@ -460,35 +521,9 @@ set statusline+=%=
 set statusline+=\ %l\:%c\ \ \ \
 " set statusline+=%{join(GitGutterGetHunkSummary())}
 "}}}
-" completion {{{
-function! g:UltiSnips_Complete()
-        call UltiSnips#ExpandSnippet()
-        if g:ulti_expand_res == 0
-                if pumvisible()
-                        return "\<C-n>"
-                else
-                        call UltiSnips#JumpForwards()
-                        if g:ulti_jump_forwards_res == 0
-                                return "\<TAB>"
-                        endif
-                endif
-        endif
-        return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-let g:UltiSnipsEditSplit = 'horizontal'
-let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/ultiSnips"
-let g:UltiSnipsSnippetDirectories=["ultiSnips"]
 
 let g:vim_json_syntax_conceal = 0
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " omni
 let g:mta_use_matchparen_group = 1
