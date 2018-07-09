@@ -14,17 +14,13 @@
 " virtual env https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 let g:python3_host_prog  = '/Users/song/.pyenv/versions/neovim3/bin/python'
 let g:python_host_prog = '/Users/song/.pyenv/versions/neovim2/bin/python'
-
 set viminfo='100,<50,s10,h,%
-
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
 set splitright
 set splitbelow
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
-" set relativenumber
-" set number
 set undoreload=10000        " number of lines to save for undo
 set clipboard=unnamed
 set list
@@ -41,13 +37,11 @@ set ignorecase
 set smartcase
 set showmatch
 set smarttab
-" set smartindent
 set undofile
 set undodir=~/.config/nvim/undo
 set undolevels=1000
 
 " cursor Nvim > v-2.0
-
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0
                         \,i-ci:ver25-Cursor/lCursor
                         \,r-cr:hor20-Cursor/lCursor
@@ -63,9 +57,6 @@ inoremap <c-q> <esc>S
 inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
 inoremap <c-e> <esc>A
-" inoremap {<cr> {<cr>}<c-o>O
-
-
 nnoremap <c-w><Space> <c-w>=
 nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
@@ -81,7 +72,6 @@ nnoremap gp :!gp
 
 " for shift-enter
 nnoremap <c-b>b O<esc>
-
 nmap <c-w>v :vsplit<cr><c-_>
 nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
@@ -242,7 +232,6 @@ let g:neoformat_enabled_python = ['autopep8']
 let g:neoformat_python_autopep8 = {
                         \ 'exe': 'autopep8',
                         \ }
-
 "}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
@@ -257,7 +246,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'keith/investigate.vim' "{{{
 let g:investigate_use_dash=1
 "}}}
-
 Plug 'othree/csscomplete.vim'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
@@ -265,19 +253,6 @@ nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
-"Plug 'easymotion/vim-easymotion' "{{{
-"nmap J <Plug>(easymotion-j)
-"nmap K <Plug>(easymotion-k)
-"vmap J <Plug>(easymotion-j)
-"vmap K <Plug>(easymotion-k)
-""}}}
-"Plug 'airblade/vim-gitgutter' "{{{
-"let g:gitgutter_enabled = 1
-"nnoremap <leader>h :GitGutterToggle<cr>
-"let g:gitgutter_realtime = 1
-"let g:gitgutter_eager = 1
-"let g:gitgutter_signs = 0
-""}}}
 Plug 'junegunn/vim-easy-align' "{{{
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -410,31 +385,11 @@ set shortmess+=c
 " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
 inoremap <c-c> <ESC>
 
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
 inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" wrap existing omnifunc
-" Note that omnifunc does not run in background and may probably block the
-" editor. If you don't want to be blocked by omnifunc too often, you could add
-" 180ms delay before the omni wrapper:
-"  'on_complete': ['ncm2#on_complete#delay', 180,
-"               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-au User Ncm2Plugin call ncm2#register_source({
-        \ 'name' : 'css',
-        \ 'priority': 9, 
-        \ 'subscope_enable': 1,
-        \ 'scope': ['css','scss'],
-        \ 'mark': 'css',
-        \ 'word_pattern': '[\w\-]+',
-        \ 'complete_pattern': ':\s*',
-        \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-        \ })
 
 " enable ncm2 for all buffer
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -450,7 +405,6 @@ Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 Plug 'ncm2/ncm2-html-subscope'
 
 " snippets
-" based on snipmate
 Plug 'ncm2/ncm2-snipmate'
 
 " snipmate dependencies
@@ -490,12 +444,9 @@ set statusline+=%=
 " set gitgutter on the right side
 set statusline+=\ %l\:%c\ \ \ \
 " set statusline+=%{join(GitGutterGetHunkSummary())}
-"}}}
-
 let g:vim_json_syntax_conceal = 0
 
 
-" omni
 let g:mta_use_matchparen_group = 1
 let g:tern#filetypes = [
                         \ 'jsx',
@@ -589,7 +540,7 @@ au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
-autocmd FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
+au FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
@@ -597,8 +548,6 @@ au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \
 "}}}
 "{{{ colorscheme
-" colorscheme github
-" set background=light
 colorscheme nord
 set background=dark
 "}}}
