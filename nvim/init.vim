@@ -31,6 +31,7 @@ set guioptions-=e
 set sessionoptions+=tabpages,globals
 set hlsearch
 set autoindent
+set smartindent
 set expandtab
 set incsearch
 set ignorecase
@@ -66,6 +67,8 @@ nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 nnoremap 0 ^
 nmap Y y$
+inoremap {<cr> {<cr>}<c-o>O
+inoremap (<cr> (<cr>)<c-o>O
 
 " for git
 nnoremap gp :!gp
@@ -257,14 +260,14 @@ Plug 'junegunn/vim-easy-align' "{{{
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
-Plug 'jiangmiao/auto-pairs' "{{{
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
-au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
-au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-let g:AutoPairsFlyMode = 0
-"}}}
+"Plug 'jiangmiao/auto-pairs' "{{{
+"let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+"au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
+"au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
+"au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+"au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+"let g:AutoPairsFlyMode = 0
+""}}}
 Plug 'jiangmiao/simple-javascript-indenter'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'sheerun/vim-polyglot' "{{{

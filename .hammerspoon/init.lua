@@ -146,9 +146,9 @@ editting.cE = hs.hotkey.bind(keys.c, "e", function()
   hs.eventtap.keyStroke({'cmd'}, "right")
 end)
 
-editting.cQ = hs.hotkey.bind(keys.c, "u", function()
-  hs.eventtap.keyStroke({'cmd'}, "delete")
-end)
+-- editting.cQ = hs.hotkey.bind(keys.c, "u", function()
+--   hs.eventtap.keyStroke({'cmd'}, "delete")
+-- end)
 -- editting.cQ:enable(postgresq)
 
 editting.cB = hs.hotkey.bind(keys.c, "b", function()
