@@ -180,6 +180,9 @@ Plug 'iamcco/markdown-preview.vim' "{{{
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
 "}}}
 Plug 'tmux-plugins/vim-tmux'
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' } "{{{
+let g:shfmt_extra_args = '-i 2 -ci'
+"}}}
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
 Plug 'chrisbra/Colorizer' "{{{
 au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
@@ -544,8 +547,8 @@ au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
+au FileType sh nnoremap <leader>f :Shfmt<cr>
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
-
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
 " autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
 au Filetype go set listchars=tab:\ \

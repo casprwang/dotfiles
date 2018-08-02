@@ -22,8 +22,9 @@ alias l="exa -1"
 alias cdg="cd /Users/song/go/src/github.com/wangsongiam/go"
 alias cdj="cd ~/dev/javascript"
 
+alias t="chrome"
+
 # for tmux
-alias t="tmux a"
 alias sozh="so ~/.zshrc"
 alias tn="tmux new -s"
 alias tnew="tmux new -s"
