@@ -39,14 +39,14 @@ gitcm() {
 
 
 source_zsh() {
-  source ~/.zshrc
-  source ~/.zprofile
-  echo 'all the zsh files are sourced!'
+        source ~/.zshrc
+        source ~/.zprofile
+        echo 'all the zsh files are sourced!'
 }
 
 
 # mkdir and cd into it
-mkcdir () {
+mkdircd () {
         mkdir -p -- "$1" &&
                 cd -P -- "$1"
 }

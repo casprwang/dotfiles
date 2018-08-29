@@ -156,6 +156,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_term_enabled = 1
 let g:go_term_width = 80
 let g:go_fmt_autosave = 0
+let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 0
 au FileType go nmap <leader>r <Plug>(go-run-tab)
 "}}}
@@ -407,6 +408,9 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
+Plug 'cespare/vim-toml'
+Plug 'maralla/vim-toml-enhance'
+Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 Plug 'ncm2/ncm2-html-subscope'
 
@@ -543,6 +547,7 @@ au Filetype json setlocal ts=2 sts=2 sw=2
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
+au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
@@ -551,7 +556,7 @@ au FileType sh nnoremap <leader>f :Shfmt<cr>
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 " hide go's list char (gogmt wants tab but I personally don't want to see the sign)
 " autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
-au Filetype go set listchars=tab:\ \
+au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ colorscheme
 colorscheme nord
