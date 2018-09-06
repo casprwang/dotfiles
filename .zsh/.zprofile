@@ -8,6 +8,9 @@ PATH=$PATH:/usr/local/bin
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# psql
+export PATH="/Library/PostgreSQL/10/bin:$PATH"
+
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.yarn/bin"
 
