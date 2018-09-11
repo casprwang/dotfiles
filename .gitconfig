@@ -11,7 +11,7 @@
   user = wangsongiam
 
 [core]
-  editor = nvim
+  editor = vim
 
 [merge]
   log = true
