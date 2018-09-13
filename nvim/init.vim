@@ -12,8 +12,6 @@
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
 " virtual env https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-let g:python3_host_prog  = '/Users/song/.pyenv/versions/neovim3/bin/python'
-let g:python_host_prog = '/Users/song/.pyenv/versions/neovim2/bin/python'
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
@@ -151,6 +149,38 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
 Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
+Plug 'maralla/completor.vim' "{{{
+let g:completor_python_binary = '/Users/song/.pyenv/shims/python3'
+let g:completor_node_binary = '/usr/local/bin/node'
+let g:completor_gocode_binary = '/Users/song/go/bin/gocode'
+
+let g:completor_complete_options = 'menuone,noselect'
+
+" Use TAB to complete when typing words, else inserts TABs as usual.  Uses
+" dictionary, source files, and completor to find matching words to complete.
+
+" Note: usual completion is on <C-n> but more trouble to press all the time.
+" Never type the same word twice and maybe learn a new spellings!
+" Use the Linux dictionary when spelling is in doubt.
+function! Tab_Or_Complete() abort
+  " If completor is already open the `tab` cycles through suggested completions.
+  if pumvisible()
+    return "\<C-N>"
+  " If completor is not open and we are in the middle of typing a word then
+  " `tab` opens completor menu.
+  elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-R>=completor#do('complete')\<CR>"
+  else
+    " If we aren't typing a word and we press `tab` simply do the normal `tab`
+    " action.
+    return "\<Tab>"
+  endif
+endfunction
+
+" Use `tab` key to select completions.  Default is arrow keys.
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"}}}
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_term_enabled = 1
@@ -384,53 +414,13 @@ Plug 'sunaku/vim-shortcut'
 
 " autosompletion
 Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2' "{{{
-" supress the annoying 'match x of y', 'The only match' and 'Pattern not
-" found' messages
-set shortmess+=c
-
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-inoremap <c-c> <ESC>
-
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" enable ncm2 for all buffer
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" note that must keep noinsert in completeopt, the others is optional
-set completeopt=noinsert,menuone,noselect
-"}}}
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
 Plug 'cespare/vim-toml'
 Plug 'maralla/vim-toml-enhance'
-Plug 'ncm2/ncm2-go'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-Plug 'ncm2/ncm2-html-subscope'
-
-" snippets
-Plug 'ncm2/ncm2-snipmate'
 
 " snipmate dependencies
 Plug 'tomtom/tlib_vim'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate' "{{{
-" Press enter key to trigger snippet expansion
-" The parameters are the some as `:help feedkeys()`
-inoremap <silent> <expr> <CR> ncm2_snipmate#expand_or("\<CR>", 'n')
-
-" c-j c-k for moving in snippet
-let g:snips_no_mappings = 1
-vmap <c-j> <Plug>snipMateNextOrTrigger
-vmap <c-k> <Plug>snipMateBack
-imap <expr> <c-k> pumvisible() ? "\<c-y>\<Plug>snipMateBack" : "\<Plug>snipMateBack"
-imap <expr> <c-j> pumvisible() ? "\<c-y>\<Plug>snipMateNextOrTrigger" : "\<Plug>snipMateNextOrTrigger"
 "}}}
 
 call plug#end()

@@ -26,8 +26,6 @@ zplugin ice silent wait'!0' atload'load_pyenv'
 zplugin light zsh-users/zsh-autosuggestions
 zplugin load psprint/zsnapshot
 
-# eval $(/mnt/truenas/scratch/brewery/bin/brewery --env)
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/song/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/song/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
