@@ -1,5 +1,5 @@
 # setopt -s expand_aliases
-alias gp="git push"
+alias gp="git push origin"
 alias git=hub
 alias mkdi=mkcdir
 alias ip3="ipython3"
