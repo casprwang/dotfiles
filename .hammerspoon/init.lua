@@ -146,6 +146,7 @@ editting.cE = hs.hotkey.bind(keys.c, "e", function()
   hs.eventtap.keyStroke({'cmd'}, "right")
 end)
 
+
 -- editting.cQ = hs.hotkey.bind(keys.c, "u", function()
 --   hs.eventtap.keyStroke({'cmd'}, "delete")
 -- end)
@@ -205,7 +206,7 @@ function applicationWatcher(appName, eventType, appObject)
       v:enable()
     end
     -- hs.alert.show(appName)
-    if (string.find(appName, 'iTerm') or (string.find(appName, 'VIM'))) then
+    if (string.find(appName, 'iTerm') or (string.find(appName, 'VIM')) or (string.find(appName, 'Alacritty'))) then
       for i,v in pairs(editting) do
         v:disable()
       end
@@ -216,10 +217,13 @@ function applicationWatcher(appName, eventType, appObject)
     end
     if (string.find(appName, 'Emacs')) or (string.find(appName, 'Atom')) then
       editting.cW:disable()
-    elseif not (string.find(appName, 'iTerm') or ( string.find(appName, 'VIM') )) then
+    elseif not (string.find(appName, 'iTerm') or ( string.find(appName, 'VIM') ) or (string.find(appName, 'Alacritty'))) then
       for i,v in pairs(editting) do
         v:enable()
       end
+    end
+    if (string.find(appName, 'Alacritty')) then
+      editting.tab:enable()
     end
   end
 end
