@@ -407,5 +407,9 @@
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
   },
-  "editor.renderIndentGuides": false
+  "editor.renderIndentGuides": false,
+  "python.pythonPath": "/Users/song/.pyenv/versions/3.6.6/bin/python",
+  "keyboard.dispatch": "keyCode",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false
 }

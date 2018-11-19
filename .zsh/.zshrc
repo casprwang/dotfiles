@@ -15,8 +15,6 @@ export PATH=${PATH}:/usr/local/opt/gettext/bin
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
-
 # mac port
 export PATH=$PATH:/opt/local/bin
 
@@ -37,14 +35,6 @@ source ~/.zsh/basic.zsh
 source ~/.zsh/function.zsh
 source ~/.zsh/github.zsh
 
-# Setting PATH for Python 3.6
-# The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
-
-
-
-
 fpath+=~/.zfunc
 
 export EDITOR=nvim
@@ -60,6 +50,7 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
+zplugin ice silent wait'!0' atload'load_pyenv'
 zplugin light rupa/z
 ## Load the pure theme, with zsh-async that's bundled with it
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
@@ -69,7 +60,6 @@ zplugin light zdharma/fast-syntax-highlighting
 zplugin light lukechilds/zsh-nvm
 
 zplugin ice silent wait'!0' atload'_zsh_autosuggest_start'
-zplugin ice silent wait'!0' atload'load_pyenv'
 zplugin light zsh-users/zsh-autosuggestions
 zplugin load psprint/zsnapshot
 

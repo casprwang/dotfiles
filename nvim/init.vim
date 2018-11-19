@@ -69,10 +69,6 @@ nnoremap 0 ^
 nmap Y y$
 inoremap {<cr> {<cr>}<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
-
-" for git
-nnoremap gp :!gp
-
 " for shift-enter
 nnoremap <c-b>b O<esc>
 nmap <c-w>v :vsplit<cr><c-_>
@@ -124,22 +120,9 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
-Plug 'endel/vim-github-colorscheme'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'beloglazov/vim-textobj-quotes'
-Plug 'rizzatti/dash.vim' "{{{
-nnoremap <leader>K :Dash<cr>
-"}}}
-Plug 'wangsongiam/vim-git-it' "{{{
-nnoremap <leader>p :Gitit
-nnoremap <leader>m :GititCommitAll
-"}}}
-Plug 'altercation/vim-colors-solarized'
-Plug 'wvffle/vimterm' "{{{
-nnoremap <c-^> :call vimterm#toggle() <CR>
-tnoremap <c-^> <C-\><C-n>:call vimterm#toggle() <CR>
-"}}}
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_no_mappings = 1
@@ -157,7 +140,7 @@ let g:completor_node_binary = '/usr/local/bin/node'
 let g:completor_gocode_binary = '/Users/song/go/bin/gocode'
 
 let g:completor_complete_options = 'menuone,noselect'
-
+let g:completor_racer_binary = '/Users/song/.cargo/bin/racer'
 " Use TAB to complete when typing words, else inserts TABs as usual.  Uses
 " dictionary, source files, and completor to find matching words to complete.
 
@@ -185,6 +168,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "}}}
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
+let g:go_version_warning = 0
 let g:go_term_enabled = 1
 let g:go_term_width = 80
 let g:go_fmt_autosave = 0
@@ -234,35 +218,26 @@ Plug 'mitermayer/vim-prettier', {
                         \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
 " max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 80
-
 " number of spaces per indentation level
 let g:prettier#config#tab_width = 2
-
 " use tabs over spaces
 let g:prettier#config#use_tabs = 'false'
-
 " print semicolons
 let g:prettier#config#semi = 'false'
-
 " single quotes over double quotes
 let g:prettier#config#single_quote = 'true'
-
 " print spaces between brackets
 let g:prettier#config#bracket_spacing = 'true'
-
 " put > on the last line instead of new line
 let g:prettier#config#jsx_bracket_same_line = 'false'
-
 " none|es5|all
 let g:prettier#config#trailing_comma = 'all'
-
 " flow|babylon|typescript|postcss
 let g:prettier#config#parser = 'flow'
 "}}}
 Plug 'sbdchd/neoformat' "{{{
-
-
 let g:neoformat_enabled_javascript = ['eslint_d', 'prettier']
+" let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_try_formatprg = 1
 let g:neoformat_only_msg_on_error = 1
 noremap <leader>f :Neoformat<cr>
@@ -317,16 +292,12 @@ autocmd FileType vue syntax sync fromstart
 "}}}
 Plug 'tyru/caw.vim'
 Plug 'Shougo/context_filetype.vim'
-
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
-Plug 'tpope/vim-vinegar'
-Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
-nmap <c-f> :Lines<cr>
 set noswapfile
 set clipboard=unnamed
 set autoread
@@ -418,6 +389,8 @@ Plug 'sunaku/vim-shortcut'
 Plug 'roxma/nvim-yarp'
 Plug 'cespare/vim-toml'
 Plug 'maralla/vim-toml-enhance'
+
+Plug 'ternjs/tern_for_vim'
 
 " snipmate dependencies
 Plug 'tomtom/tlib_vim'
