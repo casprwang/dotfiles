@@ -10,10 +10,7 @@
   "git.confirmSync": false,
   "editor.tabSize": 2,
   "emmet.syntaxProfiles": {
-    "javascript": [
-      "html",
-      "jsx"
-    ]
+    "javascript": ["html", "jsx"]
   },
   // "typescript.check.tscVersion": false,
   // "amVim.bindCtrlCommands": false,
@@ -36,9 +33,7 @@
   // "editor.cursorBlinking": "solid",
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "<c-o>"
-      ],
+      "before": ["<c-o>"],
       "after": [],
       "commands": [
         {
@@ -48,22 +43,12 @@
       ]
     },
     {
-      "before": [
-        "<c-m>"
-      ],
-      "after": [
-        "<Esc>",
-        "o"
-      ]
+      "before": ["<c-m>"],
+      "after": ["<Esc>", "o"]
     },
     {
-      "before": [
-        "<C-g>"
-      ],
-      "after": [
-        "cmd",
-        "4"
-      ],
+      "before": ["<C-g>"],
+      "after": ["cmd", "4"],
       "commands": [
         {
           "command": "editor.emmet.action.expandAbbreviation",
@@ -72,9 +57,7 @@
       ]
     },
     {
-      "before": [
-        "<c-a>"
-      ],
+      "before": ["<c-a>"],
       "after": [],
       "commands": [
         {
@@ -84,9 +67,7 @@
       ]
     },
     {
-      "before": [
-        "<c-e>"
-      ],
+      "before": ["<c-e>"],
       "after": [],
       "commands": [
         {
@@ -97,50 +78,25 @@
   ],
   "vim.visualModeKeyBindings": [
     {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "5",
-        "g",
-        "k"
-      ]
+      "before": ["K"],
+      "after": ["5", "g", "k"]
     },
     {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "5",
-        "g",
-        "j"
-      ]
-    },
+      "before": ["J"],
+      "after": ["5", "g", "j"]
+    }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "\n"
-      ],
-      "after": [
-        "o",
-        "<Esc>"
-      ]
+      "before": ["\n"],
+      "after": ["o", "<Esc>"]
     },
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "cmd",
-        "s"
-      ]
+      "before": ["j", "j"],
+      "after": ["cmd", "s"]
     },
     {
-      "before": [
-        "<right>"
-      ],
+      "before": ["<right>"],
       "after": [],
       "commands": [
         {
@@ -150,9 +106,7 @@
       ]
     },
     {
-      "before": [
-        "<left>"
-      ],
+      "before": ["<left>"],
       "after": [],
       "commands": [
         {
@@ -162,9 +116,7 @@
       ]
     },
     {
-      "before": [
-        "<C-n>"
-      ],
+      "before": ["<C-n>"],
       "after": [],
       "commands": [
         {
@@ -176,10 +128,7 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "Z",
-        "Z"
-      ],
+      "before": ["Z", "Z"],
       "after": [],
       "commands": [
         {
@@ -189,10 +138,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "f"
-      ],
+      "before": ["leader", "f"],
       "after": [],
       "commands": [
         {
@@ -202,10 +148,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "o"
-      ],
+      "before": ["leader", "o"],
       "after": [],
       "commands": [
         {
@@ -215,10 +158,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "j"
-      ],
+      "before": ["leader", "j"],
       "after": [],
       "commands": [
         {
@@ -228,40 +168,19 @@
       ]
     },
     {
-      "before": [
-        "g",
-        "/"
-      ],
-      "after": [
-        "g",
-        "c"
-      ]
+      "before": ["g", "/"],
+      "after": ["g", "c"]
     },
     {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "5",
-        "g",
-        "k"
-      ]
+      "before": ["K"],
+      "after": ["5", "g", "k"]
     },
     {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "5",
-        "g",
-        "j"
-      ]
+      "before": ["J"],
+      "after": ["5", "g", "j"]
     },
     {
-      "before": [
-        "<space>",
-        "m"
-      ],
+      "before": ["<space>", "m"],
       "after": [],
       "commands": [
         {
@@ -275,11 +194,7 @@
       ]
     },
     {
-      "before": [
-        "g",
-        "/",
-        "/"
-      ],
+      "before": ["g", "/", "/"],
       "after": [],
       "commands": [
         {
@@ -289,12 +204,8 @@
       ]
     },
     {
-      "before": [
-        "<Esc>"
-      ],
-      "after": [
-        "<Esc>"
-      ],
+      "before": ["<Esc>"],
+      "after": ["<Esc>"],
       "commands": [
         {
           "command": ":nohl",
@@ -386,7 +297,7 @@
     {
       "language": "vue",
       "autoFix": false
-    },
+    }
   ],
   "python.linting.enabled": false,
   "[python]": {
@@ -394,13 +305,19 @@
     "editor.tabSize": 4,
     "editor.autoIndent": false
   },
+  "[vue]": {
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "*.vue": "vue"
+  },
   "python.formatting.yapfPath": "/usr/local/bin/yapf",
   "eslint.workingDirectories": [],
   "workbench.iconTheme": "eq-material-theme-icons",
   "prettier.eslintIntegration": true,
-  "vetur.format.defaultFormatter.js": "vscode-typescript",
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
+  "vetur.format.defaultFormatter.js": "prettier",
   "editor.smoothScrolling": false,
   "workbench.colorCustomizations": {
     "statusBar.background": "#005f5f",
@@ -410,6 +327,30 @@
   "editor.renderIndentGuides": false,
   "python.pythonPath": "/Users/song/.pyenv/versions/3.6.6/bin/python",
   "keyboard.dispatch": "keyCode",
-  "extensions.autoUpdate": false,
-  "extensions.autoCheckUpdates": false
+  "extensions.autoUpdate": true,
+  "extensions.autoCheckUpdates": false,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-expand-multiline"
+    },
+    "prettyhtml": {
+      "printWidth": 80,
+      "singleQuote": true,
+      "wrapAttributes": true,
+      "sortAttributes": true
+    }
+  },
+  // "vetur.format.defaultFormatterOptions": {
+  //   "js-beautify-html": {
+  //     "wrap_attributes": "force-expand-multiline"
+  //   },
+  //   "prettyhtml": {
+  //     "printWidth": 100,
+  //     "singleQuote": false,
+  //     "wrapAttributes": false,
+  //     "sortAttributes": false
+  //   }
+  // }
 }

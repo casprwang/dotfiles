@@ -119,6 +119,7 @@ let g:maximizer_set_default_mapping = 0
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
+Plug 'junegunn/goyo.vim'
 Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'

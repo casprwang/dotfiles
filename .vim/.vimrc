@@ -1,4 +1,5 @@
 let mapleader="\<Space>"
+let g:ackprg = 'ag --vimgrep'
 set laststatus=2
 set nowrap
 map <leader>j :w<cr>
