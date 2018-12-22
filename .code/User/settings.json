@@ -26,6 +26,7 @@
   "vim.easymotionMarkerForegroundColorOneChar": "red",
   "vim.easymotionMarkerBackgroundColor": "black",
   "vim.easymotionMarkerHeight": 22,
+  "typescript.autoImportSuggestions.enabled": false,
   "workbench.editor.enablePreview": false,
   "vim.easymotionMarkerYOffset": 5,
   "editor.lineNumbers": "off",
@@ -342,6 +343,10 @@
       "sortAttributes": true
     }
   },
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
   // "vetur.format.defaultFormatterOptions": {
   //   "js-beautify-html": {
   //     "wrap_attributes": "force-expand-multiline"
