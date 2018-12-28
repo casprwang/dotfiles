@@ -188,6 +188,7 @@ let g:user_emme_settings = {
 "}}}
 Plug 'benmills/vimux'
 Plug 'arcticicestudio/nord-vim'
+Plug 'mattn/webapi-vim'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'gcmt/taboo.vim'

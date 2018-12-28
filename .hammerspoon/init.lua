@@ -1,6 +1,6 @@
 require("try-not-to-code")
 
-hs.window.animationDuration = 0.1 -- shorten animations
+hs.window.animationDuration = 0 -- shorten animations
 hs.alert.defaultStyle.radius = 2
 hs.alert.defaultStyle.textSize = 55
 hs.alert.defaultStyle.textFont = 'Monaco'

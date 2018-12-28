@@ -1,35 +1,40 @@
 background_opacity: 1.0
 colors:
-  bright:
-    black: 0x4C566A
-    blue: 0x81A1C1
-    cyan: 0x8FBCBB
-    green: 0xA3BE8C
-    magenta: 0xB48EAD
-    red: 0xBF616A
-    white: 0xECEFF4
-    yellow: 0xEBCB8B
-  cursor:
-    cursor: 0xD8DEE9
-    text: 0x2E3440
-  normal:
-    black: 0x3B4252
-    blue: 0x81A1C1
-    cyan: 0x88C0D0
-    green: 0xA3BE8C
-    magenta: 0xB48EAD
-    red: 0xBF616A
-    white: 0xE5E9F0
-    yellow: 0xEBCB8B
   primary:
-    background: 0x2E3440
-    foreground: 0xD8DEE9
-cursor_style: Block
-custom_cursor_colors: false
+    background: '0x2E3440'
+    foreground: '0xD8DEE9'
+  cursor:
+    text: '0x2E3440'
+    cursor: '0xD8DEE9'
+  normal:
+    black: '0x3B4252'
+    red: '0xBF616A'
+    green: '0xA3BE8C'
+    yellow: '0xEBCB8B'
+    blue: '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan: '0x88C0D0'
+    white: '0xE5E9F0'
+  bright:
+    black: '0x4C566A'
+    red: '0xBF616A'
+    green: '0xA3BE8C'
+    yellow: '0xEBCB8B'
+    blue: '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan: '0x8FBCBB'
+    white: '0xECEFF4'
 draw_bold_text_with_bright_colors: true
 dynamic_title: true
 env:
   TERM: xterm-256color
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  hide_when_typing: false
+cursor:
+  style: Block
+  unfocused_hollow: true
 font:
   bold:
     family: 'Source Code Pro'
@@ -43,16 +48,17 @@ font:
   offset:
     x: 0
     y: 0
-  scale_with_dpi: true
   size: 12.0
   use_thin_strokes: true
-hide_cursor_when_typing: false
 key_bindings:
   - action: Paste
     key: V
     mods: Command
   - action: Copy
     key: C
+    mods: Command
+  - action: ClearLogNotice
+    key: L
     mods: Command
   - action: Paste
     key: Paste
@@ -213,14 +219,6 @@ key_bindings:
     key: Down
     mode: AppCursor
 live_config_reload: true
-mouse:
-  double_click:
-    threshold: 300
-  triple_click:
-    threshold: 300
-mouse_bindings:
-  - action: PasteSelection
-    mouse: Middle
 render_timer: false
 scrolling:
   auto_scroll: false
@@ -230,7 +228,6 @@ scrolling:
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
 tabspaces: 8
-unfocused_hollow_cursor: true
 visual_bell:
   animation: EaseOutExpo
   duration: 0

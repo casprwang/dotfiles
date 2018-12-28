@@ -5,6 +5,7 @@ alias mkdi=mkcdir
 alias ip3="ipython3"
 alias ip2="ipython2"
 alias push="git push origin master"
+alias xi="open -a $HOME/xi-mac/build/Release/XiEditor.app"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
