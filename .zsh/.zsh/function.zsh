@@ -66,3 +66,7 @@ load_pyenv(){
         eval "$(pyenv init -)"
         eval "$(pyenv virtualenv-init -)"
 }
+
+load_tspkg(){
+        eval $(cd && .tspkg/bin/tsp --env)
+}

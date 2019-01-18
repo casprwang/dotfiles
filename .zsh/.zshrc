@@ -50,12 +50,11 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
-zplugin ice silent wait'!0' atload'load_pyenv'
 zplugin light rupa/z
 ## Load the pure theme, with zsh-async that's bundled with it
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
-zplugin ice silent wait"!0"
+zplugin ice silent wait'!0' atload'load_pyenv;load_tspkg'
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light lukechilds/zsh-nvm
 
@@ -68,5 +67,3 @@ if [ -f '/Users/song/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/U
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/song/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/song/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-eval $(/Users/song/.brewery/bin/brewery --env)

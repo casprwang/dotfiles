@@ -9,6 +9,7 @@ alias xi="open -a $HOME/xi-mac/build/Release/XiEditor.app"
 alias cd="cd"
 alias gd="gatsby develop"
 alias r="fdr"
+alias pip="pip3"
 alias readlink="greadlink"
 
 alias ia="open -a iA\ Writer"
