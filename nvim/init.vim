@@ -61,8 +61,12 @@ inoremap <c-e> <esc>A
 nnoremap <c-w><Space> <c-w>=
 nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
-nnoremap <CR> o<Esc>
-nnoremap <S-Enter> O<Esc>
+
+" Enter behavior
+" nnoremap <CR> o<Esc>
+" nnoremap <S-Enter> O<Esc>
+" nnoremap <c-b>b O<esc>
+
 nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 nnoremap 0 ^
@@ -70,7 +74,6 @@ nmap Y y$
 inoremap {<cr> {<cr>}<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
 " for shift-enter
-nnoremap <c-b>b O<esc>
 nmap <c-w>v :vsplit<cr><c-_>
 nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
@@ -92,27 +95,6 @@ nnoremap <leader>e :Ag<cr>
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdcommenter' "{{{
-let g:ft = ''
-function! NERDCommenter_before()
-  if &ft == 'vue'
-    let g:ft = 'vue'
-    let stack = synstack(line('.'), col('.'))
-    if len(stack) > 0
-      let syn = synIDattr((stack)[0], 'name')
-      if len(syn) > 0
-        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
-      endif
-    endif
-  endif
-endfunction
-function! NERDCommenter_after()
-  if g:ft == 'vue'
-    setf vue
-    let g:ft = ''
-  endif
-endfunction
-"}}}
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
 "}}}
@@ -252,6 +234,13 @@ let g:neoformat_python_autopep8 = {
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
 Plug 'Chiel92/vim-autoformat'
+Plug 'alpertuna/vim-header' "{{{
+let g:header_auto_add_header = 0
+let g:header_field_author = 'Song Wang'
+let g:header_field_modified_by = 0
+let g:header_field_modified_timestamp = 0
+let g:header_field_timestamp = 0
+"}}}
 Plug 'danro/rename.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'jmcantrell/vim-virtualenv'
@@ -269,10 +258,6 @@ nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/vim-easy-align' "{{{
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-" }}}
 "Plug 'jiangmiao/auto-pairs' "{{{
 "let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 "au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
