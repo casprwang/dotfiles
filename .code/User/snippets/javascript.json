@@ -1,5 +1,5 @@
 {
-/*
+	/*
 	 // Place your snippets for Javascript (Babel) here. Each snippet is defined under a snippet name and has a prefix, body and 
 	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
 	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
@@ -13,14 +13,28 @@
 		"description": "Log output to console"
 	}
 */
-	 "Print to console": {
+	"Print to console": {
 		"prefix": "log",
 		"body": [
 			"console.log($1)"
 		],
 		"description": "Log output to console"
 	},
-	 "function": {
+	"eslint/disable-file": {
+		"prefix": "eslint-disable-file",
+		"description": "To disable all or some rules on a the cur file",
+		"body": [
+			"/* eslint-disable */"
+		]
+	},
+	"eslint/disable-next-line": {
+		"prefix": "eslint-disable-next-line",
+		"description": "To disable all or some rules on a the next line",
+		"body": [
+			"// eslint-disable-next-line"
+		]
+	},
+	"function": {
 		"prefix": "con",
 		"body": [
 			"const",
@@ -34,13 +48,13 @@
 			"$3"
 		]
 	},
-	"export":{
+	"export": {
 		"prefix": "me",
 		"body": [
 			"module.exports = $0"
 		]
 	},
-	"todo":{
+	"todo": {
 		"prefix": "to",
 		"body": [
 			"// TODO: $1"

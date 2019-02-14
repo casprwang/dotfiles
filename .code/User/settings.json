@@ -199,6 +199,10 @@
         {
           "command": "editor.action.formatDocument",
           "args": []
+        },
+        {
+          "command": "eslint.executeAutofix",
+          "args": []
         }
       ]
     },
@@ -308,10 +312,6 @@
   "guides.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "window.zoomLevel": 0,
-  // "prettier.jsxBracketSameLine": false,
-  // "prettier.semi": false,
-  // "prettier.useTabs": false,
-  // "prettier.singleQuote": false,
   "emmet.triggerExpansionOnTab": false,
   "workbench.sideBar.location": "right",
   "editor.cursorStyle": "line",
@@ -324,9 +324,6 @@
   "[javascript]": {
     "editor.tabSize": 2
   },
-  // "prettier.tabWidth": 2,
-  // "prettier.printWidth": 80,
-  // "go.formatOnSave": false,
   "vim.foldfix": true,
   "workbench.colorTheme": "Nord",
   "todohighlight.isEnable": false,
@@ -373,15 +370,13 @@
   },
   "editor.snippetSuggestions": "inline",
   "eslint.autoFixOnSave": false,
-  "eslint.options": {},
-  "eslint.packageManager": "yarn",
   "editor.minimap.enabled": false,
   "editor.tabCompletion": false,
   "git.enableSmartCommit": true,
   "git.decorations.enabled": false,
   "eslint.validate": [
     "javascript",
-    // "javascriptreact",
+    "javascriptreact",
     "html",
     "vue",
     {
@@ -404,10 +399,8 @@
   "python.formatting.yapfPath": "/usr/local/bin/yapf",
   "eslint.workingDirectories": [],
   "workbench.iconTheme": "eq-material-theme-icons",
-  "prettier.eslintIntegration": true,
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
-  "vetur.format.defaultFormatter.js": "prettier-eslint",
   "editor.smoothScrolling": false,
   "workbench.colorCustomizations": {
     "statusBar.background": "#005f5f",
@@ -419,8 +412,6 @@
   "keyboard.dispatch": "keyCode",
   "extensions.autoUpdate": true,
   "extensions.autoCheckUpdates": false,
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
   "vetur.format.defaultFormatterOptions": {
     "js-beautify-html": {
       "wrap_attributes": "force-expand-multiline"
@@ -430,7 +421,7 @@
       "singleQuote": true,
       "wrapAttributes": true,
       "sortAttributes": true
-    }
+    },
   },
   "javascript.suggest.autoImports": false,
   "typescript.suggest.autoImports": false,
@@ -438,6 +429,9 @@
   "javascript.suggest.paths": false,
   "vetur.completion.autoImport": false,
   "files.useExperimentalFileWatcher": true,
+  "eslint.alwaysShowStatus": true,
+  "workbench.statusBar.feedback.visible": false,
+  "eslint.provideLintTask": true
   // "vetur.format.defaultFormatterOptions": {
   //   "js-beautify-html": {
   //     "wrap_attributes": "force-expand-multiline"
