@@ -41,17 +41,13 @@ set smarttab
 set undofile
 set undodir=~/.config/nvim/undo
 set undolevels=1000
-
-" cursor Nvim > v-2.0
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0
                         \,i-ci:ver25-Cursor/lCursor
                         \,r-cr:hor20-Cursor/lCursor
 " }}}
 " {{{ mapping
 let mapleader="\<Space>"
-
 vmap y y`]
-
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-q> <esc>S
@@ -61,12 +57,6 @@ inoremap <c-e> <esc>A
 nnoremap <c-w><Space> <c-w>=
 nnoremap <leader>in :PlugInstall<cr>
 nnoremap <leader>j :w<cr>
-
-" Enter behavior
-" nnoremap <CR> o<Esc>
-" nnoremap <S-Enter> O<Esc>
-" nnoremap <c-b>b O<esc>
-
 nnoremap <c-w>n <c-w>\|
 nnoremap <leader>, za
 nnoremap 0 ^
@@ -121,26 +111,14 @@ Plug 'maralla/completor.vim' "{{{
 let g:completor_python_binary = '/Users/song/.pyenv/shims/python3'
 let g:completor_node_binary = '/usr/local/bin/node'
 let g:completor_gocode_binary = '/Users/song/go/bin/gocode'
-
 let g:completor_complete_options = 'menuone,noselect'
 let g:completor_racer_binary = '/Users/song/.cargo/bin/racer'
-" Use TAB to complete when typing words, else inserts TABs as usual.  Uses
-" dictionary, source files, and completor to find matching words to complete.
-
-" Note: usual completion is on <C-n> but more trouble to press all the time.
-" Never type the same word twice and maybe learn a new spellings!
-" Use the Linux dictionary when spelling is in doubt.
 function! Tab_Or_Complete() abort
-  " If completor is already open the `tab` cycles through suggested completions.
   if pumvisible()
     return "\<C-N>"
-  " If completor is not open and we are in the middle of typing a word then
-  " `tab` opens completor menu.
   elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
     return "\<C-R>=completor#do('complete')\<CR>"
   else
-    " If we aren't typing a word and we press `tab` simply do the normal `tab`
-    " action.
     return "\<Tab>"
   endif
 endfunction
@@ -200,23 +178,14 @@ Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 Plug 'mitermayer/vim-prettier', {
                         \ 'do': 'yarn install',
                         \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
-" max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 80
-" number of spaces per indentation level
 let g:prettier#config#tab_width = 2
-" use tabs over spaces
 let g:prettier#config#use_tabs = 'false'
-" print semicolons
 let g:prettier#config#semi = 'false'
-" single quotes over double quotes
 let g:prettier#config#single_quote = 'true'
-" print spaces between brackets
 let g:prettier#config#bracket_spacing = 'true'
-" put > on the last line instead of new line
 let g:prettier#config#jsx_bracket_same_line = 'false'
-" none|es5|all
 let g:prettier#config#trailing_comma = 'all'
-" flow|babylon|typescript|postcss
 let g:prettier#config#parser = 'flow'
 "}}}
 Plug 'sbdchd/neoformat' "{{{
@@ -258,14 +227,6 @@ nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
-"Plug 'jiangmiao/auto-pairs' "{{{
-"let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-"au Filetype scss let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' }
-"au Filetype html let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`' , '>':'<'}
-"au Filetype css let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-"au Filetype python let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-"let g:AutoPairsFlyMode = 0
-""}}}
 Plug 'jiangmiao/simple-javascript-indenter'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'sheerun/vim-polyglot' "{{{
@@ -371,15 +332,10 @@ let g:mta_filetypes = {
 "}}}
 Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
-
-" autosompletion
 Plug 'roxma/nvim-yarp'
 Plug 'cespare/vim-toml'
 Plug 'maralla/vim-toml-enhance'
-
 Plug 'ternjs/tern_for_vim'
-
-" snipmate dependencies
 Plug 'tomtom/tlib_vim'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate' "{{{
@@ -471,16 +427,10 @@ if executable('refmt')
         execute "set rtp+=".s:reason
         let g:syntastic_reason_checkers=['merlin']
 endif
-"" Always wrap at 90 columns
 let g:vimreason_extra_args_expr_reason = '"--print-width 90"'
-
-" Wrap at the window width
 let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')"
-
-" Wrap at the window width but not if it exceeds 120 characters.
 let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "min([120, winwidth('.')])"
 let g:deoplete#enable_at_startup = 0
-
 let g:merlin_completion_arg_type = "always"
 au FileType reason let maplocalleader=","
 au FileType ocaml let maplocalleader=","
@@ -508,8 +458,6 @@ au FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr
 au FileType sh nnoremap <leader>f :Shfmt<cr>
 au FileType zsh nnoremap <leader>f :Shfmt<cr>
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
-" hide go's list char (gogmt wants tab but I personally don't want to see the sign)
-" autocmd FileType vue nnoremap <leader>f :%!eslint_d --stdin --fix-to-stdout<CR>
 au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ colorscheme
