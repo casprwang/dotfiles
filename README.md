@@ -17,7 +17,6 @@ A set of configurations for a productive and enjoyable workstation.
 | Karabiner-Element | [karabiner.json](./karabiner.json) |
 | Hammerspoon | [.hammerspoon](./.hammerspoon/) |
 | Git | [.gitconfig](./.gitconfig) |
-| VSCode Editor |[.code/](./.code)  |
 
 ## Highlights
 ###### `cmd-e` for fuzzy finding a session
