@@ -78,7 +78,7 @@ vmap K 5gk
 
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
-nnoremap <leader>e :Ag<cr>
+nnoremap <leader>e :Rg<cr>
 " }}}
 "{{{ Plugins (vim plug )
 " ----------------------------------------------------------------------------
@@ -91,12 +91,8 @@ let g:maximizer_set_default_mapping = 0
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
-Plug 'junegunn/goyo.vim'
 Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
-Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
-Plug 'beloglazov/vim-textobj-quotes'
-Plug 'thinca/vim-textobj-function-javascript'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
@@ -151,12 +147,12 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'mattn/webapi-vim'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
-Plug 'gcmt/taboo.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
 Plug 'iamcco/markdown-preview.vim' "{{{
-let g:mkdp_path_to_chrome = "open -a Google\\ Chrome\\ Canary"
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
 "}}}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' } "{{{
@@ -244,6 +240,7 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/ElmCast/elm-vim' "{{{
 let g:elm_setup_keybindings = 0
 " }}}
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
 set noswapfile
@@ -296,7 +293,12 @@ function! s:fzf_statusline()
 endfunction
 
 " including hidden files
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 au! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
@@ -313,24 +315,10 @@ let g:mta_filetypes = {
                         \ '.vue' : 1,
                         \}
 "}}}
-Plug 'othree/html5.vim'
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'} "{{{
 let g:gist_post_private = 1
 "}}}
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 " Plug 'davidhalter/jedi-vim'
-Plug 'Valloric/MatchTagAlways' "{{{
-let g:mta_filetypes = {
-                        \ 'javascript.jsx': 1,
-                        \ 'vue': 1,
-                        \ 'html' : 1,
-                        \ 'xhtml' : 1,
-                        \ 'xml' : 1,
-                        \ 'jinja' : 1,
-                        \}
-"}}}
-Plug 'othree/html5.vim'
 Plug 'sunaku/vim-shortcut'
 Plug 'roxma/nvim-yarp'
 Plug 'cespare/vim-toml'
@@ -340,7 +328,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate' "{{{
 "}}}
-
 call plug#end()
 " }}}
 " cursor position {{{
@@ -455,9 +442,9 @@ au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
+au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au FileType sh nnoremap <leader>f :Shfmt<cr>
 au FileType zsh nnoremap <leader>f :Shfmt<cr>
-au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ colorscheme
