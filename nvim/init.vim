@@ -89,10 +89,10 @@ Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
 "}}}
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
-Plug 'kana/vim-textobj-indent'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'neoclide/vim-jsx-improve'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
@@ -104,6 +104,7 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
 Plug 'maralla/completor.vim' "{{{
+let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
 let g:completor_python_binary = '/Users/song/.pyenv/shims/python3'
 let g:completor_node_binary = '/usr/local/bin/node'
 let g:completor_gocode_binary = '/Users/song/go/bin/gocode'
@@ -223,12 +224,13 @@ nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
-Plug 'jiangmiao/simple-javascript-indenter'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'sheerun/vim-polyglot' "{{{
 " let g:polyglot_disabled = ['javascript']
 " }}}
-Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx' "{{{
+let g:jsx_ext_required = 1 
+"}}}
 Plug 'posva/vim-vue' "{{{
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 let g:vue_disable_pre_processors=1
@@ -292,7 +294,6 @@ function! s:fzf_statusline()
         setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 
-" including hidden files
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,

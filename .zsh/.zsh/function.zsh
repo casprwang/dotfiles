@@ -32,7 +32,7 @@ gitpush() {
         git push origin master
 }
 
-gitcm() {
+gam() {
         git add .
         git commit -am "$*"
 }
