@@ -38,4 +38,3 @@ todo.md
 /zshrc/package.json
 /zshrc/yarn.lock
 .*\.log$
-.code
