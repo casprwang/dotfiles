@@ -151,9 +151,14 @@ Plug 'christoomey/vim-run-interactive'
 Plug 'derekwyatt/vim-scala'
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
-Plug 'iamcco/markdown-preview.vim' "{{{
-let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_github=1
+Plug 'tpope/vim-dispatch'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "{{{
+" open in the background
+function! g:Open_browser(url)
+    silent exec '!open -a "Google Chrome" ' . a:url . " &"
+endfunction
+let g:mkdp_browserfunc = 'g:Open_browser'
+autocmd FileType markdown nmap <leader>m :MarkdownPreview<CR>
 "}}}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' } "{{{
