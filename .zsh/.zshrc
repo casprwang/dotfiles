@@ -1,25 +1,10 @@
-# Go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+source ~/.zsh/path.zsh
 
 export TERM=screen-256color
 export VSCODE_TSJS=1
-PATH=$PATH:/usr/local/bin
 
-export PATH="$HOME/.cargo/bin:$PATH"
 
-# psql
-export PATH="/Library/PostgreSQL/10/bin:$PATH"
-
-export PATH=${PATH}:/usr/local/opt/gettext/bin
-
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-
-# mac port
-export PATH=$PATH:/opt/local/bin
-
-# export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
+# History
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history     #Where to save history to disk
@@ -37,12 +22,14 @@ source ~/.zsh/github.zsh
 
 fpath+=~/.zfunc
 
+# Neovim
 export EDITOR=nvim
-
 export NVM_LAZY_LOAD=true
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.zsh/fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 ### Added by Zplugin's installer
 source '/Users/song/.zplugin/bin/zplugin.zsh'
