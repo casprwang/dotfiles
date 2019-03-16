@@ -166,27 +166,20 @@ fshow() {
 FZF-EOF"
 }
 # fcoc - checkout git commit
-fcoc() {
+co() {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e) &&
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
-# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
-fbr() {
-  local branches branch
-  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
+
 
 alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
 local _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 local _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
 
 # fcoc_preview - checkout git commit with previews
-fcoc_preview() {
+cop() {
   local commit
   commit=$( glNoGraph |
     fzf --no-sort --reverse --tiebreak=index --no-multi \
@@ -215,3 +208,25 @@ zz() {
   cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf -q "$_last_z_args")"
 }
 alias g=zz
+
+
+br() {
+  git fetch
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +s +m -e) &&
+  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
+
+# # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+# br() {
+#   local branches branch
+#   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+#   branch=$(echo "$branches" |
+#            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+#   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+# }
+
+
+
