@@ -105,11 +105,11 @@ key_bindings:
   - chars: "\n"
     key: NumpadEnter
   - chars: z
+    key: J
+    mods: Command
+  - chars: "\x17\x0d"
     key: Return
     mods: Command
-  - chars: 
-    key: Return
-    mods: Control
   - chars: o
     key: E
     mods: Command
