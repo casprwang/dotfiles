@@ -94,6 +94,7 @@ Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
+let g:tmux_navigator_disable_when_zoomed = 1
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <Down> :TmuxNavigateDown<cr>
@@ -155,8 +156,10 @@ Plug 'tpope/vim-dispatch'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "{{{
 " open in the background
 function! g:Open_browser(url)
-    silent exec '!open -a "Google Chrome" ' . a:url . " &"
+    silent exec '!open -a "Safari" ' . a:url . " &"
 endfunction
+let g:mkdp_auto_start = 1
+let g:mkdp_auto_open = 1
 let g:mkdp_browserfunc = 'g:Open_browser'
 autocmd FileType markdown nmap <leader>m :MarkdownPreview<CR>
 "}}}
@@ -367,30 +370,6 @@ let g:tern#filetypes = [
                         \ '...'
                         \ ]
 " }}}
-"{{{  markdown
-au BufRead,BufNewFile *.md setlocal textwidth=80
-
-function! MarkdownLevel()
-        if getline(v:lnum) =~ '^## .*$'
-                return ">1"
-        endif
-        if getline(v:lnum) =~ '^### .*$'
-                return ">2"
-        endif
-        if getline(v:lnum) =~ '^#### .*$'
-                return ">3"
-        endif
-        if getline(v:lnum) =~ '^##### .*$'
-                return ">4"
-        endif
-        if getline(v:lnum) =~ '^###### .*$'
-                return ">5"
-        endif
-        return "="
-endfunction
-au BufEnter *.md setlocal foldexpr=MarkdownLevel()
-au BufEnter *.md setlocal foldmethod=expr
-"}}}
 " {{{ Contextual commenting for commentary.vim in jsx files.
 function! s:SetCommentString()
         let stack = map(synstack(line("."), col(".")), "synIDattr(synIDtrans(v:val), 'name')")

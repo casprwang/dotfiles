@@ -110,6 +110,9 @@ key_bindings:
   - chars: "\x17\x0d"
     key: Return
     mods: Command
+  - chars: "\x13\x71"
+    key: Q
+    mods: Control
   - chars: o
     key: E
     mods: Command
