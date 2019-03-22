@@ -201,18 +201,6 @@ let g:ale_sign_column_always = 1
 let g:ale_set_signs = 0
 noremap <leader>f :ALEFix<cr>
 "}}}
-"Plug 'sbdchd/neoformat' "{{{
-"let g:neoformat_enabled_javascript = ['eslint_d', 'prettier']
-"" let g:neoformat_enabled_javascript = ['prettier']
-"let g:neoformat_try_formatprg = 1
-"let g:neoformat_only_msg_on_error = 1
-"noremap <leader>f :Neoformat<cr>
-
-"let g:neoformat_enabled_python = ['autopep8']
-"let g:neoformat_python_autopep8 = {
-"                        \ 'exe': 'autopep8',
-"                        \ }
-""}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
 Plug 'Chiel92/vim-autoformat'
@@ -438,8 +426,6 @@ au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
-" au Filetype javascript.jsx nnoremap <leader>f :Neoformat! javascript<cr>
-" au FileType vue.html.javascript.css nnoremap <leader>f :Neoformat! javascript<cr>
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au FileType sh nnoremap <leader>f :Shfmt<cr>
 au FileType zsh nnoremap <leader>f :Shfmt<cr>

@@ -41,7 +41,7 @@ zplugin light rupa/z
 ## Load the pure theme, with zsh-async that's bundled with it
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
-zplugin ice silent wait'!0' atload'load_pyenv;load_tspkg'
+zplugin ice silent wait'!0' atload'load_pyenv;'
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light lukechilds/zsh-nvm
 
