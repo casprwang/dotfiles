@@ -126,9 +126,9 @@ local resizeMappings = {
 }
 
 
-hs.hotkey.bind({"cmd"}, "h", function()
-  hs.eventtap.keyStroke({''}, "delete")
-end)
+-- hs.hotkey.bind({"cmd"}, "h", function()
+--   hs.eventtap.keyStroke({''}, "delete")
+-- end)
 
 
 for key in pairs(resizeMappings) do
