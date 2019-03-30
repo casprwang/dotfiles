@@ -93,6 +93,9 @@ Plug 'kana/vim-textobj-entire'
 Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/vim-jsx-improve'
+"typescript
+Plug 'HerringtonDarkholme/yats.vim'
+
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_disable_when_zoomed = 1
 let g:tmux_navigator_no_mappings = 1
@@ -421,6 +424,7 @@ au Filetype json setlocal ts=2 sts=2 sw=2
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
+au FileType typescript setlocal ts=2 sts=2 sw=2
 au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype js setlocal ts=2 sts=2 sw=2
