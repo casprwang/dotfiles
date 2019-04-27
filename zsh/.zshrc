@@ -1,4 +1,4 @@
-source ~/.zsh/path.zsh
+source ~/zsh/path.zsh
 
 export TERM=screen-256color
 export VSCODE_TSJS=1
@@ -15,10 +15,10 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 # no duplications in search result
 setopt hist_ignore_dups
 
-source ~/.zsh/alias.zsh
-source ~/.zsh/basic.zsh
-source ~/.zsh/function.zsh
-source ~/.zsh/github.zsh
+source ~/zsh/alias.zsh
+source ~/zsh/basic.zsh
+source ~/zsh/function.zsh
+source ~/zsh/github.zsh
 
 fpath+=~/.zfunc
 
@@ -28,7 +28,7 @@ export NVM_LAZY_LOAD=true
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/.zsh/fzf.zsh
+source ~/zsh/fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 ### Added by Zplugin's installer
