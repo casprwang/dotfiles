@@ -12,8 +12,8 @@
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
 " virtual env https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-let g:python_host_prog = '/Users/song/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/song/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
 set nowrap
@@ -109,11 +109,11 @@ Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
 Plug 'maralla/completor.vim' "{{{
 let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
-let g:completor_python_binary = '/Users/song/.pyenv/shims/python3'
+let g:completor_python_binary = expand('~/.pyenv/shims/python3')
 let g:completor_node_binary = '/usr/local/bin/node'
-let g:completor_gocode_binary = '/Users/song/go/bin/gocode'
+let g:completor_gocode_binary = expand('~/go/bin/gocode')
 let g:completor_complete_options = 'menuone,noselect'
-let g:completor_racer_binary = '/Users/song/.cargo/bin/racer'
+let g:completor_racer_binary = expand('~/.cargo/bin/racer')
 function! Tab_Or_Complete() abort
   if pumvisible()
     return "\<C-N>"
