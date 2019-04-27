@@ -77,7 +77,8 @@ alias bst="browser-sync start --server --files"
 alias todo="nvim TODO.md"
 alias gpre="fshow_preview"
 
-alias v="nvim"
+alias vim="nvim"
+alias v="vim"
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
 killall Finder /System/Library/CoreServices/Finder.app'

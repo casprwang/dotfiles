@@ -199,7 +199,7 @@ let g:prettier#config#parser = 'flow'
 Plug 'w0rp/ale' "{{{
 let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_linters = {'jsx': ['stylelint', 'eslint'], 'javascript': ['eslint']}
-let b:ale_fixers = {'jsx': ['eslint']}
+let b:ale_fixers = {'jsx': ['eslint'], 'javascript': ['eslint']}
 let g:ale_sign_column_always = 1
 let g:ale_set_signs = 0
 noremap <leader>f :ALEFix<cr>
