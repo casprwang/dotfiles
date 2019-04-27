@@ -1,4 +1,52 @@
-background_opacity: 1.0
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 0
+    lines: 0
+  padding:
+    x: 2
+    y: 2
+  dynamic_padding: true
+  decorations: none
+  start_maximized: false
+
+scrolling:
+  history: 100000
+  multiplier: 3
+  faux_multiplier: 3
+  auto_scroll: false
+tabspaces: 8
+
+font:
+  normal:
+    family: Source Code Pro
+  bold:
+    family: Source Code Pro
+  italic:
+    family: Source Code Pro
+  size: 12.0
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+  # Thin stroke font rendering (macOS only)
+  # macOS >= 10.14.x:
+  # This is a global setting and will require a log out or restart to take
+  use_thin_strokes: true
+render_timer: false
+
+# Keep the log file after quitting Alacritty.
+persistent_logging: false
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+# Colors (Tomorrow Night Bright)
 colors:
   primary:
     background: '0x2E3440'
@@ -24,221 +72,209 @@ colors:
     magenta: '0xB48EAD'
     cyan: '0x8FBCBB'
     white: '0xECEFF4'
-draw_bold_text_with_bright_colors: true
-dynamic_title: true
-env:
-  TERM: xterm-256color
+  indexed_colors: []
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '0xffffff'
+background_opacity: 1.0
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
   hide_when_typing: false
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: false
+
+# Allow terminal applications to change Alacritty's window title.
+dynamic_title: true
+
 cursor:
   style: Block
   unfocused_hollow: true
-font:
-  bold:
-    family: 'Source Code Pro'
-  glyph_offset:
-    x: 0
-    y: 0
-  italic:
-    family: 'Source Code Pro'
-  normal:
-    family: 'Source Code Pro'
-  offset:
-    x: 0
-    y: 0
-  size: 12.0
-  use_thin_strokes: true
-key_bindings:
-  - action: Paste
-    key: V
-    mods: Command
-  - action: Copy
-    key: C
-    mods: Command
-  - action: ClearLogNotice
-    key: L
-    mods: Command
-  - action: Paste
-    key: Paste
-  - action: Copy
-    key: Copy
-  - action: Hide
-    key: H
-    mods: Command
-  - action: Quit
-    key: Q
-    mods: Command
-  - action: ResetFontSize
-    key: Key0
-    mods: Command
-  - action: IncreaseFontSize
-    key: Equals
-    mods: Alt
-  - action: DecreaseFontSize
-    key: Minus
-    mods: Alt
-  - chars: L
-    key: Equals
-    mods: Command
-  - chars: H
-    key: Minus
-    mods: Command
-  - chars: K
-    key: Minus
-    mods: Command|Shift
-  - chars: J
-    key: Equals
-    mods: Command|Shift
-  - action: ClearHistory
-    key: K
-    mods: Command
-  - chars: 
-    key: K
-    mods: Command
-  - chars: 
-    key: Back
-  - chars: 
-    key: Back
-    mods: Command
-  - chars: "\n"
-    key: NumpadEnter
-  - chars: z
-    key: J
-    mods: Command
-  - chars: "\x17\x0d"
-    key: Return
-    mods: Command
-  - chars: "\x13\x71"
-    key: Q
-    mods: Control
-  - chars: o
-    key: E
-    mods: Command
-  - chars: v
-    key: D
-    mods: Command
-  - chars: j
-    key: D
-    mods: Command|Shift
-  - chars: j
-    key: D
-    mods: Command|Shift
-  - chars: g//
-    key: Backslash
-    mods: Command
-  - chars: 1
-    key: Key1
-    mods: Command
-  - chars: 2
-    key: Key2
-    mods: Command
-  - chars: S
-    key: P
-    mods: Command|Shift
-  - chars: 
-    key: P
-    mods: Command
-  - chars: C
-    key: N
-    mods: Command
-  - chars: c
-    key: T
-    mods: Command
-  - chars: &
-    key: W
-    mods: Command
-  - chars: n
-    key: I
-    mods: Command
-  - chars: n
-    key: Tab
-    mods: Control
-  - chars: p
-    key: Tab
-    mods: Control|Shift
-  - chars: [Z
-    key: Tab
-    mods: Shift
-  - chars: [1;2D
-    key: Left
-    mods: Shift
-  - chars: [1;5D
-    key: Left
-    mods: Control
-  - chars: [1;3D
-    key: Left
-    mods: Alt
-  - chars: [D
-    key: Left
-    mode: ~AppCursor
-  - chars: OD
-    key: Left
-    mode: AppCursor
-  - chars: [1;2C
-    key: Right
-    mods: Shift
-  - chars: [1;5C
-    key: Right
-    mods: Control
-  - chars: [1;3C
-    key: Right
-    mods: Alt
-  - chars: [C
-    key: Right
-    mode: ~AppCursor
-  - chars: OC
-    key: Right
-    mode: AppCursor
-  - chars: [1;2A
-    key: Up
-    mods: Shift
-  - chars: [1;5A
-    key: Up
-    mods: Control
-  - chars: [1;3A
-    key: Up
-    mods: Alt
-  - chars: [A
-    key: Up
-    mode: ~AppCursor
-  - chars: OA
-    key: Up
-    mode: AppCursor
-  - chars: [1;2B
-    key: Down
-    mods: Shift
-  - chars: [1;5B
-    key: Down
-    mods: Control
-  - chars: [1;3B
-    key: Down
-    mods: Alt
-  - chars: [B
-    key: Down
-    mode: ~AppCursor
-  - chars: OB
-    key: Down
-    mode: AppCursor
+
+# Live config reload (changes require restart)
 live_config_reload: true
-render_timer: false
-scrolling:
-  auto_scroll: false
-  faux_multiplier: 3
-  history: 10000
-  multiplier: 3
-selection:
-  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
-tabspaces: 8
-visual_bell:
-  animation: EaseOutExpo
-  duration: 0
-window:
-  decorations: none
-  dimensions:
-    columns: 80
-    lines: 24
-  padding:
-    x: 2
-    y: 2
+
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
+# Entries in `shell.args` are passed unmodified as arguments to the shell.
+#
+# Default:
+#   - (Linux/macOS) /bin/bash --login
+#   - (Windows) powershell
+#shell:
+#  program: /bin/bash
+#  args:
+#    - --login
+
+# Windows 10 ConPTY backend (Windows only)
+#
+# This will enable better color support and may resolve other issues,
+# however this API and its implementation is still young and so is
+# disabled by default, as stability may not be as good as the winpty
+# backend.
+#
+# Alacritty will fall back to the WinPTY automatically if the ConPTY
+# backend cannot be initialized.
+enable_experimental_conpty_backend: false
+
+# Send ESC (\x1b) before characters when alt is pressed.
+alt_send_esc: true
+
+# Key bindings
+#
+# Key bindings are specified as a list of objects. Each binding will specify a
+# key and modifiers required to trigger it, terminal modes where the binding is
+# applicable, and what should be done when the key binding fires. It can either
+# send a byte sequence to the running application (`chars`), execute a
+# predefined action (`action`) or fork and execute a specified command plus
+# arguments (`command`).
+#
+# Bindings are always filled by default, but will be replaced when a new binding
+# with the same triggers is defined. To unset a default binding, it can be
+# mapped to the `None` action.
+#
+# Example:
+#   `- { key: V, mods: Control|Shift, action: Paste }`
+#
+# Available fields:
+#   - key
+#   - mods (optional)
+#   - chars | action | command (exactly one required)
+#   - mode (optional)
+#
+# Values for `key`:
+#   - `A` -> `Z`
+#   - `F1` -> `F12`
+#   - `Key1` -> `Key0`
+#
+#   A full list with available key codes can be found here:
+#   https://docs.rs/glutin/*/glutin/enum.VirtualKeyCode.html#variants
+#
+#   Instead of using the name of the keys, the `key` field also supports using
+#   the scancode of the desired key. Scancodes have to be specified as a
+#   decimal number.
+#   This command will allow you to display the hex scancodes for certain keys:
+#     `showkey --scancodes`
+#
+# Values for `mods`:
+#   - Command
+#   - Control
+#   - Super
+#   - Shift
+#   - Alt
+#
+#   Multiple `mods` can be combined using `|` like this: `mods: Control|Shift`.
+#   Whitespace and capitalization is relevant and must match the example.
+#
+# Values for `chars`:
+#   The `chars` field writes the specified string to the terminal. This makes
+#   it possible to pass escape sequences.
+#   To find escape codes for bindings like `PageUp` ("\x1b[5~"), you can run
+#   the command `showkey -a` outside of tmux.
+#   Note that applications use terminfo to map escape sequences back to
+#   keys. It is therefore required to update the terminfo when
+#   changing an escape sequence.
+#
+# Values for `action`:
+#   - Paste
+#   - PasteSelection
+#   - Copy
+#   - IncreaseFontSize
+#   - DecreaseFontSize
+#   - ResetFontSize
+#   - ScrollPageUp
+#   - ScrollPageDown
+#   - ScrollLineUp
+#   - ScrollLineDown
+#   - ScrollToTop
+#   - ScrollToBottom
+#   - ClearHistory
+#   - Hide
+#   - Quit
+#   - ClearLogNotice
+#   - SpawnNewInstance
+#   - None
+#
+# Values for `command`:
+#   The `command` field must be a map containing a `program` string and
+#   an `args` array of command line parameter strings.
+#
+#   Example:
+#       `command: { program: "alacritty", args: ["-e", "vttest"] }`
+#
+# Values for `mode`:
+#   - ~AppCursor
+#   - AppCursor
+#   - ~AppKeypad
+#   - AppKeypad
+key_bindings:
+  - { key: V,        mods: Command, action: Paste                        }
+  - { key: C,        mods: Command, action: Copy                         }
+  - { key: Paste,                   action: Paste                        }
+  - { key: Copy,                    action: Copy                         }
+  - { key: H,        mods: Command, action: Hide                         }
+  - { key: Q,        mods: Command, action: Quit                         }
+  - { key: Key0,     mods: Command, action: ResetFontSize                }
+  - { key: Equals,   mods: Alt,     action: IncreaseFontSize             }
+  - { key: Minus,    mods: Alt,     action: DecreaseFontSize             }
+  - { key: Equals,   mods: Command, chars: "\x13\x4c"                    }
+  - { key: Minus,    mods: Command, chars: "\x13\x48"                    }
+  - { key: Minus,mods: Command|Shift, chars: "\x13\x4b"                    }
+  - { key: Equals,      mods: Command|Shift, chars: "\x13\x4a"                    }
+  - { key: K,        mods: Command, action: ClearHistory                 }
+  - { key: K,        mods: Command, chars: "\x0c"                        }
+  - { key: Back,                    chars: "\x7f"                        }
+  - { key: Back,    mods: Command,  chars: "\x15"                        }
+  - { key: NumpadEnter,             chars: "\n"                          }
+  - { key: Return,   mods: Command, chars: "\x13\x7a"                    }
+  - { key: Return,   mods: Control, chars: "\x17\x0d"                    }
+  - { key: E,        mods: Command, chars: "\x13o"                       }
+  - { key: D,        mods: Command, chars: "\x13\x76"                       }
+  - { key: D,        mods: Command|Shift, chars: "\x13\x6a"                       }
+  - { key: D,        mods: Command|Shift, chars: "\x13\x6a"                       }
+  - { key: Backslash,        mods: Command, chars: "\x67\x2f\x2f"                       }
+  - { key: Key1,        mods: Command, chars: "\x13\x31"                       }
+  - { key: Key2,        mods: Command, chars: "\x13\x32"                       }
+  - { key: P,        mods: Command|Shift, chars: "\x13\x53"                       }
+  - { key: P,        mods: Command, chars: "\x1f"                       }
+  - { key: N,        mods: Command, chars: "\x13\x43"                       }
+  - { key: T,        mods: Command, chars: "\x13\x63"                       }
+  - { key: W,        mods: Command, chars: "\x13\x26"                       }
+  - { key: I,        mods: Command, chars: "\x13\x6e"                       }
+  - { key: Tab,        mods: Control, chars: "\x13\x6e"                       }
+  - { key: Tab,        mods: Control|Shift, chars: "\x13\x70"                       }
+  - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                      }
+  # - { key: LBracket,        mods: Command|Shift, chars: "\x13\x70"                       }
+  # - { key: RBracket,      mods: Command|Shift,   chars: "\x13\x6e"                      }
+  # - { key: Right,    mods: Command, chars: "\x05"                        }
+  # - { key: W,        mods: Control, chars: "\x17"                        }
+  # - { key: U,        mods: Control, chars: "\x15"                        }
+  # - { key: Right,    mods: Alt,     chars: "\x07"                        }
+  # - { key: Left,     mods: Alt,     chars: "\x02"                        }
+  - { key: Left,     mods: Shift,   chars: "\x1b[1;2D"                   }
+  - { key: Left,     mods: Control, chars: "\x1b[1;5D"                   }
+  - { key: Left,     mods: Alt,     chars: "\x1b[1;3D"                   }
+  - { key: Left,                    chars: "\x1b[D",   mode: ~AppCursor  }
+  - { key: Left,                    chars: "\x1bOD",   mode: AppCursor   }
+  - { key: Right,    mods: Shift,   chars: "\x1b[1;2C"                   }
+  - { key: Right,    mods: Control, chars: "\x1b[1;5C"                   }
+  - { key: Right,    mods: Alt,     chars: "\x1b[1;3C"                   }
+  - { key: Right,                   chars: "\x1b[C",   mode: ~AppCursor  }
+  - { key: Right,                   chars: "\x1bOC",   mode: AppCursor   }
+  - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                   }
+  - { key: Up,       mods: Control, chars: "\x1b[1;5A"                   }
+  - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                   }
+  - { key: Up,                      chars: "\x1b[A",   mode: ~AppCursor  }
+  - { key: Up,                      chars: "\x1bOA",   mode: AppCursor   }
+  - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                   }
+  - { key: Down,     mods: Control, chars: "\x1b[1;5B"                   }
+  - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                   }
+  - { key: Down,                    chars: "\x1b[B",   mode: ~AppCursor  }
+  - { key: Down,                    chars: "\x1bOB",   mode: AppCursor   }
