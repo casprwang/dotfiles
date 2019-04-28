@@ -115,3 +115,13 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 
 # vscode
+
+# symlinks
+ln -s ~/Dropbox/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/Dropbox/dotfiles/zsh/ ~/zsh
+ln -s ~/Dropbox/dotfiles/hammerspoon ~/.hammerspoon
+ln -s ~/Dropbox/dotfiles/karabiner ~/.config/karabiner
+ln -s ~/Dropbox/plugins/nvim ~/.local/share
+ln -s ~/Dropbox/configs/vscode/User ~/Library/Application\ Support/Code
+ln -s ~/Dropbox/plugins/vscode/extensions ~/.vscode
+ln -s ~/Dropbox/dotfiles/.tmux.conf ~/
