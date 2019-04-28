@@ -29,7 +29,7 @@ export NVM_LAZY_LOAD=true
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/zsh/fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 ### Added by Zplugin's installer
 source ~/.zplugin/bin/zplugin.zsh
