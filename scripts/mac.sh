@@ -53,6 +53,10 @@ brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
+# node
+nvm install 10
+
+
 # pyenv
 brew install readline xz zlib
 brew install the_silver_searcher
@@ -109,7 +113,5 @@ chsh -s $(which zsh)
 brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/9d2ab46c92cc88470b1c54f5da2d0a1595188533/Formula/tmux.rb # tmux 2.8
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 
-# node
-nvm install 10
 
 # vscode
