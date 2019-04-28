@@ -3,7 +3,6 @@ source ~/zsh/path.zsh
 export TERM=screen-256color
 export VSCODE_TSJS=1
 
-
 # History
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
@@ -38,19 +37,9 @@ autoload -Uz _zplugin
 ### End of Zplugin's installer chunk
 
 zplugin light rupa/z
-## Load the pure theme, with zsh-async that's bundled with it
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
-
 zplugin ice silent wait'!0' atload'load_pyenv;'
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light lukechilds/zsh-nvm
-
-zplugin ice silent wait'!0' atload'_zsh_autosuggest_start'
 zplugin light zsh-users/zsh-autosuggestions
 zplugin load psprint/zsnapshot
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/song/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/song/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/song/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/song/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
