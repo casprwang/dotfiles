@@ -11,12 +11,11 @@ A set of configurations for a productive and enjoyable workstation.
 | Neovim (over engineered) | [init.vim](./nvim/init.vim) |
 | Vim | [.vim/*](./.vim/.vimrc) |
 | Tmux | [.tmux.conf](./.tmux.conf) |
-| Alacritty | [alacritty.yml](./alacritty.yml) |
+| Alacritty | [alacritty](./alacritty/.alacritty.yml) |
 | iTerm | [iterm.json](./iterm.json) |
-| Zshell | [.zsh/*](./.zsh/) |
-| Karabiner-Element | [karabiner.json](./karabiner.json) |
-| Hammerspoon | [.hammerspoon](./.hammerspoon/) |
-| Git | [.gitconfig](./.gitconfig) |
+| Zshell | [zsh](./.zsh/) |
+| Karabiner-Element | [karabiner.json](./karabiner/karabiner.json) |
+| Hammerspoon | [.hammerspoon](./.hammerspoon/init.lua) |
 
 ## Highlights
 ###### `cmd-e` for fuzzy finding a session
