@@ -33,7 +33,7 @@ alias tk="tmux kill-server"
 
 alias vimr="vim ~/.vimrc"
 alias nvimr="nvim ~/.config/nvim/init.vim"
-# alias rm="trash"
+alias rm="trash"
 alias zshr="vim ~/.zshrc"
 alias so="source"
 alias szh="source_zsh"

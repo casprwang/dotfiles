@@ -55,6 +55,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
 # node
 nvm install 10
+npm install --global trash-cli
+npm install --global git-open
 
 
 # pyenv
