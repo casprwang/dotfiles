@@ -1,15 +1,12 @@
-# clone dotfiles
-git clone https://github.com/wangsongiam/dotfiles.git
-
 # karabiner
 ## install karabiner mannually permission needed
 [ -d ~/.config/karabiner ] && mv ~/.config/karabiner ~/.config/karabiner_old
-ln -s ~/dotfiles/karabiner ~/.config/karabiner
+ln -s ~/Dropbox/dotfiles/karabiner ~/.config/karabiner
 
 # hammerspoon
 ## install hammerspoon manually permission needed
 [ -d ~/.hammerspoon ] && mv ~/.hammerspoon ~/.hammerspoon_old
-ln -s ~/dotfiles/.hammerspoon ~/.hammerspoon
+ln -s ~/Dropbox/dotfiles/.hammerspoon ~/.hammerspoon
 
 # alfred
 ## download and get preference from gist
@@ -88,7 +85,7 @@ pyenv global 2.7.14 3.6.6
 # alacritty
 brew cask install alacritty
 [ -d ~/.config/alacritty ] && mv ~/.config/alacritty ~/.config/alacritty_old
-ln -s ~/dotfiles/alacritty ~/.config/alacritty
+ln -s ~/Dropbox/dotfiles/alacritty ~/.config/alacritty
 
 # nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -100,8 +97,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)" # zplugin
 
 rm ~/.zshrc ~/.zprofile
-ln -s ~/dotfiles/zsh ~/zsh
-ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/Dropbox/dotfiles/zsh ~/zsh
+ln -s ~/Dropbox/dotfiles/zsh/.zshrc ~/.zshrc
 
 source ~/.zplugin/bin/zplugin.zsh
 zsh
