@@ -43,6 +43,9 @@ ripgrep \
 
 
 
+# fzf
+$(brew --prefix)/opt/fzf/install
+
 
 # source code pro
 brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
