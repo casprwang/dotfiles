@@ -19,7 +19,6 @@ source ~/zsh/basic.zsh
 source ~/zsh/function.zsh
 source ~/zsh/github.zsh
 source ~/zsh/wifi.zsh
-source ~/zsh/citadel.zsh
 source ~/secrets.zsh
 
 fpath+=~/.zfunc

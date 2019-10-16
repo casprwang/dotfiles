@@ -35,3 +35,9 @@ load_tspkg(){
 cssh() {
         sshpass -p 'Hoboken123!@#Roo' ssh swang5@"$1"
 }
+
+
+sshc() {
+    echo "test$1"
+    sshpass -p "$CITADEL_PASSWORD" ssh "swang5@ld-dbn-grdev$1"
+}
