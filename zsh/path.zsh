@@ -14,5 +14,6 @@ export PATH="$PATH:./node_modules/.bin"
 
 # psql
 export PATH="/Library/PostgreSQL/10/bin:$PATH"
+
 export PATH=${PATH}:/usr/local/opt/gettext/bin
 

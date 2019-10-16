@@ -1,37 +1,3 @@
-# go new
-gn () {
-        mkdir "$1"
-        cd "$1"
-        nvim main.go
-}
-
-# git new
-gitnew() {
-        git init
-        echo '# first touch' > README.md
-        git add .
-        git commit -m "first touch"
-        git remote add origin $1
-        git push -u origin master
-}
-
-# git setup
-gitsetup() {
-        git init
-        git remote add origin $1
-        git pull --rebase origin master
-        git add .
-        git commit -m "🎉 rebase"
-        git push origin master
-}
-
-# quick git add+commit+push
-gitpush() {
-        git add .
-        git commit -am "$*"
-        git push origin master
-}
-
 gam() {
         git add .
         git commit -am "$*"
@@ -45,11 +11,6 @@ source_zsh() {
 }
 
 
-# mkdir and cd into it
-mkdircd () {
-        mkdir -p -- "$1" &&
-                cd -P -- "$1"
-}
 
 ts_mount() {
         sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/scratch /mnt/truenas/scratch
@@ -69,4 +30,8 @@ load_pyenv(){
 
 load_tspkg(){
         eval $(cd && .tspkg/bin/tsp --env)
+}
+
+cssh() {
+        sshpass -p 'Hoboken123!@#Roo' ssh swang5@"$1"
 }
