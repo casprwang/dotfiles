@@ -16,6 +16,8 @@ let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
 let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
+set number
+set relativenumber
 set nowrap
 set splitright
 set splitbelow
@@ -55,10 +57,7 @@ inoremap <c-f> <esc>Ea
 inoremap <c-d> <esc>cw
 inoremap <c-e> <esc>A
 nnoremap <c-w><Space> <c-w>=
-nnoremap <leader>in :PlugInstall<cr>
-nnoremap <leader>j :w<cr>
 nnoremap <c-w>n <c-w>\|
-nnoremap <leader>, za
 nnoremap 0 ^
 nmap Y y$
 inoremap {<cr> {<cr>}<c-o>O
@@ -69,7 +68,6 @@ nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
-nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 
 nmap J 5gj
 nmap K 5gk
@@ -107,27 +105,6 @@ nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
 Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
-Plug 'maralla/completor.vim' "{{{
-let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
-let g:completor_python_binary = expand('~/.pyenv/shims/python3')
-let g:completor_node_binary = '/usr/local/bin/node'
-let g:completor_gocode_binary = expand('~/go/bin/gocode')
-let g:completor_complete_options = 'menuone,noselect'
-let g:completor_racer_binary = expand('~/.cargo/bin/racer')
-function! Tab_Or_Complete() abort
-  if pumvisible()
-    return "\<C-N>"
-  elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-R>=completor#do('complete')\<CR>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-
-" Use `tab` key to select completions.  Default is arrow keys.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"}}}
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_version_warning = 0
@@ -136,7 +113,6 @@ let g:go_term_width = 80
 let g:go_fmt_autosave = 0
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 0
-au FileType go nmap <leader>r <Plug>(go-run-tab)
 "}}}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'mattn/emmet-vim' " {{{
@@ -153,6 +129,7 @@ Plug 'mattn/webapi-vim'
 Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'derekwyatt/vim-scala'
+Plug 'rhysd/git-messenger.vim'
 Plug 'fleischie/vim-styled-components'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-dispatch'
@@ -161,10 +138,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "{{{
 function! g:Open_browser(url)
     silent exec '!open -a "Safari" ' . a:url . " &"
 endfunction
-let g:mkdp_auto_start = 1
-let g:mkdp_auto_open = 1
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_open = 0
 let g:mkdp_browserfunc = 'g:Open_browser'
-autocmd FileType markdown nmap <leader>m :MarkdownPreview<CR>
 "}}}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' } "{{{
@@ -197,12 +173,18 @@ let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#parser = 'flow'
 "}}}
 Plug 'w0rp/ale' "{{{
-let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
-let g:ale_linters = {'jsx': ['stylelint', 'eslint'], 'javascript': ['eslint']}
-let b:ale_fixers = {'jsx': ['eslint'], 'javascript': ['eslint']}
+let g:ale_linter_aliases = {
+                        \ 'jsx': ['css', 'javascript']}
+let g:ale_linters = {
+                        \ 'jsx': ['stylelint', 'eslint'],
+                        \ 'python': ['autopep8'],
+                        \ 'javascript': ['eslint']}
+let g:ale_fixers = {
+                        \ 'jsx': ['eslint'],
+                        \ 'python': ['autopep8'],
+                        \ 'javascript': ['eslint']}
 let g:ale_sign_column_always = 1
 let g:ale_set_signs = 0
-noremap <leader>f :ALEFix<cr>
 "}}}
 Plug 'chenglou/vim-reason'
 Plug 'kana/vim-smartinput'
@@ -225,6 +207,15 @@ Plug 'keith/investigate.vim' "{{{
 let g:investigate_use_dash=1
 "}}}
 Plug 'othree/csscomplete.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nmap <leader>f  <Plug>(coc-format-selected)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+"}}}
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
@@ -329,13 +320,12 @@ let g:gist_post_private = 1
 " Plug 'davidhalter/jedi-vim'
 Plug 'sunaku/vim-shortcut'
 Plug 'roxma/nvim-yarp'
+Plug 'jparise/vim-graphql'
 Plug 'cespare/vim-toml'
 Plug 'maralla/vim-toml-enhance'
 Plug 'ternjs/tern_for_vim'
 Plug 'tomtom/tlib_vim'
 Plug 'marcweber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate' "{{{
-"}}}
 call plug#end()
 " }}}
 " cursor position {{{
@@ -431,8 +421,6 @@ au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
-au FileType sh nnoremap <leader>f :Shfmt<cr>
-au FileType zsh nnoremap <leader>f :Shfmt<cr>
 au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ colorscheme
