@@ -92,8 +92,6 @@ Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/vim-jsx-improve'
 "typescript
-Plug 'HerringtonDarkholme/yats.vim'
-
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_disable_when_zoomed = 1
 let g:tmux_navigator_no_mappings = 1
@@ -103,9 +101,7 @@ nnoremap <silent> <Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
-Plug 'jreybert/vimagit'
 Plug 'vim-scripts/mru.vim'
-Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_version_warning = 0
 let g:go_term_enabled = 1
@@ -126,12 +122,9 @@ let g:user_emme_settings = {
 Plug 'benmills/vimux'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mattn/webapi-vim'
-Plug 'moll/vim-node'
 Plug 'christoomey/vim-run-interactive'
 Plug 'derekwyatt/vim-scala'
 Plug 'rhysd/git-messenger.vim'
-Plug 'fleischie/vim-styled-components'
-Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-dispatch'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "{{{
 " open in the background
@@ -143,13 +136,7 @@ let g:mkdp_auto_open = 0
 let g:mkdp_browserfunc = 'g:Open_browser'
 "}}}
 Plug 'tmux-plugins/vim-tmux'
-Plug 'z0mbix/vim-shfmt', { 'for': 'sh' } "{{{
-let g:shfmt_extra_args = '-i 2 -ci'
-"}}}
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
-Plug 'chrisbra/Colorizer' "{{{
-au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx  :ColorHighlight!
-"}}}
 Plug 'scrooloose/nerdtree' "{{{
 let g:NERDTreeWinPos = "right"
 nnoremap <silent> <leader>o :NERDTreeToggle<CR>
@@ -172,33 +159,23 @@ let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#parser = 'flow'
 "}}}
-Plug 'w0rp/ale' "{{{
-let g:ale_linter_aliases = {
-                        \ 'jsx': ['css', 'javascript']}
-let g:ale_linters = {
-                        \ 'jsx': ['stylelint', 'eslint'],
-                        \ 'python': ['autopep8'],
-                        \ 'javascript': ['eslint']}
-let g:ale_fixers = {
-                        \ 'jsx': ['eslint'],
-                        \ 'python': ['autopep8'],
-                        \ 'javascript': ['eslint']}
-let g:ale_sign_column_always = 1
-let g:ale_set_signs = 0
-"}}}
-Plug 'chenglou/vim-reason'
+"Plug 'w0rp/ale' "{{{
+"let g:ale_linter_aliases = {
+"                        \ 'jsx': ['css', 'javascript']}
+"let g:ale_linters = {
+"                        \ 'jsx': ['stylelint', 'eslint'],
+"                        \ 'python': ['autopep8'],
+"                        \ 'javascript': ['eslint']}
+"let g:ale_fixers = {
+"                        \ 'jsx': ['eslint'],
+"                        \ 'python': ['autopep8'],
+"                        \ 'javascript': ['eslint']}
+"let g:ale_sign_column_always = 1
+"let g:ale_set_signs = 0
+""}}}
 Plug 'kana/vim-smartinput'
 Plug 'Chiel92/vim-autoformat'
-Plug 'alpertuna/vim-header' "{{{
-let g:header_auto_add_header = 0
-let g:header_field_author = 'Song Wang'
-let g:header_field_modified_by = 0
-let g:header_field_modified_timestamp = 0
-let g:header_field_timestamp = 0
-"}}}
 Plug 'danro/rename.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
@@ -214,7 +191,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 " Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 "}}}
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
@@ -376,25 +353,6 @@ endfunction
 
 au CursorMoved *.jsx call s:SetCommentString()
 au CursorMoved *.js call s:SetCommentString()
-"}}}
-"{{{ merlin, ocaml and reason
-if executable('ocamlmerlin')
-        let s:ocamlmerlin=substitute(system('which ocamlmerlin'),'ocamlmerlin\n$','','') . "../share/merlin/vim/"
-        execute "set rtp+=".s:ocamlmerlin
-        let g:syntastic_ocaml_checkers=['merlin']
-endif
-if executable('refmt')
-        let s:reason=substitute(system('which refmt'),'refmt\n$','','') . "../share/reason/editorSupport/VimReason"
-        execute "set rtp+=".s:reason
-        let g:syntastic_reason_checkers=['merlin']
-endif
-let g:vimreason_extra_args_expr_reason = '"--print-width 90"'
-let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')"
-let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "min([120, winwidth('.')])"
-let g:deoplete#enable_at_startup = 0
-let g:merlin_completion_arg_type = "always"
-au FileType reason let maplocalleader=","
-au FileType ocaml let maplocalleader=","
 "}}}
 "{{{ autocmd
 augroup FiletypeGroup
