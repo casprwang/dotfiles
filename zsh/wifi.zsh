@@ -26,6 +26,7 @@ citadel () {
     ln -s $HOME/.ssh_dump $HOME/.ssh
     cat $HOME/.yarnrc_dump > $HOME/.yarnrc
     cat $HOME/.npmrc_dump > $HOME/.npmrc
+    cat $HOME/.pip/pip.conf-dump > $HOME/.pip/pip.conf
 }
 
 
@@ -37,5 +38,5 @@ github() {
     ln -s $HOME/.ssh_open $HOME/.ssh
     rm $HOME/.yarnrc
     rm $HOME/.npmrc
-    cd $HOME/github
+    rm $HOME/.pip/pip.conf
 }
