@@ -243,8 +243,8 @@ key_bindings:
   - { key: T,        mods: Command, chars: "\x13\x63"                       }
   - { key: W,        mods: Command, chars: "\x13\x26"                       }
   - { key: I,        mods: Command, chars: "\x13\x6e"                       }
-  - { key: Tab,        mods: Control, chars: "\x13\x6e"                       }
-  - { key: Tab,        mods: Control|Shift, chars: "\x13\x70"                       }
+  # - { key: Tab,        mods: Control, chars: "\x13\x6e"                       }
+  # - { key: Tab,        mods: Control|Shift, chars: "\x13\x70"                       }
   - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                      }
   # - { key: LBracket,        mods: Command|Shift, chars: "\x13\x70"                       }
   # - { key: RBracket,      mods: Command|Shift,   chars: "\x13\x6e"                      }
