@@ -27,8 +27,6 @@ fpath+=~/.zfunc
 export EDITOR=nvim
 export NVM_LAZY_LOAD=true
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/zsh/fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 

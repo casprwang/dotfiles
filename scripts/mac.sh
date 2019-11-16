@@ -127,3 +127,7 @@ ln -s ~/Dropbox/plugins/nvim ~/.local/share
 ln -s ~/Dropbox/configs/vscode/User ~/Library/Application\ Support/Code
 ln -s ~/Dropbox/plugins/vscode/extensions ~/.vscode
 ln -s ~/Dropbox/dotfiles/.tmux.conf ~/
+
+# nvim config
+mkdir .config/nvim
+ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
