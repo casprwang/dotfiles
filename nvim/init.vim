@@ -18,6 +18,7 @@ set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
 set number
 set relativenumber
+set signcolumn=yes
 set nowrap
 set splitright
 set splitbelow
@@ -70,6 +71,7 @@ nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
+nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 
 nmap J 5gj
 nmap K 5gk
@@ -162,6 +164,24 @@ let g:investigate_use_dash=1
 "}}}
 Plug 'othree/csscomplete.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
+" extensions
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ ]
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 autocmd CursorHold * silent call CocActionAsync('highlight')
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
