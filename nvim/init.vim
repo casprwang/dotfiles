@@ -60,6 +60,8 @@ nnoremap <c-w><Space> <c-w>=
 nnoremap <c-w>n <c-w>\|
 nnoremap 0 ^
 nmap Y y$
+
+nnoremap <silent> <leader>j :w<cr>
 inoremap {<cr> {<cr>}<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
 " for shift-enter
@@ -101,7 +103,6 @@ nnoremap <silent> <Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
-Plug 'vim-scripts/mru.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_version_warning = 0
 let g:go_term_enabled = 1
@@ -126,15 +127,6 @@ Plug 'christoomey/vim-run-interactive'
 Plug 'derekwyatt/vim-scala'
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-dispatch'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "{{{
-" open in the background
-function! g:Open_browser(url)
-    silent exec '!open -a "Safari" ' . a:url . " &"
-endfunction
-let g:mkdp_auto_start = 0
-let g:mkdp_auto_open = 0
-let g:mkdp_browserfunc = 'g:Open_browser'
-"}}}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
 Plug 'scrooloose/nerdtree' "{{{
@@ -145,20 +137,6 @@ let NERDTreeIgnore=['node_modules']
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
-" autoformat
-Plug 'mitermayer/vim-prettier', {
-                        \ 'do': 'yarn install',
-                        \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } "{{{
-let g:prettier#config#print_width = 80
-let g:prettier#config#tab_width = 2
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#semi = 'false'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#trailing_comma = 'all'
-let g:prettier#config#parser = 'flow'
-"}}}
 "Plug 'w0rp/ale' "{{{
 "let g:ale_linter_aliases = {
 "                        \ 'jsx': ['css', 'javascript']}
@@ -175,7 +153,6 @@ let g:prettier#config#parser = 'flow'
 ""}}}
 Plug 'kana/vim-smartinput'
 Plug 'Chiel92/vim-autoformat'
-Plug 'danro/rename.vim'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
@@ -186,12 +163,21 @@ let g:investigate_use_dash=1
 Plug 'othree/csscomplete.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+autocmd CursorHold * silent call CocActionAsync('highlight')
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nmap <leader>f  <Plug>(coc-format-selected)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-" Use K to show documentation in preview window
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+set updatetime=300
+let g:indentLine_leadingSpaceEnabled = 1
 "}}}
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
@@ -206,17 +192,9 @@ Plug 'sheerun/vim-polyglot' "{{{
 Plug 'mxw/vim-jsx' "{{{
 let g:jsx_ext_required = 1 
 "}}}
-Plug 'posva/vim-vue' "{{{
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-let g:vue_disable_pre_processors=1
-autocmd FileType vue syntax sync fromstart
-"}}}
 Plug 'tyru/caw.vim'
 Plug 'Shougo/context_filetype.vim'
-Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/ElmCast/elm-vim' "{{{
-let g:elm_setup_keybindings = 0
-" }}}
+Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
