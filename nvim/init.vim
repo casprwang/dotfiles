@@ -80,7 +80,6 @@ vmap K 5gk
 
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
-nnoremap <leader>e :Rg<cr>
 " }}}
 "{{{ Plugins (vim plug )
 " ----------------------------------------------------------------------------
@@ -163,42 +162,108 @@ Plug 'keith/investigate.vim' "{{{
 let g:investigate_use_dash=1
 "}}}
 Plug 'othree/csscomplete.vim'
+Plug 'liuchengxu/vim-clap' "{{{
+let g:clap_popup_input_delay = 0
+let g:clap_provider_grep_delay = 0
+let g:clap_provider_grep_blink = [0, 0]
+nnoremap <silent> <leader>e :Clap! grep<cr>
+nnoremap <silent> <c-_> :Clap! files<cr>
+"}}}
+
+Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+set updatetime=300
+let g:indentLine_leadingSpaceEnabled = 1
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 " extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-git', 
   \ ]
 
-" lightline
-let g:lightline = {
-  \ 'active': {
-  \   'left': [
-  \     [ 'mode', 'paste' ],
-  \     [ 'ctrlpmark', 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
-  \   ],
-  \   'right':[
-  \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
-  \     [ 'blame' ]
-  \   ],
-  \ },
-  \ 'component_function': {
-  \   'blame': 'LightlineGitBlame',
-  \ }
-\ }
+" snippets
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+function! StatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
+endfunction
+
+
+" lightline
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')
   " return blame
   return winwidth(0) > 120 ? blame : ''
 endfunction
 
-" statusline
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+let g:lightline = {
+  \ 'colorscheme': 'nord',
+  \ 'active': {
+  \   'left': [
+  \     [ 'paste' ],
+  \     [ 'filename' ],
+  \     [ 'coc_git_branch_status' ],
+  \   ],
+  \   'right':[
+  \     ['lineinfo' ],
+  \     [ 'blame' ],
+  \   ],
+  \ },
+  \ 'inactive': {
+  \   'left': [
+  \   ],
+  \ },
+  \ 'component_function': {
+  \   'coc_git_change_status': 'CocGitChangeStatus',
+  \   'coc_git_branch_status': 'CocGitBranchStatus',
+  \ },
+\ }
+
+let g:nord_statusline_uniform = 1
+
+function! CocGitChangeStatus()
+    return trim(get(b:, 'coc_git_status', ''))
+endfunction
+
+function! CocGitBranchStatus()
+    return trim(get(g:, 'coc_git_status', ''))
+endfunction
 
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -210,11 +275,14 @@ function! s:show_documentation()
 endfunction
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-autocmd CursorHold * silent call CocActionAsync('highlight')
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f :Format<cr>
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
 
 augroup mygroup
   autocmd!
@@ -223,8 +291,6 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-set updatetime=300
-let g:indentLine_leadingSpaceEnabled = 1
 "}}}
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
@@ -251,7 +317,6 @@ set autoread
 " show autocomplete for commands
 set wildmenu
 map <leader>b :Buffers<cr>
-map <c-_> :FZF<cr>
 
 let g:fzf_layout = { 'window': 'enew' }
 
