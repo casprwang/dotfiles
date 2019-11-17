@@ -73,6 +73,7 @@ nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
 nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 
+" navigation
 nmap J 5gj
 nmap K 5gk
 vmap J 5gj
