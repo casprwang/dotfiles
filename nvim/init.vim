@@ -324,7 +324,7 @@ nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
 nnoremap gc :Gcommit<cr>
-nnoremap ga :Gw<cr>
+nnoremap gw :Gw<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'skywind3000/asyncrun.vim'
@@ -483,7 +483,7 @@ au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
 au filetype crontab setlocal nobackup nowritebackup
-au FileType vim setlocal foldmethod=marker
+" au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
