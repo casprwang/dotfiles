@@ -169,6 +169,9 @@ let g:clap_provider_grep_blink = [0, 0]
 nnoremap <silent> <leader>e :Clap! grep<cr>
 nnoremap <silent> <c-_> :Clap! files<cr>
 "}}}
+Plug 'airblade/vim-gitgutter' "{{{{
+let g:gitgutter_preview_win_floating = 1
+"}}}}
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
