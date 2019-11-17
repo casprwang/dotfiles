@@ -296,6 +296,8 @@ Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
+nnoremap gm :Gcommit<cr>
+nnoremap ga :Gw<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'skywind3000/asyncrun.vim'
