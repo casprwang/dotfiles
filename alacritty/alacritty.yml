@@ -235,8 +235,14 @@ key_bindings:
   - { key: D,        mods: Command|Shift, chars: "\x13\x6a"                       }
   - { key: D,        mods: Command|Shift, chars: "\x13\x6a"                       }
   - { key: Backslash,        mods: Command, chars: "\x67\x2f\x2f"                       }
+
+    # <c-y>_ for tab
+  - { key: Tab,        mods: Control, chars: "\x19\x5f"                       }
+    # <c-y>^ for shift tab
+  - { key: Tab,        mods: Control|Shift, chars: "\x19\x5e"                       }
   - { key: Key1,        mods: Command, chars: "\x13\x31"                       }
   - { key: Key2,        mods: Command, chars: "\x13\x32"                       }
+  - { key: Key3,        mods: Command, chars: "\x13\x33"                       }
   - { key: P,        mods: Command|Shift, chars: "\x13\x53"                       }
   - { key: P,        mods: Command, chars: "\x1f"                       }
   - { key: N,        mods: Command, chars: "\x13\x43"                       }

@@ -82,6 +82,7 @@ vmap K 5gk
 
 " Tab
 nnoremap <c-y>_ :tabnext<cr>
+nnoremap <c-y>^ :tabprevious<cr>
 
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
