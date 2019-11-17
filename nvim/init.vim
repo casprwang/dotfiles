@@ -79,6 +79,9 @@ nmap K 5gk
 vmap J 5gj
 vmap K 5gk
 
+" Tab
+nnoremap <c-y>_ :tabnext<cr>
+
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
 " }}}
@@ -172,6 +175,10 @@ nnoremap <silent> <c-_> :Clap! files<cr>
 "}}}
 Plug 'airblade/vim-gitgutter' "{{{{
 let g:gitgutter_preview_win_floating = 1
+" Visual mode
+xmap ga <Plug>(GitGutterStageHunk)
+" Normal mode
+nmap ga <Plug>(GitGutterStageHunk)
 "}}}}
 
 Plug 'itchyny/lightline.vim'
@@ -183,7 +190,6 @@ set hidden
 set nobackup
 set nowritebackup
 
-set updatetime=300
 let g:indentLine_leadingSpaceEnabled = 1
 
 " don't give |ins-completion-menu| messages.
