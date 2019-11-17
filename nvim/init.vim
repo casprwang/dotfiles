@@ -404,6 +404,7 @@ Plug 'maralla/vim-toml-enhance'
 Plug 'ternjs/tern_for_vim'
 Plug 'tomtom/tlib_vim'
 Plug 'marcweber/vim-addon-mw-utils'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 " }}}
 " cursor position {{{
