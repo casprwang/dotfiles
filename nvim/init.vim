@@ -89,7 +89,18 @@ let g:ackprg = 'ag --vimgrep'
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary' "{{{
+" Visual mode
+xmap g/ <Plug>Commentary
+" Normal mode
+nmap g/ <Plug>Commentary
+" Normal mode, current line
+nmap g// <Plug>CommentaryLine
+" Operator pending mode (this lets you do e.g. `dgc` to delete a block of comments)
+omap g/ <Plug>Commentary
+" Special case cgc (you can skip this one, but then `cgc` will also delete an extra blank line)
+nmap cg/ <Plug>ChangeCommentary
+" }}}
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
 "}}}
