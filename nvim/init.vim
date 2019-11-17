@@ -299,7 +299,7 @@ Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
 nnoremap go :Gbrowse<cr>
-nnoremap gm :Gcommit<cr>
+nnoremap gc :Gcommit<cr>
 nnoremap ga :Gw<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
