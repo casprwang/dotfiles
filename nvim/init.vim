@@ -219,6 +219,16 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-git', 
+  \ 'coc-rls', 
+  \ 'coc-yaml', 
+  \ 'coc-python', 
+  \ 'coc-highlight', 
+  \ 'coc-yank', 
+  \ 'coc-flow', 
+  \ 'coc-markdownlint', 
+  \ 'coc-css', 
+  \ 'coc-html', 
+  \ 'coc-java', 
   \ ]
 
 " snippets
