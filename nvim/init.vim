@@ -186,6 +186,7 @@ let g:clap_provider_grep_delay = 0
 let g:clap_provider_grep_blink = [0, 0]
 nnoremap <silent> <leader>e :Clap! grep ++finder=rg --column --line-number --no-heading --color=always --smart-case<cr>
 nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
+nnoremap <c-y>\ :Clap! history<cr>
 "}}}
 Plug 'airblade/vim-gitgutter' "{{{{
 let g:gitgutter_preview_win_floating = 1
