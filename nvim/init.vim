@@ -144,6 +144,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'mattn/webapi-vim'
 Plug 'christoomey/vim-run-interactive'
 Plug 'derekwyatt/vim-scala'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
