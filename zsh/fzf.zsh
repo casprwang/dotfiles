@@ -1,3 +1,4 @@
+export FZF_DEFAULT_OPTS=--reverse
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then

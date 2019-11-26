@@ -185,8 +185,8 @@ Plug 'liuchengxu/vim-clap' "{{{
 let g:clap_popup_input_delay = 0
 let g:clap_provider_grep_delay = 0
 let g:clap_provider_grep_blink = [0, 0]
-nnoremap <silent> <leader>e :Clap! grep ++finder=rg --column --line-number --no-heading --color=always --smart-case<cr>
-nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
+" nnoremap <silent> <leader>e :Clap! grep ++finder=rg --column --line-number --no-heading --color=always --smart-case<cr>
+" nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
 nnoremap <c-y>\ :Clap! history<cr>
 "}}}
 Plug 'airblade/vim-gitgutter' "{{{{
@@ -411,6 +411,8 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 au! User FzfStatusLine call <SID>fzf_statusline()
+nnoremap <silent> <leader>e :Rg<cr>
+nnoremap <silent> <c-_> :FZF<cr>
 " }}}
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {
