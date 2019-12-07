@@ -187,7 +187,7 @@ let g:clap_provider_grep_delay = 0
 let g:clap_provider_grep_blink = [0, 0]
 " nnoremap <silent> <leader>e :Clap! grep ++finder=rg --column --line-number --no-heading --color=always --smart-case<cr>
 " nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
-nnoremap <c-y>\ :Clap! history<cr>
+" nnoremap <c-y>\ :Clap! history<cr>
 "}}}
 Plug 'airblade/vim-gitgutter' "{{{{
 let g:gitgutter_preview_win_floating = 1
@@ -364,8 +364,7 @@ map <leader>b :Buffers<cr>
 
 let g:fzf_action = {
                         \ 'ctrl-t': 'tab split',
-                        \ 'down': 'split',
-                        \ 'right': 'vsplit' }
+                        \}
 
 nnoremap <silent> <c-w>t :call fzf#run({
                         \   'tab': 'tabnew',
@@ -426,7 +425,7 @@ endfunction
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case -g "!*graphql.tsx" '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
@@ -434,6 +433,8 @@ command! -bang -nargs=* Rg
 au! User FzfStatusLine call <SID>fzf_statusline()
 nnoremap <silent> <leader>e :Rg<cr>
 nnoremap <silent> <c-_> :FZF<cr>
+" history
+nnoremap <c-y>\ :History<cr>
 " }}}
 Plug 'Valloric/MatchTagAlways' "{{{
 let g:mta_filetypes = {

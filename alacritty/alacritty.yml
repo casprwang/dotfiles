@@ -15,7 +15,6 @@ window:
 scrolling:
   history: 100000
   multiplier: 3
-  faux_multiplier: 3
   auto_scroll: false
 tabspaces: 8
 
