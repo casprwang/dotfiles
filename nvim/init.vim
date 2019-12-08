@@ -291,6 +291,8 @@ let g:lightline = {
   \ },
 \ }
 
+autocmd FileType markdown let b:coc_suggest_disable = 1
+
 let g:nord_statusline_uniform = 1
 
 function! CocGitChangeStatus()
@@ -531,6 +533,7 @@ au Filetype json setlocal ts=2 sts=2 sw=2
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
+au Filetype markdown setlocal ts=2 sts=2 sw=2
 au FileType typescript setlocal ts=2 sts=2 sw=2
 au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype zsh setlocal ts=4 sts=4 sw=4
