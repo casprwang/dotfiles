@@ -39,6 +39,8 @@ autoload -Uz _zplugin
 zplugin light rupa/z
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 zplugin ice silent wait'!0' atload'load_pyenv;'
+zplugin ice as"program" pick"bin/git-dsf"
+zplugin light zdharma/zsh-diff-so-fancy
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light lukechilds/zsh-nvm
 zplugin light zsh-users/zsh-autosuggestions
