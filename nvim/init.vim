@@ -353,6 +353,7 @@ let g:jsx_ext_required = 1
 "}}}
 Plug 'tyru/caw.vim'
 Plug 'Shougo/context_filetype.vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim' " fzf{{{
@@ -534,7 +535,13 @@ au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype markdown setlocal ts=2 sts=2 sw=2
+au Filetype markdown setlocal foldcolumn=0
+au Filetype markdown setlocal norelativenumber
+au Filetype markdown setlocal nu
+au Filetype markdown setlocal foldcolumn=3
+au Filetype markdown setlocal foldcolumn=0
 au FileType typescript setlocal ts=2 sts=2 sw=2
+au FileType typescriptreact setlocal ts=2 sts=2 sw=2
 au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype js setlocal ts=2 sts=2 sw=2
@@ -544,6 +551,9 @@ au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
 "}}}
 "{{{ colorscheme
-colorscheme nord
 set background=dark
+if !empty($IS_ITERM)
+  colorscheme onehalfdark
+endif
+colorscheme nord
 "}}}
