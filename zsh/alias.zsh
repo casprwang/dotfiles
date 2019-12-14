@@ -36,3 +36,4 @@ alias t="vim /Users/songwang/Library/Mobile\ Documents/com~apple~CloudDocs/TODO.
 alias n="vim /Users/songwang/Library/Mobile\ Documents/com~apple~CloudDocs/tmp"
 alias ta="tmux a"
 alias air='~/.air'
+alias pcp='pbpaste'
