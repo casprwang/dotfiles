@@ -126,7 +126,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_version_warning = 0
 let g:go_term_enabled = 1
 let g:go_term_width = 80
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 0
 "}}}
@@ -231,6 +231,7 @@ let g:coc_global_extensions = [
   \ 'coc-css', 
   \ 'coc-html', 
   \ 'coc-java', 
+  \ 'coc-go', 
   \ ]
 
 " snippets
