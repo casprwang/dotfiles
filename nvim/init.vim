@@ -126,9 +126,12 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } "{{{
 let g:go_version_warning = 0
 let g:go_term_enabled = 1
 let g:go_term_width = 80
+let g:go_def_mapping_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 0
+let g:go_fmt_fail_silently = 1
 "}}}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'mattn/emmet-vim' " {{{
@@ -247,6 +250,7 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
 
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
@@ -550,6 +554,7 @@ au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
+" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 "}}}
 "{{{ colorscheme
 set background=dark
