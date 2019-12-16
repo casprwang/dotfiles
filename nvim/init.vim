@@ -109,9 +109,6 @@ let g:maximizer_set_default_mapping = 0
 "}}}
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
-Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'neoclide/vim-jsx-improve'
 "typescript
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -146,9 +143,7 @@ Plug 'benmills/vimux'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mattn/webapi-vim'
 Plug 'christoomey/vim-run-interactive'
-Plug 'derekwyatt/vim-scala'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
@@ -157,33 +152,28 @@ let g:NERDTreeWinPos = "right"
 nnoremap <silent> <leader>o :NERDTreeToggle<CR>
 let NERDTreeIgnore=['node_modules']
 "}}}
-Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim', {'on_ft': 'javascript'}
-Plug 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
-"Plug 'w0rp/ale' "{{{
-"let g:ale_linter_aliases = {
-"                        \ 'jsx': ['css', 'javascript']}
-"let g:ale_linters = {
-"                        \ 'jsx': ['stylelint', 'eslint'],
-"                        \ 'python': ['autopep8'],
-"                        \ 'javascript': ['eslint']}
-"let g:ale_fixers = {
-"                        \ 'jsx': ['eslint'],
-"                        \ 'python': ['autopep8'],
-"                        \ 'javascript': ['eslint']}
-"let g:ale_sign_column_always = 1
-"let g:ale_set_signs = 0
-""}}}
-Plug 'kana/vim-smartinput'
-Plug 'Chiel92/vim-autoformat'
+Plug 'dense-analysis/ale' "{{{
+let g:ale_linter_aliases = {
+                        \ 'jsx': ['css', 'javascript']}
+let g:ale_linters = {
+                        \ 'jsx': ['stylelint', 'eslint'],
+                        \ 'python': ['autopep8'],
+                        \ 'javascript': ['eslint']}
+let g:ale_fixers = {
+                        \ 'jsx': ['eslint'],
+                        \ 'python': ['autopep8'],
+                        \ 'javascript': ['eslint']}
+let g:ale_sign_column_always = 1
+let g:ale_set_signs = 0
+"}}}
+" Plug 'kana/vim-smartinput'
+" Plug 'Chiel92/vim-autoformat'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'keith/investigate.vim' "{{{
-let g:investigate_use_dash=1
-"}}}
 Plug 'othree/csscomplete.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vim-clap' "{{{
 let g:clap_popup_input_delay = 0
 let g:clap_provider_grep_delay = 0
@@ -350,14 +340,6 @@ nnoremap gw :Gw<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'sheerun/vim-polyglot' "{{{
-" let g:polyglot_disabled = ['javascript']
-" }}}
-Plug 'mxw/vim-jsx' "{{{
-let g:jsx_ext_required = 1 
-"}}}
-Plug 'tyru/caw.vim'
-Plug 'Shougo/context_filetype.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
@@ -460,15 +442,6 @@ let g:mta_filetypes = {
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'} "{{{
 let g:gist_post_private = 1
 "}}}
-" Plug 'davidhalter/jedi-vim'
-Plug 'sunaku/vim-shortcut'
-Plug 'roxma/nvim-yarp'
-Plug 'jparise/vim-graphql'
-Plug 'cespare/vim-toml'
-Plug 'maralla/vim-toml-enhance'
-Plug 'ternjs/tern_for_vim'
-Plug 'tomtom/tlib_vim'
-Plug 'marcweber/vim-addon-mw-utils'
 Plug 'liuchengxu/vista.vim'
 call plug#end()
 " }}}
