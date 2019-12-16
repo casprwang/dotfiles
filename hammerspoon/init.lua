@@ -1,4 +1,4 @@
-require("try-not-to-code")
+-- require("try-not-to-code")
 
 hs.window.animationDuration = 0 -- shorten animations
 hs.alert.defaultStyle.radius = 2
@@ -21,7 +21,7 @@ hs.hotkey.bind(
   keys.ca,
   "8",
   function()
-    hs.alert.show(hs.window.focusedWindow():isFrontmost())
+    hs.alert.show(hs.window.focusedWindow())
   end
 )
 
@@ -249,25 +249,6 @@ hs.hotkey.bind(
   end
 )
 
-function toggle_application(_app, path)
-  -- Finds running applications
-  local app = hs.application.find(_app)
-  if app:isFrontmost() then
-    -- hs.alert.show(app:isRunning())
-    app:hide()
-  elseif not app:isFrontmost() then
-    -- hs.alert.show('haha')
-    hs.application.launchOrFocus(path)
-  end
-end
-
-hs.hotkey.bind(
-  keys.a,
-  "t",
-  function()
-    toggle_application("Tweetbot", appPath.Tweetbot)
-  end
-)
 
 -- disable alt-v for Adobe's built-in shortcut
 function applicationWatcher(appName, eventType, appObject)
@@ -275,25 +256,19 @@ function applicationWatcher(appName, eventType, appObject)
     for i, v in pairs(editting) do
       v:enable()
     end
-    -- print(appObject)
-    -- hs.alert.show(appObject)
-    if (string.find(appName, "iTerm") or (string.find(appName, "VIM")) or (string.find(appName, "Alacritty"))) then
+    if (string.find(appName, "iTerm") or (string.find(appName, "VIM")) or (string.find(appName, "Alacritty")) or (string.find(appName, "Chromium"))) then
       for i, v in pairs(editting) do
         v:disable()
       end
-    elseif not (string.find(appName, "Emacs")) then
-      for i, v in pairs(editting) do
-        v:enable()
-      end
-    end
-    if (string.find(appName, "Emacs")) or (string.find(appName, "Atom")) then
-      editting.cW:disable()
     elseif not (string.find(appName, "iTerm") or (string.find(appName, "VIM")) or (string.find(appName, "Alacritty"))) then
       for i, v in pairs(editting) do
         v:enable()
       end
     end
     if (string.find(appName, "Alacritty")) then
+      editting.tab:enable()
+    end
+    if (string.find(appName, "Chromium")) then
       editting.tab:enable()
     end
   end
