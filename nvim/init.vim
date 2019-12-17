@@ -192,6 +192,7 @@ nmap ga <Plug>(GitGutterStageHunk)
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
+nmap ge :CocCommand explorer<CR>
 " if hidden is not set, TextEdit might fail.
 set hidden
 
