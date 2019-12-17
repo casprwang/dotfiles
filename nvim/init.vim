@@ -340,7 +340,6 @@ nnoremap gw :Gw<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim' " fzf{{{
@@ -531,8 +530,5 @@ au Filetype go set listchars=tab:\ \
 "}}}
 "{{{ colorscheme
 set background=dark
-if !empty($IS_ITERM)
-  colorscheme onehalfdark
-endif
 colorscheme nord
 "}}}
