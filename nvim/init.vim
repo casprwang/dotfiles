@@ -192,6 +192,9 @@ nmap ga <Plug>(GitGutterStageHunk)
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
+Plug 'ruanyl/vim-sort-imports' "{{{
+let g:import_sort_auto = 1
+"}}}
 nmap ge :CocCommand explorer<CR>
 " if hidden is not set, TextEdit might fail.
 set hidden
