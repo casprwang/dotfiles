@@ -34,7 +34,7 @@ set guioptions-=e
 set sessionoptions+=tabpages,globals
 set hlsearch
 set autoindent
-set smartindent
+" set smartindent
 set expandtab
 set incsearch
 set ignorecase
@@ -193,7 +193,7 @@ nmap ga <Plug>(GitGutterStageHunk)
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
 Plug 'ruanyl/vim-sort-imports' "{{{
-let g:import_sort_auto = 1
+let g:import_sort_auto = 0
 "}}}
 nmap ge :CocCommand explorer<CR>
 " if hidden is not set, TextEdit might fail.
@@ -230,6 +230,9 @@ let g:coc_global_extensions = [
   \ 'coc-java', 
   \ 'coc-go', 
   \ ]
+
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " snippets
 inoremap <silent><expr> <TAB>
@@ -530,7 +533,7 @@ au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
-" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeImport')
 "}}}
 "{{{ colorscheme
 set background=dark
