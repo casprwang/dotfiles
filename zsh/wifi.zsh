@@ -6,6 +6,7 @@ GIF_CONFIG_FILE=$HOME/.gitconfig
 
 
 wifi () {
+    networksetup -ordernetworkservices Wi-Fi Ethernet "iPhone USB" "Bluetooth PAN" "Thunderbolt Bridge" "Transocks"
     [ -z "$1" ] && { echo "need one argument "; return 1 }
     [ "$1" = "off" ] && {
         citadel
@@ -19,7 +20,7 @@ wifi () {
 
 
 citadel () {
-    networksetup -setairportpower en0 off > /dev/null
+    networksetup -ordernetworkservices Ethernet Wi-Fi "iPhone USB" "Bluetooth PAN" "Thunderbolt Bridge" "Transocks"
     [ -f "$GIF_CONFIG_FILE" ] || [ -L "$GIF_CONFIG_FILE" ] && rm $GIF_CONFIG_FILE
     [ -d "$SSH_DIR" ] && rm -r $SSH_DIR
     ln -s $HOME/.gitconfig_dump $HOME/.gitconfig
