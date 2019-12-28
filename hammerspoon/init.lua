@@ -1,4 +1,4 @@
--- require("try-not-to-code")
+-- require("reload-config")
 
 hs.window.animationDuration = 0 -- shorten animations
 hs.alert.defaultStyle.radius = 2
@@ -8,32 +8,28 @@ hs.alert.defaultStyle.strokeColor = {black = 0, alpha = 0}
 hs.alert.defaultStyle.strokeWidth = 0
 hs.alert.defaultStyle.textStyle = {paragraphStyle = {alignment = "center"}}
 
-keys = {
-  a = {"alt"},
-  c = {"ctrl"},
-  cs = {"ctrl", "shift"},
-  ca = {"ctrl", "alt"},
-  hyper = {"cmd", "alt", "shift"}
+KEYS = {
+  ALT = {"alt"},
+  C   =   {"ctrl"},
+  CS = {"ctrl", "shift"},
+  CA = {"ctrl", "alt"},
+  HYPER = {"cmd", "alt", "shift"}
 }
 
 -- for testing new bindings
 hs.hotkey.bind(
-  keys.ca,
+  KEYS.CA,
   "8",
   function()
     hs.alert.show(hs.window.focusedWindow())
   end
 )
 
-appPath = {
-  iTerm2 = "/Applications/iTerm.app",
-  Tweetbot = "/Applications/Tweetbot.app"
-}
 
 -- showing the current time
 local id
 hs.hotkey.bind(
-  keys.hyper,
+  KEYS.HYPER,
   "6",
   function()
     local display = "Be back in a minute"
@@ -42,7 +38,7 @@ hs.hotkey.bind(
 )
 
 hs.hotkey.bind(
-  keys.hyper,
+  KEYS.HYPER,
   "7",
   function()
     hs.alert.closeAll()
@@ -104,7 +100,7 @@ hs.hotkey.bind(
 hs.alert.show("Config loaded")
 
 hs.hotkey.bind(
-  keys.a,
+  KEYS.ALT,
   "j",
   function()
     local win = hs.window.focusedWindow()
@@ -118,7 +114,7 @@ hs.hotkey.bind(
 )
 
 hs.hotkey.bind(
-  keys.a,
+  KEYS.ALT,
   "k",
   function()
     local win = hs.window.focusedWindow()
@@ -152,7 +148,7 @@ local resizeMappings = {
 
 for key in pairs(resizeMappings) do
   hs.hotkey.bind(
-    keys.a,
+    KEYS.ALT,
     key,
     function()
       local win = hs.window.focusedWindow()
@@ -167,7 +163,7 @@ editting = {}
 
 editting.cW =
   hs.hotkey.bind(
-  keys.c,
+  KEYS.C,
   "w",
   function()
     hs.eventtap.keyStroke({"alt"}, "delete")
@@ -176,7 +172,7 @@ editting.cW =
 
 editting.cM =
   hs.hotkey.bind(
-  keys.c,
+  KEYS.C,
   "m",
   function()
     hs.eventtap.keyStroke({""}, "return")
@@ -185,21 +181,17 @@ editting.cM =
 
 editting.cE =
   hs.hotkey.bind(
-  keys.c,
+  KEYS.C,
   "e",
   function()
     hs.eventtap.keyStroke({"cmd"}, "right")
   end
 )
 
--- editting.cQ = hs.hotkey.bind(keys.c, "u", function()
---   hs.eventtap.keyStroke({'cmd'}, "delete")
--- end)
--- editting.cQ:enable(postgresq)
 
 editting.cB =
   hs.hotkey.bind(
-  keys.c,
+  KEYS.C,
   "b",
   function()
     hs.eventtap.keyStroke({"alt"}, "left")
@@ -208,7 +200,7 @@ editting.cB =
 
 editting.cF =
   hs.hotkey.bind(
-  keys.c,
+  KEYS.C,
   "f",
   function()
     hs.eventtap.keyStroke({"alt"}, "right")
@@ -218,7 +210,7 @@ editting.cF =
 ctrl_shift = {"ctrl", "shift"}
 -- selecting words
 hs.hotkey.bind(
-  keys.cs,
+  KEYS.CS,
   "b",
   function()
     hs.eventtap.keyStroke({"alt", "shift"}, "left")
@@ -226,7 +218,7 @@ hs.hotkey.bind(
 )
 
 hs.hotkey.bind(
-  keys.cs,
+  KEYS.CS,
   "f",
   function()
     hs.eventtap.keyStroke({"alt", "shift"}, "right")
@@ -234,7 +226,7 @@ hs.hotkey.bind(
 )
 
 hs.hotkey.bind(
-  keys.cs,
+  KEYS.CS,
   "h",
   function()
     hs.eventtap.keyStroke({"shift"}, "left")
@@ -242,7 +234,7 @@ hs.hotkey.bind(
 )
 
 hs.hotkey.bind(
-  keys.cs,
+  KEYS.CS,
   "l",
   function()
     hs.eventtap.keyStroke({"shift"}, "right")
@@ -265,14 +257,9 @@ function applicationWatcher(appName, eventType, appObject)
         v:enable()
       end
     end
-    if (string.find(appName, "Alacritty")) then
-      editting.tab:enable()
-    end
-    if (string.find(appName, "Chromium")) then
-      editting.tab:enable()
-    end
   end
 end
 
 appWatcher = hs.application.watcher.new(applicationWatcher)
 appWatcher:start()
+
