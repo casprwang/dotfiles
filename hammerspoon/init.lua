@@ -78,15 +78,13 @@ local delay = 0.1
 
 local showtime =
   hs.hotkey.bind(
-  {"cmd", "ctrl", "shift"},
-  "r",
+  {"cmd", "ctrl"},
+  "t",
   function()
     local time = hs.timer.localTime()
     local x = math.floor(time / 3600)
     local y = math.floor((time - x * 3600) / 60)
     hs.alert.show(tostring(x) .. ":" .. tostring(y))
-    hs.alert.show(hs.eventtap.keyRepeatDelay())
-    -- hs.alert.show(tostring(y))
   end
 )
 
