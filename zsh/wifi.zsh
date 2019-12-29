@@ -37,7 +37,7 @@ github() {
     [ -d "$HOME/.ssh" ] && rm -r $HOME/.ssh
     ln -s $HOME/.gitconfig_open $HOME/.gitconfig
     ln -s $HOME/.ssh_open $HOME/.ssh
-    rm $HOME/.yarnrc
-    rm $HOME/.npmrc
-    rm $HOME/.pip/pip.conf
+    [ -f "$HOME/.yarnrc" ] && rm $HOME/.yarnrc
+    [ -f "$HOME/.npmrc" ] && rm $HOME/.npmrc
+    [ -f "$HOME/.pip/pip.conf" ] && rm $HOME/.pip/pip.conf
 }
