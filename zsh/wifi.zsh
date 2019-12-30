@@ -15,6 +15,15 @@ is_wifi () {
 }
 
 
+check_network () {
+    if [ -n "$(networksetup -listnetworkserviceorder | grep "(1)" | grep Wi-Fi)" ]; then
+        echo "WiFi"
+    else
+        echo "Ethernet"
+    fi
+}
+
+
 # toggle or setting wifi on and off
 wifi () {
     [ -z "$1" ] && { echo "need one argument "; return 1 }

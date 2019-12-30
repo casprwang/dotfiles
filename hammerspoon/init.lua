@@ -53,6 +53,17 @@ hs.hotkey.bind(
   end
 )
 
+
+hs.hotkey.bind(
+  {"cmd", "ctrl"},
+  "e",
+  function()
+    local output = hs.execute("/usr/local/bin/zsh -i -c 'check_network'", true)
+    hs.alert.show(trim(output))
+  end
+)
+
+
 --Predicate that checks if a window belongs to a screen
 function isInScreen(screen, win)
   return win:screen() == screen
