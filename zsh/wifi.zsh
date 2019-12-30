@@ -5,17 +5,36 @@ SSH_DIR=$HOME/.ssh
 GIF_CONFIG_FILE=$HOME/.gitconfig
 
 
+# check if wifi is the first hardward port system using
+is_wifi () {
+    if [ -n "$(networksetup -listnetworkserviceorder | grep "(1)" | grep Wi-Fi)" ]; then
+        true
+    else
+        false
+    fi
+}
+
+
+# toggle or setting wifi on and off
 wifi () {
-    networksetup -ordernetworkservices Wi-Fi Ethernet "iPhone USB" "Bluetooth PAN" "Thunderbolt Bridge" "Transocks"
     [ -z "$1" ] && { echo "need one argument "; return 1 }
-    [ "$1" = "off" ] && {
-        citadel
-        echo "using Citadel"
-    }
-    [ "$1" = "on" ] && {
-        github
-        echo "using Github"
-    }
+    if [ "$1" = "toggle" ]; then
+        is_wifi
+        if [ $? -eq 0 ]; then
+            wifi off
+        else
+            wifi on
+        fi
+    else 
+        [ "$1" = "off" ] && {
+            citadel
+            echo "using Ethernet"
+        }
+        [ "$1" = "on" ] && {
+            github
+            echo "using Wifi"
+        }
+    fi
 }
 
 
@@ -32,7 +51,7 @@ citadel () {
 
 
 github() {
-    networksetup -setairportpower en0 on > /dev/null
+    networksetup -ordernetworkservices Wi-Fi Ethernet "iPhone USB" "Bluetooth PAN" "Thunderbolt Bridge" "Transocks"
     [ -f "$GIF_CONFIG_FILE" ] || [ -L "$GIF_CONFIG_FILE" ] && rm $GIF_CONFIG_FILE
     [ -d "$HOME/.ssh" ] && rm -r $HOME/.ssh
     ln -s $HOME/.gitconfig_open $HOME/.gitconfig

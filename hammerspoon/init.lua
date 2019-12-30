@@ -37,11 +37,19 @@ hs.hotkey.bind(
   end
 )
 
+-- remove trailing and leading whitespace from string.
+-- http://en.wikipedia.org/wiki/Trim_(programming)
+function trim(s)
+  -- from PiL2 20.4
+  return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+
 hs.hotkey.bind(
-  KEYS.HYPER,
-  "7",
+  {"cmd", "ctrl"},
+  "w",
   function()
-    hs.alert.closeAll()
+    local output = hs.execute("/usr/local/bin/zsh -i -c 'wifi toggle'", true)
+    hs.alert.show(trim(output))
   end
 )
 
