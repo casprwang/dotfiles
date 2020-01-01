@@ -10,7 +10,7 @@ ec () {
     fi
 }
 
-sup () {
+up () {
     (is_wifi)
     local t1=$?
     wifi on
@@ -21,3 +21,16 @@ sup () {
         wifi off
     fi
 }
+
+down () {
+    (is_wifi)
+    local t1=$?
+    wifi on
+    rsync -zavh -e "ssh -yi ~/test3.pem" ubuntu@18.221.114.144:/home/ubuntu/notes ~/tmp/
+    if [ $t1 -eq 0 ]; then
+        wifi on
+    else
+        wifi off
+    fi
+}
+
