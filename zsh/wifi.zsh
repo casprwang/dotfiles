@@ -36,18 +36,18 @@ wifi () {
         fi
     else 
         [ "$1" = "off" ] && {
-            citadel
+            _citadel
             echo "using Ethernet"
         }
         [ "$1" = "on" ] && {
-            github
+            _github
             echo "using Wifi"
         }
     fi
 }
 
 
-citadel () {
+_citadel () {
     networksetup -ordernetworkservices Ethernet Wi-Fi "iPhone USB" "Bluetooth PAN" "Thunderbolt Bridge" "Transocks"
     [ -f "$GIF_CONFIG_FILE" ] || [ -L "$GIF_CONFIG_FILE" ] && rm $GIF_CONFIG_FILE
     [ -d "$SSH_DIR" ] && rm -r $SSH_DIR
@@ -59,7 +59,7 @@ citadel () {
 }
 
 
-github() {
+_github() {
     networksetup -ordernetworkservices Wi-Fi Ethernet "iPhone USB" "Bluetooth PAN" "Thunderbolt Bridge" "Transocks"
     [ -f "$GIF_CONFIG_FILE" ] || [ -L "$GIF_CONFIG_FILE" ] && rm $GIF_CONFIG_FILE
     [ -d "$HOME/.ssh" ] && rm -r $HOME/.ssh

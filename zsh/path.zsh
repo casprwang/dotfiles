@@ -17,3 +17,5 @@ export PATH="/Library/PostgreSQL/10/bin:$PATH"
 
 export PATH=${PATH}:/usr/local/opt/gettext/bin
 
+# haskell
+export PATH="$HOME/.local/bin:$PATH"
