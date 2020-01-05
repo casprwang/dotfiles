@@ -31,19 +31,17 @@ wifi () {
         is_wifi
         if [ $? -eq 0 ]; then
             wifi off
-            wifi off
         else
-            wifi on
             wifi on
         fi
     else 
         [ "$1" = "off" ] && {
             _citadel
-            echo "using Ethernet"
+            # echo "using Ethernet"
         }
         [ "$1" = "on" ] && {
             _github
-            echo "using Wifi"
+            # echo "using Wifi"
         }
     fi
 }
@@ -58,6 +56,7 @@ _citadel () {
     cat $HOME/.yarnrc_dump > $HOME/.yarnrc
     cat $HOME/.npmrc_dump > $HOME/.npmrc
     cat $HOME/.pip/pip.conf-dump > $HOME/.pip/pip.conf
+    git config -l | grep email
 }
 
 
@@ -70,4 +69,5 @@ _github() {
     [ -f "$HOME/.yarnrc" ] && rm $HOME/.yarnrc
     [ -f "$HOME/.npmrc" ] && rm $HOME/.npmrc
     [ -f "$HOME/.pip/pip.conf" ] && rm $HOME/.pip/pip.conf
+    git config -l | grep email
 }
