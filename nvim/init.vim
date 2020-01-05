@@ -151,11 +151,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
-Plug 'scrooloose/nerdtree' "{{{
-let g:NERDTreeWinPos = "right"
-nnoremap <silent> <leader>o :NERDTreeToggle<CR>
-let NERDTreeIgnore=['node_modules']
-"}}}
 Plug 'dense-analysis/ale' "{{{
 let g:ale_linter_aliases = {
                         \ 'jsx': ['css', 'javascript']}
@@ -199,7 +194,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
 Plug 'ruanyl/vim-sort-imports' "{{{
 let g:import_sort_auto = 0
 "}}}
-nmap ge :CocCommand explorer<CR>
+nnoremap <silent> <leader>o :CocCommand explorer<CR>
 " if hidden is not set, TextEdit might fail.
 set hidden
 
