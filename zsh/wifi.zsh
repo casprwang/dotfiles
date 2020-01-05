@@ -31,7 +31,9 @@ wifi () {
         is_wifi
         if [ $? -eq 0 ]; then
             wifi off
+            wifi off
         else
+            wifi on
             wifi on
         fi
     else 

@@ -141,7 +141,11 @@ let g:user_emme_settings = {
 "}}}
 Plug 'benmills/vimux'
 Plug 'arcticicestudio/nord-vim'
-Plug 'mattn/webapi-vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'mattn/webapi-vim' "{{{
+map ; <Plug>(clever-f-repeat-forward)
+map , <Plug>(clever-f-repeat-back)
+"}}}
 Plug 'christoomey/vim-run-interactive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'tpope/vim-dispatch'
@@ -318,7 +322,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nmap <leader>f :Format<cr>
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
 
 
 " Use `:Format` to format current buffer
