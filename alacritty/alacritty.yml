@@ -20,11 +20,12 @@ tabspaces: 8
 
 font:
   normal:
-    family: Source Code Pro
+    # family: Source Code Pro
+    family: SauceCodePro Nerd Font
   bold:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font
   italic:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font
   size: 15.0
   offset:
     x: 0

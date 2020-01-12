@@ -147,10 +147,16 @@ map ; <Plug>(clever-f-repeat-forward)
 map , <Plug>(clever-f-repeat-back)
 "}}}
 Plug 'christoomey/vim-run-interactive'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "{{{
+function! g:Open_browser(url)
+    silent exe 'silent !open -a "Google Chrome" ' . a:url
+endfunction
+let g:mkdp_browserfunc = 'g:Open_browser'
+"}}}
 Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
+Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale' "{{{
 let g:ale_linter_aliases = {
                         \ 'jsx': ['css', 'javascript']}
@@ -191,10 +197,11 @@ nmap ga <Plug>(GitGutterStageHunk)
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
+Plug 'vimlab/split-term.vim'
 Plug 'ruanyl/vim-sort-imports' "{{{
 let g:import_sort_auto = 0
 "}}}
-nnoremap <silent> <leader>o :CocCommand explorer<CR>
+nnoremap <silent> go :CocCommand explorer<CR>
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -212,7 +219,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-prettier', 
   \ 'coc-json', 
@@ -340,7 +346,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
-nnoremap go :Gbrowse<cr>
 nnoremap gc :Gcommit<cr>
 nnoremap gw :Gw<cr>
 "}}}
