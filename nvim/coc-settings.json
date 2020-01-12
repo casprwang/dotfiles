@@ -1,0 +1,48 @@
+{
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.timeout": 500,
+  "suggest.floatEnable": true,
+  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToBufferVar": true,
+  "diagnostic-languageserver.filetypes": {
+    "markdown": []
+  },
+  "languageserver": {
+    "haskell": {
+      "command": "hie-wrapper",
+      "rootPatterns": ["stack.yaml", "cabal.config", "package.yaml"],
+      "filetypes": ["hs", "lhs", "haskell"],
+      "initializationOptions": {
+        "languageServerHaskell": {
+          "hlintOn": true
+        }
+      }
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql",
+    "css",
+    "less",
+    "markdown"
+  ],
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["typescript"],
+    "typescript": ["javascript"]
+  },
+  "go.enable": true,
+  "go.goplsOptions": {
+    "completeUnimported": true
+  },
+  "explorer.position": "right",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.openAction.changeDirectory": true,
+  "explorer.keyMappings": {
+  }
+}
