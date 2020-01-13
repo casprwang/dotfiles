@@ -22,6 +22,7 @@ alias s="gs"
 alias gs="git status"
 alias ga="git add ."
 alias gito="git open"
+alias g=fda
 alias ignore="nvim .gitignore"
 alias gm="git commit -m"
 alias xcode="open -a Xcode"
