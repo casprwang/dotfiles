@@ -20,6 +20,7 @@ source ~/zsh/function.zsh
 source ~/zsh/github.zsh
 source ~/zsh/wifi.zsh
 source ~/zsh/aws.zsh
+source ~/zsh/zle.zsh
 source ~/secrets.zsh
 
 fpath+=~/.zfunc

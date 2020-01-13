@@ -198,6 +198,15 @@ nmap ga <Plug>(GitGutterStageHunk)
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
 Plug 'vimlab/split-term.vim'
+Plug 'kassio/neoterm' "{{{
+let g:neoterm_shell = "zsh"
+let g:neoterm_default_mod = 'rightbelow'
+let g:neoterm_autoinsert=1
+noremap <c-y>p :Ttoggle<CR>
+tnoremap <c-y>p <C-\><C-n> :Ttoggle<CR>
+tnoremap <C-\><C-n> <esc>
+" tnoremap <Esc> <C-\><C-n>
+"}}}
 Plug 'ruanyl/vim-sort-imports' "{{{
 let g:import_sort_auto = 0
 "}}}

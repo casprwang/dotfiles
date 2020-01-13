@@ -228,7 +228,7 @@ key_bindings:
   - { key: Back,                    chars: "\x7f"                        }
   - { key: Back,    mods: Command,  chars: "\x15"                        }
   - { key: NumpadEnter,             chars: "\n"                          }
-  # - { key: J,   mods: Command, chars: "\x13\x7a"                    }
+  - { key: J,   mods: Command, chars: "\x19p"                    }
   - { key: Return,   mods: Control, chars: "\x17\x0d"                    }
   - { key: E,        mods: Command, chars: "\x13o"                       }
   - { key: D,        mods: Command, chars: "\x13\x76"                       }
