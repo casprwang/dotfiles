@@ -359,13 +359,6 @@ nnoremap gc :Gcommit<cr>
 nnoremap gw :Gw<cr>
 "}}}
 Plug 'tpope/vim-rhubarb'
-"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } "{{{
-"let g:Lf_ShortcutF = '<leader>4'
-"let g:Lf_WindowPosition = 'popup'
-"let g:Lf_PreviewInPopup = 1
-"let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
-"let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
-""}}}
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
@@ -379,8 +372,7 @@ set wildmenu
 map <leader>b :Buffers<cr>
 
 let g:fzf_action = {
-                        \ 'ctrl-t': 'tab split',
-                        \ 'enter': 'tab drop',
+                        \ 'ctrl-t': 'tab drop',
                         \}
 
 nnoremap <silent> <c-w>t :call fzf#run({
