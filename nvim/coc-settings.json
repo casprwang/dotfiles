@@ -43,6 +43,8 @@
   "explorer.position": "right",
   "explorer.icon.enableNerdfont": true,
   "explorer.openAction.changeDirectory": true,
-  "explorer.keyMappings": {
-  }
+  "explorer.keyMappings": {},
+  "eslint.filetypes": ["vue"],
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true
 }

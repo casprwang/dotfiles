@@ -228,16 +228,19 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-vetur',
   \ 'coc-tsserver',
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-git', 
+  \ 'coc-diagnostic', 
   \ 'coc-rls', 
   \ 'coc-yaml', 
   \ 'coc-python', 
   \ 'coc-highlight', 
   \ 'coc-yank', 
   \ 'coc-flow', 
+  \ 'coc-eslint', 
   \ 'coc-markdownlint', 
   \ 'coc-css', 
   \ 'coc-html', 
@@ -487,13 +490,6 @@ let g:vim_json_syntax_conceal = 0
 
 
 let g:mta_use_matchparen_group = 1
-let g:tern#filetypes = [
-                        \ 'jsx',
-                        \ 'js',
-                        \ 'javascript.jsx',
-                        \ 'vue',
-                        \ '...'
-                        \ ]
 " }}}
 " {{{ Contextual commenting for commentary.vim in jsx files.
 function! s:SetCommentString()
@@ -544,8 +540,8 @@ au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype js setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
-au Filetype vue.html.javascript.css set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
+au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 " autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeImport')
 "}}}
 "{{{ colorscheme
