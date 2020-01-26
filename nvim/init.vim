@@ -542,6 +542,7 @@ au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+au Filetype vue set ts=2 sts=2 sw=2
 " autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeImport')
 "}}}
 "{{{ colorscheme
