@@ -63,6 +63,20 @@ nnoremap <c-w>n <c-w>\|
 nnoremap 0 ^
 nmap Y y$
 
+" tab
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>n :tabnext<cr>
+noremap <leader>p :tabprevious<cr>
+
+" quick save
 nnoremap <silent> <leader>j :w<cr>
 inoremap {<cr> {<cr>}<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
