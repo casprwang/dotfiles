@@ -232,7 +232,6 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier', 
   \ 'coc-json', 
-  \ 'coc-lua', 
   \ 'coc-git', 
   \ 'coc-diagnostic', 
   \ 'coc-rls', 
