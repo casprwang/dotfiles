@@ -33,12 +33,8 @@ font:
   glyph_offset:
     x: 0
     y: 0
-  # Thin stroke font rendering (macOS only)
-  # macOS >= 10.14.x:
-  # This is a global setting and will require a log out or restart to take
   use_thin_strokes: true
 
-# If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night Bright)
