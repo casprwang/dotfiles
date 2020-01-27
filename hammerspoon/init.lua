@@ -1,5 +1,3 @@
--- require("reload-config")
-
 hs.window.animationDuration = 0 -- shorten animations
 hs.alert.defaultStyle.radius = 2
 hs.alert.defaultStyle.textSize = 55
@@ -116,52 +114,20 @@ hs.hotkey.bind(
 )
 hs.alert.show("Config loaded")
 
-hs.hotkey.bind(
-  KEYS.ALT,
-  "j",
-  function()
-    local win = hs.window.focusedWindow()
-    local y = win:frame().y
-    local x = win:frame().x
-    if win then
-      win:setTopLeft(hs.geometry.point(x, y))
-      win:setSize(win:size():scale({1, 1.33}))
-    end
-  end
-)
 
-hs.hotkey.bind(
-  KEYS.ALT,
-  "k",
-  function()
-    local win = hs.window.focusedWindow()
-    local y = win:frame().y
-    local x = win:frame().x
-    if win then
-      win:setTopLeft(hs.geometry.point(x, y))
-      win:setSize(win:size():scale({1, 0.75}))
-    end
-  end
-)
 
 local resizeMappings = {
   h = {x = 0, y = 0, w = 0.5, h = 1},
   u = {x = 0, y = 0, w = 0.5, h = 0.5},
   o = {x = 0.5, y = 0, w = 0.5, h = 0.5},
-  -- b={x=0, y=0.5, w=0.5, h=0.5},
-  m = {x = 0.5, y = 0.5, w = 0.5, h = 0.5},
-  -- k={x=0, y=0, w=1, h=0.5},
-  -- K={x=0, y=0, w=1, h=0.5},
+  m = {x = 0.15, y = 0.15, w = 0.7, h = 0.7},
+  k = {x = 0, y = 0, w = 1, h = 0.5},
+  j = {x = 0, y = 0.5, w = 1, h = 0.5},
   l = {x = 0.5, y = 0, w = 0.5, h = 1},
   n = {x = 0, y = 0, w = 1, h = 1},
-  -- u={x=0, y=0, w=0.33, h=1},
   i = {x = 0.2, y = 0, w = 0.6, h = 1}
-  -- o={x=0.33, y=0, w=0.67, h=0.5},
 }
 
--- hs.hotkey.bind({"cmd"}, "h", function()
---   hs.eventtap.keyStroke({''}, "delete")
--- end)
 
 for key in pairs(resizeMappings) do
   hs.hotkey.bind(
@@ -180,7 +146,7 @@ editting = {}
 
 editting.cW =
   hs.hotkey.bind(
-  KEYS.C,
+  {"ctrl"},
   "w",
   function()
     hs.eventtap.keyStroke({"alt"}, "delete")
@@ -189,7 +155,7 @@ editting.cW =
 
 editting.cM =
   hs.hotkey.bind(
-  KEYS.C,
+  {"ctrl"},
   "m",
   function()
     hs.eventtap.keyStroke({""}, "return")
@@ -198,7 +164,7 @@ editting.cM =
 
 editting.cE =
   hs.hotkey.bind(
-  KEYS.C,
+  {"ctrl"},
   "e",
   function()
     hs.eventtap.keyStroke({"cmd"}, "right")
