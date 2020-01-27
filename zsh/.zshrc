@@ -1,3 +1,5 @@
+setopt auto_cd
+
 source ~/zsh/alias.zsh
 source ~/zsh/keymap.zsh
 source ~/zsh/function.zsh
