@@ -1,13 +1,5 @@
-export TERM=screen-256color
-export VSCODE_TSJS=1
-
-setopt appendhistory     #Append history to the history file (no overwriting)
-setopt sharehistory      #Share history across terminals
-setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
-setopt hist_ignore_dups
-
 source ~/zsh/alias.zsh
-source ~/zsh/basic.zsh
+source ~/zsh/keymap.zsh
 source ~/zsh/function.zsh
 source ~/zsh/github.zsh
 source ~/zsh/wifi.zsh
