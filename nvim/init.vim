@@ -557,7 +557,6 @@ au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
 au filetype crontab setlocal nobackup nowritebackup
-" au FileType vim setlocal foldmethod=marker
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
@@ -567,10 +566,8 @@ au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype markdown setlocal ts=2 sts=2 sw=2
-au Filetype markdown setlocal foldcolumn=0
 au Filetype markdown setlocal norelativenumber
 au Filetype markdown setlocal nu
-au Filetype markdown setlocal foldcolumn=3
 au Filetype markdown setlocal foldcolumn=0
 au FileType typescript setlocal ts=2 sts=2 sw=2
 au FileType typescriptreact setlocal ts=2 sts=2 sw=2
@@ -582,7 +579,6 @@ au Filetype lua set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
-" autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeImport')
 "}}}
 "{{{ colorscheme
 set background=dark
