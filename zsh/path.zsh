@@ -2,6 +2,7 @@ PATH=$PATH:/usr/local/bin
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"

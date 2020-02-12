@@ -11,7 +11,9 @@ fi
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+if [[ -f "/usr/local/opt/fzf/shell/key-bindings.zsh" ]]; then
+    source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+fi
 
 # switch session
 fs() {
