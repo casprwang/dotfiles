@@ -7,7 +7,7 @@ export TERM=screen-256color
 export VSCODE_TSJS=1
 # Neovim
 export EDITOR=nvim
-export NVM_LAZY_LOAD=true
+# export NVM_LAZY_LOAD=true
 
 # History
 export HISTSIZE=1000000000
@@ -33,12 +33,42 @@ source ~/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+
+zplugin light romkatv/zsh-defer
+
+zsh-defer load_nvm
+zsh-defer load_pyenv
+
 zinit light rupa/z
-zinit ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
-zinit ice silent wait'!0' atload'load_pyenv;'
+# Load the pure theme, with zsh-async library that's bundled with it.
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
+
+# Binary release in archive, from GitHub-releases page.
+# After automatic unpacking it provides program "fzf".
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
+
+
+# One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
+# This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
+# single version, for OS X, Linux and Windows – so ice-mod `bpick' is used to
+# select Linux package – in this case this is actually not needed, Zinit will
+# grep operating system name and architecture automatically when there's no `bpick'.
+zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
+zinit load docker/compose
+
+
+# zinit ice silent wait'!0' atload'load_nvm;'
+
 zinit ice as"program" pick"bin/git-dsf"
+
+zinit ice wait"2" lucid as"program" pick"bin/git-dsf"
+
 zinit light zdharma/zsh-diff-so-fancy
 zinit light zdharma/fast-syntax-highlighting
-zinit light lukechilds/zsh-nvm
 zinit light zsh-users/zsh-autosuggestions
+# zinit light lukechilds/zsh-nvm
+zinit light lukechilds/zsh-better-npm-completion
+zinit light neovim/neovim
 zinit load psprint/zsnapshot

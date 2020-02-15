@@ -28,6 +28,11 @@ load_pyenv(){
         eval "$(pyenv virtualenv-init -)"
 }
 
+load_nvm() {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+}
+
 load_tspkg(){
         eval $(cd && .tspkg/bin/tsp --env)
 }
