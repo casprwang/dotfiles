@@ -37,7 +37,7 @@ autoload -Uz _zinit
 zplugin light romkatv/zsh-defer
 
 zsh-defer load_nvm
-zsh-defer load_pyenv
+# zsh-defer load_pyenv
 
 zinit light rupa/z
 # Load the pure theme, with zsh-async library that's bundled with it.
