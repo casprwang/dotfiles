@@ -13,7 +13,7 @@ source_zsh() {
 
 
 ts_mount() {
-        sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/scratch /mnt/truenas/scratch
+        sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/scratch /Users/songwang/mnt/truenas/scratch
         sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/datasets /mnt/truenas/datasets
         sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/rsync /mnt/truenas/rsync
         sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/upload /mnt/truenas/upload

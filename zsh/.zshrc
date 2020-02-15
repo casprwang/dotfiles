@@ -5,7 +5,6 @@ source ~/zsh/path.zsh
 
 export TERM=screen-256color
 export VSCODE_TSJS=1
-
 # Neovim
 export EDITOR=nvim
 export NVM_LAZY_LOAD=true
@@ -30,17 +29,16 @@ source ~/secrets.zsh
 source ~/zsh/fzf.zsh
 
 # Zplugin
-source ~/.zplugin/bin/zplugin.zsh
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-# End of Zplugin's installer chunk
+source ~/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-zplugin light rupa/z
-zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
-zplugin ice silent wait'!0' atload'load_pyenv;'
-zplugin ice as"program" pick"bin/git-dsf"
-zplugin light zdharma/zsh-diff-so-fancy
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light lukechilds/zsh-nvm
-zplugin light zsh-users/zsh-autosuggestions
-zplugin load psprint/zsnapshot
+zinit light rupa/z
+zinit ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
+zinit ice silent wait'!0' atload'load_pyenv;'
+zinit ice as"program" pick"bin/git-dsf"
+zinit light zdharma/zsh-diff-so-fancy
+zinit light zdharma/fast-syntax-highlighting
+zinit light lukechilds/zsh-nvm
+zinit light zsh-users/zsh-autosuggestions
+zinit load psprint/zsnapshot
