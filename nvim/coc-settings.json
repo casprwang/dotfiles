@@ -20,10 +20,10 @@
     }
   },
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
+    // "javascript",
+    // "json",
     "typescript",
     "typescriptreact",
-    "json",
     "javascriptreact",
     "typescript.tsx",
     "graphql",
@@ -46,5 +46,5 @@
   "explorer.keyMappings": {},
   "eslint.filetypes": ["vue"],
   "eslint.enable": true,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": false
 }
