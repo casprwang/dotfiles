@@ -7,7 +7,6 @@ export TERM=screen-256color
 export VSCODE_TSJS=1
 # Neovim
 export EDITOR=nvim
-# export NVM_LAZY_LOAD=true
 
 # History
 export HISTSIZE=1000000000
@@ -33,12 +32,6 @@ source ~/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-
-zplugin light romkatv/zsh-defer
-
-zsh-defer load_nvm
-# zsh-defer load_pyenv
-
 zinit light rupa/z
 # Load the pure theme, with zsh-async library that's bundled with it.
 zinit ice pick"async.zsh" src"pure.zsh"
@@ -59,7 +52,6 @@ zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zinit load docker/compose
 
 
-# zinit ice silent wait'!0' atload'load_nvm;'
 
 zinit ice as"program" pick"bin/git-dsf"
 
@@ -68,7 +60,6 @@ zinit ice wait"2" lucid as"program" pick"bin/git-dsf"
 zinit light zdharma/zsh-diff-so-fancy
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
-# zinit light lukechilds/zsh-nvm
 zinit light lukechilds/zsh-better-npm-completion
 zinit light neovim/neovim
 zinit load psprint/zsnapshot
