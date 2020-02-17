@@ -1,3 +1,6 @@
+# use zsh by default
+alias -g 'serveralias=serveralias -t zsh'
+
 setopt auto_cd
 
 # Path
