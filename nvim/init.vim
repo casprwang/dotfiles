@@ -76,6 +76,8 @@ noremap <leader>9 9gt
 noremap <leader>n :tabnext<cr>
 noremap <leader>p :tabprevious<cr>
 
+nnoremap gq <c-w>q
+
 " quick save
 nnoremap <silent> <leader>j :w<cr>
 inoremap {<cr> {<cr>}<c-o>O
