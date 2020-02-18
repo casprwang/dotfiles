@@ -16,8 +16,8 @@
 " let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
-set number
-set relativenumber
+" set number
+" set relativenumber
 set signcolumn=yes
 set nowrap
 set splitright
