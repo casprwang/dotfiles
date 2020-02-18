@@ -1,6 +1,8 @@
 # Setup fzf
 export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l ""'
 
+# Source fzf keybindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # ---------
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
   export PATH="$PATH:/usr/local/opt/fzf/bin"
