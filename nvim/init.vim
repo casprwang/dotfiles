@@ -78,6 +78,7 @@ noremap <leader>p :tabprevious<cr>
 
 nnoremap gq <c-w>q
 
+nnoremap " <c-^>
 " quick save
 nnoremap <silent> <leader>j :w<cr>
 inoremap {<cr> {<cr>}<c-o>O
