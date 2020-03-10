@@ -231,7 +231,7 @@ function applicationWatcher(appName, eventType, appObject)
     for i, v in pairs(editting) do
       v:enable()
     end
-    if (string.find(appName, "iTerm") or (string.find(appName, "VIM")) or (string.find(appName, "Alacritty")) or (string.find(appName, "Chromium"))) then
+    if (string.find(appName, "iTerm") or (string.find(appName, "VIM")) or (string.find(appName, "Alacritty"))) then
       for i, v in pairs(editting) do
         v:disable()
       end
