@@ -2,8 +2,7 @@
 alias gp="git push origin"
 alias git=hub
 alias f="find . -name"
-alias ip3="python3 -m IPython"
-alias ip2="python -m IPython"
+alias ip="python -m IPython"
 alias cdv="cd ~/dev"
 alias cdi="cd /Users/song/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias gd="git diff"
@@ -40,3 +39,5 @@ alias n="vim /Users/songwang/Library/Mobile\ Documents/com~apple~CloudDocs/tmp"
 alias ta="tmux a"
 alias air='~/.air'
 alias pcp='pbpaste'
+# alias python="python3"
+# alias pip="pip3"

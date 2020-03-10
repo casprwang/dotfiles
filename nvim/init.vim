@@ -12,8 +12,8 @@
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
 " virtual env https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-" let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
-" let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
 " set number
@@ -175,16 +175,16 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale' "{{{
-let g:ale_linter_aliases = {
-                        \ 'jsx': ['css', 'javascript']}
-let g:ale_linters = {
-                        \ 'jsx': ['stylelint', 'eslint'],
-                        \ 'python': ['autopep8'],
-                        \ 'javascript': ['eslint']}
-let g:ale_fixers = {
-                        \ 'jsx': ['eslint'],
-                        \ 'python': ['autopep8'],
-                        \ 'javascript': ['eslint']}
+" let g:ale_linter_aliases = {
+"                         \ 'jsx': ['css', 'javascript']}
+" let g:ale_linters = {
+"                         \ 'jsx': ['stylelint', 'eslint'],
+"                         \ 'python': ['autopep8'],
+"                         \ 'javascript': ['eslint']}
+" let g:ale_fixers = {
+"                         \ 'jsx': ['eslint'],
+"                         \ 'python': ['autopep8'],
+"                         \ 'javascript': ['eslint']}
 let g:ale_sign_column_always = 1
 let g:ale_set_signs = 0
 "}}}

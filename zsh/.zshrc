@@ -61,5 +61,6 @@ zinit light zdharma/zsh-diff-so-fancy
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light lukechilds/zsh-better-npm-completion
+zplugin ice silent wait'!0' atload'load_pyenv;'
 zinit light neovim/neovim
 zinit load psprint/zsnapshot
