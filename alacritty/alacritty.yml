@@ -241,8 +241,10 @@ key_bindings:
   - { key: N, mods: Command, chars: "\x13\x43" }
   - { key: T, mods: Command, chars: "\x13\x63" }
     # <c-y>] for closing tab in vim
-  - { key: W, mods: Command, chars: "\x19\x5d" }
+  # - { key: W, mods: Command, chars: "\x19\x5d" }
+  - { key: W,        mods: Command, chars: "\x13\x26"                       }
     # <c-y>? for search file in history
+
   - { key: Y, mods: Command, chars: "\x19\x5c" }
   - { key: I, mods: Command, chars: "\x13\x6e" }
   - { key: Tab, mods: Control, chars: "\x13\x6e" }
