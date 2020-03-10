@@ -46,5 +46,8 @@
   "explorer.keyMappings": {},
   "eslint.filetypes": ["vue"],
   "eslint.enable": true,
-  "eslint.autoFixOnSave": false
+  "eslint.autoFixOnSave": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "autopep8"
 }
