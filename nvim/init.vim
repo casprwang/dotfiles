@@ -259,7 +259,6 @@ let g:coc_global_extensions = [
   \ 'coc-yank', 
   \ 'coc-flow', 
   \ 'coc-eslint', 
-  \ 'coc-markdownlint', 
   \ 'coc-css', 
   \ 'coc-html', 
   \ 'coc-java', 
@@ -583,6 +582,8 @@ au Filetype lua set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 "}}}
 "{{{ colorscheme
 set background=dark

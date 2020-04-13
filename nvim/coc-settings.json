@@ -4,9 +4,7 @@
   "suggest.floatEnable": true,
   "git.addGBlameToVirtualText": false,
   "git.addGBlameToBufferVar": true,
-  "diagnostic-languageserver.filetypes": {
-    "markdown": []
-  },
+  "diagnostic-languageserver.filetypes": {},
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",
@@ -28,8 +26,9 @@
     "typescript.tsx",
     "graphql",
     "css",
-    "less",
-    "markdown"
+    "python",
+    "less"
+    // "markdown"
   ],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
@@ -42,12 +41,18 @@
   },
   "explorer.position": "right",
   "explorer.icon.enableNerdfont": true,
-  "explorer.openAction.changeDirectory": true,
-  "explorer.keyMappings": {},
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expandOrCollapse", "open"]
+  },
   "eslint.filetypes": ["vue"],
   "eslint.enable": true,
   "eslint.autoFixOnSave": false,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.formatting.provider": "autopep8"
+  "python.linting.flake8Args": ["--ignore=F401,E501,W391", "--max-line-length=88"],
+  "python.jediEnabled": false,
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": ["--max-line-length=88", "--aggressive"]
+  // "python.linting.enabled": false,
+  // "python.analysis.diagnosticEnabled": false
 }
