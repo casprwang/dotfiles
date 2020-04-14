@@ -52,6 +52,7 @@ set updatetime=100
 " {{{ mapping
 let mapleader="\<Space>"
 vmap y y`]
+inoremap <c-r> <BS>
 inoremap <c-a> <esc>I
 inoremap <c-b> <esc>Bi
 inoremap <c-q> <esc>S
@@ -124,9 +125,7 @@ nmap cg/ <Plug>ChangeCommentary
 Plug 'szw/vim-maximizer' "{{{
 let g:maximizer_set_default_mapping = 0
 "}}}
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-"typescript
+" typescript
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_disable_when_zoomed = 1
 let g:tmux_navigator_no_mappings = 1
@@ -350,7 +349,7 @@ endfunction
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-nmap <leader>f :Format<cr>
+nnoremap <leader>f :Format<cr>
 " Remap keys for gotos
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
 
@@ -576,14 +575,15 @@ au FileType typescript setlocal ts=2 sts=2 sw=2
 au FileType typescriptreact setlocal ts=2 sts=2 sw=2
 au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype zsh setlocal ts=4 sts=4 sw=4
-au Filetype js setlocal ts=2 sts=2 sw=2
+au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+au Filetype javascript nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
-autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+au FileType python let b:coc_root_patterns = ['.git', '.env']
+au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 "}}}
 "{{{ colorscheme
 set background=dark

@@ -5,6 +5,8 @@
   "git.addGBlameToVirtualText": false,
   "git.addGBlameToBufferVar": true,
   "diagnostic-languageserver.filetypes": {},
+  "tsserver.npm": "/usr/local/opt/node@10/bin/npm",
+  "tsserver.log": "verbose",
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",
@@ -17,9 +19,10 @@
       }
     }
   },
+  "prettier.disableLanguages": ["javascript"],
   "coc.preferences.formatOnSaveFiletypes": [
-    // "javascript",
-    // "json",
+    "javascript",
+    "json",
     "typescript",
     "typescriptreact",
     "javascriptreact",
@@ -44,15 +47,16 @@
   "explorer.keyMappings": {
     "<cr>": ["expandable?", "expandOrCollapse", "open"]
   },
-  "eslint.filetypes": ["vue"],
+  "eslint.filetypes": ["vue", "javascript", "typescript"],
   "eslint.enable": true,
-  "eslint.autoFixOnSave": false,
+  "eslint.autoFixOnSave": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--ignore=F401,E501,W391", "--max-line-length=88"],
+  "python.linting.flake8Args": [
+    "--ignore=F401,E501,W391",
+    "--max-line-length=88"
+  ],
   "python.jediEnabled": false,
   "python.formatting.provider": "autopep8",
   "python.formatting.autopep8Args": ["--max-line-length=88", "--aggressive"]
-  // "python.linting.enabled": false,
-  // "python.analysis.diagnosticEnabled": false
 }

@@ -153,6 +153,8 @@ editting.cW =
   end
 )
 
+
+
 editting.cM =
   hs.hotkey.bind(
   {"ctrl"},
@@ -171,6 +173,14 @@ editting.cE =
   end
 )
 
+editting.cR =
+  hs.hotkey.bind(
+  {"ctrl"},
+  "r",
+  function()
+    hs.eventtap.keyStroke({}, "delete")
+  end
+)
 
 editting.cB =
   hs.hotkey.bind(
@@ -223,6 +233,24 @@ hs.hotkey.bind(
     hs.eventtap.keyStroke({"shift"}, "right")
   end
 )
+
+hs.hotkey.bind(
+  {"ctrl"},
+  "i",
+  function()
+    hs.eventtap.keyStroke({}, "delete")
+  end
+)
+
+
+hs.hotkey.bind(
+  {"ctrl"},
+  "q",
+  function()
+    hs.eventtap.keyStroke({}, "delete")
+  end
+)
+
 
 
 -- disable alt-v for Adobe's built-in shortcut
