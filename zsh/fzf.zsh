@@ -1,5 +1,5 @@
 # Setup fzf
-export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!.git/*'
 
 # Source fzf keybindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
