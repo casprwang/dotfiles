@@ -1,7 +1,9 @@
 local enableEdittingKeys, disableEdittingKeys = require('editting')
 
+
 -- disable alt-v for Adobe's built-in shortcut
 local function applicationWatcher(appName, eventType, appObject)
+    -- hs.alert.show(appName)
     if (eventType == hs.application.watcher.activated) then
         enableEdittingKeys()
         if (string.find(appName, "iTerm") or (string.find(appName, "VIM")) or
@@ -17,3 +19,5 @@ end
 local appWatcher = hs.application.watcher.new(applicationWatcher)
 
 appWatcher:start()
+
+return applicationWatcher
