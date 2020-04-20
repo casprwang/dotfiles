@@ -1,15 +1,15 @@
-local editting, enableEdittingKeys, disableEdittingKeys = require('editting')
+local editting= require('editting')
 
 -- disable alt-v for Adobe's built-in shortcut
 local function applicationWatcher(appName, eventType, appObject)
   if (eventType == hs.application.watcher.activated) then
-    for i, v in pairs(editting) do v:enable() end
+    editting.enableEdittingKeys()
     if (string.find(appName, "iTerm") or (string.find(appName, "VIM")) or
       (string.find(appName, "Alacritty"))) then
-      for i, v in pairs(editting) do v:disable() end
+      editting.disableEdittingKeys()
     elseif not (string.find(appName, "iTerm") or
       (string.find(appName, "VIM")) or (string.find(appName, "Alacritty"))) then
-      for i, v in pairs(editting) do v:enable() end
+      editting.enableEdittingKeys()
     end
   end
 end
