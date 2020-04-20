@@ -16,7 +16,7 @@ editting.cE = hs.hotkey.new(Keys.C, "e", function()
 end)
 
 editting.cR = hs.hotkey.new(Keys.C, "r",
-                             function() hs.eventtap.keyStroke({}, "delete") end)
+                            function() hs.eventtap.keyStroke({}, "delete") end)
 
 editting.cB = hs.hotkey.new(Keys.C, "b", function()
     hs.eventtap.keyStroke({"alt"}, "left")
@@ -26,12 +26,11 @@ editting.cF = hs.hotkey.new(Keys.C, "f", function()
     hs.eventtap.keyStroke({"alt"}, "right")
 end)
 
-local function enableEdittingKeys()
-  for _, v in pairs(editting) do v:enable() end
-end
-
+local function enableEdittingKeys() for _, v in pairs(editting) do v:enable() end end
 
 local function disableEdittingKeys()
-  for _, v in pairs(editting) do v:disable() end
+    for _, v in pairs(editting) do v:disable() end
 end
+
+return editting, enableEdittingKeys, disableEdittingKeys
 
