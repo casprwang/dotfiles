@@ -3,26 +3,26 @@ local Keys = require('constants')
 local Module = {}
 local keyMap = {}
 
-keyMap.cW = hs.hotkey.new(Keys.C, "w", function()
+keyMap.cW = hs.hotkey.bind(Keys.C, "w", function()
     hs.eventtap.keyStroke({"alt"}, "delete")
 end)
 
-keyMap.cM = hs.hotkey.new(Keys.C, "m", function()
+keyMap.cM = hs.hotkey.bind(Keys.C, "m", function()
     hs.eventtap.keyStroke({""}, "return")
 end)
 
-keyMap.cE = hs.hotkey.new(Keys.C, "e", function()
+keyMap.cE = hs.hotkey.bind(Keys.C, "e", function()
     hs.eventtap.keyStroke({"cmd"}, "right")
 end)
 
-keyMap.cR = hs.hotkey.new(Keys.C, "r",
+keyMap.cR = hs.hotkey.bind(Keys.C, "r",
                             function() hs.eventtap.keyStroke({}, "delete") end)
 
-keyMap.cB = hs.hotkey.new(Keys.C, "b", function()
+keyMap.cB = hs.hotkey.bind(Keys.C, "b", function()
     hs.eventtap.keyStroke({"alt"}, "left")
 end)
 
-keyMap.cF = hs.hotkey.new(Keys.C, "f", function()
+keyMap.cF = hs.hotkey.bind(Keys.C, "f", function()
     hs.eventtap.keyStroke({"alt"}, "right")
 end)
 

@@ -13,6 +13,5 @@ local function applicationWatcher(appName, eventType, appObject)
 end
 
 
-editting.enableEdittingKeys()
 local appWatcher = hs.application.watcher.new(applicationWatcher)
-appWatcher:start()
+return appWatcher

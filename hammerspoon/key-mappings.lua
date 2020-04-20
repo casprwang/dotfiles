@@ -1,12 +1,12 @@
 local Keys = require('constants')
-local trim = require('utils')
+local utils = require('utils')
 
 -- For testing
 hs.hotkey.bind(
   Keys.CC,
   "e",
   function()
-    hs.alert.show(trim("etst"))
+    hs.alert.show(utils.trim("etst"))
   end
 )
 
