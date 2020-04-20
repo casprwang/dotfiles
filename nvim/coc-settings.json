@@ -1,4 +1,11 @@
 {
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "git.changedSign.text": "┃",
+  "git.addedSign.text": "┃",
+  "git.changeRemovedSign.text": "┃",
+  // "git.removedSign.text": "▸",
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
   "suggest.floatEnable": true,
@@ -21,7 +28,7 @@
   },
   "prettier.disableLanguages": ["javascript"],
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
+    // "javascript",
     "json",
     "typescript",
     "typescriptreact",
