@@ -155,6 +155,8 @@ let g:user_emme_settings = {
                         \  },
                         \}
 "}}}
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
 Plug 'benmills/vimux'
 Plug 'arcticicestudio/nord-vim'
 Plug 'rhysd/clever-f.vim'
@@ -173,22 +175,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
 Plug 'jiangmiao/auto-pairs'
-Plug 'dense-analysis/ale' "{{{
-" let g:ale_linter_aliases = {
-"                         \ 'jsx': ['css', 'javascript']}
-" let g:ale_linters = {
-"                         \ 'jsx': ['stylelint', 'eslint'],
-"                         \ 'python': ['autopep8'],
-"                         \ 'javascript': ['eslint']}
-" let g:ale_fixers = {
-"                         \ 'jsx': ['eslint'],
-"                         \ 'python': ['autopep8'],
-"                         \ 'javascript': ['eslint']}
-let g:ale_sign_column_always = 1
-let g:ale_set_signs = 0
-"}}}
-" Plug 'kana/vim-smartinput'
-" Plug 'Chiel92/vim-autoformat'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
@@ -203,13 +189,13 @@ let g:clap_provider_grep_blink = [0, 0]
 " nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
 " nnoremap <c-y>\ :Clap! history<cr>
 "}}}
-Plug 'airblade/vim-gitgutter' "{{{{
-let g:gitgutter_preview_win_floating = 1
-" Visual mode
-xmap ga <Plug>(GitGutterStageHunk)
-" Normal mode
-nmap ga <Plug>(GitGutterStageHunk)
-"}}}}
+"Plug 'airblade/vim-gitgutter' "{{{{
+"let g:gitgutter_preview_win_floating = 1
+"" Visual mode
+"xmap ga <Plug>(GitGutterStageHunk)
+"" Normal mode
+"nmap ga <Plug>(GitGutterStageHunk)
+""}}}}
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
@@ -262,6 +248,7 @@ let g:coc_global_extensions = [
   \ 'coc-html', 
   \ 'coc-java', 
   \ 'coc-go', 
+  \ 'coc-lua', 
   \ ]
 
 
@@ -589,3 +576,8 @@ au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set background=dark
 colorscheme nord
 "}}}
+
+
+hi CocUnderline gui=underline term=undercurl
+hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
+hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
