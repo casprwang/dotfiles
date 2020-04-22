@@ -158,7 +158,7 @@ let g:user_emme_settings = {
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'benmills/vimux'
-Plug 'arcticicestudio/nord-vim'
+Plug 'wangsongiam/nord-vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'mattn/webapi-vim' "{{{
 map ; <Plug>(clever-f-repeat-forward)

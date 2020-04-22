@@ -26,7 +26,7 @@ function drawWindowCount(win)
   local textStyle = {
     font = {
       name = hs.styledtext.defaultFonts.boldSystem,
-      size = 72,
+      size = 82,
     },
     color = {white = 1, alpha = 1},
   }

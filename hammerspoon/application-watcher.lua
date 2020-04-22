@@ -13,5 +13,10 @@ local function applicationWatcher(appName, eventType, appObject)
 end
 
 
-local appWatcher = hs.application.watcher.new(applicationWatcher)
-return appWatcher
+
+local function init()
+  local appWatcher = hs.application.watcher.new(applicationWatcher)
+  appWatcher:start()
+end
+
+init()

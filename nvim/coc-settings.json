@@ -5,7 +5,6 @@
   "git.changedSign.text": "┃",
   "git.addedSign.text": "┃",
   "git.changeRemovedSign.text": "┃",
-  // "git.removedSign.text": "▸",
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
   "suggest.floatEnable": true,
