@@ -109,6 +109,8 @@ end
 
 
 function watchWindow(win, initializing)
+  if win == nil then return end
+  if win.application == nil then return end
   local appWindows = watchers[win:application():pid()].windows
   if win:isStandard() and not appWindows[win:id()] then
     local watcher = win:newWatcher(handleWindowEvent, {pid=win:pid(), id=win:id()})
@@ -118,7 +120,7 @@ function watchWindow(win, initializing)
 
     if not initializing then
       -- window created
-      drawWindowCount(win)
+      -- drawWindowCount(win)
       -- hs.alert.show('window created: '..win:id()..' with title: '..win:title())
       -- hs.alert.show(tablelength(watchers[win:application():pid()].windows), .3)
     end
@@ -127,7 +129,7 @@ end
 
 function handleWindowEvent(win, event, watcher, info)
   if event == events.elementDestroyed then
-    drawWindowCount(win)
+    -- drawWindowCount(win)
     watcher:stop()
     watchers[info.pid].windows[info.id] = nil
   else
@@ -136,4 +138,4 @@ function handleWindowEvent(win, event, watcher, info)
   -- hs.alert.show('window event '..event..' on '..info.id)
 end
 
-init()
+-- init()
