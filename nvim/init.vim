@@ -65,19 +65,12 @@ nnoremap 0 ^
 nmap Y y$
 
 " tab
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
 noremap <leader>n :tabnext<cr>
 noremap <leader>p :tabprevious<cr>
 
 nnoremap gq <c-w>q
+nnoremap q <c-w>q
+nnoremap Q :tabnew#<cr>
 
 nnoremap " <c-^>
 " quick save
@@ -90,7 +83,7 @@ nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
-nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
+" nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 nnoremap <c-y>] <c-w>q
 
 " navigation
@@ -164,7 +157,6 @@ Plug 'mattn/webapi-vim' "{{{
 map ; <Plug>(clever-f-repeat-forward)
 map , <Plug>(clever-f-repeat-back)
 "}}}
-Plug 'christoomey/vim-run-interactive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "{{{
 function! g:Open_browser(url)
     silent exe 'silent !open -a "Google Chrome" ' . a:url
@@ -173,13 +165,13 @@ let g:mkdp_browserfunc = 'g:Open_browser'
 "}}}
 Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
-Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
+" Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
 Plug 'jiangmiao/auto-pairs'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'othree/csscomplete.vim'
+" Plug 'othree/csscomplete.vim'
 Plug 'liuchengxu/vim-clap' "{{{
 let g:clap_popup_input_delay = 0
 let g:clap_provider_grep_delay = 0
@@ -190,20 +182,6 @@ let g:clap_provider_grep_blink = [0, 0]
 "}}}
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
-Plug 'vimlab/split-term.vim'
-Plug 'kassio/neoterm' "{{{
-let g:neoterm_shell = "zsh"
-let g:neoterm_default_mod = 'rightbelow'
-let g:neoterm_autoinsert=1
-noremap <c-y>p :Ttoggle<CR>
-tnoremap <c-y>p <C-\><C-n> :Ttoggle<CR>
-tnoremap <C-\><C-n> <esc>
-" tnoremap <Esc> <C-\><C-n>
-"}}}
-Plug 'ruanyl/vim-sort-imports' "{{{
-let g:import_sort_auto = 0
-"}}}
-nnoremap <silent> go :CocCommand explorer<CR>
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -243,6 +221,7 @@ let g:coc_global_extensions = [
   \ ]
 
 
+nnoremap <silent> go :CocCommand explorer<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " snippets
@@ -355,10 +334,8 @@ nnoremap gb :Gblame<cr>
 nnoremap gc :Gcommit<cr>
 nnoremap gw :Gw<cr>
 "}}}
-Plug 'tpope/vim-rhubarb'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
 set noswapfile
