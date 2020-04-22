@@ -64,10 +64,6 @@ nnoremap <c-w>n <c-w>\|
 nnoremap 0 ^
 nmap Y y$
 
-" tab
-noremap <leader>n :tabnext<cr>
-noremap <leader>p :tabprevious<cr>
-
 nnoremap gq <c-w>q
 nnoremap q <c-w>q
 nnoremap Q :tabnew#<cr>
@@ -83,7 +79,6 @@ nmap <c-w>s :split<cr><c-_>
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
-" nnoremap <leader>. :source ~/.config/nvim/init.vim<CR>:noh<cr>
 nnoremap <c-y>] <c-w>q
 
 " navigation
@@ -140,14 +135,6 @@ let g:go_metalinter_autosave = 0
 let g:go_fmt_fail_silently = 1
 "}}}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'mattn/emmet-vim' " {{{
-imap <c-g> <esc><c-y>,i
-let g:user_emme_settings = {
-                        \  'javascript.jsx' : {
-                        \      'extends' : 'jsx',
-                        \  },
-                        \}
-"}}}
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'benmills/vimux'
@@ -218,26 +205,36 @@ let g:coc_global_extensions = [
   \ 'coc-java', 
   \ 'coc-go', 
   \ 'coc-lua', 
+  \ 'coc-elixir', 
+  \ 'coc-emmet', 
+  \ 'coc-sourcekit', 
+  \ 'coc-solargraph', 
+  \ 'coc-tabnine', 
+  \ 'coc-svg', 
+  \ 'coc-vimlsp', 
+  \ 'coc-clangd', 
   \ ]
 
 
 nnoremap <silent> go :CocCommand explorer<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" snippets
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+imap <tab> <Plug>(coc-snippets-expand)
+let g:coc_snippet_next = '<TAB>'
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#rpc#request('doKeymap', 'snippets-expand')
+
+
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
-
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
@@ -304,8 +301,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap <leader>f :Format<cr>
 " Remap keys for gotos
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
