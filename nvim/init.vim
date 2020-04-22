@@ -34,7 +34,7 @@ set guioptions-=e
 set sessionoptions+=tabpages,globals
 set hlsearch
 set autoindent
-" set smartindent
+set smartindent
 set expandtab
 set incsearch
 set ignorecase
@@ -180,7 +180,6 @@ nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/csscomplete.vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vim-clap' "{{{
 let g:clap_popup_input_delay = 0
 let g:clap_provider_grep_delay = 0
@@ -189,14 +188,6 @@ let g:clap_provider_grep_blink = [0, 0]
 " nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
 " nnoremap <c-y>\ :Clap! history<cr>
 "}}}
-"Plug 'airblade/vim-gitgutter' "{{{{
-"let g:gitgutter_preview_win_floating = 1
-"" Visual mode
-"xmap ga <Plug>(GitGutterStageHunk)
-"" Normal mode
-"nmap ga <Plug>(GitGutterStageHunk)
-""}}}}
-
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
 Plug 'vimlab/split-term.vim'
@@ -566,6 +557,7 @@ au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
+au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype javascript nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
