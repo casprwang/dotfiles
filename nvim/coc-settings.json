@@ -41,6 +41,7 @@
   ],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
+    "vue": ["javascript"],
     "typescriptreact": ["typescript"],
     "typescript": ["javascript"]
   },
@@ -64,5 +65,5 @@
   ],
   "python.jediEnabled": false,
   "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": ["--max-line-length=88", "--aggressive"]
+  "python.formatting.autopep8Args": []
 }

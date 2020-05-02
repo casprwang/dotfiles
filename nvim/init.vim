@@ -216,9 +216,11 @@ let g:coc_global_extensions = [
   \ ]
 
 
+" coc-explorer
 nnoremap <silent> go :CocCommand explorer<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" coc-snippet
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
@@ -254,8 +256,10 @@ function! StatusDiagnostic() abort
   return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
 endfunction
 
+" coc-git
+nmap ga :CocCommand git.chunkStage<cr>
 
-" lightline
+
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')
   " return blame
@@ -335,7 +339,7 @@ nnoremap gc :Gcommit<cr>
 nnoremap gw :Gw<cr>
 "}}}
 Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
 set noswapfile
@@ -430,6 +434,13 @@ function! s:fzf_statusline()
         highlight fzf3 ctermfg=237 ctermbg=251
         setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
+
+command! -bang -nargs=* RgFiles
+  \ call fzf#vim#grep(
+  \   'rg --files --hidden --no-ignore --follow --ignore-case'.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
