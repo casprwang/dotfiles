@@ -122,7 +122,7 @@ function watchWindow(win, initializing)
       -- window created
       -- drawWindowCount(win)
       -- hs.alert.show('window created: '..win:id()..' with title: '..win:title())
-      -- hs.alert.show(tablelength(watchers[win:application():pid()].windows), .3)
+      hs.alert.show(tablelength(watchers[win:application():pid()].windows), .3)
     end
   end
 end
@@ -138,4 +138,4 @@ function handleWindowEvent(win, event, watcher, info)
   -- hs.alert.show('window event '..event..' on '..info.id)
 end
 
--- init()
+init()
