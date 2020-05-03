@@ -335,7 +335,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
-nnoremap gb :Gpush<cr>
+nnoremap gp :Gpush<cr>
 nnoremap gc :Gcommit<cr>
 nnoremap gw :Gw<cr>
 "}}}
