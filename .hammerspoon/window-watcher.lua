@@ -100,10 +100,8 @@ function handleAppEvent(element, event)
   elseif event == events.mainWindowChanged then
     if element:isWindow() then
       -- hs.alert.show(tablelength(watchers[element:application():pid()].windows))
+      -- print(watchers[element:application():pid()])
     end
-    -- print(element:id())
-    -- print(utils.print_table(watchers[1318]))
-    -- Handle window change
   end
 end
 
@@ -119,8 +117,7 @@ function watchWindow(win, initializing)
     watcher:start({events.elementDestroyed, events.windowResized, events.windowMoved})
 
     if not initializing then
-      -- window created
-      -- drawWindowCount(win)
+      -- window create
       -- hs.alert.show('window created: '..win:id()..' with title: '..win:title())
       hs.alert.show(tablelength(watchers[win:application():pid()].windows), .3)
     end
@@ -129,13 +126,14 @@ end
 
 function handleWindowEvent(win, event, watcher, info)
   if event == events.elementDestroyed then
-    -- drawWindowCount(win)
+    -- window close
+    hs.alert.show(tablelength(watchers[win:application():pid()].windows) - 1)
     watcher:stop()
     watchers[info.pid].windows[info.id] = nil
+    -- hs.alert.show(tablelength(watchers[element:application():pid()].windows))
   else
     -- Handle other events...
   end
-  -- hs.alert.show('window event '..event..' on '..info.id)
 end
 
 init()
