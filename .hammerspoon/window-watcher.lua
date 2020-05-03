@@ -17,24 +17,20 @@ function init()
 end
 
 
-function windowCnt(win)
-  return tablelength(watchers[win:application():pid()].windows)
-end
-
-function drawWindowCount(win)
+function drawNumber(n, win)
   local t = { window = win }
   local textStyle = {
     font = {
       name = hs.styledtext.defaultFonts.boldSystem,
-      size = 82,
+      size = 72,
     },
     color = {white = 1, alpha = 1},
   }
   local rect = hs.geometry.rect(
-    100,
-    100,
-    100,
-    100
+    90,
+    90,
+    90,
+    90
   )
   t.box = hs.drawing.rectangle(rect)
   t.box:setLevel("overlay")
@@ -44,13 +40,17 @@ function drawWindowCount(win)
   t.box:setRoundedRectRadii(8, 8)
   t.box:setRoundedRectRadii(8, 8)
   local textRect = hs.geometry.rect(100, 100, 100, 100)
-  local styledText = hs.styledtext.new(windowCnt(win), textStyle)
+  local styledText = hs.styledtext.new(n, textStyle)
   t.text = hs.drawing.text(textRect, styledText)
   t.text:setLevel("overlay")
   t.box:show()
   t.text:show()
   t.box:hide(1.5)
   t.text:hide(1.5)
+end
+
+function windowCnt(win)
+  return tablelength(watchers[win:application():pid()].windows)
 end
 
 function handleGlobalAppEvent(name, event, app)
@@ -84,9 +84,6 @@ function watchApp(app, initializing)
 end
 
 
-function getWindowCount(appId)
-end
-
 function tablelength(T)
   local count = 0
   for _ in pairs(T) do count = count + 1 end
@@ -119,7 +116,8 @@ function watchWindow(win, initializing)
     if not initializing then
       -- window create
       -- hs.alert.show('window created: '..win:id()..' with title: '..win:title())
-      hs.alert.show(tablelength(watchers[win:application():pid()].windows), .3)
+      local n = tablelength(watchers[win:application():pid()].windows)
+      drawNumber(n, win)
     end
   end
 end
@@ -127,7 +125,9 @@ end
 function handleWindowEvent(win, event, watcher, info)
   if event == events.elementDestroyed then
     -- window close
-    hs.alert.show(tablelength(watchers[win:application():pid()].windows) - 1)
+    local n = tablelength(watchers[win:application():pid()].windows) - 1
+    drawNumber(n, win)
+
     watcher:stop()
     watchers[info.pid].windows[info.id] = nil
     -- hs.alert.show(tablelength(watchers[element:application():pid()].windows))
