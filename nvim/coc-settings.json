@@ -12,6 +12,7 @@
   "git.addGBlameToBufferVar": true,
   "diagnostic-languageserver.filetypes": {},
   "tsserver.npm": "/usr/local/opt/node@10/bin/npm",
+  "python.pythonPath": "/Users/songwang/.pyenv/shims/python",
   "tsserver.log": "verbose",
   "languageserver": {
     "haskell": {
@@ -35,6 +36,7 @@
     "typescript.tsx",
     "graphql",
     "css",
+    "scss",
     "python",
     "less"
     // "markdown"
@@ -54,8 +56,8 @@
   "explorer.keyMappings": {
     "<cr>": ["expandable?", "expandOrCollapse", "open"]
   },
-  "eslint.filetypes": ["vue", "javascript", "typescript"],
   "eslint.enable": true,
+  "eslint.filetypes": ["vue", "javascript", "typescript"],
   "eslint.autoFixOnSave": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,

@@ -98,6 +98,7 @@ let g:ackprg = 'ag --vimgrep'
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-commentary' "{{{
 " Visual mode
 xmap g/ <Plug>Commentary
@@ -552,6 +553,12 @@ au Filetype javascript nnoremap <buffer> <leader>f :CocCommand eslint.executeAut
 au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+augroup htmlCommentOverride
+  autocmd!
+  " Override PHP Comments
+  autocmd FileType html setlocal commentstring=<!--\ %s\ -->
+  autocmd FileType vue setlocal commentstring=<!--\ %s\ -->
+augroup END
 "}}}
 "{{{ colorscheme
 set background=dark
