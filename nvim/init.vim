@@ -277,10 +277,13 @@ let g:lightline = {
   \   ],
   \   'right':[
   \     ['lineinfo' ],
+  \     [ 'percent' ],
   \     [ 'blame' ],
   \   ],
   \ },
   \ 'inactive': {
+  \   'right': [
+  \   ],
   \   'left': [
   \   ],
   \ },
@@ -336,7 +339,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
-nnoremap gp :Gpush<cr>
+" nnoremap gp :Gpush<cr>
 nnoremap gc :Gcommit<cr>
 nnoremap gw :Gw<cr>
 "}}}
@@ -451,6 +454,13 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+command! -bang -nargs=* Rgw
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -g "!*graphql.tsx" '.shellescape(expand('<cword>')), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 au! User FzfStatusLine call <SID>fzf_statusline()
 nnoremap <silent> <leader>e :Rg<cr>
 nnoremap <silent> <c-_> :FZF<cr>
@@ -496,8 +506,6 @@ set statusline+=%=
 set statusline+=\ %l\:%c\ \ \ \
 " set statusline+=%{join(GitGutterGetHunkSummary())}
 let g:vim_json_syntax_conceal = 0
-
-
 let g:mta_use_matchparen_group = 1
 " }}}
 " {{{ Contextual commenting for commentary.vim in jsx files.
@@ -550,6 +558,7 @@ au Filetype go set listchars=tab:\ \
 au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype javascript nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+au Filetype typescript nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
