@@ -572,9 +572,10 @@ augroup END
 "{{{ colorscheme
 set background=dark
 colorscheme nord
-"}}}
-
 
 hi CocUnderline gui=underline term=undercurl
 hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
 hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
+"}}}
+
+
