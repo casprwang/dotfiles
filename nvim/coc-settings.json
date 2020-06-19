@@ -51,7 +51,8 @@
   "go.goplsOptions": {
     "completeUnimported": true
   },
-  "explorer.position": "right",
+  "explorer.position": "floating",
+  "explorer.floating.position": "center",
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappings": {
     "<cr>": ["expandable?", "expandOrCollapse", "open"]
@@ -62,7 +63,7 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": [
-    "--ignore=F401,E501,W391",
+    "--ignore=F401,E501,W391,E402",
     "--max-line-length=88"
   ],
   "python.jediEnabled": false,
