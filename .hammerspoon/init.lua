@@ -58,10 +58,11 @@ hs.hotkey.bind(
   {"cmd", "ctrl"},
   "e",
   function()
-    local output = hs.execute("/usr/local/bin/zsh -i -c 'check_network'", true)
-    hs.alert.show(trim(output))
+    hs.alert.show("connecting airpods")
+    hs.execute("/bin/zsh -i -c 'blue_on'", true)
   end
 )
+
 
 
 --Predicate that checks if a window belongs to a screen

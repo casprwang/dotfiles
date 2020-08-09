@@ -21,7 +21,8 @@ source ~/zsh/alias.zsh
 source ~/zsh/keymap.zsh
 source ~/zsh/function.zsh
 source ~/zsh/github.zsh
-source ~/zsh/wifi.zsh
+# source ~/zsh/wifi.zsh
+source ~/zsh/blue.zsh
 source ~/zsh/aws.zsh
 source ~/zsh/vi-mode.zsh
 source ~/secrets.zsh
