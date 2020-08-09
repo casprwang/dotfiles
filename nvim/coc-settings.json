@@ -2,6 +2,7 @@
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "coc.preferences.jumpCommand": "drop",
   "git.changedSign.text": "┃",
   "git.addedSign.text": "┃",
   "git.changeRemovedSign.text": "┃",
@@ -52,7 +53,8 @@
     "completeUnimported": true
   },
   "explorer.position": "floating",
-  "explorer.floating.position": "center",
+  "explorer.floating.position": "left-center",
+  "explorer.floating.width": 50,
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappings": {
     "<cr>": ["expandable?", "expandOrCollapse", "open"]

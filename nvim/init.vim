@@ -17,7 +17,7 @@ let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
 " set number
-" set relativenumber
+set number relativenumber
 set signcolumn=yes
 set nowrap
 set splitright
@@ -316,7 +316,7 @@ endfunction
 
 nnoremap <leader>f :Format<cr>
 " Remap keys for gotos
-nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
+nmap <silent> gd :call CocAction('jumpDefinition', 'drop')<cr>
 
 
 " Use `:Format` to format current buffer
@@ -336,6 +336,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 "}}}
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap gi :Gstatus<cr>
 nnoremap gb :Gblame<cr>
