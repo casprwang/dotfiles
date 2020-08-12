@@ -345,7 +345,7 @@ nnoremap gc :Gcommit<cr>
 nnoremap gw :Gw<cr>
 "}}}
 Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
 set noswapfile
@@ -450,20 +450,30 @@ command! -bang -nargs=* RgFiles
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -g "!*graphql.tsx" '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case --'.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
 command! -bang -nargs=* Rgw
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -g "!*graphql.tsx" '.shellescape(expand('<cword>')), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case'.shellescape(expand('<cword>')), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
 au! User FzfStatusLine call <SID>fzf_statusline()
-nnoremap <silent> <leader>e :Rg<cr>
+nnoremap <silent> <leader>e :RG<cr>
 nnoremap <silent> <c-_> :FZF<cr>
 " history
 nnoremap <c-y>\ :History<cr>
