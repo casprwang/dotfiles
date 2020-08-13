@@ -11,6 +11,15 @@ source_zsh() {
 }
 
 
+tmp_file() {
+    if [ -z "$1" ]
+    then
+        vim ~/tmp/rand-files/$(openssl rand -base64 12)
+    else
+        vim ~/tmp/rand-files/$(openssl rand -base64 12)."$1"
+    fi
+}
+
 
 ts_mount() {
         sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/scratch /Users/songwang/mnt/truenas/scratch
