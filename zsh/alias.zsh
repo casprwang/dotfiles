@@ -37,8 +37,14 @@ alias vim="nvim"
 alias v="vim"
 alias t="vim /Users/songwang/Library/Mobile\ Documents/com~apple~CloudDocs/TODO.md"
 alias n="vim /Users/songwang/Library/Mobile\ Documents/com~apple~CloudDocs/tmp"
-alias ta="tmux a"
+alias ta="tmux a -d"
 alias air='~/.air'
 alias pcp='pbpaste'
 # alias python="python3"
 # alias pip="pip3"
+
+# Rust tools
+# alias ps="procs"
+# alias du="dust"
+alias ls="exa"
+alias cat="bat"
