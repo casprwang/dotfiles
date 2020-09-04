@@ -154,7 +154,7 @@ let g:mkdp_browserfunc = 'g:Open_browser'
 Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
 " Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
@@ -170,6 +170,7 @@ let g:clap_provider_grep_blink = [0, 0]
 "}}}
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
+Plug 'neoclide/jsonc.vim'
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -214,12 +215,15 @@ let g:coc_global_extensions = [
   \ 'coc-svg', 
   \ 'coc-vimlsp', 
   \ 'coc-clangd', 
+  \ 'coc-pairs', 
   \ ]
 
 
 " coc-explorer
 nnoremap <silent> go :CocCommand explorer<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Eslint :CocCommand eslint.executeAutofix
+
 
 " coc-snippet
 let g:coc_snippet_next = '<tab>'
@@ -549,6 +553,7 @@ au filetype crontab setlocal nobackup nowritebackup
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
+au Filetype cpp set ts=4 sts=4 sw=4
 au BufWritePost *.scala silent :EnTypeCheck
 au Filetype json setlocal ts=2 sts=2 sw=2
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
@@ -589,4 +594,4 @@ hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
 hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
 "}}}
 
-
+nnoremap <leader>. :source $MYVIMRC<cr>
