@@ -47,4 +47,4 @@ alias pcp='pbpaste'
 # alias ps="procs"
 # alias du="dust"
 alias ls="exa"
-alias cat="bat"
+# alias cat="bat"
