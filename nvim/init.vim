@@ -65,8 +65,6 @@ nnoremap 0 ^
 nmap Y y$
 
 nnoremap gq <c-w>q
-nnoremap q <c-w>q
-nnoremap Q :tabnew#<cr>
 
 nnoremap " <c-^>
 " quick save
@@ -549,7 +547,7 @@ augroup END
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
-au filetype crontab setlocal nobackup nowritebackup
+au Filetype crontab setlocal nobackup nowritebackup
 au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
@@ -573,8 +571,8 @@ au Filetype lua set ts=2 sts=2 sw=2
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-au Filetype javascript nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-au Filetype typescript nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+au Filetype javascript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+au Filetype typescript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
@@ -592,6 +590,8 @@ colorscheme nord
 hi CocUnderline gui=underline term=undercurl
 hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
 hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
+au CursorHold * silent call CocActionAsync('highlight')
+set termguicolors
 "}}}
 
 nnoremap <leader>. :source $MYVIMRC<cr>

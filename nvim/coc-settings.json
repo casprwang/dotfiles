@@ -27,13 +27,13 @@
       }
     }
   },
-  /* "prettier.disableLanguages": ["javascript"], */
+  "prettier.disableLanguages": ["javascript"],
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "json",
     "cpp",
     "html",
-    // "typescript",
+    "typescript",
     "typescriptreact",
     "javascriptreact",
     "typescript.tsx",
@@ -58,12 +58,13 @@
   "explorer.floating.position": "left-center",
   "explorer.floating.width": 50,
   "explorer.icon.enableNerdfont": true,
+  "coc.preferences.colorSupport": true,
   "explorer.keyMappings": {
     "<cr>": ["expandable?", "expandOrCollapse", "open"]
   },
   "eslint.enable": true,
-  /* "eslint.quiet": true, */
-  "eslint.filetypes": ["vue", "javascript", "typescript"],
+  "eslint.quiet": true,
+  "eslint.filetypes": ["vue", "javascript"],
   "eslint.autoFixOnSave": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
