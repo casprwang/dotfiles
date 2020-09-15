@@ -1,0 +1,59 @@
+" basic
+set nosmoothscroll
+set noautofocus
+let scrollstep = 60
+set typelinkhints
+let hintcharacters = "sadfjklewcmpgh"
+
+
+" alias
+command t tabnew
+command b buffer
+command w open$
+command g tabnew google
+
+
+map h gT
+map l gt
+map q closeTab
+map o :o<Space>
+map t :t<Space>
+map T :b<Space>
+map O :w<Space>
+let searchengine dogpile = "http://www.dogpile.com/search/web?q=%s" " If you leave out the '%s' at the end of the URL,
+                                                                    " your query will be appended to the link.
+                                                                    " Otherwise, your query will replace the '%s'.
+
+" search engine
+let searchengine g = ["https://www.google.com", "https://www.google.com/search?q=%s"]
+let searchengine gmap = "https://www.google.com/maps/search/%s?hl=en&source=opensearch"
+let searchengine you = ["https://www.youtube.com", "https://www.youtube.com/results?search_query=%s&page={startPage?}&utm_source=opensearch"]
+let searchengine wiki = "https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s"
+let searchengine gmap = "https://www.google.com/maps/search/%s?hl=en&source=opensearch"
+let searchengine twitter = "https://twitter.com/search?q=%s"
+let searchengine stackoverflow = "https://stackoverflow.com/search?q=%s"
+let searchengine github = "https://github.com/search?q=%s&ref=opensearch"
+let searchengine taobao = "https://s.taobao.com/search?q=%s&type=p&tmhkh5=&spm=a21wu.241046-cn.a2227oh.d100&from=sea_1_searchbutton&catId=100"
+let searchengine baidu = "https://www.baidu.com/s?wd=%s"
+let searchengine urban = "https://www.urbandictionary.com/define.php?term=%s"
+let searchengine zhihu = "https://www.zhihu.com/search?type=content&q=%s"
+let searchengine images = "https://www.google.com/search?q=%s&tbm=isch"
+
+
+command o open
+let completionengines = ['google', 'wikipedia', "amazon", 'google-image', 'youtube'] " Show only these engines in the command bar
+let searchalias am = "amazon"
+let searchalias tw = "twitter"
+let searchalias gm = "gmap"
+let searchalias ur = "urban"
+let searchalias im = "images"
+let searchalias wi = "wiki"
+let searchalias bd = "baidu"
+let searchalias tb = "taobao"
+let searchalias wi = "wiki"
+let searchalias so = "stackoverflow"
+
+" Open all of these in a tab with `gnb` or open one of these with <N>goa where <N>
+let qmark a = ["http://www.reddit.com", "http://www.google.com", "http://twitter.com"]
+let blacklists = ["https://mail.google.com/*","*://mail.google.com/*","@https://mail.google.com/mail/*"]
+" blacklists prefixed by '@' act as a whitelist
