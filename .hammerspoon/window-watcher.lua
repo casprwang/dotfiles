@@ -108,7 +108,7 @@ function watchWindow(win, initializing)
   if win.application == nil then return end
   local appWindows = watchers[win:application():pid()].windows
   if win:isStandard() and not appWindows[win:id()] then
-    local watcher = win:newWatcher(handleWindowEvent, {pid=win:pid(), id=win:id()})
+    local watcher = win:newWatcher(handleWindowEvent, {pid=win:pid(), id=win:id(), app=win.application})
     appWindows[win:id()] = watcher
 
     watcher:start({events.elementDestroyed, events.windowResized, events.windowMoved})
@@ -125,7 +125,8 @@ end
 function handleWindowEvent(win, event, watcher, info)
   if event == events.elementDestroyed then
     -- window close
-    local n = tablelength(watchers[win:application():pid()].windows) - 1
+    --
+    local n = tablelength(watchers[info.pid].windows) - 1
     drawNumber(n, win)
 
     watcher:stop()
