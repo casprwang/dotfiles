@@ -66,6 +66,7 @@ nmap Y y$
 
 nnoremap gq <c-w>q
 
+nnoremap <leader>, :e $MYVIMRC<cr>
 nnoremap " <c-^>
 " quick save
 nnoremap <silent> <leader>j :w<cr>
