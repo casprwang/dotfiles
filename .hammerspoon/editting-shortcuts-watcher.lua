@@ -1,6 +1,6 @@
 local KEYS = require('constants').KEYS
 
-edittingWatcher = {}
+local M = {}
 local editting = {} -- lua array list
 
 editting.cW = hs.hotkey.bind(KEYS.C, "w", function()
@@ -46,23 +46,17 @@ end)
 -- disable alt-v for Adobe's built-in shortcut
 local function applicationWatcher(appName, eventType)
     if (eventType == hs.application.watcher.activated) then
-        if (appName == Obsidian) then
-            print('enable obsidian')
-            obsidian:enable()
-        end
-        for i, v in pairs(editting) do v:enable() end
+        if (appName == "Obsidian") then obsidian:enable() end
+        for _, v in pairs(editting) do v:enable() end
         if (appName == "iTerm") or (appName == "VIM") or
             (appName == "Alacritty") then
-            for i, v in pairs(editting) do v:disable() end
+            for _, v in pairs(editting) do v:disable() end
         elseif not (appName == "iTerm") or (appName == "VIM") or
             (appName == "Alacritty") then
-            for i, v in pairs(editting) do v:enable() end
+            for _, v in pairs(editting) do v:enable() end
         end
     elseif (eventType == hs.application.watcher.deactivated) then
-        if (appName == "Obsidian") then
-            obsidian:disable()
-            print('disable obsidian')
-        end
+        if (appName == "Obsidian") then obsidian:disable() end
     end
 end
 
@@ -71,5 +65,5 @@ local function init()
     watcher:start()
 end
 
-edittingWatcher.init = init
-return edittingWatcher
+M.init = init
+return M

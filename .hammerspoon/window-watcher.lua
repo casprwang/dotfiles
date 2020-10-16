@@ -1,5 +1,5 @@
+local M = {}
 local events = hs.uielement.watcher
-windowWatcher = {}
 
 local watchers = {}
 
@@ -119,5 +119,5 @@ local function init()
     end
 end
 
-windowWatcher.init = init
-return windowWatcher
+M.init = init
+return M
