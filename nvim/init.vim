@@ -99,6 +99,27 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-commentary' "{{{
+Plug 'Xuyuanp/scrollbar.nvim' "{{{
+augroup ScrollbarInit
+  autocmd!
+  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+augroup end
+
+let g:scrollbar_right_offset = 0
+let g:scrollbar_highlight = {
+      \ 'head': 'NonText',
+      \ 'body': 'NonText',
+      \ 'tail': 'NonText',
+      \ }
+
+let g:scrollbar_shape = {
+      \ 'head': '▖',
+      \ 'body': '▌',
+      \ 'tail': '▘',
+      \ }
+"}}}
 " Visual mode
 xmap g/ <Plug>Commentary
 " Normal mode
@@ -158,6 +179,7 @@ Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
 "}}}
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'danro/rename.vim'
 " Plug 'othree/csscomplete.vim'
 Plug 'liuchengxu/vim-clap' "{{{
 let g:clap_popup_input_delay = 0
@@ -167,9 +189,15 @@ let g:clap_provider_grep_blink = [0, 0]
 " nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
 " nnoremap <c-y>\ :Clap! history<cr>
 "}}}
+
+" tsx
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
 Plug 'neoclide/jsonc.vim'
+Plug 'junegunn/goyo.vim'
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -187,6 +215,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-spell-checker',
   \ 'coc-vetur',
   \ 'coc-tsserver',
   \ 'coc-prettier', 
@@ -215,6 +244,8 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp', 
   \ 'coc-clangd', 
   \ 'coc-pairs', 
+  \ 'coc-dictionary', 
+  \ 'coc-word', 
   \ ]
 
 
@@ -561,6 +592,7 @@ au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype markdown setlocal ts=2 sts=2 sw=2
 au Filetype markdown setlocal norelativenumber
 au Filetype markdown setlocal nu
+au Filetype markdown setlocal wrap
 au Filetype markdown setlocal foldcolumn=0
 au FileType typescript setlocal ts=2 sts=2 sw=2
 au FileType typescriptreact setlocal ts=2 sts=2 sw=2
@@ -577,12 +609,13 @@ au Filetype typescript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.e
 au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+au FileType md setlocal wrap
 augroup htmlCommentOverride
   autocmd!
   " Override PHP Comments
   autocmd FileType html setlocal commentstring=<!--\ %s\ -->
   autocmd FileType vue setlocal commentstring=<!--\ %s\ -->
-augroup END
+augroup end
 "}}}
 "{{{ colorscheme
 set background=dark
