@@ -160,7 +160,7 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nv
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'benmills/vimux'
-Plug 'wangsongiam/nord-vim'
+Plug 'casprwang/nord-vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'mattn/webapi-vim' "{{{
 map ; <Plug>(clever-f-repeat-forward)
@@ -186,9 +186,6 @@ Plug 'liuchengxu/vim-clap' "{{{
 let g:clap_popup_input_delay = 0
 let g:clap_provider_grep_delay = 0
 let g:clap_provider_grep_blink = [0, 0]
-" nnoremap <silent> <leader>e :Clap! grep ++finder=rg --column --line-number --no-heading --color=always --smart-case<cr>
-" nnoremap <silent> <c-_> :Clap! files ++finder=rg --no-ignore --hidden --files<cr>
-" nnoremap <c-y>\ :Clap! history<cr>
 "}}}
 
 " tsx
@@ -196,9 +193,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'itchyny/lightline.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "{{{
 Plug 'neoclide/jsonc.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "{{{
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -216,13 +213,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-spell-checker',
   \ 'coc-vetur',
   \ 'coc-tsserver',
   \ 'coc-prettier', 
-  \ 'coc-json', 
   \ 'coc-git', 
-  \ 'coc-diagnostic', 
   \ 'coc-rls', 
   \ 'coc-yaml', 
   \ 'coc-python', 
@@ -240,15 +234,16 @@ let g:coc_global_extensions = [
   \ 'coc-emmet', 
   \ 'coc-sourcekit', 
   \ 'coc-solargraph', 
-  \ 'coc-tabnine', 
   \ 'coc-svg', 
   \ 'coc-vimlsp', 
   \ 'coc-clangd', 
   \ 'coc-pairs', 
+  \ 'coc-json', 
+  \ 'coc-diagnostic', 
+  \ 'coc-tabnine', 
   \ 'coc-dictionary', 
   \ 'coc-word', 
   \ ]
-
 
 " coc-explorer
 nnoremap <silent> go :CocCommand explorer<CR>
@@ -294,7 +289,6 @@ endfunction
 
 " coc-git
 nmap ga :CocCommand git.chunkStage<cr>
-
 
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')
@@ -476,7 +470,6 @@ function! s:fzf_statusline()
         setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 
-
 au! User FzfStatusLine call <SID>fzf_statusline()
 nnoremap <silent> <leader>e :Rg<cr>
 nnoremap <silent> <c-_> :FZF<cr>
@@ -544,9 +537,7 @@ au CursorMoved *.js call s:SetCommentString()
 "}}}
 "{{{ autocmd
 augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
+au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
@@ -571,7 +562,7 @@ au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
-au Filetype lua set ts=2 sts=2 sw=2
+au Filetype lua set ts=4 sts=4 sw=4
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
@@ -581,17 +572,14 @@ au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 au FileType md setlocal wrap
-augroup htmlCommentOverride
-  autocmd!
-  " Override PHP Comments
-  autocmd FileType html setlocal commentstring=<!--\ %s\ -->
-  autocmd FileType vue setlocal commentstring=<!--\ %s\ -->
+" Override PHP Comments
+au FileType html setlocal commentstring=<!--\ %s\ -->
+au FileType vue setlocal commentstring=<!--\ %s\ -->
 augroup end
 "}}}
 "{{{ colorscheme
 set background=dark
 colorscheme nord
-
 hi CocUnderline gui=underline term=undercurl
 hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
 hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl

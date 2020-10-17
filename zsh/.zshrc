@@ -2,6 +2,7 @@ setopt auto_cd
 
 # Path
 source ~/zsh/path.zsh
+export NVIM_COC_LOG_LEVEL=debug && export NVIM_COC_LOG_FILE=/tmp/coc.log
 
 export TERM=screen-256color
 export VSCODE_TSJS=1
