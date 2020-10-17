@@ -196,6 +196,29 @@ Plug 'itchyny/lightline.vim'
 Plug 'neoclide/jsonc.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "{{{
+" smart split definition
+function! SplitIfNotOpen(...)
+    let fname = a:1
+    let call = ''
+    if a:0 == 2
+	let fname = a:2
+	let call = a:1
+    endif
+    let bufnum=bufnr(expand(fname))
+    let winnum=bufwinnr(bufnum)
+    if winnum != -1
+	" Jump to existing split
+	exe winnum . "wincmd w"
+    else
+	" Make new split as usual
+	exe "vsplit " . fname
+    endif
+    " Execute the cursor movement command
+    exe call
+endfunction
+
+command! -nargs=+ CocSplitIfNotOpen :call SplitIfNotOpen(<f-args>)
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -345,8 +368,7 @@ endfunction
 
 nnoremap <leader>f :Format<cr>
 " Remap keys for gotos
-nmap <silent> gd :call CocAction('jumpDefinition', 'drop')<cr>
-
+nnoremap <silent> gd :call CocAction('jumpDefinition')<cr>
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
