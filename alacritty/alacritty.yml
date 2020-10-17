@@ -219,7 +219,6 @@ key_bindings:
   - { key: Minus, mods: Command, chars: "\x13\x48" }
   - { key: Minus, mods: Command|Shift, chars: "\x13\x4b" }
   - { key: Equals, mods: Command|Shift, chars: "\x13\x4a" }
-  # - { key: K,        mods: Command, action: ClearHistory                 }
   - { key: K, mods: Command, chars: "\x13" }
   - { key: Back, chars: "\x7f" }
   - { key: Back, mods: Command, chars: "\x15" }
@@ -232,7 +231,6 @@ key_bindings:
   - { key: D, mods: Command|Shift, chars: "\x13\x6a" }
   - { key: D, mods: Command|Shift, chars: "\x13\x6a" }
   - { key: Backslash, mods: Command, chars: "\x67\x2f\x2f" }
-    # <c-y>_ for tab
   - { key: Key1, mods: Command, chars: "\x13\x31" }
   - { key: Key2, mods: Command, chars: "\x13\x32" }
   - { key: Key3, mods: Command, chars: "\x13\x33" }
@@ -240,26 +238,14 @@ key_bindings:
   - { key: P, mods: Command, chars: "\x1f" }
   - { key: N, mods: Command, chars: "\x13\x43" }
   - { key: T, mods: Command, chars: "\x13\x63" }
-    # <c-y>] for closing tab in vim
-  # - { key: W, mods: Command, chars: "\x19\x5d" }
-  - { key: W,        mods: Command, chars: "\x13\x26"                       }
-    # <c-y>? for search file in history
-
+  - { key: W, mods: Command, chars: "\x13\x26" }
   - { key: Y, mods: Command, chars: "\x19\x5c" }
+  - { key: LBracket, mods: Command, chars: "\x196" }
+  - { key: Tab, mods: Shift, chars: "\x1b[Z" }
   - { key: I, mods: Command, chars: "\x13\x6e" }
   - { key: Tab, mods: Control, chars: "\x13\x6e" }
   - { key: Tab, mods: Control|Shift, chars: "\x13\x70" }
-  # - { key: Tab, mods: Control, chars: "\x19\x5f" }
-  # - { key: Tab, mods: Control|Shift, chars: "\x19\x5e" }
-
   - { key: Tab, mods: Shift, chars: "\x1b[Z" }
-  # - { key: LBracket,        mods: Command|Shift, chars: "\x13\x70"                       }
-  # - { key: RBracket,      mods: Command|Shift,   chars: "\x13\x6e"                      }
-  # - { key: Right,    mods: Command, chars: "\x05"                        }
-  # - { key: W,        mods: Control, chars: "\x17"                        }
-  # - { key: U,        mods: Control, chars: "\x15"                        }
-  # - { key: Right,    mods: Alt,     chars: "\x07"                        }
-  # - { key: Left,     mods: Alt,     chars: "\x02"                        }
   - { key: Left, mods: Shift, chars: "\x1b[1;2D" }
   - { key: Left, mods: Control, chars: "\x1b[1;5D" }
   - { key: Left, mods: Alt, chars: "\x1b[1;3D" }
