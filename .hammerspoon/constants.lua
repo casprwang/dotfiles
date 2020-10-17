@@ -1,11 +1,12 @@
 local M = {}
-M.KEYS = {
-    ALT = {"alt"},
+local KEYS = {
+    A = {"alt"},
     C = {"ctrl"},
     CS = {"ctrl", "shift"},
     CA = {"ctrl", "alt"},
-    CC = {"cmd", 'ctrl'},
-    HYPER = {"cmd", "alt", "shift"}
+    CC = {"cmd", 'ctrl'}
 }
+
+M.KEYS = KEYS
 
 return M

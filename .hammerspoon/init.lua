@@ -10,3 +10,5 @@ require('editting-shortcuts-watcher').init()
 require('window-watcher').init()
 require('window-resizers')
 require('base-keybindings')
+
+hs.alert.show("Config loaded")

@@ -11,7 +11,7 @@ local resizeMappings = {
 }
 
 for key in pairs(resizeMappings) do
-    hs.hotkey.bind(KEYS.ALT, key, function()
+    hs.hotkey.bind(KEYS.A, key, function()
         local win = hs.window.focusedWindow()
         if win then win:moveToUnit(resizeMappings[key]) end
     end, 0)
