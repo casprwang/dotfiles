@@ -7,7 +7,14 @@ utils.trim = function(s)
     return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 
-utils.print_table = function(node)
+utils.isTerm = function(appName)
+    if (appName == "iTerm") or (appName == "VIM") or (appName == "Alacritty") then
+        return true
+    end
+    return false
+end
+
+utils.printTable = function(node)
     local cache, stack, output = {}, {}, {}
     local depth = 1
     local output_str = "{\n"
