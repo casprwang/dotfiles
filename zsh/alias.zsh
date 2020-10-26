@@ -48,3 +48,5 @@ alias pcp='pbpaste'
 # alias du="dust"
 alias ls="exa"
 # alias cat="bat"
+#
+alias rg='rg --hidden'

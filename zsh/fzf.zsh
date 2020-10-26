@@ -1,5 +1,5 @@
 # Setup fzf
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'"
+export FZF_DEFAULT_COMMAND="rg --hidden -g'!.git'"
 export FZF_DEFAULT_OPTS="--height 60%"
 
 # Source fzf keybindings

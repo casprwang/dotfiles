@@ -66,3 +66,5 @@ zinit light lukechilds/zsh-better-npm-completion
 zplugin ice silent wait'!0' atload'load_pyenv;'
 zinit light neovim/neovim
 zinit load psprint/zsnapshot
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

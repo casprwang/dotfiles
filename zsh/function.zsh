@@ -46,10 +46,6 @@ load_tspkg(){
         eval $(cd && .tspkg/bin/tsp --env)
 }
 
-cssh() {
-        sshpass -p 'Hoboken123!@#Roo' ssh swang5@"$1"
-}
-
 
 sshc() {
     echo "test$1"

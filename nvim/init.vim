@@ -100,27 +100,27 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-commentary' "{{{
-Plug 'Xuyuanp/scrollbar.nvim' "{{{
-augroup ScrollbarInit
-  autocmd!
-  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
-augroup end
+"Plug 'Xuyuanp/scrollbar.nvim' "{{{
+"augroup ScrollbarInit
+"  autocmd!
+"  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+"  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+"  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+"augroup end
 
-let g:scrollbar_right_offset = 0
-let g:scrollbar_highlight = {
-      \ 'head': 'NonText',
-      \ 'body': 'NonText',
-      \ 'tail': 'NonText',
-      \ }
+"let g:scrollbar_right_offset = 0
+"let g:scrollbar_highlight = {
+"      \ 'head': 'NonText',
+"      \ 'body': 'NonText',
+"      \ 'tail': 'NonText',
+"      \ }
 
-let g:scrollbar_shape = {
-      \ 'head': '▖',
-      \ 'body': '▌',
-      \ 'tail': '▘',
-      \ }
-"}}}
+"let g:scrollbar_shape = {
+"      \ 'head': '▖',
+"      \ 'body': '▌',
+"      \ 'tail': '▘',
+"      \ }
+""}}}
 " Visual mode
 xmap g/ <Plug>Commentary
 " Normal mode
@@ -193,9 +193,19 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'itchyny/lightline.vim'
-Plug 'neoclide/jsonc.vim'
+Plug 'neoclide/jsonc.vim' "{{{
+" tsconfig.json is actually jsonc, help TypeScript set the correct filetype
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+"}}}
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "{{{
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " smart split definition
 function! SplitIfNotOpen(...)
     let fname = a:1
@@ -218,6 +228,17 @@ function! SplitIfNotOpen(...)
 endfunction
 
 command! -nargs=+ CocSplitIfNotOpen :call SplitIfNotOpen(<f-args>)
+
+" " Symbol renaming.
+" nmap <leader>rn <Plug>(coc-rename)
+"
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -367,8 +388,6 @@ function! s:show_documentation()
 endfunction
 
 nnoremap <leader>f :Format<cr>
-" Remap keys for gotos
-nnoremap <silent> gd :call CocAction('jumpDefinition')<cr>
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -389,7 +408,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 "}}}
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-fugitive' "{{{
-nnoremap gi :Gstatus<cr>
+nnoremap g' :Gstatus<cr>
 nnoremap gb :Gblame<cr>
 " nnoremap gp :Gpush<cr>
 nnoremap gc :Gcommit<cr>
@@ -397,6 +416,7 @@ nnoremap gw :Gw<cr>
 "}}}
 Plug 'tpope/vim-surround'
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fzf{{{
 " ----------------------------------------------------------------------------
 set noswapfile
@@ -493,24 +513,21 @@ function! s:fzf_statusline()
 endfunction
 
 au! User FzfStatusLine call <SID>fzf_statusline()
-nnoremap <silent> <leader>e :Rg<cr>
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --hidden --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let options = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(options), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RF call RipgrepFzf(<q-args>, <bang>0)
+nnoremap <silent> <leader>e :RF<cr>
 nnoremap <silent> <c-_> :FZF<cr>
 " history
 nnoremap <c-y>\ :History<cr>
 " }}}
-Plug 'Valloric/MatchTagAlways' "{{{
-let g:mta_filetypes = {
-                        \ 'javascript.jsx': 1,
-                        \ 'html' : 1,
-                        \ 'xhtml' : 1,
-                        \ 'xml' : 1,
-                        \ 'jinja' : 1,
-                        \ 'vue.html.javascript.css' : 1,
-                        \ '.vue.html.javascript.css' : 1,
-                        \ 'vue' : 1,
-                        \ '.vue' : 1,
-                        \}
-"}}}
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'} "{{{
 let g:gist_post_private = 1
 "}}}
@@ -560,6 +577,7 @@ au CursorMoved *.js call s:SetCommentString()
 "{{{ autocmd
 augroup FiletypeGroup
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 au Filetype html setlocal ts=2 sts=2 sw=2
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
@@ -590,6 +608,8 @@ au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype javascript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype typescript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+au Filetype typescript.tsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+au Filetype javascript.jsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
