@@ -219,7 +219,7 @@ key_bindings:
   - { key: Minus, mods: Command, chars: "\x13\x48" }
   - { key: Minus, mods: Command|Shift, chars: "\x13\x4b" }
   - { key: Equals, mods: Command|Shift, chars: "\x13\x4a" }
-  - { key: K, mods: Command, chars: "\x13" }
+  # - { key: K, mods: Command, chars: "\x13" }
   - { key: Back, chars: "\x7f" }
   - { key: Back, mods: Command, chars: "\x15" }
   - { key: NumpadEnter, chars: "\n" }

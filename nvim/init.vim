@@ -6,8 +6,8 @@
 "                     |___/
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " ****************************************************************************
-" Author: Song Wang
-" Github: https://github.com/wangsongiam/dotfiles
+" Author: Casper Wang
+" Github: https://github.com/casprwang/dotfiles
 " ****************************************************************************
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
@@ -80,11 +80,11 @@ nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
 nnoremap <c-y>] <c-w>q
 
-" navigation
-nmap J 5gj
-nmap K 5gk
-vmap J 5gj
-vmap K 5gk
+" " navigation
+" nmap J 5gj
+" nmap K 5gk
+" vmap J 5gj
+" vmap K 5gk
 
 " Tab
 nnoremap <c-y>_ :tabnext<cr>
@@ -100,27 +100,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-commentary' "{{{
-"Plug 'Xuyuanp/scrollbar.nvim' "{{{
-"augroup ScrollbarInit
-"  autocmd!
-"  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-"  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-"  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
-"augroup end
-
-"let g:scrollbar_right_offset = 0
-"let g:scrollbar_highlight = {
-"      \ 'head': 'NonText',
-"      \ 'body': 'NonText',
-"      \ 'tail': 'NonText',
-"      \ }
-
-"let g:scrollbar_shape = {
-"      \ 'head': '▖',
-"      \ 'body': '▌',
-"      \ 'tail': '▘',
-"      \ }
-""}}}
 " Visual mode
 xmap g/ <Plug>Commentary
 " Normal mode
@@ -525,6 +504,7 @@ endfunction
 command! -nargs=* -bang RF call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <silent> <leader>e :RF<cr>
 nnoremap <silent> <c-_> :FZF<cr>
+nnoremap <silent> <c-w>e :Rg <C-R><C-W><CR>
 " history
 nnoremap <c-y>\ :History<cr>
 " }}}

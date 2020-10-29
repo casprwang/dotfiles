@@ -44,3 +44,12 @@ set shiftwidth=2
 set softtabstop=2
 
 autocmd filetype crontab setlocal nobackup nowritebackup
+
+if has("gui_running")
+  syntax on
+  set hlsearch
+  colorscheme macvim
+  set bs=2
+  set ai
+  set ruler
+endif

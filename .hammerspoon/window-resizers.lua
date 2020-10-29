@@ -2,6 +2,7 @@ local KEYS = require('constants').KEYS
 
 local resizeMappings = {
     h = {x = 0, y = 0, w = 0.5, h = 1},
+    j = {x = 0.25, y = 0.35, w = 0.5, h = 0.65},
     u = {x = 0, y = 0, w = 0.5, h = 0.5},
     o = {x = 0.5, y = 0, w = 0.5, h = 0.5},
     m = {x = 0.5, y = 0.5, w = 0.5, h = 0.5},
