@@ -73,12 +73,11 @@ nnoremap <silent> <leader>j :w<cr>
 inoremap {<cr> {<cr>}<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
 " for shift-enter
-nmap <c-w>v :vsplit<cr><c-_>
-nmap <c-w>s :split<cr><c-_>
+nmap <c-w>v :vsplit<cr><c-_>7
+nmap <c-w>s :split<cr><c-_>7
 nnoremap <c-w>l :vsplit<cr>
 nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
-nnoremap <c-y>] <c-w>q
 
 " " navigation
 " nmap J 5gj
@@ -87,9 +86,7 @@ nnoremap <c-y>] <c-w>q
 " vmap K 5gk
 
 " Tab
-nnoremap <c-y>_ :tabnext<cr>
-nnoremap <c-y>^ :tabprevious<cr>
-nnoremap <c-y>6 :e#<cr>
+nnoremap <c-_>6 :e#<cr>
 
 " silver searcher
 let g:ackprg = 'ag --vimgrep'
