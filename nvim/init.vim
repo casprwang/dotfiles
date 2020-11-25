@@ -16,8 +16,8 @@ let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
 let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
-" set number
-set number relativenumber
+set number
+set relativenumber
 set signcolumn=yes
 set nowrap
 set splitright
@@ -108,9 +108,8 @@ omap g/ <Plug>Commentary
 " Special case cgc (you can skip this one, but then `cgc` will also delete an extra blank line)
 nmap cg/ <Plug>ChangeCommentary
 " }}}
-Plug 'szw/vim-maximizer' "{{{
-let g:maximizer_set_default_mapping = 0
-"}}}
+"Plug 'szw/vim-maximizer' "{{{
+""}}}
 " typescript
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -118,6 +117,8 @@ let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <Down> :TmuxNavigateDown<cr>
 nnoremap <silent> <Up> :TmuxNavigateUp<cr>
+nnoremap <C-W>M <C-W>\| <C-W>_
+nnoremap <C-W>m <C-W>=
 nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
 " }}}
@@ -137,7 +138,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'benmills/vimux'
 Plug 'casprwang/nord-vim'
-Plug 'rhysd/clever-f.vim'
 Plug 'mattn/webapi-vim' "{{{
 map ; <Plug>(clever-f-repeat-forward)
 map , <Plug>(clever-f-repeat-back)
@@ -150,32 +150,33 @@ let g:mkdp_browserfunc = 'g:Open_browser'
 "}}}
 Plug 'tpope/vim-dispatch'
 Plug 'tmux-plugins/vim-tmux'
-" Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}
-" Plug 'jiangmiao/auto-pairs'
 Plug 'szw/vim-maximizer' "{{{
 nnoremap <silent> <c-w><cr> :MaximizerToggle<cr>
+let g:maximizer_set_default_mapping = 0
 "}}}
-Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tmux-plugins/vim-tmux-focus-events' "{{{
+"}}}
 Plug 'danro/rename.vim'
-" Plug 'othree/csscomplete.vim'
-Plug 'liuchengxu/vim-clap' "{{{
-let g:clap_popup_input_delay = 0
-let g:clap_provider_grep_delay = 0
-let g:clap_provider_grep_blink = [0, 0]
-"}}}
+"Plug 'liuchengxu/vim-clap' "{{{
+"let g:clap_popup_input_delay = 0
+"let g:clap_provider_grep_delay = 0
+"let g:clap_provider_grep_blink = [0, 0]
+""}}}
 
 " tsx
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim' "{{{
+set noshowmode
+"}}}
 Plug 'neoclide/jsonc.vim' "{{{
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 "}}}
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "{{{
-
+let g:coc_node_args = ['--max-old-space-size=8192']
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -260,10 +261,12 @@ let g:coc_global_extensions = [
   \ 'coc-pairs', 
   \ 'coc-json', 
   \ 'coc-diagnostic', 
-  \ 'coc-tabnine', 
   \ 'coc-dictionary', 
   \ 'coc-word', 
   \ ]
+
+" coc-python
+nnoremap <c-_>8 :CocCommand python.execInTerminal<cr>
 
 " coc-explorer
 nnoremap <silent> go :CocCommand explorer<CR>
@@ -398,7 +401,6 @@ Plug 'junegunn/fzf.vim' " fzf{{{
 set noswapfile
 set clipboard=unnamed
 set autoread
-" show autocomplete for commands
 set wildmenu
 map <leader>b :Buffers<cr>
 
@@ -500,15 +502,14 @@ endfunction
 
 command! -nargs=* -bang RF call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <silent> <leader>e :RF<cr>
-nnoremap <silent> <c-_> :FZF<cr>
+nnoremap <silent> <c-_>7 :FZF<cr>
 nnoremap <silent> <c-w>e :Rg <C-R><C-W><CR>
 " history
-nnoremap <c-y>\ :History<cr>
+nnoremap <c-_>\ :History<cr>
 " }}}
 Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'} "{{{
 let g:gist_post_private = 1
 "}}}
-Plug 'liuchengxu/vista.vim'
 call plug#end()
 " }}}
 " cursor position {{{
@@ -583,10 +584,10 @@ au Filetype lua set ts=4 sts=4 sw=4
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-au Filetype javascript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-au Filetype typescript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-au Filetype typescript.tsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-au Filetype javascript.jsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+" au Filetype javascript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+" au Filetype typescript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+" au Filetype typescript.tsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
+" au Filetype javascript.jsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
@@ -607,3 +608,4 @@ set termguicolors
 "}}}
 
 nnoremap <leader>. :source $MYVIMRC<cr>
+set laststatus=0

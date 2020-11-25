@@ -1,5 +1,6 @@
 # setopt -s expand_aliases
 alias gp="git push origin"
+alias rm=trash
 alias git=hub
 alias f="find . -name"
 alias ip="python -m IPython"
@@ -24,19 +25,17 @@ alias ga="git add ."
 alias gito="git open"
 alias g=fda
 alias ignore="nvim .gitignore"
-alias gm="git commit"
+alias gm="git commit -m"
 alias xcode="open -a Xcode"
 # alias code="code-insiders"
 alias ll="ls -l"
 alias cdt="cd ~/tmp"
 alias cgo="cd ~/gocode/src/github.com/wangsongiam/"
 alias readme="nvim README.md"
-# alias n="node"
 alias ip="ipython"
 alias vim="nvim"
 alias v="vim"
 alias t="vim /Users/songwang/Library/Mobile\ Documents/com~apple~CloudDocs/TODO.md"
-alias n="vim /Users/songwang/Library/Mobile\ Documents/com~apple~CloudDocs/tmp"
 alias ta="tmux a -d"
 alias air='~/.air'
 alias pcp='pbpaste'
@@ -50,3 +49,4 @@ alias ls="exa"
 # alias cat="bat"
 #
 alias rg='rg --hidden'
+alias mvim=/Applications/MacVim.app/Contents/bin/mvim

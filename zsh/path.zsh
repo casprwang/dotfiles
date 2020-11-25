@@ -12,6 +12,7 @@ export PATH=$PATH:/opt/local/bin
 
 # Node
 export PATH="$PATH:./node_modules/.bin"
+export NODE_OPTIONS="--max-old-space-size=8192"
 
 # psql
 export PATH="/Library/PostgreSQL/10/bin:$PATH"
@@ -22,9 +23,9 @@ export PATH=${PATH}:/usr/local/opt/gettext/bin
 export PATH="$HOME/.local/bin:$PATH"
 
 # Node
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/node@10/lib"
-export CPPFLAGS="-I/usr/local/opt/node@10/include"
+# export PATH="/usr/local/opt/node@10/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/node@10/lib"
+# export CPPFLAGS="-I/usr/local/opt/node@10/include"
 
 # Linux nvim
 if [[ "$(uname -s)" == "Linux" ]]; then

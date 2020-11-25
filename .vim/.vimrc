@@ -1,18 +1,17 @@
 let mapleader="\<Space>"
+nnoremap <leader>. :source ~/.vimrc<CR>
 let g:ackprg = 'ag --vimgrep'
-set laststatus=2
-set nowrap
 map <leader>j :w<cr>
-set smartindent
-set expandtab  
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
+set laststatus=2
+set nowrap
+set smartindent
+set expandtab  
 set noswapfile
 set clipboard=unnamed
 set autoread
-" " show autocomplete for commands
 set wildmenu
-nnoremap <leader>. :source ~/.vimrc<CR>
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 set clipboard=unnamed
@@ -44,12 +43,3 @@ set shiftwidth=2
 set softtabstop=2
 
 autocmd filetype crontab setlocal nobackup nowritebackup
-
-if has("gui_running")
-  syntax on
-  set hlsearch
-  colorscheme macvim
-  set bs=2
-  set ai
-  set ruler
-endif
