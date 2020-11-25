@@ -5,6 +5,10 @@ PlainEditor.bindings.cW = hs.hotkey.bind(KEYS.C, "w", function()
     hs.eventtap.keyStroke({"alt"}, "delete", 0)
 end)
 
+PlainEditor.bindings.cF = hs.hotkey.bind(KEYS.C, "u", function()
+    hs.eventtap.keyStroke({"cmd"}, "delete", 0)
+end)
+
 PlainEditor.bindings.cM = hs.hotkey.bind(KEYS.C, "m", function()
     hs.eventtap.keyStroke({""}, "return", 0)
 end)
@@ -20,6 +24,7 @@ end)
 PlainEditor.bindings.cF = hs.hotkey.bind(KEYS.C, "f", function()
     hs.eventtap.keyStroke({"alt"}, "right", 0)
 end)
+
 
 function PlainEditor:enable() for _, v in pairs(self.bindings) do v:enable() end end
 
