@@ -2,9 +2,10 @@
 
 Scriptings and configurations boosting my programming works.
 
-[image](https://rawcdn.githack.com/casprwang/dotfiles/10b8bdd367c411e9fd8367cdb398306efc7c550f/docs/2020-11.png)
-
-Based on:
+<figure class="image">
+  <img align="left" src="https://rawcdn.githack.com/casprwang/dotfiles/10b8bdd367c411e9fd8367cdb398306efc7c550f/docs/2020-11.png" alt="screenshot">
+  <figcaption>Minimal Screenshot</figcaption>
+</figure>
 
 - Neovim, editor
 - Tmux, tty multiplexer
