@@ -346,6 +346,7 @@ map <leader>b :Buffers<cr>
 
 let g:fzf_action = {
                         \ 'ctrl-t': 'tab drop',
+                        \ 'ctrl-v': 'vsplit',
                         \}
 
 nnoremap <silent> <c-w>t :call fzf#run({
