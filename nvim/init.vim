@@ -139,7 +139,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'benmills/vimux'
 Plug 'casprwang/nord-vim'
-Plug 'mattn/webapi-vim' "{{{
+Plug 'mattn/webapi-vim' 
+Plug 'rhysd/clever-f.vim' "{{{
 map ; <Plug>(clever-f-repeat-forward)
 map , <Plug>(clever-f-repeat-back)
 "}}}
@@ -367,7 +368,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <leader>f :Format<cr>
+" nnoremap <leader>f :Format<cr>
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -573,7 +574,7 @@ au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype markdown setlocal ts=2 sts=2 sw=2
 au Filetype markdown setlocal norelativenumber
 au Filetype markdown setlocal nu
-au Filetype markdown setlocal wrap
+au Filetype markdown setlocal wrap linebreak nolist
 au Filetype markdown setlocal foldcolumn=0
 au FileType typescript setlocal ts=2 sts=2 sw=2
 au FileType typescriptreact setlocal ts=2 sts=2 sw=2
