@@ -2,15 +2,16 @@
 
 Scriptings and configurations boosting my programming works.
 
-Some related tools:
+Based on:
 
-- Neovim
-- Tmux
-- Alacritty
-- Zsh
-- Hammerspoon
+- Neovim, editor
+- Tmux, tty multiplexer
+- Zsh, shell
+- Alacritty, term
+- Hammerspoon, macOS scripting
+- ...many other toolings from communities
 
-While filled with a personalized flavor, many parts should be reuseable. Feel free to snap a piece.
+Feel free to snap a piece.
 
 [image](https://user-images.githubusercontent.com/19645990/51513248-c05fb400-1dbe-11e9-833d-3b06244bd80d.png)
 
