@@ -31,6 +31,7 @@ set list
 set scrolloff=1
 set autoread
 set title
+set icon
 set guioptions-=e
 set sessionoptions+=tabpages,globals
 set hlsearch
@@ -503,7 +504,6 @@ au Filetype python setlocal ts=4 sts=4 sw=4
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
 au Filetype cpp set ts=4 sts=4 sw=4
-au BufWritePost *.scala silent :EnTypeCheck
 au Filetype json setlocal ts=2 sts=2 sw=2
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
@@ -541,6 +541,5 @@ hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
 au CursorHold * silent call CocActionAsync('highlight')
 set termguicolors
 "}}}
-
 nnoremap <leader>. :source $MYVIMRC<cr>
 set laststatus=0
