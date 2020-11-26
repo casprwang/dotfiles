@@ -7,6 +7,7 @@ export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+
 # mac port
 export PATH=$PATH:/opt/local/bin
 

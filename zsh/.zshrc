@@ -19,6 +19,7 @@ setopt incappendhistory  #Immediately append to the history file, not just when 
 setopt hist_ignore_dups
 
 source ~/zsh/alias.zsh
+source ~/zsh/tmux.zsh
 source ~/zsh/keymap.zsh
 source ~/zsh/function.zsh
 source ~/zsh/github.zsh
