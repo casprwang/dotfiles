@@ -219,11 +219,11 @@ key_bindings:
   - { key: Back, mods: Command, chars: "\x15" }
   - { key: NumpadEnter, chars: "\n" }
   - { key: Grave, mods: Control, chars: "\x19p" }
-  - { key: J, mods: Command, chars: "\x13\x7a" }
+  - { key: J, mods: Command, chars: "\x13j" }
   - { key: Return, mods: Control, chars: "\x17\x0d" }
   - { key: E, mods: Command, chars: "\x13o" }
-  - { key: D, mods: Command, chars: "\x13\x76" }
-  - { key: D, mods: Command|Shift, chars: "\x13\x6a" }
+  - { key: D, mods: Command, chars: "\x13%" }
+  - { key: D, mods: Command|Shift, chars: "\x13\"" }
   - { key: Backslash, mods: Command, chars: "\x67\x2f\x2f" }
   - { key: Key1, mods: Command, chars: "\x13\x31" }
   - { key: Key2, mods: Command, chars: "\x13\x32" }
@@ -231,6 +231,7 @@ key_bindings:
   - { key: P, mods: Command|Shift, chars: "\x13\x53" }
   - { key: P, mods: Command, chars: "\x1f7" }
   - { key: N, mods: Command, chars: "\x13\x43" }
+  - { key: I, mods: Command, chars: "\x13y" }
   - { key: T, mods: Command, chars: "\x13\x63" }
   - { key: W, mods: Command, chars: "\x13\x26" }
   - { key: Y, mods: Command, chars: "\x1f\x5c" }

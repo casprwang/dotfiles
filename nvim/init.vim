@@ -349,10 +349,6 @@ let g:fzf_action = {
                         \ 'ctrl-v': 'vsplit',
                         \}
 
-nnoremap <silent> <c-w>t :call fzf#run({
-                        \   'tab': 'tabnew',
-                        \   'sink': 'tabnew' })<CR>
-
 " search lines
 function! s:line_handler(l)
         let keys = split(a:l, ':\t')
