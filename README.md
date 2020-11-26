@@ -2,10 +2,11 @@
 
 Scriptings and configurations boosting my programming works.
 
-<div align="left">
+<div>
   <img align="left" src="https://rawcdn.githack.com/casprwang/dotfiles/10b8bdd367c411e9fd8367cdb398306efc7c550f/docs/2020-11.png" alt="screenshot">
-  <br />
 </div>
+
+&nbsp;
 
 Based on:
 
