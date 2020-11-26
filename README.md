@@ -1,22 +1,18 @@
 # Dotfiles
 
-A set of configurations for a productive and enjoyable workstation.
+Scriptings and configurations boosting my programming works.
 
-![image](https://user-images.githubusercontent.com/19645990/51513248-c05fb400-1dbe-11e9-833d-3b06244bd80d.png)
-
-## Philosophy
-
-- Less is more
-- One thing at a time
-
-## Tools
+Some related tools:
 
 - Neovim
 - Tmux
 - Alacritty
 - Zsh
 - Hammerspoon
-- Karabiner-Element
+
+While filled with a personalized flavor, many parts should be reuseable. Feel free to snap a piece.
+
+[image](https://user-images.githubusercontent.com/19645990/51513248-c05fb400-1dbe-11e9-833d-3b06244bd80d.png)
 
 ## License
 
