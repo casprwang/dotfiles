@@ -74,19 +74,9 @@ nnoremap <silent> <leader>j :w<cr>
 inoremap {<cr> {<cr>}<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
 " for shift-enter
-nmap <c-w>v :vsplit<cr><c-_>7
-nmap <c-w>s :split<cr><c-_>7
-nnoremap <c-w>l :vsplit<cr>
-nnoremap <c-w>j :split<cr>
 nnoremap <silent> <esc> :noh<cr>
 
-" " navigation
-" nmap J 5gj
-" nmap K 5gk
-" vmap J 5gj
-" vmap K 5gk
-
-" Tab
+" CMD-[ to go back
 nnoremap <c-_>6 :e#<cr>
 
 " silver searcher
@@ -98,19 +88,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-commentary' "{{{
-" Visual mode
 xmap g/ <Plug>Commentary
-" Normal mode
 nmap g/ <Plug>Commentary
-" Normal mode, current line
 nmap g// <Plug>CommentaryLine
-" Operator pending mode (this lets you do e.g. `dgc` to delete a block of comments)
 omap g/ <Plug>Commentary
-" Special case cgc (you can skip this one, but then `cgc` will also delete an extra blank line)
 nmap cg/ <Plug>ChangeCommentary
 " }}}
-"Plug 'szw/vim-maximizer' "{{{
-""}}}
 " typescript
 Plug 'christoomey/vim-tmux-navigator' " {{{ tmux navi
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -135,11 +118,9 @@ let g:go_metalinter_autosave = 0
 let g:go_fmt_fail_silently = 1
 "}}}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
 Plug 'benmills/vimux'
 Plug 'casprwang/nord-vim'
-Plug 'mattn/webapi-vim' 
+Plug 'mattn/webapi-vim'
 Plug 'rhysd/clever-f.vim' "{{{
 map ; <Plug>(clever-f-repeat-forward)
 map , <Plug>(clever-f-repeat-back)
@@ -159,19 +140,7 @@ let g:maximizer_set_default_mapping = 0
 Plug 'tmux-plugins/vim-tmux-focus-events' "{{{
 "}}}
 Plug 'danro/rename.vim'
-"Plug 'liuchengxu/vim-clap' "{{{
-"let g:clap_popup_input_delay = 0
-"let g:clap_provider_grep_delay = 0
-"let g:clap_provider_grep_blink = [0, 0]
-""}}}
-
-" tsx
-" Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-
-Plug 'itchyny/lightline.vim' "{{{
-set noshowmode
-"}}}
 Plug 'neoclide/jsonc.vim' "{{{
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
@@ -315,38 +284,6 @@ endfunction
 " coc-git
 nmap ga :CocCommand git.chunkStage<cr>
 
-function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  " return blame
-  return winwidth(0) > 120 ? blame : ''
-endfunction
-
-let g:lightline = {
-  \ 'colorscheme': 'nord',
-  \ 'active': {
-  \   'left': [
-  \     [ 'paste' ],
-  \     [ 'filename' ],
-  \     [ 'coc_git_branch_status' ],
-  \   ],
-  \   'right':[
-  \     ['lineinfo' ],
-  \     [ 'percent' ],
-  \     [ 'blame' ],
-  \   ],
-  \ },
-  \ 'inactive': {
-  \   'right': [
-  \   ],
-  \   'left': [
-  \   ],
-  \ },
-  \ 'component_function': {
-  \   'coc_git_change_status': 'CocGitChangeStatus',
-  \   'coc_git_branch_status': 'CocGitBranchStatus',
-  \ },
-\ }
-
 autocmd FileType markdown let b:coc_suggest_disable = 1
 
 let g:nord_statusline_uniform = 1
@@ -387,7 +324,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 "}}}
-Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-fugitive' "{{{
 nnoremap g' :Gstatus<cr>
 nnoremap gb :Gblame<cr>
@@ -586,10 +523,6 @@ au Filetype lua set ts=4 sts=4 sw=4
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-" au Filetype javascript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-" au Filetype typescript nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-" au Filetype typescript.tsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-" au Filetype javascript.jsx nnoremap <silent> <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
 au Filetype vue set ts=2 sts=2 sw=2
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
