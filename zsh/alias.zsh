@@ -40,14 +40,13 @@ alias t="tmux"
 alias ta="tmux a -d"
 alias air='~/.air'
 alias pcp='pbpaste'
-# alias python="python3"
-# alias pip="pip3"
 
 # Rust tools
-# alias ps="procs"
-# alias du="dust"
 alias ls="exa"
-# alias cat="bat"
-#
 alias rg='rg --hidden'
+
+alias sed=gsed
+alias c=pbcopy
+alias r=root
+
 alias mvim=/Applications/MacVim.app/Contents/bin/mvim

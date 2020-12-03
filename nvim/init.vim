@@ -438,7 +438,8 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RF call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <silent> <leader>e :RF<cr>
+" nnoremap <silent> <leader>e :RF<cr>
+nnoremap <silent> <leader>e :Rg<cr>
 nnoremap <silent> <c-_>7 :FZF<cr>
 nnoremap <silent> <c-w>e :Rg <C-R><C-W><CR>
 " history
