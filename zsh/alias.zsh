@@ -48,5 +48,6 @@ alias rg='rg --hidden'
 alias sed=gsed
 alias c=pbcopy
 alias r=root
+alias p=python
 
 alias mvim=/Applications/MacVim.app/Contents/bin/mvim
