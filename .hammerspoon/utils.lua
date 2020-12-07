@@ -8,7 +8,7 @@ utils.trim = function(s)
 end
 
 utils.isTerm = function(appName)
-    if (appName == "iTerm") or (appName == "MacVim") or (appName == "VIM") or (appName == "Alacritty") then
+    if (appName == "iTerm") or (appName == "MacVim") or (appName == "VIM") or (appName == "Alacritty") or (appName == "Obsidian") then
         return true
     end
     return false

@@ -5,7 +5,7 @@ PlainEditor.bindings.cW = hs.hotkey.bind(KEYS.C, "w", function()
     hs.eventtap.keyStroke({"alt"}, "delete", 0)
 end)
 
-PlainEditor.bindings.cF = hs.hotkey.bind(KEYS.C, "u", function()
+PlainEditor.bindings.cU = hs.hotkey.bind(KEYS.C, "u", function()
     hs.eventtap.keyStroke({"cmd"}, "delete", 0)
 end)
 
