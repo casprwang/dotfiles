@@ -71,7 +71,7 @@ nnoremap gq <c-w>q
 nnoremap <leader>, :e $MYVIMRC<cr>
 nnoremap " <c-^>
 " quick save
-nnoremap <silent> <leader>j :w<cr>
+" nnoremap <silent> <leader>j :w<cr>
 inoremap {<cr> {<cr>}<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
 " for shift-enter
