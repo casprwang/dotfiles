@@ -19,11 +19,16 @@ if [[ -f "/usr/local/opt/fzf/shell/key-bindings.zsh" ]]; then
     source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 fi
 
-# switch session
 fs() {
   local session
-  session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf --query="$1" --select-1 --exit-0) &&
+  session="$(
+    tmux list-sessions -F "#{session_name}" \
+      | fzf-tmux \
+          -p 80,20 \
+          --query="$1" \
+          --select-1 \
+          --exit-0
+  )" || return
   tmux switch-client -t "$session"
 }
 
