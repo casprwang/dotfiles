@@ -139,12 +139,13 @@
       }
     }
   },
+  "prettier.useTabs": false,
   "prettier.disableLanguages": [
     /* "markdown", */
-    "javascript",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact"
+    // "javascript",
+    // "typescript",
+    // "typescript.tsx",
+    // "typescriptreact"
   ],
   "coc.preferences.formatOnSaveFiletypes": [
     /* "javascript", */
@@ -171,6 +172,7 @@
   "go.goplsOptions": {
     "completeUnimported": true
   },
+  "explorer.previewAction.onHover": "content",
   "explorer.position": "floating",
   "explorer.floating.position": "left-center",
   "explorer.floating.width": 50,
