@@ -6,22 +6,6 @@ local shift = require('shift')
 
 local M = {}
 
-hs.hotkey.bind({'ctrl'}, "j", function()
-    hs.eventtap.keyStroke({}, 'down', 0)
-end)
-
-hs.hotkey.bind({'ctrl'}, "k", function()
-    hs.eventtap.keyStroke({}, 'up', 0)
-end)
-
-hs.hotkey.bind({'ctrl'}, "h", function()
-    hs.eventtap.keyStroke({}, 'left', 0)
-end)
-
-hs.hotkey.bind({'ctrl'}, "l", function()
-    hs.eventtap.keyStroke({}, 'right', 0)
-end)
-
 -- disable alt-v for Adobe's built-in shortcut
 local function applicationWatcher(appName, eventType)
     if (eventType == hs.application.watcher.activated) then
