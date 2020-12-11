@@ -221,7 +221,7 @@ key_bindings:
   - { key: Grave, mods: Control, chars: "\x19p" }
   - { key: J, mods: Command, chars: "\x13j" }
   - { key: Return, mods: Control, chars: "\x17\x0d" }
-  - { key: E, mods: Command, chars: "\x13o" }
+  - { key: K, mods: Command, chars: "\x13o" }
   - { key: D, mods: Command, chars: "\x13%" }
   - { key: D, mods: Command|Shift, chars: "\x13\"" }
   - { key: Backslash, mods: Command, chars: "\x67\x2f\x2f" }
