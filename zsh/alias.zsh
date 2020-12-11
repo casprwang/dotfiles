@@ -36,7 +36,7 @@ alias readme="nvim README.md"
 alias ip="ipython"
 alias vim="nvim"
 alias v="vim"
-alias t="ticker $(cat ~/.ticker.conf)"
+# alias ticker="ticker $(cat ~/.ticker.conf)"
 alias ta="tmux a -d"
 alias air='~/.air'
 alias pcp='pbpaste'
@@ -49,5 +49,7 @@ alias sed=gsed
 alias c=pbcopy
 alias r=root
 alias p=python
+alias n=nb
+alias t='python ~/t.py --task-dir ~/tasks --list tasks'
 
 alias mvim=/Applications/MacVim.app/Contents/bin/mvim
