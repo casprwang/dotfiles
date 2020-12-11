@@ -308,8 +308,10 @@ endfunction
 
 " nnoremap <leader>f :Format<cr>
 
-" Use `:Format` to format current buffer
+" Use `:f` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+cabbrev f Format
+" command! -nargs=0 f :call CocAction('format')
 
 augroup mygroup
   autocmd!
