@@ -154,6 +154,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" nmap <leader>rn <Plug>(coc-rename)
 
 " smart split definition
 function! SplitIfNotOpen(...)
@@ -178,9 +179,7 @@ endfunction
 
 command! -nargs=+ CocSplitIfNotOpen :call SplitIfNotOpen(<f-args>)
 
-" " Symbol renaming.
-" nmap <leader>rn <Plug>(coc-rename)
-"
+
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -351,29 +350,6 @@ let g:fzf_action = {
                         \ 'ctrl-v': 'vsplit',
                         \}
 
-" search lines
-function! s:line_handler(l)
-        let keys = split(a:l, ':\t')
-        exec 'buf' keys[0]
-        exec keys[1]
-        normal! ^zz
-endfunction
-
-function! s:buffer_lines()
-        let res = []
-        for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
-                call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
-        endfor
-        return res
-endfunction
-
-command! FZFLines call fzf#run({
-                        \   'source':  <sid>buffer_lines(),
-                        \   'sink':    function('<sid>line_handler'),
-                        \   'options': '--extended --nth=3..',
-                        \   'down':    '60%'
-                        \})
-
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 function! CreateCenteredFloatingWindow()
@@ -464,6 +440,7 @@ au BufRead * normal zz
 "status bar{{{
 " ----------------------------------------------------------------------------
 set laststatus=2
+set laststatus=0
 " set filename on the left side
 set statusline=%f
 " line separator
@@ -497,6 +474,7 @@ augroup FiletypeGroup
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 au Filetype html setlocal ts=2 sts=2 sw=2
+au FileType html setlocal commentstring=<!--\ %s\ -->
 au Filetype css setlocal ts=2 sts=2 sw=2
 au Filetype scss setlocal ts=2 sts=2 sw=2
 au Filetype crontab setlocal nobackup nowritebackup
@@ -505,13 +483,10 @@ au Filetype go set ts=8 sts=8 sw=8
 au Filetype c set ts=4 sts=4 sw=4
 au Filetype cpp set ts=4 sts=4 sw=4
 au Filetype json setlocal ts=2 sts=2 sw=2
-au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 au Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype markdown setlocal ts=2 sts=2 sw=2
-au Filetype markdown setlocal norelativenumber
-au Filetype markdown setlocal nu
-au Filetype markdown setlocal wrap linebreak nolist
+au Filetype markdown setlocal wrap linebreak nolist nu
 au Filetype markdown setlocal foldcolumn=0
 au FileType typescript setlocal ts=2 sts=2 sw=2
 au FileType typescriptreact setlocal ts=2 sts=2 sw=2
@@ -519,18 +494,24 @@ au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
+au Filetype go set listchars=tab:\ \ 
 au Filetype lua set ts=4 sts=4 sw=4
 au Filetype yaml set ts=4 sts=4 sw=4
-au Filetype go set listchars=tab:\ \ 
 au Filetype vue set ts=2 sts=2 sw=2
-au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
-au Filetype vue set ts=2 sts=2 sw=2
+au FileType vue setlocal commentstring=<!--\ %s\ -->
 au FileType python let b:coc_root_patterns = ['.git', '.env']
 au FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 au FileType md setlocal wrap
 " Override PHP Comments
-au FileType html setlocal commentstring=<!--\ %s\ -->
-au FileType vue setlocal commentstring=<!--\ %s\ -->
+
+" Auto resize panes
+function ResizeWithTmux()
+        if winwidth(1) != 1
+                exe "normal \<c-w>="
+        endif
+endfunction
+autocmd VimResized * call ResizeWithTmux()
+
 augroup end
 "}}}
 "{{{ colorscheme
@@ -542,15 +523,5 @@ hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
 au CursorHold * silent call CocActionAsync('highlight')
 set termguicolors
 "}}}
+
 nnoremap <leader>. :source $MYVIMRC<cr>
-set laststatus=0
-
-
-" Auto resize panes
-function ResizeWithTmux()
-        if winwidth(1) != 1
-                exe "normal \<c-w>="
-        endif
-endfunction
-
-autocmd VimResized * call ResizeWithTmux()
