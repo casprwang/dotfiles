@@ -520,6 +520,7 @@ au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype javascript setlocal ts=2 sts=2 sw=2
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype lua set ts=4 sts=4 sw=4
+au Filetype yaml set ts=4 sts=4 sw=4
 au Filetype go set listchars=tab:\ \ 
 au Filetype vue set ts=2 sts=2 sw=2
 au Filetype vue nnoremap <buffer> <leader>f :CocCommand eslint.executeAutofix<cr>
@@ -543,3 +544,13 @@ set termguicolors
 "}}}
 nnoremap <leader>. :source $MYVIMRC<cr>
 set laststatus=0
+
+
+" Auto resize panes
+function ResizeWithTmux()
+        if winwidth(1) != 1
+                exe "normal \<c-w>="
+        endif
+endfunction
+
+autocmd VimResized * call ResizeWithTmux()
