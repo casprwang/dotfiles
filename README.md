@@ -21,4 +21,4 @@ Feel free to snap a piece :)
 
 ## License
 
-MIT © [Casper Wang](https://songwang.io)
+MIT © [Casper Wang](https://casperwang.com/)
