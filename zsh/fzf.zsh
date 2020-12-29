@@ -24,7 +24,7 @@ fs() {
   session="$(
     tmux list-sessions -F "#{session_name}" \
       | fzf-tmux \
-          -p 80,20 \
+          -p 90,20 \
           --query="$1" \
           --select-1 \
           --exit-0
@@ -94,9 +94,17 @@ vf() {
 
 # edit file with nvim
 fe() {
-  local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && nvim "${files[@]}"
+  local IFS=$'\n'
+  local files=()
+  files=(
+    "$(fzf-tmux \
+          -p 90,45 \
+          --query="$1" \
+          --select-1 \
+          --exit-0 \
+    )"
+  ) || return
+  "${EDITOR:-nvim}" "${files[@]}"
 }
 
 
