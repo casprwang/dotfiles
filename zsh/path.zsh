@@ -1,4 +1,8 @@
 PATH=$PATH:/usr/local/bin
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$PATH:"/Users/songwang/apache-maven-3.6.3/bin"
+
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
