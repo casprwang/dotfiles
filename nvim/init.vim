@@ -70,10 +70,6 @@ nnoremap gq <c-w>q
 
 nnoremap <leader>, :e $MYVIMRC<cr>
 nnoremap " <c-^>
-" quick save
-" nnoremap <silent> <leader>j :w<cr>
-inoremap {<cr> {<cr>}<c-o>O
-inoremap (<cr> (<cr>)<c-o>O
 " for shift-enter
 nnoremap <silent> <esc> :noh<cr>
 
@@ -87,6 +83,7 @@ let g:ackprg = 'ag --vimgrep'
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'pechorin/any-jump.vim'
 Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-commentary' "{{{
 xmap g/ <Plug>Commentary
@@ -121,6 +118,7 @@ let g:go_fmt_fail_silently = 1
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'benmills/vimux'
 Plug 'casprwang/nord-vim'
+Plug 'a/vim-trash-polka'
 Plug 'mattn/webapi-vim'
 Plug 'rhysd/clever-f.vim' "{{{
 map ; <Plug>(clever-f-repeat-forward)
@@ -146,7 +144,6 @@ Plug 'neoclide/jsonc.vim' "{{{
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 "}}}
-Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "{{{
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -290,7 +287,6 @@ let g:coc_global_extensions = [
   \ 'coc-json', 
   \ 'coc-diagnostic', 
   \ 'coc-dictionary', 
-  \ 'coc-word', 
   \ ]
 
 " coc-python
@@ -339,7 +335,7 @@ function! StatusDiagnostic() abort
 endfunction
 
 " coc-git
-nmap ga :CocCommand git.chunkStage<cr>
+nmap <silent> ga :CocCommand git.chunkStage<cr>
 
 autocmd FileType markdown let b:coc_suggest_disable = 1
 
@@ -474,6 +470,7 @@ endfunction
 
 command! -nargs=* -bang RF call RipgrepFzf(<q-args>, <bang>0)
 " nnoremap <silent> <leader>e :RF<cr>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <silent> <leader>e :Rg<cr>
 nnoremap <silent> <c-_>7 :FZF<cr>
 nnoremap <silent> <c-w>e :Rg <C-R><C-W><CR>
@@ -550,6 +547,7 @@ au FileType typescriptreact setlocal ts=2 sts=2 sw=2
 au Filetype sh setlocal ts=4 sts=4 sw=4
 au Filetype zsh setlocal ts=4 sts=4 sw=4
 au Filetype javascript setlocal ts=2 sts=2 sw=2
+au Filetype javascript set listchars=tab:\ \ 
 au Filetype go set ts=8 sts=8 sw=8
 au Filetype go set listchars=tab:\ \ 
 au Filetype lua set ts=4 sts=4 sw=4
@@ -572,13 +570,28 @@ autocmd VimResized * call ResizeWithTmux()
 augroup end
 "}}}
 "{{{ colorscheme
-set background=dark
-colorscheme nord
-hi CocUnderline gui=underline term=undercurl
-hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
-hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
-au CursorHold * silent call CocActionAsync('highlight')
-set termguicolors
+
+
+if !empty($TERM_SESSION_ID)
+        colorscheme trash-polka-light
+        hi Comment    ctermfg=247
+        hi MatchParen cterm=none ctermbg=253 ctermfg=244
+else
+        set background=dark
+        colorscheme nord
+        hi CocUnderline gui=underline term=undercurl
+        hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
+        hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
+        au CursorHold * silent call CocActionAsync('highlight')
+        set termguicolors
+
+        " highlight under cursor
+        " hi default CocHighlightText  guibg=Grey ctermbg=Cyan
+        " hi default link CocHighlightRead  CocHighlightText
+        " hi default link CocHighlightWrite  CocHighlightText
+endif
+
 "}}}
 
 nnoremap <leader>. :source $MYVIMRC<cr>
+

@@ -3,6 +3,17 @@ gam() {
         git commit -am "$*"
 }
 
+gap() {
+        git add .
+        git commit -m "update"
+        git push origin HEAD
+}
+
+
+function cdd() {
+    cd $1
+    ls
+}
 
 source_zsh() {
         source ~/.zshrc
@@ -20,14 +31,6 @@ tmp_file() {
     fi
 }
 
-
-ts_mount() {
-        sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/scratch /Users/songwang/mnt/truenas/scratch
-        sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/datasets /mnt/truenas/datasets
-        sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/rsync /mnt/truenas/rsync
-        sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/upload /mnt/truenas/upload
-        sudo mount -o retrans=3,deadtimeout=8 truenas.sd.tusimple.ai:/mnt/tank/datasets_addon /mnt/truenas/datasets_addon
-}
 
 load_pyenv(){
 # python env

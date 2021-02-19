@@ -12,6 +12,7 @@ alias tmp="tmp_file"
 alias gco="git checkout"
 alias grhh="git reset --hard HEAD"
 alias ag="ag --nobreak --nonumbers --noheading . | fzf"
+alias goo='git-open'
 alias nvimr="nvim ~/dotfiles/nvim/init.vim"
 alias nr="nvimr"
 alias zshr="vim ~/.zshrc"
@@ -49,7 +50,6 @@ alias sed=gsed
 alias c=pbcopy
 alias r=root
 alias p=python
-alias n=nb
 alias t='python ~/t.py --task-dir ~/tasks --list tasks'
 
 alias mvim=/Applications/MacVim.app/Contents/bin/mvim

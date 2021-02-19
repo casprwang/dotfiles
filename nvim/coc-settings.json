@@ -12,6 +12,7 @@
   "git.changeRemovedSign.text": "┃",
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
+  "diagnostic.enableHighlightLineNumber": false,
   "suggest.noselect": true,
   "suggest.floatEnable": true,
   // "tabnine.priority": 1,
@@ -150,7 +151,12 @@
     }
   },
   "prettier.useTabs": false,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "avoid",
+  "coc.source.emoji.triggerCharacters": [":"],
   "prettier.disableLanguages": [
+    "vue",
     "markdown"
     // "javascript",
     // "typescript",
@@ -177,14 +183,15 @@
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expandOrCollapse", "open"]
   },
-  "eslint.enable": false,
   "eslint.quiet": true,
-  "eslint.filetypes": [
+  "eslint.probe": [
+  ],
+  "eslint.validate": [
     "vue",
     /* "javascript", */
     /* "typescript", */
-    "typescriptreact",
-    "javascriptreact",
+    // "typescriptreact",
+    // "javascriptreact",
     "typescript.tsx"
   ],
   "eslint.autoFixOnSave": false,
@@ -194,7 +201,6 @@
     "--ignore=F401,E501,W391,E402,E741",
     "--max-line-length=88"
   ],
-  "python.jediEnabled": false,
   "python.formatting.provider": "autopep8",
   "python.formatting.autopep8Args": [],
   "clangd.path": "/Users/songwang/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
