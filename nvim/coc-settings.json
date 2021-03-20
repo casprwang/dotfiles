@@ -70,7 +70,7 @@
     "dls": {
       "command": "diagnostic-languageserver",
       "args": ["--stdio", "--log-level", "2"],
-      "filetypes": ["sh", "email", "md", "markdown", "vim", "lua"], // filetypes that you want to enable this lsp
+      "filetypes": ["sh", "email", "md", "markdown", "vim"], // filetypes that you want to enable this lsp
       "initializationOptions": {
         "linters": {
           "shellcheck": {
@@ -96,23 +96,23 @@
               "note": "info"
             }
           },
-          "languagetool": {
-            "command": "languagetool",
-            "debounce": 200,
-            "args": ["-"],
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "sourceName": "languagetool",
-            "formatLines": 2,
-            "formatPattern": [
-              "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
-              {
-                "line": 1,
-                "column": 2,
-                "message": [4, 3]
-              }
-            ]
-          },
+          /* "languagetool": { */
+          /*   "command": "languagetool", */
+          /*   "debounce": 200, */
+          /*   "args": ["-"], */
+          /*   "offsetLine": 0, */
+          /*   "offsetColumn": 0, */
+          /*   "sourceName": "languagetool", */
+          /*   "formatLines": 2, */
+          /*   "formatPattern": [ */
+          /*     "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$", */
+          /*     { */
+          /*       "line": 1, */
+          /*       "column": 2, */
+          /*       "message": [4, 3] */
+          /*     } */
+          /*   ] */
+          /* }, */
           "vint": {
             "command": "vint",
             "debounce": 100,
@@ -136,17 +136,17 @@
           "email": "languagetool",
           "markdown": "languagetool",
           "vim": "vint"
-        },
-        "formatters": {
-          "lua-format": {
-            "command": "lua-format",
-            "args": ["-i"]
-          }
-        },
-        "formatFiletypes": {
-          "lua": "lua-format",
-          "sh": "shfmt"
         }
+        /* "formatters": { */
+        /*   "lua-format": { */
+        /*     "command": "lua-format", */
+        /*     "args": ["-i"] */
+        /*   } */
+        /* }, */
+        /* "formatFiletypes": { */
+        /*   "lua": "lua-format", */
+        /*   "sh": "shfmt" */
+        /* } */
       }
     }
   },
@@ -204,5 +204,5 @@
   "python.formatting.provider": "autopep8",
   "python.formatting.autopep8Args": [],
   "clangd.path": "/Users/songwang/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
-  "lua.enable": true
+  /* "lua.enable": true */
 }

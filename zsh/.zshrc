@@ -7,7 +7,7 @@ export NVIM_COC_LOG_LEVEL=debug && export NVIM_COC_LOG_FILE=/tmp/coc.log
 export TERM=screen-256color
 export VSCODE_TSJS=1
 # Neovim
-export EDITOR=/Users/songwang/dev/nvim/nvim-osx64/bin/nvim
+export EDITOR=nvim
 
 # History
 export HISTSIZE=1000000000
@@ -64,7 +64,6 @@ zinit light zdharma/zsh-diff-so-fancy
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light lukechilds/zsh-better-npm-completion
-zplugin ice silent wait'!0' atload'load_pyenv;'
 zinit light neovim/neovim
 zinit load psprint/zsnapshot
 

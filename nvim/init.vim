@@ -12,9 +12,6 @@
 " ****************************************************************************
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " {{{ general settings
-" virtual env https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
-let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 set viminfo='100,<50,s10,h,%
 let s:editor_root=expand("~/.config/nvim")
 set number
@@ -82,8 +79,6 @@ let g:ackprg = 'ag --vimgrep'
 "{{{ Plugins (vim plug )
 " ----------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'pechorin/any-jump.vim'
 Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-commentary' "{{{
 xmap g/ <Plug>Commentary

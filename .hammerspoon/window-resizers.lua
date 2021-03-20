@@ -8,7 +8,7 @@ local resizeMappings = {
     m = {x = 0.5, y = 0.5, w = 0.5, h = 0.5},
     l = {x = 0.5, y = 0, w = 0.5, h = 1},
     n = {x = 0, y = 0, w = 1, h = 1},
-    i = {x = 0.2, y = 0, w = 0.8, h = 1}
+    i = {x = 0.13, y = 0, w = 0.87, h = 1}
 }
 
 for key in pairs(resizeMappings) do

@@ -9,27 +9,19 @@ alias cdv="cd ~/dev"
 alias cdi="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias gd="git diff"
 alias tmp="tmp_file"
-alias gco="git checkout"
 alias grhh="git reset --hard HEAD"
 alias ag="ag --nobreak --nonumbers --noheading . | fzf"
-alias goo='git-open'
-alias nvimr="nvim ~/dotfiles/nvim/init.vim"
-alias nr="nvimr"
+alias nvimr="nvim ~/Library/Mobile\ Documents/com~apple~CloudDocs/config/dotfiles/nvim/init.vim"
 alias zshr="vim ~/.zshrc"
 alias szh="source_zsh"
-alias cdo="cd ~/dotfiles"
+alias cdo="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/config/dotfiles"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gf="git fetch --all"
 alias e="fe"
-alias s="gs"
 alias gs="git status"
 alias ga="git add ."
 alias gito="git open"
-alias g=fda
 alias ignore="nvim .gitignore"
 alias gm="git commit -m"
-alias xcode="open -a Xcode"
-# alias code="code-insiders"
 alias ll="ls -l"
 alias cdt="cd ~/tmp"
 alias cgo="cd ~/gocode/src/github.com/wangsongiam/"
@@ -37,19 +29,8 @@ alias readme="nvim README.md"
 alias ip="ipython"
 alias vim="nvim"
 alias v="vim"
-# alias ticker="ticker $(cat ~/.ticker.conf)"
 alias ta="tmux a -d"
-alias air='~/.air'
-alias pcp='pbpaste'
-
 # Rust tools
 alias ls="exa"
 alias rg='rg --hidden'
-
-alias sed=gsed
-alias c=pbcopy
-alias r=root
-alias p=python
-alias t='python ~/t.py --task-dir ~/tasks --list tasks'
-
 alias mvim=/Applications/MacVim.app/Contents/bin/mvim

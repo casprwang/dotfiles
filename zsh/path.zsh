@@ -1,12 +1,11 @@
 PATH=$PATH:/usr/local/bin
-# Java
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$PATH:"/Users/songwang/apache-maven-3.6.3/bin"
+# # Java
+# export JAVA_HOME=$(/usr/libexec/java_home)
+# export PATH=$PATH:"/Users/songwang/apache-maven-3.6.3/bin"
 
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -27,12 +26,3 @@ export PATH=${PATH}:/usr/local/opt/gettext/bin
 # haskell
 export PATH="$HOME/.local/bin:$PATH"
 
-# Node
-# export PATH="/usr/local/opt/node@10/bin:$PATH"
-# export LDFLAGS="-L/usr/local/opt/node@10/lib"
-# export CPPFLAGS="-I/usr/local/opt/node@10/include"
-
-# Linux nvim
-if [[ "$(uname -s)" == "Linux" ]]; then
-    alias nvim=~/Downloads/nvim.appimage
-fi
