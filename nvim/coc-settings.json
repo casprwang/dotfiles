@@ -134,7 +134,7 @@
         "filetypes": {
           "sh": "shellcheck",
           "email": "languagetool",
-          "markdown": "languagetool",
+          /* "markdown": "languagetool", */
           "vim": "vint"
         }
         /* "formatters": { */
@@ -157,7 +157,7 @@
   "coc.source.emoji.triggerCharacters": [":"],
   "prettier.disableLanguages": [
     "vue",
-    "markdown"
+    /* "markdown" */
     // "javascript",
     // "typescript",
     // "typescript.tsx",
