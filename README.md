@@ -1,5 +1,5 @@
 # Dotfiles
 
-Casper Wang's dotfiles for Neovim, Wezterm, and Karabiner.
+Casper Wang's setups for Neovim, Wezterm, and Karabiner.
 
 Feel free to snap a piece :)
