@@ -4,3 +4,4 @@
 !/karabiner/
 !/wezterm/
 */*.DS_Store
+/nvim/startuptime.log
