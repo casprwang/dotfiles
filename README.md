@@ -1,24 +1,6 @@
 # Dotfiles
 
-Scriptings and configurations boosting my programming works.
+Editor and terminal setups for Casper Wang.
 
-<div>
-  <img align="left" src="https://rawcdn.githack.com/casprwang/dotfiles/10b8bdd367c411e9fd8367cdb398306efc7c550f/docs/2020-11.png" alt="screenshot">
-</div>
+It's just for personal record keeping. Nothing too crazy than a standard setup, but it all works well together on my machines. Feel free to snap a piece :)
 
-&nbsp;
-
-Based on:
-
-- Neovim, editor
-- Tmux, tty multiplexer
-- Zsh, shell
-- Alacritty, term
-- Hammerspoon, macOS scripting
-- ...many other toolings from communities
-
-Feel free to snap a piece :)
-
-## License
-
-MIT © [Casper Wang](https://casperwang.com/)

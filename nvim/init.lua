@@ -241,7 +241,12 @@ require("lazy").setup({
         routes = {
           {
             view = "notify",
-            filter = { event = "msg_showmode" },
+            filter = {
+              event = "msg_showmode",
+              any = {
+                { find = "recording" },
+              },
+            },
           },
         },
         lsp = {

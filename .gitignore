@@ -3,6 +3,7 @@
 !/nvim/
 !/karabiner/
 !/wezterm/
+!README.md
 */*.DS_Store
 /nvim/startuptime.log
 .DS_Store
