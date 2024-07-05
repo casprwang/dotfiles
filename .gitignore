@@ -6,6 +6,6 @@
 !README.md
 */*.DS_Store
 /nvim/startuptime.log
-/karabiner/automatic_backups
+/karabiner/automatic_backups/
 .DS_Store
 
