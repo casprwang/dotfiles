@@ -1,169 +1,51 @@
 {
-  "diagnostic.errorSign": "",
-  "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "",
-  /* "coc.preferences.jumpCommand": "vsplit", */
-  "coc.preferences.jumpCommand": "CocSplitIfNotOpen",
-  "diagnostic-languageserver.filetypes": {
-    /* "markdown": [ "write-good", "markdownlint" ] */
-  },
-  "git.changedSign.text": "┃",
-  "git.addedSign.text": "┃",
-  "git.changeRemovedSign.text": "┃",
-  "suggest.triggerAfterInsertEnter": true,
-  "suggest.timeout": 500,
-  "diagnostic.enableHighlightLineNumber": false,
-  "suggest.noselect": true,
-  "suggest.floatEnable": true,
-  // "tabnine.priority": 1,
-  "git.addGBlameToVirtualText": false,
-  "git.addGBlameToBufferVar": true,
-  "tsserver.npm": "/usr/local/bin/npm",
-  "typescript.format.insertSpaceAfterCommaDelimiter": true,
-  "typescript.format.insertSpaceAfterConstructor": true,
-  "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
-  "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-  "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
-  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-  "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
-  "javascript.format.insertSpaceAfterCommaDelimiter": true,
-  "javascript.format.insertSpaceAfterConstructor": true,
-  "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
-  "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-  "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
-  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-  "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
-  "python.pythonPath": "/Users/songwang/.pyenv/shims/python",
-  "tsserver.log": "verbose",
   "languageserver": {
-    /* "unified-language-server": { */
-    /*   "command": "/Users/songwang/tmp/markdown-language-server/dist/src/main.js", */
-    /*   /1* "command": "/Users/songwang/tmp/unified-language-server/src/server.js", *1/ */
-    /*   "args": ["--stdio", "--node-ipc"], */
-    /*   /1* "command": "unified-language-server", *1/ */
-    /*   /1* "args": ["--parser=remark-parse", "--stdio"], *1/ */
-    /*   "cwd": ".", */
-    /*   "trace.server": "verbose", */
-    /*   "filetypes": ["markdown", "md"], // filetypes that you want to enable this lsp */
-    /*   "initializationOptions": {}, */
-    /*   "settings": {} */
-    /* }, */
-    "unified-language-server": {
-      "command": "/Users/songwang/tmp/unified-language-server/src/server.js",
-      "args": ["--parser=remark-parse", "--stdio"],
-      "cwd": ".",
-      "trace.server": "verbose",
-      "filetypes": ["markdown", "md"], // filetypes that you want to enable this lsp
-      "initializationOptions": {},
-      "settings": {}
-    },
-    "dls": {
-      "command": "diagnostic-languageserver",
-      "args": ["--stdio", "--log-level", "2"],
-      "filetypes": ["sh", "email", "md", "markdown", "vim"], // filetypes that you want to enable this lsp
-      "initializationOptions": {
-        "linters": {
-          "shellcheck": {
-            "command": "shellcheck",
-            "debounce": 100,
-            "args": ["--format=gcc", "-"],
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "sourceName": "shellcheck",
-            "formatLines": 1,
-            "formatPattern": [
-              "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-              {
-                "line": 1,
-                "column": 2,
-                "message": 4,
-                "security": 3
-              }
-            ],
-            "securities": {
-              "error": "error",
-              "warning": "warning",
-              "note": "info"
-            }
-          },
-          /* "languagetool": { */
-          /*   "command": "languagetool", */
-          /*   "debounce": 200, */
-          /*   "args": ["-"], */
-          /*   "offsetLine": 0, */
-          /*   "offsetColumn": 0, */
-          /*   "sourceName": "languagetool", */
-          /*   "formatLines": 2, */
-          /*   "formatPattern": [ */
-          /*     "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$", */
-          /*     { */
-          /*       "line": 1, */
-          /*       "column": 2, */
-          /*       "message": [4, 3] */
-          /*     } */
-          /*   ] */
-          /* }, */
-          "vint": {
-            "command": "vint",
-            "debounce": 100,
-            "args": ["--enable-neovim", "-"],
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "sourceName": "vint",
-            "formatLines": 1,
-            "formatPattern": [
-              "[^:]+:(\\d+):(\\d+):\\s*(.*)(\\r|\\n)*$",
-              {
-                "line": 1,
-                "column": 2,
-                "message": 3
-              }
-            ]
-          }
-        },
-        "filetypes": {
-          "sh": "shellcheck",
-          "email": "languagetool",
-          /* "markdown": "languagetool", */
-          "vim": "vint"
-        }
-        /* "formatters": { */
-        /*   "lua-format": { */
-        /*     "command": "lua-format", */
-        /*     "args": ["-i"] */
-        /*   } */
-        /* }, */
-        /* "formatFiletypes": { */
-        /*   "lua": "lua-format", */
-        /*   "sh": "shfmt" */
-        /* } */
-      }
+    "sql": {
+      "command": "sqls",
+      "args": ["-config", "$HOME/.config/sqls/config.yml"],
+      "filetypes": ["sql"],
+      "shell": true
     }
   },
-  "prettier.useTabs": false,
+  "coc.preferences.jumpCommand": "vsplit",
+  "diagnostic.errorSign": "⏺",
+  "workspace.ignoredFolders": ["$HOME", "$HOME/.cargo/**", "$HOME/.rustup/**"],
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.enableHighlightLineNumber": false,
+  "diagnostic.enableMessage": "always",
+  "diagnostic.virtualText": false,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.timeout": 5000,
+  "suggest.noselect": false,
+  "yank.priority": 0,
+  "prettier.enable": true,
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  "prettier.useTabs": true,
+  "prettier.tabWidth": 2,
   "prettier.arrowParens": "avoid",
-  "coc.source.emoji.triggerCharacters": [":"],
-  "prettier.disableLanguages": [
-    "vue",
-    /* "markdown" */
-    // "javascript",
-    // "typescript",
-    // "typescript.tsx",
-    // "typescriptreact"
+  "prettier.trailingComma": "es5",
+  "prettier.bracketSpacing": true,
+  "sql.formatOptions": { "dialect": "sqlite" },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "html",
+    "scss",
+    "javascriptreact",
+    "rust",
+    "typescript",
+    "typescriptreact",
+    "python",
+    "json",
+    "jsonc",
+    "css",
+    "lua",
+    "sql",
+    "go",
+    "vue"
   ],
-  "coc.preferences.formatOnSaveFiletypes": [],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "vue": ["javascript"],
@@ -176,33 +58,26 @@
   },
   "explorer.previewAction.onHover": "content",
   "explorer.position": "floating",
-  "explorer.floating.position": "left-center",
-  "explorer.floating.width": 50,
+  "explorer.floating.position": "center",
   "explorer.icon.enableNerdfont": true,
-  "coc.preferences.colorSupport": true,
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expandOrCollapse", "open"]
   },
-  "eslint.quiet": true,
-  "eslint.probe": [
-  ],
-  "eslint.validate": [
-    "vue",
-    /* "javascript", */
-    /* "typescript", */
-    // "typescriptreact",
-    // "javascriptreact",
-    "typescript.tsx"
-  ],
-  "eslint.autoFixOnSave": false,
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": [
-    "--ignore=F401,E501,W391,E402,E741",
-    "--max-line-length=88"
-  ],
-  "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": [],
-  "clangd.path": "/Users/songwang/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
-  /* "lua.enable": true */
+  "Lua.diagnostics.globals": ["vim", "use", "requires", "hs"],
+  "Lua.format.enable": true,
+  "eslint.runtime": "node",
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "eslint.nodePath": ".yarn/sdks",
+  "eslint.options": {
+    "overrideConfig": {
+      "rules": {}
+    }
+  },
+  "python.pythonPath": "python",
+  "python.formatting.blackPath": "/usr/local/bin/black",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length=120"],
+  "pyright.disableDiagnostics": false,
+  "snippets.ultisnips.pythonPrompt": false
 }

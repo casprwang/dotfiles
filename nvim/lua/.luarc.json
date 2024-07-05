@@ -1,0 +1,16 @@
+{
+    "workspace.library": [
+        "/Users/songwang/.config/nvim",
+        "/Users/songwang/.local/share/nvim/lazy/lazy.nvim",
+        "/Users/songwang/.local/share/nvim/lazy/nvim-lspconfig",
+        "/Users/songwang/.local/share/nvim/lazy/neo-tree.nvim",
+        "/Users/songwang/.local/share/nvim/lazy/plenary.nvim",
+        "/Users/songwang/.local/share/nvim/lazy/telescope.nvim",
+        "/Users/songwang/.local/share/nvim/lazy/nord.nvim",
+        "/opt/homebrew/Cellar/neovim/HEAD-fd32a98/share/nvim/runtime",
+        "/opt/homebrew/Cellar/neovim/HEAD-fd32a98/share/nvim/runtime/pack/dist/opt/matchit",
+        "/Users/songwang/.local/state/nvim/lazy/readme",
+        "${3rd}/luassert/library",
+        "${3rd}/luassert/library"
+    ]
+}
