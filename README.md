@@ -1,6 +1,5 @@
 # Dotfiles
 
-Editor and terminal setups for Casper Wang.
+Editor and terminal setups for Casper Wang. Currently a combo of Neovim, Wezterm, and Karabinder.
 
-It's just for personal record keeping. Nothing too crazy than a standard setup, but it all works well together on my machines. Feel free to snap a piece :)
-
+Feel free to snap a piece :)
