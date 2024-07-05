@@ -5,3 +5,5 @@
 !/wezterm/
 */*.DS_Store
 /nvim/startuptime.log
+.DS_Store
+
