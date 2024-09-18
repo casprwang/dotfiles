@@ -11,6 +11,7 @@ return {
       "coc-prettier",
       "coc-yaml",
       "coc-pyright",
+      "coc-zig",
       "coc-yank",
       "coc-eslint",
       "coc-css",
@@ -25,7 +26,6 @@ return {
       "coc-diagnostic",
       "coc-sql",
       "@yaegassy/coc-tailwindcss3",
-      "@yaegassy/coc-volar"
     }
 
     -- https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.lua
@@ -66,7 +66,6 @@ return {
 
     -- Make <CR> to accept selected completion item or notify coc.nvim to format
     -- <C-g>u breaks current undo, please make your own choice
-
 
     keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
@@ -134,13 +133,13 @@ return {
     -- Apply codeAction to the selected region
     -- Example: `<leader>aap` for current paragraph
     local opts = { silent = true, nowait = true }
-    keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
-    keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+    -- keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+    -- keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
     -- Remap keys for apply code actions at the cursor position.
-    keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
+    -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
     -- Remap keys for apply source code actions for current file.
-    keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
+    -- keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
     -- Apply the most preferred quickfix action on the current line.
     keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
 
@@ -210,12 +209,12 @@ return {
     vim.cmd([[
       " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
       " autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+      autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
     ]])
 
-    vim.cmd [[
+    vim.cmd([[
        hi CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=#808080
-    ]]
+    ]])
   end,
 }

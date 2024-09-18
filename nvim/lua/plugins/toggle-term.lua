@@ -2,7 +2,6 @@ return {
   "akinsho/toggleterm.nvim",
   keys = {
     "<c-3>",
-    "<c-g>"
   },
   version = "*",
   config = function()
@@ -58,8 +57,8 @@ return {
       lazygit:toggle()
     end
 
-    vim.api.nvim_set_keymap("n", "<c-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("t", "<c-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap("n", "<c-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap("t", "<c-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("n", "<c-3>", "<cmd>lua _term_toggle()<CR>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("t", "<c-3>", "<cmd>lua _term_toggle()<CR>", { noremap = true, silent = true })
   end,

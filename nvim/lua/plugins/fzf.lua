@@ -4,7 +4,6 @@ return {
   -- optional for icon support
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    local actions = require "fzf-lua.actions"
     require("fzf-lua").setup({
       winopts  = {
         -- split         = "belowright new",-- open in a split instead?

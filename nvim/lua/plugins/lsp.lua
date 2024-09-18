@@ -1,0 +1,225 @@
+return {
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   dependencies = {
+  --     "williamboman/mason-lspconfig.nvim",
+  --     "williamboman/mason.nvim",
+  --   },
+  --   config = function()
+  --     local on_attach = function(_, bufnr)
+  --       local function buf_set_option(...)
+  --         vim.api.nvim_buf_set_option(bufnr, ...)
+  --       end
+  --
+  --       buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  --
+  --       -- Mappings.
+  --       local opts = { buffer = bufnr, noremap = true, silent = true }
+  --       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+  --       vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  --       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  --       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+  --       vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+  --       vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+  --       vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+  --
+  --       vim.keymap.set("n", "<space>wl", function()
+  --         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  --       end, opts)
+  --       vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+  --       vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+  --       vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+  --       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+  --       vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+  --     end
+  --
+  --     require("mason").setup()
+  --     require("mason-lspconfig").setup({
+  --       ensure_installed = {
+  --         "sqls",
+  --         "lua_ls",
+  --         "rust_analyzer",
+  --         "gopls",
+  --         "templ",
+  --         "html",
+  --         "htmx",
+  --         "tailwindcss",
+  --       },
+  --     })
+  --     local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  --     local lspconfig = require("lspconfig")
+  --
+  --     require('lspconfig').html.setup({
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --       filetypes = { "html", "templ" },
+  --     })
+  --     require("lspconfig").lua_ls.setup({
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --     })
+  --     require("lspconfig").gopls.setup({
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --     })
+  --     require 'lspconfig'.tailwindcss.setup {}
+  --
+  --     require("lspconfig").tsserver.setup({
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --     })
+  --     lspconfig.templ.setup {
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --       filetypes = { "templ" },
+  --     }
+  --
+  --     lspconfig.tailwindcss.setup({
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --       filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+  --       init_options = { userLanguages = { templ = "html" } },
+  --     })
+  --     lspconfig.htmx.setup({
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --       filetypes = { "html", "templ" },
+  --     })
+  --
+  --     lspconfig.sqls.setup({
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --     })
+  --
+  --
+  --     require('lspconfig').pyright.setup {
+  --       on_attach = on_attach,
+  --       capabilities = capabilities,
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",
+  --     "hrsh7th/cmp-buffer",
+  --     "neovim/nvim-lspconfig",
+  --     "hrsh7th/cmp-path",
+  --     "hrsh7th/vim-vsnip",
+  --     "hrsh7th/cmp-cmdline",
+  --     "onsails/lspkind.nvim"
+  --   },
+  --   config = function()
+  --     local cmp = require("cmp")
+  --
+  --     local lspkind = require('lspkind')
+  --     cmp.setup({
+  --       formatting = {
+  --         format = lspkind.cmp_format({
+  --           mode = 'symbol', -- show only symbol annotations
+  --           maxwidth = 50,   -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+  --           -- can also be a function to dynamically calculate max width such as
+  --           -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+  --           ellipsis_char = '...',    -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+  --           show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+  --
+  --           -- The function below will be called before any actual modifications from lspkind
+  --           -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+  --           before = function(entry, vim_item)
+  --             return vim_item
+  --           end
+  --         })
+  --       },
+  --       window = {
+  --         -- completion = cmp.config.window.bordered(),
+  --         -- documentation = cmp.config.window.bordered(),
+  --       },
+  --       mapping = cmp.mapping.preset.insert({
+  --         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+  --         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  --         ["<C-Space>"] = cmp.mapping.complete(),
+  --         ["<C-e>"] = cmp.mapping.abort(),
+  --         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  --       }),
+  --       sources = cmp.config.sources({
+  --         { name = "nvim_lsp" },
+  --         { name = "vsnip" }, -- For vsnip users.
+  --         -- { name = 'luasnip' }, -- For luasnip users.
+  --         -- { name = 'ultisnips' }, -- For ultisnips users.
+  --         -- { name = 'snippy' }, -- For snippy users.
+  --       }, {
+  --         { name = "buffer" },
+  --       }),
+  --     })
+  --
+  --     cmp.setup.cmdline({ "/", "?" }, {
+  --       mapping = cmp.mapping.preset.cmdline(),
+  --       sources = {
+  --         { name = "buffer" },
+  --       },
+  --     })
+  --     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  --     cmp.setup.cmdline(":", {
+  --       mapping = cmp.mapping.preset.cmdline(),
+  --       sources = cmp.config.sources({
+  --         { name = "path" },
+  --       }, {
+  --         { name = "cmdline" },
+  --       }),
+  --       matching = { disallow_symbol_nonprefix_matching = false },
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "nvimdev/lspsaga.nvim",
+  --   enabled = false,
+  --   config = function()
+  --     require("lspsaga").setup({})
+  --   end,
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter", -- optional
+  --     "nvim-tree/nvim-web-devicons",     -- optional
+  --   },
+  -- },
+  -- {
+  --   'windwp/nvim-autopairs',
+  --   event = "InsertEnter",
+  --   config = true
+  --   -- use opts = {} for passing setup options
+  --   -- this is equalent to setup({}) function
+  -- },
+  -- {
+  --   "nvimdev/guard.nvim",
+  --   enabled = true,
+  --   -- Builtin configuration, optional
+  --   event = "BufRead",
+  --   dependencies = {
+  --     "nvimdev/guard-collection",
+  --   },
+  --   config = function()
+  --     local ft = require("guard.filetype")
+  --
+  --     ft("python"):fmt({
+  --       cmd = "ruff",
+  --       args = { "format" },
+  --       stdin = false,
+  --     })
+  --     ft('templ'):fmt({
+  --       cmd = "templ",
+  --       args = { "fmt" },
+  --       stdin = true
+  --     })
+  --
+  --
+  --     ft('typescript,javascript,typescriptreact,json,css,html'):fmt('prettierd')
+  --
+  --     -- Call setup() LAST!
+  --     require("guard").setup({
+  --       -- the only options for the setup function
+  --       fmt_on_save = true,
+  --       -- Use lsp if no formatter was defined for this filetype
+  --       lsp_as_default_formatter = true,
+  --     })
+  --   end,
+  -- }
+}

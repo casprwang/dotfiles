@@ -9,7 +9,7 @@ vim.o.splitbelow = true
 
 opt.number = false
 opt.relativenumber = false -- for white spaces
-opt.signcolumn = "yes:5"
+opt.signcolumn = "yes"
 opt.autoread = true
 opt.wildmenu = true
 
@@ -41,11 +41,11 @@ opt.incsearch = true
 opt.autoindent = true
 opt.smarttab = true
 
-vim.cmd([[
-  set cindent
-  set cinkeys-=0#
-  set indentkeys-=0#
-]])
+-- vim.cmd([[
+--   set cindent
+--   set cinkeys-=0#
+--   set indentkeys-=0#
+-- ]])
 
 -- Indentation
 opt.expandtab = true

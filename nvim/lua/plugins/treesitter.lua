@@ -15,10 +15,15 @@ return {
       },
       ensure_installed = {
         "c",
+        "html",
+        "astro",
         "lua",
         "graphql",
         "vim",
+        "templ",
         "vimdoc",
+        "markdown",
+        "markdown_inline",
         "query",
         "tsx",
         "lua",
@@ -31,6 +36,7 @@ return {
         "vue",
         "python",
         "c_sharp",
+        "zig",
       },
       autotag = { enable = true },
     })

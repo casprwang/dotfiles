@@ -5,19 +5,30 @@ return {
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
   },
-  keys         = {
-    { "<leader>,", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-  },
-  config       = function()
+  config = function()
     require("neo-tree").setup({
       filesystem = {
         use_libuv_file_watcher = true,
         follow_current_file = {
-          enabled = true
+          enabled = true,
+        },
+        window = {
+          mappings = {
+            ["O"] = "system_open",
+          },
         },
       },
+      commands = {
+        system_open = function(state)
+          local node = state.tree:get_node()
+          local path = node:get_id()
+          -- macOs: open file in default application in the background.
+          vim.fn.jobstart({ "open", path }, { detach = true })
+          vim.cmd("silent !start explorer " .. path)
+        end,
+      },
       window = {
-        position = "float",
+        position = "right",
         popup = {
           -- settings that apply to float position only
           size = { height = "50", width = "150" },
@@ -78,7 +89,7 @@ return {
         },
       },
     })
-    vim.keymap.set("n", ",", ":Neotree toggle<cr>", {})
+    vim.keymap.set("n", ",", ":Neotree toggle dir=.<cr>", {})
     -- start git messages in insert mode
 
     -- vim.api.nvim_create_autocmd('BufWinLeave', {

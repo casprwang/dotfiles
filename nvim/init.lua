@@ -22,11 +22,28 @@ require("lazy").setup({
     import = "plugins",
   },
   {
-    'petertriho/nvim-scrollbar',
-    event = "VeryLazy",
-    config = function()
-      require("scrollbar").setup()
-    end,
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
+    keys = {
+      { "<left>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<down>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<Up>",    "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<right>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+    },
+  },
+  {
+    "otavioschwanck/arrow.nvim",
+    opts = {
+      show_icons = true,
+      leader_key = ';',        -- Recommended to be a single key
+      buffer_leader_key = 'm', -- Per Buffer Mappings
+    }
   },
   {
     "folke/tokyonight.nvim",
@@ -48,88 +65,84 @@ require("lazy").setup({
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    event = "VeryLazy",
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
   {
     "junegunn/fzf",
     event = "VeryLazy",
-    build = "./install --bin"
+    build = "./install --bin",
   },
   {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
     config = function()
-      require('dashboard').setup {
-        theme = 'hyper',
+      require("dashboard").setup({
+        theme = "hyper",
         config = {
           week_header = {
             enable = false,
           },
           shortcut = {
-            { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
+            { desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
             {
-              icon = ' ',
-              icon_hl = '@variable',
-              desc = 'Files',
-              group = 'Label',
-              action = 'FzfLua files header=false',
-              key = 'f',
+              icon = " ",
+              icon_hl = "@variable",
+              desc = "Files",
+              group = "Label",
+              action = "FzfLua files header=false",
+              key = "f",
             },
             {
-              desc = ' quit',
-              group = 'DiagnosticHint',
-              action = 'q',
-              key = 'q',
+              desc = " quit",
+              group = "DiagnosticHint",
+              action = "q",
+              key = "q",
             },
             {
-              desc = ' session',
-              group = 'DiagnosticHint',
-              action = 'SessionLoad',
-              key = 'l',
+              desc = " session",
+              group = "DiagnosticHint",
+              action = "SessionRestore",
+              key = "l",
             },
           },
         },
-      }
-    end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-  },
-  {
-    "olimorris/persisted.nvim",
-    lazy = false, -- make sure the plugin is always loaded at startup
-    config = function()
-      require("persisted").setup({
-        save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
-        silent = false,                                                   -- silent nvim message when sourcing session file
-        use_git_branch = false,                                           -- create session files based on the branch of a git enabled repository
-        default_branch = "main",                                          -- the branch to load if a session file is not found for the current branch
-        autosave = true,                                                  -- automatically save session files when exiting Neovim
-        should_autosave = nil,                                            -- function to determine if a session should be autosaved
-        autoload = false,                                                 -- automatically load the session for the cwd on Neovim startup
-        on_autoload_no_session = nil,                                     -- function to run when `autoload = true` but there is no session to load
-        follow_cwd = true,                                                -- change session file name to match current working directory if it changes
-        allowed_dirs = nil,                                               -- table of dirs that the plugin will auto-save and auto-load from
-        ignored_dirs = nil,                                               -- table of dirs that are ignored when auto-saving and auto-loading
-        ignored_branches = nil,                                           -- table of branch patterns that are ignored for auto-saving and auto-loading
       })
-    end
+    end,
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
   {
-    'mrjones2014/smart-splits.nvim',
+    {
+      "rmagatti/auto-session",
+      dependencies = {
+        "nvim-telescope/telescope.nvim", -- Only needed if you want to use sesssion lens
+      },
+      config = function()
+        require("auto-session").setup({
+          auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+        })
+      end,
+    },
+  },
+  {
+    "mrjones2014/smart-splits.nvim",
     lazy = false,
     config = function()
-      require('smart-splits').setup({
+      require("smart-splits").setup({
         -- add any options here
       })
-      vim.keymap.set('n', '<Right>', require('smart-splits').move_cursor_right)
-      vim.keymap.set('n', '<Left>', require('smart-splits').move_cursor_left)
-      vim.keymap.set('n', '<Up>', require('smart-splits').move_cursor_up)
-      vim.keymap.set('n', '<Down>', require('smart-splits').move_cursor_down)
-      vim.keymap.set('n', '<A-Left>', require('smart-splits').resize_left)
-      vim.keymap.set('n', '<A-Down>', require('smart-splits').resize_down)
-      vim.keymap.set('n', '<A-Up>', require('smart-splits').resize_up)
-      vim.keymap.set('n', '<A-Right>', require('smart-splits').resize_right)
-    end
+      vim.keymap.set("n", "<Right>", require("smart-splits").move_cursor_right)
+      vim.keymap.set("n", "<Left>", require("smart-splits").move_cursor_left)
+      vim.keymap.set("n", "<Up>", require("smart-splits").move_cursor_up)
+      vim.keymap.set("n", "<Down>", require("smart-splits").move_cursor_down)
+      vim.keymap.set("n", "<A-Left>", require("smart-splits").resize_left)
+      vim.keymap.set("n", "<A-Down>", require("smart-splits").resize_down)
+      vim.keymap.set("n", "<A-Up>", require("smart-splits").resize_up)
+      vim.keymap.set("n", "<A-Right>", require("smart-splits").resize_right)
+    end,
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -138,9 +151,6 @@ require("lazy").setup({
         default = true,
       })
     end,
-    keys   = {
-      { "<leader>,", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-    },
   },
   {
     "numToStr/Comment.nvim",
@@ -151,7 +161,7 @@ require("lazy").setup({
     keys = {
       "<cmd>CommentToggle<cr>",
       "gc",
-      "gcc"
+      "gcc",
     },
     config = function()
       local prehook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
@@ -163,6 +173,7 @@ require("lazy").setup({
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
+    enabled = false,
     config = function()
       require("copilot").setup({
         suggestion = {
@@ -179,28 +190,6 @@ require("lazy").setup({
           vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
         end
       end, { desc = "Super Tab" })
-    end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    enabled = true,
-    event = "VeryLazy",
-    config = function()
-      require("lualine").setup({
-        options = {
-          theme = "tokyonight",
-          section_separators = { "", "" },
-          component_separators = { "", "" },
-        },
-        sections = {
-          lualine_a = {},
-          lualine_b = { "branch", "diff", "diagnostics" },
-          lualine_c = { "filename" },
-          lualine_x = {},
-          lualine_y = {},
-          lualine_z = {},
-        },
-      })
     end,
   },
   {
@@ -229,8 +218,38 @@ require("lazy").setup({
     },
   },
   {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = true,
+    main = "ibl",
+    event = "VeryLazy",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+    config = function()
+      -- disable indentation on the first level
+      local hooks = require("ibl.hooks")
+      vim.api.nvim_set_hl(0, 'CurrentScope', { fg = "#3b4261" })
+      vim.api.nvim_set_hl(0, 'ContextScope', { fg = "#2c3247" })
+
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
+      require("ibl").setup({
+        indent = {
+          char = "¦", -- This is a slightly thinner char than the default one, check :help ibl.config.indent.char
+          highlight = { "ContextScope" }
+        },
+        scope = {
+          show_start = false,
+          highlight = 'CurrentScope',
+          show_end = false,
+        },
+      })
+    end
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
+    enabled = false,
     opts = {
       -- add any options here
     },
@@ -292,3 +311,6 @@ require("lazy").setup({
     end,
   },
 })
+
+vim.cmd([[
+]])

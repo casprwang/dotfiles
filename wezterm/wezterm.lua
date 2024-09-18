@@ -47,6 +47,7 @@ config.keys = {
 
   -- { key = "s", mods = "CTRL", action = act.PaneSelect },
 }
+config.font_size = 12.0
 config.font_rules = {
   {
     intensity = "Bold",
@@ -76,8 +77,8 @@ config.font_rules = {
   },
 }
 
-config.window_background_opacity = 0.7
-config.text_background_opacity = 0.7
+config.window_background_opacity = 0.85
+config.text_background_opacity = 0.85
 smart_splits.apply_to_config(config, {
   direction_keys = { 'LeftArrow', 'DownArrow', 'UpArrow', 'RightArrow' },
   modifiers = {
