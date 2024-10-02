@@ -44,11 +44,11 @@ return {
           scrollbar    = 'float',     -- `false` or string:'float|border'
           -- float:  in-window floating border
           -- border: in-border chars (see below)
-          scrolloff    = '-2',        -- float scrollbar offset from right
+          scrolloff    = '-2', -- float scrollbar offset from right
           -- applies only when scrollbar = 'float'
           scrollchars  = { '█', '' }, -- scrollbar chars ({ <full>, <empty> }
           -- applies only when scrollbar = 'border'
-          delay        = 100,         -- delay(ms) displaying the preview
+          delay        = 100, -- delay(ms) displaying the preview
           -- prevents lag on fast scrolling
           winopts      = {
             -- builtin previewer window options
@@ -121,6 +121,7 @@ return {
         find_opts              = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
         rg_opts                = [[--color=never --files --hidden --follow -g "!.git"]],
         fd_opts                = [[--color=never --type f --hidden --follow --exclude .git]],
+        keymap                 = { builtin = { ["<Esc>"] = "hide" } },
         -- by default, cwd appears in the header only if {opts} contain a cwd
         -- parameter to a different folder than the current working directory
         -- uncomment if you wish to force display of the cwd as part of the
@@ -181,7 +182,8 @@ return {
     })
     local keyset = vim.keymap.set
     local opts = { silent = true, nowait = true }
-    keyset("n", "<leader>b", ":FzfLua oldfiles<cr>", opts)
+    -- keyset("n", "<leader>h", ":FzfLua oldfiles<cr>", opts)
+    keyset("n", "<leader>b", ":FzfLua buffers<cr>", opts)
     keyset("n", "<leader>8", ":FzfLua files header=false<cr>", opts)
 
 
@@ -189,10 +191,10 @@ return {
       require 'fzf-lua'.fzf_exec(
         "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=120 --line-number --no-heading  --color=always --smart-case ''",
         {
-          actions = {
+          actions      = {
             ['default'] = require 'fzf-lua'.actions.file_edit
           },
-          previewer = "builtin",
+          previewer    = "builtin",
           fn_transform = function(x)
             return require 'fzf-lua'.make_entry.file(x, { file_icons = true, color_icons = true })
           end
@@ -205,10 +207,10 @@ return {
         "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=119 --line-number --no-heading  --color=always --smart-case '" ..
         vim.fn.expand('<cword>') .. "'",
         {
-          actions = {
+          actions      = {
             ['default'] = require 'fzf-lua'.actions.file_edit,
           },
-          previewer = "builtin",
+          previewer    = "builtin",
           fn_transform = function(x)
             return require 'fzf-lua'.make_entry.file(x, { file_icons = true, color_icons = true })
           end

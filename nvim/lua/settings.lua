@@ -40,6 +40,7 @@ opt.hlsearch = false
 opt.incsearch = true
 opt.autoindent = true
 opt.smarttab = true
+opt.hidden = true
 
 -- vim.cmd([[
 --   set cindent

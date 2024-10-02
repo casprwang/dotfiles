@@ -218,6 +218,17 @@ require("lazy").setup({
     },
   },
   {
+    "ghillb/cybu.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("cybu").setup()
+      vim.keymap.set("n", "[b", "<Plug>(CybuPrev)")
+      vim.keymap.set("n", "]b", "<Plug>(CybuNext)")
+      -- vim.keymap.set("n", "<s-tab>", "<plug>(CybuLastusedPrev)")
+      -- vim.keymap.set("n", "<tab>", "<plug>(CybuLastusedNext)")
+    end
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     enabled = true,
     main = "ibl",
@@ -245,6 +256,41 @@ require("lazy").setup({
         },
       })
     end
+  },
+  {
+    'b0o/incline.nvim',
+    enabled = false,
+    config = function()
+      local helpers = require 'incline.helpers'
+      local devicons = require 'nvim-web-devicons'
+      require('incline').setup {
+        window = {
+          padding = 0,
+          margin = { horizontal = 0 },
+          placement = {
+            horizontal = 'left',
+            vertical = 'top',
+          },
+        },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+          if filename == '' then
+            filename = '[No Name]'
+          end
+          local ft_icon, ft_color = devicons.get_icon_color(filename)
+          local modified = vim.bo[props.buf].modified
+          return {
+            ft_icon and { ' ', ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or '',
+            ' ',
+            { filename, gui = modified and 'bold,italic' or 'bold' },
+            ' ',
+            guibg = '#44406e',
+          }
+        end,
+      }
+    end,
+    -- Optional: Lazy load Incline
+    event = 'VeryLazy',
   },
   {
     "folke/noice.nvim",
@@ -292,6 +338,19 @@ require("lazy").setup({
         },
       })
     end,
+  },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      vim.opt.termguicolors = true
+      require("bufferline").setup {
+        options = {
+          mode = "tabs",
+        },
+      }
+    end
   },
   {
     "lewis6991/gitsigns.nvim",
