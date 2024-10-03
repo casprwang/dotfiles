@@ -460,3 +460,9 @@ key = "g"
 mods = "Command"
 chars = "\u00139"
 
+
+[[keyboard.bindings]]
+key = "e"
+mods = "Command"
+chars = "\u00135"
+

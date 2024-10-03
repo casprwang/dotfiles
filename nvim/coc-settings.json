@@ -1,12 +1,4 @@
 {
-  "languageserver": {
-    "sql": {
-      "command": "sqls",
-      "args": ["-config", "$HOME/.config/sqls/config.yml"],
-      "filetypes": ["sql"],
-      "shell": true
-    }
-  },
   "inlayHint.enable": false,
   "inlayHint.enableParameter": false,
   "coc.preferences.jumpCommand": "vsplit",
@@ -39,9 +31,6 @@
   "prettier.arrowParens": "avoid",
   "prettier.trailingComma": "es5",
   "prettier.bracketSpacing": true,
-  "sql.formatOptions": {
-    "dialect": "sqlite"
-  },
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "html",

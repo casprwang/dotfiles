@@ -1,8 +1,8 @@
 return {
   "neoclide/coc.nvim",
   enabled = true,
-  event = "VeryLazy",
-  branch = "release",
+  branch = "master",
+  build = "npm ci",
   config = function()
     vim.g.coc_global_extensions = {
       "coc-snippets",
@@ -24,7 +24,6 @@ return {
       "coc-pairs",
       "coc-json",
       "coc-diagnostic",
-      "coc-sql",
       "@yaegassy/coc-tailwindcss3",
     }
 
@@ -106,6 +105,10 @@ return {
       command = "silent call CocActionAsync('highlight')",
       desc = "Highlight symbol under cursor on CursorHold",
     })
+    vim.cmd([[
+       hi CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=#808080
+       hi CocHighlightText guibg=#454C69
+    ]])
 
     -- Symbol renaming
     keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
@@ -211,10 +214,7 @@ return {
       " autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-    ]])
-
-    vim.cmd([[
-       hi CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=#808080
+let g:node_client_debug = 1
     ]])
   end,
 }

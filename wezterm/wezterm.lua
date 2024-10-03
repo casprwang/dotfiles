@@ -35,10 +35,6 @@ config.keys = {
       size = { Percent = 30 },
     },
   },
-  { key = '1', mods = 'CMD', action = act.ActivatePaneByIndex(0) },
-  { key = '2', mods = 'CMD', action = act.ActivatePaneByIndex(1) },
-  { key = '3', mods = 'CMD', action = act.ActivatePaneByIndex(2) },
-  { key = '4', mods = 'CMD', action = act.ActivatePaneByIndex(3) },
   {
     key = 'j',
     mods = 'SUPER',
@@ -78,6 +74,7 @@ config.font_rules = {
 }
 
 config.window_background_opacity = 0.85
+config.hide_tab_bar_if_only_one_tab = true
 config.text_background_opacity = 0.85
 smart_splits.apply_to_config(config, {
   direction_keys = { 'LeftArrow', 'DownArrow', 'UpArrow', 'RightArrow' },

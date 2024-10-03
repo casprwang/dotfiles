@@ -229,41 +229,15 @@ require("lazy").setup({
     end
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = true,
-    main = "ibl",
-    event = "VeryLazy",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {},
-    config = function()
-      -- disable indentation on the first level
-      local hooks = require("ibl.hooks")
-      vim.api.nvim_set_hl(0, 'CurrentScope', { fg = "#3b4261" })
-      vim.api.nvim_set_hl(0, 'ContextScope', { fg = "#2c3247" })
-
-      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
-      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
-      require("ibl").setup({
-        indent = {
-          char = "¦", -- This is a slightly thinner char than the default one, check :help ibl.config.indent.char
-          highlight = { "ContextScope" }
-        },
-        scope = {
-          show_start = false,
-          highlight = 'CurrentScope',
-          show_end = false,
-        },
-      })
-    end
-  },
-  {
     'b0o/incline.nvim',
     enabled = false,
     config = function()
       local helpers = require 'incline.helpers'
       local devicons = require 'nvim-web-devicons'
       require('incline').setup {
+        hide = {
+          focused_win = true,
+        },
         window = {
           padding = 0,
           margin = { horizontal = 0 },
@@ -291,6 +265,35 @@ require("lazy").setup({
     end,
     -- Optional: Lazy load Incline
     event = 'VeryLazy',
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = true,
+    main = "ibl",
+    event = "VeryLazy",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+    config = function()
+      -- disable indentation on the first level
+      local hooks = require("ibl.hooks")
+      vim.api.nvim_set_hl(0, 'CurrentScope', { fg = "#3b4261" })
+      vim.api.nvim_set_hl(0, 'ContextScope', { fg = "#2c3247" })
+
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
+      require("ibl").setup({
+        indent = {
+          char = "¦", -- This is a slightly thinner char than the default one, check :help ibl.config.indent.char
+          highlight = { "ContextScope" }
+        },
+        scope = {
+          show_start = false,
+          highlight = 'CurrentScope',
+          show_end = false,
+        },
+      })
+    end
   },
   {
     "folke/noice.nvim",
@@ -340,17 +343,65 @@ require("lazy").setup({
     end,
   },
   {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    "RRethy/vim-illuminate",
+    enabled = false,
+    event = "VeryLazy",
     config = function()
-      vim.opt.termguicolors = true
-      require("bufferline").setup {
-        options = {
-          mode = "tabs",
+      -- default configuration
+      require('illuminate').configure({
+        -- providers: provider used to get references in the buffer, ordered by priority
+        providers = {
+          'treesitter',
+          'regex',
         },
-      }
-    end
+        -- delay: delay in milliseconds
+        delay = 10,
+        -- filetype_overrides: filetype specific overrides.
+        -- The keys are strings to represent the filetype while the values are tables that
+        -- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
+        filetype_overrides = {},
+        -- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
+        filetypes_denylist = {
+          'dirbuf',
+          'dirvish',
+          'fugitive',
+        },
+        -- filetypes_allowlist: filetypes to illuminate, this is overridden by filetypes_denylist
+        -- You must set filetypes_denylist = {} to override the defaults to allow filetypes_allowlist to take effect
+        filetypes_allowlist = {},
+        -- modes_denylist: modes to not illuminate, this overrides modes_allowlist
+        -- See `:help mode()` for possible values
+        modes_denylist = {},
+        -- modes_allowlist: modes to illuminate, this is overridden by modes_denylist
+        -- See `:help mode()` for possible values
+        modes_allowlist = {},
+        -- providers_regex_syntax_denylist: syntax to not illuminate, this overrides providers_regex_syntax_allowlist
+        -- Only applies to the 'regex' provider
+        -- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
+        providers_regex_syntax_denylist = {},
+        -- providers_regex_syntax_allowlist: syntax to illuminate, this is overridden by providers_regex_syntax_denylist
+        -- Only applies to the 'regex' provider
+        -- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
+        providers_regex_syntax_allowlist = {},
+        -- under_cursor: whether or not to illuminate under the cursor
+        under_cursor = true,
+        -- large_file_cutoff: number of lines at which to use large_file_config
+        -- The `under_cursor` option is disabled when this cutoff is hit
+        large_file_cutoff = nil,
+        -- large_file_config: config to use for large files (based on large_file_cutoff).
+        -- Supports the same keys passed to .configure
+        -- If nil, vim-illuminate will be disabled for large files.
+        large_file_overrides = nil,
+        -- min_count_to_highlight: minimum number of matches required to perform highlighting
+        min_count_to_highlight = 1,
+        -- should_enable: a callback that overrides all other settings to
+        -- enable/disable illumination. This will be called a lot so don't do
+        -- anything expensive in it.
+        should_enable = function(bufnr) return true end,
+        -- case_insensitive_regex: sets regex case sensitivity
+        case_insensitive_regex = false,
+      })
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
