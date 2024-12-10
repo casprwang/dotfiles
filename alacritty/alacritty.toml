@@ -1,51 +1,20 @@
-[shell]
+[general]
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/catppuccin-latte.toml"
+  "~/.config/alacritty/themes/themes/one_light.toml"
+  # "~/.config/alacritty/catppuccin-frappe.toml"
+  # "~/.config/alacritty/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[terminal.shell]
 program = "/bin/zsh"
 args=["-l", "-c", "tmux attach 2> /dev/null || tmux"]
 
 [colors]
 transparent_background_colors = true
 
-
-# TokyoNight Alacritty Colors
-# Default colors
-[colors.primary]
-background = '#24283b'
-foreground = '#c0caf5'
-
-#[colors.cursor]
-#cursor = '#c0caf5'
-#text = '#24283b'
-
-# Normal colors
-[colors.normal]
-black = '#1d202f'
-red = '#f7768e'
-green = '#9ece6a'
-yellow = '#e0af68'
-blue = '#7aa2f7'
-magenta = '#bb9af7'
-cyan = '#7dcfff'
-white = '#a9b1d6'
-
-# Bright colors
-[colors.bright]
-black = '#414868'
-red = '#f7768e'
-green = '#9ece6a'
-yellow = '#e0af68'
-blue = '#7aa2f7'
-magenta = '#bb9af7'
-cyan = '#7dcfff'
-white = '#c0caf5'
-
-# Indexed Colors
-[[colors.indexed_colors]]
-index = 16
-color = '#ff9e64'
-
-[[colors.indexed_colors]]
-index = 17
-color = '#db4b4b'
 
 
 
@@ -62,7 +31,7 @@ family = "VictorMono Nerd Font"
 style = "Regular"
 
 [font]
-size = 14.0
+size = 16.0
 
 [window]
 decorations = "none"
@@ -70,6 +39,7 @@ opacity = 0.95
 
 [env]
 TERM = "xterm-256color"
+
 
 
 

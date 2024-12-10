@@ -22,6 +22,45 @@ require("lazy").setup({
     import = "plugins",
   },
   {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      -- 👇 in this section, choose your own keymappings!
+      {
+        "<leader>-",
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi at the current file",
+      },
+      {
+        -- Open in the current working directory
+        "<leader>cw",
+        "<cmd>Yazi cwd<cr>",
+        desc = "Open the file manager in nvim's working directory",
+      },
+      {
+        -- NOTE: this requires a version of yazi that includes
+        -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
+        '<c-up>',
+        "<cmd>Yazi toggle<cr>",
+        desc = "Resume the last yazi session",
+      },
+    },
+    ---@type YaziConfig
+    opts = {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = false,
+      keymaps = {
+        show_help = '<f1>',
+      },
+    },
+  },
+  {
+    "m-demare/attempt.nvim",
+    config = function()
+      require('attempt').setup()
+    end
+  },
+  {
     "christoomey/vim-tmux-navigator",
     cmd = {
       "TmuxNavigateLeft",
@@ -51,8 +90,6 @@ require("lazy").setup({
     priority = 1000,
     opts = {},
     config = function()
-      vim.o.background = "dark"
-      vim.cmd([[colorscheme tokyonight-storm]])
     end,
   },
   {
@@ -266,9 +303,10 @@ require("lazy").setup({
     -- Optional: Lazy load Incline
     event = 'VeryLazy',
   },
+  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = true,
+    enabled = false,
     main = "ibl",
     event = "VeryLazy",
     ---@module "ibl"
@@ -278,7 +316,7 @@ require("lazy").setup({
       -- disable indentation on the first level
       local hooks = require("ibl.hooks")
       vim.api.nvim_set_hl(0, 'CurrentScope', { fg = "#3b4261" })
-      vim.api.nvim_set_hl(0, 'ContextScope', { fg = "#2c3247" })
+      vim.api.nvim_set_hl(0, 'ContextScope', { fg = "#252937" })
 
       hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
       hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
@@ -295,6 +333,17 @@ require("lazy").setup({
       })
     end
   },
+  {
+    "navarasu/onedark.nvim",
+    priority = 1000, -- Ensure it loads first
+    config = function()
+      require('onedark').load()
+    end
+  },
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   priority = 1000, -- Ensure it loads first
+  -- },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -422,5 +471,7 @@ require("lazy").setup({
   },
 })
 
-vim.cmd([[
-]])
+vim.o.background = "light"
+-- vim.cmd([[
+--   colorscheme onelight
+-- ]])

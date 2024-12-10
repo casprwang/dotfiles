@@ -16,10 +16,7 @@ end
 create_augroups({
   setup = {
     -- {"BufWritePost", "plugins.lua", "PackerCompile"},
-    { "BufWritePre",          "*.cs", "Neoformat" }, {
-    "TextYankPost", "*",
-    [[lua require('vim.highlight').on_yank({ higroup = 'Substitute', timeout = 200 })]]
-  }, { "InsertLeave,WinEnter", "*", "set cursorline" },
+    { "BufWritePre",          "*.cs", "Neoformat" }, { "InsertLeave,WinEnter", "*", "set cursorline" },
     { "InsertEnter,WinLeave", "*",    "set nocursorline" }, {
     "FocusGained,BufEnter,CursorHold,CursorHoldI", "*",
     [[silent! if mode() != 'c' | checktime | endif]]
@@ -27,11 +24,6 @@ create_augroups({
     "FileChangedShellPost", "*",
     [[echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]]
   }, { "VimResized", "*", [[wincmd =]] }
-    -- {
-    --   "WinEnter",
-    --   "*",
-    --   [[:wincmd|]]
-    -- }
   },
   simple_filetypes = {
 

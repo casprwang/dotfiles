@@ -50,13 +50,6 @@
     "go",
     "vue"
   ],
-  "snippets.priority": 99,
-  "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "vue": ["javascript"],
-    "typescriptreact": ["typescript"],
-    "typescript": ["javascript"]
-  },
   "go.enable": true,
   "go.goplsOptions": {
     "completeUnimported": true
@@ -88,6 +81,5 @@
     "reportAttributeAccessIssue": "none"
   },
   "python.formatting.blackdPath": "/Users/songwang/.pyenv/shims/blackd",
-  "pyright.disableDiagnostics": false,
-  "snippets.ultisnips.pythonPrompt": false
+  "pyright.disableDiagnostics": false
 }

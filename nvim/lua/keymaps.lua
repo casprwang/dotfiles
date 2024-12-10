@@ -2,8 +2,9 @@ local map = vim.cmd
 
 -- vim.api.nvim_set_keymap("n", "gq", ":q<cr>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "q", ":close<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "gq", ":qa<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "gq", ":q<cr>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "q", ":close<cr>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "gq", ":qa<cr>", { noremap = true })
 
 -- vim.api.nvim_set_keymap("n", "gq", ":qa<cr>", { noremap = true })
 

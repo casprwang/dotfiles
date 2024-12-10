@@ -5,7 +5,6 @@ return {
   build = "npm ci",
   config = function()
     vim.g.coc_global_extensions = {
-      "coc-snippets",
       "coc-tsserver",
       "coc-rust-analyzer",
       "coc-prettier",
@@ -13,11 +12,10 @@ return {
       "coc-pyright",
       "coc-zig",
       "coc-yank",
+      "coc-go",
       "coc-eslint",
       "coc-css",
       "coc-html",
-      "coc-go",
-      "coc-lua",
       "coc-sumneko-lua",
       "coc-svg",
       "coc-vimlsp",
@@ -75,8 +73,10 @@ return {
 
     -- Use `[g` and `]g` to navigate diagnostics
     -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-    keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
-    keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
+    keyset("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true })
+    keyset("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true })
+    keyset("n", "g[", "<Plug>(coc-diagnostic-prev)", { silent = true })
+    keyset("n", "g]", "<Plug>(coc-diagnostic-next)", { silent = true })
 
     -- GoTo code navigation
     keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
@@ -106,12 +106,12 @@ return {
       desc = "Highlight symbol under cursor on CursorHold",
     })
     vim.cmd([[
-       hi CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=#808080
-       hi CocHighlightText guibg=#454C69
+       " hi CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=#808080
+       " hi CocHighlightText guibg=#454C69
     ]])
 
     -- Symbol renaming
-    keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
+    keyset("n", "cd", "<Plug>(coc-rename)", { silent = true })
 
     -- Formatting selected code
     keyset("x", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
@@ -135,7 +135,7 @@ return {
 
     -- Apply codeAction to the selected region
     -- Example: `<leader>aap` for current paragraph
-    local opts = { silent = true, nowait = true }
+    opts = { silent = true, nowait = true }
     -- keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
     -- keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
