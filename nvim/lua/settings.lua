@@ -7,7 +7,7 @@ vim.g.maplocalleader = "\\"
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-opt.number = false
+opt.number = true
 opt.relativenumber = false -- for white spaces
 opt.signcolumn = "yes"
 opt.autoread = true
@@ -42,11 +42,6 @@ opt.autoindent = true
 opt.smarttab = true
 opt.hidden = true
 
--- vim.cmd([[
---   set cindent
---   set cinkeys-=0#
---   set indentkeys-=0#
--- ]])
 
 -- Indentation
 opt.expandtab = true

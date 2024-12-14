@@ -184,10 +184,12 @@ return {
     local opts = { silent = true, nowait = true }
     -- keyset("n", "<leader>h", ":FzfLua oldfiles<cr>", opts)
     keyset("n", "<leader>b", ":FzfLua buffers<cr>", opts)
-    keyset("n", "<leader>8", ":FzfLua files header=false<cr>", opts)
+    -- keyset("n", "<leader>i", ":FzfLua oldfiles<cr>", opts)
+    -- keyset("n", "<leader>8", ":FzfLua files header=false<cr>", opts)
 
 
-    keyset('n', 'g/', function()
+
+    keyset('n', '<leader>e', function()
       require 'fzf-lua'.fzf_exec(
         "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=120 --line-number --no-heading  --color=always --smart-case ''",
         {
@@ -202,7 +204,7 @@ return {
       )
     end, opts)
 
-    keyset('n', 'gw', function()
+    keyset('n', '<leader>w', function()
       require 'fzf-lua'.fzf_exec(
         "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=119 --line-number --no-heading  --color=always --smart-case '" ..
         vim.fn.expand('<cword>') .. "'",

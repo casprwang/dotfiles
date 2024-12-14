@@ -1,7 +1,7 @@
 {
   "inlayHint.enable": false,
   "inlayHint.enableParameter": false,
-  "coc.preferences.jumpCommand": "vsplit",
+  "coc.preferences.jumpCommand": "edit",
   "diagnostic.errorSign": "⏺",
   "workspace.ignoredFolders": ["$HOME", "$HOME/.cargo/**", "$HOME/.rustup/**"],
   "diagnostic.warningSign": "",
@@ -76,6 +76,7 @@
   "python.pythonPath": "/Users/songwang/.pyenv/shims/python",
   "python.formatting.blackPath": "/Users/songwang/.pyenv/shims/black",
   "python.venvPath": "/Users/songwang/.pyenv/versions",
+  "semanticTokens.enable": true,
   "python.formatting.provider": "blackd",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportAttributeAccessIssue": "none"

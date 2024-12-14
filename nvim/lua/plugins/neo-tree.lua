@@ -89,8 +89,9 @@ return {
         },
       },
     })
-    vim.keymap.set("n", ",", ":Neotree toggle dir=.<cr>", {})
+    vim.keymap.set("n", "<leader>9", ":Neotree toggle dir=.<cr>", {})
     -- start git messages in insert mode
+    --
 
     -- vim.api.nvim_create_autocmd('BufWinLeave', {
     --   pattern = { "*" },

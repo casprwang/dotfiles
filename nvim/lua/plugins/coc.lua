@@ -1,6 +1,6 @@
 return {
   "neoclide/coc.nvim",
-  enabled = true,
+  enabled = false,
   branch = "master",
   build = "npm ci",
   config = function()
@@ -106,8 +106,6 @@ return {
       desc = "Highlight symbol under cursor on CursorHold",
     })
     vim.cmd([[
-       " hi CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=#808080
-       " hi CocHighlightText guibg=#454C69
     ]])
 
     -- Symbol renaming

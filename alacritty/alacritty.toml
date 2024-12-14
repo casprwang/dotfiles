@@ -1,20 +1,9 @@
-[general]
-import = [
-  # uncomment the flavour you want below:
-  # "~/.config/alacritty/catppuccin-latte.toml"
-  "~/.config/alacritty/themes/themes/one_light.toml"
-  # "~/.config/alacritty/catppuccin-frappe.toml"
-  # "~/.config/alacritty/catppuccin-macchiato.toml"
-  # "~/.config/alacritty/catppuccin-mocha.toml"
-]
-
-[terminal.shell]
-program = "/bin/zsh"
-args=["-l", "-c", "tmux attach 2> /dev/null || tmux"]
+# [terminal.shell]
+# program = "/bin/bash"
+# args=["-l", "-c", "tmux attach 2> /dev/null || tmux"]
 
 [colors]
-transparent_background_colors = true
-
+transparent_background_colors = false
 
 
 
@@ -35,7 +24,7 @@ size = 16.0
 
 [window]
 decorations = "none"
-opacity = 0.95
+opacity = 1
 
 [env]
 TERM = "xterm-256color"
@@ -435,4 +424,18 @@ chars = "\u00139"
 key = "e"
 mods = "Command"
 chars = "\u00135"
+
+
+[general]
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/catppuccin-latte.toml"
+  "~/.config/alacritty/themes/themes/gruvbox_light.toml"
+  # "~/.config/alacritty/themes/themes/gruvbox_light.toml"
+  # "~/.config/alacritty/themes/themes/one_dark.toml"
+  # "~/.config/alacritty/catppuccin-frappe.toml"
+  # "~/.config/alacritty/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+  # "~/.config/alacritty/catppuccin-frappe.toml"
+]
 
