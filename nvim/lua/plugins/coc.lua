@@ -1,6 +1,6 @@
 return {
   "neoclide/coc.nvim",
-  enabled = false,
+  enabled = true,
   branch = "master",
   build = "npm ci",
   config = function()
@@ -8,7 +8,6 @@ return {
       "coc-tsserver",
       "coc-rust-analyzer",
       "coc-prettier",
-      "coc-yaml",
       "coc-pyright",
       "coc-zig",
       "coc-yank",
@@ -53,6 +52,7 @@ return {
     -- other plugins before putting this into your config
     local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
 
+
     -- keyset(
     -- 	"i",
     -- 	"<TAB>",
@@ -64,7 +64,14 @@ return {
     -- Make <CR> to accept selected completion item or notify coc.nvim to format
     -- <C-g>u breaks current undo, please make your own choice
 
+    -- keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+    -- keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+
+
     keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+    -- keyset("i", "<cr>",
+    --   [[coc#pum#has_item_selected() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
+    --   opts)
 
     -- Use <c-j> to trigger snippets
     keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
@@ -135,22 +142,22 @@ return {
     -- Example: `<leader>aap` for current paragraph
     opts = { silent = true, nowait = true }
     -- keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
-    -- keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+    keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
     -- Remap keys for apply code actions at the cursor position.
     -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
     -- Remap keys for apply source code actions for current file.
     -- keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
     -- Apply the most preferred quickfix action on the current line.
-    keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
+    -- keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
 
-    -- Remap keys for apply refactor code actions.
-    keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
-    keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
-    keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+    -- -- Remap keys for apply refactor code actions.
+    -- keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
+    -- keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+    -- keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 
     -- Run the Code Lens actions on the current line
-    keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
+    keyset("n", "<leader>l", "<Plug>(coc-codelens-action)", opts)
 
     -- Map function and class text objects
     -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -196,23 +203,25 @@ return {
     ---@diagnostic disable-next-line: redefined-local
     local opts = { silent = true, nowait = true }
     -- Show commands
-    keyset("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
+    -- keyset("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
     -- Find symbol of current document
-    keyset("n", "<space>o", ":<C-u>CocList outline<cr>", opts)
+    -- keyset("n", "<space>o", ":<C-u>CocList outline<cr>", opts)
     -- Search workspace symbols
-    keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", opts)
+    -- keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", opts)
     -- Do default action for next item
-    keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
+    -- keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
     -- Do default action for previous item
-    keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
+    -- keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
     -- Resume latest coc list
-    keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+    -- keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+
     vim.cmd([[
       " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
       " autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-let g:node_client_debug = 1
+
+      autocmd FileType eruby let b:coc_pairs_disabled = ['<']
     ]])
   end,
 }

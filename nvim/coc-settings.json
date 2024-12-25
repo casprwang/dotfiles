@@ -1,4 +1,57 @@
 {
+  "codeLens.enable": true,
+  "tailwindCSS.enable": true,
+  "tailwindCSS.includeLanguages": {
+    "eelixir": "html",
+    "elixir": "html",
+    "eruby": "html",
+    "html.twig": "html"
+  },
+  "html.format.templating": true,
+  "codeLens.position": "eol",
+  "languageserver": {
+    "ruby-lsp": {
+      "command": "ruby-lsp",
+      "initializationOptions": {
+        "enabledFeatures": {
+          "codeActions": true,
+          "codeLens": true,
+          "completion": true,
+          "definition": true,
+          "diagnostics": true,
+          "documentHighlights": true,
+          "documentLink": true,
+          "documentSymbols": true,
+          "foldingRanges": true,
+          "formatting": true,
+          "hover": true,
+          "inlayHint": true,
+          "onTypeFormatting": true,
+          "selectionRanges": true,
+          "semanticHighlighting": true,
+          "signatureHelp": true,
+          "typeHierarchy": true,
+          "workspaceSymbol": true
+        }
+      },
+      "filetypes": ["ruby", "erb"],
+      "featuresConfiguration": {
+        "inlayHint": {
+          "implicitHashValue": true,
+          "implicitRescue": true
+        }
+      },
+      "indexing": {
+        "excludedPatterns": ["path/to/excluded/file.rb"],
+        "includedPatterns": ["path/to/included/file.rb"],
+        "excludedGems": ["gem1", "gem2", "etc."],
+        "excludedMagicComments": ["compiled:true"]
+      },
+      "formatter": "standard",
+      "linters": [],
+      "experimentalFeaturesEnabled": true
+    }
+  },
   "inlayHint.enable": false,
   "inlayHint.enableParameter": false,
   "coc.preferences.jumpCommand": "edit",
@@ -18,6 +71,7 @@
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 5000,
   "suggest.noselect": false,
+  "solargraph.diagnostics": false,
   "yank.priority": 90,
   "prettier.enable": true,
   "prettier.semi": false,
@@ -73,14 +127,11 @@
       "rules": {}
     }
   },
-  "python.pythonPath": "/Users/songwang/.pyenv/shims/python",
-  "python.formatting.blackPath": "/Users/songwang/.pyenv/shims/black",
-  "python.venvPath": "/Users/songwang/.pyenv/versions",
+  "python.pythonPath": "python",
   "semanticTokens.enable": true,
-  "python.formatting.provider": "blackd",
+  "python.formatting.provider": "ruff",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportAttributeAccessIssue": "none"
   },
-  "python.formatting.blackdPath": "/Users/songwang/.pyenv/shims/blackd",
   "pyright.disableDiagnostics": false
 }

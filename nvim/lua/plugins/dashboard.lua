@@ -1,9 +1,11 @@
 return {
   "nvimdev/dashboard-nvim",
-  event = "VimEnter",
+  enabled = false,
+  lazy = false,
   config = function()
     require("dashboard").setup({
       theme = "hyper",
+      disable_move = false,
       config = {
         week_header = {
           enable = false,
@@ -15,8 +17,8 @@ return {
             icon_hl = "@variable",
             desc = "Files",
             group = "Label",
-            action = "FzfLua files header=false",
-            key = "f",
+            action = "Telescope frecency workspace=CWD",
+            key = "o",
           },
           {
             desc = " quit",
@@ -25,10 +27,12 @@ return {
             key = "q",
           },
           {
-            desc = " session",
+            desc = " Old Files",
             group = "DiagnosticHint",
-            action = "SessionRestore",
-            key = "l",
+            action = function()
+              require('telescope.builtin').oldfiles()
+            end,
+            key = "i",
           },
         },
       },
