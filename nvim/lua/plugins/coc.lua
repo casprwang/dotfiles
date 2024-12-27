@@ -12,6 +12,7 @@ return {
       "coc-zig",
       "coc-yank",
       "coc-go",
+      "coc-snippets",
       "coc-eslint",
       "coc-css",
       "coc-html",
@@ -22,6 +23,7 @@ return {
       "coc-json",
       "coc-diagnostic",
       "@yaegassy/coc-tailwindcss3",
+      "@yaegassy/coc-astro",
     }
 
     -- https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.lua
@@ -74,7 +76,8 @@ return {
     --   opts)
 
     -- Use <c-j> to trigger snippets
-    keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
+    keyset("i", "<c-e>", "<Plug>(coc-snippets-expand-jump)")
+
     -- Use <c-space> to trigger completion
     keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
@@ -197,7 +200,7 @@ return {
     -- Add (Neo)Vim's native statusline support
     -- NOTE: Please see `:h coc-status` for integrations with external plugins that
     -- provide custom statusline: lightline.vim, vim-airline
-    vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
+    -- vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
     -- Mappings for CoCList
     -- code actions and coc stuff
     ---@diagnostic disable-next-line: redefined-local
@@ -220,8 +223,13 @@ return {
       " autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      let g:coc_snippet_next = '<tab>'
 
       autocmd FileType eruby let b:coc_pairs_disabled = ['<']
+
+      hi! CocErrorSign guibg=NONE
+      hi! CocInfoSign guibg=NONE
+      hi! CocWarningSign guifg=NONE
     ]])
   end,
 }

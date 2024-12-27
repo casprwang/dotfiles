@@ -71,4 +71,7 @@ opt.showmatch = true
 opt.cursorline = true
 opt.termguicolors = true
 
+vim.opt.guicursor = ""
+
+
 vim.cmd([[set noswapfile]])

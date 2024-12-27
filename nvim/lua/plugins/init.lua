@@ -14,36 +14,20 @@ return {
     opts = {},
   },
   {
-    'mvllow/modes.nvim',
-    version = 'v0.2.1',
-    config = function()
-      require('modes').setup({
-        colors = {
-          bg = "", -- Optional bg param, defaults to Normal hl group
-          copy = "#f5c359",
-          delete = "#c75c6a",
-          insert = "#78ccc5",
-          visual = "#9745be",
-        },
-
-        -- Set opacity for cursorline and number background
-        line_opacity = 0.15,
-
-        -- Enable cursor highlights
-        set_cursor = true,
-
-        -- Enable cursorline initially, and disable cursorline for inactive windows
-        -- or ignored filetypes
-        set_cursorline = true,
-
-        -- Enable line number highlights to match cursorline
-        set_number = true,
-
-        -- Disable modes highlights in specified filetypes
-        -- Please PR commonly ignored filetypes
-        ignore_filetypes = { 'NvimTree', 'TelescopePrompt' }
-      })
-    end
+    'mawkler/modicator.nvim',
+    init = function()
+      -- These are required for Modicator to work
+      vim.o.cursorline = true
+      vim.o.number = true
+      vim.o.termguicolors = true
+    end,
+    opts = {
+      -- Warn if any required option above is missing. May emit false positives
+      -- if some other plugin modifies them, which in that case you can just
+      -- ignore. Feel free to remove this line after you've gotten Modicator to
+      -- work properly.
+      show_warnings = true,
+    }
   },
   {
     "christoomey/vim-tmux-navigator",
@@ -67,6 +51,19 @@ return {
     init = function()
       vim.g.startuptime_tries = 10
     end,
+  },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    config = function()
+      require("oil").setup()
+      vim.keymap.set("n", "-", ":Oil --float<CR>", { desc = "Open parent directory" })
+    end
   },
   {
     "iamcco/markdown-preview.nvim",

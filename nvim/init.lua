@@ -28,4 +28,8 @@ require("lazy").setup("plugins", {
 vim.cmd([[
 hi! SignColumn guibg=NONE
 set shortmess+=W
+
+hi! CocErrorSign guibg=NONE
+hi! CocInfoSign guibg=NONE
+hi! CocWarningSign guifg=NONE
 ]])

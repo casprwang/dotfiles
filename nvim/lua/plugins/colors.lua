@@ -2,6 +2,11 @@ local function fixGruvbox()
   -- fix
   -- git signs column bg
   vim.cmd([[ hi! SignColumn guibg=NONE ]])
+  vim.cmd([[
+    hi! CocErrorSign guibg=NONE
+    hi! CocInfoSign guibg=NONE
+    hi! CocWarningSign guifg=NONE
+  ]])
 
   -- fix
   -- winbar bg
@@ -60,6 +65,7 @@ return {
       -- fixGruvbox()
       vim.o.background = 'light'
       vim.cmd([[ hi! SignColumn guibg=NONE ]])
+
       vim.cmd([[
         colorscheme gruvbox
       ]])

@@ -9,11 +9,8 @@ return {
         }
       })
     end,
-    lazy = true,
-    event = "VeryLazy"
   },
   {
-
     "nvim-treesitter/nvim-treesitter",
     enabled = true,
     lazy = false,
@@ -57,7 +54,6 @@ return {
           "c_sharp",
           "zig",
         },
-        autotag = { enable = true },
       })
     end,
   }

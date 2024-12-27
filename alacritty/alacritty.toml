@@ -430,8 +430,8 @@ chars = "\u00135"
 import = [
   # uncomment the flavour you want below:
   # "~/.config/alacritty/catppuccin-latte.toml"
-  "~/.config/alacritty/themes/themes/gruvbox_light.toml"
-  # "~/.config/alacritty/themes/themes/gruvbox_light.toml"
+  "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
+  # "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
   # "~/.config/alacritty/themes/themes/one_dark.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-macchiato.toml"

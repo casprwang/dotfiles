@@ -55,6 +55,7 @@
   "inlayHint.enable": false,
   "inlayHint.enableParameter": false,
   "coc.preferences.jumpCommand": "edit",
+  "notification.statusLineProgress": false,
   "diagnostic.errorSign": "⏺",
   "workspace.ignoredFolders": ["$HOME", "$HOME/.cargo/**", "$HOME/.rustup/**"],
   "diagnostic.warningSign": "",
@@ -108,14 +109,7 @@
   "go.goplsOptions": {
     "completeUnimported": true
   },
-  "explorer.previewAction.onHover": "content",
-  "explorer.position": "floating",
   "coc.preferences.floatActions": true,
-  "explorer.floating.position": "center",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", "expandOrCollapse", "open"]
-  },
   "Lua.diagnostics.globals": ["vim", "use", "requires", "hs"],
   "Lua.format.enable": true,
   "eslint.runtime": "node",
