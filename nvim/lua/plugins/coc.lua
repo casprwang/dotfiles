@@ -1,6 +1,7 @@
 return {
   "neoclide/coc.nvim",
-  enabled = true,
+  enabled = false,
+  -- enabled = true,
   branch = "master",
   build = "npm ci",
   config = function()
@@ -27,7 +28,6 @@ return {
     }
 
     -- https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.lua
-
     -- Some servers have issues with backup files, see #649
     vim.opt.backup = false
     vim.opt.writebackup = false
@@ -70,13 +70,13 @@ return {
     -- keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
 
-    keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+    keyset("i", "<c-e>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
     -- keyset("i", "<cr>",
     --   [[coc#pum#has_item_selected() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
     --   opts)
 
     -- Use <c-j> to trigger snippets
-    keyset("i", "<c-e>", "<Plug>(coc-snippets-expand-jump)")
+    -- keyset("i", "<c-e>", "<Plug>(coc-snippets-expand-jump)")
 
     -- Use <c-space> to trigger completion
     keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
@@ -222,7 +222,7 @@ return {
       " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
       " autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
       autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-      "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
       let g:coc_snippet_next = '<tab>'
 
       autocmd FileType eruby let b:coc_pairs_disabled = ['<']
@@ -230,6 +230,49 @@ return {
       hi! CocErrorSign guibg=NONE
       hi! CocInfoSign guibg=NONE
       hi! CocWarningSign guifg=NONE
+
+      function! StatusDiagnostic() abort
+        let info = get(b:, 'coc_diagnostic_info', {})
+        if empty(info) | return '' | endif
+        let msgs = []
+        if get(info, 'error', 0)
+          call add(msgs, 'E' . info['error'])
+        endif
+        if get(info, 'warning', 0)
+          call add(msgs, 'W' . info['warning'])
+        endif
+        return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+      endfunction
+
+      function! Tabline()
+        let s = ''
+        for i in range(tabpagenr('$'))
+          let tab = i + 1
+          let buflist = tabpagebuflist(tab)
+          let bufignore = ['nerdtree', 'tagbar', 'codi', 'help']
+          for b in buflist
+            let buftype = getbufvar(b, "&filetype")
+            if index(bufignore, buftype)==-1 "index returns -1 if the item is not contained in the list
+              let bufnr = b
+              break
+            elseif b==buflist[-1]
+              let bufnr = b
+            endif
+          endfor
+          let bufname = bufname(bufnr)
+          let bufmodified = getbufvar(bufnr, "&mod")
+          let s .= '%' . tab . 'T'
+          let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+          let s .= ' ' . tab .':'
+          let s .= (bufname != '' ? '['. fnamemodify(bufname, ':t') . '] ' : '[No Name] ')
+          if bufmodified
+            let s .= '[+] '
+          endif
+        endfor
+        let s .= '%#TabLineFill#'
+        return s
+      endfunction
+      " set tabline=%!Tabline()
     ]])
   end,
 }

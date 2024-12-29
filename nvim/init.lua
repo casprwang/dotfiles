@@ -1,6 +1,7 @@
 require("settings")
 require("keymaps")
 require("autocmd")
+require("statusline")
 
 -- Lazy.vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -25,11 +26,6 @@ require("lazy").setup("plugins", {
   },
 })
 
+vim.o.background = 'dark'
 vim.cmd([[
-hi! SignColumn guibg=NONE
-set shortmess+=W
-
-hi! CocErrorSign guibg=NONE
-hi! CocInfoSign guibg=NONE
-hi! CocWarningSign guifg=NONE
 ]])

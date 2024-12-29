@@ -74,4 +74,16 @@ opt.termguicolors = true
 vim.opt.guicursor = ""
 
 
-vim.cmd([[set noswapfile]])
+vim.cmd([[
+  hi! SignColumn guibg=NONE
+  set shortmess+=W
+  set noswapfile
+]])
+
+vim.cmd [[
+
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
+]]

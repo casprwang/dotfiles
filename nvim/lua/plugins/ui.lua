@@ -137,7 +137,7 @@ return {
   {
     "rcarriga/nvim-notify",
     config = function()
-      vim.notify = require("fidget.notification").notify
+      -- vim.notify = require("fidget.notification").notify
       local stages_util = require("notify.stages.util")
 
       require("notify").setup({

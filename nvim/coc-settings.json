@@ -71,6 +71,7 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 5000,
+  "suggest.asciiCharactersOnly": false,
   "suggest.noselect": false,
   "solargraph.diagnostics": false,
   "yank.priority": 90,

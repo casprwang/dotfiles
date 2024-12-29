@@ -1,27 +1,16 @@
 local function fixGruvbox()
-  -- fix
-  -- git signs column bg
   vim.cmd([[ hi! SignColumn guibg=NONE ]])
   vim.cmd([[
     hi! CocErrorSign guibg=NONE
     hi! CocInfoSign guibg=NONE
     hi! CocWarningSign guifg=NONE
   ]])
-
-  -- fix
-  -- winbar bg
   vim.cmd([[ hi! WinBar guibg=NONE ]])
   vim.cmd([[ hi! WinBarNC guibg=NONE ]])
-
-  -- fix
-  -- diagnostics sign bg (next to numbers line)
   vim.cmd([[ hi! DiagnosticSignOk guifg=#b8bb26 guibg=#282828 ]])
   vim.cmd([[ hi! DiagnosticSignInfo guifg=#83a598 guibg=#282828 ]])
   vim.cmd([[ hi! DiagnosticSignWarn guifg=#fabd2f guibg=#282828 ]])
   vim.cmd([[ hi! DiagnosticSignError guifg=#fb4934 guibg=#282828 ]])
-
-  -- fix
-  -- lsp saga bg
   vim.cmd([[ hi! SagaNormal guibg=#282828 ]])
   vim.api.nvim_set_hl(0, "StatusLine", { reverse = false })
   vim.api.nvim_set_hl(0, "StatusLineNC", { reverse = false })
@@ -29,43 +18,15 @@ end
 
 
 return {
-  -- {
-  --   "morhetz/gruvbox",
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     -- fixGruvbox()
-  --     vim.o.background = 'dark'
-  --     vim.cmd([[ hi! SignColumn guibg=NONE ]])
-  --     vim.cmd([[
-  --       colorscheme gruvbox
-  --     ]])
-  --   end
-  -- },
-  --
-  -- {
-  --   "sainnhe/gruvbox-material",
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     -- fixGruvbox()
-  --     vim.o.background = 'dark'
-  --     vim.cmd([[ hi! SignColumn guibg=NONE ]])
-  --     vim.cmd([[
-  --       colorscheme gruvbox-material
-  --     ]])
-  --   end
-  -- },
   {
 
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     lazy = false,
     config = function()
-      -- fixGruvbox()
-      vim.o.background = 'light'
+      fixGruvbox()
+      vim.o.background = 'dark'
       vim.cmd([[ hi! SignColumn guibg=NONE ]])
-
       vim.cmd([[
         colorscheme gruvbox
       ]])
