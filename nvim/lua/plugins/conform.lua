@@ -36,16 +36,4 @@ return {
       })
     end
   },
-  -- {
-  --   "sbdchd/neoformat",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     vim.cmd [[
-  --       augroup fmt
-  --         autocmd!
-  --         autocmd BufWritePre *.erb undojoin | Neoformat
-  --       augroup END
-  --     ]]
-  --   end
-  -- }
 }

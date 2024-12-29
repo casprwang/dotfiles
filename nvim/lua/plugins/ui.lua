@@ -1,7 +1,31 @@
 return {
   {
-    "folke/noice.nvim",
+    "folke/flash.nvim",
     event = "VeryLazy",
+    keys = {
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      {
+        "R",
+        mode = { "o", "x" },
+        function() require("flash").treesitter_search() end,
+        desc =
+        "Treesitter Search"
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function() require("flash").toggle() end,
+        desc =
+        "Toggle Flash Search"
+      },
+    },
+  },
+  {
+    event = "VeryLazy",
+    'stevearc/dressing.nvim',
+  },
+  {
+    "folke/noice.nvim",
     enabled = true,
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -113,24 +137,8 @@ return {
     end,
   },
   {
-    "j-hui/fidget.nvim",
-    event = "VeryLazy",
-    enable = false,
-    config = function()
-      local fidget = require("fidget")
-      vim.notify = fidget.notify
-      fidget.setup({
-        notification = {
-          override_vim_notify = true,
-        },
-      })
-      vim.notify = require("fidget.notification").notify
-    end
-  },
-  {
     "rcarriga/nvim-notify",
     config = function()
-      -- vim.notify = require("fidget.notification").notify
       local stages_util = require("notify.stages.util")
 
       require("notify").setup({

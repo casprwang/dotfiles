@@ -2,8 +2,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     branch = "master",
-    priority = 1099,
-    lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "debugloop/telescope-undo.nvim",
@@ -25,12 +23,10 @@ return {
       { "mbbill/undotree", event = "VeryLazy" },
     },
     config = function()
-      local builtin = require('telescope.builtin')
       require("telescope").load_extension("undo")
+      local builtin = require('telescope.builtin')
       local ext = require("telescope._extensions")
-
       local fzf = ext.manager.fzf
-
       local function frecency_score(self, prompt, line, entry)
         if prompt == nil or prompt == "" then
           for _, file_entry in ipairs(self.state.frecency) do
@@ -54,15 +50,12 @@ return {
         end
       end
 
-      local frecency_sorter = function(opts)
+      local frecency_sorter = function(_)
         local fzf_sorter = fzf.native_fzf_sorter()
-
         fzf_sorter.default_scoring_function = fzf_sorter.scoring_function
         fzf_sorter.default_start = fzf_sorter.start
-
         fzf_sorter.scoring_function = frecency_score
         fzf_sorter.start = frecency_start
-
         return fzf_sorter
       end
 
@@ -86,48 +79,66 @@ return {
           },
           mappings = {
             i = {
-              -- map actions.which_key to <C-h> (default: <C-/>)
-              -- actions.which_key shows the mappings for your picker,
-              -- e.g. git_{create, delete, ...}_branch for the git_branches picker
               ["<esc>"] = "close"
             }
           },
           sorting_strategy = "ascending",
         },
-        -- the rest of your telescope config goes here
         extensions = {
-          undo = {
-          },
+          undo = {},
           frecency = {
-            -- completely disable the dialog
             show_filter_column = false,
             default_workspace = 'CWD',
             matcher = "fuzzy"
           },
           fzf = {
-            fuzzy = true,                   -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true,    -- override the file sorter
-            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
           }
         },
       })
-
-      vim.api.nvim_set_option_value("background", "light", {})
-      vim.keymap.set('n', '<leader>o', function()
+      local TSearchFile = function()
         require("telescope").extensions.frecency.frecency({
           sorter = require("telescope").extensions.fzf
-              .native_fzf_sorter()
+              .native_fzf_sorter(),
+          workspace = "CWD",
+          path_display = { "smart" },
         })
       end
-      , { desc = 'find files' })
-      vim.keymap.set('n', '<leader>i', function()
+      local TSearchOldFile = function()
         builtin.oldfiles({
           sorter = require("telescope").extensions.fzf
               .native_fzf_sorter()
         })
-      end, { desc = 'old files' })
+      end
+      local TGrepFiles = function()
+        builtin.grep_string({
+          path_display = { 'smart' },
+          only_sort_text = true,
+          word_match = "-w",
+          search = 'function',
+        })
+      end
+
+      local TGrepFilesWord = function()
+        local word = vim.call('expand', '<cword>')
+        builtin.grep_string({
+          path_display = { 'smart' },
+          only_sort_text = true,
+          word_match = "-w",
+          search = word,
+        })
+      end
+
+
+      vim.api.nvim_create_user_command("TSearchFile", TSearchFile, {})
+      vim.api.nvim_create_user_command("TSearchOldFile", TSearchOldFile, {})
+      vim.keymap.set('n', '<leader>o', TSearchFile, { desc = 'find files' })
+      vim.keymap.set('n', '<leader>i', TSearchOldFile, { desc = 'old files' })
+      vim.keymap.set('n', '<leader>e', TGrepFiles, { desc = 'old files' })
+      vim.keymap.set('n', '<leader>w', TGrepFilesWord, { desc = 'old files' })
     end,
   },
 }
