@@ -1,17 +1,33 @@
 return {
-  { "mbbill/undotree",                          event = "VeryLazy" },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
   {
     "nvim-telescope/telescope.nvim",
-    event = "VeryLazy",
+    branch = "master",
+    priority = 1099,
+    lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "debugloop/telescope-undo.nvim",
+      {
+        "nvim-telescope/telescope-frecency.nvim",
+        -- install the latest stable version
+        version = "*",
+        config = function()
+          require("telescope").load_extension "frecency"
+        end,
+      },
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        config = function()
+          require('telescope').load_extension('fzf')
+        end
+      },
+      { "mbbill/undotree", event = "VeryLazy" },
     },
     config = function()
+      local builtin = require('telescope.builtin')
       require("telescope").load_extension("undo")
       local ext = require("telescope._extensions")
-      local frecency_db = require("telescope._extensions.frecency.db_client")
 
       local fzf = ext.manager.fzf
 
@@ -34,7 +50,7 @@ return {
         self.default_start(self, prompt)
 
         if not self.state.frecency then
-          self.state.frecency = frecency_db.get_file_scores()
+          self.state.frecency = require("frecency").frecency().picker:fetch_results()
         end
       end
 
@@ -53,27 +69,6 @@ return {
       require("telescope").setup({
         defaults = {
           file_sorter = frecency_sorter,
-        },
-        -- the rest of your telescope config goes here
-        extensions = {
-          undo = {
-          },
-        },
-      })
-
-      -- optional: vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
-    end,
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    branch = "master",
-    priority = 1099,
-    lazy = false,
-    dependencies = { 'nvim-lua/plenary.nvim', "nvim-telescope/telescope-frecency.nvim" },
-    config = function()
-      local builtin = require('telescope.builtin')
-      require('telescope').setup {
-        defaults = {
           path_display = {
             filename_first = {
               reverse_directories = false
@@ -99,7 +94,10 @@ return {
           },
           sorting_strategy = "ascending",
         },
+        -- the rest of your telescope config goes here
         extensions = {
+          undo = {
+          },
           frecency = {
             -- completely disable the dialog
             show_filter_column = false,
@@ -114,7 +112,8 @@ return {
             -- the default case_mode is "smart_case"
           }
         },
-      }
+      })
+
       vim.api.nvim_set_option_value("background", "light", {})
       vim.keymap.set('n', '<leader>o', function()
         require("telescope").extensions.frecency.frecency({
@@ -129,7 +128,6 @@ return {
               .native_fzf_sorter()
         })
       end, { desc = 'old files' })
-      require('telescope').load_extension('fzf')
-    end
-  }
+    end,
+  },
 }
