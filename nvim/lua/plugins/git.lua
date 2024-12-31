@@ -1,5 +1,9 @@
 return {
   {
+    "tpope/vim-fugitive",
+    event = "VeryLazy"
+  },
+  {
     "NeogitOrg/neogit",
     event = "VeryLazy",
     dependencies = {

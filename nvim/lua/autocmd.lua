@@ -15,14 +15,13 @@ end
 -- au
 create_augroups({
   setup = {
-    { "BufWritePre",          "*.cs", "Neoformat" }, { "InsertLeave,WinEnter", "*", "set cursorline" },
-    { "InsertEnter,WinLeave", "*",    "set nocursorline" }, {
+    { "InsertEnter,WinLeave", "*", "set nocursorline" }, {
     "FocusGained,BufEnter,CursorHold,CursorHoldI", "*",
     [[silent! if mode() != 'c' | checktime | endif]]
   }, {
     "FileChangedShellPost", "*",
     [[echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]]
-  }, { "VimResized", "*", [[wincmd =]] }
+  }, { "VimResized",        "*", [[wincmd =]] }
   },
   simple_filetypes = {
 
@@ -38,24 +37,4 @@ create_augroups({
     { "BufNewFile", "tsconfig.json", [[set filetype=jsonc]] },
     { "FileType",   "markdown",      [[set ts=2 sts=2 sw=2]] }
   }
-})
-
-vim.api.nvim_create_autocmd('BufRead', {
-  callback = function(opts)
-    vim.api.nvim_create_autocmd('BufWinEnter', {
-      once = true,
-      buffer = opts.buf,
-      callback = function()
-        local ft = vim.bo[opts.buf].filetype
-        local last_known_line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
-        if
-            not (ft:match('commit') and ft:match('rebase'))
-            and last_known_line > 1
-            and last_known_line <= vim.api.nvim_buf_line_count(opts.buf)
-        then
-          vim.api.nvim_feedkeys([[g`"]], 'nx', false)
-        end
-      end,
-    })
-  end,
 })

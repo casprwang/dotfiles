@@ -24,29 +24,28 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-      fixGruvbox()
-      vim.o.background = 'dark'
       vim.cmd([[
-        hi! SignColumn guibg=NONE
         colorscheme gruvbox
+        hi! SignColumn guibg=NONE
       ]])
+      fixGruvbox()
     end
   },
   {
     "f-person/auto-dark-mode.nvim",
+    priority = 2000,
+    lazy = false,
     opts = {
       update_interval = 1000,
       set_dark_mode = function()
+        vim.o.background = 'dark'
         vim.api.nvim_set_option_value("background", "dark", {})
         fixGruvbox()
-        vim.env.FZF_DEFAULT_OPTS =
-        "--color=bg+:#ebdbb2,bg:#fbf1c7,spinner:#427b58,hl:#076678 --color=fg:#665c54,header:#076678,info:#b57614,pointer:#427b58 --color=marker:#427b58,fg+:#3c3836,prompt:#b57614,hl+:#076678 --color=bg+:#3c3836,bg:#282828,spinner:#8ec07c,hl:#83a598 --color=fg:#bdae93,header:#83a598,info:#fabd2f,pointer:#8ec07c --color=marker:#8ec07c,fg+:#ebdbb2,prompt:#fabd2f,hl+:#83a598"
       end,
       set_light_mode = function()
+        vim.o.background = 'light'
         vim.api.nvim_set_option_value("background", "light", {})
         fixGruvbox()
-        vim.env.FZF_DEFAULT_OPTS =
-        "--color=bg+:#ebdbb2,bg:#fbf1c7,spinner:#427b58,hl:#076678 --color=fg:#665c54,header:#076678,info:#b57614,pointer:#427b58 --color=marker:#427b58,fg+:#3c3836,prompt:#b57614,hl+:#076678 --color=bg+:#ebdbb2,bg:#fbf1c7,spinner:#427b58,hl:#076678 --color=fg:#665c54,header:#076678,info:#b57614,pointer:#427b58 --color=marker:#427b58,fg+:#3c3836,prompt:#b57614,hl+:#076678"
       end,
     },
   }

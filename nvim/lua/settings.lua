@@ -33,8 +33,6 @@ opt.undoreload = 10000
 opt.undodir = vim.fn.expand("~") .. "/.local/share/nvim/undo"
 opt.shada = { "!", "'1000", "<50", "s10", "h" } -- Increase the shadafile size so that history is longer
 
--- Sesssions
-opt.sessionoptions:remove({ "buffers", "folds" })
 
 opt.hlsearch = false
 opt.incsearch = true
@@ -59,12 +57,9 @@ opt.wildignore = {
 
 opt.wrap = false
 
-vim.api.nvim_set_option("showtabline", 2)
-
-vim.api.nvim_set_option("updatetime", 100)
+vim.api.nvim_set_option_value("updatetime", 100, {})
+vim.api.nvim_set_option_value("synmaxcol", 200, {})
 vim.opt.updatetime = 100
-vim.api.nvim_set_option("synmaxcol", 200)
-vim.opt.lazyredraw = false
 
 opt.ignorecase = true
 opt.showmatch = true
@@ -81,9 +76,27 @@ vim.cmd([[
 ]])
 
 vim.cmd [[
-
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-augroup END
+  augroup highlight_yank
+      autocmd!
+      au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+  augroup END
 ]]
+
+local function osCapture(cmd, raw)
+  local f = assert(io.popen(cmd, 'r'))
+  local s = assert(f:read('*a'))
+  f:close()
+  if raw then return s end
+  s = string.gsub(s, '^%s+', '')
+  s = string.gsub(s, '%s+$', '')
+  s = string.gsub(s, '[\n\r]+', ' ')
+  return s
+end
+
+local theme = osCapture("defaults read -g AppleInterfaceStyle")
+
+if theme == "Dark" then
+  vim.o.background = "dark"
+else
+  vim.o.background = "light"
+end

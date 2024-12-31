@@ -11,17 +11,10 @@ return {
   },
   {
     "dstein64/vim-startuptime",
+    event = "VeryLazy",
     cmd = "StartupTime",
     init = function()
       vim.g.startuptime_tries = 10
-    end,
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup({
-        default = true,
-      })
     end,
   },
   {
@@ -32,5 +25,13 @@ return {
         useDefaults = true
       }
     },
+  },
+  {
+    "Wansmer/treesj",
+    event = "VeryLazy",
+    keys = {
+      { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
+    },
+    opts = { use_default_keymaps = false, max_join_length = 150 },
   },
 }

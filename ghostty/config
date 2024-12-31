@@ -9,6 +9,8 @@ adjust-cursor-thickness = 20
 
 
 window-decoration = true
+window-padding-x = 10
+
 macos-titlebar-style = "tabs"
 
 theme = light:GruvboxLight,dark:GruvboxDark

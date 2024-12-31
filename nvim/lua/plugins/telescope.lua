@@ -113,22 +113,24 @@ return {
         })
       end
       local TGrepFiles = function()
-        builtin.grep_string({
-          path_display = { 'smart' },
-          only_sort_text = true,
-          word_match = "-w",
-          search = 'function',
-        })
+        builtin.live_grep {}
+        -- builtin.grep_string({
+        --   path_display = { 'smart' },
+        --   only_sort_text = true,
+        --   word_match = "-w",
+        --   search = 'function',
+        -- })
       end
 
       local TGrepFilesWord = function()
-        local word = vim.call('expand', '<cword>')
-        builtin.grep_string({
-          path_display = { 'smart' },
-          only_sort_text = true,
-          word_match = "-w",
-          search = word,
-        })
+        builtin.grep_string {}
+        -- local word = vim.call('expand', '<cword>')
+        -- builtin.grep_string({
+        --   path_display = { 'smart' },
+        --   only_sort_text = true,
+        --   word_match = "-w",
+        --   search = word,
+        -- })
       end
 
       vim.api.nvim_create_user_command("TSearchFile", TSearchFile, {})

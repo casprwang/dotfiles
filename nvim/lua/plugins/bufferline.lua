@@ -1,9 +1,20 @@
 return {
   'akinsho/bufferline.nvim',
   version = "*",
-  enabled = true,
   event = "VeryLazy",
-  dependencies = 'nvim-tree/nvim-web-devicons',
+  -- lazy = false,
+  -- priority = 1000,
+  dependencies = {
+    {
+      'nvim-tree/nvim-web-devicons',
+      event = "VeryLazy",
+      config = function()
+        require("nvim-web-devicons").setup({
+          default = true,
+        })
+      end,
+    }
+  },
   config = function()
     local bufferline = require("bufferline")
     bufferline.setup {
@@ -16,6 +27,8 @@ return {
           bufferline.style_preset.minimal
         },
         indicator = {
+          icon = "",
+          style = "none"
         },
       }
     }
