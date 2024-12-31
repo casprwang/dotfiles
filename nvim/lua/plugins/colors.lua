@@ -36,16 +36,18 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-      update_interval = 1000,
+      update_interval = 6000,
       set_dark_mode = function()
         vim.o.background = 'dark'
         vim.api.nvim_set_option_value("background", "dark", {})
         fixGruvbox()
+        require("../utils").write("dark")
       end,
       set_light_mode = function()
         vim.o.background = 'light'
         vim.api.nvim_set_option_value("background", "light", {})
         fixGruvbox()
+        require("../utils").write("light")
       end,
     },
   }

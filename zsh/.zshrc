@@ -7,7 +7,7 @@ source ~/.config/zsh/alias.zsh
 zsh-defer source ~/.config/zsh/path.zsh
 
 #
-function zsh-autosuggestions() {
+zsh-autosuggestions() {
   source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
   ZSH_AUTOSUGGEST_STRATEGY=completion
 }
@@ -16,7 +16,7 @@ zsh-defer zsh-autosuggestions
 # 
 zsh-defer source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-function zsh-completions () {
+zsh-completions () {
   fpath=(~/zsh-completions/src $fpath)
 }
 zsh-defer zsh-completions

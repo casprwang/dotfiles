@@ -82,21 +82,4 @@ vim.cmd [[
   augroup END
 ]]
 
-local function osCapture(cmd, raw)
-  local f = assert(io.popen(cmd, 'r'))
-  local s = assert(f:read('*a'))
-  f:close()
-  if raw then return s end
-  s = string.gsub(s, '^%s+', '')
-  s = string.gsub(s, '%s+$', '')
-  s = string.gsub(s, '[\n\r]+', ' ')
-  return s
-end
-
-local theme = osCapture("defaults read -g AppleInterfaceStyle")
-
-if theme == "Dark" then
-  vim.o.background = "dark"
-else
-  vim.o.background = "light"
-end
+vim.o.background = require("utils").read()

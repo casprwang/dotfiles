@@ -37,7 +37,7 @@ return {
               menu = {
                 auto_show = true,
               },
-              accept = { auto_brackets = { enabled = false }, },
+              -- accept = { auto_brackets = { enabled = false }, },
               -- list = { selection = function(ctx) return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect' end },
               list = { selection = "preselect" },
             },
@@ -63,11 +63,14 @@ return {
       },
     },
     -- example using `opts` for defining servers
-    opts = {
-      servers = {
+    config = function()
+      local lspconfig = require('lspconfig')
+      local servers = {
         ruby_lsp     = {},
         stimulus_ls  = {},
         lua_ls       = {
+          root_dir = lspconfig.util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml",
+            "stylua.toml", "selene.toml", "selene.yml", ".git"),
           settings = {
             Lua = {
               runtime = {
@@ -91,10 +94,7 @@ return {
         },
         basedpyright = {}
       }
-    },
-    config = function(_, opts)
-      local lspconfig = require('lspconfig')
-      for server, config in pairs(opts.servers) do
+      for server, config in pairs(servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         config.on_attach = function(_, bufnr)
           lsp_keymap(bufnr)
