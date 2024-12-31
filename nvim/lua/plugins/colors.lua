@@ -1,19 +1,20 @@
 local function fixGruvbox()
-  vim.cmd([[ hi! SignColumn guibg=NONE ]])
   vim.cmd([[
+    hi! SignColumn guibg=NONE
     hi! CocErrorSign guibg=NONE
     hi! CocInfoSign guibg=NONE
     hi! CocWarningSign guifg=NONE
+    hi! WinBar guibg=NONE
+    hi! WinBarNC guibg=NONE
+    hi! DiagnosticSignOk guifg=#b8bb26 guibg=#282828
+    hi! DiagnosticSignInfo guifg=#83a598 guibg=#282828
+    hi! DiagnosticSignWarn guifg=#fabd2f guibg=#282828
+    hi! DiagnosticSignError guifg=#fb4934 guibg=#282828
+    hi! SagaNormal guibg=#282828
   ]])
-  vim.cmd([[ hi! WinBar guibg=NONE ]])
-  vim.cmd([[ hi! WinBarNC guibg=NONE ]])
-  vim.cmd([[ hi! DiagnosticSignOk guifg=#b8bb26 guibg=#282828 ]])
-  vim.cmd([[ hi! DiagnosticSignInfo guifg=#83a598 guibg=#282828 ]])
-  vim.cmd([[ hi! DiagnosticSignWarn guifg=#fabd2f guibg=#282828 ]])
-  vim.cmd([[ hi! DiagnosticSignError guifg=#fb4934 guibg=#282828 ]])
-  vim.cmd([[ hi! SagaNormal guibg=#282828 ]])
   vim.api.nvim_set_hl(0, "StatusLine", { reverse = false })
   vim.api.nvim_set_hl(0, "StatusLineNC", { reverse = false })
+  vim.api.nvim_set_hl(0, "SignColumn", { reverse = false })
 end
 
 
@@ -25,8 +26,8 @@ return {
     config = function()
       fixGruvbox()
       vim.o.background = 'dark'
-      vim.cmd([[ hi! SignColumn guibg=NONE ]])
       vim.cmd([[
+        hi! SignColumn guibg=NONE
         colorscheme gruvbox
       ]])
     end

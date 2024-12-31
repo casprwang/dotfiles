@@ -15,7 +15,6 @@ end
 -- au
 create_augroups({
   setup = {
-    -- {"BufWritePost", "plugins.lua", "PackerCompile"},
     { "BufWritePre",          "*.cs", "Neoformat" }, { "InsertLeave,WinEnter", "*", "set cursorline" },
     { "InsertEnter,WinLeave", "*",    "set nocursorline" }, {
     "FocusGained,BufEnter,CursorHold,CursorHoldI", "*",

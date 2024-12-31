@@ -7,7 +7,6 @@ return {
       "debugloop/telescope-undo.nvim",
       {
         "nvim-telescope/telescope-frecency.nvim",
-        -- install the latest stable version
         version = "*",
         config = function()
           require("telescope").load_extension "frecency"
@@ -61,7 +60,7 @@ return {
 
       require("telescope").setup({
         defaults = {
-          file_sorter = frecency_sorter,
+          -- file_sorter = frecency_sorter,
           path_display = {
             filename_first = {
               reverse_directories = false
@@ -131,7 +130,6 @@ return {
           search = word,
         })
       end
-
 
       vim.api.nvim_create_user_command("TSearchFile", TSearchFile, {})
       vim.api.nvim_create_user_command("TSearchOldFile", TSearchOldFile, {})

@@ -1,12 +1,13 @@
 /*
 /*/
 !/nvim/
+!/zsh/
 !/karabiner/
-!/wezterm/
+/karabiner/automatic_backups
+!/ghostty/
 !/alacritty/
 !README.md
 */*.DS_Store
 /nvim/startuptime.log
 /karabiner/automatic_backups/
 .DS_Store
-

@@ -13,6 +13,7 @@ local function lsp_keymap(bufnr)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
 end
 
+
 return {
   {
     'neovim/nvim-lspconfig',
@@ -23,17 +24,30 @@ return {
         event = "VeryLazy",
         dependencies = 'rafamadriz/friendly-snippets',
         version = '*',
-        opts = {
-          keymap = { preset = 'super-tab' },
-          appearance = {
-            use_nvim_cmp_as_default = true,
-            nerd_font_variant = 'mono'
-          },
-          sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
-          },
-        },
-        opts_extend = { "sources.default" }
+        opts_extend = { "sources.default" },
+        config = function()
+          require("blink.cmp").setup({
+            completion = {
+              ghost_text = {
+                enabled = true
+              },
+              menu = {
+                auto_show = true,
+              },
+              accept = { auto_brackets = { enabled = false }, },
+              -- list = { selection = function(ctx) return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect' end },
+              list = { selection = "preselect" },
+            },
+            keymap = { preset = 'super-tab' }, -- default super-tab enter
+            appearance = {
+              use_nvim_cmp_as_default = true,
+              nerd_font_variant = 'mono'
+            },
+            sources = {
+              default = { 'lsp', 'path', 'snippets', 'buffer' },
+            },
+          })
+        end
       },
       {
         "folke/lazydev.nvim",

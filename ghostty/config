@@ -1,0 +1,14 @@
+font-family = "VictorMono Nerd Font Mono"
+font-family = "Iosevka Nerd Font Mono Italic"
+font-family-bold-italic = "Iosevka Nerd Font Mono Bold"
+
+font-size = 17
+font-thicken = true
+adjust-underline-position = 15%
+adjust-cursor-thickness = 20
+
+
+window-decoration = true
+macos-titlebar-style = "tabs"
+
+theme = light:GruvboxLight,dark:GruvboxDark
