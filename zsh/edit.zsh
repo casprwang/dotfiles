@@ -23,3 +23,15 @@ bindkey '^E' end-of-line
 bindkey '^W' backward-kill-word
 bindkey '^D' delete-char
 
+
+
+tmp ()
+{
+  # file_path = ~/tmp/tmp
+  var=$1
+  if [[ -z ${var} ]]; then
+    nvim ~/tmp/tmp
+  else
+    nvim ~/tmp/tmp.${var}
+  fi
+}

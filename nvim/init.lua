@@ -18,6 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- End of lazy.vim
 
+
 require("lazy").setup("plugins", {
   change_detection = {
     -- automatically check for config file changes and reload the ui

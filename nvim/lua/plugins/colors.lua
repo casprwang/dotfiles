@@ -1,9 +1,9 @@
 local function fixGruvbox()
   vim.cmd([[
     hi! SignColumn guibg=NONE
-    hi! CocErrorSign guibg=NONE
-    hi! CocInfoSign guibg=NONE
-    hi! CocWarningSign guifg=NONE
+    "hi! BufferLineFill guibg=NONE
+    "hi! BufferLineSeparator guibg=NONE
+    "hi! BufferLineBufferSelected guibg=NONE
     hi! WinBar guibg=NONE
     hi! WinBarNC guibg=NONE
     hi! DiagnosticSignOk guifg=#b8bb26 guibg=#282828
@@ -33,7 +33,7 @@ return {
   },
   {
     "f-person/auto-dark-mode.nvim",
-    priority = 2000,
+    priority = 1000,
     lazy = false,
     opts = {
       update_interval = 1000,
