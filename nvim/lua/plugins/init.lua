@@ -34,4 +34,8 @@ return {
     },
     opts = { use_default_keymaps = false, max_join_length = 150 },
   },
+  {
+    "metakirby5/codi.vim",
+    event = "VeryLazy"
+  }
 }

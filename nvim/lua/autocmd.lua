@@ -15,13 +15,13 @@ end
 -- au
 create_augroups({
   setup = {
-    { "InsertEnter,WinLeave", "*", "set nocursorline" }, {
-    "FocusGained,BufEnter,CursorHold,CursorHoldI", "*",
-    [[silent! if mode() != 'c' | checktime | endif]]
-  }, {
+    {
+      "FocusGained,BufEnter,CursorHold,CursorHoldI", "*",
+      [[silent! if mode() != 'c' | checktime | endif]]
+    }, {
     "FileChangedShellPost", "*",
     [[echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]]
-  }, { "VimResized",        "*", [[wincmd =]] }
+  }, { "VimResized", "*", [[wincmd =]] }
   },
   simple_filetypes = {
 

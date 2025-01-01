@@ -4,6 +4,8 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.opt.cursorline = true
+
 vim.o.splitright = true
 vim.o.splitbelow = true
 
@@ -80,6 +82,7 @@ vim.cmd [[
       autocmd!
       au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
   augroup END
+
 ]]
 
 vim.o.background = require("utils").read()
