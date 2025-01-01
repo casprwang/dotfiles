@@ -12,4 +12,5 @@ alias cdt="cd ~/tmp"
 alias y="yazi"
 alias sz="source ~/.config/zsh/.zshrc"
 alias cdd="cd ~/Downloads/"
+alias lg="lazygit"
 # alias l='nvim -c "LazyGit"'

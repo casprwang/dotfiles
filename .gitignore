@@ -11,4 +11,4 @@
 /nvim/startuptime.log
 /karabiner/automatic_backups/
 .DS_Store
-./nvim/lazy-lock.json
+/nvim/lazy-lock.json
