@@ -1,5 +1,6 @@
 return {
   "numToStr/Comment.nvim",
+  event = "VeryLazy",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "JoosepAlviste/nvim-ts-context-commentstring",

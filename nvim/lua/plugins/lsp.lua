@@ -49,13 +49,13 @@ return {
                   max_items = 3
                 },
                 lsp = {
-                  max_items = 1
+                  max_items = 3
                 },
                 buffer = {
-                  max_items = 1,
+                  max_items = 3,
                 },
                 snippets = {
-                  max_items = 1,
+                  max_items = 3,
                 }
               }
             },
