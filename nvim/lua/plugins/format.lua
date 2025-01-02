@@ -23,16 +23,12 @@ return {
             args = { "< 'app/views/tasks/index.html.erb'" },
             stdin = false,
           }
-          -- sqlfluff = {
-          --   prepend_args = { 'fix', '--dialect', 'sqlite' }
-          -- }
         }
       })
-
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*",
         callback = function(args)
-          require("conform").format({ bufnr = args.buf })
+          require("conform").format({ async = true, lsp_format = "fallback" })
         end,
       })
     end

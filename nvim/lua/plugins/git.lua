@@ -1,17 +1,9 @@
 return {
   {
     "tpope/vim-fugitive",
-    event = "VeryLazy"
-  },
-  {
-    "NeogitOrg/neogit",
     event = "VeryLazy",
-    dependencies = {
-      "nvim-lua/plenary.nvim",  -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-      "ibhagwan/fzf-lua",       -- optional
-    },
-    config = true
+    config = function()
+    end
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -30,27 +22,4 @@ return {
       })
     end,
   },
-  {
-    "kdheepak/lazygit.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    -- test
-    -- optional for floating window border decoration
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    -- setting the keybinding for LazyGit with 'keys' is recommended in
-    -- order to load the plugin when the command is run for the first time
-    keys = {
-      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    }
-  }
-
 }

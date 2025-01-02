@@ -3,10 +3,7 @@ alias vim=nvim
 alias rm=trash
 alias git=hub
 alias o=e
-alias cdv="cd ~/dev"
-# alias ls=eza
-alias ll="eza -la --no-user --time-style='relative' --no-permissions"
-alias cdt="cd ~/tmp"
+alias ll="ls -l"
 alias sz="source ~/.config/zsh/.zshrc"
 alias cdd="cd ~/Downloads/"
 alias lg="lazygit"
@@ -22,3 +19,4 @@ alias d='zi'
 alias ignore="nvim .gitignore"
 
 alias gd="git diff"
+alias pb="pbcopy"

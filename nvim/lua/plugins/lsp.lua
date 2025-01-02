@@ -68,7 +68,10 @@ return {
       local servers = {
         ruby_lsp     = {},
         stimulus_ls  = {},
-        elixirls     = {},
+        elixirls     = {
+          cmd = { "/Users/songwang/Downloads/elixir-ls-v0.26.1/language_server.sh" },
+          filetypes = { "elixir", "eelixir", "heex", "surface" }
+        },
         bashls       = {
           filetypes = { "bash", "sh", "zsh" }
         },
