@@ -36,27 +36,11 @@ return {
         case_insensitive_regex = false,
       })
       vim.cmd [[
-        " hi link illuminatedWord CursorLine
-          " hi IlluminatedWordText gui=underdotted
-        " hi IlluminatedWordRead gui=bold
-
-        " hi illuminatedWord cterm=underline gui=underline
-        " hi illuminatedCurWord cterm=italic gui=italic
-      ]]
-      vim.cmd [[
-        " augroup illuminate_augroup
-        "     autocmd!
-        "     autocmd VimEnter * hi link illuminatedWord CursorLine
-        " augroup END
-        "
-        " augroup illuminate_augroup
-        "     autocmd!
-        "     autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
-        " augroup END
-        " augroup illuminate_augroup
-        "     autocmd!
-        "     autocmd VimEnter * hi illuminatedCurWord cterm=italic gui=italic
-        " augroup END
+        hi link illuminatedWord CursorLine
+        hi link IlluminatedWordText CursorLine
+        hi link IlluminatedWordRead CursorLine
+        hi link illuminatedCurWord CursorLine
+        hi link IlluminatedWordWrite CursorLine
       ]]
     end
   },
