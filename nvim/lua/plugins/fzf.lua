@@ -1,6 +1,13 @@
 return {
   "ibhagwan/fzf-lua",
   config = function()
+    local actions = require('fzf-lua').actions
+    local default_actions = {
+      ['default'] = actions.file_edit,
+      ['ctrl-s'] = actions.file_split,
+      ['ctrl-v'] = actions.file_vsplit,
+      ['ctrl-t'] = actions.file_tabedit,
+    }
     require("fzf-lua").setup {
       commands   = { sort_lastused = true },
       winopts_fn = function()
@@ -76,7 +83,7 @@ return {
 
     keyset("n", "<leader>f", function()
       require("fzf-lua").files({
-
+        actions = default_actions,
         file_icons = false,
       })
     end, opts)
@@ -85,10 +92,8 @@ return {
       require 'fzf-lua'.fzf_exec(
         "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=120 --line-number --no-heading  --color=always --smart-case ''",
         {
-          actions = {
-            ['default'] = require 'fzf-lua'.actions.file_edit
-          },
           previewer = "builtin",
+          actions = default_actions,
           fn_transform = function(x)
             return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
           end
@@ -101,9 +106,7 @@ return {
         "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=119 --line-number --no-heading  --color=always --smart-case '" ..
         vim.fn.expand('<cword>') .. "'",
         {
-          actions = {
-            ['default'] = require 'fzf-lua'.actions.file_edit,
-          },
+          actions = default_actions,
           previewer = "builtin",
           fn_transform = function(x)
             return require 'fzf-lua'.make_entry.file(x, { file_icons = false })

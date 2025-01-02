@@ -68,6 +68,7 @@ return {
             ensure_installed = {
               "c",
               "html",
+              "elixir",
               "astro",
               "lua",
               "yaml",

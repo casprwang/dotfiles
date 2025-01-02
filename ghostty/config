@@ -4,18 +4,13 @@ font-family = "VictorMono Nerd Font Mono"
 font-family-italic = "Iosevka Nerd Font Italic"
 font-family-bold-italic = "Iosevka Nerd Font Bold Italic"
 
-font-style = default
-font-style-bold = default
-font-style-italic = default
-font-style-bold-italic = default
-font-synthetic-style = false
 
 font-size = 17
 font-thicken = true
 
-adjust-underline-position = 15%
+adjust-underline-position = 20%
 adjust-cursor-thickness = 20
-
+adjust-underline-thickness = -5
 
 window-decoration = true
 window-padding-x = 10

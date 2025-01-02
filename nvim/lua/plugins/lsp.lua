@@ -25,7 +25,6 @@ return {
         version = '*',
         opts_extend = { "sources.default" },
         config = function()
-          vim.diagnostic.config({ jump = { float = true } })
           require("blink.cmp").setup({
             completion = {
               ghost_text = {
@@ -45,6 +44,20 @@ return {
             },
             sources = {
               default = { 'lsp', 'path', 'snippets', 'buffer' },
+              providers = {
+                path = {
+                  max_items = 3
+                },
+                lsp = {
+                  max_items = 1
+                },
+                buffer = {
+                  max_items = 1,
+                },
+                snippets = {
+                  max_items = 1,
+                }
+              }
             },
           })
         end
@@ -55,6 +68,7 @@ return {
       local servers = {
         ruby_lsp     = {},
         stimulus_ls  = {},
+        elixirls     = {},
         bashls       = {
           filetypes = { "bash", "sh", "zsh" }
         },
@@ -93,6 +107,7 @@ return {
       end
       vim.diagnostic.config({
         virtual_text = false,
+        jump = { float = true },
         float = true,
         signs = {
           text = {
@@ -103,6 +118,9 @@ return {
           }
         }
       })
+
+      vim.cmd [[
+      ]]
     end
   },
   {

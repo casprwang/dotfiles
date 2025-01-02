@@ -4,7 +4,7 @@ alias rm=trash
 alias git=hub
 alias o=e
 alias cdv="cd ~/dev"
-alias ls=eza
+# alias ls=eza
 alias ll="eza -la --no-user --time-style='relative' --no-permissions"
 alias cdt="cd ~/tmp"
 alias sz="source ~/.config/zsh/.zshrc"
@@ -20,3 +20,5 @@ alias f='nvim -c "FzfLua files"'
 alias g='zi'
 alias d='zi'
 alias ignore="nvim .gitignore"
+
+alias gd="git diff"
