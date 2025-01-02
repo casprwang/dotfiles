@@ -1,9 +1,6 @@
 local function fixGruvbox()
   vim.cmd([[
     hi! SignColumn guibg=NONE
-    "hi! BufferLineFill guibg=NONE
-    "hi! BufferLineSeparator guibg=NONE
-    "hi! BufferLineBufferSelected guibg=NONE
     hi! WinBar guibg=NONE
     hi! WinBarNC guibg=NONE
     hi! DiagnosticSignOk guifg=#b8bb26 guibg=#282828
@@ -11,6 +8,8 @@ local function fixGruvbox()
     hi! DiagnosticSignWarn guifg=#fabd2f guibg=#282828
     hi! DiagnosticSignError guifg=#fb4934 guibg=#282828
     hi! SagaNormal guibg=#282828
+    hi! FzfLuaBackdrop guibg=NONE
+    hi! NormalFloat guibg=none
   ]])
   vim.api.nvim_set_hl(0, "StatusLine", { reverse = false })
   vim.api.nvim_set_hl(0, "StatusLineNC", { reverse = false })

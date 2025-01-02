@@ -12,3 +12,4 @@
 /karabiner/automatic_backups/
 .DS_Store
 /nvim/lazy-lock.json
+./zsh/.zsh_sessions/

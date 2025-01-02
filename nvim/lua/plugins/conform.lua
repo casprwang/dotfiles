@@ -7,7 +7,8 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           -- sql = { 'sqlfluff' }
-          -- ruby = { "rubocop" },
+          ruby = { "rubocop" },
+          sh = { "shfmt" },
           python = { "ruff_fix", "ruff_format" }
           -- eruby = { "erbformat", stop_after_first = true }
         },

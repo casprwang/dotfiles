@@ -6,8 +6,6 @@ local function lsp_keymap(bufnr)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '[d', function()
     vim.diagnostic.jump { count = -1, float = true }
@@ -25,6 +23,8 @@ return {
       {
         'saghen/blink.cmp',
         event = "VeryLazy",
+        enabled = true,
+        build = 'cargo build --release',
         dependencies = 'rafamadriz/friendly-snippets',
         version = '*',
         opts_extend = { "sources.default" },
@@ -52,22 +52,15 @@ return {
           })
         end
       },
-      {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        opts = {
-          library = {
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
-      },
     },
-    -- example using `opts` for defining servers
     config = function()
       local lspconfig = require('lspconfig')
       local servers = {
         ruby_lsp     = {},
         stimulus_ls  = {},
+        bashls       = {
+          filetypes = { "bash", "sh", "zsh" }
+        },
         lua_ls       = {
           root_dir = lspconfig.util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml",
             "stylua.toml", "selene.toml", "selene.yml", ".git"),
@@ -140,24 +133,9 @@ return {
       require("typescript-tools").setup {
         on_attach = function(client, bufnr)
           lsp_keymap(bufnr)
-          -- if client.server_capabilities.documentHighlightProvider then
-          --   vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-          --   vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
-          --   vim.api.nvim_create_autocmd("CursorHold", {
-          --     callback = vim.lsp.buf.document_highlight,
-          --     buffer = bufnr,
-          --     group = "lsp_document_highlight",
-          --     desc = "Document Highlight",
-          --   })
-          --   vim.api.nvim_create_autocmd("CursorMoved", {
-          --     callback = vim.lsp.buf.clear_references,
-          --     buffer = bufnr,
-          --     group = "lsp_document_highlight",
-          --     desc = "Clear All the References",
-          --   })
-          -- end
         end
       }
     end
   }
+
 }
