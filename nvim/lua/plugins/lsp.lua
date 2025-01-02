@@ -7,12 +7,8 @@ local function lsp_keymap(bufnr)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '[d', function()
-    vim.diagnostic.jump { count = -1, float = true }
-  end, bufopts)
-  vim.keymap.set('n', ']d', function()
-    vim.diagnostic.jump { count = 1, float = true }
-  end, bufopts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 end
 
 return {
@@ -29,6 +25,7 @@ return {
         version = '*',
         opts_extend = { "sources.default" },
         config = function()
+          vim.diagnostic.config({ jump = { float = true } })
           require("blink.cmp").setup({
             completion = {
               ghost_text = {

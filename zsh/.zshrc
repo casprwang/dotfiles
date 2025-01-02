@@ -29,3 +29,5 @@ zsh-defer zsh-completions
 
 #
 zsh-defer source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+export TERM=xterm-ghostty
