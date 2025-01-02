@@ -12,9 +12,6 @@ source ~/zsh-defer/zsh-defer.plugin.zsh
 
 zsh-defer deferred
 
-# defer path
-zsh-defer source ~/.config/zsh/path.zsh
-
 # defer plugins
 zsh-autosuggestions() {
   source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -27,7 +24,5 @@ zsh-completions() {
 }
 zsh-defer zsh-completions
 
-#
+# vi mode defer
 zsh-defer source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
-export TERM=xterm-ghostty

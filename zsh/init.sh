@@ -1,3 +1,5 @@
+export TERM=xterm-ghostty
+
 # pure
 autoload -U promptinit
 promptinit
