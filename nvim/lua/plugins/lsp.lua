@@ -21,7 +21,6 @@ return {
         event = "VeryLazy",
         enabled = true,
         build = 'cargo build --release',
-        dependencies = 'rafamadriz/friendly-snippets',
         version = '*',
         opts_extend = { "sources.default" },
         config = function()
@@ -43,19 +42,24 @@ return {
               nerd_font_variant = 'mono'
             },
             sources = {
-              default = { 'lsp', 'path', 'snippets', 'buffer' },
+              default = {
+                'lsp',
+                'path',
+                -- 'snippets',
+                'buffer'
+              },
               providers = {
                 path = {
                   max_items = 3
                 },
                 lsp = {
-                  max_items = 3
+                  max_items = 1
                 },
                 buffer = {
-                  max_items = 3,
+                  max_items = 1,
                 },
                 snippets = {
-                  max_items = 3,
+                  max_items = 1,
                 }
               }
             },

@@ -9,6 +9,8 @@ vim.opt.cursorline = true
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+
+opt.smartindent = true
 opt.number = true
 opt.relativenumber = false -- for white spaces
 opt.signcolumn = "yes"
