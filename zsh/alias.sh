@@ -7,7 +7,6 @@ alias ll="ls -l"
 alias sz="source ~/.config/zsh/.zshrc"
 alias cdd="cd ~/Downloads/"
 alias lg="lazygit"
-alias fzf="(set_fzf_theme > /dev/null 2>&1 &) && fzf"
 alias yt="yt-dlp"
 # alias z="zi"
 # alias l='nvim -c "LazyGit"'
@@ -20,3 +19,6 @@ alias ignore="nvim .gitignore"
 
 alias gd="git diff"
 alias pb="pbcopy"
+
+# alias fzf="(set_fzf_theme > /dev/null 2>&1 &) && fzf"
+# alias fzf="command cat <(fre --sorted) <(fd -t d) <(fd -t d . ~) | fzf"

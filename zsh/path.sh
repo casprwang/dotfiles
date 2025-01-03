@@ -1,3 +1,4 @@
+. "/opt/homebrew/etc/profile.d/z.sh"
 . "$HOME/.cargo/env"
 # eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(~/.local/bin/mise activate zsh)"
@@ -12,3 +13,4 @@ export PATH="$PATH":~/bin
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export PATH=$HOME/.local/share/mise/installs/erlang/27.2/erts-15.2/bin:$PATH
 export PATH=$HOME/.local/share/mise/installs/elixir/1.18.1-otp-27/bin:$PATH
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

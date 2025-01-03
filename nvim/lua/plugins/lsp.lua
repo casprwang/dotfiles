@@ -73,7 +73,7 @@ return {
         ruby_lsp     = {},
         stimulus_ls  = {},
         elixirls     = {
-          cmd = { "/Users/songwang/Downloads/elixir-ls-v0.26.1/language_server.sh" },
+          cmd = { "/Users/songwang/Downloads/elixir-ls-v0.26.2/language_server.sh" },
           filetypes = { "elixir", "eelixir", "heex", "surface" }
         },
         bashls       = {
@@ -106,10 +106,13 @@ return {
         basedpyright = {}
       }
       for server, config in pairs(servers) do
-        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+        local capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+        -- disable lsp snippets as it distracts coding
+        -- capabilities.textDocument.completion.completionItem.snippetSupport = false
         config.on_attach = function(_, bufnr)
           lsp_keymap(bufnr)
         end
+        config.capabilities = capabilities
         lspconfig[server].setup(config)
       end
       vim.diagnostic.config({

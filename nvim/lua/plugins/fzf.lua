@@ -4,9 +4,10 @@ return {
     local actions = require('fzf-lua').actions
     local default_actions = {
       ['default'] = actions.file_edit,
-      ['ctrl-s'] = actions.file_split,
-      ['ctrl-v'] = actions.file_vsplit,
-      ['ctrl-t'] = actions.file_tabedit,
+      ["enter"]   = actions.file_edit_or_qf,
+      ['ctrl-s']  = actions.file_split,
+      ['ctrl-v']  = actions.file_vsplit,
+      ['ctrl-t']  = actions.file_tabedit,
     }
     require("fzf-lua").setup {
       commands   = { sort_lastused = true },
@@ -81,12 +82,12 @@ return {
       })
     end, opts)
 
-    keyset("n", "<leader>f", function()
-      require("fzf-lua").files({
-        actions = default_actions,
-        file_icons = false,
-      })
-    end, opts)
+    -- keyset("n", "<leader>f", function()
+    --   require("fzf-lua").files({
+    --     actions = default_actions,
+    --     file_icons = false,
+    --   })
+    -- end, opts)
 
     keyset('n', '<leader>e', function()
       require 'fzf-lua'.fzf_exec(
@@ -108,6 +109,19 @@ return {
         {
           actions = default_actions,
           previewer = "builtin",
+          fn_transform = function(x)
+            return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
+          end
+        }
+      )
+    end, opts)
+
+    keyset('n', '<leader>f', function()
+      require 'fzf-lua'.fzf_exec(
+        "bash /Users/songwang/.config/zsh/old_files.sh",
+        {
+          previewer = "builtin",
+          actions = default_actions,
           fn_transform = function(x)
             return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
           end

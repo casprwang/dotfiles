@@ -63,11 +63,12 @@ return {
               use_languagetree = false,
             },
             indent = {
-              enable = false,
+              enable = true,
             },
             ensure_installed = {
               "c",
               "html",
+              "heex",
               "elixir",
               "astro",
               "lua",

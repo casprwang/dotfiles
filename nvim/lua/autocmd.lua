@@ -19,3 +19,20 @@ vim.api.nvim_create_autocmd('BufRead', {
     })
   end,
 })
+
+-- vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
+--   pattern = { "*" },
+--   callback = function(_)
+--     vim.cmd [[rshada | wshada]]
+--   end
+-- })
+
+vim.cmd [[
+function! s:update_oldfiles(file)
+  execute "normal! :rshada\n"
+  execute "normal! :wshada\n"
+endfunction
+
+autocmd BufWinEnter *
+          \ call s:update_oldfiles(expand('<afile>:p'))
+]]
