@@ -23,3 +23,5 @@ window-padding-x = 10
 macos-titlebar-style = "tabs"
 
 theme = light:GruvboxLight,dark:GruvboxDark
+
+keybind = cmd+enter=toggle_split_zoom
