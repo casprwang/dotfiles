@@ -75,19 +75,27 @@ return {
     local keyset = vim.keymap.set
     local opts = { silent = true, nowait = true, noremap = true }
 
-    keyset("n", "<leader>r", function()
+    local recentfiles = function()
+      local cwd = vim.fn.getcwd()
       require('fzf-lua').oldfiles({
+        actions = default_actions,
+        cwd_header = false,
         file_icons = false,
-
       })
-    end, opts)
+    end
 
-    -- keyset("n", "<leader>f", function()
-    --   require("fzf-lua").files({
-    --     actions = default_actions,
-    --     file_icons = false,
-    --   })
-    -- end, opts)
+    local files = function()
+      -- require("../utils").set_fzf_opts()
+      require("fzf-lua").files({
+        actions = default_actions,
+        file_icons = false,
+      })
+    end
+
+    vim.api.nvim_create_user_command("FFiles", files, {})
+    vim.api.nvim_create_user_command("FRecnetFiles", recentfiles, {})
+    keyset("n", "<leader>r", recentfiles, opts)
+    keyset("n", "<leader>f", files, opts)
 
     keyset('n', '<leader>e', function()
       require 'fzf-lua'.fzf_exec(
@@ -116,17 +124,26 @@ return {
       )
     end, opts)
 
-    keyset('n', '<leader>f', function()
-      require 'fzf-lua'.fzf_exec(
-        "bash /Users/songwang/.config/zsh/old_files.sh",
-        {
-          previewer = "builtin",
-          actions = default_actions,
-          fn_transform = function(x)
-            return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
-          end
-        }
-      )
-    end, opts)
+    -- local fzf_fre_files = function()
+    --   local cwd = vim.fn.getcwd()
+    --   require 'fzf-lua'.fzf_exec(
+    --     "bash /Users/songwang/.config/zsh/old_files.sh",
+    --     {
+    --       previewer = "builtin",
+    --       actions = default_actions,
+    --       fn_transform = function(x)
+    --         return require 'fzf-lua'.make_entry.file(x, {
+    --           cwd = cwd,
+    --           cwd_header = true,
+    --           -- cwd_only = true,
+    --           file_icons = false,
+    --         })
+    --       end
+    --     }
+    --   )
+    -- end
+
+    -- vim.api.nvim_create_user_command("FzfFreFiles", fzf_fre_files, {})
+    -- keyset('n', '<leader>f', fzf_fre_files, opts)
   end
 }

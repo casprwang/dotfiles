@@ -37,16 +37,16 @@ return {
     opts = {
       update_interval = 6000,
       set_dark_mode = function()
-        vim.o.background = 'dark'
         vim.api.nvim_set_option_value("background", "dark", {})
-        fixGruvbox()
         require("../utils").write("dark")
+        require("../utils").set_fzf_opts_dark()
+        fixGruvbox()
       end,
       set_light_mode = function()
-        vim.o.background = 'light'
         vim.api.nvim_set_option_value("background", "light", {})
-        fixGruvbox()
         require("../utils").write("light")
+        require("../utils").set_fzf_opts_light()
+        fixGruvbox()
       end,
     },
   }

@@ -13,6 +13,8 @@ font-synthetic-style = "no-italic"
 font-size = 17
 font-thicken = true
 
+# font-feature = -calt
+
 adjust-underline-position = 20%
 adjust-cursor-thickness = 20
 adjust-underline-thickness = -3
