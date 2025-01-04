@@ -12,7 +12,7 @@ alias yt="yt-dlp"
 # alias l='nvim -c "LazyGit"'
 
 alias r='nvim -c "FRecnetFiles"'
-# alias f='nvim -c "FFiles"'
+alias f='nvim -c "FFiles"'
 alias g='zi'
 alias d='zi'
 alias ignore="nvim .gitignore"

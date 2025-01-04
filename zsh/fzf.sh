@@ -64,7 +64,7 @@ fzf_dark() {
 }
 
 set_fzf_theme() {
-  theme=$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1)
+  theme=$(defaults read -g AppleInterfaceStyle)
   if [[ $theme = "Dark" ]]; then
     fzf_dark
   else

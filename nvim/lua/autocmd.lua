@@ -23,6 +23,9 @@ vim.api.nvim_create_autocmd('BufRead', {
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = { "*" },
   callback = function(_)
-    vim.cmd [[rshada | wshada]]
+    local file_path = vim.fn.expand('%:p')
+    if file_path then
+      os.execute("fre --add " .. file_path)
+    end
   end
 })
