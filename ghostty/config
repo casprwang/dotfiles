@@ -27,3 +27,7 @@ macos-titlebar-style = "tabs"
 theme = light:GruvboxLight,dark:GruvboxDark
 
 keybind = cmd+enter=toggle_split_zoom
+keybind = global:cmd+j=toggle_quick_terminal
+
+unfocused-split-opacity = 0.5
+

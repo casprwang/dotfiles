@@ -1,28 +1,27 @@
 # cores that can't be deferred
-source ~/.config/zsh/init.sh
-
-deferred() {
-  source ~/.config/zsh/alias.sh
-  source ~/.config/zsh/path.sh
-  source ~/.config/zsh/functions.sh
-  source ~/.config/zsh/fzf.sh
-}
-
 source ~/zsh-defer/zsh-defer.plugin.zsh
-
-zsh-defer deferred
+source ~/.config/zsh/init.sh
 
 # defer plugins
 zsh-autosuggestions() {
   source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
   ZSH_AUTOSUGGEST_STRATEGY=completion
 }
-zsh-defer zsh-autosuggestions
-zsh-defer source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 zsh-completions() {
   fpath=(~/zsh-completions/src $fpath)
 }
-zsh-defer zsh-completions
 
-# vi mode defer
-zsh-defer source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+deferred() {
+  zsh-autosuggestions
+  source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+  source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source ~/.config/zsh/alias.sh
+  source ~/.config/zsh/path.sh
+  source ~/.config/zsh/functions.sh
+  source ~/.config/zsh/fzf.sh
+  zsh-completions
+  export TERM=xterm-ghostty
+}
+
+zsh-defer deferred

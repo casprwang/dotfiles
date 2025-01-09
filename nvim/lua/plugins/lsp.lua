@@ -20,7 +20,7 @@ return {
         'saghen/blink.cmp',
         event = "VeryLazy",
         enabled = true,
-        build = 'cargo build --release',
+        build = 'cargo +nightly build --release',
         version = '*',
         opts_extend = { "sources.default" },
         config = function()
@@ -70,16 +70,17 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
       local servers = {
-        ruby_lsp     = {},
-        stimulus_ls  = {},
-        elixirls     = {
+        ruby_lsp    = {},
+        stimulus_ls = {},
+        elixirls    = {
           cmd = { "/Users/songwang/Downloads/elixir-ls-v0.26.2/language_server.sh" },
           filetypes = { "elixir", "eelixir", "heex", "surface" }
         },
-        bashls       = {
+        bashls      = {
           filetypes = { "bash", "sh", "zsh" }
         },
-        lua_ls       = {
+        pyright     = {},
+        lua_ls      = {
           root_dir = lspconfig.util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml",
             "stylua.toml", "selene.toml", "selene.yml", ".git"),
           settings = {
@@ -103,7 +104,6 @@ return {
             },
           },
         },
-        basedpyright = {}
       }
       for server, config in pairs(servers) do
         local capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)

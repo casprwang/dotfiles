@@ -1,5 +1,5 @@
-vim.api.nvim_set_keymap("n", "q", ":q<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "gq", ":qa<cr>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "q", ":q<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "gq", ":q<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>", "<nop>", { noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>", "<nop>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-w><Space>", "<c-w>=", { noremap = true })
@@ -17,3 +17,8 @@ vim.api.nvim_set_keymap("n", "]t", ":tabnext<cr>", { noremap = true, silent = tr
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>n", ":silent w<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<c-g>", "<c-^>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "]c", ":cn<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[c", ":cp<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "co", ":cope<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "cq", ":ccl<cr>", { noremap = true, silent = true })

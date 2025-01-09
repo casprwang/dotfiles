@@ -153,7 +153,7 @@ return {
             return require 'fzf-lua'.make_entry.file(x, {
               cwd = cwd,
               cwd_header = true,
-              -- cwd_only = true,
+              cwd_only = true,
               file_icons = false,
             })
           end

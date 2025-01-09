@@ -19,6 +19,9 @@ alias ignore="nvim .gitignore"
 
 alias gd="git diff"
 alias pb="pbcopy"
+alias n="nvim"
+
+alias rd="vim ./README.md"
 
 # alias fzf="(set_fzf_theme > /dev/null 2>&1 &) && fzf"
 # alias fzf="command cat <(fre --sorted) <(fd -t d) <(fd -t d . ~) | fzf"

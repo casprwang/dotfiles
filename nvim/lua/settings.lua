@@ -10,7 +10,6 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 
-opt.smartindent = true
 opt.number = true
 opt.relativenumber = false -- for white spaces
 opt.signcolumn = "yes"
@@ -41,7 +40,6 @@ opt.shada = { "!", "'1000", "<50", "s10", "h" } -- Increase the shadafile size s
 opt.hlsearch = false
 opt.incsearch = true
 opt.autoindent = true
-opt.smarttab = true
 opt.hidden = true
 
 
@@ -67,7 +65,6 @@ vim.opt.updatetime = 100
 
 opt.ignorecase = true
 opt.showmatch = true
-opt.cursorline = true
 opt.termguicolors = true
 
 vim.opt.guicursor = ""
@@ -88,3 +85,7 @@ vim.cmd [[
 ]]
 
 vim.o.background = require("utils").read()
+
+
+vim.g.netrw_banner = 0    -- Disables the Netrw banner. Press 'I' to toggle.
+vim.g.netrw_liststyle = 3 -- Sets the view to treeview.
