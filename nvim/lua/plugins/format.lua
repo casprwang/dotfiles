@@ -12,11 +12,14 @@ return {
           python = { "ruff_fix", "ruff_format" }
           -- eruby = { "erbformat", stop_after_first = true }
         },
-        format_on_save = {
+        format_after_save = {
           -- These options will be passed to conform.format()
+          async = true,
           timeout_ms = 500,
           lsp_format = "fallback",
+          quiet = true
         },
+        notify_on_error = false,
         formatters = {
           erbformat = {
             command = "htmlbeautifier",
@@ -24,12 +27,6 @@ return {
             stdin = false,
           }
         }
-      })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
-        callback = function(args)
-          require("conform").format({ async = true, lsp_format = "fallback" })
-        end,
       })
     end
   },

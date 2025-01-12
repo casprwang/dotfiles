@@ -1,5 +1,9 @@
 return {
   {
+    "tpope/vim-projectionist",
+    event = "VeryLazy",
+  },
+  {
     "tpope/vim-rails",
     event = "VeryLazy",
     config = function()

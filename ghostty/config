@@ -19,7 +19,7 @@ adjust-underline-position = 20%
 adjust-cursor-thickness = 20
 adjust-underline-thickness = -3
 
-window-decoration = true
+window-decoration = false
 window-padding-x = 10
 
 macos-titlebar-style = "tabs"
@@ -28,6 +28,7 @@ theme = light:GruvboxLight,dark:GruvboxDark
 
 keybind = cmd+enter=toggle_split_zoom
 keybind = global:cmd+j=toggle_quick_terminal
+keybind = cmd+\=equalize_splits
 
 unfocused-split-opacity = 0.5
 

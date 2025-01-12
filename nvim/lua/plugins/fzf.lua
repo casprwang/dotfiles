@@ -10,31 +10,25 @@ return {
       ['ctrl-t']  = actions.file_tabedit,
     }
     require("fzf-lua").setup {
-      commands   = { sort_lastused = true },
-      winopts_fn = function()
+      commands = { sort_lastused = true },
+      winopts  = function()
         -- Make it full-width on smaller windows.
         return {
-          width  = vim.o.columns > 100 and 0.80 or 1,
-          height = vim.o.lines > 42 and 0.90 or 1,
-          row    = 0.55, -- window row position (0=top, 1=bottom)
+          border     = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+          fullscreen = false,       -- start fullscreen?
+          preview    = {
+            layout    = 'vertical', -- horizontal|vertical|flex
+            title     = true,       -- preview border title (file/buf)?
+            vertical  = 'down:40%', -- up|down:size
+            title_pos = "center",   -- left|center|right, title alignment
+            delay     = 200,        -- delay(ms) displaying the preview
+          },
+          width      = vim.o.columns > 100 and 0.80 or 1,
+          height     = vim.o.lines > 42 and 0.90 or 1,
+          row        = 0.55, -- window row position (0=top, 1=bottom)
         }
       end,
-      winopts    = {
-        border     = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-        fullscreen = false,       -- start fullscreen?
-        preview    = {
-          layout    = 'vertical', -- horizontal|vertical|flex
-          title     = true,       -- preview border title (file/buf)?
-          vertical  = 'down:40%', -- up|down:size
-          title_pos = "center",   -- left|center|right, title alignment
-          delay     = 200,        -- delay(ms) displaying the preview
-        },
-        on_create  = function()
-        end,
-      },
-      fzf_colors = {
-      },
-      keymap     = {
+      keymap   = {
         builtin = {
           -- neovim `:tmap` mappings for the fzf win
           ["<c-d>"] = "preview-page-down",
@@ -47,7 +41,7 @@ return {
           ["ctrl-e"] = "end-of-line",
         },
       },
-      files      = {
+      files    = {
         prompt       = 'Files❯ ',
         multiprocess = true, -- run command in a separate process
         find_opts    = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
@@ -56,7 +50,7 @@ return {
         file_icons   = false,
         no_header    = true, -- hide grep|cwd header?
       },
-      grep       = {
+      grep     = {
         prompt         = 'Rg❯ ',
         file_icons     = false,
         input_prompt   = 'Grep For❯ ',
@@ -66,10 +60,8 @@ return {
         rg_glob        = false,     -- default to glob parsing?
         glob_flag      = "--iglob", -- for case sensitive globs use '--glob'
         glob_separator = "%s%-%-",  -- query separator pattern (lua): ' --'
-        actions        = {
-        },
-        no_header      = true, -- hide grep|cwd header?
-        no_header_i    = true, -- hide interactive header?
+        no_header      = true,      -- hide grep|cwd header?
+        no_header_i    = true,      -- hide interactive header?
       },
     }
     local keyset = vim.keymap.set
@@ -81,6 +73,10 @@ return {
         {
           previewer = "builtin",
           actions = default_actions,
+          fzf_opts = {
+            ['--nth'] = 1,
+            ['--delimiter'] = require 'fzf-lua'.utils.nbsp
+          },
           fn_transform = function(x)
             return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
           end
@@ -94,6 +90,10 @@ return {
         vim.fn.expand('<cword>') .. "'",
         {
           actions = default_actions,
+          fzf_opts = {
+            ['--nth'] = 1,
+            ['--delimiter'] = require 'fzf-lua'.utils.nbsp
+          },
           previewer = "builtin",
           fn_transform = function(x)
             return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
@@ -129,7 +129,6 @@ return {
     end
 
     local recentfiles = function()
-      local cwd = vim.fn.getcwd()
       require('fzf-lua').oldfiles({
         actions = default_actions,
         cwd_header = false,
@@ -161,7 +160,6 @@ return {
       )
     end
     vim.api.nvim_create_user_command("FFiles", frefiles, {})
-
     vim.api.nvim_create_user_command("FzfFreFiles", frefiles, {})
     keyset('n', '<leader>f', frefiles, opts)
   end

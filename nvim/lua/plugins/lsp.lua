@@ -29,19 +29,32 @@ return {
               ghost_text = {
                 enabled = false
               },
-              menu = {
+              documentation = {
                 auto_show = true,
+                auto_show_delay_ms = 500,
               },
-              -- accept = { auto_brackets = { enabled = false }, },
-              -- list = { selection = function(ctx) return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect' end },
-              list = { selection = "preselect" },
+              menu = {
+                auto_show = false,
+                draw = {
+                  columns = {
+                    { "label", "label_description", gap = 1 },
+                  },
+                }
+              },
+              accept = { auto_brackets = { enabled = false }, },
+              list = { selection = { preselect = true, auto_insert = true } },
             },
             keymap = { preset = 'super-tab' }, -- default super-tab enter
             appearance = {
-              use_nvim_cmp_as_default = true,
+              use_nvim_cmp_as_default = false,
               nerd_font_variant = 'mono'
             },
             sources = {
+              transform_items = function(_, items)
+                return vim.tbl_filter(function(item)
+                  return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
+                end, items)
+              end,
               default = {
                 'lsp',
                 'path',
@@ -50,17 +63,14 @@ return {
               },
               providers = {
                 path = {
-                  max_items = 3
+                  -- max_items = 2
                 },
                 lsp = {
-                  max_items = 1
+                  -- max_items = 1
                 },
                 buffer = {
-                  max_items = 1,
+                  -- max_items = 1,
                 },
-                snippets = {
-                  max_items = 1,
-                }
               }
             },
           })
@@ -73,8 +83,15 @@ return {
         ruby_lsp    = {},
         stimulus_ls = {},
         elixirls    = {
-          cmd = { "/Users/songwang/Downloads/elixir-ls-v0.26.2/language_server.sh" },
-          filetypes = { "elixir", "eelixir", "heex", "surface" }
+          cmd       = { "/Users/songwang/Downloads/elixir-ls-v0.26.2/language_server.sh" },
+          filetypes = { "elixir", "eelixir", "heex", "surface" },
+          settings  = {
+            elixirLS = {
+              dialyzerEnabled = false,
+              fetchDeps = false,
+              autoBuild = false,
+            },
+          }
         },
         bashls      = {
           filetypes = { "bash", "sh", "zsh" }
@@ -87,6 +104,10 @@ return {
             Lua = {
               runtime = {
                 version = 'LuaJIT',
+              },
+              completion = {
+                callSnippet = 'Disable',
+                keywordSnippet = 'Disable',
               },
               diagnostics = {
                 disable = { 'missing-fields' },
@@ -108,7 +129,7 @@ return {
       for server, config in pairs(servers) do
         local capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         -- disable lsp snippets as it distracts coding
-        -- capabilities.textDocument.completion.completionItem.snippetSupport = false
+        capabilities.textDocument.completion.completionItem.snippetSupport = false
         config.on_attach = function(_, bufnr)
           lsp_keymap(bufnr)
         end
@@ -118,7 +139,9 @@ return {
       vim.diagnostic.config({
         virtual_text = false,
         jump = { float = true },
-        float = true,
+        float = {
+          border = "rounded"
+        },
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = '',
@@ -128,9 +151,6 @@ return {
           }
         }
       })
-
-      vim.cmd [[
-      ]]
     end
   },
   {

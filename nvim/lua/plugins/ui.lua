@@ -43,5 +43,5 @@ return {
         hi link IlluminatedWordWrite CursorLine
       ]]
     end
-  },
+  }
 }
