@@ -11,6 +11,24 @@ local function lsp_keymap(bufnr)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 end
 
+local border = {
+  { "🭽", "FloatBorder" },
+  { "▔", "FloatBorder" },
+  { "🭾", "FloatBorder" },
+  { "▕", "FloatBorder" },
+  { "🭿", "FloatBorder" },
+  { "▁", "FloatBorder" },
+  { "🭼", "FloatBorder" },
+  { "▏", "FloatBorder" },
+}
+
+
+-- LSP settings (for overriding per client)
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
 return {
   {
     'neovim/nvim-lspconfig',
@@ -34,10 +52,11 @@ return {
                 auto_show_delay_ms = 500,
               },
               menu = {
-                auto_show = false,
+                auto_show = true,
                 draw = {
                   columns = {
-                    { "label", "label_description", gap = 1 },
+                    { "kind_icon" },
+                    { "label",    "label_description", gap = 1 },
                   },
                 }
               },
@@ -63,13 +82,13 @@ return {
               },
               providers = {
                 path = {
-                  -- max_items = 2
+                  max_items = 3
                 },
                 lsp = {
-                  -- max_items = 1
+                  -- max_items = 5
                 },
                 buffer = {
-                  -- max_items = 1,
+                  max_items = 3,
                 },
               }
             },
@@ -81,6 +100,20 @@ return {
       local lspconfig = require('lspconfig')
       local servers = {
         ruby_lsp    = {},
+        gopls       = {
+          cmd = { "gopls" },
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
+          },
+        },
         stimulus_ls = {},
         elixirls    = {
           cmd       = { "/Users/songwang/Downloads/elixir-ls-v0.26.2/language_server.sh" },
@@ -176,6 +209,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
       require("typescript-tools").setup {
+        handlers = handlers,
         on_attach = function(client, bufnr)
           lsp_keymap(bufnr)
         end

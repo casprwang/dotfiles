@@ -102,26 +102,8 @@ return {
       )
     end, opts)
 
-    -- local files = function()
-    --   local cwd = vim.fn.getcwd()
-    --   require 'fzf-lua'.fzf_exec(
-    --     "zsh /Users/songwang/.config/zsh/old_files.sh",
-    --     {
-    --       actions = default_actions,
-    --       fn_transform = function(x)
-    --         return require 'fzf-lua'.make_entry.file(x, {
-    --           cwd = cwd,
-    --           cwd_header = true,
-    --           -- cwd_only = true,
-    --           file_icons = false,
-    --         })
-    --       end
-    --     }
-    --   )
-    -- end
 
     local files = function()
-      -- require("../utils").set_fzf_opts()
       require("fzf-lua").files({
         actions = default_actions,
         file_icons = false,
@@ -136,31 +118,11 @@ return {
       })
     end
 
-    -- vim.api.nvim_create_user_command("FFiles", files, {})
-    -- keyset("n", "<leader>f", files, opts)
 
     vim.api.nvim_create_user_command("FRecnetFiles", recentfiles, {})
     keyset("n", "<leader>r", recentfiles, opts)
 
-    local frefiles = function()
-      local cwd = vim.fn.getcwd()
-      require 'fzf-lua'.fzf_exec(
-        "zsh /Users/songwang/.config/zsh/fre_fd.sh",
-        {
-          actions = default_actions,
-          fn_transform = function(x)
-            return require 'fzf-lua'.make_entry.file(x, {
-              cwd = cwd,
-              cwd_header = true,
-              cwd_only = true,
-              file_icons = false,
-            })
-          end
-        }
-      )
-    end
-    vim.api.nvim_create_user_command("FFiles", frefiles, {})
-    vim.api.nvim_create_user_command("FzfFreFiles", frefiles, {})
-    keyset('n', '<leader>f', frefiles, opts)
+    vim.api.nvim_create_user_command("FFiles", files, {})
+    keyset('n', '<leader>f', files, opts)
   end
 }

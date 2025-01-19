@@ -22,6 +22,7 @@ alias ignore="nvim .gitignore"
 alias gd="git diff"
 alias pb="pbcopy"
 alias n="nvim"
+alias ssh="TERM=xterm-256color ssh"
 
 alias rd="vim ./README.md"
 

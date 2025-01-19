@@ -19,3 +19,10 @@ vim.api.nvim_create_autocmd('BufRead', {
     })
   end,
 })
+
+vim.cmd [[
+augroup custom_indentation
+  autocmd!
+  autocmd Filetype go setlocal ts=4 sw=4 sts=0 expandtab
+augroup END
+]]
