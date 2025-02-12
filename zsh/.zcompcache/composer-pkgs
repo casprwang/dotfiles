@@ -1,0 +1,4 @@
+_composer_cache_pkgs=( ${(Q)"${(z)$(<<\EO:_composer_cache_pkgs
+
+EO:_composer_cache_pkgs
+)}"} )

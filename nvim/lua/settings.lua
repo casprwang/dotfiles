@@ -10,8 +10,9 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 
-opt.number = true
+opt.number = false
 opt.relativenumber = false -- for white spaces
+
 opt.signcolumn = "yes"
 opt.autoread = true
 opt.wildmenu = true
@@ -28,6 +29,7 @@ opt.backup = true
 opt.backupdir = { "~/.vim-tmp", "~/.tmp", "~/tmp", "/var/tmp", "/tmp" }
 opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 opt.writebackup = true
+
 
 -- Undo & History
 opt.undofile = true
@@ -67,8 +69,6 @@ opt.ignorecase = true
 opt.showmatch = true
 opt.termguicolors = true
 
-vim.opt.guicursor = ""
-
 
 vim.cmd([[
   hi! SignColumn guibg=NONE
@@ -84,8 +84,28 @@ vim.cmd [[
 
 ]]
 
-vim.o.background = require("utils").read()
-
 
 vim.g.netrw_banner = 0    -- Disables the Netrw banner. Press 'I' to toggle.
 vim.g.netrw_liststyle = 3 -- Sets the view to treeview.
+
+vim.opt_local.conceallevel = 2
+vim.o.conceallevel = 2
+
+vim.opt.fillchars = { eob = ' ' } -- remove ~ at end of buffer
+
+-- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+-- vim.cmd [[
+-- set guicursor=i:ver1
+-- ]]
+
+-- vim.opt.guicursor = {
+--   'n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
+--   'i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
+--   'r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100'
+-- }
+
+vim.opt.guicursor = "i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150"
+
+vim.cmd [[
+set shell=/bin/zsh
+]]

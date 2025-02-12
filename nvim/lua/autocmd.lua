@@ -24,5 +24,6 @@ vim.cmd [[
 augroup custom_indentation
   autocmd!
   autocmd Filetype go setlocal ts=4 sw=4 sts=0 expandtab
+  autocmd Filetype markdown set nonumber
 augroup END
 ]]

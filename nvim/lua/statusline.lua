@@ -1,4 +1,6 @@
 vim.cmd [[
+set laststatus=1
+
 set statusline=
 set statusline +=%4*\ %<%F%*            "full path
 set statusline +=%2*%m%*                "modified flag

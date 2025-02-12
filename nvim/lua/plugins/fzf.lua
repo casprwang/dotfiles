@@ -1,6 +1,8 @@
 return {
   "ibhagwan/fzf-lua",
-  config = function()
+  event   = "VeryLazy",
+  enabled = false,
+  config  = function()
     local actions = require('fzf-lua').actions
     local default_actions = {
       ['default'] = actions.file_edit,
@@ -66,41 +68,41 @@ return {
     }
     local keyset = vim.keymap.set
     local opts = { silent = true, nowait = true, noremap = true }
+    --
+    -- keyset('n', '<leader>e', function()
+    --   require 'fzf-lua'.fzf_exec(
+    --     "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=120 --line-number --no-heading  --color=always --smart-case ''",
+    --     {
+    --       previewer = "builtin",
+    --       actions = default_actions,
+    --       fzf_opts = {
+    --         ['--nth'] = 1,
+    --         ['--delimiter'] = require 'fzf-lua'.utils.nbsp
+    --       },
+    --       fn_transform = function(x)
+    --         return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
+    --       end
+    --     }
+    --   )
+    -- end, opts)
 
-    keyset('n', '<leader>e', function()
-      require 'fzf-lua'.fzf_exec(
-        "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=120 --line-number --no-heading  --color=always --smart-case ''",
-        {
-          previewer = "builtin",
-          actions = default_actions,
-          fzf_opts = {
-            ['--nth'] = 1,
-            ['--delimiter'] = require 'fzf-lua'.utils.nbsp
-          },
-          fn_transform = function(x)
-            return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
-          end
-        }
-      )
-    end, opts)
-
-    keyset('n', '<leader>w', function()
-      require 'fzf-lua'.fzf_exec(
-        "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=119 --line-number --no-heading  --color=always --smart-case '" ..
-        vim.fn.expand('<cword>') .. "'",
-        {
-          actions = default_actions,
-          fzf_opts = {
-            ['--nth'] = 1,
-            ['--delimiter'] = require 'fzf-lua'.utils.nbsp
-          },
-          previewer = "builtin",
-          fn_transform = function(x)
-            return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
-          end
-        }
-      )
-    end, opts)
+    -- keyset('n', '<leader>w', function()
+    --   require 'fzf-lua'.fzf_exec(
+    --     "rg -g '!*git*' -g '!yarn.lock' -g '!*ci/*' -g '!*docker/*' --trim -F --max-columns=119 --line-number --no-heading  --color=always --smart-case '" ..
+    --     vim.fn.expand('<cword>') .. "'",
+    --     {
+    --       actions = default_actions,
+    --       fzf_opts = {
+    --         ['--nth'] = 1,
+    --         ['--delimiter'] = require 'fzf-lua'.utils.nbsp
+    --       },
+    --       previewer = "builtin",
+    --       fn_transform = function(x)
+    --         return require 'fzf-lua'.make_entry.file(x, { file_icons = false })
+    --       end
+    --     }
+    --   )
+    -- end, opts)
 
 
     local files = function()
@@ -119,10 +121,16 @@ return {
     end
 
 
-    vim.api.nvim_create_user_command("FRecnetFiles", recentfiles, {})
-    keyset("n", "<leader>r", recentfiles, opts)
+    -- vim.api.nvim_create_user_command("FRecnetFiles", recentfiles, {})
+    -- keyset("n", "<leader>r", recentfiles, opts)
 
-    vim.api.nvim_create_user_command("FFiles", files, {})
-    keyset('n', '<leader>f', files, opts)
+    -- vim.api.nvim_create_user_command("FFiles", files, {})
+    -- keyset('n', '<leader>f', files, opts)
+    -- keyset('n', '<c-p>', files, opts)
+
+
+    vim.cmd [[
+      hi! FzfLuaBackdrop guibg=NONE
+    ]]
   end
 }

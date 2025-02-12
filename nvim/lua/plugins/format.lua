@@ -6,11 +6,21 @@ return {
     config = function()
       require("conform").setup({
         formatters_by_ft = {
-          sql = { 'sqlfmt' },
-          ruby = { "rubocop" },
-          sh = { "shfmt" },
-          go = { "goimports", "gofmt" },
-          python = { "ruff_fix", "ruff_format" }
+          sql             = { 'sqlfmt' },
+          ruby            = { "rubocop" },
+          sh              = { "shfmt" },
+          go              = { "goimports", "gofmt" },
+          python          = { "ruff_fix", "ruff_format" },
+          javascriptreact = { "prettierd" },
+          typescriptreact = { "prettierd" },
+          json            = { "prettierd" },
+          javascript      = { "prettierd" },
+          typescript      = { "prettierd" },
+          html            = { "prettierd" },
+          tsx             = { "prettierd" },
+          php             = { "pint" },
+          css             = { "prettierd" },
+          jsx             = { "prettierd" },
           -- eruby = { "erbformat", stop_after_first = true }
         },
         format_after_save = {
@@ -24,6 +34,10 @@ return {
         formatters = {
           sqruff = {
             command = "sqruff",
+          },
+          denofmt = {
+            command = "deno",
+            args = { "fmt", "--unstable", "--no-semicolons", "--single-quote", "--unstable-sql", "--use-tabs" },
           },
           erbformat = {
             command = "htmlbeautifier",
@@ -43,6 +57,13 @@ return {
         end
         require("conform").format({ async = true, lsp_format = "fallback", range = range })
       end, { range = true })
+
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function(args)
+          require("conform").format({ bufnr = args.buf, async = true })
+        end,
+      })
     end
   },
 }

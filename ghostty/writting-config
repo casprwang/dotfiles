@@ -1,4 +1,6 @@
 font-family = "VictorMono Nerd Font Mono"
+# font-family-bold-italic = "Iosevka Nerd Font Mono Bold"
+# font-family-bold = "Iosevka Term Bold"
 font-family-italic = "Iosevka Nerd Font Italic"
 font-family-bold-italic = "Iosevka Nerd Font Bold Italic"
 
@@ -7,12 +9,14 @@ font-style-bold = default
 font-style-italic = default
 font-style-bold-italic = default
 font-synthetic-style = "no-italic"
+
 font-size = 17
 font-thicken = true
 
 # font-feature = -calt
 
 adjust-underline-position = 20%
+adjust-cursor-thickness = 20
 adjust-underline-thickness = -3
 
 window-decoration = true
@@ -22,31 +26,16 @@ macos-titlebar-style = "tabs"
 
 # theme = light:GruvboxLight,dark:GruvboxDark
 # theme = light:nord-light,dark:nord
-# theme = nord
-theme = nordfox
-# theme = rose-pine-dawn
-
-# theme = zenbones_dark
-# theme = zenbones_light
-# theme = zenwritten_light
+theme = GruvboxDark
 unfocused-split-opacity = 0.55
 
 background-blur-radius = 20
-background-opacity = 0.91
+background-opacity = 0.90
 
 shell-integration = zsh
 shell-integration-features = title
 
+
 keybind = cmd+enter=toggle_split_zoom
 keybind = cmd+\=equalize_splits
 keybind = global:cmd+j=toggle_quick_terminal
-
-
-# font-family = "iA Writer Mono V"
-# cursor-style = "bar"
-
-# adjust-cursor-thickness = 20
-adjust-cursor-thickness = 5
-cursor-color = "#00B5FF"
-# cursor-color = "#3189ad"
-cursor-style-blink = false
