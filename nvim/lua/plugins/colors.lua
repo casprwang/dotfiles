@@ -30,7 +30,7 @@ return {
           "NormalFloat",   -- plugins which have float panel such as Lazy, Mason, LspInfo
           "NvimTreeNormal" -- NvimTree
         },
-        exclude_groups = {},
+        exclude_groups = { "CursorLine" },
       })
       vim.g.transparent_enabled = true
     end
@@ -69,11 +69,11 @@ return {
           -- Compiled file's destination location
           transparent = true,     -- Disable setting background
           terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = true,    -- Non focused panes set to alternative background
+          dim_inactive = false,   -- Non focused panes set to alternative background
           module_default = true,  -- Default enable value for modules
           styles = {              -- Style to be applied to different syntax groups
             comments = "NONE",    -- Value is any valid attr-list value `:help attr-list`
-            conditionals = "NONE",
+            conditionals = "bold",
             constants = "bold",
             functions = "bold,italic",
             keywords = "bold",

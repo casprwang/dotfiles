@@ -19,3 +19,5 @@ export PATH="/Users/songwang/nvim-macos-arm64/bin:$PATH"
 
 export PATH="/Users/songwang/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/songwang/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# export PATH="/Users/songwang/Downloads/Odin/:$PATH"

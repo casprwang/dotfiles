@@ -13,7 +13,6 @@ return {
             jump_prev = "[[",
             jump_next = "]]",
             accept = "<CR>",
-            refresh = "gr",
             open = "<M-CR>"
           },
           layout = {
@@ -51,9 +50,19 @@ return {
       })
     end,
   },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   event = 'BufEnter',
+  --   dependencies = {
+  --   },
+  --   config = function()
+  --     vim.g.codeium_disable_bindings = 1
+  --     vim.keymap.set('i', '<C-f>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+  --   end
+  -- },
   {
     "Exafunction/codeium.nvim",
-    event = 'BufEnter',
+    event = "InsertEnter",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -71,13 +80,17 @@ return {
           map_keys = true,
           accept_fallback = nil,
           key_bindings = {
-            accept = "<c-e>",
+            accept = "<c-f>",
             accept_word = false,
             accept_line = false,
             clear = false,
           }
         }
       })
+      vim.cmd [[
+      " highlight CodeiumSuggestion guifg=#555555 ctermfg=8
+      hi link CodeiumSuggestion Comment
+      ]]
     end
   },
 }

@@ -23,7 +23,9 @@ vim.api.nvim_create_autocmd('BufRead', {
 vim.cmd [[
 augroup custom_indentation
   autocmd!
-  autocmd Filetype go setlocal ts=4 sw=4 sts=0 expandtab
+  autocmd Filetype go setlocal ts=8 sw=8 sts=8 expandtab
+  autocmd Filetype odin setlocal ts=8 sw=8 sts=8 expandtab
+  " autocmd Filetype go setlocal ts=4 sw=4 sts=0 expandtab
   autocmd Filetype markdown set nonumber
 augroup END
 ]]

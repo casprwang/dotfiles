@@ -50,19 +50,15 @@ return {
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
               ["]f"] = "@function.outer",
-              ["]]"] = "@class.outer",
             },
             goto_next_end = {
               ["]F"] = "@function.outer",
-              ["]["] = "@class.outer",
             },
             goto_previous_start = {
               ["[f"] = "@function.outer",
-              ["[["] = "@class.outer",
             },
             goto_previous_end = {
               ["[F"] = "@function.outer",
-              ["[]"] = "@class.outer",
             },
           }
         },
@@ -120,16 +116,13 @@ return {
       }
     },
     config = function()
-      require('nvim-ts-autotag').setup({
-        aliases = {
-          ["eruby"] = "html",
-        }
-      })
+      require('nvim-ts-autotag').setup({})
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter-refactor",
     event = "VeryLazy",
+    enabled = true,
     config = function()
       require 'nvim-treesitter.configs'.setup {
         refactor = {

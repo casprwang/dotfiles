@@ -1,19 +1,12 @@
 -- following https://neovim.io/doc/user/lsp.html#lsp-defaults
 local function lsp_keymap(bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', 'grr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, bufopts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 end
+
+
 
 local border = {
   { "🭽", "FloatBorder" },
@@ -42,88 +35,31 @@ return {
   --   end,
   -- },
   {
+    "williamboman/mason-lspconfig.nvim",
+    lazy = true,
+    cmd = "Mason",
+    event = 'VeryLazy',
+    dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup()
+    end
+  },
+  {
     'neovim/nvim-lspconfig',
     event = "VeryLazy",
     dependencies = {
-      { "epwalsh/obsidian.nvim" },
-      {
-        'saghen/blink.cmp',
-        event = "VeryLazy",
-        enabled = true,
-        build = 'cargo +nightly build --release',
-        version = '*',
-        opts_extend = { "sources.default" },
-        dependencies = {
-          { "saghen/blink.compat",          lazy = true, verson = false },
-          { "rafamadriz/friendly-snippets", lazy = true, verson = false },
-        },
-        config = function()
-          require("blink.cmp").setup({
-            completion = {
-              ghost_text = {
-                enabled = false
-              },
-              documentation = {
-                auto_show = true,
-                auto_show_delay_ms = 500,
-              },
-              menu = {
-                auto_show = true,
-                draw = {
-                  columns = {
-                    { "kind_icon" },
-                    { "label",    "label_description", gap = 1 },
-                  },
-                }
-              },
-              accept = { auto_brackets = { enabled = true }, },
-              list = { selection = { preselect = true, auto_insert = true } },
-            },
-            keymap = {
-              preset = 'super-tab',
-              ["<c-e>"] = {
-              },
-            }, -- default super-tab enter
-            appearance = {
-              use_nvim_cmp_as_default = false,
-              nerd_font_variant = 'mono'
-            },
-            sources = {
-              default = {
-                'lsp',
-                'path',
-                'snippets',
-                'buffer',
-                'obsidian',
-                'obsidian_new',
-                'obsidian_tags',
-              },
-              providers = {
-                obsidian = { name = "obsidian", module = "blink.compat.source" },
-                obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
-                obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },
-                path = {
-                  max_items = 3,
-                  -- min_keyword_length = 2,
-                },
-                lsp = {
-                  -- max_items = 5
-                  -- min_keyword_length = 2,
-                },
-                buffer = {
-                  -- max_items = 3,
-                },
-              }
-            },
-          })
-        end
-      },
+      -- { "epwalsh/obsidian.nvim" },
+      require("plugins.blink")
     },
     config = function()
       local lspconfig = require('lspconfig')
       local servers = {
+        ols         = {},
         ruby_lsp    = {
-          mason = false,
           cmd = { "ruby-lsp" },
           filetypes = { "ruby" },
           root_dir = lspconfig.util.root_pattern("Gemfile", ".git"),
@@ -156,6 +92,7 @@ return {
         },
         tailwindcss = {},
         cssls       = {},
+        zls         = {},
         elixirls    = {
           cmd       = { "elixir-ls" },
           filetypes = { "elixir", "eelixir", "heex", "surface" },
@@ -170,6 +107,7 @@ return {
         bashls      = {
           filetypes = { "bash", "sh", "zsh" }
         },
+        -- vtsls       = {},
         pyright     = {},
         lua_ls      = {
           root_dir = lspconfig.util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml",
@@ -187,7 +125,8 @@ return {
                 disable = { 'missing-fields' },
                 globals = {
                   'vim',
-                  'require'
+                  'require',
+                  "Snacks"
                 },
               },
               workspace = {
@@ -234,18 +173,6 @@ return {
     config = true
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end
-  },
-  {
     "pmizio/typescript-tools.nvim",
     event = "VeryLazy",
     enabled = true,
@@ -265,6 +192,16 @@ return {
           }
         }
       }
+
+      -- vim.api.nvim_create_autocmd("BufWritePre", {
+      --   group = vim.api.nvim_create_augroup("TS_add_missing_imports", { clear = true }),
+      --   desc = "TS_add_missing_imports",
+      --   pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+      --   callback = function()
+      --     vim.cmd([[TSToolsAddMissingImports]])
+      --     vim.cmd("write")
+      --   end,
+      -- })
     end
   }
 }

@@ -1,4 +1,5 @@
 # pure
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit
 promptinit
 
@@ -16,19 +17,6 @@ prompt pure
 
 export TERM=screen-256color
 export VSCODE_TSJS=1
-
-# # vi mode
-# bindkey -v
-# export KEYTIMEOUT=1
-#
-# # Yank to the system clipboard
-# function vi-yank-xclip {
-#   zle vi-yank
-#   echo "$CUTBUFFER" | pbcopy -i
-# }
-#
-# zle -N vi-yank-xclip
-# bindkey -M vicmd 'y' vi-yank-xclip
 
 # Neovim
 export EDITOR=nvim

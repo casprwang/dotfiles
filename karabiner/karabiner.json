@@ -10,6 +10,24 @@
                 },
                 "rules": [
                     {
+                        "manipulators": [
+                            {
+                                "description": "Change caps_lock to command+control+option+shift.",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change right_command+hjkl to arrow keys",
                         "manipulators": [
                             {
@@ -812,10 +830,6 @@
             "name": "Default profile",
             "selected": true,
             "simple_modifications": [
-                {
-                    "from": { "key_code": "caps_lock" },
-                    "to": [{ "key_code": "escape" }]
-                },
                 {
                     "from": { "key_code": "right_command" },
                     "to": [{ "key_code": "left_control" }]

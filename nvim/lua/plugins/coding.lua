@@ -11,6 +11,13 @@ return {
     end
   },
   {
+    "asiryk/auto-hlsearch.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("auto-hlsearch").setup()
+    end
+  },
+  {
     "folke/persistence.nvim",
     event = "VeryLazy",
     opts = {

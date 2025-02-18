@@ -1,12 +1,12 @@
 font-family = "VictorMono Nerd Font Mono"
-font-family-italic = "Iosevka Nerd Font Italic"
-font-family-bold-italic = "Iosevka Nerd Font Bold Italic"
+font-family-italic = "RobotoMono Nerd Font Mono"
+font-family-bold-italic = "RobotoMono Nerd Font Mono"
 
 # font-style = default
 font-style-bold = default
-font-style-italic = default
-font-style-bold-italic = default
-font-synthetic-style = "no-italic"
+font-style-italic = false
+font-style-bold-italic = Italic
+# font-synthetic-style = "no-italic"
 font-size = 17
 font-thicken = true
 
@@ -39,7 +39,21 @@ shell-integration-features = title
 
 keybind = cmd+enter=toggle_split_zoom
 keybind = cmd+\=equalize_splits
-keybind = global:cmd+j=toggle_quick_terminal
+keybind = cmd+up=resize_split:up,100
+keybind = cmd+down=resize_split:down,100
+
+keybind = global:ctrl+`=toggle_quick_terminal
+
+
+# keybind = alt+h=goto_split:left
+# keybind = alt+l=goto_split:right
+# keybind = alt+k=goto_split:up
+# keybind = alt+j=goto_split:down
+
+# keybind = left=goto_split:left
+# keybind = right=goto_split:right
+# keybind = up=goto_split:up
+# keybind = down=goto_split:down
 
 
 # font-family = "iA Writer Mono V"
@@ -48,5 +62,8 @@ keybind = global:cmd+j=toggle_quick_terminal
 # adjust-cursor-thickness = 20
 adjust-cursor-thickness = 5
 cursor-color = "#00B5FF"
+adjust-cell-height = 3
+adjust-cell-width = 0
+
 # cursor-color = "#3189ad"
 cursor-style-blink = false

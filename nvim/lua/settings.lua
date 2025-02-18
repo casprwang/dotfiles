@@ -4,7 +4,7 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -39,7 +39,7 @@ opt.undodir = vim.fn.expand("~") .. "/.local/share/nvim/undo"
 opt.shada = { "!", "'1000", "<50", "s10", "h" } -- Increase the shadafile size so that history is longer
 
 
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 opt.autoindent = true
 opt.hidden = true
@@ -109,3 +109,5 @@ vim.opt.guicursor = "i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150"
 vim.cmd [[
 set shell=/bin/zsh
 ]]
+
+vim.o.jumpoptions = "view"

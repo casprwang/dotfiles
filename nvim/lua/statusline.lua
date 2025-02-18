@@ -1,9 +1,8 @@
 vim.cmd [[
-set laststatus=1
-
+set laststatus=2
 set statusline=
-set statusline +=%4*\ %<%F%*            "full path
-set statusline +=%2*%m%*                "modified flag
+" set statusline +=%4*\ %<%F%*            "full path
+" set statusline +=%2*%m%*                "modified flag
 set statusline +=%1*%=%5l%*             "current line
 set statusline +=%2*/%L%*               "total lines
 ]]
