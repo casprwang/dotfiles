@@ -7,6 +7,7 @@
 !/ghostty/
 !/alacritty/
 !README.md
+!./starship.toml
 */*.DS_Store
 /nvim/startuptime.log
 /karabiner/automatic_backups/
