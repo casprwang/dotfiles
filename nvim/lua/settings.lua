@@ -42,6 +42,7 @@ opt.shada = { "!", "'1000", "<50", "s10", "h" } -- Increase the shadafile size s
 opt.hlsearch = true
 opt.incsearch = true
 opt.autoindent = true
+opt.smartindent = true
 opt.hidden = true
 
 

@@ -1,5 +1,10 @@
 return {
   {
+    'elixir-editors/vim-elixir',
+    enabled = false,
+    event = "VeryLazy",
+  },
+  {
     "davidmh/mdx.nvim",
     config = true,
     event = "VeryLazy",
@@ -80,13 +85,14 @@ return {
             auto_install = true,
             highlight = {
               enable = true,
-              additional_vim_regex_highlighting = false,
+              additional_vim_regex_highlighting = { "ruby", "elixir" },
               use_languagetree = false,
               disable = { "dockerfile" },
             },
             indent = {
               enable = true, -- very slow if enabled
-              -- disable = { "ruby" },
+              -- disable = { "ruby", "elixir" },
+              disable = { "ruby" },
             },
             ensure_installed = {
               "c",

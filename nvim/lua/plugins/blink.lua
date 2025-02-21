@@ -30,9 +30,12 @@ return {
           },
           menu = {
             draw = {
-              treesitter = { "lsp" },
+              -- We don't need label_description now because label and label_description are already
+              -- conbined together in label by colorful-menu.nvim.
+              columns = { { "kind_icon" }, { "label", gap = 2 }, { "provider" } },
               components = {
                 label = {
+                  -- width = { fill = true, max = 110 },
                   text = function(ctx)
                     return require("colorful-menu").blink_components_text(ctx)
                   end,
@@ -40,12 +43,13 @@ return {
                     return require("colorful-menu").blink_components_highlight(ctx)
                   end,
                 },
+                provider = {
+                  text = function(ctx)
+                    return "[" .. ctx.item.source_name:sub(1, 3):upper() .. "]"
+                  end,
+                  highlight = "BlinkCmpKindLabel",
+                },
               },
-              columns = { { "kind_icon" }, { "label", gap = 1 } },
-              -- columns = {
-              --   { "kind_icon" },
-              --   { "label",    "label_description", gap = 1 },
-              -- },
             }
           },
           accept = { auto_brackets = { enabled = true }, },
@@ -72,33 +76,6 @@ return {
         appearance = {
           use_nvim_cmp_as_default = false,
           nerd_font_variant = 'mono',
-          -- kind_icons = {
-          --   Text = "",
-          --   Method = "",
-          --   Function = "",
-          --   Constructor = "",
-          --   Field = "",
-          --   Variable = "",
-          --   Class = "",
-          --   Interface = "",
-          --   Module = "",
-          --   Property = "",
-          --   Unit = "",
-          --   Value = "",
-          --   Enum = "",
-          --   Keyword = "",
-          --   Snippet = "",
-          --   Color = "",
-          --   File = "",
-          --   Reference = "",
-          --   Folder = "",
-          --   EnumMember = "",
-          --   Constant = "",
-          --   Struct = "",
-          --   Event = "",
-          --   Operator = "",
-          --   TypeParameter = "",
-          -- },
           kind_icons = {
             Text = '󰉿',
             Method = '󰊕',
@@ -171,6 +148,9 @@ return {
           end)
         end
       end
+      vim.cmd [[
+        hi! BlinkCmpLabelMatch gui=bold guifg=NONE
+      ]]
     end
   }
 }

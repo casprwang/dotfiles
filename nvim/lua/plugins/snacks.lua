@@ -85,7 +85,7 @@ return {
     { "<leader>gb", function() Snacks.git.blame_line() end,     desc = "Git Blame Line" },
     { "<leader>gg", function() Snacks.lazygit() end,            desc = "Lazygit" },
     { "<leader>un", function() Snacks.notifier.hide() end,      desc = "Dismiss All Notifications" },
-    { "<c-/>",      function() Snacks.terminal.toggle() end,    mode = { "n", "t", "i" },          desc = "Toggle Terminal" },
+    { "<c-]>j",     function() Snacks.terminal.toggle() end,    mode = { "n", "t", "i" },          desc = "Toggle Terminal" },
     { "<esc>",      [[<C-\><C-n>]],                             mode = "t",                        desc = "normal mode in terminal" },
     { "<c-[>",      [[<C-\><C-n>]],                             mode = "t",                        desc = "normal mode in terminal" },
     -- { "<left>",     [[<C-\><C-n><C-W>h]],                       mode = "t",                        desc = "Window Movement: Move Left" },
@@ -120,6 +120,7 @@ return {
   ---@type snacks.Config
   opts = {
     image = {
+      enabled = false
     },
     terminal = {
       win = {
@@ -157,9 +158,52 @@ return {
       }
     },
     indent = {
-      enabled = false,
-      only_scope = true,
+      enabled      = false,
+      only_scope   = true,
       only_current = true,
+      indent       = {
+        char = "│",
+        hl = {
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          'Whitespace',
+          "Whitespace"
+        },
+      },
+      scope        = {
+        enabled = true, -- enable highlighting the current scope
+        priority = 200,
+        char = "│",
+        underline = false,   -- underline the start of the scope
+        only_current = true, -- only show scope in the current window
+        hl = "Whitespace"
+        -- can be a list of hl groups to cycle through
+        -- hl = {
+        --     "SnacksIndent1",
+        --     "SnacksIndent2",
+        --     "SnacksIndent3",
+        --     "SnacksIndent4",
+        --     "SnacksIndent5",
+        --     "SnacksIndent6",
+        --     "SnacksIndent7",
+        --     "SnacksIndent8",
+        -- },
+      },
+      animate      = {
+        enabled = false,
+      },
     },
     input = { enabled = false },
     notifier = { enabled = false },

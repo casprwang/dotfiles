@@ -18,6 +18,15 @@ return {
         filter = { event = "msg_show", kind = "quickfix" },
         opts = { view = "mini" },
       },
+
+      {
+        filter = {
+          event = "msg_show",
+          kind = "rubyfmt",
+          find = "rubyfmt",
+        },
+        opts = { skip = true },
+      },
     },
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
