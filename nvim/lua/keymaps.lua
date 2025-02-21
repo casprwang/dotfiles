@@ -13,7 +13,8 @@ vim.api.nvim_set_keymap("n", "<esc>", ":noh<cr>", opts)
 -- vim.api.nvim_set_keymap("n", "<up>", "<c-w>k", opts)
 -- vim.api.nvim_set_keymap("n", "<down>", "<c-w>j", opts)
 vim.api.nvim_set_keymap("n", "Y", "y$", opts)
-vim.api.nvim_set_keymap("n", "<leader>n", ":silent w<cr>", opts)
+
+
 vim.api.nvim_set_keymap("n", "<c-g>", "<c-^>", opts)
 vim.api.nvim_set_keymap("n", "]c", ":cn<cr>", opts)
 vim.api.nvim_set_keymap("n", "[c", ":cp<cr>", opts)
@@ -30,3 +31,6 @@ vim.api.nvim_set_keymap("i", "<c-a>", "<esc>I", opts)
 -- vim.api.nvim_set_keymap("t", "<c-[>", "<C-\\><C-n>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("t", "<esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 -- vim.keymap.set('t', '<esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
+
+vim.api.nvim_set_keymap("n", "<leader>n", ":silent w<cr>", opts)

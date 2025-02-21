@@ -67,3 +67,6 @@ adjust-cell-width = 0
 
 # cursor-color = "#3189ad"
 cursor-style-blink = false
+
+keybind = super+j=text:\x1dj
+keybind = super+p=text:\x10

@@ -1,4 +1,5 @@
 return {
+  { "tpope/vim-rails", event = "VeryLazy" },
   {
     event = "VeryLazy",
     "wellle/targets.vim",

@@ -18,7 +18,6 @@ local function reset()
   ]]
 end
 
-
 return {
   {
     "xiyaowong/transparent.nvim",
@@ -38,22 +37,28 @@ return {
   {
     "zenbones-theme/zenbones.nvim",
     enabled = false,
-    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-    -- In Vim, compat mode is turned on as Lush only works in Neovim.
     dependencies = "rktjmp/lush.nvim",
     lazy = false,
     priority = 1000,
-    -- you can set set configuration options here
-    -- config = function()
-    --     vim.g.zenbones_darken_comments = 45
-    --     vim.cmd.colorscheme('zenbones')
-    -- end
     config = function()
       vim.cmd([[
-      set termguicolors
-      set background=light " or dark
+        set termguicolors
+        set background=light " or dark
         colorscheme zenbones
+      ]])
+      reset()
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    enabled = false,
+    config = function()
+      vim.cmd([[
+        set termguicolors
+        set background=dark " or dark
+        colorscheme tokyonight
       ]])
       reset()
     end
@@ -64,9 +69,8 @@ return {
     priority = 1000,
     enabled = true,
     config = function()
-      require('nightfox').setup({
+      require("nightfox").setup({
         options = {
-          -- Compiled file's destination location
           transparent = true,     -- Disable setting background
           terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
           dim_inactive = false,   -- Non focused panes set to alternative background
@@ -83,18 +87,12 @@ return {
             types = "bold",
             variables = "NONE",
           },
-          -- inverse = { -- Inverse highlight for different types
-          --   match_paren = false,
-          --   visual = false,
-          --   search = false,
-          -- },
         },
         palettes = {},
         specs = {},
         groups = {},
       })
       vim.cmd("colorscheme nordfox")
-      -- vim.cmd("colorscheme dawnfox")
       reset()
     end
   },
@@ -106,13 +104,8 @@ return {
     config = function()
       vim.cmd([[
         colorscheme nord
-        " hi! SignColumn guibg=NONE
       ]])
       reset()
-
-      -- vim.g.nord_disable_background = true
-      -- vim.g.nord_cursorline_transparent = true
-      -- vim.g.nord_uniform_diff_background = true
     end
   },
   {
@@ -122,7 +115,7 @@ return {
     lazy = false,
     config = function()
       require("gruvbox").setup({
-        contrast = "", -- can be "hard", "soft" or empty string
+        contrast = "",
       })
       vim.cmd([[
         colorscheme gruvbox

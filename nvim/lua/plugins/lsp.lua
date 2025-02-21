@@ -58,8 +58,8 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
       local servers = {
-        ols         = {},
-        ruby_lsp    = {
+        ols           = {},
+        ruby_lsp      = {
           cmd = { "ruby-lsp" },
           filetypes = { "ruby" },
           root_dir = lspconfig.util.root_pattern("Gemfile", ".git"),
@@ -68,7 +68,7 @@ return {
             linters = { 'standard' },
           },
         },
-        gopls       = {
+        gopls         = {
           cmd = { "gopls" },
           filetypes = { "go", "gomod", "gowork", "gotmpl" },
           root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
@@ -84,32 +84,28 @@ return {
         },
         -- stimulus_ls = {},
         --
-        phpactor    = {},
-        denols      = {
+        phpactor      = {},
+        denols        = {
           cmd = { "deno", "lsp" },
           filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
           root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
         },
-        tailwindcss = {},
-        cssls       = {},
-        zls         = {},
-        elixirls    = {
+        tailwindcss   = {},
+        cssls         = {},
+        clangd        = {},
+        gleam         = {},
+        zls           = {},
+        rust_analyzer = {},
+        elixirls      = {
           cmd       = { "elixir-ls" },
           filetypes = { "elixir", "eelixir", "heex", "surface" },
-          -- settings  = {
-          -- elixirLS = {
-          --   dialyzerEnabled = false,
-          --   fetchDeps = false,
-          --   autoBuild = false,
-          -- },
-          -- }
         },
-        bashls      = {
+        bashls        = {
           filetypes = { "bash", "sh", "zsh" }
         },
-        -- vtsls       = {},
-        pyright     = {},
-        lua_ls      = {
+        vtsls         = {},
+        pyright       = {},
+        lua_ls        = {
           root_dir = lspconfig.util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml",
             "stylua.toml", "selene.toml", "selene.yml", ".git"),
           settings = {
@@ -172,36 +168,43 @@ return {
     event = "InsertEnter",
     config = true
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    event = "VeryLazy",
-    enabled = true,
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
-      require("typescript-tools").setup {
-        handlers = handlers,
-        single_file_support = false,
-        on_attach = function(client, bufnr)
-          lsp_keymap(bufnr)
-        end,
-        settings = {
-          root_dir = require('lspconfig').util.root_pattern("package.json"),
-          jsx_close_tag = {
-            enable = false,
-            filetypes = { "javascriptreact", "typescriptreact" },
-          }
-        }
-      }
-
-      -- vim.api.nvim_create_autocmd("BufWritePre", {
-      --   group = vim.api.nvim_create_augroup("TS_add_missing_imports", { clear = true }),
-      --   desc = "TS_add_missing_imports",
-      --   pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-      --   callback = function()
-      --     vim.cmd([[TSToolsAddMissingImports]])
-      --     vim.cmd("write")
-      --   end,
-      -- })
-    end
-  }
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   event = "VeryLazy",
+  --   enabled = true,
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   config = function()
+  --     require("typescript-tools").setup {
+  --       handlers = handlers,
+  --       single_file_support = false,
+  --       on_attach = function(client, bufnr)
+  --         lsp_keymap(bufnr)
+  --       end,
+  --       settings = {
+  --         root_dir = require('lspconfig').util.root_pattern("package.json"),
+  --         jsx_close_tag = {
+  --           enable = true,
+  --           filetypes = { "javascriptreact", "typescriptreact" },
+  --         },
+  --         tsserver_file_preferences = {
+  --           includeInlayParameterNameHints = "all",
+  --           includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  --           includeInlayFunctionParameterTypeHints = false,
+  --           includeInlayVariableTypeHints = false,
+  --           includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+  --           includeInlayPropertyDeclarationTypeHints = true,
+  --           includeInlayFunctionLikeReturnTypeHints = true,
+  --           includeInlayEnumMemberValueHints = true,
+  --           includeCompletionsForModuleExports = true,
+  --           quotePreference = "single",
+  --         },
+  --         tsserver_format_options = {
+  --           allowIncompleteCompletions = false,
+  --           allowRenameOfImportPath = false,
+  --           semicolons = "remove",
+  --         },
+  --       }
+  --     }
+  --   end
+  -- }
 }
