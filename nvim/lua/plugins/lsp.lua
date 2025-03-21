@@ -35,24 +35,9 @@ return {
   --   end,
   -- },
   {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = true,
-    cmd = "Mason",
-    event = 'VeryLazy',
-    dependencies = {
-      "williamboman/mason.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end
-  },
-  {
     'neovim/nvim-lspconfig',
     event = "VeryLazy",
     dependencies = {
-      -- { "epwalsh/obsidian.nvim" },
       require("plugins.blink")
     },
     config = function()
@@ -85,11 +70,6 @@ return {
         -- stimulus_ls = {},
         --
         phpactor      = {},
-        denols        = {
-          cmd = { "deno", "lsp" },
-          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-          root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-        },
         tailwindcss   = {},
         cssls         = {},
         clangd        = {},
