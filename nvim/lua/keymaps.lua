@@ -1,5 +1,6 @@
 local opts = { silent = true, nowait = true, noremap = true }
 vim.api.nvim_set_keymap("n", "gq", ":q<cr>", opts)
+vim.api.nvim_set_keymap("n", "q", ":q<cr>", opts)
 vim.api.nvim_set_keymap("n", ",", ":q<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>", "<nop>", opts)
 vim.api.nvim_set_keymap("v", "<leader>", "<nop>", opts)
@@ -21,6 +22,8 @@ vim.api.nvim_set_keymap("n", "[c", ":cp<cr>", opts)
 vim.api.nvim_set_keymap("n", "co", ":cope<cr>", opts)
 vim.api.nvim_set_keymap("n", "cq", ":ccl<cr>", opts)
 vim.api.nvim_set_keymap("n", "<c-[>", ":q<cr>", opts)
+vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", opts)
+vim.api.nvim_set_keymap("n", "<c-u>", "<c-u>zz", opts)
 vim.api.nvim_set_keymap("i", "<c-c>", "<esc>", opts)
 
 -- emacs binding in insert mode
@@ -31,6 +34,3 @@ vim.api.nvim_set_keymap("i", "<c-a>", "<esc>I", opts)
 -- vim.api.nvim_set_keymap("t", "<c-[>", "<C-\\><C-n>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("t", "<esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 -- vim.keymap.set('t', '<esc>', '<C-\\><C-n>', { noremap = true, silent = true })
-
-
-vim.api.nvim_set_keymap("n", "<leader>n", ":silent w<cr>", opts)

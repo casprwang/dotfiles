@@ -23,8 +23,9 @@ macos-titlebar-style = "tabs"
 # theme = light:GruvboxLight,dark:GruvboxDark
 # theme = light:nord-light,dark:nord
 # theme = nord
-theme = nordfox
 # theme = rose-pine-dawn
+# theme = nordfox
+theme = catppuccin-frappe
 
 # theme = zenbones_dark
 # theme = zenbones_light

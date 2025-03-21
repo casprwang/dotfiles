@@ -327,7 +327,7 @@ return {
       },
     },
     statuscolumn = { enabled = false },
-    words = { enabled = true },
+    words = { enabled = false },
   },
 
   init = function()

@@ -39,3 +39,4 @@ alias ai='aichat'
 alias i='y'
 alias va="source .venv/bin/activate"
 alias pi="ipython"
+alias ..='cd ..'
