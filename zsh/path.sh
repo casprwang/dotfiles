@@ -15,7 +15,7 @@ export PATH=$HOME/.local/share/mise/installs/erlang/27.2/erts-15.2/bin:$PATH
 export PATH=$HOME/.local/share/mise/installs/elixir/1.18.1-otp-27/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/Users/songwang/.bun/bin:$PATH"
-export PATH="/Users/songwang/nvim-macos-arm64/bin:$PATH"
+# export PATH="/Users/songwang/nvim-macos-arm64/bin:$PATH"
 
 export PATH="/Users/songwang/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/songwang/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

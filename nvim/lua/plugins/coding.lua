@@ -1,8 +1,7 @@
 return {
-  { "tpope/vim-rails", event = "VeryLazy" },
   {
-    event = "VeryLazy",
     "wellle/targets.vim",
+    event = "VeryLazy",
     config = function()
       vim.cmd [[
       autocmd User targets#mappings#user call targets#mappings#extend({
@@ -14,6 +13,7 @@ return {
   {
     "asiryk/auto-hlsearch.nvim",
     event = "VeryLazy",
+    enabled = false,
     config = function()
       require("auto-hlsearch").setup()
     end

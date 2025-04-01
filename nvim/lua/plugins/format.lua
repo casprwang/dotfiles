@@ -22,7 +22,6 @@ return {
           html            = { "prettierd" },
           php             = { "pint" },
           css             = { "prettierd" },
-          -- eruby = { "erbformat", stop_after_first = true }
         },
         format_after_save = {
           -- These options will be passed to conform.format()

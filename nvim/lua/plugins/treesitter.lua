@@ -1,25 +1,14 @@
 return {
-  {
-    'elixir-editors/vim-elixir',
-    enabled = false,
-    event = "VeryLazy",
-  },
-  {
-    "davidmh/mdx.nvim",
-    config = true,
-    event = "VeryLazy",
-    dependencies = { "nvim-treesitter/nvim-treesitter" }
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    event = "VeryLazy",
-    config = function()
-      vim.cmd [[
-        hi TreesitterContextBottom gui=underline guisp=Black
-        hi TreesitterContextLineNumberBottom gui=underline guisp=Black
-      ]]
-    end
-  },
+  -- {
+  --   'nvim-treesitter/nvim-treesitter-context',
+  --   event = "VeryLazy",
+  --   config = function()
+  --     vim.cmd [[
+  --       hi TreesitterContextBottom gui=underline guisp=Black
+  --       hi TreesitterContextLineNumberBottom gui=underline guisp=Black
+  --     ]]
+  --   end
+  -- },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
     event = "VeryLazy",
@@ -90,16 +79,14 @@ return {
               disable = { "dockerfile" },
             },
             indent = {
-              enable = true, -- very slow if enabled
+              enable = false, -- very slow if enabled, use blink indent instead
               -- disable = { "ruby", "elixir" },
-              disable = { "ruby" },
             },
             ensure_installed = {
               "c",
               "html",
               "lua",
               "yaml",
-              "graphql",
               "vim",
               "vimdoc",
               -- "markdown",
@@ -110,11 +97,9 @@ return {
               "ruby",
               "json",
               "javascript",
-              "rust",
               "typescript",
               "tsx",
               "go",
-              "vue",
               "python",
             },
           }

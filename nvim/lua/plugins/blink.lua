@@ -152,5 +152,87 @@ return {
         hi! BlinkCmpLabelMatch gui=bold guifg=NONE
       ]]
     end
-  }
+  },
+  {
+    'saghen/blink.nvim',
+    -- all modules handle lazy loading internally
+    lazy = false,
+    enabled = false,
+    opts = {
+      indent = {
+        enabled = true,
+        -- start with indent guides visible
+        visible = true,
+        blocked = {
+          buftypes = {},
+          filetypes = {},
+        },
+        static = {
+          enabled = false,
+          char = '▎',
+          priority = 1,
+          -- specify multiple highlights here for rainbow-style indent guides
+          -- highlights = { 'BlinkIndentRed', 'BlinkIndentOrange', 'BlinkIndentYellow', 'BlinkIndentGreen', 'BlinkIndentViolet', 'BlinkIndentCyan' },
+          highlights = { 'BlinkIndent' },
+        },
+        scope = {
+          enabled = true,
+          char = '▎',
+          priority = 1024,
+          -- set this to a single highlight, such as 'BlinkIndent' to disable rainbow-style indent guides
+          -- highlights = { 'BlinkIndent' },
+          highlights = {
+            'BlinkIndentRed',
+            'BlinkIndentYellow',
+            'BlinkIndentBlue',
+            'BlinkIndentOrange',
+            'BlinkIndentGreen',
+            'BlinkIndentViolet',
+            'BlinkIndentCyan',
+          },
+          underline = {
+            -- enable to show underlines on the line above the current scope
+            enabled = false,
+            highlights = {
+              'BlinkIndentRedUnderline',
+              'BlinkIndentYellowUnderline',
+              'BlinkIndentBlueUnderline',
+              'BlinkIndentOrangeUnderline',
+              'BlinkIndentGreenUnderline',
+              'BlinkIndentVioletUnderline',
+              'BlinkIndentCyanUnderline',
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    'saghen/blink.pairs',
+    version = '*', -- (recommended) only required with prebuilt binaries
+
+    -- download prebuilt binaries from github releases
+    dependencies = 'saghen/blink.download',
+    -- OR build from source
+    build = 'cargo build --release',
+
+    --- @module 'blink.pairs'
+    --- @type blink.pairs.Config
+    opts = {
+      mappings = {
+        enabled = true,
+        -- see the defaults: https://github.com/Saghen/blink.pairs/blob/main/lua/blink/pairs/config/mappings.lua#L10
+        pairs = {},
+      },
+      highlights = {
+        enabled = true,
+        groups = {
+          'BlinkPairsOrange',
+          'BlinkPairsPurple',
+          'BlinkPairsBlue',
+        },
+      },
+      debug = false,
+    }
+  },
 }

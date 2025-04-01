@@ -158,14 +158,12 @@ return {
       }
     },
     indent = {
-      enabled      = false,
+      enabled      = true,
       only_scope   = true,
       only_current = true,
       indent       = {
-        char = "│",
+        char = " ",
         hl = {
-          'Whitespace',
-          'Whitespace',
           'Whitespace',
           'Whitespace',
           'Whitespace',
@@ -188,18 +186,18 @@ return {
         char = "│",
         underline = false,   -- underline the start of the scope
         only_current = true, -- only show scope in the current window
-        hl = "Whitespace"
+        -- hl = "Whitespace"
         -- can be a list of hl groups to cycle through
-        -- hl = {
-        --     "SnacksIndent1",
-        --     "SnacksIndent2",
-        --     "SnacksIndent3",
-        --     "SnacksIndent4",
-        --     "SnacksIndent5",
-        --     "SnacksIndent6",
-        --     "SnacksIndent7",
-        --     "SnacksIndent8",
-        -- },
+        hl = {
+          "SnacksIndent1",
+          "SnacksIndent2",
+          "SnacksIndent3",
+          "SnacksIndent4",
+          "SnacksIndent5",
+          "SnacksIndent6",
+          "SnacksIndent7",
+          "SnacksIndent8",
+        },
       },
       animate      = {
         enabled = false,

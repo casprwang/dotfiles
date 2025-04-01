@@ -7,7 +7,7 @@ return {
   },
   opts = {
     messages = {
-      view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+      view_search = false, -- view for search count messages. Set to `false` to disable
     },
     routes = {
       -- {
