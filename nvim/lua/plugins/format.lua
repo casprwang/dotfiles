@@ -11,7 +11,7 @@ return {
           ruby            = { "rubyfmt" },
           sh              = { "shfmt" },
           go              = { "goimports", "gofmt" },
-          -- python          = { "ruff_fix", "ruff_format" },
+          python          = { "ruff_format" },
           -- javascriptreact = { "prettierd" },
           typescriptreact = { "lsp" },
           -- javascript      = { "prettierd" },

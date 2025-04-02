@@ -10,14 +10,14 @@ return {
     ]]
     end
   },
-  {
-    "asiryk/auto-hlsearch.nvim",
-    event = "VeryLazy",
-    enabled = false,
-    config = function()
-      require("auto-hlsearch").setup()
-    end
-  },
+  -- {
+  --   "asiryk/auto-hlsearch.nvim",
+  --   event = "VeryLazy",
+  --   enabled = false,
+  --   config = function()
+  --     require("auto-hlsearch").setup()
+  --   end
+  -- },
   {
     "folke/persistence.nvim",
     event = "VeryLazy",

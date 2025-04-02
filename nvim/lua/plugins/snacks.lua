@@ -12,7 +12,7 @@ return {
     { "gD",         function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
     { "<leader>sk", function() Snacks.picker.keymaps() end,          desc = "Keymaps" },
     {
-      "gr",
+      "grr",
       function()
         Snacks.picker.lsp_references({
           win = {
@@ -158,7 +158,7 @@ return {
       }
     },
     indent = {
-      enabled      = true,
+      enabled      = false,
       only_scope   = true,
       only_current = true,
       indent       = {
@@ -325,7 +325,7 @@ return {
       },
     },
     statuscolumn = { enabled = false },
-    words = { enabled = false },
+    words = { enabled = true },
   },
 
   init = function()

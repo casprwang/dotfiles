@@ -56,22 +56,23 @@ return {
           list = { selection = { preselect = true, auto_insert = true } },
         },
         keymap = {
-          preset = 'super-tab',
+          -- preset = 'super-tab',
+          preset = 'enter',
           -- ["<c-e>"] = {
           -- },
           ["<c-f>"] = {
           },
-          ['<Tab>'] = {
-            function(cmp)
-              if cmp.snippet_active() then
-                return cmp.accept()
-              else
-                return cmp.select_and_accept()
-              end
-            end,
-            'snippet_forward',
-            'fallback'
-          },
+          -- ['<Tab>'] = {
+          --   function(cmp)
+          --     if cmp.snippet_active() then
+          --       return cmp.accept()
+          --     else
+          --       return cmp.select_and_accept()
+          --     end
+          --   end,
+          --   'snippet_forward',
+          --   'fallback'
+          -- },
         }, -- default super-tab enter
         appearance = {
           use_nvim_cmp_as_default = false,
@@ -157,7 +158,7 @@ return {
     'saghen/blink.nvim',
     -- all modules handle lazy loading internally
     lazy = false,
-    enabled = false,
+    enabled = true,
     opts = {
       indent = {
         enabled = true,
@@ -165,11 +166,12 @@ return {
         visible = true,
         blocked = {
           buftypes = {},
-          filetypes = {},
+          filetypes = { 'snacks_picker_list', 'snacks_picker_input' },
         },
         static = {
           enabled = false,
-          char = '▎',
+          char = "│",
+          -- char = '▎',
           priority = 1,
           -- specify multiple highlights here for rainbow-style indent guides
           -- highlights = { 'BlinkIndentRed', 'BlinkIndentOrange', 'BlinkIndentYellow', 'BlinkIndentGreen', 'BlinkIndentViolet', 'BlinkIndentCyan' },
@@ -177,19 +179,20 @@ return {
         },
         scope = {
           enabled = true,
+          -- char = "│",
           char = '▎',
           priority = 1024,
           -- set this to a single highlight, such as 'BlinkIndent' to disable rainbow-style indent guides
-          -- highlights = { 'BlinkIndent' },
-          highlights = {
-            'BlinkIndentRed',
-            'BlinkIndentYellow',
-            'BlinkIndentBlue',
-            'BlinkIndentOrange',
-            'BlinkIndentGreen',
-            'BlinkIndentViolet',
-            'BlinkIndentCyan',
-          },
+          highlights = { 'BlinkIndent' },
+          -- highlights = {
+          --   'BlinkIndentRed',
+          --   'BlinkIndentYellow',
+          --   'BlinkIndentBlue',
+          --   'BlinkIndentOrange',
+          --   'BlinkIndentGreen',
+          --   'BlinkIndentViolet',
+          --   'BlinkIndentCyan',
+          -- },
           underline = {
             -- enable to show underlines on the line above the current scope
             enabled = false,
@@ -208,31 +211,38 @@ return {
     },
   },
   {
-    'saghen/blink.pairs',
-    version = '*', -- (recommended) only required with prebuilt binaries
-
-    -- download prebuilt binaries from github releases
-    dependencies = 'saghen/blink.download',
-    -- OR build from source
-    build = 'cargo build --release',
-
-    --- @module 'blink.pairs'
-    --- @type blink.pairs.Config
-    opts = {
-      mappings = {
-        enabled = true,
-        -- see the defaults: https://github.com/Saghen/blink.pairs/blob/main/lua/blink/pairs/config/mappings.lua#L10
-        pairs = {},
-      },
-      highlights = {
-        enabled = true,
-        groups = {
-          'BlinkPairsOrange',
-          'BlinkPairsPurple',
-          'BlinkPairsBlue',
-        },
-      },
-      debug = false,
-    }
-  },
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  }
+  -- {
+  --   'saghen/blink.pairs',
+  --   version = '*', -- (recommended) only required with prebuilt binaries
+  --
+  --   -- download prebuilt binaries from github releases
+  --   dependencies = 'saghen/blink.download',
+  --   -- OR build from source
+  --   build = 'cargo build --release',
+  --
+  --   --- @module 'blink.pairs'
+  --   --- @type blink.pairs.Config
+  --   opts = {
+  --     mappings = {
+  --       enabled = true,
+  --       -- see the defaults: https://github.com/Saghen/blink.pairs/blob/main/lua/blink/pairs/config/mappings.lua#L10
+  --       pairs = {},
+  --     },
+  --     highlights = {
+  --       enabled = true,
+  --       groups = {
+  --         'BlinkPairsOrange',
+  --         'BlinkPairsPurple',
+  --         'BlinkPairsBlue',
+  --       },
+  --     },
+  --     debug = false,
+  --   }
+  -- },
 }

@@ -157,3 +157,22 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufEnter" }, {
     end
   end,
 })
+
+vim.cmd [[
+    function! RetainZoomStatus()
+        " Assume that if we haven't called ToggleZoom() before then all windows
+        " are probably meant to be equal (set g:zoom_status to 0)
+        let g:zoom_status = get(g:, 'zoom_status', 0)
+        if g:zoom_status == 0
+            wincmd =
+        else
+            wincmd _
+            wincmd |
+        endif
+    endfunction
+
+    augroup zoom
+        autocmd!
+        autocmd VimResized * call RetainZoomStatus()
+    augroup END
+]]
