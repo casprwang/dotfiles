@@ -1,14 +1,14 @@
 return {
-  -- {
-  --   'nvim-treesitter/nvim-treesitter-context',
-  --   event = "VeryLazy",
-  --   config = function()
-  --     vim.cmd [[
-  --       hi TreesitterContextBottom gui=underline guisp=Black
-  --       hi TreesitterContextLineNumberBottom gui=underline guisp=Black
-  --     ]]
-  --   end
-  -- },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    event = "VeryLazy",
+    config = function()
+      vim.cmd [[
+        hi TreesitterContextBottom gui=underline guisp=Black
+        hi TreesitterContextLineNumberBottom gui=underline guisp=Black
+      ]]
+    end
+  },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
     event = "VeryLazy",
@@ -79,7 +79,7 @@ return {
               disable = { "dockerfile" },
             },
             indent = {
-              enable = false, -- very slow if enabled, use blink indent instead
+              enable = true, -- very slow if enabled, use blink indent instead
               -- disable = { "ruby", "elixir" },
             },
             ensure_installed = {
@@ -110,21 +110,4 @@ return {
       require('nvim-ts-autotag').setup({})
     end,
   },
-  -- {
-  --   "nvim-treesitter/nvim-treesitter-refactor",
-  --   event = "VeryLazy",
-  --   enabled = true,
-  --   config = function()
-  --     require 'nvim-treesitter.configs'.setup {
-  --       refactor = {
-  --         highlight_definitions = {
-  --           enable = true,
-  --           -- Set to false if you have an `updatetime` of ~100.
-  --           clear_on_cursor_move = false,
-  --         },
-  --         highlight_current_scope = { enable = false },
-  --       },
-  --     }
-  --   end
-  -- }
 }

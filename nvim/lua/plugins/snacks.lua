@@ -1,10 +1,42 @@
+local keymap_opts = {
+  noremap = true,
+  silent = true,
+}
+
+local term_opts = {
+  auto_close = false,
+  win = {
+    styles = 'terminal',
+    -- position = "float",
+    -- minimal = false,
+    -- width = 0.8,
+    -- height = 0.8,
+    -- statuscolumn = ' ',
+    -- conceallevel = 3,
+    -- wo = {
+    --   statusline = " ",
+    -- }
+  },
+}
+
+
+local function close_other_terminals(win)
+  local snacks = require("snacks")
+  local terminals = Snacks.terminal.list()
+  for _, term in pairs(terminals) do
+    if term.buf ~= win.buf then
+      term:hide()
+    end
+  end
+end
+
 return {
   "folke/snacks.nvim",
   enabled = true,
   event = "VeryLazy",
   keys = {
-    { "<leader>z",  function() Snacks.zen() end,                     desc = "Toggle Zen Mode" },
-    { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
+    -- { "<c-enter>",  function() Snacks.zen() end,                     desc = "Toggle Zen Mode" },
+    { "<c-enter>",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
     { "<leader>.",  function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer" },
     { "<leader>S",  function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer" },
     { "<leader>i",  function() Snacks.picker.lsp_symbols() end,      desc = "Select Scratch Buffer" },
@@ -30,12 +62,18 @@ return {
     { "<leader>sc", function() Snacks.picker.colorschemes() end,         desc = "Colorschemes" },
     { "]]",         function() Snacks.words.jump(vim.v.count1) end,      desc = "Next Reference",        mode = { "n", "t" } },
     { "[[",         function() Snacks.words.jump(-vim.v.count1) end,     desc = "Prev Reference",        mode = { "n", "t" } },
-    { "gI",         function() Snacks.picker.lsp_implementations() end,  desc = "Goto Implementation" },
-    { "<leader>sh", function() Snacks.picker.help() end,                 desc = "Help Pages" },
+    { "<leader>h",  function() Snacks.picker.help() end,                 desc = "Help Pages" },
     { "gy",         function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
     { "<leader>sq", function() Snacks.picker.qflist() end,               desc = "Quickfix List" },
     {
-      "<leader>o",
+      "gl",
+      function()
+        vim.diagnostic.open_float()
+      end,
+      desc = "open float"
+    },
+    {
+      "go",
       function()
         Snacks.explorer({
           follow_file   = true,
@@ -85,22 +123,8 @@ return {
     { "<leader>gb", function() Snacks.git.blame_line() end,     desc = "Git Blame Line" },
     { "<leader>gg", function() Snacks.lazygit() end,            desc = "Lazygit" },
     { "<leader>un", function() Snacks.notifier.hide() end,      desc = "Dismiss All Notifications" },
-    { "<c-]>j",     function() Snacks.terminal.toggle() end,    mode = { "n", "t", "i" },          desc = "Toggle Terminal" },
     { "<esc>",      [[<C-\><C-n>]],                             mode = "t",                        desc = "normal mode in terminal" },
     { "<c-[>",      [[<C-\><C-n>]],                             mode = "t",                        desc = "normal mode in terminal" },
-    -- { "<left>",     [[<C-\><C-n><C-W>h]],                       mode = "t",                        desc = "Window Movement: Move Left" },
-    -- { "<right>",    [[<C-\><C-n><C-W>j]],                       mode = "t",                        desc = "Window Movement: Move Down" },
-    -- { "<up>",       [[<C-\><C-n><C-W>k]],                       mode = "t",                        desc = "Window Movement: Move Up" },
-    -- { "<down>",     [[<C-\><C-n><C-W>l]],                       mode = "t",                        desc = "Window Movement: Move Right" },
-    {
-      "<leader>f",
-      function()
-        Snacks.picker.files({
-          hidden = true
-        })
-      end,
-      desc = "Find Files"
-    },
     {
       "<c-p>",
       function()
@@ -110,6 +134,7 @@ return {
       end,
       desc = "Find Files"
     },
+    -- test
     { "<leader>e", function() Snacks.picker.grep() end,      desc = "Find Files" },
     { "<leader>w", function() Snacks.picker.grep_word() end, desc = "Find Files" },
     { "<leader>r", function() Snacks.picker.recent() end,    desc = "Find Files" },
@@ -126,7 +151,7 @@ return {
       win = {
         keys = {
           term_normal = {
-            "<esc><esc>",
+            "<esc>",
             function()
               return "<C-\\><C-n>"
             end,
@@ -158,7 +183,7 @@ return {
       }
     },
     indent = {
-      enabled      = false,
+      enabled      = true,
       only_scope   = true,
       only_current = true,
       indent       = {
@@ -186,18 +211,18 @@ return {
         char = "│",
         underline = false,   -- underline the start of the scope
         only_current = true, -- only show scope in the current window
-        -- hl = "Whitespace"
+        hl = "Whitespace"
         -- can be a list of hl groups to cycle through
-        hl = {
-          "SnacksIndent1",
-          "SnacksIndent2",
-          "SnacksIndent3",
-          "SnacksIndent4",
-          "SnacksIndent5",
-          "SnacksIndent6",
-          "SnacksIndent7",
-          "SnacksIndent8",
-        },
+        -- hl = {
+        --   "SnacksIndent1",
+        --   "SnacksIndent2",
+        --   "SnacksIndent3",
+        --   "SnacksIndent4",
+        --   "SnacksIndent5",
+        --   "SnacksIndent6",
+        --   "SnacksIndent7",
+        --   "SnacksIndent8",
+        -- },
       },
       animate      = {
         enabled = false,
@@ -264,9 +289,10 @@ return {
         },
         diagnostics = {
           Error = " ",
-          Warn  = " ",
-          Hint  = " ",
-          Info  = " ",
+          Warn  = " ",
+          -- Hint  = " ",
+          Hint  = " ",
+          Info  = " ",
         },
         kinds = {
           Array         = " ",
@@ -312,23 +338,20 @@ return {
     },
     quickfile = { enabled = false },
     scroll = {
-      enabled = false,
-      animate = {
-        duration = { step = 5, total = 30 },
-        -- easing = "inOutCubic",
-        easing = "outCubic",
-      },
-      animate_repeat = {
-        delay = 1, -- delay in ms before using the repeat animation
-        duration = { step = 5, total = 50 },
-        easing = "inOutCubic",
-      },
+      enabled = true,
+      left = { "mark", "sign" }
     },
-    statuscolumn = { enabled = false },
+    statuscolumn = {
+      enabled = true,
+    },
     words = { enabled = true },
+    zen = {
+    }
   },
 
   init = function()
+    vim.g.snacks_animate = false
+
     -- vim.api.nvim_create_autocmd("User", {
     --   pattern = "VeryLazy",
     --   callback = function()
@@ -338,4 +361,44 @@ return {
     --   end,
     -- })
   end,
+  config = function(_, opts)
+    local snacks = require("snacks")
+    local function close_other_terminals(win)
+      local terminals = Snacks.terminal.list()
+      for _, term in pairs(terminals) do
+        if term.buf ~= win.buf then
+          term:hide()
+        end
+      end
+    end
+
+
+    snacks.setup(opts)
+    --     { "<c-]>j",     function() Snacks.terminal.toggle(nil, term_opts) end, mode = { "n", "t", "i" },          desc = "Toggle Terminal" },
+
+    vim.keymap.set(
+      { "n", "t", 'i' },
+      "<c-]>j",
+      function()
+        local snacks = require("snacks")
+        local win = snacks.terminal.toggle(nil, term_opts)
+        close_other_terminals(win)
+        vim.cmd("checktime")
+      end,
+      keymap_opts
+    )
+
+
+    vim.keymap.set(
+      { "n", "t", 'i' },
+      "<c-s>",
+      function()
+        local snacks = require("snacks")
+        local win = snacks.terminal.toggle('ipython', term_opts)
+        close_other_terminals(win)
+        vim.cmd("checktime")
+      end,
+      keymap_opts
+    )
+  end
 }

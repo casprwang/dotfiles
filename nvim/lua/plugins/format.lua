@@ -12,14 +12,15 @@ return {
           sh              = { "shfmt" },
           go              = { "goimports", "gofmt" },
           python          = { "ruff_format" },
-          -- javascriptreact = { "prettierd" },
           typescriptreact = { "lsp" },
+          -- javascriptreact = { "prettierd" },
           -- javascript      = { "prettierd" },
           -- typescript      = { "prettierd" },
           -- tsx             = { "prettierd" },
           -- jsx             = { "prettierd" },
           json            = { "prettierd" },
           html            = { "prettierd" },
+          -- lua             = { "stylua" },
           php             = { "pint" },
           css             = { "prettierd" },
         },
@@ -32,38 +33,26 @@ return {
         },
         notify_on_error = false,
         formatters = {
-          sqruff = {
-            command = "sqruff",
-          },
-          denofmt = {
-            command = "deno",
-            args = { "fmt", "--unstable", "--no-semicolons", "--single-quote", "--unstable-sql", "--use-tabs" },
-          },
-          erbformat = {
-            command = "htmlbeautifier",
-            args = { "< 'app/views/tasks/index.html.erb'" },
-            stdin = false,
-          }
         }
       })
-      -- vim.api.nvim_create_user_command("Format", function(args)
-      --   local range = nil
-      --   if args.count ~= -1 then
-      --     local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-      --     range = {
-      --       start = { args.line1, 0 },
-      --       ["end"] = { args.line2, end_line:len() },
-      --     }
-      --   end
-      --   require("conform").format({ async = true, lsp_format = "fallback", range = range })
-      -- end, { range = true })
+      vim.api.nvim_create_user_command("Format", function(args)
+        local range = nil
+        if args.count ~= -1 then
+          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+          range = {
+            start = { args.line1, 0 },
+            ["end"] = { args.line2, end_line:len() },
+          }
+        end
+        require("conform").format({ async = true, lsp_format = "fallback", range = range })
+      end, { range = true })
 
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
-        callback = function(args)
-          require("conform").format({ bufnr = args.buf, async = true, quiet = true })
-        end,
-      })
+      -- vim.api.nvim_create_autocmd("BufWritePre", {
+      --   pattern = "*",
+      --   callback = function(args)
+      --     require("conform").format({ bufnr = args.buf, async = true, quiet = true })
+      --   end,
+      -- })
     end
   },
 }

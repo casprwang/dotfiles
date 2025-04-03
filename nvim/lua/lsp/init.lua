@@ -1,13 +1,13 @@
--- https://github.com/onosendi/dotfiles/blob/master/.config/nvim/lua/config/lsp/global.lua
--- Load all LSP's in "lua/config/lsp"
 local lsp_path = vim.fn.stdpath("config") .. "/lua/lsp"
 
+
 vim.diagnostic.config({
-  -- virtual_text = true,
-  underline = true,
+  underline = {
+    severity = { min = vim.diagnostic.severity.ERROR }
+  },
   virtual_text = {
     current_line = true,
-    severity = { min = vim.diagnostic.severity.WARN }
+    severity = { min = vim.diagnostic.severity.ERROR }
   },
   virtual_lines = false,
   update_in_insert = false,
@@ -23,7 +23,7 @@ vim.diagnostic.config({
       min = vim.diagnostic.severity.ERROR
     },
     text = {
-      [vim.diagnostic.severity.ERROR] = '•',
+      [vim.diagnostic.severity.ERROR] = '➜', -- '•',
       [vim.diagnostic.severity.WARN] = '',
       [vim.diagnostic.severity.INFO] = '',
       [vim.diagnostic.severity.HINT] = '',

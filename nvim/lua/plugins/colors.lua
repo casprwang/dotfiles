@@ -1,6 +1,7 @@
 local function reset()
   vim.cmd [[
     hi! SignColumn guibg=NONE
+
     hi! WinBar guibg=NONE
     hi! WinBarNC guibg=NONE
     hi! DiagnosticSignOk guifg=#b8bb26 guibg=#282828

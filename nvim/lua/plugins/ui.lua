@@ -14,6 +14,9 @@ return {
     config = function()
       require('hlslens').setup({
         calm_down = true,
+        nearest_only = false,
+        nearest_float_when = 'always',
+        float_shadow_blend = 0
       })
       local kopts = { noremap = true, silent = true }
       vim.api.nvim_set_keymap('n', 'n',
@@ -29,31 +32,39 @@ return {
     end,
   },
   {
-    "OXY2DEV/markview.nvim",
-    event = "VeryLazy",
-  },
-  {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    event = "VeryLazy",
+    enabled = true,
     config = function()
       require('lualine').setup {
         options = {
           theme = 'catppuccin'
         },
         sections = {
-          lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-          lualine_b = { 'filename', 'branch' },
+          lualine_a = {},
+          -- lualine_a = { { 'mode', separator = { left = '' }, right_padding = 0 } },
+          lualine_b = { {
+            'filename',
+            path = 4
+          }
+          },
           lualine_c = {
-            '%=', --[[ add your center components here in place of this comment ]]
+            '%=',
           },
           lualine_x = {},
-          lualine_y = { 'filetype', 'progress' },
+          lualine_y = { 'progress' },
           lualine_z = {
-            { 'location', separator = { right = '' }, left_padding = 2 },
+            -- { 'location', separator = { right = '' }, left_padding = 0 },
           },
         },
         inactive_sections = {
-          lualine_a = { 'filename' },
+          lualine_a = {
+            {
+              'filename',
+              path = 4
+            }
+          },
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
@@ -65,33 +76,4 @@ return {
       }
     end
   },
-
-  {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    enabled = true,
-    dependencies = { 'nvim-tree/nvim-web-devicons', event = "VeryLazy" },
-    event = "VeryLazy",
-    config = function()
-      local bufferline = require("bufferline")
-      bufferline.setup {
-        options = {
-          show_close_icon = false,
-          show_buffer_icons = true,
-          show_buffer_close_icons = false,
-          always_show_bufferline = false,
-          mode = "tabs",
-          diagnostics = "nvim_lsp", -- nvim_lsp
-          style_preset = {
-            bufferline.style_preset.minimal,
-            bufferline.style_preset.no_italic,
-          },
-          indicator = {
-            icon = "",
-            style = "none"
-          },
-        }
-      }
-    end
-  }
 }

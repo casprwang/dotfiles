@@ -25,10 +25,12 @@ return {
       -- add any custom options here
     }
   },
+  -- test
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     event = "VeryLazy",
+    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local harpoon = require("harpoon")
@@ -44,6 +46,5 @@ return {
       vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
       vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
     end
-
   }
 }
