@@ -38,13 +38,6 @@ return {
         end
         require("conform").format({ async = true, lsp_format = "fallback", range = range })
       end, { range = true })
-
-      -- vim.api.nvim_create_autocmd("BufWritePre", {
-      --   pattern = "*",
-      --   callback = function(args)
-      --     require("conform").format({ bufnr = args.buf, async = true, quiet = true })
-      --   end,
-      -- })
     end
   },
 }

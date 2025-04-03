@@ -1,23 +1,26 @@
-local keymap_opts = {
-  noremap = true,
-  silent = true,
-}
+local keymap_opts = { noremap = true, silent = true, }
 
-local term_opts = {
-  auto_close = false,
-  win = {
-    styles = 'terminal',
-    -- position = "float",
-    -- minimal = false,
-    -- width = 0.8,
-    -- height = 0.8,
-    -- statuscolumn = ' ',
-    -- conceallevel = 3,
-    -- wo = {
-    --   statusline = " ",
-    -- }
-  },
-}
+local get_term_opts = function(num)
+  return {
+    auto_close = false,
+    win = {
+      wo = {
+        winbar = tostring(num),
+      },
+      keys = {
+        term_normal = {
+          "<esc>",
+          function()
+            return "<C-\\><C-n>"
+          end,
+          mode = "t",
+          expr = true,
+          desc = "Double escape to normal mode",
+        },
+      },
+    },
+  }
+end
 
 
 local function close_other_terminals(win)
@@ -32,7 +35,6 @@ end
 
 return {
   "folke/snacks.nvim",
-  enabled = true,
   event = "VeryLazy",
   keys = {
     -- { "<c-enter>",  function() Snacks.zen() end,                     desc = "Toggle Zen Mode" },
@@ -120,11 +122,8 @@ return {
       desc = "Explorer"
     },
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    { "<leader>gb", function() Snacks.git.blame_line() end,     desc = "Git Blame Line" },
     { "<leader>gg", function() Snacks.lazygit() end,            desc = "Lazygit" },
     { "<leader>un", function() Snacks.notifier.hide() end,      desc = "Dismiss All Notifications" },
-    { "<esc>",      [[<C-\><C-n>]],                             mode = "t",                        desc = "normal mode in terminal" },
-    { "<c-[>",      [[<C-\><C-n>]],                             mode = "t",                        desc = "normal mode in terminal" },
     {
       "<c-p>",
       function()
@@ -148,21 +147,7 @@ return {
       enabled = false
     },
     terminal = {
-      win = {
-        keys = {
-          term_normal = {
-            "<esc>",
-            function()
-              return "<C-\\><C-n>"
-            end,
-            mode = "t",
-            expr = true,
-            desc = "Double escape to normal mode",
-          },
-          -- q = "hide",
-          -- ["<esc>"] = "hide",
-        },
-      },
+      enabled = true
     },
     bigfile = { enabled = false },
     dashboard = {
@@ -188,18 +173,6 @@ return {
         hl = {
           'Whitespace',
           'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          'Whitespace',
-          "Whitespace"
         },
       },
       scope        = {
@@ -209,21 +182,8 @@ return {
         underline = false,   -- underline the start of the scope
         only_current = true, -- only show scope in the current window
         hl = "Whitespace"
-        -- can be a list of hl groups to cycle through
-        -- hl = {
-        --   "SnacksIndent1",
-        --   "SnacksIndent2",
-        --   "SnacksIndent3",
-        --   "SnacksIndent4",
-        --   "SnacksIndent5",
-        --   "SnacksIndent6",
-        --   "SnacksIndent7",
-        --   "SnacksIndent8",
-        -- },
       },
-      animate      = {
-        enabled = false,
-      },
+      animate      = { enabled = false, },
     },
     input = { enabled = false },
     notifier = { enabled = false },
@@ -334,29 +294,13 @@ return {
       },
     },
     quickfile = { enabled = false },
-    scroll = {
-      enabled = true,
-      left = { "mark", "sign" }
-    },
-    statuscolumn = {
-      enabled = true,
-    },
+    scroll = { enabled = true, left = { "mark", "sign" } },
+    statuscolumn = { enabled = true, },
     words = { enabled = true },
-    zen = {
-    }
+    zen = { enabled = true },
   },
-
   init = function()
     vim.g.snacks_animate = false
-
-    -- vim.api.nvim_create_autocmd("User", {
-    --   pattern = "VeryLazy",
-    --   callback = function()
-    --     vim.print = _G.dd -- Override print to use snacks for `:=` command
-    --     -- Create some toggle mappings
-    --     Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-    --   end,
-    -- })
   end,
   config = function(_, opts)
     local snacks = require("snacks")
@@ -369,33 +313,79 @@ return {
       end
     end
 
-
     snacks.setup(opts)
-    --     { "<c-]>j",     function() Snacks.terminal.toggle(nil, term_opts) end, mode = { "n", "t", "i" },          desc = "Toggle Terminal" },
 
-    vim.keymap.set(
-      { "n", "t", 'i' },
-      "<c-]>j",
-      function()
-        local snacks = require("snacks")
-        local win = snacks.terminal.toggle(nil, term_opts)
-        close_other_terminals(win)
-        vim.cmd("checktime")
-      end,
-      keymap_opts
-    )
+    local term_wins = {
+      [1] = nil,
+      [2] = nil,
+      [3] = nil,
+    }
 
+    local last_term_win = nil
 
-    vim.keymap.set(
-      { "n", "t", 'i' },
-      "<c-s>",
-      function()
-        local snacks = require("snacks")
-        local win = snacks.terminal.toggle('ipython', term_opts)
-        close_other_terminals(win)
-        vim.cmd("checktime")
-      end,
-      keymap_opts
-    )
+    local close_current_term = function()
+      local in_terminal = vim.bo.buftype == "terminal"
+      if in_terminal and last_term_win then
+        last_term_win:hide()
+      end
+    end
+
+    local toggle_last_term = function()
+      local in_terminal = vim.bo.buftype == "terminal"
+      if in_terminal and last_term_win then
+        last_term_win:hide()
+      elseif not in_terminal and last_term_win then
+        last_term_win:show()
+      elseif not in_terminal and not last_term_win then
+        new_term_win = snacks.terminal.open(nil, get_term_opts(1))
+        term_wins[1] = new_term_win
+        last_term_win = new_term_win
+      end
+    end
+
+    local toggle_term_by_num = function(num)
+      local in_terminal = vim.bo.buftype == "terminal"
+      local snacks = require("snacks")
+      local curr_term = nil
+
+      -- if a terminal is already open
+      --   if the desired terminal is the opened one
+      --     hide it
+      --   if the desired terminal is not the opened one
+      --     hide the opened one
+      --     show the desired one, create if necessary
+      -- if no terminal is open
+      --   show the desired one, create if necessary
+
+      if in_terminal then
+        if last_term_win.id == num then
+          last_term_win:hide()
+        else
+          last_term_win:hide()
+          if term_wins[num] then
+            term_wins[num]:show()
+            last_term_win = term_wins[num]
+          else
+            new_term_win = snacks.terminal.open(nil, get_term_opts(num))
+            term_wins[num] = new_term_win
+            last_term_win = new_term_win
+          end
+        end
+      else
+        if term_wins[num] then
+          term_wins[num]:show()
+          last_term_win = term_wins[num]
+        else
+          new_term_win = snacks.terminal.open(nil, get_term_opts(num))
+          term_wins[num] = new_term_win
+          last_term_win = new_term_win
+        end
+      end
+    end
+
+    vim.keymap.set({ "n", "t", 'i' }, "<c-1>", function() toggle_term_by_num(1) end, keymap_opts)
+    vim.keymap.set({ "n", "t", 'i' }, "<c-2>", function() toggle_term_by_num(2) end, keymap_opts)
+    vim.keymap.set({ "n", "t", 'i' }, "<c-3>", function() toggle_term_by_num(3) end, keymap_opts)
+    vim.keymap.set({ "n", "t", 'i' }, "<c-]>j", function() toggle_last_term() end, keymap_opts)
   end
 }

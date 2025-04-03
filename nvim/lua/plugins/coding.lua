@@ -11,6 +11,11 @@ return {
     end
   },
   {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+  },
+  {
     "folke/persistence.nvim",
     event = "BufReadPre",
     opts = {

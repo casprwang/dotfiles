@@ -1,7 +1,6 @@
 local function reset()
   vim.cmd [[
     hi! SignColumn guibg=NONE
-
     hi! WinBar guibg=NONE
     hi! WinBarNC guibg=NONE
     hi! DiagnosticSignOk guifg=#b8bb26 guibg=#282828
@@ -10,7 +9,6 @@ local function reset()
     hi! DiagnosticSignError guifg=#fb4934 guibg=#282828
     hi! SagaNormal guibg=#282828
     hi! TabLineFill guibg=NONE
-
     hi link IlluminatedWord CursorLine
     hi link IlluminatedWordText CursorLine
     hi link IlluminatedWordRead CursorLine

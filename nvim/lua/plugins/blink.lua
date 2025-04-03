@@ -191,35 +191,12 @@ return {
       require('blink').setup(opts)
     end
   },
-  -- {
-  --   'windwp/nvim-autopairs',
-  --   event = "InsertEnter",
-  --   config = true
-  --   -- use opts = {} for passing setup options
-  --   -- this is equivalent to setup({}) function
-  -- }
   {
-    'saghen/blink.pairs',
+    'windwp/nvim-autopairs',
     event = "InsertEnter",
-    version = '*', -- (recommended) only required with prebuilt binaries
-    -- download prebuilt binaries from github releases
-    dependencies = 'saghen/blink.download',
-    -- OR build from source
-    build = 'cargo build --release',
-    opts = {
-      mappings = {
-        enabled = true,
-        pairs = {},
-      },
-      highlights = {
-        enabled = true,
-        groups = {
-          'BlinkPairsOrange',
-          'BlinkPairsPurple',
-          'BlinkPairsBlue',
-        },
-      },
-      debug = false,
-    }
+    config = true,
+    enabled = true,
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
   },
 }

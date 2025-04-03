@@ -4,103 +4,53 @@ return {
     event = "VeryLazy",
     config = function()
       vim.cmd [[
-        hi TreesitterContextBottom gui=underline guisp=Black
-        hi TreesitterContextLineNumberBottom gui=underline guisp=Black
+        hi! link TreesitterContextBottom Whitespace
+        hi! link TreesitterContextLineNumberBottom Whitespace
+        hi! TreesitterContextBottom gui=underdouble guisp=#51576d
+        hi! TreesitterContextLineNumberBottom gui=underdouble guisp=#51576d
       ]]
     end
   },
   {
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    "nvim-treesitter/nvim-treesitter",
+    enabled = true,
     event = "VeryLazy",
+    build = ":TSUpdate",
     config = function()
-      require 'nvim-treesitter.configs'.setup {
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["am"] = "@parameter.outer",
-              ["im"] = "@parameter.inner",
-
-            },
-            selection_modes = {
-              ['@parameter.outer'] = 'v', -- charwise
-              ['@function.outer'] = 'V',  -- linewise
-              ['@class.outer'] = '<c-v>', -- blockwise
-            },
-            include_surrounding_whitespace = true,
-          },
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-              ["]f"] = "@function.outer",
-            },
-            goto_next_end = {
-              ["]F"] = "@function.outer",
-            },
-            goto_previous_start = {
-              ["[f"] = "@function.outer",
-            },
-            goto_previous_end = {
-              ["[F"] = "@function.outer",
-            },
-          }
+      local treesitter = require("nvim-treesitter.configs")
+      treesitter.setup {
+        auto_install = true,
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = { "ruby", "elixir" },
+          use_languagetree = false,
+          disable = { "dockerfile" },
+        },
+        indent = {
+          enable = true, -- very slow if enabled, use blink indent instead
+          -- disable = { "ruby", "elixir" },
+        },
+        ensure_installed = {
+          "c",
+          "html",
+          "lua",
+          "yaml",
+          "vim",
+          "vimdoc",
+          -- "markdown",
+          -- "markdown_inline",
+          "tsx",
+          "lua",
+          "css",
+          "ruby",
+          "json",
+          "javascript",
+          "typescript",
+          "tsx",
+          "go",
+          "python",
         },
       }
-    end
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    event = "VeryLazy",
-    dependencies = {
-      {
-        "nvim-treesitter/nvim-treesitter",
-        enabled = true,
-        event = "VeryLazy",
-        build = ":TSUpdate",
-        config = function()
-          local treesitter = require("nvim-treesitter.configs")
-          treesitter.setup {
-            auto_install = true,
-            highlight = {
-              enable = true,
-              additional_vim_regex_highlighting = { "ruby", "elixir" },
-              use_languagetree = false,
-              disable = { "dockerfile" },
-            },
-            indent = {
-              enable = true, -- very slow if enabled, use blink indent instead
-              -- disable = { "ruby", "elixir" },
-            },
-            ensure_installed = {
-              "c",
-              "html",
-              "lua",
-              "yaml",
-              "vim",
-              "vimdoc",
-              -- "markdown",
-              -- "markdown_inline",
-              "tsx",
-              "lua",
-              "css",
-              "ruby",
-              "json",
-              "javascript",
-              "typescript",
-              "tsx",
-              "go",
-              "python",
-            },
-          }
-        end,
-      }
-    },
-    config = function()
-      require('nvim-ts-autotag').setup({})
     end,
-  },
+  }
 }
