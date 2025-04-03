@@ -7,26 +7,12 @@ return {
   },
   opts = {
     messages = {
-      -- view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
-      view_search = false, -- view for search count messages. Set to `false` to disable
+      view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
     },
     routes = {
-      -- {
-      --   view = "notify",
-      --   filter = { event = "msg_showmode" },
-      -- },
       {
         filter = { event = "msg_show", kind = "quickfix" },
         opts = { view = "mini" },
-      },
-
-      {
-        filter = {
-          event = "msg_show",
-          kind = "rubyfmt",
-          find = "rubyfmt",
-        },
-        opts = { skip = true },
       },
     },
     lsp = {
@@ -67,7 +53,6 @@ return {
       view = "cmdline",
     },
     views = {
-      -- https://github.com/folke/noice.nvim/blob/main/lua/noice/config/views.lua
       mini = {
         timeout = 4000, -- Duration between show() and hide(), in milliseconds
         win_options = {

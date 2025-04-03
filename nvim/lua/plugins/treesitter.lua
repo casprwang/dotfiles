@@ -21,15 +21,8 @@ return {
             keymaps = {
               ["af"] = "@function.outer",
               ["if"] = "@function.inner",
-              -- ["at"] = "@attribute.outer",
-              -- ["it"] = "@attribute.inner",
               ["am"] = "@parameter.outer",
               ["im"] = "@parameter.inner",
-              ["aa"] = "@parameter.outer",
-              ["ia"] = "@parameter.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-              ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
 
             },
             selection_modes = {

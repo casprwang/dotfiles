@@ -17,8 +17,6 @@ vim.api.nvim_set_keymap("n", "[c", ":cp<cr>", opts)
 vim.api.nvim_set_keymap("n", "co", ":cope<cr>", opts)
 vim.api.nvim_set_keymap("n", "cq", ":ccl<cr>", opts)
 vim.api.nvim_set_keymap("n", "<c-[>", ":q<cr>", opts)
--- vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", opts)
--- vim.api.nvim_set_keymap("n", "<c-u>", "<c-u>zz", opts)
 vim.api.nvim_set_keymap("i", "<c-c>", "<esc>", opts)
 
 -- emacs binding in insert mode

@@ -7,21 +7,13 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           sql             = { 'sqlfmt' },
-          -- ruby            = { "rubocop" },
           ruby            = { "rubyfmt" },
           sh              = { "shfmt" },
           go              = { "goimports", "gofmt" },
           python          = { "ruff_format" },
           typescriptreact = { "lsp" },
-          -- javascriptreact = { "prettierd" },
-          -- javascript      = { "prettierd" },
-          -- typescript      = { "prettierd" },
-          -- tsx             = { "prettierd" },
-          -- jsx             = { "prettierd" },
           json            = { "prettierd" },
           html            = { "prettierd" },
-          -- lua             = { "stylua" },
-          php             = { "pint" },
           css             = { "prettierd" },
         },
         format_after_save = {
