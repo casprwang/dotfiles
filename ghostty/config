@@ -1,3 +1,6 @@
+command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
+
+
 font-family = "VictorMono Nerd Font Mono"
 font-family-italic = "RobotoMono Nerd Font Mono"
 font-family-bold-italic = "RobotoMono Nerd Font Mono"
@@ -53,3 +56,5 @@ keybind = cmd+w=text:\x13&
 keybind = cmd+enter=text:\x13z
 keybind = cmd+[=text:\x13o
 keybind = cmd+]=text:\x13;
+keybind = cmd+'=text:\x13q
+keybind = cmd+g=text:\x13g
