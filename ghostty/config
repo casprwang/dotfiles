@@ -51,4 +51,5 @@ keybind = cmd+5=text:\x135
 keybind = cmd+j=text:\x13j
 keybind = cmd+w=text:\x13&
 keybind = cmd+enter=text:\x13z
-keybind = cmd+;=text:\x13;
+keybind = cmd+[=text:\x13o
+keybind = cmd+]=text:\x13;
