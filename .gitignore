@@ -5,6 +5,7 @@
 !/karabiner/
 /karabiner/automatic_backups
 !/ghostty/
+!/tmux/
 !/alacritty/
 !README.md
 !./starship.toml

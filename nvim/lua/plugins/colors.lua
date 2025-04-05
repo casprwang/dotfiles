@@ -19,9 +19,16 @@ end
 
 return {
   {
+    'norcalli/nvim-colorizer.lua',
+    event  = "VeryLazy",
+    config = function()
+      require 'colorizer'.setup()
+    end
+  },
+  {
     "xiyaowong/transparent.nvim",
     event = "VeryLazy",
-    enabled = true,
+    enabled = false,
     config = function()
       require("transparent").setup({
         extra_groups = {

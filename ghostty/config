@@ -2,36 +2,22 @@ font-family = "VictorMono Nerd Font Mono"
 font-family-italic = "RobotoMono Nerd Font Mono"
 font-family-bold-italic = "RobotoMono Nerd Font Mono"
 
-# font-style = default
 font-style-bold = default
 font-style-italic = false
 font-style-bold-italic = Italic
-# font-synthetic-style = "no-italic"
 font-size = 17
 font-thicken = true
-
-# font-feature = -calt
 
 adjust-underline-position = 20%
 adjust-underline-thickness = -3
 
-window-decoration = true
+window-decoration = false
+window-padding-y = 0,0
 window-padding-x = 10
+macos-titlebar-style = hidden
 
-macos-titlebar-style = "tabs"
-
-# theme = light:GruvboxLight,dark:GruvboxDark
-# theme = light:nord-light,dark:nord
-# theme = nord
-# theme = rose-pine-dawn
-# theme = nordfox
 theme = catppuccin-frappe
-
-# theme = zenbones_dark
-# theme = zenbones_light
-# theme = zenwritten_light
 unfocused-split-opacity = 0.55
-
 background-blur-radius = 20
 background-opacity = 0.91
 
@@ -42,32 +28,27 @@ keybind = cmd+enter=toggle_split_zoom
 keybind = cmd+\=equalize_splits
 keybind = cmd+up=resize_split:up,100
 keybind = cmd+down=resize_split:down,100
-
 keybind = global:ctrl+`=toggle_quick_terminal
 
 
-# keybind = alt+h=goto_split:left
-# keybind = alt+l=goto_split:right
-# keybind = alt+k=goto_split:up
-# keybind = alt+j=goto_split:down
-
-# keybind = left=goto_split:left
-# keybind = right=goto_split:right
-# keybind = up=goto_split:up
-# keybind = down=goto_split:down
-
-
-# font-family = "iA Writer Mono V"
-# cursor-style = "bar"
-
-# adjust-cursor-thickness = 20
 adjust-cursor-thickness = 5
 cursor-color = "#00B5FF"
 adjust-cell-height = 3
 adjust-cell-width = 0
 
-# cursor-color = "#3189ad"
 cursor-style-blink = false
 
 keybind = super+j=text:\x1dj
 keybind = super+p=text:\x10
+keybind = cmd+t=text:\x13c
+keybind = cmd+d=text:\x13%
+keybind = cmd+shift+d=text:\x13"
+keybind = cmd+1=text:\x131
+keybind = cmd+2=text:\x132
+keybind = cmd+3=text:\x133
+keybind = cmd+4=text:\x134
+keybind = cmd+5=text:\x135
+keybind = cmd+j=text:\x13j
+keybind = cmd+w=text:\x13&
+keybind = cmd+enter=text:\x13z
+keybind = cmd+;=text:\x13;

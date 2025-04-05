@@ -14,6 +14,7 @@ vim.lsp.config.python = {
     python = {
       analysis = {
         autoSearchPaths = true,
+        typeCheckingMode = "off",
         diagnosticMode = "workspace",
         useLibraryCodeForTypes = true
       }

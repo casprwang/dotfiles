@@ -11,6 +11,7 @@ vim.api.nvim_set_keymap("n", "<esc>", ":noh<cr>", opts)
 vim.api.nvim_set_keymap("n", "Y", "y$", opts)
 vim.api.nvim_set_keymap("n", "[w", "[b", opts)
 vim.api.nvim_set_keymap("n", "]w", "]b", opts)
+vim.api.nvim_set_keymap("n", "<c-g>", "<c-^>", opts)
 
 -- emacs binding in insert mode
 vim.api.nvim_set_keymap("i", "<c-e>", "<esc>A", opts)

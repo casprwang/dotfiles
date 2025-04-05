@@ -6,7 +6,7 @@ vim.diagnostic.config({
     severity = { min = vim.diagnostic.severity.ERROR }
   },
   virtual_text = {
-    current_line = true,
+    current_line = false,
     severity = { min = vim.diagnostic.severity.ERROR }
   },
   virtual_lines = false,

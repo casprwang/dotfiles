@@ -6,6 +6,7 @@ return {
       vim.cmd [[
         hi! link TreesitterContextBottom Whitespace
         hi! link TreesitterContextLineNumberBottom Whitespace
+        hi! link TreesitterContextLineNumber Whitespace
         hi! TreesitterContextBottom gui=underdouble guisp=#51576d
         hi! TreesitterContextLineNumberBottom gui=underdouble guisp=#51576d
       ]]

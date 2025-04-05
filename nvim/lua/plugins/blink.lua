@@ -11,12 +11,8 @@ return {
         'onsails/lspkind.nvim',
         event = "VeryLazy",
       },
-      { "saghen/blink.compat",          lazy = true, verson = false },
-      { "rafamadriz/friendly-snippets", lazy = true, verson = false },
-      {
-        "xzbdmw/colorful-menu.nvim",
-        event = "VeryLazy",
-      }
+      { "saghen/blink.compat", lazy = true, verson = false },
+      -- { "rafamadriz/friendly-snippets", lazy = true, verson = false },
     },
     config = function()
       require("blink.cmp").setup({
@@ -25,40 +21,18 @@ return {
             enabled = false
           },
           documentation = {
-            auto_show = false,
+            auto_show = true,
             auto_show_delay_ms = 500,
-          },
-          menu = {
-            draw = {
-              -- We don't need label_description now because label and label_description are already
-              -- conbined together in label by colorful-menu.nvim.
-              columns = { { "kind_icon" }, { "label", gap = 2 }, { "provider" } },
-              components = {
-                label = {
-                  -- width = { fill = true, max = 110 },
-                  text = function(ctx)
-                    return require("colorful-menu").blink_components_text(ctx)
-                  end,
-                  highlight = function(ctx)
-                    return require("colorful-menu").blink_components_highlight(ctx)
-                  end,
-                },
-                provider = {
-                  text = function(ctx)
-                    return "[" .. ctx.item.source_name:sub(1, 3):upper() .. "]"
-                  end,
-                  highlight = "BlinkCmpKindLabel",
-                },
-              },
-            }
           },
           accept = { auto_brackets = { enabled = true }, },
           list = { selection = { preselect = true, auto_insert = true } },
         },
         keymap = {
           preset = 'super-tab',
+          -- preset = 'enter',
           ["<c-f>"] = {
           },
+          ['<CR>'] = { 'accept', 'fallback' },
         }, -- default super-tab enter
         appearance = {
           use_nvim_cmp_as_default = false,
@@ -100,7 +74,7 @@ return {
           default = {
             'lsp',
             'path',
-            'snippets',
+            -- 'snippets',
             'buffer',
           },
           providers = {
@@ -137,58 +111,6 @@ return {
       vim.cmd [[
         hi! BlinkCmpLabelMatch gui=bold guifg=NONE
       ]]
-    end
-  },
-  {
-    'saghen/blink.nvim',
-    -- all modules handle lazy loading internally
-    lazy = false,
-    enabled = false,
-    opts = {
-      indent = {
-        enabled = true,
-        -- start with indent guides visible
-        visible = true,
-        blocked = {
-          buftypes = {},
-          filetypes = { 'snacks_picker_list', 'snacks_picker_input', 'help', 'gitcommit', 'hgcommit', 'markdown' },
-        },
-        static = {
-          enabled = false,
-          char = "│",
-          -- char = '▎',
-          priority = 1,
-          -- specify multiple highlights here for rainbow-style indent guides
-          -- highlights = { 'BlinkIndentRed', 'BlinkIndentOrange', 'BlinkIndentYellow', 'BlinkIndentGreen', 'BlinkIndentViolet', 'BlinkIndentCyan' },
-          highlights = { 'BlinkIndent' },
-        },
-        scope = {
-          enabled = true,
-          -- char = "│",
-          char = '▎',
-          priority = 1,
-          -- set this to a single highlight, such as 'BlinkIndent' to disable rainbow-style indent guides
-          highlights = { 'BlinkIndent' },
-          -- highlights = {
-          --   'BlinkIndent',
-          --   'BlinkIndentRed',
-          --   'BlinkIndentYellow',
-          --   'BlinkIndentBlue',
-          --   'BlinkIndentOrange',
-          --   'BlinkIndentGreen',
-          --   'BlinkIndentViolet',
-          --   'BlinkIndentCyan',
-          -- },
-          underline = { enabled = false },
-        },
-      },
-    },
-    config = function(_, opts)
-      vim.cmd [[
-        "highlight MyTransparentBg ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
-        "hi! BlinkIndent guifg=NONE guibg=NONE ctermbg=NONE guibg=NONE
-      ]]
-      require('blink').setup(opts)
     end
   },
   {

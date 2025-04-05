@@ -8,9 +8,8 @@ vim.opt.cursorline = false
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-
 opt.number = false
-opt.relativenumber = false -- for white spaces
+opt.relativenumber = true -- for white spaces
 
 opt.signcolumn = "yes"
 opt.autoread = true

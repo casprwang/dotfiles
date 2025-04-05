@@ -9,7 +9,7 @@ local get_term_opts = function(num)
       },
       keys = {
         term_normal = {
-          "<esc>",
+          "<esc><esc>",
           function()
             return "<C-\\><C-n>"
           end,
@@ -23,22 +23,12 @@ local get_term_opts = function(num)
 end
 
 
-local function close_other_terminals(win)
-  local snacks = require("snacks")
-  local terminals = Snacks.terminal.list()
-  for _, term in pairs(terminals) do
-    if term.buf ~= win.buf then
-      term:hide()
-    end
-  end
-end
-
 return {
   "folke/snacks.nvim",
   event = "VeryLazy",
   keys = {
     -- { "<c-enter>",  function() Snacks.zen() end,                     desc = "Toggle Zen Mode" },
-    { "<c-enter>",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
+    { "<c-enter>",  function() Snacks.zen.zoom() end,                desc = "Toggle, Zoom" },
     { "<leader>.",  function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer" },
     { "<leader>S",  function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer" },
     { "<leader>i",  function() Snacks.picker.lsp_symbols() end,      desc = "Select Scratch Buffer" },
@@ -61,7 +51,6 @@ return {
       nowait = true,
       desc = "References"
     },
-    { "<leader>sc", function() Snacks.picker.colorschemes() end,         desc = "Colorschemes" },
     { "]]",         function() Snacks.words.jump(vim.v.count1) end,      desc = "Next Reference",        mode = { "n", "t" } },
     { "[[",         function() Snacks.words.jump(-vim.v.count1) end,     desc = "Prev Reference",        mode = { "n", "t" } },
     { "<leader>h",  function() Snacks.picker.help() end,                 desc = "Help Pages" },
