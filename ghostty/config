@@ -1,6 +1,5 @@
 command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
-
 font-family = "VictorMono Nerd Font Mono"
 font-family-italic = "RobotoMono Nerd Font Mono"
 font-family-bold-italic = "RobotoMono Nerd Font Mono"
@@ -33,12 +32,10 @@ keybind = cmd+up=resize_split:up,100
 keybind = cmd+down=resize_split:down,100
 keybind = global:ctrl+`=toggle_quick_terminal
 
-
 adjust-cursor-thickness = 5
 cursor-color = "#00B5FF"
 adjust-cell-height = 3
 adjust-cell-width = 0
-
 cursor-style-blink = false
 
 keybind = super+j=text:\x1dj
